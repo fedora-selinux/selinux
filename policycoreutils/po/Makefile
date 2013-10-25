@@ -28,7 +28,7 @@ POTFILES = \
 	../run_init/run_init.c \
 	../semodule_link/semodule_link.c \
 	../audit2allow/audit2allow \
-	../semanage/seobject.py \
+	../semanage/seobject/__init__.py \
 	../setsebool/setsebool.c \
 	../newrole/newrole.c \
 	../load_policy/load_policy.c \
@@ -49,7 +49,6 @@ POTFILES = \
 	../gui/booleansPage.py \
 	../gui/fcontextPage.py \
 	../gui/loginsPage.py \
-	../gui/mappingsPage.py \
 	../gui/modulesPage.py \
 	../gui/polgen.glade \
 	../gui/polgengui.py \
@@ -61,6 +60,36 @@ POTFILES = \
 	../gui/usersPage.py \
 	../secon/secon.c \
 	booleans.py \
+	../sepolicy/sepolicy/help/booleans_more_show.txt \
+	../sepolicy/sepolicy/help/booleans_more.txt  \
+	../sepolicy/sepolicy/help/booleans_toggled.txt  \
+	../sepolicy/sepolicy/help/booleans.txt  \
+	../sepolicy/sepolicy/help/file_equiv.txt  \
+	../sepolicy/sepolicy/help/files_apps.txt  \
+	../sepolicy/sepolicy/help/files_exec.txt  \
+	../sepolicy/sepolicy/help/files_write.txt  \
+	../sepolicy/sepolicy/help/lockdown_permissive.txt  \
+	../sepolicy/sepolicy/help/lockdown_ptrace.txt  \
+	../sepolicy/sepolicy/help/lockdown.txt  \
+	../sepolicy/sepolicy/help/lockdown_unconfined.txt  \
+	../sepolicy/sepolicy/help/login_default.txt  \
+	../sepolicy/sepolicy/help/login.txt  \
+	../sepolicy/sepolicy/help/ports_inbound.txt  \
+	../sepolicy/sepolicy/help/ports_outbound.txt  \
+	../sepolicy/sepolicy/help/start.txt  \
+	../sepolicy/sepolicy/help/system_boot_mode.txt  \
+	../sepolicy/sepolicy/help/system_current_mode.txt  \
+	../sepolicy/sepolicy/help/system_export.txt  \
+	../sepolicy/sepolicy/help/system_policy_type.txt  \
+	../sepolicy/sepolicy/help/system_relabel.txt  \
+	../sepolicy/sepolicy/help/system.txt  \
+	../sepolicy/sepolicy/help/transition_file.txt  \
+	../sepolicy/sepolicy/help/transition_from_boolean_1.txt  \
+	../sepolicy/sepolicy/help/transition_from_boolean_2.txt  \
+	../sepolicy/sepolicy/help/transition_from_boolean.txt  \
+	../sepolicy/sepolicy/help/transition_from.txt  \
+	../sepolicy/sepolicy/help/transition_to.txt  \
+	../sepolicy/sepolicy/help/users.txt  \
 	../sepolicy/info.c \
 	../sepolicy/search.c \
 	../sepolicy/sepolicy.py \

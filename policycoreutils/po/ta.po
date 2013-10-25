@@ -12,10 +12,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Policycoreutils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-10 16:04-0400\n"
-"PO-Revision-Date: 2013-07-23 10:52+0000\n"
-"Last-Translator: shkumar <shkumar@redhat.com>\n"
-"Language-Team: Tamil <tamil-users@lists.fedoraproject.org>\n"
+"POT-Creation-Date: 2014-01-03 16:04-0500\n"
+"PO-Revision-Date: 2013-12-20 13:58+0000\n"
+"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"Language-Team: Tamil (http://www.transifex.com/projects/p/fedora/language/"
+"ta/)\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,7 +41,7 @@ msgstr "PAM ஐ துவக்க முடியவில்லை\n"
 #: ../run_init/run_init.c:139
 #, c-format
 msgid "failed to get account information\n"
-msgstr "கணக்கு விவரங்களை எடுக்க முடியவில்லை.\n"
+msgstr "கணக்கு விவரங்களைப் பெற முடியவில்லை.\n"
 
 #: ../run_init/run_init.c:162 ../newrole/newrole.c:341
 msgid "Password:"
@@ -54,7 +55,7 @@ msgstr "நிழல் கடவுச்சொல் கோப்பில் 
 #: ../run_init/run_init.c:203 ../newrole/newrole.c:373
 #, c-format
 msgid "getpass cannot open /dev/tty\n"
-msgstr "getpass /dev/ttyஐ திறக்க முடியவில்லை\n"
+msgstr "getpass ஆல் /dev/tty ஐ திறக்க முடியவில்லை\n"
 
 #: ../run_init/run_init.c:275
 #, c-format
@@ -84,7 +85,7 @@ msgstr "அங்கீகரிக்கப்படவில்லை.\n"
 #: ../run_init/run_init.c:405 ../newrole/newrole.c:1270
 #, c-format
 msgid "Could not set exec context to %s.\n"
-msgstr "%sக்கு exec சூழலை அமைக்க முடியவில்லை.\n"
+msgstr "%s க்கு exec சூழலை அமைக்க முடியவில்லை.\n"
 
 #: ../audit2allow/audit2allow:232
 msgid "******************** IMPORTANT ***********************\n"
@@ -92,98 +93,103 @@ msgstr "******************** முக்கியமானது **************
 
 #: ../audit2allow/audit2allow:233
 msgid "To make this policy package active, execute:"
-msgstr "இந்த பாலிசி தொகுப்பை செயல்படுத்த,செயலாற்றுகிறது:"
+msgstr "இந்த கொள்கைத் தொகுப்பை செயல்படுத்த, இந்தக் கட்டளையை இயக்கவும்:"
 
-#: ../semanage/seobject.py:210
+#: ../semanage/seobject/__init__.py:220
 msgid "Could not create semanage handle"
 msgstr "semanage கையாளுதலை உருவாக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:218
+#: ../semanage/seobject/__init__.py:228
 msgid "SELinux policy is not managed or store cannot be accessed."
-msgstr "SELinux பாலிசி பராமரிக்கப்படாத அல்லது சேமிக்கப்படாததை அணுக முடியாது."
+msgstr "SELinux கொள்கை நிர்வகிக்கப்படவில்லை அல்லது ஸ்டோரை அணுக முடியவில்லை."
 
-#: ../semanage/seobject.py:223
+#: ../semanage/seobject/__init__.py:233
 msgid "Cannot read policy store."
-msgstr "பாலிசி ஸ்டோரை படிக்க முடியவில்லை."
+msgstr "கொள்கை ஸ்டோரை படிக்க முடியவில்லை."
 
-#: ../semanage/seobject.py:228
+#: ../semanage/seobject/__init__.py:238
 msgid "Could not establish semanage connection"
 msgstr "semanage இணைப்பினை ஏற்படுத்த முடியவில்லை"
 
-#: ../semanage/seobject.py:233
+#: ../semanage/seobject/__init__.py:243
 msgid "Could not test MLS enabled status"
-msgstr "MLS வரையறையை %sக்கு அமைக்க முடியவில்லை"
+msgstr "MLS செயல்படுத்தப்பட்டுள்ளதா என்ற நிலையைச் சோதிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:239 ../semanage/seobject.py:254
+#: ../semanage/seobject/__init__.py:249 ../semanage/seobject/__init__.py:264
 msgid "Not yet implemented"
-msgstr "அமுலுக்கு கொண்டு வரப்படவில்லை"
+msgstr "இன்னும் செயல்படுத்தப்படவில்லை"
 
-#: ../semanage/seobject.py:243
+#: ../semanage/seobject/__init__.py:253
 msgid "Semanage transaction already in progress"
 msgstr "Semanage பரிமாற்றம் ஏற்கனவே செயலில் உள்ளது"
 
-#: ../semanage/seobject.py:252
+#: ../semanage/seobject/__init__.py:262
 msgid "Could not start semanage transaction"
 msgstr "semanage பரிமாற்றத்தை ஆரம்பிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:264
+#: ../semanage/seobject/__init__.py:274
 msgid "Could not commit semanage transaction"
-msgstr "semanage பரிமாற்றத்தை ஒத்துக் கொள்ள முடியவில்லை"
+msgstr "semanage பரிமாற்றத்தைச் சமர்ப்பிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:269
+#: ../semanage/seobject/__init__.py:279
 msgid "Semanage transaction not in progress"
-msgstr "Semanage பரிமாற்றம் இல்லை"
+msgstr "Semanage பரிமாற்றம் செயலில் இல்லை"
 
-#: ../semanage/seobject.py:281 ../semanage/seobject.py:376
+#: ../semanage/seobject/__init__.py:291 ../semanage/seobject/__init__.py:386
 msgid "Could not list SELinux modules"
-msgstr "SELinux தொகுதிகளை பட்டியலிட முடியவில்லை"
+msgstr "SELinux தொகுதிக்கூறுகளை பட்டியலிட முடியவில்லை"
 
-#: ../semanage/seobject.py:300
+#: ../semanage/seobject/__init__.py:310
 msgid "Modules Name"
-msgstr "தொகுதிகள் பெயர்"
+msgstr "தொகுதிக்கூறுகளின் பெயர்"
 
-#: ../semanage/seobject.py:300 ../gui/modulesPage.py:63
+#: ../semanage/seobject/__init__.py:310 ../gui/modulesPage.py:63
 msgid "Version"
 msgstr "பதிப்பு"
 
-#: ../semanage/seobject.py:303 ../gui/statusPage.py:75
-#: ../sepolicy/sepolicy/sepolicy.glade:3430
+#: ../semanage/seobject/__init__.py:313 ../gui/statusPage.py:71
+#: ../sepolicy/sepolicy/sepolicy.glade:3431
 msgid "Disabled"
-msgstr "செயல்நீக்கப்பட்டது"
+msgstr "முடக்கப்பட்டது"
 
-#: ../semanage/seobject.py:312
+#: ../semanage/seobject/__init__.py:322
 #, python-format
 msgid "Module does not exists %s "
 msgstr "தொகுதிக்கூறு இல்லை %s "
 
-#: ../semanage/seobject.py:322
+#: ../semanage/seobject/__init__.py:332
 #, python-format
 msgid "Could not disable module %s (remove failed)"
-msgstr "தொகுதி %sஐ செயல்நீக்க முடியவில்லை (நீக்க முடியவில்லை)"
+msgstr "தொகுதிக்கூறு %s ஐ முடக்க முடியவில்லை (நீக்க முடியவில்லை)"
 
-#: ../semanage/seobject.py:333
+#: ../semanage/seobject/__init__.py:343
 #, python-format
 msgid "Could not enable module %s (remove failed)"
-msgstr "தொகுதி %sஐ செயல்படுத்த முடியவில்லை (நீக்க முடியவில்லை)"
+msgstr "தொகுதிக்கூறு %s ஐ செயல்படுத்த முடியவில்லை (நீக்க முடியவில்லை)"
 
-#: ../semanage/seobject.py:348
+#: ../semanage/seobject/__init__.py:358
 #, python-format
 msgid "Could not remove module %s (remove failed)"
-msgstr "தொகுதி %sஐ நீக்க முடியவில்லை (நீக்க முடியவில்லை)"
+msgstr "தொகுதிக்கூறு %s ஐ நீக்க முடியவில்லை (நீக்க முடியவில்லை)"
 
-#: ../semanage/seobject.py:363
+#: ../semanage/seobject/__init__.py:373
 msgid "dontaudit requires either 'on' or 'off'"
-msgstr "'on' அல்லது 'off' க்கு dontaudit தேவைப்படுகிறது"
+msgstr "dontaudit க்கு 'on' அல்லது 'off' அவசியம்"
 
-#: ../semanage/seobject.py:391
-msgid "Builtin Permissive Types"
-msgstr "உள்ளமைந்த அனுமதி வகைகள்"
-
-#: ../semanage/seobject.py:401
+#: ../semanage/seobject/__init__.py:402
 msgid "Customized Permissive Types"
 msgstr "தனிப்பயனாக்கிய அனுமதி வகைகள்"
 
-#: ../semanage/seobject.py:410
+#: ../semanage/seobject/__init__.py:410
+msgid "Builtin Permissive Types"
+msgstr "உள்ளமைந்த அனுமதி வகைகள்"
+
+#: ../semanage/seobject/__init__.py:419
+#, python-format
+msgid "%s is not a domain type"
+msgstr ""
+
+#: ../semanage/seobject/__init__.py:424
 msgid ""
 "The sepolgen python module is required to setup permissive domains.\n"
 "In some distributions it is included in the policycoreutils-devel patckage.\n"
@@ -196,727 +202,741 @@ msgstr ""
 "# yum install policycoreutils-devel\n"
 "அல்லது உங்கள் விநியோகத் தொகுப்புக்கு ஏற்ற ஒத்த கட்டளையைப் பயன்படுத்தவும்."
 
-#: ../semanage/seobject.py:447
+#: ../semanage/seobject/__init__.py:461
 #, python-format
 msgid "Could not set permissive domain %s (module installation failed)"
-msgstr "தாராளமான செயற்களம் %s ஐ அமைக்க முடியவில்லை(முறைமையை நிறுவ முடியவில்லை)"
+msgstr "அனுமதிக்கும் டொமைன் %s ஐ அமைக்க முடியவில்லை (தொகுதிக்கூறை நிறுவ முடியவில்லை)"
 
-#: ../semanage/seobject.py:453
+#: ../semanage/seobject/__init__.py:467
 #, python-format
 msgid "Could not remove permissive domain %s (remove failed)"
-msgstr "ஏற்றத்தக்க செயற்கள %sஐ நீக்க முடியவில்லை (நீக்க முடியவில்லை)"
+msgstr "அனுமதிக்கும் டொமைன் %s ஐ நீக்க முடியவில்லை (நீக்க முடியவில்லை)"
 
-#: ../semanage/seobject.py:488 ../semanage/seobject.py:562
-#: ../semanage/seobject.py:608 ../semanage/seobject.py:730
-#: ../semanage/seobject.py:760 ../semanage/seobject.py:827
-#: ../semanage/seobject.py:884 ../semanage/seobject.py:1144
-#: ../semanage/seobject.py:1879 ../semanage/seobject.py:1942
-#: ../semanage/seobject.py:1961 ../semanage/seobject.py:2084
-#: ../semanage/seobject.py:2135
+#: ../semanage/seobject/__init__.py:501 ../semanage/seobject/__init__.py:575
+#: ../semanage/seobject/__init__.py:621 ../semanage/seobject/__init__.py:743
+#: ../semanage/seobject/__init__.py:773 ../semanage/seobject/__init__.py:839
+#: ../semanage/seobject/__init__.py:896 ../semanage/seobject/__init__.py:1156
+#: ../semanage/seobject/__init__.py:1891 ../semanage/seobject/__init__.py:1954
+#: ../semanage/seobject/__init__.py:1973 ../semanage/seobject/__init__.py:2096
+#: ../semanage/seobject/__init__.py:2147
 #, python-format
 msgid "Could not create a key for %s"
-msgstr "%sக்கு விசையை உருவாக்க முடியவில்லை"
+msgstr "%s க்கு விசையை உருவாக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:492 ../semanage/seobject.py:566
-#: ../semanage/seobject.py:612 ../semanage/seobject.py:618
+#: ../semanage/seobject/__init__.py:505 ../semanage/seobject/__init__.py:579
+#: ../semanage/seobject/__init__.py:625 ../semanage/seobject/__init__.py:631
 #, python-format
 msgid "Could not check if login mapping for %s is defined"
-msgstr "%sக்கு அனுமதி ஒப்பீடு குறிப்பிடப்பட்டால், சோதிக்க முடியவில்லை"
+msgstr "%s க்கு புகுபதிவு மேப்பிங் வரையறுக்கப்பட்டுள்ளதா எனச் சோதிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:501
+#: ../semanage/seobject/__init__.py:514
 #, python-format
 msgid "Linux Group %s does not exist"
-msgstr "லினக்ஸ் குழு %s ஏற்கனவே இல்லை"
+msgstr "Linux குழு %s இல்லை"
 
-#: ../semanage/seobject.py:506
+#: ../semanage/seobject/__init__.py:519
 #, python-format
 msgid "Linux User %s does not exist"
-msgstr "லினக்ஸ் பயனர் %s இல்லை"
+msgstr "Linux பயனர் %s இல்லை"
 
-#: ../semanage/seobject.py:510
+#: ../semanage/seobject/__init__.py:523
 #, python-format
 msgid "Could not create login mapping for %s"
-msgstr "%s க்கு அனுமதி ஒப்பீடு உருவாக்க முடியவில்லை"
+msgstr "%s க்கு புகுபதிவு மேப்பிங்கை உருவாக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:514 ../semanage/seobject.py:775
+#: ../semanage/seobject/__init__.py:527 ../semanage/seobject/__init__.py:788
 #, python-format
 msgid "Could not set name for %s"
 msgstr "%sக்கு பெயர் அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:519 ../semanage/seobject.py:785
+#: ../semanage/seobject/__init__.py:532 ../semanage/seobject/__init__.py:798
 #, python-format
 msgid "Could not set MLS range for %s"
-msgstr "MLS வரையறையை %sக்கு அமைக்க முடியவில்லை"
+msgstr "%s க்கு MLS வரம்பை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:523
+#: ../semanage/seobject/__init__.py:536
 #, python-format
 msgid "Could not set SELinux user for %s"
-msgstr "SELinux பயனரை %sக்கு அமைக்க முடியவில்லை"
+msgstr "%s க்கு SELinux பயனரை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:527
+#: ../semanage/seobject/__init__.py:540
 #, python-format
 msgid "Could not add login mapping for %s"
-msgstr "%sக்கு அனுமதி ஒப்பீடு சேர்க்க முடியவில்லை"
+msgstr "%s க்கு புகுபதிவு மேப்பிங்கைச் சேர்க்க முடியவில்லை"
 
-#: ../semanage/seobject.py:545
+#: ../semanage/seobject/__init__.py:558
 msgid "Requires seuser or serange"
 msgstr "seuser அல்லது serange தேவைப்படுகிறது"
 
-#: ../semanage/seobject.py:568 ../semanage/seobject.py:614
+#: ../semanage/seobject/__init__.py:581 ../semanage/seobject/__init__.py:627
 #, python-format
 msgid "Login mapping for %s is not defined"
-msgstr "%sக்கு அனுமதி ஒப்பீடு குறிப்பிடப்படவில்லை"
+msgstr "%s க்கு புகுபதிவு மேப்பிங் வரையறுக்கப்படவில்லை"
 
-#: ../semanage/seobject.py:572
+#: ../semanage/seobject/__init__.py:585
 #, python-format
 msgid "Could not query seuser for %s"
-msgstr "seuser %sக்கு வினா எழுப்ப முடியவில்லை"
+msgstr "seuser இல்  %s ஐத் தேட முடியவில்லை"
 
-#: ../semanage/seobject.py:586
+#: ../semanage/seobject/__init__.py:599
 #, python-format
 msgid "Could not modify login mapping for %s"
-msgstr "%sக்கு அனுமதி ஒப்பீடுகளை மாற்ற முடியவில்லை"
+msgstr "%s க்கு புகுபதிவு மேப்பிங்கை மாற்ற முடியவில்லை"
 
-#: ../semanage/seobject.py:620
+#: ../semanage/seobject/__init__.py:633
 #, python-format
 msgid "Login mapping for %s is defined in policy, cannot be deleted"
-msgstr "அனுமதி ஒப்பீடு %s பாலிசியில் குறிப்பிடப்பட்டுள்ளது, அழிக்க முடியவில்லை"
+msgstr ""
+"%s க்கான  புகுபதிவு மேப்பிங் கொள்கையில் வரையறுக்கப்பட்டுள்ளது, அதை அழிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:624
+#: ../semanage/seobject/__init__.py:637
 #, python-format
 msgid "Could not delete login mapping for %s"
-msgstr "%sக்கு அனுமதி ஒப்பீடுகளை அழிக்க முடியவில்லை"
+msgstr "%s க்கு புகுபதிவு மேப்பிங்கை அழிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:646 ../semanage/seobject.py:679
-#: ../semanage/seobject.py:927
+#: ../semanage/seobject/__init__.py:659 ../semanage/seobject/__init__.py:692
+#: ../semanage/seobject/__init__.py:939
 msgid "Could not list login mappings"
-msgstr "அனுமதி ஒப்பீடுகளை பட்டியலிட முடியவில்லை"
+msgstr "புகுபதிவு மேப்பிங்குகளைப் பட்டியலிட முடியவில்லை"
 
-#: ../semanage/seobject.py:707 ../semanage/seobject.py:719
+#: ../semanage/seobject/__init__.py:720 ../semanage/seobject/__init__.py:732
 #: ../gui/system-config-selinux.glade:100
-#: ../sepolicy/sepolicy/sepolicy.glade:1166
-#: ../sepolicy/sepolicy/sepolicy.glade:3155
+#: ../sepolicy/sepolicy/sepolicy.glade:1162
+#: ../sepolicy/sepolicy/sepolicy.glade:3156
 msgid "Login Name"
 msgstr "புகுபதிவு பெயர்"
 
-#: ../semanage/seobject.py:707 ../semanage/seobject.py:719
-#: ../semanage/seobject.py:977 ../semanage/seobject.py:982
+#: ../semanage/seobject/__init__.py:720 ../semanage/seobject/__init__.py:732
+#: ../semanage/seobject/__init__.py:989 ../semanage/seobject/__init__.py:994
 #: ../gui/system-config-selinux.glade:128
 #: ../gui/system-config-selinux.glade:915
-#: ../gui/system-config-selinux.glade:2285 ../gui/usersPage.py:44
-#: ../sepolicy/sepolicy/sepolicy.glade:1192
-#: ../sepolicy/sepolicy/sepolicy.glade:3173
-#: ../sepolicy/sepolicy/sepolicy.glade:3259
+#: ../gui/system-config-selinux.glade:2285 ../gui/usersPage.py:41
+#: ../sepolicy/sepolicy/sepolicy.glade:1188
+#: ../sepolicy/sepolicy/sepolicy.glade:3174
+#: ../sepolicy/sepolicy/sepolicy.glade:3260
+#: ../sepolicy/sepolicy/sepolicy.glade:4915
 msgid "SELinux User"
 msgstr "SELinux பயனர்"
 
-#: ../semanage/seobject.py:707 ../gui/system-config-selinux.glade:156
+#: ../semanage/seobject/__init__.py:720 ../gui/system-config-selinux.glade:156
 #: ../gui/system-config-selinux.glade:943
 msgid "MLS/MCS Range"
-msgstr "MLS/MCS வரையறை"
+msgstr "MLS/MCS வரம்பு"
 
-#: ../semanage/seobject.py:707
+#: ../semanage/seobject/__init__.py:720
 msgid "Service"
 msgstr "சேவை"
 
-#: ../semanage/seobject.py:733 ../semanage/seobject.py:764
-#: ../semanage/seobject.py:831 ../semanage/seobject.py:888
-#: ../semanage/seobject.py:894
+#: ../semanage/seobject/__init__.py:746 ../semanage/seobject/__init__.py:777
+#: ../semanage/seobject/__init__.py:843 ../semanage/seobject/__init__.py:900
+#: ../semanage/seobject/__init__.py:906
 #, python-format
 msgid "Could not check if SELinux user %s is defined"
-msgstr "SELinux பயனர் %s குறிப்பிடப்பட்டால், சோதிக்க முடியவில்லை"
+msgstr "SELinux பயனர் %s வரையறுக்கப்பட்டுள்ளதா எனச் சோதிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:736 ../semanage/seobject.py:837
-#: ../semanage/seobject.py:900
+#: ../semanage/seobject/__init__.py:749 ../semanage/seobject/__init__.py:849
+#: ../semanage/seobject/__init__.py:912
 #, python-format
 msgid "Could not query user for %s"
-msgstr "%sக்கு பயனரை வினா எழுப்ப முடியவில்லை"
+msgstr "பயனரில் %s ஐத் தேட முடியவில்லை"
 
-#: ../semanage/seobject.py:756
+#: ../semanage/seobject/__init__.py:769
 #, python-format
 msgid "You must add at least one role for %s"
-msgstr "%sக்காக ஒரு சூழலையாவது சேர்க்கவும்"
+msgstr "%s க்கு ஒரு பங்கினையேனும் சேர்க்க வேண்டும்"
 
-#: ../semanage/seobject.py:771
+#: ../semanage/seobject/__init__.py:784
 #, python-format
 msgid "Could not create SELinux user for %s"
-msgstr " SELinux பயனரை %sக்கு உருவாக்க முடியவில்லை"
+msgstr "%s க்கு SELinux பயனரை  உருவாக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:780
+#: ../semanage/seobject/__init__.py:793
 #, python-format
-msgid "Could not add role %s for %s"
-msgstr "%s க்கு %s பாத்திரத்தை சேர்க்க முடியவில்லை"
+msgid "Could not add role %(ROLE)s for %(NAME)s"
+msgstr ""
 
-#: ../semanage/seobject.py:789
+#: ../semanage/seobject/__init__.py:802
 #, python-format
 msgid "Could not set MLS level for %s"
 msgstr "%sக்கு MLS நிலையை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:792
-#, python-format
-msgid "Could not add prefix %s for %s"
-msgstr "%s க்கு %sல் முன்னொட்டினை சேர்க்க முடியவில்லை"
+#: ../semanage/seobject/__init__.py:805
+#, fuzzy, python-format
+msgid "Could not add prefix %(PREFIX)s for %(ROLE)s"
+msgstr "%sக்கு கோப்பு சூழலை சேர்க்க முடியவில்லை"
 
-#: ../semanage/seobject.py:795
+#: ../semanage/seobject/__init__.py:808
 #, python-format
 msgid "Could not extract key for %s"
 msgstr "%sக்கு விசையை பிரிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:799
+#: ../semanage/seobject/__init__.py:812
 #, python-format
 msgid "Could not add SELinux user %s"
 msgstr "SELinux பயனர் %sஐ சேர்க்க முடியவில்லை"
 
-#: ../semanage/seobject.py:821
+#: ../semanage/seobject/__init__.py:833
 msgid "Requires prefix, roles, level or range"
-msgstr "முன்னொட்டு, பாத்திரங்கள், நிலை அல்லது வரையறை தேவைப்படுகிறது"
+msgstr "முன்னொட்டு, பங்குகள், நிலை அல்லது வரம்பு தேவைப்படுகிறது"
 
-#: ../semanage/seobject.py:823
+#: ../semanage/seobject/__init__.py:835
 msgid "Requires prefix or roles"
 msgstr "முன்னொட்டு அல்லது பாத்திரம் தேவைப்படுகிறது"
 
-#: ../semanage/seobject.py:833 ../semanage/seobject.py:890
+#: ../semanage/seobject/__init__.py:845 ../semanage/seobject/__init__.py:902
 #, python-format
 msgid "SELinux user %s is not defined"
-msgstr "SELinux பயனர் %s குறிப்பிடப்படவில்லை"
+msgstr "SELinux பயனர் %s வரையறுக்கப்படவில்லை"
 
-#: ../semanage/seobject.py:862
+#: ../semanage/seobject/__init__.py:874
 #, python-format
 msgid "Could not modify SELinux user %s"
-msgstr "SELinux பயனர் %sஐ மாற்ற முடியவில்லை"
+msgstr "SELinux பயனர் %s ஐ மாற்ற முடியவில்லை"
 
-#: ../semanage/seobject.py:896
+#: ../semanage/seobject/__init__.py:908
 #, python-format
 msgid "SELinux user %s is defined in policy, cannot be deleted"
-msgstr "SELinux பயனர் %s பாலிசியில் குறிப்பிடப்பட்டுள்ளது, அழிக்க முடியவில்லை"
+msgstr "SELinux பயனர் %s கொள்கையில் வரையறுக்கப்பட்டுள்ளது, அதை அழிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:907
+#: ../semanage/seobject/__init__.py:919
 #, python-format
 msgid "Could not delete SELinux user %s"
-msgstr "SELinux பயனர் %sஐ அழிக்க முடியவில்லை"
+msgstr "SELinux பயனர் %s ஐ அழிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:945
+#: ../semanage/seobject/__init__.py:957
 msgid "Could not list SELinux users"
 msgstr "SELinux பயனர்களை பட்டியலிட முடியவில்லை"
 
-#: ../semanage/seobject.py:951
+#: ../semanage/seobject/__init__.py:963
 #, python-format
 msgid "Could not list roles for user %s"
-msgstr "பயனர் %sக்கு பாத்திரங்களை பட்டியலிட முடியவில்லை"
+msgstr "பயனர் %sக்கு பங்குகளைப் பட்டியலிட முடியவில்லை"
 
-#: ../semanage/seobject.py:976
+#: ../semanage/seobject/__init__.py:988
 msgid "Labeling"
 msgstr "பெயரிடல்"
 
-#: ../semanage/seobject.py:976
+#: ../semanage/seobject/__init__.py:988
 msgid "MLS/"
 msgstr "MLS/"
 
-#: ../semanage/seobject.py:977
+#: ../semanage/seobject/__init__.py:989
 msgid "Prefix"
 msgstr "முன்னொட்டு"
 
-#: ../semanage/seobject.py:977
+#: ../semanage/seobject/__init__.py:989
 msgid "MCS Level"
 msgstr "MCS நிலை"
 
-#: ../semanage/seobject.py:977
+#: ../semanage/seobject/__init__.py:989
 msgid "MCS Range"
 msgstr "MCS வரையறை"
 
-#: ../semanage/seobject.py:977 ../semanage/seobject.py:982
-#: ../gui/system-config-selinux.glade:992 ../gui/usersPage.py:59
-#: ../sepolicy/sepolicy/sepolicy.glade:3279
-#: ../sepolicy/sepolicy/sepolicy.glade:5170
-#: ../sepolicy/sepolicy/sepolicy.glade:5411
+#: ../semanage/seobject/__init__.py:989 ../semanage/seobject/__init__.py:994
+#: ../gui/system-config-selinux.glade:992 ../gui/usersPage.py:56
+#: ../sepolicy/sepolicy/sepolicy.glade:3280
+#: ../sepolicy/sepolicy/sepolicy.glade:5251
+#: ../sepolicy/sepolicy/sepolicy.glade:5400
 msgid "SELinux Roles"
 msgstr "SELinux பங்குகள்"
 
-#: ../semanage/seobject.py:1002
+#: ../semanage/seobject/__init__.py:1014
 msgid "Protocol udp or tcp is required"
 msgstr "நெறிமுறை udp அல்லது tcp தேவைப்படுகிறது"
 
-#: ../semanage/seobject.py:1004
+#: ../semanage/seobject/__init__.py:1016
 msgid "Port is required"
-msgstr "துறை தேவைப்படுகிறது"
+msgstr "முனையம் தேவைப்படுகிறது"
 
-#: ../semanage/seobject.py:1014
+#: ../semanage/seobject/__init__.py:1026
 msgid "Invalid Port"
 msgstr "செல்லுபடியாகாத முனையம்"
 
-#: ../semanage/seobject.py:1018
+#: ../semanage/seobject/__init__.py:1030
 #, python-format
-msgid "Could not create a key for %s/%s"
-msgstr "%s/%sக்கு விசையை உருவாக்க முடியவில்லை"
+msgid "Could not create a key for %(PROTOTYPE)s/%(PORT)s"
+msgstr ""
 
-#: ../semanage/seobject.py:1029
+#: ../semanage/seobject/__init__.py:1041
 msgid "Type is required"
 msgstr "வகை தேவைப்படுகிறது"
 
-#: ../semanage/seobject.py:1032 ../semanage/seobject.py:1096
-#: ../semanage/seobject.py:1873
+#: ../semanage/seobject/__init__.py:1044 ../semanage/seobject/__init__.py:1108
+#: ../semanage/seobject/__init__.py:1885
 #, python-format
 msgid "Type %s is invalid, must be a port type"
 msgstr "வகை %s செல்லாதது, அது ஒரு முனைய வகையாக இருக்க வேண்டும்"
 
-#: ../semanage/seobject.py:1040 ../semanage/seobject.py:1102
-#: ../semanage/seobject.py:1157 ../semanage/seobject.py:1163
+#: ../semanage/seobject/__init__.py:1052 ../semanage/seobject/__init__.py:1169
+#: ../semanage/seobject/__init__.py:1175
 #, python-format
-msgid "Could not check if port %s/%s is defined"
-msgstr "துறை %s/%s குறிப்பிடப்பட்டால் சோதிக்கப்படுவதில்லை"
+msgid "Could not check if port %(PROTOCOL)s/%(PORT)s is defined"
+msgstr ""
 
-#: ../semanage/seobject.py:1042
+#: ../semanage/seobject/__init__.py:1054
 #, python-format
-msgid "Port %s/%s already defined"
-msgstr "துறை %s/%s ஏற்கனவே குறிப்பிடப்பட்டுள்ளது"
+msgid "Port %(PROTOCOL)s/%(PORT)s already defined"
+msgstr ""
 
-#: ../semanage/seobject.py:1046
+#: ../semanage/seobject/__init__.py:1058
 #, python-format
-msgid "Could not create port for %s/%s"
-msgstr "%s/%s க்கு துறையை உருவாக்க முடியவில்லை"
+msgid "Could not create port for %(PROTOCOL)s/%(PORT)s"
+msgstr ""
 
-#: ../semanage/seobject.py:1052
+#: ../semanage/seobject/__init__.py:1064
 #, python-format
-msgid "Could not create context for %s/%s"
-msgstr "%s/%sக்கு சூழலை உருவாக்க முடியவில்லை"
+msgid "Could not create context for %(PROTOCOL)s/%(PORT)s"
+msgstr ""
 
-#: ../semanage/seobject.py:1056
+#: ../semanage/seobject/__init__.py:1068
 #, python-format
-msgid "Could not set user in port context for %s/%s"
-msgstr "%s/%s க்கு துறை சூழலில் பயனரை அமைக்க முடியவில்லை"
+msgid "Could not set user in port context for %(PROTOCOL)s/%(PORT)s"
+msgstr ""
 
-#: ../semanage/seobject.py:1060
+#: ../semanage/seobject/__init__.py:1072
 #, python-format
-msgid "Could not set role in port context for %s/%s"
-msgstr "%s/%s க்கு துறை சூழலில் பாத்திரங்களை அமைக்க முடியவில்லை"
+msgid "Could not set role in port context for %(PROTOCOL)s/%(PORT)s"
+msgstr ""
 
-#: ../semanage/seobject.py:1064
+#: ../semanage/seobject/__init__.py:1076
 #, python-format
-msgid "Could not set type in port context for %s/%s"
-msgstr "%s/%s க்கு துறை சூழலில் வகையை அமைக்க முடியவில்லை"
+msgid "Could not set type in port context for %(PROTOCOL)s/%(PORT)s"
+msgstr ""
 
-#: ../semanage/seobject.py:1069
+#: ../semanage/seobject/__init__.py:1081
 #, python-format
-msgid "Could not set mls fields in port context for %s/%s"
-msgstr "%s/%s க்கு துறை சூழலில் mls புலங்களை அமைக்க முடியவில்லை"
+msgid "Could not set mls fields in port context for %(PROTOCOL)s/%(PORT)s"
+msgstr ""
 
-#: ../semanage/seobject.py:1073
+#: ../semanage/seobject/__init__.py:1085
 #, python-format
-msgid "Could not set port context for %s/%s"
-msgstr "%s/%s க்கு துறை சூழலை அமைக்க முடியவில்லை"
+msgid "Could not set port context for %(PROTOCOL)s/%(PORT)s"
+msgstr ""
 
-#: ../semanage/seobject.py:1077
+#: ../semanage/seobject/__init__.py:1089
 #, python-format
-msgid "Could not add port %s/%s"
-msgstr "துறை %s/%sயை சேர்க்க முடியவில்லை"
+msgid "Could not add port %(PROTOCOL)s/%(PORT)s"
+msgstr ""
 
-#: ../semanage/seobject.py:1091 ../semanage/seobject.py:1367
-#: ../semanage/seobject.py:1566
+#: ../semanage/seobject/__init__.py:1103 ../semanage/seobject/__init__.py:1379
+#: ../semanage/seobject/__init__.py:1578
 msgid "Requires setype or serange"
 msgstr "setype அல்லது serange தேவைப்படுகிறது"
 
-#: ../semanage/seobject.py:1093
+#: ../semanage/seobject/__init__.py:1105
 msgid "Requires setype"
 msgstr "setype தேவைப்படுகிறது"
 
-#: ../semanage/seobject.py:1104 ../semanage/seobject.py:1159
+#: ../semanage/seobject/__init__.py:1114
 #, python-format
-msgid "Port %s/%s is not defined"
-msgstr "துறை %s/%s குறிப்பிடப்படவில்லை"
+msgid "Could not check if port @%(PROTOCOL)s/%(PORT)s is defined"
+msgstr ""
 
-#: ../semanage/seobject.py:1108
+#: ../semanage/seobject/__init__.py:1116
 #, python-format
-msgid "Could not query port %s/%s"
-msgstr "துறை %s/%sஐ வினா எழுப்ப முடியாது"
+msgid "Port @%(PROTOCOL)s/%(PORT)s is not defined"
+msgstr ""
 
-#: ../semanage/seobject.py:1119
+#: ../semanage/seobject/__init__.py:1120
 #, python-format
-msgid "Could not modify port %s/%s"
-msgstr "துறை %s/%sஐ மாற்ற முடியவில்லை"
+msgid "Could not query port %(PROTOCOL)s/%(PORT)s"
+msgstr ""
 
-#: ../semanage/seobject.py:1132
+#: ../semanage/seobject/__init__.py:1131
+#, python-format
+msgid "Could not modify port %(PROTOCOL)s/%(PORT)s"
+msgstr ""
+
+#: ../semanage/seobject/__init__.py:1144
 msgid "Could not list the ports"
 msgstr "துறைகளை பட்டியலிட முடியவில்லை"
 
-#: ../semanage/seobject.py:1148
+#: ../semanage/seobject/__init__.py:1160
 #, python-format
 msgid "Could not delete the port %s"
 msgstr "%s துறையை அழிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1165
+#: ../semanage/seobject/__init__.py:1171
 #, python-format
-msgid "Port %s/%s is defined in policy, cannot be deleted"
-msgstr "துறை %s/%s பாலிசியில் குறிப்பிடப்பட்டுள்ளது, அழிக்க முடியவில்லை"
+msgid "Port %(PROTOCOL)s/%(PORT)s is not defined"
+msgstr ""
 
-#: ../semanage/seobject.py:1169
+#: ../semanage/seobject/__init__.py:1177
 #, python-format
-msgid "Could not delete port %s/%s"
-msgstr "துறைகளை அழிக்க முடியவில்லை %s/%s"
+msgid "Port %(PROTOCOL)s/%(PORT)s is defined in policy, cannot be deleted"
+msgstr ""
 
-#: ../semanage/seobject.py:1185 ../semanage/seobject.py:1207
+#: ../semanage/seobject/__init__.py:1181
+#, python-format
+msgid "Could not delete port %(PROTOCOL)s/%(PORT)s"
+msgstr ""
+
+#: ../semanage/seobject/__init__.py:1197 ../semanage/seobject/__init__.py:1219
 msgid "Could not list ports"
 msgstr "துறைகளை பட்டியலிட முடியவில்லை"
 
-#: ../semanage/seobject.py:1246 ../sepolicy/sepolicy/sepolicy.glade:2675
-#: ../sepolicy/sepolicy/sepolicy.glade:2773
-#: ../sepolicy/sepolicy/sepolicy.glade:4687
+#: ../semanage/seobject/__init__.py:1258
+#: ../sepolicy/sepolicy/sepolicy.glade:2676
+#: ../sepolicy/sepolicy/sepolicy.glade:2774
+#: ../sepolicy/sepolicy/sepolicy.glade:4648
 msgid "SELinux Port Type"
 msgstr "SELinux துறை வகை"
 
-#: ../semanage/seobject.py:1246
+#: ../semanage/seobject/__init__.py:1258
 msgid "Proto"
 msgstr "Proto"
 
-#: ../semanage/seobject.py:1246 ../gui/system-config-selinux.glade:335
-#: ../sepolicy/sepolicy/sepolicy.glade:1417
+#: ../semanage/seobject/__init__.py:1258
+#: ../gui/system-config-selinux.glade:335
+#: ../sepolicy/sepolicy/sepolicy.glade:1413
 msgid "Port Number"
 msgstr "துறை எண்"
 
-#: ../semanage/seobject.py:1270
+#: ../semanage/seobject/__init__.py:1282
 msgid "Node Address is required"
 msgstr "முனை முகவரி தேவைப்படுகிறது"
 
-#: ../semanage/seobject.py:1285
+#: ../semanage/seobject/__init__.py:1297
 msgid "Unknown or missing protocol"
 msgstr "தெரியாத அல்லது விடுபட்ட பிரோக்டகால்"
 
-#: ../semanage/seobject.py:1299
+#: ../semanage/seobject/__init__.py:1311
 msgid "SELinux node type is required"
 msgstr "SELinux கனு வகை தேவைப்படுகிறது"
 
-#: ../semanage/seobject.py:1302 ../semanage/seobject.py:1370
+#: ../semanage/seobject/__init__.py:1314 ../semanage/seobject/__init__.py:1382
 #, python-format
 msgid "Type %s is invalid, must be a node type"
 msgstr "வகை %s செல்லாதது, அது ஒரு கனு வகையாக இருக்க வேண்டும்"
 
-#: ../semanage/seobject.py:1306 ../semanage/seobject.py:1374
-#: ../semanage/seobject.py:1410 ../semanage/seobject.py:1508
-#: ../semanage/seobject.py:1570 ../semanage/seobject.py:1604
-#: ../semanage/seobject.py:1818
+#: ../semanage/seobject/__init__.py:1318 ../semanage/seobject/__init__.py:1386
+#: ../semanage/seobject/__init__.py:1422 ../semanage/seobject/__init__.py:1520
+#: ../semanage/seobject/__init__.py:1582 ../semanage/seobject/__init__.py:1616
+#: ../semanage/seobject/__init__.py:1830
 #, python-format
 msgid "Could not create key for %s"
 msgstr "%sக்கு விசையை உருவாக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1308 ../semanage/seobject.py:1378
-#: ../semanage/seobject.py:1414 ../semanage/seobject.py:1420
+#: ../semanage/seobject/__init__.py:1320 ../semanage/seobject/__init__.py:1390
+#: ../semanage/seobject/__init__.py:1426 ../semanage/seobject/__init__.py:1432
 #, python-format
 msgid "Could not check if addr %s is defined"
 msgstr "addr %s குறிப்பிடப்பட்டால் சோதிக்கப்படுவதில்லை"
 
-#: ../semanage/seobject.py:1317
+#: ../semanage/seobject/__init__.py:1329
 #, python-format
 msgid "Could not create addr for %s"
 msgstr "%sகாக addr உருவாக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1323 ../semanage/seobject.py:1524
-#: ../semanage/seobject.py:1767
+#: ../semanage/seobject/__init__.py:1335 ../semanage/seobject/__init__.py:1536
+#: ../semanage/seobject/__init__.py:1779
 #, python-format
 msgid "Could not create context for %s"
 msgstr "%s க்கு சூழலை உருவாக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1327
+#: ../semanage/seobject/__init__.py:1339
 #, python-format
 msgid "Could not set mask for %s"
 msgstr "%sகாக மாஸ்க்கை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1331
+#: ../semanage/seobject/__init__.py:1343
 #, python-format
 msgid "Could not set user in addr context for %s"
 msgstr "%s க்கு addr சூழலில் பயனரை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1335
+#: ../semanage/seobject/__init__.py:1347
 #, python-format
 msgid "Could not set role in addr context for %s"
 msgstr "%s க்கு addr சூழலில் சுழலை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1339
+#: ../semanage/seobject/__init__.py:1351
 #, python-format
 msgid "Could not set type in addr context for %s"
 msgstr "%s க்கு addr சூழலில் வகையை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1344
+#: ../semanage/seobject/__init__.py:1356
 #, python-format
 msgid "Could not set mls fields in addr context for %s"
 msgstr "%sக்கு addr சூழலில் mls புலங்களை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1348
+#: ../semanage/seobject/__init__.py:1360
 #, python-format
 msgid "Could not set addr context for %s"
 msgstr "%s க்கு addr சூழலை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1352
+#: ../semanage/seobject/__init__.py:1364
 #, python-format
 msgid "Could not add addr %s"
 msgstr "addr %sயை சேர்க்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1380 ../semanage/seobject.py:1416
+#: ../semanage/seobject/__init__.py:1392 ../semanage/seobject/__init__.py:1428
 #, python-format
 msgid "Addr %s is not defined"
 msgstr "addr %s குறிப்பிடப்படவில்லை"
 
-#: ../semanage/seobject.py:1384
+#: ../semanage/seobject/__init__.py:1396
 #, python-format
 msgid "Could not query addr %s"
-msgstr "addr %sஐ வினா எழுப்ப முடியாது"
+msgstr "addr %s இல் தேட முடியவில்லை"
 
-#: ../semanage/seobject.py:1394
+#: ../semanage/seobject/__init__.py:1406
 #, python-format
 msgid "Could not modify addr %s"
 msgstr "addr %sஐ மாற்ற முடியவில்லை"
 
-#: ../semanage/seobject.py:1422
+#: ../semanage/seobject/__init__.py:1434
 #, python-format
 msgid "Addr %s is defined in policy, cannot be deleted"
-msgstr "addr %s பாலிசியில் குறிப்பிடப்பட்டுள்ளது, அழிக்க முடியவில்லை"
+msgstr "addr %s கொள்கையில் வரையறுக்கப்பட்டுள்ளது, அதை அழிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1426
+#: ../semanage/seobject/__init__.py:1438
 #, python-format
 msgid "Could not delete addr %s"
 msgstr "addr %s ஐ அழிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1438
+#: ../semanage/seobject/__init__.py:1450
 msgid "Could not deleteall node mappings"
 msgstr "எல்லா கனு மேப்பிங்குகளையும் நீக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1452
+#: ../semanage/seobject/__init__.py:1464
 msgid "Could not list addrs"
 msgstr "addrs பட்டியலிட முடியவில்லை"
 
-#: ../semanage/seobject.py:1504 ../semanage/seobject.py:1811
+#: ../semanage/seobject/__init__.py:1516 ../semanage/seobject/__init__.py:1823
 msgid "SELinux Type is required"
 msgstr "SELinux வகை தேவைப்படுகிறது"
 
-#: ../semanage/seobject.py:1512 ../semanage/seobject.py:1574
-#: ../semanage/seobject.py:1608 ../semanage/seobject.py:1614
+#: ../semanage/seobject/__init__.py:1524 ../semanage/seobject/__init__.py:1586
+#: ../semanage/seobject/__init__.py:1620 ../semanage/seobject/__init__.py:1626
 #, python-format
 msgid "Could not check if interface %s is defined"
-msgstr "இடைமுகம் %s குறிப்பிடப்பட்டால் சோதிக்க முடியவில்லை"
+msgstr "இடைமுகம் %s வரையறுக்கப்பட்டுள்ளதா எனச் சோதிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1519
+#: ../semanage/seobject/__init__.py:1531
 #, python-format
 msgid "Could not create interface for %s"
-msgstr "%sக்கு இடைமுகம் உருவாக்க முடியவில்லை"
+msgstr "%s க்கு இடைமுகம் உருவாக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1528
+#: ../semanage/seobject/__init__.py:1540
 #, python-format
 msgid "Could not set user in interface context for %s"
 msgstr "%s க்கு இடைமுக சூழலில் பயனரை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1532
+#: ../semanage/seobject/__init__.py:1544
 #, python-format
 msgid "Could not set role in interface context for %s"
 msgstr "%s க்கு இடைமுக சூழலில் பாத்திரத்தை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1536
+#: ../semanage/seobject/__init__.py:1548
 #, python-format
 msgid "Could not set type in interface context for %s"
 msgstr "%s க்கு இடைமுக சூழலில் வகையை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1541
+#: ../semanage/seobject/__init__.py:1553
 #, python-format
 msgid "Could not set mls fields in interface context for %s"
 msgstr "%s க்கு இடைமுக சூழலில் mls புலங்களை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1545
+#: ../semanage/seobject/__init__.py:1557
 #, python-format
 msgid "Could not set interface context for %s"
 msgstr "%s க்கு இடைமுக சூழலை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1549
+#: ../semanage/seobject/__init__.py:1561
 #, python-format
 msgid "Could not set message context for %s"
 msgstr "%s க்கு செய்தி சூழலை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1553
+#: ../semanage/seobject/__init__.py:1565
 #, python-format
 msgid "Could not add interface %s"
 msgstr "இடைமுகத்தை சேர்க்க முடியவில்லை %s"
 
-#: ../semanage/seobject.py:1576 ../semanage/seobject.py:1610
+#: ../semanage/seobject/__init__.py:1588 ../semanage/seobject/__init__.py:1622
 #, python-format
 msgid "Interface %s is not defined"
 msgstr "இடைமுகம் %s குறிப்பிடப்படவில்லை"
 
-#: ../semanage/seobject.py:1580
+#: ../semanage/seobject/__init__.py:1592
 #, python-format
 msgid "Could not query interface %s"
 msgstr "இடைமுகம் %sஐ வினா எழுப்ப முடியவில்லை"
 
-#: ../semanage/seobject.py:1591
+#: ../semanage/seobject/__init__.py:1603
 #, python-format
 msgid "Could not modify interface %s"
 msgstr "இடைமுகம் %sஐ மாற்ற முடியவில்லை"
 
-#: ../semanage/seobject.py:1616
+#: ../semanage/seobject/__init__.py:1628
 #, python-format
 msgid "Interface %s is defined in policy, cannot be deleted"
 msgstr "இடைமுகம் %s பாலிசியில் குறிப்பிடப்பட்டுள்ளது, அழிக்க முடியாது"
 
-#: ../semanage/seobject.py:1620
+#: ../semanage/seobject/__init__.py:1632
 #, python-format
 msgid "Could not delete interface %s"
 msgstr "இடைமுகம் %s ஐ அழிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1632
+#: ../semanage/seobject/__init__.py:1644
 msgid "Could not delete all interface  mappings"
 msgstr "எல்லா இடைமுக மேப்பிங்குகளையும் நீக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1646
+#: ../semanage/seobject/__init__.py:1658
 msgid "Could not list interfaces"
 msgstr "இடைமுகங்களை பட்டியலிட முடியவில்லை"
 
-#: ../semanage/seobject.py:1671
+#: ../semanage/seobject/__init__.py:1683
 msgid "SELinux Interface"
 msgstr "SELinux முகப்பு"
 
-#: ../semanage/seobject.py:1671 ../semanage/seobject.py:2033
+#: ../semanage/seobject/__init__.py:1683 ../semanage/seobject/__init__.py:2045
 msgid "Context"
 msgstr "சூழல்"
 
-#: ../semanage/seobject.py:1738
+#: ../semanage/seobject/__init__.py:1750
 #, python-format
 msgid "Target %s is not valid. Target is not allowed to end with '/'"
 msgstr ""
 
-#: ../semanage/seobject.py:1741
+#: ../semanage/seobject/__init__.py:1753
 #, python-format
-msgid "Substiture %s is not valid. Substitute is not allowed to end with '/'"
+msgid "Substitute %s is not valid. Substitute is not allowed to end with '/'"
 msgstr ""
 
-#: ../semanage/seobject.py:1744
+#: ../semanage/seobject/__init__.py:1756
 #, python-format
 msgid "Equivalence class for %s already exists"
 msgstr "%sலின் சமநிலை வகுப்பு ஏற்கனவே உள்ளது"
 
-#: ../semanage/seobject.py:1750
+#: ../semanage/seobject/__init__.py:1762
 #, python-format
-msgid "File spec %s conflicts with equivalency rule '%s %s'"
-msgstr "கோப்பு spec %s ஆனது சமான விதி '%s %s' உடன் முரண்படுகிறது"
+msgid ""
+"File spec %(TARGET)s conflicts with equivalency rule '%(SOURCE)s %(DEST)s'"
+msgstr ""
 
-#: ../semanage/seobject.py:1759
+#: ../semanage/seobject/__init__.py:1771
 #, python-format
 msgid "Equivalence class for %s does not exists"
 msgstr "%sக்கு சமநிலை வகுப்பு இல்லை"
 
-#: ../semanage/seobject.py:1773
+#: ../semanage/seobject/__init__.py:1785
 #, python-format
 msgid "Could not set user in file context for %s"
 msgstr "%s க்கு கோப்பு சூழலில் பயனரை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1777
+#: ../semanage/seobject/__init__.py:1789
 #, python-format
 msgid "Could not set role in file context for %s"
 msgstr "%s க்கு கோப்பு சூழலில் பாத்திரத்தை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1782 ../semanage/seobject.py:1848
+#: ../semanage/seobject/__init__.py:1794 ../semanage/seobject/__init__.py:1860
 #, python-format
 msgid "Could not set mls fields in file context for %s"
 msgstr "%sக்கு கோப்பு சூழலில் mls புலங்களை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1788
+#: ../semanage/seobject/__init__.py:1800
 msgid "Invalid file specification"
 msgstr "தவறான கோப்பு குறிப்பிடல்"
 
-#: ../semanage/seobject.py:1790
+#: ../semanage/seobject/__init__.py:1802
 msgid "File specification can not include spaces"
 msgstr "கோப்பு விவரக்குறிப்பில் இடைவெளிகள் இருக்கக்கூடாது"
 
-#: ../semanage/seobject.py:1795
+#: ../semanage/seobject/__init__.py:1807
 #, python-format
 msgid ""
-"File spec %s conflicts with equivalency rule '%s %s'; Try adding '%s' instead"
+"File spec %(TARGET)s conflicts with equivalency rule '%(SOURCE)s %(DEST)s'; "
+"Try adding '%(DEST1)s' instead"
 msgstr ""
-"கோப்பு spec %s ஆனது சமான விதி '%s %s' உடன் முரண்படுகிறது, மாறாக '%s' ஐச் சேர்த்து "
-"முயற்சிக்கவும்"
 
-#: ../semanage/seobject.py:1814
+#: ../semanage/seobject/__init__.py:1826
 #, python-format
 msgid "Type %s is invalid, must be a file or device type"
 msgstr "வகை %s செல்லாதது, அது ஒரு கோப்பு அல்லது சாதன வகையாக இருக்க வேண்டும்"
 
-#: ../semanage/seobject.py:1822 ../semanage/seobject.py:1827
-#: ../semanage/seobject.py:1883 ../semanage/seobject.py:1965
-#: ../semanage/seobject.py:1969
+#: ../semanage/seobject/__init__.py:1834 ../semanage/seobject/__init__.py:1839
+#: ../semanage/seobject/__init__.py:1895 ../semanage/seobject/__init__.py:1977
+#: ../semanage/seobject/__init__.py:1981
 #, python-format
 msgid "Could not check if file context for %s is defined"
 msgstr "%s க்கு கோப்பு சூழல் குறிப்பிடப்பட்டால் சோதிக்கப்படுவதில்லை"
 
-#: ../semanage/seobject.py:1835
+#: ../semanage/seobject/__init__.py:1847
 #, python-format
 msgid "Could not create file context for %s"
 msgstr "%s க்கு கோப்பு சூழலை உருவாக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1843
+#: ../semanage/seobject/__init__.py:1855
 #, python-format
 msgid "Could not set type in file context for %s"
 msgstr "%s க்கு கோப்பு சூழலில் வகையை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1851 ../semanage/seobject.py:1911
-#: ../semanage/seobject.py:1915
+#: ../semanage/seobject/__init__.py:1863 ../semanage/seobject/__init__.py:1923
+#: ../semanage/seobject/__init__.py:1927
 #, python-format
 msgid "Could not set file context for %s"
 msgstr "%s க்கு கோப்பு சூழலை அமைக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1857
+#: ../semanage/seobject/__init__.py:1869
 #, python-format
 msgid "Could not add file context for %s"
 msgstr "%sக்கு கோப்பு சூழலை சேர்க்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1871
+#: ../semanage/seobject/__init__.py:1883
 msgid "Requires setype, serange or seuser"
 msgstr "setype, serange அல்லது seuser தேவைப்படுகிறது"
 
-#: ../semanage/seobject.py:1887 ../semanage/seobject.py:1973
+#: ../semanage/seobject/__init__.py:1899 ../semanage/seobject/__init__.py:1985
 #, python-format
 msgid "File context for %s is not defined"
 msgstr "%sக்கு கோப்பு சூழல் குறிப்பிடப்படவில்லை"
 
-#: ../semanage/seobject.py:1893
+#: ../semanage/seobject/__init__.py:1905
 #, python-format
 msgid "Could not query file context for %s"
 msgstr "%sக்கு கோப்பு சூழலை வினா எழுப்ப முடியாது"
 
-#: ../semanage/seobject.py:1919
+#: ../semanage/seobject/__init__.py:1931
 #, python-format
 msgid "Could not modify file context for %s"
 msgstr "%sக்கு கோப்பு சூழலை மாற்ற முடியாது"
 
-#: ../semanage/seobject.py:1932
+#: ../semanage/seobject/__init__.py:1944
 msgid "Could not list the file contexts"
 msgstr "கோப்பு சூழல் பட்டியலிட முடியவில்லை."
 
-#: ../semanage/seobject.py:1946
+#: ../semanage/seobject/__init__.py:1958
 #, python-format
 msgid "Could not delete the file context %s"
 msgstr "%sக்கு கோப்பு சூழலை அழிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1971
+#: ../semanage/seobject/__init__.py:1983
 #, python-format
 msgid "File context for %s is defined in policy, cannot be deleted"
 msgstr "கோப்பு சூழல் %sக்கு பாலிசியில் குறிக்கப்பட்டுள்ளது, அழிக்க முடியாது"
 
-#: ../semanage/seobject.py:1977
+#: ../semanage/seobject/__init__.py:1989
 #, python-format
 msgid "Could not delete file context for %s"
 msgstr "%sக்கு கோப்பு சூழலை அழிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:1992
+#: ../semanage/seobject/__init__.py:2004
 msgid "Could not list file contexts"
 msgstr "கோப்பு சூழல் பட்டியலிட முடியவில்லை."
 
-#: ../semanage/seobject.py:1996
+#: ../semanage/seobject/__init__.py:2008
 msgid "Could not list local file contexts"
 msgstr "உள்ளமை கோப்பு சூழல்களை பட்டியலிட முடியவில்லை."
 
-#: ../semanage/seobject.py:2033
+#: ../semanage/seobject/__init__.py:2045
 msgid "SELinux fcontext"
 msgstr "SELinux fcontext"
 
-#: ../semanage/seobject.py:2033
+#: ../semanage/seobject/__init__.py:2045
 msgid "type"
 msgstr "வகை"
 
-#: ../semanage/seobject.py:2046
+#: ../semanage/seobject/__init__.py:2058
 msgid ""
 "\n"
 "SELinux Distribution fcontext Equivalence \n"
@@ -924,7 +944,7 @@ msgstr ""
 "\n"
 "SELinux Distribution fcontext சமானம் \n"
 
-#: ../semanage/seobject.py:2051
+#: ../semanage/seobject/__init__.py:2063
 msgid ""
 "\n"
 "SELinux Local fcontext Equivalence \n"
@@ -932,80 +952,80 @@ msgstr ""
 "\n"
 "SELinux Local fcontext சமானம்\n"
 
-#: ../semanage/seobject.py:2087 ../semanage/seobject.py:2138
-#: ../semanage/seobject.py:2144
+#: ../semanage/seobject/__init__.py:2099 ../semanage/seobject/__init__.py:2150
+#: ../semanage/seobject/__init__.py:2156
 #, python-format
 msgid "Could not check if boolean %s is defined"
 msgstr "பூலியன் %s குறிப்பிடப்பட்டால், சோதிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:2089 ../semanage/seobject.py:2140
+#: ../semanage/seobject/__init__.py:2101 ../semanage/seobject/__init__.py:2152
 #, python-format
 msgid "Boolean %s is not defined"
 msgstr "பூலியன் %s குறிப்பிடப்படவில்லை"
 
-#: ../semanage/seobject.py:2093
+#: ../semanage/seobject/__init__.py:2105
 #, python-format
 msgid "Could not query file context %s"
 msgstr "கோப்பு சூழல் %sஐ வினா எழுப்ப முடியாது"
 
-#: ../semanage/seobject.py:2098
+#: ../semanage/seobject/__init__.py:2110
 #, python-format
 msgid "You must specify one of the following values: %s"
 msgstr "பின்வரும் மதிப்புகளில் ஏதேனும் ஒன்றை நீங்கள் குறிப்பிட்டாக வேண்டும்: %s"
 
-#: ../semanage/seobject.py:2103
+#: ../semanage/seobject/__init__.py:2115
 #, python-format
 msgid "Could not set active value of boolean %s"
 msgstr "பூலியன் %sனுடைய மதிப்பினை செயலில் அமைக்க இயலாது"
 
-#: ../semanage/seobject.py:2106
+#: ../semanage/seobject/__init__.py:2118
 #, python-format
 msgid "Could not modify boolean %s"
 msgstr "பூலியன் %sஐ மாற்ற முடியவில்லை"
 
-#: ../semanage/seobject.py:2122
+#: ../semanage/seobject/__init__.py:2134
 #, python-format
-msgid "Bad format %s: Record %s"
-msgstr "%s தவறான முறை: %sஐ பதிவு செய்யவும்"
+msgid "Bad format %(BOOLNAME)s: Record %(VALUE)s"
+msgstr ""
 
-#: ../semanage/seobject.py:2146
+#: ../semanage/seobject/__init__.py:2158
 #, python-format
 msgid "Boolean %s is defined in policy, cannot be deleted"
 msgstr "பூலியன் %s பாலிசியில் குறிப்பிடப்பட்டுள்ளது, அழிக்க முடியாது"
 
-#: ../semanage/seobject.py:2150
+#: ../semanage/seobject/__init__.py:2162
 #, python-format
 msgid "Could not delete boolean %s"
 msgstr "பூலியன் %sஐ அழிக்க முடியவில்லை"
 
-#: ../semanage/seobject.py:2162 ../semanage/seobject.py:2179
+#: ../semanage/seobject/__init__.py:2174 ../semanage/seobject/__init__.py:2191
 msgid "Could not list booleans"
 msgstr "பூலியன்களை பட்டியலிட முடியவில்லை"
 
-#: ../semanage/seobject.py:2214
+#: ../semanage/seobject/__init__.py:2226
 msgid "off"
 msgstr "ஆஃப்"
 
-#: ../semanage/seobject.py:2214
+#: ../semanage/seobject/__init__.py:2226
 msgid "on"
 msgstr "ஆன்"
 
-#: ../semanage/seobject.py:2228
+#: ../semanage/seobject/__init__.py:2240
 msgid "SELinux boolean"
 msgstr "SELinux பூலியன்"
 
-#: ../semanage/seobject.py:2228
+#: ../semanage/seobject/__init__.py:2240
 msgid "State"
 msgstr "நிலை"
 
-#: ../semanage/seobject.py:2228
+#: ../semanage/seobject/__init__.py:2240
 msgid "Default"
 msgstr "முன்னிருப்பு"
 
-#: ../semanage/seobject.py:2228 ../gui/polgen.glade:113
-#: ../gui/polgengui.py:274 ../sepolicy/sepolicy/sepolicy.glade:2147
-#: ../sepolicy/sepolicy/sepolicy.glade:2517
-#: ../sepolicy/sepolicy/sepolicy.glade:5021
+#: ../semanage/seobject/__init__.py:2240 ../gui/polgen.glade:113
+#: ../gui/polgengui.py:260 ../sepolicy/sepolicy/sepolicy.glade:2148
+#: ../sepolicy/sepolicy/sepolicy.glade:2518
+#: ../sepolicy/sepolicy/sepolicy.glade:5117
 msgid "Description"
 msgstr "விளக்கம்"
 
@@ -1275,13 +1295,13 @@ msgstr "பயன்பாடு:  %s [-q]\n"
 #: ../load_policy/load_policy.c:71
 #, c-format
 msgid "%s:  Policy is already loaded and initial load requested\n"
-msgstr "%s:  பாலிசி ஏற்கனவே ஏற்றப்பட்டுவிட்டது மற்றும் முதல் ஏற்றம் தேவைப்படுகிறது \n"
+msgstr "%s:  கொள்கை ஏற்கனவே ஏற்றப்பட்டுவிட்டது, முதல் ஏற்றம் தேவைப்படுகிறது \n"
 
 #: ../load_policy/load_policy.c:80
 #, c-format
 msgid "%s:  Can't load policy and enforcing mode requested:  %s\n"
 msgstr ""
-"%s:  பாலிசியை ஏற்ற முடியவில்லை மற்றும் வலியுறுத்துகிற முறைமையை கோரப்படுகிறது: %s\n"
+"%s:  கொள்கையை ஏற்ற முடியவில்லை மற்றும் வலியுறுத்துகிற முறைமை கோரப்படுகிறது: %s\n"
 
 #: ../load_policy/load_policy.c:90
 #, c-format
@@ -1372,26 +1392,26 @@ msgstr "chcat -l +CompanyConfidential juser"
 msgid "Options Error %s "
 msgstr "விருப்பங்கள் பிழை %s "
 
-#: ../gui/booleansPage.py:194 ../gui/system-config-selinux.glade:1706
+#: ../gui/booleansPage.py:186 ../gui/system-config-selinux.glade:1706
 msgid "Boolean"
 msgstr "பூலியன்"
 
-#: ../gui/booleansPage.py:245 ../gui/semanagePage.py:162
+#: ../gui/booleansPage.py:245 ../gui/semanagePage.py:186
 msgid "all"
 msgstr "அனைத்தும்"
 
-#: ../gui/booleansPage.py:247 ../gui/semanagePage.py:164
+#: ../gui/booleansPage.py:247 ../gui/semanagePage.py:188
 #: ../gui/system-config-selinux.glade:1615
 #: ../gui/system-config-selinux.glade:1820
 #: ../gui/system-config-selinux.glade:2437
 msgid "Customized"
 msgstr "தனிபயனாக்கியது"
 
-#: ../gui/fcontextPage.py:64 ../gui/system-config-selinux.glade:1911
+#: ../gui/fcontextPage.py:63 ../gui/system-config-selinux.glade:1911
 msgid "File Labeling"
 msgstr "கோப்பு லேபிளிடல்"
 
-#: ../gui/fcontextPage.py:74
+#: ../gui/fcontextPage.py:73
 msgid ""
 "File\n"
 "Specification"
@@ -1399,7 +1419,7 @@ msgstr ""
 "கோப்பு\n"
 "விவரக்குறிப்பு"
 
-#: ../gui/fcontextPage.py:81
+#: ../gui/fcontextPage.py:80
 msgid ""
 "Selinux\n"
 "File Type"
@@ -1407,7 +1427,7 @@ msgstr ""
 "Selinux\n"
 "கோப்பு வகை"
 
-#: ../gui/fcontextPage.py:88
+#: ../gui/fcontextPage.py:87
 msgid ""
 "File\n"
 "Type"
@@ -1415,11 +1435,11 @@ msgstr ""
 "கோப்பு\n"
 "வகை"
 
-#: ../gui/loginsPage.py:48 ../gui/system-config-selinux.glade:2098
+#: ../gui/loginsPage.py:45 ../gui/system-config-selinux.glade:2098
 msgid "User Mapping"
 msgstr "பயனர் மேப்பிங்"
 
-#: ../gui/loginsPage.py:52
+#: ../gui/loginsPage.py:49
 msgid ""
 "Login\n"
 "Name"
@@ -1427,7 +1447,7 @@ msgstr ""
 "புகுபதிவு\n"
 "பெயர்"
 
-#: ../gui/loginsPage.py:56 ../gui/usersPage.py:50
+#: ../gui/loginsPage.py:53 ../gui/usersPage.py:47
 msgid ""
 "SELinux\n"
 "User"
@@ -1435,7 +1455,7 @@ msgstr ""
 "SELinux\n"
 "பயனர்"
 
-#: ../gui/loginsPage.py:59 ../gui/usersPage.py:55
+#: ../gui/loginsPage.py:56 ../gui/usersPage.py:52
 msgid ""
 "MLS/\n"
 "MCS Range"
@@ -1443,7 +1463,7 @@ msgstr ""
 "MLS/\n"
 "MCS வரம்பு"
 
-#: ../gui/loginsPage.py:133
+#: ../gui/loginsPage.py:130
 #, python-format
 msgid "Login '%s' is required"
 msgstr "புகுபதிவு '%s' தேவைப்படுகிறது"
@@ -1456,15 +1476,15 @@ msgstr "கொள்கை தொகுதிக்கூறு"
 msgid "Module Name"
 msgstr "தொகுதிக்கூறு பெயர்"
 
-#: ../gui/modulesPage.py:135
+#: ../gui/modulesPage.py:131
 msgid "Disable Audit"
 msgstr "Audit ஐ முடக்கு"
 
-#: ../gui/modulesPage.py:138 ../gui/system-config-selinux.glade:2662
+#: ../gui/modulesPage.py:134 ../gui/system-config-selinux.glade:2662
 msgid "Enable Audit"
 msgstr "Audit ஐ செயல்படுத்து"
 
-#: ../gui/modulesPage.py:163
+#: ../gui/modulesPage.py:161
 msgid "Load Policy Module"
 msgstr "கொள்கை தொகுதிக்கூறை ஏற்றவும்"
 
@@ -1507,7 +1527,7 @@ msgstr ""
 msgid "<b>Applications</b>"
 msgstr "<b>பயன்பாடுகள்</b>"
 
-#: ../gui/polgen.glade:316 ../sepolicy/sepolicy/generate.py:130
+#: ../gui/polgen.glade:316 ../sepolicy/sepolicy/generate.py:132
 msgid "Standard Init Daemon"
 msgstr "நிலையான Init டெமான்"
 
@@ -1519,7 +1539,7 @@ msgstr ""
 "நிலையான Init டிமானானது டீமான்களை பூட் வழியாக init ஸ்க்ரிப்ட்டுகளாக துவக்குகிறது.  "
 "பொதுவாக ஒரு ஒரு/etc/rc.d/init.d இல் ஸ்க்ரிப்ட் தேவைப்படுகிறது"
 
-#: ../gui/polgen.glade:332 ../sepolicy/sepolicy/generate.py:131
+#: ../gui/polgen.glade:332 ../sepolicy/sepolicy/generate.py:133
 msgid "DBUS System Daemon"
 msgstr "DBUS System Daemon"
 
@@ -1531,7 +1551,7 @@ msgstr "Internet Services Daemon (inetd)"
 msgid "Internet Services Daemon are daemons started by xinetd"
 msgstr "இணையத்தள டீமான்களானது  xinetd டீமானின் படி துவக்குகிறது"
 
-#: ../gui/polgen.glade:366 ../sepolicy/sepolicy/generate.py:133
+#: ../gui/polgen.glade:366 ../sepolicy/sepolicy/generate.py:135
 msgid "Web Application/Script (CGI)"
 msgstr "தள பயன்பாடுகள்/ஸ்கிரிப்ட் (CGI)"
 
@@ -1541,7 +1561,7 @@ msgid ""
 msgstr ""
 "தள பயன்பாடுகள்/ஸ்கிரிப்ட் (CGI) CGI தள சேவையகத்தால் ஸ்கிரிப்ட் துவக்கப்படுகிறத் (apache)"
 
-#: ../gui/polgen.glade:383 ../sepolicy/sepolicy/generate.py:135
+#: ../gui/polgen.glade:383 ../sepolicy/sepolicy/generate.py:137
 msgid "User Application"
 msgstr "பயனர் பயன்பாடு"
 
@@ -1552,7 +1572,7 @@ msgid ""
 msgstr ""
 "ஒரு பயனரால் நீங்கள் வரையறுக்கப்பட்ட விரும்புவதை எதாவது பயனர் பயன்பாட்டால் துவக்குகிறது"
 
-#: ../gui/polgen.glade:400 ../sepolicy/sepolicy/generate.py:134
+#: ../gui/polgen.glade:400 ../sepolicy/sepolicy/generate.py:136
 msgid "Sandbox"
 msgstr "Sandbox"
 
@@ -1638,14 +1658,14 @@ msgstr ""
 msgid "<b>Enter name of application or user role:</b>"
 msgstr "<b>பயன்பாட்டின் பெயர் அல்லது பயனரின் பங்கை உள்ளிடவும்:</b>"
 
-#: ../gui/polgen.glade:728 ../gui/polgengui.py:272
-#: ../sepolicy/sepolicy/sepolicy.glade:2182
+#: ../gui/polgen.glade:728 ../gui/polgengui.py:258
+#: ../sepolicy/sepolicy/sepolicy.glade:2183
 msgid "Name"
 msgstr "பெயர்"
 
 #: ../gui/polgen.glade:739
 msgid "Enter complete path for executable to be confined."
-msgstr "வரையறுக்கப்பட்டு ஏற்றுக் கொள்ளத்தக்க முழுப் பாதையை உள்ளிடு."
+msgstr "வரையறுக்கப்பட்டு ஏற்றுக் கொள்ளத்தக்க முழுப் பாதையை உள்ளிடவும்."
 
 #: ../gui/polgen.glade:756 ../gui/polgen.glade:838 ../gui/polgen.glade:2361
 msgid "..."
@@ -1702,7 +1722,8 @@ msgstr "<b>%s க்கு நிலைமாறும் user_roles ஐத் �
 
 #: ../gui/polgen.glade:1019
 msgid "Select the user roles that will transiton to this applications domains."
-msgstr "இந்த பயன்பாடுகளின் செயற்களங்களுக்கு மற்றொன்றுக்கு மாறாத பயனர் பங்குகளை தேர்ந்தெடு."
+msgstr ""
+"இந்த பயன்பாடுகளின் செயற்களங்களுக்கு மற்றொன்றுக்கு மாறாத பயனர் பங்குகளை தேர்ந்தெடுக்கவும்."
 
 #: ../gui/polgen.glade:1056
 msgid "<b>Select domains that %s will administer:</b>"
@@ -1710,7 +1731,7 @@ msgstr "<b>%s நிர்வகிக்கும் டொமைன்கள�
 
 #: ../gui/polgen.glade:1074 ../gui/polgen.glade:1129
 msgid "Select the domains that you would like this user administer."
-msgstr "இந்த பயனர் நிர்வாகி நீங்கள் விரும்பும் செயற்களத்தை தேர்ந்தெடு."
+msgstr "இந்த பயனர் நிர்வகிக்க வேண்டும் என நீங்கள் விரும்பும் டொமைன்களைத் தேர்ந்தெடுக்கவும்."
 
 #: ../gui/polgen.glade:1111
 msgid "<b>Select additional roles for %s:</b>"
@@ -1725,7 +1746,7 @@ msgid "<b>TCP Ports</b>"
 msgstr "<b>TCP முனையங்கள்</b>"
 
 #: ../gui/polgen.glade:1223 ../gui/polgen.glade:1390 ../gui/polgen.glade:1589
-#: ../gui/polgen.glade:1698 ../sepolicy/sepolicy/sepolicy.glade:4314
+#: ../gui/polgen.glade:1698
 msgid "All"
 msgstr "அனைத்தும்"
 
@@ -1866,50 +1887,50 @@ msgstr "<b>நீங்கள் %s கொள்கையை உருவாக�
 msgid "Policy Directory"
 msgstr "கொள்கை கோப்பகம்"
 
-#: ../gui/polgengui.py:282
+#: ../gui/polgengui.py:268
 msgid "Role"
 msgstr "பங்கு"
 
-#: ../gui/polgengui.py:289
+#: ../gui/polgengui.py:275
 msgid "Existing_User"
 msgstr "முன்பே உள்ள பயனர் (_U)"
 
-#: ../gui/polgengui.py:303 ../gui/polgengui.py:311 ../gui/polgengui.py:325
+#: ../gui/polgengui.py:289 ../gui/polgengui.py:297 ../gui/polgengui.py:311
 msgid "Application"
 msgstr "பயன்பாடு"
 
-#: ../gui/polgengui.py:370
+#: ../gui/polgengui.py:356
 #, python-format
 msgid "%s must be a directory"
 msgstr "%s என்பது ஒடு கோப்பகமாக இருக்க வேண்டும்"
 
-#: ../gui/polgengui.py:430 ../gui/polgengui.py:711
+#: ../gui/polgengui.py:416 ../gui/polgengui.py:697
 msgid "You must select a user"
 msgstr "ஒரு பயனரைத் தேர்ந்தெடுக்க வேண்டியது அவசியம்"
 
-#: ../gui/polgengui.py:560
+#: ../gui/polgengui.py:546
 msgid "Select executable file to be confined."
 msgstr "கட்டுப்படுத்த வேண்டிய செயல்படக்கூடிய கோப்பை தேர்ந்தெடுக்கவும்"
 
-#: ../gui/polgengui.py:571
+#: ../gui/polgengui.py:557
 msgid "Select init script file to be confined."
 msgstr "வரையறுக்கப்பட்ட init ஸ்கிரிப்ட் கோப்பை தேர்ந்தெடு."
 
-#: ../gui/polgengui.py:581
+#: ../gui/polgengui.py:567
 msgid "Select file(s) that confined application creates or writes"
 msgstr ""
 "கோப்பு(கள்) அதை வரையறுக்கப்பட்ட பயன்பாட்டை உருவாக்குங்கள் அல்லது எழுதுக்கள் போன்றவற்றை "
 "தேர்ந்தெடு"
 
-#: ../gui/polgengui.py:588
+#: ../gui/polgengui.py:574
 msgid "Select directory(s) that the confined application owns and writes into"
 msgstr "அடைவு(கள்) சொந்த வரையறுக்கப்பட்ட பயன்பாடு மற்றும் இதற்குள் எழுத தேர்ந்தெடு"
 
-#: ../gui/polgengui.py:650
+#: ../gui/polgengui.py:636
 msgid "Select directory to generate policy files in"
 msgstr "பாலிசி கோப்புகளுக்கு உருவாக்கும் அடைவை தேர்ந்தெடு"
 
-#: ../gui/polgengui.py:667
+#: ../gui/polgengui.py:653
 #, python-format
 msgid ""
 "Type %s_t already defined in current policy.\n"
@@ -1918,37 +1939,37 @@ msgstr ""
 "ஏற்கனவே %s _t வரையறுக்கப்பட்ட தற்போதைய பாலிசி வகை.\n"
 "நீங்கள் தொடர விரும்புகிறீர்களா?"
 
-#: ../gui/polgengui.py:667 ../gui/polgengui.py:671
+#: ../gui/polgengui.py:653 ../gui/polgengui.py:657
 msgid "Verify Name"
 msgstr "பெயரை சரிபார்"
 
-#: ../gui/polgengui.py:671
+#: ../gui/polgengui.py:657
 #, python-format
 msgid ""
 "Module %s.pp already loaded in current policy.\n"
 "Do you want to continue?"
 msgstr ""
-"மாதிரி %s.pp தற்போதைய பாலிசியை ஏற்கனவே ஏற்றுகிறது.\n"
+"தொகுதிக்கூறு %s.pp தற்போதைய கொள்கையை ஏற்கனவே ஏற்றுகிறது.\n"
 "நீங்கள் தொடர விரும்புகிறீர்களா?"
 
-#: ../gui/polgengui.py:717
+#: ../gui/polgengui.py:703
 msgid ""
 "You must add a name made up of letters and numbers and containing no spaces."
 msgstr "இடைவெளி இல்லாமல் எழுத்துகளும் எண்களும் மட்டும் கொண்டுள்ள பெயரைச் சேர்க்க வேண்டும்."
 
-#: ../gui/polgengui.py:731
+#: ../gui/polgengui.py:717
 msgid "You must enter a executable"
 msgstr "ஒரு இயக்கத்தக்கதை உள்ளிட வேண்டும்"
 
-#: ../gui/polgengui.py:756 ../gui/system-config-selinux.py:180
+#: ../gui/polgengui.py:742 ../gui/system-config-selinux.py:180
 msgid "Configue SELinux"
 msgstr "SELinuxஐ அமைவாக்கம் செய்யவும்"
 
-#: ../gui/portsPage.py:51 ../gui/system-config-selinux.glade:2528
+#: ../gui/portsPage.py:48 ../gui/system-config-selinux.glade:2528
 msgid "Network Port"
 msgstr "பிணைய முனையம்"
 
-#: ../gui/portsPage.py:85
+#: ../gui/portsPage.py:82
 msgid ""
 "SELinux Port\n"
 "Type"
@@ -1956,15 +1977,15 @@ msgstr ""
 "SELinux முனையம்\n"
 "வகை"
 
-#: ../gui/portsPage.py:91 ../gui/system-config-selinux.glade:363
-#: ../sepolicy/sepolicy/sepolicy.glade:1443
-#: ../sepolicy/sepolicy/sepolicy.glade:2657
-#: ../sepolicy/sepolicy/sepolicy.glade:2755
-#: ../sepolicy/sepolicy/sepolicy.glade:4672
+#: ../gui/portsPage.py:88 ../gui/system-config-selinux.glade:363
+#: ../sepolicy/sepolicy/sepolicy.glade:1439
+#: ../sepolicy/sepolicy/sepolicy.glade:2658
+#: ../sepolicy/sepolicy/sepolicy.glade:2756
+#: ../sepolicy/sepolicy/sepolicy.glade:4633
 msgid "Protocol"
 msgstr "நெறிமுறை"
 
-#: ../gui/portsPage.py:96 ../gui/system-config-selinux.glade:479
+#: ../gui/portsPage.py:93 ../gui/system-config-selinux.glade:479
 msgid ""
 "MLS/MCS\n"
 "Level"
@@ -1972,22 +1993,22 @@ msgstr ""
 "MLS/MCS\n"
 "நிலை"
 
-#: ../gui/portsPage.py:101 ../sepolicy/sepolicy/sepolicy.glade:2638
-#: ../sepolicy/sepolicy/sepolicy.glade:2737
-#: ../sepolicy/sepolicy/sepolicy.glade:4658
+#: ../gui/portsPage.py:98 ../sepolicy/sepolicy/sepolicy.glade:2639
+#: ../sepolicy/sepolicy/sepolicy.glade:2738
+#: ../sepolicy/sepolicy/sepolicy.glade:4619
 msgid "Port"
 msgstr "முனையம்"
 
-#: ../gui/portsPage.py:207
+#: ../gui/portsPage.py:205
 #, python-format
 msgid "Port number \"%s\" is not valid.  0 < PORT_NUMBER < 65536 "
 msgstr "முனைய எண் \"%s\" செல்லுபடியானதல்ல.  0 < PORT_NUMBER < 65536 "
 
-#: ../gui/portsPage.py:252
+#: ../gui/portsPage.py:258
 msgid "List View"
 msgstr "பட்டியல் பார்வை"
 
-#: ../gui/portsPage.py:255 ../gui/system-config-selinux.glade:2419
+#: ../gui/portsPage.py:261 ../gui/system-config-selinux.glade:2419
 msgid "Group View"
 msgstr "குழு பார்வை"
 
@@ -2001,33 +2022,33 @@ msgstr "%s '%s' ஐ அழிக்க வேண்டுமா?"
 msgid "Delete %s"
 msgstr "%s ஐ அழிக்கவும்"
 
-#: ../gui/semanagePage.py:134
+#: ../gui/semanagePage.py:158
 #, python-format
 msgid "Add %s"
 msgstr "%s ஐ சேர்க்கவும்"
 
-#: ../gui/semanagePage.py:148
+#: ../gui/semanagePage.py:172
 #, python-format
 msgid "Modify %s"
 msgstr "%s ஐ மாற்றவும்"
 
-#: ../gui/statusPage.py:69 ../gui/system-config-selinux.glade:2819
-#: ../sepolicy/sepolicy/sepolicy.glade:3413
-#: ../sepolicy/sepolicy/sepolicy.glade:3486
+#: ../gui/statusPage.py:65 ../gui/system-config-selinux.glade:2819
+#: ../sepolicy/sepolicy/sepolicy.glade:3414
+#: ../sepolicy/sepolicy/sepolicy.glade:3487
 msgid "Permissive"
 msgstr "அனுமதிப்பது"
 
-#: ../gui/statusPage.py:70 ../gui/system-config-selinux.glade:2837
-#: ../sepolicy/sepolicy/sepolicy.glade:3394
-#: ../sepolicy/sepolicy/sepolicy.glade:3468
+#: ../gui/statusPage.py:66 ../gui/system-config-selinux.glade:2837
+#: ../sepolicy/sepolicy/sepolicy.glade:3395
+#: ../sepolicy/sepolicy/sepolicy.glade:3469
 msgid "Enforcing"
 msgstr "கட்டாயப்படுத்தல்"
 
-#: ../gui/statusPage.py:94
+#: ../gui/statusPage.py:90
 msgid "Status"
 msgstr "நிலை"
 
-#: ../gui/statusPage.py:133 ../sepolicy/sepolicy/gui.py:2619
+#: ../gui/statusPage.py:129 ../sepolicy/sepolicy/gui.py:2613
 msgid ""
 "Changing the policy type will cause a relabel of the entire file system on "
 "the next boot. Relabeling takes a long time depending on the size of the "
@@ -2037,7 +2058,7 @@ msgstr ""
 "செயல்படுத்த மாற்றுவதற்கு காரணமாகிறது. கணினியின் கோப்பு முறைமையின் அளவைப் பொருத்து "
 "மறுவேபிலிடுவதை அதிக நேரத்தை எடுக்கிறது.  நீங்கள் தொடர விரும்புகிறீர்களா?"
 
-#: ../gui/statusPage.py:147
+#: ../gui/statusPage.py:143
 msgid ""
 "Changing to SELinux disabled requires a reboot.  It is not recommended.  If "
 "you later decide to turn SELinux back on, the system will be required to "
@@ -2054,7 +2075,7 @@ msgstr ""
 "செய்யப்படாது.  அனுமதிப் பயன்முறைக்குச் செல்ல மறுதொடக்கம் செய்ய வேண்டியதும் இல்லை. தொடர "
 "விரும்புகிறீர்களா?"
 
-#: ../gui/statusPage.py:152 ../sepolicy/sepolicy/gui.py:2753
+#: ../gui/statusPage.py:148 ../sepolicy/sepolicy/gui.py:2747
 msgid ""
 "Changing to SELinux enabled will cause a relabel of the entire file system "
 "on the next boot. Relabeling takes a long time depending on the size of the "
@@ -2119,8 +2140,8 @@ msgstr ""
 "பெயரிடப்பட்ட பைப்\n"
 
 #: ../gui/system-config-selinux.glade:773
-#: ../sepolicy/sepolicy/sepolicy.glade:729
-#: ../sepolicy/sepolicy/sepolicy.glade:1489
+#: ../sepolicy/sepolicy/sepolicy.glade:711
+#: ../sepolicy/sepolicy/sepolicy.glade:1485
 msgid "MLS"
 msgstr "MLS"
 
@@ -2133,7 +2154,7 @@ msgid "SELinux Administration"
 msgstr "SELinux நிர்வாகம்"
 
 #: ../gui/system-config-selinux.glade:1122
-#: ../sepolicy/sepolicy/sepolicy.glade:4162
+#: ../sepolicy/sepolicy/sepolicy.glade:4163
 msgid "Add"
 msgstr "சேர்"
 
@@ -2169,7 +2190,7 @@ msgstr ""
 
 #: ../gui/system-config-selinux.glade:1373
 msgid "Current Enforcing Mode"
-msgstr "நடப்பு கட்டாயப்படுத்தும் முறை"
+msgstr "நடப்பு கட்டாயப்படுத்தும் பயன்முறை"
 
 #: ../gui/system-config-selinux.glade:1418
 msgid "System Default Policy Type: "
@@ -2210,7 +2231,7 @@ msgstr "Toggle க்கும் திருத்தியமைக்கப�
 #: ../gui/system-config-selinux.glade:2467
 #: ../gui/system-config-selinux.glade:2692
 #: ../gui/system-config-selinux.glade:2867
-#: ../sepolicy/sepolicy/sepolicy.glade:1992
+#: ../sepolicy/sepolicy/sepolicy.glade:1993
 msgid "Filter"
 msgstr "வடிப்பி"
 
@@ -2331,7 +2352,7 @@ msgstr "செயற்களத்தை செயல்படுத்து�
 msgid "label59"
 msgstr "label59"
 
-#: ../gui/usersPage.py:138
+#: ../gui/usersPage.py:140
 #, python-format
 msgid "SELinux user '%s' is required"
 msgstr "SELinux பயனர் '%s' தேவைப்படுகிறது"
@@ -2345,19 +2366,15 @@ msgstr ""
 
 #: booleans.py:2
 msgid ""
-"Allow ABRT to run in abrt_handle_event_t domain to handle ABRT event scripts"
+"Determine whether ABRT can run in the abrt_handle_event_t domain to handle "
+"ABRT event scripts."
 msgstr ""
-"ABRT நிகழ்வு ஸ்கிரிப்ட்டுகளைக் கையாள்வதற்காக, ABRT ஐ abrt_handle_event_t டொமைனில் "
-"இயங்க அனுமதிக்கவும்"
 
 #: booleans.py:3
-#, fuzzy
 msgid ""
-"Allow abrt-handle-upload to modify public files used for public file "
-"transfer services in /var/spool/abrt-upload/."
+"Determine whether abrt-handle-upload can modify public files used for public "
+"file transfer services in /var/spool/abrt-upload/."
 msgstr ""
-"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க tftp-"
-"ஐ அனுமதிக்கவும்."
 
 #: booleans.py:4
 msgid "Allow antivirus programs to read non security files on a system"
@@ -2394,9 +2411,8 @@ msgid "Determine whether awstats can purge httpd log files."
 msgstr "awstats ஆல் httpd பதிவுக் கோப்புகளை அழிக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
 #: booleans.py:11
-#, fuzzy
-msgid "Allow boinc_domain execmem/execstack."
-msgstr "httpd ஸ்கிரிப்ட்டுகள் மற்றும் தொகுதிகள் execmem/execstack-க்கு அனுமதிக்கவும்"
+msgid "Determine whether boinc can execmem/execstack."
+msgstr ""
 
 #: booleans.py:12
 msgid ""
@@ -2463,30 +2479,44 @@ msgstr ""
 "அனுமதிக்கவும்."
 
 #: booleans.py:23
+msgid ""
+"Determine whether crond can execute jobs in the user domain as opposed to "
+"the the generic cronjob domain."
+msgstr ""
+
+#: booleans.py:24
 msgid "Determine whether cvs can read shadow password files."
 msgstr "cvs ஆல் ஷேடோ கடவுச்சொல் கோப்புகளை வாசிக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:24
+#: booleans.py:25
 msgid "Allow all daemons to write corefiles to /"
 msgstr "அனைத்து டீமன்களையும் கோர் கோப்புகளை எழுத அனுமதிக்கவும் / "
 
-#: booleans.py:25
+#: booleans.py:26
+msgid "Enable cluster mode for daemons."
+msgstr ""
+
+#: booleans.py:27
 msgid "Allow all daemons to use tcp wrappers."
 msgstr "அனைத்து டெமான்களும் tcp ரேப்பர்களைப் பயன்படுத்த அனுமதிக்கவும்."
 
-#: booleans.py:26
+#: booleans.py:28
 msgid "Allow all daemons the ability to read/write terminals"
 msgstr "அனைத்து டெமான்களுக்கும் டெர்மினலில் வாசித்தல்/எழுதுதல் திறனை அனுமதிக்கவும்"
 
-#: booleans.py:27
+#: booleans.py:29
+msgid "Allow dbadm to exec content"
+msgstr ""
+
+#: booleans.py:30
 msgid "Determine whether dbadm can manage generic user files."
 msgstr "dbadm ஆல் பொது பயனர் கோப்புகளை நிர்வகிக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:28
+#: booleans.py:31
 msgid "Determine whether dbadm can read generic user files."
 msgstr "dbadm ஆல் பொது பயனர் கோப்புகளை வாசிக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:29
+#: booleans.py:32
 msgid ""
 "Deny user domains applications to map a memory region as both executable and "
 "writable, this is dangerous and the executable should be reported in bugzilla"
@@ -2494,30 +2524,30 @@ msgstr ""
 "வரையறுக்கப்படாத செயல்படுத்தக்கூடியதை ஒரு நினைவக மண்டலத்தில் செயல்படுத்தக்கூடிய மற்றும் "
 "எழுதக்கூடியதில் அனுமதிக்கவும், இது ஆபத்தானாதாக bugzilla-இல் அறிவிக்கப்படும்"
 
-#: booleans.py:30
+#: booleans.py:33
 msgid "Deny any process from ptracing or debugging any other processes."
 msgstr ""
 "ஏதேனும் செயலாக்கங்கள் மற்ற செயலாக்கங்களை பேட்ச் செய்வதையும் வழுநீக்கம் செய்வதையும் மறுக்கவும்."
 
-#: booleans.py:31
+#: booleans.py:34
 msgid "Allow dhcpc client applications to execute iptables commands"
 msgstr "dhcpc வாடிக்கையாளர் பயன்பாடுகள் iptables கட்டளைகளை நிறைவைற்ற அனுமதிக்கவும்"
 
-#: booleans.py:32
+#: booleans.py:35
 msgid "Determine whether DHCP daemon can use LDAP backends."
 msgstr ""
 "DHCP டெமானால் LDAP பின்புல முறைமைகளைப் பயன்படுத்த முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:33
+#: booleans.py:36
 msgid "Allow all domains to use other domains file descriptors"
 msgstr ""
 "அனைத்து செயற்களங்களையும் மற்ற செயற்களங்களின் கோப்பு விளக்கிகளில் பயன்படுத்த அனுமதிக்கவும்"
 
-#: booleans.py:34
+#: booleans.py:37
 msgid "Allow all domains to have the kernel load modules"
 msgstr "கர்னல் ஏற்ற தொகுதிகளை கொண்டிருக்க அனைத்து செயற்களங்களை அனுமதிக்கவும்"
 
-#: booleans.py:35
+#: booleans.py:38
 msgid ""
 "Determine whether entropyd can use audio devices as the source for the "
 "entropy feeds."
@@ -2525,11 +2555,11 @@ msgstr ""
 "entropyd ஆல் என்ட்ராபி ஓடைகளுக்கான மூலமாக ஒலி சாதனங்களைப் பயன்படுத்த முடிய வேண்டுமா "
 "எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:36
+#: booleans.py:39
 msgid "Determine whether exim can connect to databases."
 msgstr "exim ஆல் தரவுத்தளங்களுடன் இணைக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:37
+#: booleans.py:40
 msgid ""
 "Determine whether exim can create, read, write, and delete generic user "
 "content files."
@@ -2537,36 +2567,36 @@ msgstr ""
 "exim ஆல் பொது பயனர் உள்ளடக்கக் கோப்புகளை உருவாக்க, வாசிக்க, அவற்றில் எழுத மற்றும் அவற்றை "
 "நீக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:38
+#: booleans.py:41
 msgid "Determine whether exim can read generic user content files."
 msgstr ""
 "exim ஆல் பொது பயனர் உள்ளடக்கக் கோப்புகளை வாசிக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:39
+#: booleans.py:42
 msgid "Enable extra rules in the cron domain to support fcron."
 msgstr ""
 "fcron-ஐ துணைப்புரிய கார்ன் செயற்களத்தில் கூடுதல் விதிகளை செயற்படுத்த அனுமதிக்கவும்."
 
-#: booleans.py:40
+#: booleans.py:43
 msgid "Determine whether fenced can connect to the TCP network."
 msgstr "fenced ஆல் TCP பிணையத்தைப் பயன்படுத்தி இணைக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:41
+#: booleans.py:44
 msgid "Determine whether fenced can use ssh."
 msgstr "fenced ஆல் ssh ஐப் பயன்படுத்த முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:42
+#: booleans.py:45
 msgid "Allow all domains to execute in fips_mode"
 msgstr "fips_mode இல் இயங்க அனைத்து களங்களையும் அனுமதிக்கவும்"
 
-#: booleans.py:43
+#: booleans.py:46
 msgid ""
 "Determine whether ftpd can read and write files in user home directories."
 msgstr ""
 "ftpd ஆல் பயனர் முகப்பு கோப்பகங்களில் உள்ள கோப்புகளை வாசிக்கவும் எழுதவும் முடிய வேண்டுமா "
 "எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:44
+#: booleans.py:47
 msgid ""
 "Determine whether ftpd can modify public files used for public file transfer "
 "services. Directories/Files must be labeled public_content_rw_t."
@@ -2575,18 +2605,18 @@ msgstr ""
 "முடிய வேண்டுமா எனத் தீர்மானிக்கவும். கோப்பகங்கள்/கோப்புகள் public_content_rw_t என "
 "லேபிளிடப்பட வேண்டும்."
 
-#: booleans.py:45
+#: booleans.py:48
 msgid "Determine whether ftpd can connect to all unreserved ports."
 msgstr ""
 "ftpd ஆல் ஒதுக்கப்படாத முனையங்கள் அனைத்துடனும் இணைக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:46
+#: booleans.py:49
 msgid "Determine whether ftpd can connect to databases over the TCP network."
 msgstr ""
 "ftpd ஆல் TCP பிணையத்தைப் பயன்படுத்தி தரவுத்தளங்களுடன் இணைக்க முடிய வேண்டுமா எனத் "
 "தீர்மானிக்கவும்."
 
-#: booleans.py:47
+#: booleans.py:50
 msgid ""
 "Determine whether ftpd can login to local users and can read and write all "
 "files on the system, governed by DAC."
@@ -2594,49 +2624,48 @@ msgstr ""
 "ftpd ஆல் கணினி பயனர்களாக புகுபதிவு செய்து, கணினியில் உள்ள அனைத்து கோப்புகளையும் "
 "வாசிக்கவும் எழுதவும் முடிய வேண்டுமா எனத் தீர்மானிக்கவும். DAC ஆல் நிர்வகிக்கப்படுகிறது."
 
-#: booleans.py:48
+#: booleans.py:51
 msgid ""
 "Determine whether ftpd can use CIFS used for public file transfer services."
 msgstr ""
 "ftpd ஆல் பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்தும் CIFS ஐப் பயன்படுத்த முடிய "
 "வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:49
-#, fuzzy
+#: booleans.py:52
 msgid "Allow ftpd to use ntfs/fusefs volumes."
-msgstr "ntfs/fusefs தொகுதிகளை ஏற்றுமதி செய்வதற்கு சாம்பாவை அனுமதிக்கவும்."
+msgstr ""
 
-#: booleans.py:50
+#: booleans.py:53
 msgid ""
 "Determine whether ftpd can use NFS used for public file transfer services."
 msgstr ""
 "ftpd ஆல் பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்தும் NFS ஐப் பயன்படுத்த முடிய "
 "வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:51
+#: booleans.py:54
 msgid ""
 "Determine whether ftpd can bind to all unreserved ports for passive mode."
 msgstr ""
 "ftpd ஆல் செயலிலா பயன்முறைக்காக ஒதுக்கப்படாத முனையங்கள் அனைத்துடனும் பிணைப்பாக்கம் செய்ய "
 "முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:52
+#: booleans.py:55
 msgid "Determine whether Git CGI can search home directories."
 msgstr ""
 "Git CGI ஆனது இல்லக் கோப்பகங்களில் தேட முடிய வேண்டுமா முடியக்கூடாதா என தீர்மானிக்கவும்."
 
-#: booleans.py:53
+#: booleans.py:56
 msgid "Determine whether Git CGI can access cifs file systems."
 msgstr ""
 "Git CGI ஆனது cifs கோப்பு முறைமைகளை அணுக முடிய வேண்டுமா இல்லையா என்பதை "
 "தீர்மானிக்கவும்."
 
-#: booleans.py:54
+#: booleans.py:57
 msgid "Determine whether Git CGI can access nfs file systems."
 msgstr ""
 "Git CGI ஆனது nfs கோப்பு முறைமைகளை அணுக முடிய வேண்டுமா இல்லையா என்பதை தீர்மானிக்கவும்."
 
-#: booleans.py:55
+#: booleans.py:58
 msgid ""
 "Determine whether Git session daemon can bind TCP sockets to all unreserved "
 "ports."
@@ -2644,7 +2673,7 @@ msgstr ""
 "Git அமர்வு டெமான் TCP சாக்கெட்டுகளை அனைத்து முன்பதிவு செய்யப்பட்டதாத துறைகளுக்கு "
 "பிணைக்க முடிய வேண்டுமா இல்லையா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:56
+#: booleans.py:59
 msgid ""
 "Determine whether calling user domains can execute Git daemon in the "
 "git_session_t domain."
@@ -2652,31 +2681,31 @@ msgstr ""
 "பயனர் டொமைன்களை அழைத்தால் git_session_t டொமைனில் Git டெமான் செயல்படுத்தப்பட வேண்டுமா "
 "இல்லையா என்பதை தீர்மானிக்கவும்."
 
-#: booleans.py:57
+#: booleans.py:60
 msgid "Determine whether Git system daemon can search home directories."
 msgstr ""
 "Git முறைமை டெமான் இல்லக் கோப்பகங்களில் தேட முடிய வேண்டுமா முடியக்கூடாதா என "
 "தீர்மானிக்கவும்."
 
-#: booleans.py:58
+#: booleans.py:61
 msgid "Determine whether Git system daemon can access cifs file systems."
 msgstr ""
 "Git முறைமை டெமான் cifs கோப்பு முறைமைகளை அணுக வேண்டுமா இல்லையா என தீர்மானிக்கவும்."
 
-#: booleans.py:59
+#: booleans.py:62
 msgid "Determine whether Git system daemon can access nfs file systems."
 msgstr ""
 "Git முறைமை டெமான் nfs கோப்பு முறைமைகளை அணுக வேண்டுமா இல்லையா என தீர்மானிக்கவும்."
 
-#: booleans.py:60
+#: booleans.py:63
 msgid "Determine whether Gitosis can send mail."
 msgstr "Gitosis ஆல் அஞ்சல்களை அனுப்ப முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:61
+#: booleans.py:64
 msgid "Enable reading of urandom for all domains."
 msgstr "urando-க்கான அனைத்து செயற்களங்களை செயல்படுத்தவும்."
 
-#: booleans.py:62
+#: booleans.py:65
 msgid ""
 "Allow glusterfsd to modify public files used for public file transfer "
 "services.  Files/Directories must be labeled public_content_rw_t."
@@ -2685,17 +2714,17 @@ msgstr ""
 "glusterfsd -ஐ அனுமதிக்கவும். கோப்புகள்/கோப்பகங்கள் public_content_rw_t என "
 "லேபிளிடப்பட வேண்டும். "
 
-#: booleans.py:63
+#: booleans.py:66
 msgid "Allow glusterfsd to share any file/directory read only."
 msgstr ""
 "வாசிக்க மட்டும் அனுமதி கொண்ட எந்த கோப்பு/கோப்பகத்தையும் பகிர glusterfsd ஐ அனுமதிக்கவும்."
 
-#: booleans.py:64
+#: booleans.py:67
 msgid "Allow glusterfsd to share any file/directory read/write."
 msgstr ""
 "வாசிக்க/எழுத அனுமதி கொண்ட எந்த கோப்பு/கோப்பகத்தையும் பகிர glusterfsd ஐ அனுமதிக்கவும்."
 
-#: booleans.py:65
+#: booleans.py:68
 msgid ""
 "Allow usage of the gpg-agent --write-env-file option. This also allows gpg-"
 "agent to manage user files."
@@ -2703,7 +2732,7 @@ msgstr ""
 "gpg-agent --write-env-file விருப்பத்தில் பயன்பாட்டை அனுமதிக்க விரும்பினால். இது "
 "உங்களை gpg-agent பயனர் கோப்புகளை நிர்வகிக்க அனுமதிக்கவும்."
 
-#: booleans.py:66
+#: booleans.py:69
 msgid ""
 "Allow gpg web domain to modify public files used for public file transfer "
 "services."
@@ -2711,19 +2740,16 @@ msgstr ""
 "பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க gpg "
 "web domain-ஐ அனுமதிக்கவும்."
 
-#: booleans.py:67
-#, fuzzy
+#: booleans.py:70
 msgid ""
 "Allow gssd to list tmp directories and read the kerberos credential cache."
 msgstr ""
-"gssd-ஐ தற்காலிக அடைவை வாசிப்பதை நீங்கள் அனுமதிக்க விரும்பினால்.  kerberos இலக்கை "
-"அணுகுவதற்கு அனுமதிக்கவும்."
 
-#: booleans.py:68
+#: booleans.py:71
 msgid "Allow guest to exec content"
 msgstr "பொருளடக்கத்தை exec செய்ய விருந்தினர்களை அனுமதிக்கவும்"
 
-#: booleans.py:69
+#: booleans.py:72
 msgid ""
 "Allow Apache to modify public files used for public file transfer services. "
 "Directories/Files must be labeled public_content_rw_t."
@@ -2732,124 +2758,124 @@ msgstr ""
 "Apache-ஐ அனுமதிக்கவும்.  அடைவுகள்/கோப்புகள் public_content_rw_t இல் லேபிளிடப்பட "
 "வேண்டும். "
 
-#: booleans.py:70
+#: booleans.py:73
 msgid "Allow httpd to use built in scripting (usually php)"
 msgstr "ஸ்கிரிப்டிங்கில் கட்டுவதை பயன்படுத்துவதற்கு httpd-ஐ அனுமதிக்கவும் (வழக்கமாக php)"
 
-#: booleans.py:71
+#: booleans.py:74
 msgid "Allow http daemon to check spam"
 msgstr "http டொமைன் பழுதானவற்றை சரிபார்ப்பதை அனுமதிக்கவும்"
 
-#: booleans.py:72
+#: booleans.py:75
 msgid ""
 "Allow httpd to act as a FTP client connecting to the ftp port and ephemeral "
 "ports"
 msgstr "httpd-ஐ ஒரு FTP சேவையகமாக ftp துறையில் கவனிக்க அனுமதிக்கவும்"
 
-#: booleans.py:73
+#: booleans.py:76
 msgid "Allow httpd to connect to the ldap port"
 msgstr "httpd மற்றும் ldap இணைப்பதற்கு ஏதாவது  துறையில் அனுமதிக்கவும்"
 
-#: booleans.py:74
+#: booleans.py:77
 msgid "Allow http daemon to connect to mythtv"
 msgstr "mythtv க்கு இணைக்க http டெமானை அனுமதிக்கவும்"
 
-#: booleans.py:75
+#: booleans.py:78
 msgid "Allow http daemon to connect to zabbix"
 msgstr "zabbix இணைக்க http டீமானை அனுமதிக்கவும்"
 
-#: booleans.py:76
+#: booleans.py:79
 msgid "Allow HTTPD scripts and modules to connect to the network using TCP."
 msgstr ""
 "HTTPD ஸ்கிரிப்ட்டுகள் மற்றும் தொகுதிக்கூறுகளை TCP ஐப் பயன்படுத்தி பிணைத்திற்கு இணைப்பதை "
 "அனுமதிக்கவும்."
 
-#: booleans.py:77
+#: booleans.py:80
 msgid "Allow HTTPD scripts and modules to connect to cobbler over the network."
 msgstr ""
 "HTTPD ஸ்கிரிப்ட்டுகள் மற்றும் தொகுதிகளை காப்பளரில் பிணைத்திற்கு இணைப்பதை அனுமதிக்கவும்."
 
-#: booleans.py:78
+#: booleans.py:81
 msgid ""
 "Allow HTTPD scripts and modules to connect to databases over the network."
 msgstr ""
 "HTTPD ஸ்கிரிப்ட்டுகள் மற்றும் தொகுதிகளை தரவுத்தளங்களின் மேல் பிணைத்திற்கு இணைப்பதை "
 "அனுமதிக்கவும்."
 
-#: booleans.py:79
+#: booleans.py:82
 msgid "Allow httpd to connect to memcache server"
 msgstr "memcache சேவையகத்திற்கு இணைக்க நீங்கள் httpd-ஐ அனுமதிக்கவும்"
 
-#: booleans.py:80
+#: booleans.py:83
 msgid "Allow httpd to act as a relay"
 msgstr "ஒரு தொடராக httpd-ஐ செயல்படுத்துவதை அனுமதிக்கவும்"
 
-#: booleans.py:81
+#: booleans.py:84
 msgid "Allow http daemon to send mail"
 msgstr "http டொமைனை அஞ்சலை அனுப்புவதற்கு நீங்கள் அனுமதிக்கவும்"
 
-#: booleans.py:82
+#: booleans.py:85
 msgid "Allow Apache to communicate with avahi service via dbus"
 msgstr "avahi சேவை dbus வழியாக இதனுடன் தொடர்புகொள்ள Apache-ஐ அனுமதிக்கவும்"
 
-#: booleans.py:83
+#: booleans.py:86
 msgid "Allow httpd cgi support"
 msgstr "நீங்கள் httpd cgi ஆதரவை அனுமதிக்கவும்"
 
-#: booleans.py:84
+#: booleans.py:87
 msgid "Allow httpd to act as a FTP server by listening on the ftp port."
 msgstr "httpd-ஐ ஒரு FTP சேவையகமாக ftp துறையில் கவனிக்க அனுமதிக்கவும்"
 
-#: booleans.py:85
+#: booleans.py:88
 msgid "Allow httpd to read home directories"
 msgstr "முகப்பு அடைவுகளை வாசிக்க httpd-ஐ அனுமதிக்கவும்"
 
-#: booleans.py:86
+#: booleans.py:89
 msgid "Allow httpd scripts and modules execmem/execstack"
 msgstr "httpd ஸ்கிரிப்ட்டுகள் மற்றும் தொகுதிகள் execmem/execstack-க்கு அனுமதிக்கவும்"
 
-#: booleans.py:87
+#: booleans.py:90
 msgid "Allow HTTPD to connect to port 80 for graceful shutdown"
 msgstr "கனிவான இயக்க நிறுத்தத்திற்கு HTTPD ஆனது முனையம் 80 க்கு இணைக்க அனுமதிக்கவும்"
 
-#: booleans.py:88
+#: booleans.py:91
 msgid "Allow httpd processes to manage IPA content"
 msgstr "நீங்கள் httpd செயலாக்கங்களை IPA உள்ளடக்கத்தை நிர்வகிக்க அனுமதிக்கவும்"
 
-#: booleans.py:89
+#: booleans.py:92
 msgid "Allow Apache to use mod_auth_ntlm_winbind"
 msgstr "mod_auth_ntlm_winbind-ஐ பயன்படுத்த அப்பாச்சியை அனுமதிக்கவும்"
 
-#: booleans.py:90
+#: booleans.py:93
 msgid "Allow Apache to use mod_auth_pam"
 msgstr "mod_auth_pam-ஐ பயன்படுத்துவதற்கு Apache-ஐ அனுமதிக்கவும்"
 
-#: booleans.py:91
+#: booleans.py:94
 msgid "Allow httpd to read user content"
 msgstr "பயனர் உள்ளடக்கத்தை வாசிக்க httpd-ஐ அனுமதிக்கவும்"
 
-#: booleans.py:92
+#: booleans.py:95
 msgid "Allow Apache to run in stickshift mode, not transition to passenger"
 msgstr ""
 "Apache ஆனது பேசஞ்சருக்கு இடைநிலையிலல்லாமல் ஸ்டிக்ஷிஃப்ட் பயன்முறையில் இயங்க அனுமதிக்கவும்"
 
-#: booleans.py:93
+#: booleans.py:96
 msgid "Allow HTTPD scripts and modules to server cobbler files."
 msgstr ""
 "சேவையக காப்ளர் கோப்புகளுக்கு HTTPD ஸ்கிரிப்ட்டுகளையும் தொகுதிக்கூறுகளையும் அனுமதிக்கவும்."
 
-#: booleans.py:94
+#: booleans.py:97
 msgid "Allow httpd daemon to change its resource limits"
 msgstr "httpd டெமான் அதன் வள வரம்புகளை மாற்றுவதை அனுமதிக்கவும்"
 
-#: booleans.py:95
+#: booleans.py:98
 msgid ""
 "Allow HTTPD to run SSI executables in the same domain as system CGI scripts."
 msgstr ""
 "CGI ஸ்கிரிப்ட்டுகளில் SSI நிறைவேற்றக்கூடியதை இதே செய்றகள கணினியாக இயக்குவதற்கு HTTPD-"
 "ஐ அனுமதிக்கவும்."
 
-#: booleans.py:96
+#: booleans.py:99
 msgid ""
 "Allow apache scripts to write to public content, directories/files must be "
 "labeled public_rw_content_t."
@@ -2857,11 +2883,11 @@ msgstr ""
 "apache ஸ்கிரிப்ட்டுகள் பொது உள்ளடக்கத்தில் எழுதுவதை அனுமதிக்கவும்.கோப்பகங்கள் /கோப்புகள் "
 "public_rw_content_t என லேபிளிடப்பட்டிருக்க வேண்டும்."
 
-#: booleans.py:97
+#: booleans.py:100
 msgid "Allow Apache to execute tmp content."
 msgstr "tmp உள்ளடக்கத்தை வாசிக்க Apache-ஐ அனுமதிக்கவும்."
 
-#: booleans.py:98
+#: booleans.py:101
 msgid ""
 "Unify HTTPD to communicate with the terminal. Needed for entering the "
 "passphrase for certificates at the terminal."
@@ -2869,45 +2895,45 @@ msgstr ""
 "HTTPD-ஐ முனையுடன் இணைப்பதை இணைக்கவும். முனையில் சான்றிதழிற்காக கடவுச்சொல்லை உள்ளிட "
 "வேண்டும்."
 
-#: booleans.py:99
+#: booleans.py:102
 msgid "Unify HTTPD handling of all content files."
 msgstr "இனைத்து உள்ளடக்க கோப்புகளை கையாளுவதற்காக  HTTPD-ஐ சேர்க்கவும்."
 
-#: booleans.py:100
+#: booleans.py:103
 msgid "Allow httpd to access cifs file systems"
 msgstr "cifs கோப்பு முறைமைகளை அணுகுவதற்கு httpd-ஐ அனுமதிக்கவும்"
 
-#: booleans.py:101
+#: booleans.py:104
 msgid "Allow httpd to access FUSE file systems"
 msgstr "FUSE கோப்பு முறைமைகளை அணுகுவதற்கு httpd ஐ நீங்கள் அனுமதிக்கவும்"
 
-#: booleans.py:102
+#: booleans.py:105
 msgid "Allow httpd to run gpg"
 msgstr "gpg ஐ இயக்க httpd ஐ அனுமதிக்கவும்"
 
-#: booleans.py:103
+#: booleans.py:106
 msgid "Allow httpd to access nfs file systems"
 msgstr "nfs கோப்பு முறைமைகளை அணுகுவதற்கு httpd-ஐ அனுமதிக்கவும்"
 
-#: booleans.py:104
+#: booleans.py:107
 msgid "Allow httpd to access openstack ports"
 msgstr "httpd ஆனது openstack முனையங்களை அணுகுவதை அனுமதிக்கவும்"
 
-#: booleans.py:105
+#: booleans.py:108
 msgid "Allow httpd to connect to  sasl"
 msgstr "sasl க்கு இணைக்க httpd ஐ அனுமதிக்கவும்"
 
-#: booleans.py:106
+#: booleans.py:109
 msgid "Allow Apache to query NS records"
 msgstr "NS பதிவுகளை வினவ Apache ஐ அனுமதிக்கவும்"
 
-#: booleans.py:107
+#: booleans.py:110
 msgid "Determine whether icecast can listen on and connect to any TCP port."
 msgstr ""
 "icecast ஆல் எந்த ஓரு TCP முனையத்திலும் கவனிக்கவும் இணைக்கவும் முடிய வேண்டுமா எனத் "
 "தீர்மானிக்கவும்."
 
-#: booleans.py:108
+#: booleans.py:111
 msgid ""
 "Determine whether irc clients can listen on and connect to any unreserved "
 "TCP ports."
@@ -2915,7 +2941,7 @@ msgstr ""
 "irc கிளையன்களால் எந்த ஓரு ஒதுக்கப்படாத TCP முனையங்களிலும் கவனிக்கவும் இணைக்கவும் முடிய "
 "வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:109
+#: booleans.py:112
 msgid ""
 "Allow the Irssi IRC Client to connect to any port, and to bind to any "
 "unreserved port."
@@ -2923,56 +2949,71 @@ msgstr ""
 "Irssi IRC வாடிக்கையாளரை  ஏதாவது துறைக்கு இணைத்து, ஏதாவது முன்பதியாத துறையில் "
 "பிணைப்பதை அனுமதிக்கவும்"
 
-#: booleans.py:110
+#: booleans.py:113
+msgid "Allow s-c-kdump to run bootloader in bootloader_t."
+msgstr ""
+
+#: booleans.py:114
 msgid "Allow confined applications to run with kerberos."
 msgstr "வரையறுக்கப்பட்ட பயன்பாடுகளை kerberos உடன் இயக்குவதற்கு அனுமதிக்கவும்"
 
-#: booleans.py:111
+#: booleans.py:115
 msgid "Allow ksmtuned to use cifs/Samba file systems"
 msgstr "cifs/Samba கோப்புமுறைமைகளைப் பயன்படுத்த ksmtuned ஐ அனுமதிக்கவும்"
 
-#: booleans.py:112
+#: booleans.py:116
 msgid "Allow ksmtuned to use nfs file systems"
 msgstr "nfs கோப்புமுறைமைகளைப் பயன்படுத்த ksmtuned ஐ அனுமதிக்கவும்"
 
-#: booleans.py:113
+#: booleans.py:117
+msgid "Allow logadm to exec content"
+msgstr ""
+
+#: booleans.py:118
 msgid "Allow syslogd daemon to send mail"
 msgstr "syslogd டொமைனை அதனுடைய கட்டமைப்பு கோப்புகளை எழுதுவதற்கு அனுமதிக்கவும்"
 
-#: booleans.py:114
+#: booleans.py:119
 msgid "Allow syslogd the ability to read/write terminals"
 msgstr "நீங்கள் syslogd சாதன முனைகளில் வாசிக்க/எழுத அனுமதிக்கவும்"
 
-#: booleans.py:115
+#: booleans.py:120
 msgid "Allow logging in and using the system from /dev/console."
 msgstr "/dev/console-இலிருந்து கணினியை பயன்படுத்தி உட்புகுவதற்கு அனுமதிக்கவும்."
 
-#: booleans.py:116
-#, fuzzy
-msgid "Allow epylog to send mail"
-msgstr "syslogd டொமைனை அதனுடைய கட்டமைப்பு கோப்புகளை எழுதுவதற்கு அனுமதிக்கவும்"
+#: booleans.py:121
+msgid "Determine whether logwatch can connect to mail over the network."
+msgstr ""
 
-#: booleans.py:117
+#: booleans.py:122
+msgid "Allow epylog to send mail"
+msgstr ""
+
+#: booleans.py:123
 msgid "Allow mailman to access FUSE file systems"
 msgstr "FUSE கோப்பு முறைமைகளை அணுகுவதற்கு mailman ஐ அனுமதிக்கவும்"
 
-#: booleans.py:118
+#: booleans.py:124
 msgid "Determine whether mcelog supports client mode."
 msgstr "mcelog கிளையன் பயன்முறையை ஆதரிக்குமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:119
+#: booleans.py:125
 msgid "Determine whether mcelog can execute scripts."
 msgstr "mcelog ஆல் ஸ்கிரிப்ட்டுகளை செயல்படுத்த முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:120
+#: booleans.py:126
 msgid "Determine whether mcelog can use all the user ttys."
 msgstr "mcelog ஆல் பயனர் ttys அனைத்தையும் பயன்படுத்த முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:121
+#: booleans.py:127
 msgid "Determine whether mcelog supports server mode."
 msgstr "mcelog சேவையக பயன்முறையை ஆதரிக்குமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:122
+#: booleans.py:128
+msgid "Determine whether minidlna can read generic user content."
+msgstr ""
+
+#: booleans.py:129
 msgid ""
 "Control the ability to mmap a low area of the address space, as configured "
 "by /proc/sys/kernel/mmap_min_addr."
@@ -2980,59 +3021,59 @@ msgstr ""
 "/proc/sys/kernel/mmap_min_addr ஆல் கட்டமைப்பட்டதாக, mmap-ஐ முகவரி இடத்தில் ஒரு "
 "குறைந்த பகுதியை செயல்படுத்துவதை கட்டுப்படுத்தவும்."
 
-#: booleans.py:123
+#: booleans.py:130
 msgid "Allow mock to read files in home directories."
 msgstr "பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை வாசிக்க அனுமதிக்கவும்."
 
-#: booleans.py:124
+#: booleans.py:131
 msgid "Allow the mount commands to mount any directory or file."
 msgstr "ஏற்றுதல் கட்டளைகள் எந்த கோப்பகம் அல்லது கோப்பையும் ஏற்ற அனுமதிக்கவும்."
 
-#: booleans.py:125
+#: booleans.py:132
 msgid "Allow mozilla plugin domain to connect to the network using TCP."
 msgstr ""
 "mozilla செருகுநிரல் டொமைனை TCP ஐப் பயன்படுத்தி பிணையத்துடன் இணைக்க அனுமதிக்கவும்."
 
-#: booleans.py:126
+#: booleans.py:133
 msgid "Allow mozilla plugin to support GPS."
 msgstr "mozilla செருகுநிரல் GPS ஐ ஆதரிக்க அனுமதிக்கவும்."
 
-#: booleans.py:127
+#: booleans.py:134
 msgid "Allow mozilla plugin to support spice protocols."
 msgstr "mozilla செருகுநிரல் spice நெறிமுறைகளை ஆதரிக்க அனுமதிக்கவும்."
 
-#: booleans.py:128
+#: booleans.py:135
 msgid "Allow confined web browsers to read home directory content"
 msgstr "வரையறுக்கப்பட்ட வலை உலாவிகள் முகப்பு அடைவு உள்ளடக்கத்தை வாசிப்பதை அனுமதிக்கவும்."
 
-#: booleans.py:129
+#: booleans.py:136
 msgid "Determine whether mpd can traverse user home directories."
 msgstr "mpd ஆல் பயனர் இல்லக் கோப்பகங்களில் நுழைய முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:130
+#: booleans.py:137
 msgid "Determine whether mpd can use cifs file systems."
 msgstr "mpd ஆல் cifs கோப்பு முறைமைகளைப் பயன்படுத்த முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:131
+#: booleans.py:138
 msgid "Determine whether mpd can use nfs file systems."
 msgstr "mpd ஆல் nfs கோப்பு முறைமைகளைப் பயன்படுத்த முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:132
+#: booleans.py:139
 msgid "Determine whether mplayer can make its stack executable."
 msgstr ""
 "mplayer ஆல் தனது ஸ்டேக்கை செயல்படுத்தக்கூடியதாக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:133
+#: booleans.py:140
 msgid "Allow mysqld to connect to all ports"
 msgstr "அனைத்து துறைகளையும் இணைக்க mysqld-ஐ அனுமதிக்கவும்"
 
-#: booleans.py:134
+#: booleans.py:141
 msgid "Determine whether Bind can bind tcp socket to http ports."
 msgstr ""
 "Bind ஆல் tcp சாக்கெட்டுகளை http முனையங்களுடன் பிணைப்பாக்கம் செய்ய முடிய வேண்டுமா எனத் "
 "தீர்மானிக்கவும்."
 
-#: booleans.py:135
+#: booleans.py:142
 msgid ""
 "Determine whether Bind can write to master zone files. Generally this is "
 "used for dynamic DNS or zone transfers."
@@ -3040,17 +3081,17 @@ msgstr ""
 "Bind ஆல் மாஸ்டர் மண்டல கோப்புகளில் எழுத முடிய வேண்டுமா எனத் தீர்மானிக்கவும். பொதுவாக இது "
 "மாறுநிலை DNS அல்லது மண்டல பரிமாற்றங்களுக்கு பயன்படுத்தப்படும்."
 
-#: booleans.py:136
+#: booleans.py:143
 msgid "Allow any files/directories to be exported read/only via NFS."
 msgstr ""
 "ஏதாவது கோப்புகள்/அடைவுகளை NFS வழியாக வாசிக்க/மட்டும் ஏற்றுமதி செய்ய அனுமதிக்கவும்."
 
-#: booleans.py:137
+#: booleans.py:144
 msgid "Allow any files/directories to be exported read/write via NFS."
 msgstr ""
 "ஏதாவது கோப்புகள்/அடைவுகளை NFS வழியாக வாசித்து/எழுதி ஏற்றுமதி செய்ய அனுமதிக்கவும்."
 
-#: booleans.py:138
+#: booleans.py:145
 msgid ""
 "Allow nfs servers to modify public files used for public file transfer "
 "services.  Files/Directories must be labeled public_content_rw_t."
@@ -3058,43 +3099,41 @@ msgstr ""
 "பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க nfs-ஐ "
 "அனுமதிக்கவும்.  கோப்புகள்/அடைவுகள் public_content_rw_t இல் லேபிளிடப்பட வேண்டும். "
 
-#: booleans.py:139
+#: booleans.py:146
 msgid "Allow system to run with NIS"
 msgstr "கணினியை NIS உடன் இயக்குவதை அனுமதிக்கவும்"
 
-#: booleans.py:140
+#: booleans.py:147
 msgid "Allow confined applications to use nscd shared memory."
 msgstr "வரையறுக்கப்பட்ட பயன்பாடுகளை nscd பகிரப்பட்ட நினைவகத்தை பயன்படுத்தி அனுமதிக்கவும்."
 
-#: booleans.py:141
+#: booleans.py:148
 msgid "Allow openshift to lockdown app"
 msgstr "பயன்பாட்டை லாக்டவுன் செய்ய openshift ஐ அனுமதிக்கவும்"
 
-#: booleans.py:142
-#, fuzzy
+#: booleans.py:149
 msgid "Determine whether openvpn can connect to the TCP network."
-msgstr "fenced ஆல் TCP பிணையத்தைப் பயன்படுத்தி இணைக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
+msgstr ""
 
-#: booleans.py:143
+#: booleans.py:150
 msgid "Determine whether openvpn can read generic user home content files."
 msgstr ""
 "openvpn ஆல் பொது பயனர் இல்ல உள்ளடக்கக் கோப்புகளை வாசிக்க முடிய வேண்டுமா எனத் "
 "தீர்மானிக்கவும்."
 
-#: booleans.py:144
-#, fuzzy
+#: booleans.py:151
 msgid "Allow openvpn to run unconfined scripts"
-msgstr "வரையறுப்படாத ஸ்கிரிப்டுகளை இயக்க சம்பாவை அனுமதிக்கவும்"
+msgstr ""
 
-#: booleans.py:145
+#: booleans.py:152
 msgid "Allow piranha-lvs domain to connect to the network using TCP."
 msgstr "piranha-lvs சேயற்களத்தை TCP-ஐ பயன்படுத்தி பிணையத்தை இணைப்பதற்கு அனுமதிக்கவும்."
 
-#: booleans.py:146
+#: booleans.py:153
 msgid "Allow polipo to connect to all ports > 1023"
 msgstr "polipo எல்லா முனையங்களுக்கும் இணைக்கப்பட அனுமதிக்கவும் > 1023"
 
-#: booleans.py:147
+#: booleans.py:154
 msgid ""
 "Determine whether Polipo session daemon can bind tcp sockets to all "
 "unreserved ports."
@@ -3102,82 +3141,82 @@ msgstr ""
 "Polipo டொமைன் tcp சாக்கெட்டுகளை முன்பதிவு செய்யப்பட்டதாத முனையங்களுக்கு பிணைப்பதை "
 "அனுமதிக்கவும்."
 
-#: booleans.py:148
+#: booleans.py:155
 msgid ""
 "Determine whether calling user domains can execute Polipo daemon in the "
 "polipo_session_t domain."
 msgstr "polipo_session_t டொமைனை அணுகுவதற்கு Polipo-ஐ இயக்க அனுமதிக்கவும்."
 
-#: booleans.py:149
+#: booleans.py:156
 msgid "Determine whether polipo can access cifs file systems."
 msgstr "cifs கோப்பு முறைமைகளை அணுகுவதற்கு polipo-ஐ அனுமதிக்கவும்."
 
-#: booleans.py:150
+#: booleans.py:157
 msgid "Determine whether Polipo can access nfs file systems."
 msgstr "nfs கோப்பு முறைமைகளை அணுகுவதற்கு Polipo-ஐ அனுமதிக்கவும்."
 
-#: booleans.py:151
+#: booleans.py:158
 msgid "Enable polyinstantiated directory support."
 msgstr "polyinstantiated அடைவு துணையை செயல்படுத்தவும்."
 
-#: booleans.py:152
+#: booleans.py:159
 msgid "Allow postfix_local domain full write access to mail_spool directories"
 msgstr ""
 "postfix_local செயற்களத்தில் முழு எழுதும் அணுகலுக்கு mail_spool அடைவுகளை "
 "அனுமதிக்கவும்"
 
-#: booleans.py:153
+#: booleans.py:160
 msgid "Allow postgresql to use ssh and rsync for point-in-time recovery"
 msgstr ""
 "பாயின்ட்-இன்-டைம் மீட்புக்கு ssh மற்றும் rsync ஐப் பயன்படுத்த postgresql ஐ அனுமதிக்கவும்"
 
-#: booleans.py:154
+#: booleans.py:161
 msgid "Allow transmit client label to foreign database"
 msgstr "டிரான்ஸ்மிட் கிளையன்ட்டுகள் வெளி தரவுத்தளங்களை லேபிளிடுவதை நீங்கள் அனுமதிக்கவும்"
 
-#: booleans.py:155
+#: booleans.py:162
 msgid "Allow database admins to execute DML statement"
 msgstr "DML நிலையை செயல்படுத்த தரவுத்தள நிர்வகிப்பதை அனுமதிக்கவும்"
 
-#: booleans.py:156
+#: booleans.py:163
 msgid "Allow unprivileged users to execute DDL statement"
 msgstr "DDL நிலையை நிறைவேற்ற ப்ரைவ் செய்யப்படாத பயனர்களை அனுமதிக்கவும்"
 
-#: booleans.py:157
+#: booleans.py:164
 msgid "Allow pppd to load kernel modules for certain modems"
 msgstr "குறிப்பிட்ட மோடம்களுக்காக கர்னல் தொகுதிகளை ஏற்றுவதற்கு pppd-ஐ அனுமதிக்கவும்"
 
-#: booleans.py:158
+#: booleans.py:165
 msgid "Allow pppd to be run for a regular user"
-msgstr "pppd சரியான பயனர்களுக்காக இயக்க அனுமதிக்கவும்"
+msgstr "வழக்கமான பயனருக்கு pppd ஐ இயக்க அனுமதிக்கவும்"
 
-#: booleans.py:159
+#: booleans.py:166
 msgid "Determine whether privoxy can connect to all tcp ports."
 msgstr ""
 "privoxy ஆல் tcp முனையங்கள் அனைத்துடனும் இணைக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:160
+#: booleans.py:167
 msgid ""
 "Permit to prosody to bind apache port. Need to be activated to use BOSH."
 msgstr ""
 "apache முனையத்தில் பிணைக்க prosody ஐ அனுமதிக்கவும். BOSH ஐப் பயன்படுத்த இதை "
 "செயல்படுத்த வேண்டும்."
 
-#: booleans.py:161
+#: booleans.py:168
 msgid "Allow Puppet client to manage all file types."
 msgstr "பப்பெட் வாடிக்கையாளரை அனைத்து கோப்பு வகைகளை நிர்வகிக்க அனுமதிக்கவும்."
 
-#: booleans.py:162
+#: booleans.py:169
 msgid "Allow Puppet master to use connect to MySQL and PostgreSQL database"
 msgstr ""
 "MySQL மற்றும் PostgreSQL தரவுத்தளத்தில் இணைப்பதை பயன்படுத்துவதற்கு பப்பெட் முதன்மையை "
 "அனுமதிக்கவும்"
 
-#: booleans.py:163
+#: booleans.py:170
 msgid "Allow racoon to read shadow"
 msgstr "racoon-ஐ நிழலை வாசிப்பதை அனுமதிக்கவும்"
 
-#: booleans.py:164
+#: booleans.py:171
 msgid ""
 "Allow rsync to modify public files used for public file transfer services.  "
 "Files/Directories must be labeled public_content_rw_t."
@@ -3185,25 +3224,25 @@ msgstr ""
 "பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க rsync-"
 "ஐ அனுமதிக்கவும். கோப்புகள்/அடைவுகள் public_content_rw_t இல் லேபிளிடப்பட வேண்டும். "
 
-#: booleans.py:165
+#: booleans.py:172
 msgid "Allow rsync to run as a client"
 msgstr "ஒரு வாடிக்கையாளராக இயக்குவதற்கு rsync-ஐ அனுமதிக்கவும்"
 
-#: booleans.py:166
+#: booleans.py:173
 msgid "Allow rsync to export any files/directories read only."
 msgstr "ஏதாவது கோப்புகள்/அடைவுகளை வாசிக்க மட்டும் ஏற்றுமதி செய்ய rsync-ஐ அனுமதிக்கவும்."
 
-#: booleans.py:167
+#: booleans.py:174
 msgid "Allow rsync server to manage all files/directories on the system."
 msgstr ""
 "கணினியில் உள்ள அனைத்து கோப்புகளையும்/கோப்பகங்களையும் நிர்வகிக்க rsync சேவையகத்தை "
 "அனுமதிக்கவும்."
 
-#: booleans.py:168
+#: booleans.py:175
 msgid "Allow samba to create new home directories (e.g. via PAM)"
 msgstr "புதிய முகப்பு அடைவுகளை உருவாக்க சாம்பாவை அனுமதிக்கவும் (எ.கா. PAM வழியாக)"
 
-#: booleans.py:169
+#: booleans.py:176
 msgid ""
 "Allow samba to act as the domain controller, add users, groups and change "
 "passwords."
@@ -3211,55 +3250,55 @@ msgstr ""
 "samba-ஐ செயற்கள கட்டுப்படுத்தி, பயனர்களை சேர்த்தல், குழுக்கள் மற்றும் கடவுச்சொற்களை "
 "மாற்றுதலாக நடத்த அனுமதிக்கவும்."
 
-#: booleans.py:170
+#: booleans.py:177
 msgid "Allow samba to share users home directories."
 msgstr "பயனர்களின் முகப்பு அடைவுகளை பகிர்வதற்கு சாம்பாவை அனுமதிக்கவும்."
 
-#: booleans.py:171
+#: booleans.py:178
 msgid "Allow samba to share any file/directory read only."
 msgstr "ஏதாவது கோப்பு/அடைவு வாசிக்க மட்டும் என்பதை பகிர சாம்பாவை அனுமதிக்கவும்."
 
-#: booleans.py:172
+#: booleans.py:179
 msgid "Allow samba to share any file/directory read/write."
 msgstr "ஏதாவது கோப்பு/அடைவு வாசித்தல்/எழுதுதலை பகிர samba-ஐ அனுமதிக்கவும்."
 
-#: booleans.py:173
+#: booleans.py:180
 msgid "Allow samba to act as a portmapper"
 msgstr "சாம்பா போர்ட்மேப்பராக செயல்பட அனுமதிக்கவும்"
 
-#: booleans.py:174
+#: booleans.py:181
 msgid "Allow samba to run unconfined scripts"
 msgstr "வரையறுப்படாத ஸ்கிரிப்டுகளை இயக்க சம்பாவை அனுமதிக்கவும்"
 
-#: booleans.py:175
+#: booleans.py:182
 msgid "Allow samba to export ntfs/fusefs volumes."
 msgstr "ntfs/fusefs தொகுதிகளை ஏற்றுமதி செய்வதற்கு சாம்பாவை அனுமதிக்கவும்."
 
-#: booleans.py:176
+#: booleans.py:183
 msgid "Allow samba to export NFS volumes."
 msgstr "NFS தொகுதிகளை ஏற்றுமதிசெய்ய சாம்பாவை அனுமதிக்கவும்."
 
-#: booleans.py:177
+#: booleans.py:184
 msgid "Allow sanlock to read/write fuse files"
 msgstr "சேன்லாக் ஃபியூஸ் கோப்புகளை படிக்க/எழுத அனுமதிக்கவும்"
 
-#: booleans.py:178
+#: booleans.py:185
 msgid "Allow sanlock to manage nfs files"
 msgstr "nfs கோப்புகளை நிர்வகிக்க சேன்லாக்கை அனுமதிக்கவும்"
 
-#: booleans.py:179
+#: booleans.py:186
 msgid "Allow sanlock to manage cifs files"
 msgstr "cifs கோப்புகளை நிர்வகிக்க சேன்லாக்கை அனுமதிக்கவும்"
 
-#: booleans.py:180
+#: booleans.py:187
 msgid "Allow sasl to read shadow"
 msgstr "sasl-ஐ நிழலை வாசிக்க அனுமதிக்கவும்"
 
-#: booleans.py:181
+#: booleans.py:188
 msgid "Allow secadm to exec content"
 msgstr "பொருளடக்கத்தை exec செய்ய secadm ஐ அனுமதிக்கவும்"
 
-#: booleans.py:182
+#: booleans.py:189
 msgid ""
 "disallow programs, such as newrole, from transitioning to administrative "
 "user domains."
@@ -3267,11 +3306,11 @@ msgstr ""
 "நிரல்கள், newrole போன்றவற்றிலிருந்து, நிர்வாக பயனர் செயற்களங்களுக்கு மாற்ற அனுமதி "
 "தடுக்கவும்."
 
-#: booleans.py:183
+#: booleans.py:190
 msgid "Disable kernel module loading."
 msgstr "கெர்னல் தொகுதிக்கூறு ஏற்றுதலை முடக்கவும்."
 
-#: booleans.py:184
+#: booleans.py:191
 msgid ""
 "Boolean to determine whether the system permits loading policy, setting "
 "enforcing mode, and changing boolean values.  Set this to true and you have "
@@ -3281,11 +3320,11 @@ msgstr ""
 "மதிப்புகளை மாற்றுதல் ஆகிய செயல்களை அனுமதிக்கிறதா என பூலியன் தீர்மானிக்கட்டும்.  இதை சரி "
 "என அமைக்கவும், இதை மீட்டமைக்க நீங்கள் மறுதொடக்கம் செய்ய வேண்டும்."
 
-#: booleans.py:185
+#: booleans.py:192
 msgid "Allow regular users direct dri device access"
 msgstr "வழக்கமான பயனர்களை நேரடி dri சாதன அணுகலை அனுமதிக்கவும்"
 
-#: booleans.py:186
+#: booleans.py:193
 msgid ""
 "Allow unconfined executables to make their heap memory executable.  Doing "
 "this is a really bad idea. Probably indicates a badly coded executable, but "
@@ -3296,7 +3335,7 @@ msgstr ""
 "காட்டும், ஆனால் ஒரு தாக்குதலை காட்டும். இந்த செயல்படுத்தக்கூடியது bugzilla-இல் "
 "அறிவிக்கப்படும்"
 
-#: booleans.py:187
+#: booleans.py:194
 msgid ""
 "Allow all unconfined executables to use libraries requiring text relocation "
 "that are not labeled textrel_shlib_t"
@@ -3304,7 +3343,7 @@ msgstr ""
 "அனைத்து நிறைவேற்றக்கூடியவற்றை நூலகங்களுக்கு தேவையான உரை மறுஇடத்தில் textrel_shlib_t "
 "லேபிளிடப்படாததை அனுமதிக்கவும்"
 
-#: booleans.py:188
+#: booleans.py:195
 msgid ""
 "Allow unconfined executables to make their stack executable.  This should "
 "never, ever be necessary. Probably indicates a badly coded executable, but "
@@ -3314,22 +3353,22 @@ msgstr ""
 "எப்போதும், தேவைப்படாது. ஒரு தவறான குறியிடப்பட்டு செயல்படுத்தக்கூடியதை காட்டும், ஆனால் "
 "ஒரு தாக்குதலை காட்டும். இந்த செயல்படுத்தக்கூடியது bugzilla-இல் அறிவிக்கப்படும்"
 
-#: booleans.py:189
+#: booleans.py:196
 msgid "Allow users to connect to the local mysql server"
 msgstr "உள்ளமை mysql சேவையகத்தை பயனர்களுக்கு இணைப்பதை அனுமதிக்கவும்"
 
-#: booleans.py:190
+#: booleans.py:197
 msgid ""
 "Allow confined users the ability to execute the ping and traceroute commands."
 msgstr ""
 "ping மற்றும் traceroute கட்டளைகளைச் செயல்படுத்தும் திறனைப் பயன்படுத்த கட்டுப்படுத்தப்பட்ட "
 "பயனர்களை அனுமதிக்கவும்."
 
-#: booleans.py:191
+#: booleans.py:198
 msgid "Allow users to connect to PostgreSQL"
 msgstr "பயனர்களை PostgreSQL-க்கு இணைப்பதை நீங்கள் அனுமதிக்கவும்"
 
-#: booleans.py:192
+#: booleans.py:199
 msgid ""
 "Allow user to r/w files on filesystems that do not have extended attributes "
 "(FAT, CDROM, FLOPPY)"
@@ -3337,11 +3376,11 @@ msgstr ""
 "நீட்டிக்கப்பட்ட பண்புக்கூறுகளைக் கொண்டில்லாத கோப்பு முறைமைகளில் கோப்புகளை r/w செய்ய "
 "பயனர்களை அனுமதிக்கவும் (FAT, CDROM, FLOPPY)"
 
-#: booleans.py:193
+#: booleans.py:200
 msgid "Allow user music sharing"
 msgstr "பயனர் இசை பகிர்தலை அனுமதிக்கவும்"
 
-#: booleans.py:194
+#: booleans.py:201
 msgid ""
 "Allow users to run TCP servers (bind to ports and accept connection from the "
 "same domain and outside users)  disabling this forces FTP passive mode and "
@@ -3351,11 +3390,11 @@ msgstr ""
 "இணைப்பை பிணைப்பிலிருந்து துறைகளை ஏற்கிறது) இந்த வேகத்தை FTP எதிர்க்காத தொகுதிக்கு "
 "மாற்றி நெறிமுறைகளை செயல்நீக்குகிறது."
 
-#: booleans.py:195
+#: booleans.py:202
 msgid "Allow user  to use ssh chroot environment."
 msgstr "ssh chroot சூழலைப் பயன்படுத்த பயனரை அனுமதிக்கவும்."
 
-#: booleans.py:196
+#: booleans.py:203
 msgid ""
 "Determine whether sftpd can modify public files used for public file "
 "transfer services. Directories/Files must be labeled public_content_rw_t."
@@ -3364,14 +3403,14 @@ msgstr ""
 "முடிய வேண்டுமா எனத் தீர்மானிக்கவும். கோப்பகங்கள்/கோப்புகள் public_content_rw_t என "
 "லேபிளிடப்பட வேண்டும்."
 
-#: booleans.py:197
+#: booleans.py:204
 msgid ""
 "Determine whether sftpd-can read and write files in user home directories."
 msgstr ""
 "sftpd ஆல் பயனர் முகப்பு கோப்பகங்களில் உள்ள கோப்புகளை வாசிக்கவும் எழுதவும் முடிய வேண்டுமா "
 "எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:198
+#: booleans.py:205
 msgid ""
 "Determine whether sftpd-can login to local users and read and write all "
 "files on the system, governed by DAC."
@@ -3379,7 +3418,7 @@ msgstr ""
 "sftpd ஆல் கணினி பயனர்களாக புகுபதிவு செய்து, கணினியில் உள்ள அனைத்து கோப்புகளையும் "
 "வாசிக்கவும் எழுதவும் முடிய வேண்டுமா எனத் தீர்மானிக்கவும். DAC ஆல் நிர்வகிக்கப்படுகிறது."
 
-#: booleans.py:199
+#: booleans.py:206
 msgid ""
 "Determine whether sftpd can read and write files in user ssh home "
 "directories."
@@ -3387,21 +3426,21 @@ msgstr ""
 "sftpd ஆல் பயனர் ssh முகப்பு கோப்பகங்களில் உள்ள கோப்புகளை வாசிக்கவும் எழுதவும் முடிய "
 "வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:200
+#: booleans.py:207
 msgid "Allow sge to connect to the network using any TCP port"
 msgstr "ஏதேனும் TCP முனையத்தைப் பயன்படுத்தி பிணையத்திற்கு இணைக்க sge ஐ அனுமதிக்கவும்"
 
-#: booleans.py:201
+#: booleans.py:208
 msgid "Allow sge to access nfs file systems."
 msgstr "நீங்கள் sge ஐ nfs கோப்பு முறைமைகளை அணுக அனுமதிக்கவும்."
 
-#: booleans.py:202
+#: booleans.py:209
 msgid "Determine whether smartmon can support devices on 3ware controllers."
 msgstr ""
 "smartmon ஆல் 3ware கன்ட்ரோலர்களில் உள்ள சாதனங்களை ஆதரிக்க முடிய வேண்டுமா எனத் "
 "தீர்மானிக்கவும்."
 
-#: booleans.py:203
+#: booleans.py:210
 msgid ""
 "Allow samba to modify public files used for public file transfer services.  "
 "Files/Directories must be labeled public_content_rw_t."
@@ -3409,84 +3448,80 @@ msgstr ""
 "பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க samba-"
 "ஐ அனுமதிக்கவும். கோப்புகள்/அடைவுகள் public_content_rw_t இல் லேபிளிடப்பட வேண்டும். "
 
-#: booleans.py:204
+#: booleans.py:211
 msgid "Allow user spamassassin clients to use the network."
 msgstr "பயனர் spamassassin வாடிக்கையாளர்களை பிணையத்தை பயன்படுத்துவதை அனுமதிக்கவும்."
 
-#: booleans.py:205
+#: booleans.py:212
 msgid "Allow spamd to read/write user home directories."
 msgstr "பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை எழுத ftp-ஐ அனுமதிக்கவும்."
 
-#: booleans.py:206
+#: booleans.py:213
 msgid "Determine whether squid can connect to all TCP ports."
 msgstr "squid ஆல் TCP முனையங்கள் அனைத்துடனும் இணைக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:207
+#: booleans.py:214
 msgid "Determine whether squid can run as a transparent proxy."
 msgstr "squid ஆல் வெளிப்படையான பதிலியாக இயங்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:208
+#: booleans.py:215
 msgid ""
 "Allow ssh with chroot env to read and write files in the user home "
 "directories"
 msgstr ""
 "பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை எழுத chroot env-ஐ நீங்கள் அனுமதிக்கவும்"
 
-#: booleans.py:209
+#: booleans.py:216
 msgid "allow host key based authentication"
 msgstr "புரவல விசை சார்ந்த அங்கீகாரத்தை அனுமதிக்கவும்"
 
-#: booleans.py:210
+#: booleans.py:217
 msgid "Allow ssh logins as sysadm_r:sysadm_t"
 msgstr "ssh ஆக sysadm_r:sysadm_t உட்புக அனுமதிக்கவும்"
 
-#: booleans.py:211
+#: booleans.py:218
 msgid "Allow staff to exec content"
-msgstr "பொருளடக்கத்தை exec செய்ய staff ஐ அனுமதிக்கவும்"
+msgstr "உள்ளடக்கத்தை exec செய்ய staff ஐ அனுமதிக்கவும்"
 
-#: booleans.py:212
+#: booleans.py:219
 msgid "allow staff user to create and transition to svirt domains."
 msgstr "பணியாளர் பயனர் svirt டொமைன்களை உருவாக்கி இடைநிலையைச் செயல்படுத்த அனுமதிக்கவும்."
 
-#: booleans.py:213
+#: booleans.py:220
 msgid "Allow sysadm to exec content"
-msgstr "பொருளடக்கத்தை exec செய்ய sysadm ஐ அனுமதிக்கவும்"
+msgstr "உள்ளடக்கத்தை exec செய்ய sysadm ஐ அனுமதிக்கவும்"
 
-#: booleans.py:214
+#: booleans.py:221
 msgid "Allow the Telepathy connection managers to connect to any network port."
 msgstr "ஏதாவது பொது  துறைக்கு இணைக்க டெலிபதி இணைப்பு நிர்வாகிகளை அனுமதிக்கவும்."
 
-#: booleans.py:215
+#: booleans.py:222
 msgid ""
 "Allow the Telepathy connection managers to connect to any generic TCP port."
 msgstr "ஏதாவது பொது TCP துறைக்கு இணைக்க டெலிபதி இணைப்பு நிர்வாகிகளை அனுமதிக்கவும்."
 
-#: booleans.py:216
-msgid "Allow testpolicy to exec content"
-msgstr "உள்ளடக்கத்தை exec செய்ய testpolicy ஐ அனுமதிக்கவும்"
-
-#: booleans.py:217
+#: booleans.py:223
 msgid ""
 "Allow tftp to modify public files used for public file transfer services."
 msgstr ""
 "பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க tftp-"
 "ஐ அனுமதிக்கவும்."
 
-#: booleans.py:218
+#: booleans.py:224
 msgid "Allow tftp to read and write files in the user home directories"
 msgstr "பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை எழுத tftp ஐ அனுமதிக்கவும்"
 
-#: booleans.py:219
+#: booleans.py:225
 msgid "Determine whether tor can bind tcp sockets to all unreserved ports."
 msgstr ""
 "tor ஆல் tcp சாக்கெட்டுகளை அனைத்து முன்பதிவு செய்யப்பட்டதாத முனையங்களுக்கும் பிணைக்க "
 "முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:220
+#: booleans.py:226
 msgid "Allow tor to act as a relay"
 msgstr "ஒரு ரிலேவாக செயல்பட tor ஐ அனுமதிக்கவும்"
 
-#: booleans.py:221
+#: booleans.py:227
 msgid ""
 "allow unconfined users to transition to the chrome sandbox domains when "
 "running chrome-sandbox"
@@ -3494,11 +3529,11 @@ msgstr ""
 "வரையறுக்கப்படாத பயனர்கள் chrome sandbox  செயற்களமானது chrome sandbox   "
 "இயக்கப்படும்போது அனுமதிக்கவும்"
 
-#: booleans.py:222
+#: booleans.py:228
 msgid "Allow a user to login as an unconfined domain"
 msgstr "ஒரு வழையறுக்கப்படாத செயற்களமாக ஒரு பயனரை உட்புக அனுமதிக்கவும்"
 
-#: booleans.py:223
+#: booleans.py:229
 msgid ""
 "Allow unconfined users to transition to the Mozilla plugin domain when "
 "running xulrunner plugin-container."
@@ -3506,42 +3541,42 @@ msgstr ""
 "வரையறுக்கப்படாத பயனர்கள் மொஸில்லா செருகி செயற்களமானது xulrunner செருகி கொள்கலன் "
 "இயக்கப்படுகையில் அனுமதிக்கவும்."
 
-#: booleans.py:224
+#: booleans.py:230
 msgid "Allow unprivledged user to create and transition to svirt domains."
 msgstr ""
 "அனுமதிகள் இல்லாத பயனர் svirt டொமைன்களை உருவாக்கி இடைநிலை செயல்பாடுகளை அமைக்க "
 "அனுமதிக்கவும்."
 
-#: booleans.py:225
+#: booleans.py:231
 msgid "Support ecryptfs home directories"
 msgstr "ecryptfs இல்லக் கோப்பகங்கள் ஆதரவை அளிக்கவும்"
 
-#: booleans.py:226
+#: booleans.py:232
 msgid "Support fusefs home directories"
 msgstr "fusefs முகப்பு அடைவுகளுக்கு ஆதரவளிக்கவும்"
 
-#: booleans.py:227
+#: booleans.py:233
 msgid "Determine whether to support lpd server."
 msgstr "lpd சேவையகத்தை ஆதரிக்க வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:228
+#: booleans.py:234
 msgid "Support NFS home directories"
 msgstr "NFS முகப்பு அடைவுகளுக்கு ஆதரவளிக்கவும்"
 
-#: booleans.py:229
+#: booleans.py:235
 msgid "Support SAMBA home directories"
 msgstr "SAMBA முகப்பு அடைவுகளுக்கு ஆதரவளிக்கவும்"
 
-#: booleans.py:230
+#: booleans.py:236
 msgid "Allow user to exec content"
 msgstr "பொருளடக்கத்தை exec செய்ய பயனரை அனுமதிக்கவும்"
 
-#: booleans.py:231
+#: booleans.py:237
 msgid "Determine whether varnishd can use the full TCP network."
 msgstr ""
 "varnished ஆல் முழு TCP பிணையத்தைப் பயன்படுத்த முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:232
+#: booleans.py:238
 msgid ""
 "Determine whether attempts by vbetool to mmap low regions should be silently "
 "blocked."
@@ -3549,60 +3584,67 @@ msgstr ""
 "low பகுதிகளை mmap செய்வதற்கான vbetool இன் முயற்சிகள் அமைதியாக தடுக்கப்பட வேண்டுமா "
 "எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:233
-#, fuzzy
-msgid "Allow virtual processes to run as userdomains"
-msgstr "வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்கள் ஃப்யூஸ் கோப்புகளை வாசிப்பதை அனுமதிக்கவும்"
+#: booleans.py:239
+msgid "Allow sandbox containers to send audit messages"
+msgstr ""
 
-#: booleans.py:234
+#: booleans.py:240
+msgid "Allow sandbox containers to use netlink system calls"
+msgstr ""
+
+#: booleans.py:241
+msgid "Allow virtual processes to run as userdomains"
+msgstr ""
+
+#: booleans.py:242
 msgid ""
 "Allow confined virtual guests to use serial/parallel communication ports"
 msgstr "வரிசை/இணையான தொடர்பு துறைகளை பயன்படுத்த மெய்நிகர் விருந்தினர்களை அனுமதிக்கவும்"
 
-#: booleans.py:235
+#: booleans.py:243
 msgid ""
 "Allow confined virtual guests to use executable memory and executable stack"
 msgstr ""
 "வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை இயங்கக்கூடிய ஸ்டேக்கை பயன்படுத்துவதை அனுமதிக்கவும்"
 
-#: booleans.py:236
+#: booleans.py:244
 msgid "Allow confined virtual guests to read fuse files"
 msgstr "வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்கள் ஃப்யூஸ் கோப்புகளை வாசிப்பதை அனுமதிக்கவும்"
 
-#: booleans.py:237
+#: booleans.py:245
 msgid "Allow confined virtual guests to manage nfs files"
 msgstr "வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை nfs கோப்புகள் நிர்வகிப்பதை அனுமதிக்கவும்"
 
-#: booleans.py:238
+#: booleans.py:246
 msgid "Allow confined virtual guests to interact with rawip sockets"
 msgstr "கட்டுப்படுத்தப்பட்ட விருந்தினர்கள் rawip சாக்கெட்டுகளுடன் செயல்படுவதை அனுமதிக்கவும்"
 
-#: booleans.py:239
+#: booleans.py:247
 msgid "Allow confined virtual guests to manage cifs files"
 msgstr "cifs கோப்புகளை வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை அனுமதிக்கவும்"
 
-#: booleans.py:240
+#: booleans.py:248
 msgid "Allow confined virtual guests to interact with the sanlock"
 msgstr "வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை sanlock பயன்படுத்துவதை அனுமதிக்கவும்"
 
-#: booleans.py:241
+#: booleans.py:249
 msgid "Allow confined virtual guests to use usb devices"
 msgstr ""
 "வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை usb சாதனங்களை பயன்படுத்துவதை அனுமதிக்கவும்"
 
-#: booleans.py:242
+#: booleans.py:250
 msgid "Allow confined virtual guests to interact with the xserver"
 msgstr "xserver உடன் தொடர்புகொள்ள வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை அனுமதிக்கவும்"
 
-#: booleans.py:243
+#: booleans.py:251
 msgid "Determine whether webadm can manage generic user files."
 msgstr "webadm ஆல் பொது பயனர் கோப்புகளை நிர்வகிக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:244
+#: booleans.py:252
 msgid "Determine whether webadm can read generic user files."
 msgstr "webadm ஆல் பொது பயனர் கோப்புகளை வாசிக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்."
 
-#: booleans.py:245
+#: booleans.py:253
 msgid ""
 "Determine whether attempts by wine to mmap low regions should be silently "
 "blocked."
@@ -3610,27 +3652,27 @@ msgstr ""
 "low பகுதிகளை mmap செய்வதற்கான wine இன் முயற்சிகள் அமைதியாக தடுக்கப்பட வேண்டுமா எனத் "
 "தீர்மானிக்கவும்."
 
-#: booleans.py:246
+#: booleans.py:254
 msgid "Allow the graphical login program to execute bootloader"
 msgstr "வரைகலை உட்புகு நிரலை துவக்கேற்றியில் நிறைவேற்ற அனுமதிக்கவும்"
 
-#: booleans.py:247
+#: booleans.py:255
 msgid ""
 "Allow the graphical login program to login directly as sysadm_r:sysadm_t"
 msgstr "வரைகலை உட்புகு நிரலை sysadm_r:sysadm_t உட்புகு நேரடியாக அனுமதிக்கவும்"
 
-#: booleans.py:248
+#: booleans.py:256
 msgid ""
 "Allow the graphical login program to create files in HOME dirs as xdm_home_t."
 msgstr ""
 "HOME dirs இல் xdm_home_t ஆக கோப்புகளை உருவாக்க வரைவியல் புகுபதிவு நிரலை "
 "அனுமதிக்கவும்."
 
-#: booleans.py:249
+#: booleans.py:257
 msgid "Allow xen to manage nfs files"
 msgstr "nfs கோப்புகளை நிர்வகிக்க xen-ஐ அனுமதிக்கவும்"
 
-#: booleans.py:250
+#: booleans.py:258
 msgid ""
 "Allow xend to run blktapctrl/tapdisk. Not required if using dedicated "
 "logical volumes for disk images."
@@ -3638,57 +3680,56 @@ msgstr ""
 " xend இலிருந்து blktapctrl/tapdisk-ஐ இயக்க அனுமதிக்கவும். தருக்க தொகுதிகள் வட்டு "
 "உருக்களுக்கு தேவையில்லை."
 
-#: booleans.py:251
+#: booleans.py:259
 msgid "Allow xend to run qemu-dm. Not required if using paravirt and no vfb."
 msgstr ""
 "ஒரு வாடிக்கையாளராக இயக்குவதற்கு xend இலிருந்து run qemu-dm-க்கு அனுமதிக்கவும். "
 "paravirt-ஐ பயன்படுத்தினால் மற்றும் vfb தேவையில்லை."
 
-#: booleans.py:252
+#: booleans.py:260
 msgid ""
 "Allow xguest users to configure Network Manager and connect to apache ports"
 msgstr ""
 "xguest பயனர்களை பிணைய நிர்வாகியை கட்டமைத்தல் மற்றும் apache துறைகளுக்கு இணைத்தலை "
 "அனுமதிக்கவும்"
 
-#: booleans.py:253
+#: booleans.py:261
 msgid "Allow xguest to exec content"
 msgstr "பொருளடக்கத்தை exec செய்ய xguest ஐ அனுமதிக்கவும்"
 
-#: booleans.py:254
+#: booleans.py:262
 msgid "Allow xguest users to mount removable media"
 msgstr "நீக்கக்கூடிய ஊடகத்தில் ஏற்றுவதற்கு xguest பயனர்களை அனுமதிக்கவும்"
 
-#: booleans.py:255
+#: booleans.py:263
 msgid "Allow xguest to use blue tooth devices"
 msgstr "xguest ஐ blue tooth சாதனங்களை பயன்படுத்த அனுமதிக்கவும்"
 
-#: booleans.py:256
+#: booleans.py:264
 msgid "Allows clients to write to the X server shared memory segments."
 msgstr "X சேவையக பகிரப்பட்ட நினைவக பிரிவுகளுக்கு வாடிக்கையாளர்களை எழுத அனுமதிக்கவும்."
 
-#: booleans.py:257
+#: booleans.py:265
 msgid "Allows XServer to execute writable memory"
 msgstr "எழுதக்கூடிய நினைவகத்தை நிறைவேற்ற XServer-ஐ அனுமதிக்கவும்"
 
-#: booleans.py:258
+#: booleans.py:266
 msgid "Support X userspace object manager"
 msgstr "X பயனர்இடைவெளி பொருள் மேலாளருக்கு ஆதரவளிக்கும்"
 
-#: booleans.py:259
+#: booleans.py:267
 msgid "Determine whether zabbix can connect to all TCP ports"
 msgstr "zabbix ஆல் TCP முனையங்கள் அனைத்துடனும் இணைக்க முடிய வேண்டுமா எனத் தீர்மானிக்கவும்"
 
-#: booleans.py:260
-#, fuzzy
+#: booleans.py:268
 msgid "Allow zarafa domains to setrlimit/sys_rouserce."
-msgstr "fips_mode இல் இயங்க அனைத்து களங்களையும் அனுமதிக்கவும்"
+msgstr ""
 
-#: booleans.py:261
+#: booleans.py:269
 msgid "Allow zebra daemon to write it configuration files"
 msgstr "செப்ரா டொமைனை அதனுடைய கட்டமைப்பு கோப்புகளை எழுதுவதற்கு அனுமதிக்கவும்"
 
-#: booleans.py:262
+#: booleans.py:270
 msgid ""
 "Allow ZoneMinder to modify public files used for public file transfer "
 "services."
@@ -3696,115 +3737,113 @@ msgstr ""
 "பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க "
 "ZoneMinder-ஐ அனுமதிக்கவும்."
 
-#: booleans.py:263
+#: booleans.py:271
 msgid "Allow ZoneMinder to run su/sudo."
 msgstr "su/sudo ஐ இயக்க ZoneMinder ஐ அனுமதிக்கவும்."
 
-#: ../sepolicy/sepolicy.py:194
+#: ../sepolicy/sepolicy.py:195
 #, python-format
 msgid "Interface %s does not exist."
 msgstr "இடைமுகம் %s இல்லை."
 
-#: ../sepolicy/sepolicy.py:292
+#: ../sepolicy/sepolicy.py:293
 msgid "You need to install policycoreutils-gui package to use the gui option"
 msgstr ""
 
-#: ../sepolicy/sepolicy.py:296
+#: ../sepolicy/sepolicy.py:297
 msgid "Graphical User Interface for SELinux Policy"
 msgstr "SELinux கொள்கைக்கான வரைகலை பயனர் இடைமுகம்"
 
-#: ../sepolicy/sepolicy.py:299 ../sepolicy/sepolicy.py:345
+#: ../sepolicy/sepolicy.py:300 ../sepolicy/sepolicy.py:346
 msgid "Domain name(s) of man pages to be created"
 msgstr "உருவாக்கப்பட இருக்கிற உதவிப் பக்கங்களின் டொமைன் பெயர்(கள்)"
 
-#: ../sepolicy/sepolicy.py:311
-#, fuzzy
+#: ../sepolicy/sepolicy.py:312
 msgid "Alternative root needs to be setup"
-msgstr "மாற்று ரூட் கோப்பகம், முன்னிருப்பாக உள்ளது /"
+msgstr ""
 
-#: ../sepolicy/sepolicy.py:327
+#: ../sepolicy/sepolicy.py:328
 msgid "Generate SELinux man pages"
 msgstr "SELinux உதவிப் பக்கங்களை உருவாக்கு"
 
-#: ../sepolicy/sepolicy.py:330
+#: ../sepolicy/sepolicy.py:331
 msgid "path in which the generated SELinux man pages will be stored"
 msgstr "உருவாக்கப்படும் SELinux உதவிப் பக்கங்கள் சேமிக்கப்படும் பாதை"
 
-#: ../sepolicy/sepolicy.py:332
+#: ../sepolicy/sepolicy.py:333
 msgid "name of the OS for man pages"
 msgstr "கையேட்டுப் பக்கங்களுக்கான OS இன் பெயர்"
 
-#: ../sepolicy/sepolicy.py:334
+#: ../sepolicy/sepolicy.py:335
 msgid "Generate HTML man pages structure for selected SELinux man page"
 msgstr ""
 "தேர்ந்தெடுத்த SELinux கையேட்டுப் பக்கத்திற்கு HTML கையேட்டுப் பக்கங்கள் கட்டமைப்பை "
 "உருவாக்கவும்"
 
-#: ../sepolicy/sepolicy.py:336
+#: ../sepolicy/sepolicy.py:337
 msgid "Alternate root directory, defaults to /"
 msgstr "மாற்று ரூட் கோப்பகம், முன்னிருப்பாக உள்ளது /"
 
-#: ../sepolicy/sepolicy.py:338
+#: ../sepolicy/sepolicy.py:339
 msgid ""
 "With this flag, alternative root path needs to include file context files "
 "and policy.xml file"
 msgstr ""
 
-#: ../sepolicy/sepolicy.py:342
+#: ../sepolicy/sepolicy.py:343
 msgid "All domains"
 msgstr "அனைத்து டொமைன்களும்"
 
-#: ../sepolicy/sepolicy.py:350
+#: ../sepolicy/sepolicy.py:351
 msgid "Query SELinux policy network information"
 msgstr "SELinux கொள்கை பிணைய தகவலை வினவு"
 
-#: ../sepolicy/sepolicy.py:355
+#: ../sepolicy/sepolicy.py:356
 msgid "list all SELinux port types"
 msgstr "அனைத்து SELinux முனைய வகைகளையும் பட்டியலிடு"
 
-#: ../sepolicy/sepolicy.py:358
+#: ../sepolicy/sepolicy.py:359
 msgid "show SELinux type related to the port"
 msgstr "முனையத்துடன் தொடர்புடைய SELinux வகையைக் காண்பி"
 
-#: ../sepolicy/sepolicy.py:361
+#: ../sepolicy/sepolicy.py:362
 msgid "Show ports defined for this SELinux type"
 msgstr "இந்த SELinux வகைக்கு வரையறுக்கப்பட்ட முனையங்களைக் காண்பி"
 
-#: ../sepolicy/sepolicy.py:364
+#: ../sepolicy/sepolicy.py:365
 msgid "show ports to which this domain can bind and/or connect"
 msgstr "இந்த டொமைன் பிணையக்கூடிய மற்றும்/அல்லது இணையக்கூடிய முனையங்களைக் காண்பி"
 
-#: ../sepolicy/sepolicy.py:367
-#, fuzzy
+#: ../sepolicy/sepolicy.py:368
 msgid "show ports to which this application can bind and/or connect"
-msgstr "இந்த டொமைன் பிணையக்கூடிய மற்றும்/அல்லது இணையக்கூடிய முனையங்களைக் காண்பி"
+msgstr ""
 
-#: ../sepolicy/sepolicy.py:382
+#: ../sepolicy/sepolicy.py:383
 msgid "query SELinux policy to see if domains can communicate with each other"
 msgstr ""
 "டொமைன்கள் ஒன்றுக்கொன்று தகவல் பரிமாறிக்கொள்ள முடியுமா என அறிய SELinux கொள்கையை வினவு"
 
-#: ../sepolicy/sepolicy.py:385
+#: ../sepolicy/sepolicy.py:386
 msgid "Source Domain"
 msgstr "மூல டொமைன்"
 
-#: ../sepolicy/sepolicy.py:388
+#: ../sepolicy/sepolicy.py:389
 msgid "Target Domain"
 msgstr "இலக்கு டொமைன்"
 
-#: ../sepolicy/sepolicy.py:407
+#: ../sepolicy/sepolicy.py:408
 msgid "query SELinux Policy to see description of booleans"
 msgstr "பூலியன்களின் விளக்கத்தை அறிய SELinux கொள்கையை வினவு"
 
-#: ../sepolicy/sepolicy.py:411
+#: ../sepolicy/sepolicy.py:412
 msgid "get all booleans descriptions"
 msgstr "அனைத்து பூலியன் விளக்கங்களையும் பெறுக"
 
-#: ../sepolicy/sepolicy.py:414
+#: ../sepolicy/sepolicy.py:415
 msgid "boolean to get description"
 msgstr "விளக்கம் பெற வேண்டிய பூலியன்"
 
-#: ../sepolicy/sepolicy.py:424
+#: ../sepolicy/sepolicy.py:425
 msgid ""
 "query SELinux Policy to see how a source process domain can transition to "
 "the target process domain"
@@ -3812,231 +3851,222 @@ msgstr ""
 "மூல செயலாக்க டொமைன் ஒன்று இலக்கு செயலாக்க டொமைனாக எப்படி மாற முடியும் என அறிய "
 "SELinux கொள்கையை வினவு"
 
-#: ../sepolicy/sepolicy.py:427
+#: ../sepolicy/sepolicy.py:428
 msgid "source process domain"
 msgstr "மூல செயலாக்க டொமைன்"
 
-#: ../sepolicy/sepolicy.py:430
+#: ../sepolicy/sepolicy.py:431
 msgid "target process domain"
 msgstr "இலக்கு செயலாக்க டொமைன்"
 
-#: ../sepolicy/sepolicy.py:472
+#: ../sepolicy/sepolicy.py:473
 #, python-format
 msgid "sepolicy generate: error: one of the arguments %s is required"
 msgstr "sepolicy generate: பிழை: %s இல் ஒரு மதிப்புரு தேவை"
 
-#: ../sepolicy/sepolicy.py:477
+#: ../sepolicy/sepolicy.py:478
 msgid "Command required for this type of policy"
 msgstr "இந்த வகை கொள்கைக்குத் தேவையான கட்டளை"
 
-#: ../sepolicy/sepolicy.py:488
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy.py:489
+#, python-format
 msgid ""
 "-t option can not be used with '%s' domains. Read usage for more details."
 msgstr ""
-"இந்த விருப்பத்துடன் -t விருப்பத்தைப் பயன்படுத்த முடியாது. மேலும் விவரங்களுக்கு பயன்பாட்டைப் "
-"பார்க்கவும்."
 
-#: ../sepolicy/sepolicy.py:493
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy.py:494
+#, python-format
 msgid ""
 "-d option can not be used with '%s' domains. Read usage for more details."
 msgstr ""
-"இந்த விருப்பத்துடன் -d விருப்பத்தைப் பயன்படுத்த முடியாது. மேலும் விவரங்களுக்கு பயன்பாட்டைப் "
-"பார்க்கவும்."
 
-#: ../sepolicy/sepolicy.py:497
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy.py:498
+#, python-format
 msgid ""
 "-a option can not be used with '%s' domains. Read usage for more details."
 msgstr ""
-"இந்த விருப்பத்துடன் -a விருப்பத்தைப் பயன்படுத்த முடியாது. மேலும் விவரங்களுக்கு பயன்பாட்டைப் "
-"பார்க்கவும்."
 
-#: ../sepolicy/sepolicy.py:501
-#, fuzzy
+#: ../sepolicy/sepolicy.py:502
 msgid "-w option can not be used with the --newtype option"
 msgstr ""
-"இந்த விருப்பத்துடன் -t விருப்பத்தைப் பயன்படுத்த முடியாது. மேலும் விவரங்களுக்கு பயன்பாட்டைப் "
-"பார்க்கவும்."
 
-#: ../sepolicy/sepolicy.py:521
+#: ../sepolicy/sepolicy.py:522
 msgid "List SELinux Policy interfaces"
 msgstr "SELinux கொள்கை இடைமுகங்களை பட்டியலிடு"
 
-#: ../sepolicy/sepolicy.py:541
+#: ../sepolicy/sepolicy.py:542
 msgid "Enter interface names, you wish to query"
 msgstr "நீங்கள் வினவ விரும்பும் இடைமுகங்களின் பெயர்களை உள்ளிடவும்"
 
-#: ../sepolicy/sepolicy.py:550
+#: ../sepolicy/sepolicy.py:551
 msgid "Generate SELinux Policy module template"
 msgstr "SELinux கொள்கை தொகுதிக்கூறூ வார்ப்புருவை உருவாக்கு"
 
-#: ../sepolicy/sepolicy.py:553
+#: ../sepolicy/sepolicy.py:554
 msgid "Enter domain type which you will be extending"
 msgstr "நீங்கள் நீட்டிக்க உள்ள களத்தின் வகையை உள்ளிடவும்"
 
-#: ../sepolicy/sepolicy.py:556
+#: ../sepolicy/sepolicy.py:557
 msgid "Enter SELinux user(s) which will transition to this domain"
 msgstr "இந்த களத்தில் செயல்படும் SELinux பயனர்களை உள்ளிடவும்"
 
-#: ../sepolicy/sepolicy.py:559
+#: ../sepolicy/sepolicy.py:560
 msgid "Enter SELinux role(s) to which the administror domain will transition"
 msgstr "நிர்வாகி டொமைன் மாறக்கூடிய SELinux பங்குகளை உள்ளிடவும்"
 
-#: ../sepolicy/sepolicy.py:562
+#: ../sepolicy/sepolicy.py:563
 msgid "Enter domain(s) which this confined admin will administrate"
 msgstr "இந்த கட்டுப்படுத்தப்பட்ட நிர்வாகி நிர்வகிக்கும் டொமைன்களை உள்ளிடவும்"
 
-#: ../sepolicy/sepolicy.py:565
+#: ../sepolicy/sepolicy.py:566
 msgid "name of policy to generate"
 msgstr "உருவாக்க வேண்டிய கொள்கையின் பெயர்"
 
-#: ../sepolicy/sepolicy.py:572
+#: ../sepolicy/sepolicy.py:573
 msgid "path in which the generated policy files will be stored"
 msgstr "உருவாக்கப்படும் கொள்கைக் கோப்புகள் சேமிக்கப்படும் பாதை"
 
-#: ../sepolicy/sepolicy.py:574
+#: ../sepolicy/sepolicy.py:575
 msgid "path to which the confined processes will need to write"
 msgstr "கட்டுப்படுத்தப்பட்ட செயலாக்கங்கள் எழுதப்பட வேண்டிய பாதை"
 
-#: ../sepolicy/sepolicy.py:575
+#: ../sepolicy/sepolicy.py:576
 msgid "Policy types which require a command"
 msgstr "கட்டளை தேவைப்படுகின்ற கொள்கை வகைகள்"
 
-#: ../sepolicy/sepolicy.py:579 ../sepolicy/sepolicy.py:582
-#: ../sepolicy/sepolicy.py:585 ../sepolicy/sepolicy.py:588
-#: ../sepolicy/sepolicy.py:591 ../sepolicy/sepolicy.py:597
-#: ../sepolicy/sepolicy.py:600 ../sepolicy/sepolicy.py:603
-#: ../sepolicy/sepolicy.py:609 ../sepolicy/sepolicy.py:612
-#: ../sepolicy/sepolicy.py:615 ../sepolicy/sepolicy.py:618
+#: ../sepolicy/sepolicy.py:580 ../sepolicy/sepolicy.py:583
+#: ../sepolicy/sepolicy.py:586 ../sepolicy/sepolicy.py:589
+#: ../sepolicy/sepolicy.py:592 ../sepolicy/sepolicy.py:598
+#: ../sepolicy/sepolicy.py:601 ../sepolicy/sepolicy.py:604
+#: ../sepolicy/sepolicy.py:610 ../sepolicy/sepolicy.py:613
+#: ../sepolicy/sepolicy.py:616 ../sepolicy/sepolicy.py:619
 #, python-format
 msgid "Generate '%s' policy"
 msgstr "'%s' கொள்கையை உருவாக்கு"
 
-#: ../sepolicy/sepolicy.py:606
+#: ../sepolicy/sepolicy.py:607
 #, python-format
 msgid "Generate '%s' policy "
 msgstr "'%s' கொள்கையை உருவாக்கு"
 
-#: ../sepolicy/sepolicy.py:620
+#: ../sepolicy/sepolicy.py:621
 msgid "executable to confine"
 msgstr "கட்டுப்படுத்த வேண்டிய இயக்கத்தக்கது"
 
-#: ../sepolicy/sepolicy.py:625
+#: ../sepolicy/sepolicy.py:626
 msgid "commands"
 msgstr "கட்டளைகள்"
 
-#: ../sepolicy/sepolicy.py:628
+#: ../sepolicy/sepolicy.py:629
 msgid "Alternate SELinux policy, defaults to /sys/fs/selinux/policy"
 msgstr "மாற்று SELinux கொள்கை, முன்னிருப்பு மதிப்பு /sys/fs/selinux/policy ஆகும்"
 
-#: ../sepolicy/sepolicy/__init__.py:89
+#: ../sepolicy/sepolicy/__init__.py:96
 #, python-format
 msgid "-- Allowed %s [ %s ]"
 msgstr ""
 
-#: ../sepolicy/sepolicy/__init__.py:95 ../sepolicy/sepolicy/gui.py:1135
+#: ../sepolicy/sepolicy/__init__.py:102 ../sepolicy/sepolicy/gui.py:1152
 msgid "all files"
 msgstr "அனைத்து கோப்புகள்"
 
-#: ../sepolicy/sepolicy/__init__.py:96
+#: ../sepolicy/sepolicy/__init__.py:103
 msgid "regular file"
 msgstr "வழக்கமான கோப்பு"
 
-#: ../sepolicy/sepolicy/__init__.py:97
+#: ../sepolicy/sepolicy/__init__.py:104
 msgid "directory"
 msgstr "கோப்பகம்"
 
-#: ../sepolicy/sepolicy/__init__.py:98
+#: ../sepolicy/sepolicy/__init__.py:105
 msgid "character device"
 msgstr "எழுத்து சாதன பெயர்"
 
-#: ../sepolicy/sepolicy/__init__.py:99
+#: ../sepolicy/sepolicy/__init__.py:106
 msgid "block device"
 msgstr "தொகுப்பு சாதனம்"
 
-#: ../sepolicy/sepolicy/__init__.py:100
+#: ../sepolicy/sepolicy/__init__.py:107
 msgid "socket file"
 msgstr "சாக்கெட் கோப்பு"
 
-#: ../sepolicy/sepolicy/__init__.py:101
+#: ../sepolicy/sepolicy/__init__.py:108
 msgid "symbolic link"
 msgstr "குறியீடு இணைப்பு"
 
-#: ../sepolicy/sepolicy/__init__.py:102
+#: ../sepolicy/sepolicy/__init__.py:109
 msgid "named pipe"
 msgstr "பெயரிடப்பட்ட பைப்"
 
-#: ../sepolicy/sepolicy/__init__.py:398
+#: ../sepolicy/sepolicy/__init__.py:427
 msgid "No SELinux Policy installed"
 msgstr "SELinux கொள்கை நிறுவப்படவில்லை"
 
-#: ../sepolicy/sepolicy/__init__.py:478
+#: ../sepolicy/sepolicy/__init__.py:506
 msgid "You must regenerate interface info by running /usr/bin/sepolgen-ifgen"
 msgstr ""
 "நீங்கள் /usr/bin/sepolgen-ifgen ஐ இயக்கி இடைமுகத் தகவலை மீண்டும் உருவாக்க வேண்டும்"
 
-#: ../sepolicy/sepolicy/__init__.py:724
+#: ../sepolicy/sepolicy/__init__.py:768
 #, python-format
 msgid "Failed to read %s policy file"
 msgstr "கொள்கை கோப்பு %s ஐ வாசிக்க முடியவில்லை"
 
-#: ../sepolicy/sepolicy/__init__.py:829
+#: ../sepolicy/sepolicy/__init__.py:873
 msgid "unknown"
 msgstr "தெரியாத"
 
-#: ../sepolicy/sepolicy/generate.py:132
+#: ../sepolicy/sepolicy/generate.py:134
 msgid "Internet Services Daemon"
 msgstr "இணைய சேவைகள் டெமான்"
 
-#: ../sepolicy/sepolicy/generate.py:136
+#: ../sepolicy/sepolicy/generate.py:138
 msgid "Existing Domain Type"
 msgstr "முன்பே உள்ள டொமைன் வகை"
 
-#: ../sepolicy/sepolicy/generate.py:137
+#: ../sepolicy/sepolicy/generate.py:139
 msgid "Minimal Terminal Login User Role"
 msgstr "குறைந்த முனைய புகுபதிவு பயனர் பங்கு"
 
-#: ../sepolicy/sepolicy/generate.py:138
+#: ../sepolicy/sepolicy/generate.py:140
 msgid "Minimal X Windows Login User Role"
 msgstr "குறைந்தபட்ச X சாளரங்கள் புகுபதிவு பயனர் பங்கு"
 
-#: ../sepolicy/sepolicy/generate.py:139
+#: ../sepolicy/sepolicy/generate.py:141
 msgid "Desktop Login User Role"
 msgstr "டெஸ்க்டாப் புகுபதிவு பயனர் பங்கு"
 
-#: ../sepolicy/sepolicy/generate.py:140
+#: ../sepolicy/sepolicy/generate.py:142
 msgid "Administrator Login User Role"
 msgstr "நிர்வாகி புகுபதிவு பயனர் பங்கு"
 
-#: ../sepolicy/sepolicy/generate.py:141
+#: ../sepolicy/sepolicy/generate.py:143
 msgid "Confined Root Administrator Role"
 msgstr "கட்டுப்படுத்தப்பட்ட ரூட் நிர்வாகி பங்கு"
 
-#: ../sepolicy/sepolicy/generate.py:142
+#: ../sepolicy/sepolicy/generate.py:144
 msgid "Module information for a new type"
 msgstr "புதிய வகைக்கான தொகுதி தகவல்"
 
-#: ../sepolicy/sepolicy/generate.py:147
+#: ../sepolicy/sepolicy/generate.py:149
 msgid "Valid Types:\n"
 msgstr "செல்லுபடியான வகைகள்:\n"
 
-#: ../sepolicy/sepolicy/generate.py:181
+#: ../sepolicy/sepolicy/generate.py:183
 #, python-format
 msgid "Ports must be numbers or ranges of numbers from 1 to %d "
 msgstr "முனையங்கள் எண்ணாக இருக்க வேண்டும் அல்லது எண்களிலிருந்து 1 க்கு %d "
 
-#: ../sepolicy/sepolicy/generate.py:192
+#: ../sepolicy/sepolicy/generate.py:194
 msgid "You must enter a valid policy type"
 msgstr "செல்லுபடியான ஒரு கொள்கை வகையை உள்ளிட வேண்டும்"
 
-#: ../sepolicy/sepolicy/generate.py:195
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/generate.py:197
+#, python-format
 msgid "You must enter a name for your policy module for your '%s'."
-msgstr "உங்கள் %s க்கான உங்கள் கொள்கை தொகுதிக்கூறுக்கு ஒரு பெயரை உள்ளிட வேண்டும்."
+msgstr ""
 
-#: ../sepolicy/sepolicy/generate.py:333
+#: ../sepolicy/sepolicy/generate.py:335
 msgid ""
 "Name must be alpha numberic with no spaces. Consider using option \"-n "
 "MODULENAME\""
@@ -4044,44 +4074,44 @@ msgstr ""
 "பெயரில் இடைவெளி இருக்கக்கூடாது, எண்களும் எழுத்துகளும் இருக்க வேண்டும். \"-n MODULENAME"
 "\" என்பதைப் பயன்படுத்தலாம்"
 
-#: ../sepolicy/sepolicy/generate.py:425
+#: ../sepolicy/sepolicy/generate.py:427
 msgid "User Role types can not be assigned executables."
 msgstr "பயனர் பங்குகள் ஒதுக்கீடு செய்த இயக்கத்தக்கவைகளாக இருக்க முடியாது."
 
-#: ../sepolicy/sepolicy/generate.py:431
+#: ../sepolicy/sepolicy/generate.py:433
 msgid "Only Daemon apps can use an init script.."
 msgstr "டெமான் பயன்பாடுகள் மட்டுமே init ஸ்கிரிப்ட்டை பயன்படுத்த முடியும்..."
 
-#: ../sepolicy/sepolicy/generate.py:449
+#: ../sepolicy/sepolicy/generate.py:451
 msgid "use_resolve must be a boolean value "
 msgstr "use_resolve என்பது பூலியன் மதிப்பாகவே இருக்க வேண்டும்"
 
-#: ../sepolicy/sepolicy/generate.py:455
+#: ../sepolicy/sepolicy/generate.py:457
 msgid "use_syslog must be a boolean value "
 msgstr "use_syslog என்பது பூலியன் மதிப்பாகவே இருக்க வேண்டும்"
 
-#: ../sepolicy/sepolicy/generate.py:461
+#: ../sepolicy/sepolicy/generate.py:463
 msgid "use_kerberos must be a boolean value "
 msgstr "use_kerberos என்பது பூலியன் மதிப்பாகவே இருக்க வேண்டும்"
 
-#: ../sepolicy/sepolicy/generate.py:467
+#: ../sepolicy/sepolicy/generate.py:469
 msgid "manage_krb5_rcache must be a boolean value "
 msgstr "manage_krb5_rcache என்பது பூலியன் மதிப்பாகவே இருக்க வேண்டும்"
 
-#: ../sepolicy/sepolicy/generate.py:497
+#: ../sepolicy/sepolicy/generate.py:499
 msgid "USER Types automatically get a tmp type"
 msgstr "USER வகைகள் தானாகவே ஒரு tmp வகையை பெறுகிறது"
 
-#: ../sepolicy/sepolicy/generate.py:838
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/generate.py:840
+#, python-format
 msgid "'%s' policy modules require existing domains"
-msgstr "%s கொள்கை தொகுதிக்கூறுகளுக்கு முன்பே உள்ள களங்கள் தேவை"
+msgstr ""
 
-#: ../sepolicy/sepolicy/generate.py:863
+#: ../sepolicy/sepolicy/generate.py:865
 msgid "Type field required"
 msgstr "வகை புலம் தேவைப்படுகிறது"
 
-#: ../sepolicy/sepolicy/generate.py:876
+#: ../sepolicy/sepolicy/generate.py:878
 #, python-format
 msgid ""
 "You need to define a new type which ends with: \n"
@@ -4090,328 +4120,313 @@ msgstr ""
 "இதைக் கொண்டு முடிம்கின்ற ஒரு புதிய வகையை நீங்கள் வரையறுக்க வேண்டும்: \n"
 " %s"
 
-#: ../sepolicy/sepolicy/generate.py:1104
+#: ../sepolicy/sepolicy/generate.py:1106
 msgid "You must enter the executable path for your confined process"
 msgstr "வரையறுக்கப்பட்ட செயல்பாட்டுக்கு நிறைவேற்றக்கூடிய பாதை நீங்கள் உள்ளிடவும்"
 
-#: ../sepolicy/sepolicy/generate.py:1363
+#: ../sepolicy/sepolicy/generate.py:1369
 msgid "Type Enforcement file"
 msgstr "வகை கட்டாயப்படுத்தல் கோப்பு"
 
-#: ../sepolicy/sepolicy/generate.py:1364
+#: ../sepolicy/sepolicy/generate.py:1370
 msgid "Interface file"
 msgstr "இடைமுகக் கோப்பு"
 
-#: ../sepolicy/sepolicy/generate.py:1365
+#: ../sepolicy/sepolicy/generate.py:1371
 msgid "File Contexts file"
 msgstr "கோப்பு சூழல்கள் கோப்பு"
 
-#: ../sepolicy/sepolicy/generate.py:1367
+#: ../sepolicy/sepolicy/generate.py:1373
 msgid "Spec file"
 msgstr "விவரக்குறிப்புக் கோப்பு"
 
-#: ../sepolicy/sepolicy/generate.py:1368
+#: ../sepolicy/sepolicy/generate.py:1374
 msgid "Setup Script"
 msgstr "அமைவு ஸ்கிரிப்ட்"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:25
-#: ../sepolicy/sepolicy/sepolicy.glade:4369
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:4330
 msgid "Applications"
-msgstr "பயன்பாடு"
+msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:52
 msgid "Select domain"
 msgstr "டொமைனைத் தேர்ந்தெடுக்கவும்"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:80 ../sepolicy/sepolicy/gui.py:67
+#: ../sepolicy/sepolicy/sepolicy.glade:80 ../sepolicy/sepolicy/gui.py:69
 msgid "Advanced Search >>"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:95 ../sepolicy/sepolicy/gui.py:2306
+#: ../sepolicy/sepolicy/sepolicy.glade:95 ../sepolicy/sepolicy/gui.py:2343
 msgid "File Equivalence"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:112 ../sepolicy/sepolicy/gui.py:2316
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:112 ../sepolicy/sepolicy/gui.py:2353
 msgid "Users"
-msgstr "பயனரை சேர்"
+msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:129
-#: ../sepolicy/sepolicy/sepolicy.glade:1897
-#: ../sepolicy/sepolicy/sepolicy.glade:3802 ../sepolicy/sepolicy/gui.py:2297
+#: ../sepolicy/sepolicy/sepolicy.glade:1898
+#: ../sepolicy/sepolicy/sepolicy.glade:3803 ../sepolicy/sepolicy/gui.py:2334
 msgid "System"
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:189
-#: ../sepolicy/sepolicy/sepolicy.glade:4406
-#: ../sepolicy/sepolicy/sepolicy.glade:4499
-#: ../sepolicy/sepolicy/sepolicy.glade:4645
-#: ../sepolicy/sepolicy/sepolicy.glade:4793
-#: ../sepolicy/sepolicy/sepolicy.glade:4934
-#: ../sepolicy/sepolicy/sepolicy.glade:5007
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:4367
+#: ../sepolicy/sepolicy/sepolicy.glade:4460
+#: ../sepolicy/sepolicy/sepolicy.glade:4606
+#: ../sepolicy/sepolicy/sepolicy.glade:4755
+#: ../sepolicy/sepolicy/sepolicy.glade:4889
+#: ../sepolicy/sepolicy/sepolicy.glade:5030
+#: ../sepolicy/sepolicy/sepolicy.glade:5103
+#: ../sepolicy/sepolicy/sepolicy.glade:5238
 msgid "Select"
-msgstr "முனையங்களைத் தேர்ந்தெடுக்கவும்"
+msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:204
-#: ../sepolicy/sepolicy/sepolicy.glade:557
-#: ../sepolicy/sepolicy/sepolicy.glade:702
-#: ../sepolicy/sepolicy/sepolicy.glade:1243
-#: ../sepolicy/sepolicy/sepolicy.glade:1539
-#: ../sepolicy/sepolicy/sepolicy.glade:4579
-#: ../sepolicy/sepolicy/sepolicy.glade:4729
-#: ../sepolicy/sepolicy/sepolicy.glade:4859
-#: ../sepolicy/sepolicy/sepolicy.glade:5077
-#: ../sepolicy/sepolicy/sepolicy.glade:5233
-#: ../sepolicy/sepolicy/sepolicy.glade:5474
+#: ../sepolicy/sepolicy/sepolicy.glade:539
+#: ../sepolicy/sepolicy/sepolicy.glade:684
+#: ../sepolicy/sepolicy/sepolicy.glade:1239
+#: ../sepolicy/sepolicy/sepolicy.glade:1535
+#: ../sepolicy/sepolicy/sepolicy.glade:4540
+#: ../sepolicy/sepolicy/sepolicy.glade:4690
+#: ../sepolicy/sepolicy/sepolicy.glade:4821
+#: ../sepolicy/sepolicy/sepolicy.glade:4955
+#: ../sepolicy/sepolicy/sepolicy.glade:5173
+#: ../sepolicy/sepolicy/sepolicy.glade:5304
+#: ../sepolicy/sepolicy/sepolicy.glade:5464
 msgid "Cancel"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:350
+#: ../sepolicy/sepolicy/sepolicy.glade:332
 msgid ""
 "The entry that was entered is incorrect.  Please try again in the "
 "ex:/.../... format."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:376
+#: ../sepolicy/sepolicy/sepolicy.glade:358
 msgid "Retry"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:460
-#: ../sepolicy/sepolicy/sepolicy.glade:1124
-#: ../sepolicy/sepolicy/sepolicy.glade:1372
-#: ../sepolicy/sepolicy/sepolicy.glade:5102
-#: ../sepolicy/sepolicy/sepolicy.glade:5343
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:442
+#: ../sepolicy/sepolicy/sepolicy.glade:1120
+#: ../sepolicy/sepolicy/sepolicy.glade:1368
+#: ../sepolicy/sepolicy/sepolicy.glade:5332
 msgid "Network Port Definitions"
-msgstr "பிணைய முனையம்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:476
+#: ../sepolicy/sepolicy/sepolicy.glade:458
 msgid ""
-"Add file Equivilence Mapping.  Mapping will be created when Update is "
+"Add file Equivalence Mapping.  Mapping will be created when Update is "
 "applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:501
-#: ../sepolicy/sepolicy/sepolicy.glade:4045
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:483
+#: ../sepolicy/sepolicy/sepolicy.glade:4046
 msgid "Path"
-msgstr "கோப்புப் பாதை"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:511
-#: ../sepolicy/sepolicy/sepolicy.glade:5154
-#: ../sepolicy/sepolicy/sepolicy.glade:5395
+#: ../sepolicy/sepolicy/sepolicy.glade:493
+#: ../sepolicy/sepolicy/sepolicy.glade:5384
 msgid ""
 "Specify a new SELinux user name.  By convention SELinux User names usually "
 "end in an _u."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:515
+#: ../sepolicy/sepolicy/sepolicy.glade:497
 msgid "Enter the path to which you want to setup an equivalence label."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:528
-#: ../sepolicy/sepolicy/sepolicy.glade:4062
-#: ../sepolicy/sepolicy/sepolicy.glade:4819
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:510
+#: ../sepolicy/sepolicy/sepolicy.glade:4063
+#: ../sepolicy/sepolicy/sepolicy.glade:4781
 msgid "Equivalence Path"
-msgstr "கோப்புப் பாதை"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:542
-#: ../sepolicy/sepolicy/sepolicy.glade:687
-#: ../sepolicy/sepolicy/sepolicy.glade:1228
-#: ../sepolicy/sepolicy/sepolicy.glade:1524
-#: ../sepolicy/sepolicy/sepolicy.glade:5218
-#: ../sepolicy/sepolicy/sepolicy.glade:5459
+#: ../sepolicy/sepolicy/sepolicy.glade:524
+#: ../sepolicy/sepolicy/sepolicy.glade:669
+#: ../sepolicy/sepolicy/sepolicy.glade:1224
+#: ../sepolicy/sepolicy/sepolicy.glade:1520
+#: ../sepolicy/sepolicy/sepolicy.glade:5449
 msgid "Save to update"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:582
+#: ../sepolicy/sepolicy/sepolicy.glade:564
 msgid ""
 "Specify the mapping between the new path and the equivalence path.  "
 "Everything under this new path will be labeled as if they were under the "
 "equivalence path."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:639
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:621
 msgid "Add a file"
-msgstr "ஒரு கோப்பைச் சேர்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:656
+#: ../sepolicy/sepolicy/sepolicy.glade:638
 msgid ""
 "<operation> File Labeling for <selected domain>. File labels will be created "
 "when update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:744
-#: ../sepolicy/sepolicy/sepolicy.glade:1471
-#: ../sepolicy/sepolicy/sepolicy.glade:3510 ../sepolicy/sepolicy/gui.py:66
+#: ../sepolicy/sepolicy/sepolicy.glade:726
+#: ../sepolicy/sepolicy/sepolicy.glade:1467
+#: ../sepolicy/sepolicy/sepolicy.glade:3511 ../sepolicy/sepolicy/gui.py:68
 msgid "Advanced >>"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:765
-#: ../sepolicy/sepolicy/sepolicy.glade:2305
-#: ../sepolicy/sepolicy/sepolicy.glade:2417
-#: ../sepolicy/sepolicy/sepolicy.glade:2539
-#: ../sepolicy/sepolicy/sepolicy.glade:4539
+#: ../sepolicy/sepolicy/sepolicy.glade:747
+#: ../sepolicy/sepolicy/sepolicy.glade:2306
+#: ../sepolicy/sepolicy/sepolicy.glade:2418
+#: ../sepolicy/sepolicy/sepolicy.glade:2540
+#: ../sepolicy/sepolicy/sepolicy.glade:4500
 msgid "Class"
 msgstr "வகுப்பு"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:781
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:763
 msgid "Type"
 msgstr ""
-"கோப்பு\n"
-"வகை"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:795
+#: ../sepolicy/sepolicy/sepolicy.glade:777
 msgid ""
 "Select the file class to which this label will be applied.  Defaults to all "
 "classes."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:822
+#: ../sepolicy/sepolicy/sepolicy.glade:804
 msgid "Make Path Recursive"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:826
+#: ../sepolicy/sepolicy/sepolicy.glade:808
 msgid ""
-"Select Make Path Recursive iff you want to apply this label to all children "
+"Select Make Path Recursive if you want to apply this label to all children "
 "of the specified directory path. objects under the directory to have this "
 "label."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:839
+#: ../sepolicy/sepolicy/sepolicy.glade:821
 msgid "Browse"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:843
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:825
 msgid "Browse to select the file/directory for labeling."
-msgstr "ஏதாவது கோப்பு/அடைவு வாசிக்க மட்டும் என்பதை பகிர சாம்பாவை அனுமதிக்கவும்."
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:887
+#: ../sepolicy/sepolicy/sepolicy.glade:869
 msgid "Path  "
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:898
+#: ../sepolicy/sepolicy/sepolicy.glade:880
 msgid ""
 "Specify the path using regular expressions that you would like to modify the "
 "labeling."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:920
+#: ../sepolicy/sepolicy/sepolicy.glade:902
 msgid "Select the SELinux file type to assign to this path."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:947
+#: ../sepolicy/sepolicy/sepolicy.glade:929
 msgid "Enter the MLS Label to assign to this file path."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:951
+#: ../sepolicy/sepolicy/sepolicy.glade:933
 msgid "SELinux MLS Label you wish to assign to this path."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1088
+#: ../sepolicy/sepolicy/sepolicy.glade:1070
 msgid "Analyzing Policy..."
 msgstr "கொள்கையைப் பகுப்பாய்வு செய்கிறது..."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1141
+#: ../sepolicy/sepolicy/sepolicy.glade:1137
 msgid ""
 "Add Login Mapping. Login Mapping will be created when update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1176
+#: ../sepolicy/sepolicy/sepolicy.glade:1172
 msgid ""
 "Enter the login user name of the user to which you wish to add SELinux User "
 "confinement."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1205
+#: ../sepolicy/sepolicy/sepolicy.glade:1201
 msgid ""
 "Select the SELinux User to assign to this login user.  Login users by "
 "default get assigned by the __default__ user."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1268
+#: ../sepolicy/sepolicy/sepolicy.glade:1264
 msgid ""
 "Enter MLS/MCS Range for this login User.  Defaults to the range for the "
 "Selected SELinux User."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1271
-#: ../sepolicy/sepolicy/sepolicy.glade:3191
-#: ../sepolicy/sepolicy/sepolicy.glade:3312
-#: ../sepolicy/sepolicy/sepolicy.glade:5184
-#: ../sepolicy/sepolicy/sepolicy.glade:5425
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:1267
+#: ../sepolicy/sepolicy/sepolicy.glade:3192
+#: ../sepolicy/sepolicy/sepolicy.glade:3313
+#: ../sepolicy/sepolicy/sepolicy.glade:5414
 msgid "MLS Range"
-msgstr "MCS வரையறை"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1283
+#: ../sepolicy/sepolicy/sepolicy.glade:1279
 msgid ""
 "Specify the MLS Range for this user to login in with.  Defaults to the "
 "selected SELinux Users MLS Range."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1389
+#: ../sepolicy/sepolicy/sepolicy.glade:1385
 msgid ""
 "<operation> Network Port for <selected domain>.  Ports will be created when "
 "update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1427
+#: ../sepolicy/sepolicy/sepolicy.glade:1423
 msgid "Enter the port number or range to which you want to add a port type."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1457
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:1453
 msgid "Port Type"
-msgstr "SELinux துறை வகை"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1502
+#: ../sepolicy/sepolicy/sepolicy.glade:1498
 msgid "Select the port type you want to assign to the specified port number."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1566
+#: ../sepolicy/sepolicy/sepolicy.glade:1562
 msgid "tcp"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1570
+#: ../sepolicy/sepolicy/sepolicy.glade:1566
 msgid ""
 "Select <b>tcp</b> if the port type should be assigned to tcp port numbers."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1583
+#: ../sepolicy/sepolicy/sepolicy.glade:1579
 msgid "udp"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1587
+#: ../sepolicy/sepolicy/sepolicy.glade:1583
 msgid ""
 "Select <b>udp</b> if the port type should be assigned to udp port numbers."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1609
+#: ../sepolicy/sepolicy/sepolicy.glade:1605
 msgid "Enter the MLS Label to assign to this port."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1706
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:1707
 msgid "SELinux Configuration"
-msgstr "SELinux நிர்வாகம்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1742
+#: ../sepolicy/sepolicy/sepolicy.glade:1743
 msgid "Select..."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1791
-#: ../sepolicy/sepolicy/sepolicy.glade:2211
+#: ../sepolicy/sepolicy/sepolicy.glade:1792
+#: ../sepolicy/sepolicy/sepolicy.glade:2212
 msgid "Booleans"
 msgstr "பூலியன்கள்"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1795
+#: ../sepolicy/sepolicy/sepolicy.glade:1796
 msgid ""
 "Display boolean information that can be used to modify the policy for the "
 "'selected domain'."
@@ -4419,34 +4434,34 @@ msgstr ""
 "'தேர்ந்தெடுக்கப்பட்ட டொமைனுக்கான' கொள்கையில் மாற்றம் செய்ய பயன்படுத்தக்கூடிய பூலியன் தகவலைக் "
 "காண்பி."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1809
-#: ../sepolicy/sepolicy/sepolicy.glade:2596
+#: ../sepolicy/sepolicy/sepolicy.glade:1810
+#: ../sepolicy/sepolicy/sepolicy.glade:2597
 msgid "Files"
 msgstr "கோப்புகள்"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1813
+#: ../sepolicy/sepolicy/sepolicy.glade:1814
 msgid ""
 "Display file type information that can be used by the 'selected domain'."
 msgstr "'தேர்ந்தெடுக்கப்பட்ட டொமைன்' பயன்படுத்தக்கூடிய கோப்பு வகைத் தகவலைக் காண்பி."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1827
-#: ../sepolicy/sepolicy/sepolicy.glade:2829
+#: ../sepolicy/sepolicy/sepolicy.glade:1828
+#: ../sepolicy/sepolicy/sepolicy.glade:2830
 msgid "Network"
 msgstr "பிணையம்"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1831
+#: ../sepolicy/sepolicy/sepolicy.glade:1832
 msgid ""
 "Display network ports to which the 'selected domain' can connect or listen "
 "to."
 msgstr ""
 "'தேர்ந்தெடுக்கப்பட்ட டொமைன்' இணைக்கக்கூடிய அல்லது கவனிக்கக்கூடிய பிணைய முனையங்களைக் காண்பி."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1845
-#: ../sepolicy/sepolicy/sepolicy.glade:3120
+#: ../sepolicy/sepolicy/sepolicy.glade:1846
+#: ../sepolicy/sepolicy/sepolicy.glade:3121
 msgid "Transitions"
 msgstr "நிலைமாற்றங்கள்"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1849
+#: ../sepolicy/sepolicy/sepolicy.glade:1850
 msgid ""
 "Display applications that can transition into or out of the 'selected "
 "domain'."
@@ -4454,137 +4469,129 @@ msgstr ""
 "'தேர்ந்தெடுக்கப்பட்ட டொமைனுக்கு' அல்லது அதிலிருந்து நிலைமாற்றம் அடையக்கூடிய பயன்பாடுகளைக் "
 "காண்பி."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1863
-#: ../sepolicy/sepolicy/sepolicy.glade:3221
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:1864
+#: ../sepolicy/sepolicy/sepolicy.glade:3222
 msgid "Login Mapping"
-msgstr "SELinux புகுபதிவு மேப்பிங்கைச் சேர்க்கவும்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1866
-#: ../sepolicy/sepolicy/sepolicy.glade:1883
-#: ../sepolicy/sepolicy/sepolicy.glade:1900
+#: ../sepolicy/sepolicy/sepolicy.glade:1867
+#: ../sepolicy/sepolicy/sepolicy.glade:1884
+#: ../sepolicy/sepolicy/sepolicy.glade:1901
 msgid "Manage the SELinux configuration"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1880
-#: ../sepolicy/sepolicy/sepolicy.glade:3343
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:1881
+#: ../sepolicy/sepolicy/sepolicy.glade:3344
 msgid "SELinux Users"
-msgstr "SELinux பயனர்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1914
-#: ../sepolicy/sepolicy/sepolicy.glade:4015
+#: ../sepolicy/sepolicy/sepolicy.glade:1915
+#: ../sepolicy/sepolicy/sepolicy.glade:4016
 msgid "Lockdown"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1917
+#: ../sepolicy/sepolicy/sepolicy.glade:1918
 msgid ""
 "Lockdown the SELinux System.\n"
 "This screen can be used to turn up the SELinux Protections."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1932
+#: ../sepolicy/sepolicy/sepolicy.glade:1933
 msgid "radiobutton"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2020
+#: ../sepolicy/sepolicy/sepolicy.glade:2021
 msgid "Show Modified Only"
 msgstr "மாற்றம் செய்யப்பட்டவை மட்டும் காண்பி"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2059
+#: ../sepolicy/sepolicy/sepolicy.glade:2060
 msgid "Mislabeled files exist"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2079
+#: ../sepolicy/sepolicy/sepolicy.glade:2080
 msgid "Show mislabeled files only"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2119
-#: ../sepolicy/sepolicy/sepolicy.glade:3243
+#: ../sepolicy/sepolicy/sepolicy.glade:2120
+#: ../sepolicy/sepolicy/sepolicy.glade:3244
 msgid ""
-"If-Then-Else rules written in policy that can \n"
+"If-Then-Else rules written in policy that can\n"
 "allow alternative access control."
 msgstr ""
-"கொள்கையில் எழுதப்பட்டுள்ள, மாற்று அணுகல் கட்டுப்பாட்டை அனுமதிக்கக்கூடிய If-Then-Else \n"
-"விதிகள்."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2131
+#: ../sepolicy/sepolicy/sepolicy.glade:2132
 msgid "Enabled"
 msgstr "செயல்படுத்தப்பட்டது"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2251
-#: ../sepolicy/sepolicy/sepolicy.glade:2363
-#: ../sepolicy/sepolicy/sepolicy.glade:2481
-#: ../sepolicy/sepolicy/sepolicy.glade:4512
-#: ../sepolicy/sepolicy/sepolicy.glade:4806
+#: ../sepolicy/sepolicy/sepolicy.glade:2252
+#: ../sepolicy/sepolicy/sepolicy.glade:2364
+#: ../sepolicy/sepolicy/sepolicy.glade:2482
+#: ../sepolicy/sepolicy/sepolicy.glade:4473
+#: ../sepolicy/sepolicy/sepolicy.glade:4768
 msgid "File Path"
 msgstr "கோப்புப் பாதை"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2287
-#: ../sepolicy/sepolicy/sepolicy.glade:2398
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:2288
+#: ../sepolicy/sepolicy/sepolicy.glade:2399
 msgid "SELinux File Type"
-msgstr "SELinux வகை"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2331
+#: ../sepolicy/sepolicy/sepolicy.glade:2332
 msgid "File path used to enter the 'selected domain'."
 msgstr "'தேர்ந்தெடுத்த டொமைனை' உள்ளிடப் பயன்படுத்திய கோப்புப் பாதை."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2332
+#: ../sepolicy/sepolicy/sepolicy.glade:2333
 msgid "Executable Files"
 msgstr "செயல்படுத்தக்கூடிய கோப்புகள்"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2447
+#: ../sepolicy/sepolicy/sepolicy.glade:2448
 msgid "Files to which the 'selected domain' can write."
 msgstr "'தேர்ந்தெடுத்த டொமைன்' எழுதக்கூடிய கோப்புகள்."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2448
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:2449
 msgid "Writable files"
-msgstr "எழுதக்கூடிய கோப்புகள்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2570
+#: ../sepolicy/sepolicy/sepolicy.glade:2571
 msgid "File Types defined for the 'selected domain'."
 msgstr "'தேர்ந்தெடுத்த டொமைனுக்கான' வரையறுக்கப்பட்ட கோப்பு வகைகள்."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2571
+#: ../sepolicy/sepolicy/sepolicy.glade:2572
 msgid "Application File Types"
 msgstr "பயன்பாடு கோப்பு வகைகள்"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2703
+#: ../sepolicy/sepolicy/sepolicy.glade:2704
 msgid "Network Ports to which the 'selected domain' is allowed to connect."
 msgstr "'தேர்ந்தெடுக்கப்பட்ட டொமைன்' இணைக்க அனுமதிக்கப்பட்ட பிணைய முனையங்கள்."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2704
+#: ../sepolicy/sepolicy/sepolicy.glade:2705
 msgid "Outbound"
 msgstr "வெளிவகை"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2803
+#: ../sepolicy/sepolicy/sepolicy.glade:2804
 msgid "Network Ports to which the 'selected domain' is allowed to listen."
 msgstr "'தேர்ந்தெடுக்கப்பட்ட டொமைன்' கவனிக்க அனுமதிக்கப்பட்ட பிணைய முனையங்கள்."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2804
+#: ../sepolicy/sepolicy/sepolicy.glade:2805
 msgid "Inbound"
 msgstr "உள்வகை"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2865
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:2866
+#: ../sepolicy/sepolicy/sepolicy.glade:2956
 msgid ""
-"Boolean \n"
+"Boolean\n"
 "Enabled"
-msgstr "பூலியன் பெயர்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2891
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:2892
 msgid "Boolean name"
-msgstr "பூலியன் பெயர்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2908
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:2909
 msgid "SELinux Application Type"
-msgstr "பயன்பாடு கோப்பு வகைகள்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2929
+#: ../sepolicy/sepolicy/sepolicy.glade:2930
 msgid ""
 "Executables which will transition to a different domain, when the 'selected "
 "domain' executes them."
@@ -4592,27 +4599,22 @@ msgstr ""
 "'தேர்ந்தெடுக்கப்பட்ட டொமைன்' செயல்படுத்தக்கூடியவற்றை இயக்கும் போது, வேறு டொமைனுக்கு "
 "நிலைமாறும் செயல்படுத்தக்கூடியவை."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2932
+#: ../sepolicy/sepolicy/sepolicy.glade:2933
 #, fuzzy
-msgid "Applicaton Transitions From 'select domain'"
-msgstr "'தேர்ந்தெடுத்த டொமைனிலிருந்து' நிலைமாற்றம்"
+msgid "Application Transitions From 'select domain'"
+msgstr ""
+"'தேர்ந்தெடுக்கப்பட்ட டொமைனுக்கு' அல்லது அதிலிருந்து நிலைமாற்றம் அடையக்கூடிய பயன்பாடுகளைக் "
+"காண்பி."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2955
-#, fuzzy
-msgid ""
-"Boolean\n"
-"Enabled"
-msgstr "பூலியன் பெயர்"
-
-#: ../sepolicy/sepolicy/sepolicy.glade:2971
+#: ../sepolicy/sepolicy/sepolicy.glade:2972
 msgid "Calling Process Domain"
 msgstr "செயலாக்க டொமைனை அழைக்கிறது"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2987
+#: ../sepolicy/sepolicy/sepolicy.glade:2988
 msgid "Executable File"
 msgstr "செயல்படுத்தக்கூடிய கோப்பு"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3011
+#: ../sepolicy/sepolicy/sepolicy.glade:3012
 msgid ""
 "Executables which will transition to the 'selected domain', when executing a "
 "selected domains entrypoint."
@@ -4620,107 +4622,98 @@ msgstr ""
 "தேர்ந்தெடுக்கப்பட்ட டொமைன்கள் நுழைவுப்புள்ளியை செயல்படுத்தும் போது, 'தேர்ந்தெடுக்கப்பட்ட "
 "டொமைனுக்கு' நிலைமாறும் செயல்படுத்தக்கூடியவை."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3012
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:3013
 msgid "Application Transitions Into 'select domain'"
-msgstr "'தேர்ந்தெடுத்த டொமைனுக்கான' நிலைமாற்றங்கள்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3027
+#: ../sepolicy/sepolicy/sepolicy.glade:3028
 msgid ""
 "File Transitions define what happens when the current domain creates the "
 "content of a particular class in a directory of the destination type. "
 "Optionally a file name could be specified for the transition."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3035
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:3036
 msgid "SELinux Directory Type"
-msgstr "SELinux துறை வகை"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3048
+#: ../sepolicy/sepolicy/sepolicy.glade:3049
 msgid "Destination Class"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3062
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:3063
 msgid "SELinux Destination Type"
-msgstr "SELinux துறை வகை"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3075
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:3076
 msgid "File Name"
-msgstr "தொகுதிக்கூறு பெயர்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3097
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:3098
 msgid "File Transitions From 'select domain'"
-msgstr "'தேர்ந்தெடுத்த டொமைனிலிருந்து' நிலைமாற்றம்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3296
-#: ../sepolicy/sepolicy/sepolicy.glade:5277
-#: ../sepolicy/sepolicy/sepolicy.glade:5518
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:3297
+#: ../sepolicy/sepolicy/sepolicy.glade:5508
 msgid "Default Level"
-msgstr "முன்னிருப்பு"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3382
+#: ../sepolicy/sepolicy/sepolicy.glade:3383
 msgid "Select the system mode when the system first boots up"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3455
+#: ../sepolicy/sepolicy/sepolicy.glade:3456
 msgid "Select the system mode for the current session"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3532
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:3533
 msgid "System Policy Type:"
-msgstr "கணினி முன்னிருப்பு கொள்கை வகை:"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3593
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:3594
 msgid "<b>System Mode</b>"
-msgstr "<b>தேர்ந்தெடு:</b>"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3631
+#: ../sepolicy/sepolicy/sepolicy.glade:3632
 msgid "Import system settings from another machine"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3639
+#: ../sepolicy/sepolicy/sepolicy.glade:3640
 msgid "Import"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3658
+#: ../sepolicy/sepolicy/sepolicy.glade:3659
 msgid "Export system settings to a file"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3668
+#: ../sepolicy/sepolicy/sepolicy.glade:3669
 msgid "Export"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3687
+#: ../sepolicy/sepolicy/sepolicy.glade:3688
 msgid "Relabel all files back to system defaults on reboot"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3724
-#: ../sepolicy/sepolicy/sepolicy.glade:3825
-#: ../sepolicy/sepolicy/sepolicy.glade:3889
-#: ../sepolicy/sepolicy/sepolicy.glade:3952 ../sepolicy/sepolicy/gui.py:60
+#: ../sepolicy/sepolicy/sepolicy.glade:3725
+#: ../sepolicy/sepolicy/sepolicy.glade:3826
+#: ../sepolicy/sepolicy/sepolicy.glade:3890
+#: ../sepolicy/sepolicy/sepolicy.glade:3953 ../sepolicy/sepolicy/gui.py:64
 msgid "Yes"
 msgstr "ஆம்"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3741
-#: ../sepolicy/sepolicy/sepolicy.glade:3843
-#: ../sepolicy/sepolicy/sepolicy.glade:3906
-#: ../sepolicy/sepolicy/sepolicy.glade:3969 ../sepolicy/sepolicy/gui.py:60
+#: ../sepolicy/sepolicy/sepolicy.glade:3742
+#: ../sepolicy/sepolicy/sepolicy.glade:3844
+#: ../sepolicy/sepolicy/sepolicy.glade:3907
+#: ../sepolicy/sepolicy/sepolicy.glade:3970 ../sepolicy/sepolicy/gui.py:64
 msgid "No"
 msgstr "இல்லை"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3782
+#: ../sepolicy/sepolicy/sepolicy.glade:3783
 msgid "<b>System Configuration</b>"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3829
-#: ../sepolicy/sepolicy/sepolicy.glade:3847
+#: ../sepolicy/sepolicy/sepolicy.glade:3830
+#: ../sepolicy/sepolicy/sepolicy.glade:3848
 msgid ""
 "An unconfined domain is a process label that allows the process to do what "
 "it wants, without SELinux interfering.  Applications started at boot by the "
@@ -4730,13 +4723,13 @@ msgid ""
 "unconfined_t from the users/login screens."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3865
+#: ../sepolicy/sepolicy/sepolicy.glade:3866
 msgid "<b>Disable ability to run unconfined system processes?</b>"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3893
-#: ../sepolicy/sepolicy/sepolicy.glade:3910
-#: ../sepolicy/sepolicy/sepolicy.glade:3973
+#: ../sepolicy/sepolicy/sepolicy.glade:3894
+#: ../sepolicy/sepolicy/sepolicy.glade:3911
+#: ../sepolicy/sepolicy/sepolicy.glade:3974
 msgid ""
 "An permissive domain is a process label that allows the process to do what "
 "it wants, with SELinux only logging the denials, but not enforcing them.  "
@@ -4745,11 +4738,11 @@ msgid ""
 "allowed."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3928
+#: ../sepolicy/sepolicy/sepolicy.glade:3929
 msgid "<b>Disable all permissive processes?</b>"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3956
+#: ../sepolicy/sepolicy/sepolicy.glade:3957
 msgid ""
 "A permissive domain is a process label that allows the process to do what it "
 "wants, with SELinux only logging the denials, but not enforcing them.  "
@@ -4758,183 +4751,189 @@ msgid ""
 "allowed."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3994
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:3995
 msgid "<b>Deny all processes from ptracing or debugging other processes?</b>"
 msgstr ""
-"ஏதேனும் செயலாக்கங்கள் மற்ற செயலாக்கங்களை பேட்ச் செய்வதையும் வழுநீக்கம் செய்வதையும் மறுக்கவும்."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4031
+#: ../sepolicy/sepolicy/sepolicy.glade:4032
 msgid ""
 "File equivalence cause the system to label content under the new path as if "
 "it were under the equivalence path."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4087
+#: ../sepolicy/sepolicy/sepolicy.glade:4088
 msgid "Files Equivalence"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4100
+#: ../sepolicy/sepolicy/sepolicy.glade:4101
 msgid "<b>...SELECT TO VIEW DATA...</b>"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4131
+#: ../sepolicy/sepolicy/sepolicy.glade:4132
 msgid "Delete"
 msgstr "அழி"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4147
+#: ../sepolicy/sepolicy/sepolicy.glade:4148
 msgid "Modify"
 msgstr "மாற்றியமை"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4208
+#: ../sepolicy/sepolicy/sepolicy.glade:4209
 msgid "Revert"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4213
+#: ../sepolicy/sepolicy/sepolicy.glade:4214
 msgid ""
 "Revert button will launch a dialog window which allows you to revert changes "
 "within the current transaction."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4225 ../sepolicy/sepolicy/gui.py:2379
+#: ../sepolicy/sepolicy/sepolicy.glade:4226 ../sepolicy/sepolicy/gui.py:2416
 msgid "Update"
 msgstr "புதுப்பி"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4230
+#: ../sepolicy/sepolicy/sepolicy.glade:4231
 msgid "Commit all changes in your current transaction to the server."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4278
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:4279
 msgid "Applications - Advanced Search"
-msgstr "பயன்பாடு மேலும் விவரமான காட்சி"
-
-#: ../sepolicy/sepolicy/sepolicy.glade:4331
-msgid "Installed"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4383
+#: ../sepolicy/sepolicy/sepolicy.glade:4344
 msgid "Process Types"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4424
+#: ../sepolicy/sepolicy/sepolicy.glade:4385
 msgid "More Details"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4460
-#: ../sepolicy/sepolicy/sepolicy.glade:4754
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:4421
+#: ../sepolicy/sepolicy/sepolicy.glade:4715
 msgid "Delete Modified File Labeling"
-msgstr "கோப்பு லேபிளிடல்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4478
+#: ../sepolicy/sepolicy/sepolicy.glade:4439
 msgid ""
 "Select file labeling to delete. File labeling will be deleted when update is "
 "applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4525
+#: ../sepolicy/sepolicy/sepolicy.glade:4486
 msgid "SELinux File Label"
 msgstr "SELinux கோப்பு லேபிள்"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4564
-#: ../sepolicy/sepolicy/sepolicy.glade:4714
-#: ../sepolicy/sepolicy/sepolicy.glade:4844
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:4525
+#: ../sepolicy/sepolicy/sepolicy.glade:4675
+#: ../sepolicy/sepolicy/sepolicy.glade:4806
+#: ../sepolicy/sepolicy/sepolicy.glade:4940
+#: ../sepolicy/sepolicy/sepolicy.glade:5289
 msgid "Save to Update"
-msgstr "புதுப்பி"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4604
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:4565
 msgid "Delete Modified Ports"
-msgstr "பிணைய முனையத்தை அழிக்கவும்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4622
+#: ../sepolicy/sepolicy/sepolicy.glade:4583
 msgid "Select ports to delete. Ports will be deleted when update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4771
+#: ../sepolicy/sepolicy/sepolicy.glade:4733
 msgid ""
-"Select file equivalence labeling to delete.File equivalence labeling will be "
-"deleted when update is applied."
+"Select file equivalence labeling to delete. File equivalence labeling will "
+"be deleted when update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4887
-#, fuzzy
-msgid "More Types"
-msgstr "கோப்பு வகை"
+#: ../sepolicy/sepolicy/sepolicy.glade:4849
+#: ../sepolicy/sepolicy/sepolicy.glade:5198
+msgid "Delete Modified Users Mapping."
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4914
+#: ../sepolicy/sepolicy/sepolicy.glade:4867
+msgid ""
+"Select login user mapping to delete. Login user mapping will be deleted when "
+"update is applied."
+msgstr ""
+
+#: ../sepolicy/sepolicy/sepolicy.glade:4902
+msgid "Login name"
+msgstr ""
+
+#: ../sepolicy/sepolicy/sepolicy.glade:4983
+msgid "More Types"
+msgstr ""
+
+#: ../sepolicy/sepolicy/sepolicy.glade:5010
 msgid "Types"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4973
+#: ../sepolicy/sepolicy/sepolicy.glade:5069
 msgid ""
 "Review the updates you have made before committing them to the system.  To "
 "reset an item, uncheck the checkbox.  All items checked will be updated in "
 "the system when you select update."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5036
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:5132
 msgid "Action"
-msgstr "பயன்பாடு"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5062
+#: ../sepolicy/sepolicy/sepolicy.glade:5158
 msgid "Apply"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5119
-#: ../sepolicy/sepolicy/sepolicy.glade:5360
+#: ../sepolicy/sepolicy/sepolicy.glade:5216
+msgid ""
+"Select users mapping to delete.Users mapping will be deleted when update is "
+"applied."
+msgstr ""
+
+#: ../sepolicy/sepolicy/sepolicy.glade:5264
+msgid "SELinux Username"
+msgstr ""
+
+#: ../sepolicy/sepolicy/sepolicy.glade:5349
 msgid ""
 "Add User Roles. SELinux User Roles will be created when Update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5144
-#: ../sepolicy/sepolicy/sepolicy.glade:5385
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:5374
 msgid "SELinux User Name"
-msgstr "SELinux பயனர்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5258
-#: ../sepolicy/sepolicy/sepolicy.glade:5499
+#: ../sepolicy/sepolicy/sepolicy.glade:5489
 msgid ""
 "Enter MLS/MCS Range for this SELinux User.\n"
 "s0-s0:c1023"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5289
-#: ../sepolicy/sepolicy/sepolicy.glade:5530
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:5520
 msgid ""
 "Specify the default level that you would like this SELinux user to login "
 "with.  Defaults to s0."
-msgstr "இந்த பயனர் நிர்வாகி நீங்கள் விரும்பும் செயற்களத்தை தேர்ந்தெடு."
+msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5293
-#: ../sepolicy/sepolicy/sepolicy.glade:5534
+#: ../sepolicy/sepolicy/sepolicy.glade:5524
 msgid "Enter Default Level for SELinux User to login with. Default s0"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:61
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:65
 msgid "Disable"
-msgstr "செயல்நீக்கப்பட்டது"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:61
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:65
 msgid "Enable"
-msgstr "செயல்படுத்தப்பட்டது"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:66
+#: ../sepolicy/sepolicy/gui.py:68
 msgid "Advanced <<"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:67
+#: ../sepolicy/sepolicy/gui.py:69
 msgid "Advanced Search <<"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:92
+#: ../sepolicy/sepolicy/gui.py:94
 msgid ""
 "<small>\n"
 "To change from Disabled to Enforcing mode\n"
@@ -4944,145 +4943,139 @@ msgid ""
 "  * Change the system mode to Enforcing</small>\n"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:115
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:488
+#, python-format
 msgid "%s is not a valid domain"
-msgstr "%s சரியான சூழல் இல்லை\n"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:624
+#: ../sepolicy/sepolicy/gui.py:636
 msgid "System Status: Disabled"
 msgstr "கணினி நிலை: முடக்கப்பட்டுள்ளது"
 
-#: ../sepolicy/sepolicy/gui.py:722
+#: ../sepolicy/sepolicy/gui.py:734
 msgid "Help: Start Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:726
-#, fuzzy
-msgid "Help: Booleans Page"
-msgstr "பூலியன் பெயர்"
-
-#: ../sepolicy/sepolicy/gui.py:732
-#, fuzzy
-msgid "Help: Executable Files Page"
-msgstr "செயல்படுத்தக்கூடிய கோப்புகள்"
-
-#: ../sepolicy/sepolicy/gui.py:735
-#, fuzzy
-msgid "Help: Writable Files Page"
-msgstr "எழுதக்கூடிய கோப்புகள்"
-
 #: ../sepolicy/sepolicy/gui.py:738
-#, fuzzy
+msgid "Help: Booleans Page"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:744
+msgid "Help: Executable Files Page"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:747
+msgid "Help: Writable Files Page"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:750
 msgid "Help: Application Types Page"
-msgstr "பயன்பாடு கோப்பு வகைகள்"
-
-#: ../sepolicy/sepolicy/gui.py:743
-msgid "Help: Outbound Network Connections Page"
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:746
-msgid "Help: Inbound Network Connections Page"
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:752
-msgid "Help: Transition from application Page"
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:755
-msgid "Help: Transition into application Page"
+msgid "Help: Outbound Network Connections Page"
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:758
-msgid "Help: Transition application file Page"
+msgid "Help: Inbound Network Connections Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:762
-msgid "Help: Systems Page"
+#: ../sepolicy/sepolicy/gui.py:764
+msgid "Help: Transition from application Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:766
-msgid "Help: Lockdown Page"
+#: ../sepolicy/sepolicy/gui.py:767
+msgid "Help: Transition into application Page"
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:770
-#, fuzzy
-msgid "Help: Login Page"
-msgstr "புகுபதிவு பெயர்"
+msgid "Help: Transition application file Page"
+msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:774
-#, fuzzy
-msgid "Help: SELinux User Page"
-msgstr "SELinux பயனர் ஒப்பீட்டை அழிக்கவும்"
+msgid "Help: Systems Page"
+msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:778
+msgid "Help: Lockdown Page"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:782
+msgid "Help: Login Page"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:786
+msgid "Help: SELinux User Page"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:790
 msgid "Help: File Equivalence Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:922 ../sepolicy/sepolicy/gui.py:1211
-#: ../sepolicy/sepolicy/gui.py:1644 ../sepolicy/sepolicy/gui.py:1885
-#: ../sepolicy/sepolicy/gui.py:2698
+#: ../sepolicy/sepolicy/gui.py:936 ../sepolicy/sepolicy/gui.py:1227
+#: ../sepolicy/sepolicy/gui.py:1667 ../sepolicy/sepolicy/gui.py:1913
+#: ../sepolicy/sepolicy/gui.py:2692
 msgid "More..."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1031
+#: ../sepolicy/sepolicy/gui.py:1044
 #, python-format
 msgid "File path used to enter the '%s' domain."
 msgstr "'%s' டொமைனை உள்ளிடப் பயன்படுத்திய கோப்புப் பாதை."
 
-#: ../sepolicy/sepolicy/gui.py:1032
+#: ../sepolicy/sepolicy/gui.py:1045
 #, python-format
 msgid "Files to which the '%s' domain can write."
 msgstr "'%s' டொமைன் எழுதக்கூடிய கோப்புகள்."
 
-#: ../sepolicy/sepolicy/gui.py:1033
+#: ../sepolicy/sepolicy/gui.py:1046
 #, python-format
 msgid "Network Ports to which the '%s' is allowed to connect."
 msgstr "'%s' இணைக்க அனுமதிக்கப்பட்ட பிணைய முனையங்கள்."
 
-#: ../sepolicy/sepolicy/gui.py:1034
+#: ../sepolicy/sepolicy/gui.py:1047
 #, python-format
 msgid "Network Ports to which the '%s' is allowed to listen."
 msgstr "'%s' கவனிக்க அனுமதிக்கப்பட்ட பிணைய முனையங்கள்."
 
-#: ../sepolicy/sepolicy/gui.py:1035
+#: ../sepolicy/sepolicy/gui.py:1048
 #, python-format
 msgid "File Types defined for the '%s'."
 msgstr "'%s' க்கான வரையறுக்கப்பட்ட கோப்பு வகைகள்."
 
-#: ../sepolicy/sepolicy/gui.py:1036
+#: ../sepolicy/sepolicy/gui.py:1049
 #, python-format
 msgid ""
 "Display boolean information that can be used to modify the policy for the "
 "'%s'."
 msgstr "'%s' க்கான கொள்கையில் மாற்றம் செய்ய பயன்படுத்தக்கூடிய பூலியன் தகவலைக் காண்பி."
 
-#: ../sepolicy/sepolicy/gui.py:1037
+#: ../sepolicy/sepolicy/gui.py:1050
 #, python-format
 msgid "Display file type information that can be used by the '%s'."
 msgstr "'%s' பயன்படுத்தக்கூடிய கோப்பு வகைத் தகவலைக் காண்பி"
 
-#: ../sepolicy/sepolicy/gui.py:1038
+#: ../sepolicy/sepolicy/gui.py:1051
 #, python-format
 msgid "Display network ports to which the '%s' can connect or listen to."
 msgstr "'%s' இணைக்கக்கூடிய அல்லது கவனிக்கக்கூடிய பிணைய முனையங்களைக் காண்பி."
 
-#: ../sepolicy/sepolicy/gui.py:1039
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:1052
+#, python-format
 msgid "Application Transitions Into '%s'"
-msgstr "'%s' க்கான நிலைமாற்றங்கள்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1040
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:1053
+#, python-format
 msgid "Application Transitions From '%s'"
-msgstr "'%s' இலிருந்தான நிலைமாற்றங்கள்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1041
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:1054
+#, python-format
 msgid "File Transitions From '%s'"
-msgstr "'%s' இலிருந்தான நிலைமாற்றங்கள்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1042
+#: ../sepolicy/sepolicy/gui.py:1055
 #, python-format
 msgid ""
 "Executables which will transition to the '%s', when executing a selected "
@@ -5091,7 +5084,7 @@ msgstr ""
 "தேர்ந்தெடுக்கப்பட்ட டொமைன்கள் நுழைவுப்புள்ளியை செயல்படுத்தும் போது, '%s' க்கு நிலைமாறும் "
 "செயல்படுத்தக்கூடியவை."
 
-#: ../sepolicy/sepolicy/gui.py:1043
+#: ../sepolicy/sepolicy/gui.py:1056
 #, python-format
 msgid ""
 "Executables which will transition to a different domain, when the '%s' "
@@ -5100,387 +5093,390 @@ msgstr ""
 "'%s' செயல்படுத்தக்கூடியவற்றை இயக்கும் போது, வேறு டொமைனுக்கு நிலைமாறும் "
 "செயல்படுத்தக்கூடியவை."
 
-#: ../sepolicy/sepolicy/gui.py:1044
+#: ../sepolicy/sepolicy/gui.py:1057
 #, python-format
 msgid "Files by '%s' will transitions to a different label."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1045
+#: ../sepolicy/sepolicy/gui.py:1058
 #, python-format
 msgid "Display applications that can transition into or out of the '%s'."
 msgstr "'%s' க்கு அல்லது அதிலிருந்து நிலைமாற்றம் அடையக்கூடிய பயன்பாடுகளைக் காண்பி"
 
-#: ../sepolicy/sepolicy/gui.py:1149
+#: ../sepolicy/sepolicy/gui.py:1166
 msgid "MISSING FILE PATH"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1265 ../sepolicy/sepolicy/gui.py:1267
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1281 ../sepolicy/sepolicy/gui.py:1283
 msgid "Boolean section."
-msgstr "பூலியன்கள்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1265
+#: ../sepolicy/sepolicy/gui.py:1281
 msgid "To disable this transition, go to the "
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1267
+#: ../sepolicy/sepolicy/gui.py:1283
 msgid "To enable this transition, go to the "
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1324
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1340
 msgid "executable"
-msgstr "இயங்கக்கூடியது"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1327
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1343
 msgid "writable"
-msgstr "எழுதக்கூடிய கோப்புகள்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1330
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1346
 msgid "application"
-msgstr "பயன்பாடு"
-
-#: ../sepolicy/sepolicy/gui.py:1331
-#, fuzzy, python-format
-msgid "Add new %s file path for '%s' domains."
-msgstr "'%s' டொமைனை உள்ளிடப் பயன்படுத்திய கோப்புப் பாதை."
-
-#: ../sepolicy/sepolicy/gui.py:1332
-#, python-format
-msgid "Delete modified %s file paths for '%s' domain."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1333
+#: ../sepolicy/sepolicy/gui.py:1347
 #, python-format
-msgid ""
-"Modify selected modified %s file path for '%s' domain. Only bolded items in "
-"the list can be selected, this indicates they were modified previously."
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1345
-msgid "connect"
+msgid "Add new %(TYPE)s file path for '%(DOMAIN)s' domains."
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1348
+#, python-format
+msgid "Delete %(TYPE)s file paths for '%(DOMAIN)s' domain."
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1349
+#, python-format
+msgid ""
+"Modify %(TYPE)s file path for '%(DOMAIN)s' domain. Only bolded items in the "
+"list can be selected, this indicates they were modified previously."
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1361
+msgid "connect"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1364
 msgid "listen for inbound connections"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1350
-#, fuzzy, python-format
-msgid "Add new port definition to which the '%s' domains is allowed to %s."
-msgstr "'தேர்ந்தெடுக்கப்பட்ட டொமைன்' கவனிக்க அனுமதிக்கப்பட்ட பிணைய முனையங்கள்."
-
-#: ../sepolicy/sepolicy/gui.py:1351
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:1366
+#, python-format
 msgid ""
-"Delete modified port definitions to which the '%s' domain is allowed to %s."
-msgstr "'தேர்ந்தெடுக்கப்பட்ட டொமைன்' கவனிக்க அனுமதிக்கப்பட்ட பிணைய முனையங்கள்."
-
-#: ../sepolicy/sepolicy/gui.py:1352
-#, fuzzy, python-format
-msgid "Modify port definitions to which the '%s' domain is allowed to %s."
-msgstr "'தேர்ந்தெடுக்கப்பட்ட டொமைன்' கவனிக்க அனுமதிக்கப்பட்ட பிணைய முனையங்கள்."
-
-#: ../sepolicy/sepolicy/gui.py:1381
-#, fuzzy
-msgid "Add new SELinux User/Role definition."
-msgstr "SELinux பயனர் மேப்பிங்கைச் சேர்க்கவும்"
-
-#: ../sepolicy/sepolicy/gui.py:1382
-#, fuzzy
-msgid "Delete modified SELinux User/Role definitions."
-msgstr "SELinux பயனர் ஒப்பீட்டை அழிக்கவும்"
-
-#: ../sepolicy/sepolicy/gui.py:1383
-msgid "Modify selected modified SELinux User/Role definitions."
+"Add new port definition to which the '%(APP)s' domain is allowed to %(PERM)s."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1390
-#, fuzzy
-msgid "Add new Login Mapping definition."
-msgstr "SELinux புகுபதிவு மேப்பிங்கைச் சேர்க்கவும்"
+#: ../sepolicy/sepolicy/gui.py:1367
+#, python-format
+msgid ""
+"Delete modified port definitions to which the '%(APP)s' domain is allowed to "
+"%(PERM)s."
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1391
-#, fuzzy
-msgid "Delete modified Login Mapping definitions."
-msgstr "%sக்கு அனுமதி ஒப்பீடுகளை மாற்ற முடியவில்லை"
+#: ../sepolicy/sepolicy/gui.py:1368
+#, python-format
+msgid ""
+"Modify port definitions to which the '%(APP)s' domain is allowed to %(PERM)s."
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1392
-msgid "Modify selected modified Login Mapping definitions."
+#: ../sepolicy/sepolicy/gui.py:1397
+msgid "Add new SELinux User/Role definition."
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1398
+msgid "Delete modified SELinux User/Role definitions."
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1399
+msgid "Modify selected modified SELinux User/Role definitions."
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1406
+msgid "Add new Login Mapping definition."
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1407
+msgid "Delete modified Login Mapping definitions."
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1408
+msgid "Modify selected modified Login Mapping definitions."
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1415
 msgid "Add new File Equivalence definition."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1400
+#: ../sepolicy/sepolicy/gui.py:1416
 msgid "Delete modified File Equivalence definitions."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1401
+#: ../sepolicy/sepolicy/gui.py:1417
 msgid ""
 "Modify selected modified File Equivalence definitions. Only bolded items in "
 "the list can be selected, this indicates they were modified previously."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1429
+#: ../sepolicy/sepolicy/gui.py:1445
 #, python-format
 msgid "Boolean %s Allow Rules"
 msgstr "பூலியன் %s விதிகளை அனுமதி"
 
-#: ../sepolicy/sepolicy/gui.py:1442
+#: ../sepolicy/sepolicy/gui.py:1458
 #, python-format
 msgid "Add Network Port for %s.  Ports will be created when update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1443
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:1459
+#, python-format
 msgid "Add Network Port for %s"
-msgstr "பிணைய முனையத்தைச் சேர்க்கவும்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1448
+#: ../sepolicy/sepolicy/gui.py:1464
 #, python-format
 msgid ""
 "Add File Labeling for %s. File labels will be created when update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1449 ../sepolicy/sepolicy/gui.py:1500
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:1465 ../sepolicy/sepolicy/gui.py:1518
+#, python-format
 msgid "Add File Labeling for %s"
-msgstr "கோப்பு லேபிளிடல்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1459
+#: ../sepolicy/sepolicy/gui.py:1475
 msgid "Add Login Mapping. User Mapping will be created when Update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1460
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1476
 msgid "Add Login Mapping"
-msgstr "SELinux புகுபதிவு மேப்பிங்கைச் சேர்க்கவும்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1465
+#: ../sepolicy/sepolicy/gui.py:1481
 msgid ""
 "Add SELinux User Role. SELinux user roles will be created when update is "
 "applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1466
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1482
 msgid "Add SELinux Users"
-msgstr "SELinux பயனரைச் சேர்க்கவும்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1473
+#: ../sepolicy/sepolicy/gui.py:1489
 msgid ""
 "Add File Equivalency Mapping. Mapping will be created when update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1474
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1490
 msgid "Add SELinux File Equivalency"
-msgstr "SELinux கோப்பு லேபிள்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1499
+#: ../sepolicy/sepolicy/gui.py:1517
 #, python-format
 msgid ""
 "Modify File Labeling for %s. File labels will be created when update is "
 "applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1566
+#: ../sepolicy/sepolicy/gui.py:1573
+msgid ""
+"Modify SELinux User Role. SELinux user roles will be modified when update is "
+"applied."
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1574
+msgid "Modify SELinux Users"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1582
+msgid ""
+"Modify Login Mapping. Login Mapping will be modified when Update is applied."
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1583
+msgid "Modify Login Mapping"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1589
 msgid ""
 "Modify File Equivalency Mapping. Mapping will be created when update is "
 "applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1567
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1590
 msgid "Modify SELinux File Equivalency"
-msgstr "SELinux பயனர் ஒப்பீட்டை மாற்றவும்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1652
+#: ../sepolicy/sepolicy/gui.py:1675
 #, python-format
 msgid ""
 "Modify Network Port for %s.  Ports will be created when update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1653
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:1676
+#, python-format
 msgid "Modify Network Port for %s"
-msgstr "பிணைய முனையத்தைத் திருத்தவும்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1866
+#: ../sepolicy/sepolicy/gui.py:1894
 #, python-format
 msgid "The entry '%s' is not a valid path.  Paths must begin with a '/'."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1879
+#: ../sepolicy/sepolicy/gui.py:1907
 msgid "Port number must be between 1 and 65536"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2146
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2183
+#, python-format
 msgid "SELinux name: %s"
-msgstr "SELinux பங்குகள்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2157
+#: ../sepolicy/sepolicy/gui.py:2194
 #, python-format
 msgid "Add file labeling for %s"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2159
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2196
+#, python-format
 msgid "Delete file labeling for %s"
-msgstr "%sக்கு கோப்பு சூழலை அழிக்க முடியவில்லை"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2161
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2198
+#, python-format
 msgid "Modify file labeling for %s"
-msgstr "%sக்கு கோப்பு சூழலை மாற்ற முடியாது"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2165
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2202
+#, python-format
 msgid "File path: %s"
-msgstr "கோப்புப் பாதை"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2168
+#: ../sepolicy/sepolicy/gui.py:2205
 #, python-format
 msgid "File class: %s"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2171 ../sepolicy/sepolicy/gui.py:2195
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2208 ../sepolicy/sepolicy/gui.py:2232
+#, python-format
 msgid "SELinux file type: %s"
-msgstr "SELinux கோப்பு லேபிள்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2180
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2217
+#, python-format
 msgid "Add ports for %s"
-msgstr "%s தவறான முறை: %sஐ பதிவு செய்யவும்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2182
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2219
+#, python-format
 msgid "Delete ports for %s"
-msgstr "%s ஐ அழிக்கவும்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2184
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2221
+#, python-format
 msgid "Modify ports for %s"
-msgstr "%s ஐ மாற்றவும்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2187
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2224
+#, python-format
 msgid "Network ports: %s"
-msgstr "பிணைய முனையம்"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2190
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2227
+#, python-format
 msgid "Network protocol: %s"
-msgstr "பிணைய முனையம்"
-
-#: ../sepolicy/sepolicy/gui.py:2204
-#, fuzzy
-msgid "Add user"
-msgstr "பயனரை சேர்"
-
-#: ../sepolicy/sepolicy/gui.py:2206
-#, fuzzy
-msgid "Delete user"
-msgstr "பயனரை அழிக்கவும்"
-
-#: ../sepolicy/sepolicy/gui.py:2208
-#, fuzzy
-msgid "Modify user"
-msgstr "பயனரை மாற்றவும்"
-
-#: ../sepolicy/sepolicy/gui.py:2211
-#, fuzzy, python-format
-msgid "SELinux User : %s"
-msgstr "SELinux பயனர்"
-
-#: ../sepolicy/sepolicy/gui.py:2216
-#, fuzzy, python-format
-msgid "Roles: %s"
-msgstr "பங்கு"
-
-#: ../sepolicy/sepolicy/gui.py:2220 ../sepolicy/sepolicy/gui.py:2245
-#, fuzzy, python-format
-msgid "MLS/MCS Range: %s"
-msgstr "MLS/MCS வரையறை"
-
-#: ../sepolicy/sepolicy/gui.py:2229
-#, fuzzy
-msgid "Add login mapping"
-msgstr "SELinux புகுபதிவு மேப்பிங்கைச் சேர்க்கவும்"
-
-#: ../sepolicy/sepolicy/gui.py:2231
-#, fuzzy
-msgid "Delete login mapping"
-msgstr "SELinux பயனர் ஒப்பீட்டை அழிக்கவும்"
-
-#: ../sepolicy/sepolicy/gui.py:2233
-#, fuzzy
-msgid "Modify login mapping"
-msgstr "அனுமதி ஒப்பீடுகளை பட்டியலிட முடியவில்லை"
-
-#: ../sepolicy/sepolicy/gui.py:2237
-#, fuzzy, python-format
-msgid "Linux User : %s"
-msgstr "SELinux பயனர்"
+msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:2241
-#, fuzzy, python-format
-msgid "SELinux User: %s"
-msgstr "SELinux பயனர்"
+msgid "Add user"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2254
+#: ../sepolicy/sepolicy/gui.py:2243
+msgid "Delete user"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:2245
+msgid "Modify user"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:2248
+#, python-format
+msgid "SELinux User : %s"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:2253
+#, python-format
+msgid "Roles: %s"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:2257 ../sepolicy/sepolicy/gui.py:2282
+#, python-format
+msgid "MLS/MCS Range: %s"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:2266
+msgid "Add login mapping"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:2268
+msgid "Delete login mapping"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:2270
+msgid "Modify login mapping"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:2274
+#, python-format
+msgid "Login Name : %s"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:2278
+#, python-format
+msgid "SELinux User: %s"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:2291
 msgid "Add file equiv labeling."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2256
+#: ../sepolicy/sepolicy/gui.py:2293
 msgid "Delete file equiv labeling."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2258
+#: ../sepolicy/sepolicy/gui.py:2295
 msgid "Modify file equiv labeling."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2262
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2299
+#, python-format
 msgid "File path : %s"
-msgstr "கோப்புப் பாதை"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2266
+#: ../sepolicy/sepolicy/gui.py:2303
 #, python-format
 msgid "Equivalence: %s"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2369
+#: ../sepolicy/sepolicy/gui.py:2406
 #, python-format
-msgid "Run restorecon on %s to change its type from %s to the default %s?"
+msgid ""
+"Run restorecon on %(PATH)s to change its type from %(CUR_CONTEXT)s to the "
+"default %(DEF_CONTEXT)s?"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2381
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:2418
 msgid "Update Changes"
-msgstr "மாற்றங்களைச் சேமி"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2383
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:2420
 msgid "Revert Changes"
-msgstr "மாற்றங்களை மீட்டமை"
+msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2556
+#: ../sepolicy/sepolicy/gui.py:2547
 msgid "System Status: Enforcing"
 msgstr "கணினி நிலை: செயல்படுத்துகிறது"
 
-#: ../sepolicy/sepolicy/gui.py:2558
+#: ../sepolicy/sepolicy/gui.py:2549
 msgid "System Status: Permissive"
 msgstr "கணினி நிலை: அனுமதிக்கிறது"
 
-#: ../sepolicy/sepolicy/gui.py:2749
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:2743
 msgid ""
 "Changing to SELinux disabled requires a reboot.  It is not recommended.  If "
 "you later decide to turn SELinux back on, the system will be required to "
@@ -5489,15 +5485,8 @@ msgid ""
 "enforce SELinux policy.  Permissive mode does not require a reboot.  Do you "
 "wish to continue?"
 msgstr ""
-"SELinux ஐ முடக்கப்பட்டதாக மாற்ற மறுதொடக்கம் செய்ய வேண்டியது அவசியம்.  அது "
-"பரிந்துரைக்கப்படுவதில்லை.  நீங்கள் பிறகு மீண்டும் SELinux ஐ இயக்க விரும்பினால், கணினிக்கு "
-"மீண்டும் லேபிளிட வேண்டியிருக்கும்.  உங்கள் கணினியில் உள்ள சிக்கலுக்கு SELinux காரணமாக "
-"உள்ளதா என்று பார்க்க மட்டும் நீங்கள் விரும்பினால், அனுமதி பயன்முறைக்குச் செல்லலாம், அந்தப் "
-"பயன்முறையில் பிழைகள் பதிவு செய்யப்படுமே தவிர SELinux கொள்கையில் மாற்றங்கள் எதுவும் "
-"செய்யப்படாது.  அனுமதிப் பயன்முறைக்குச் செல்ல மறுதொடக்கம் செய்ய வேண்டியதும் இல்லை. தொடர "
-"விரும்புகிறீர்களா?"
 
-#: ../sepolicy/sepolicy/gui.py:2783
+#: ../sepolicy/sepolicy/gui.py:2777
 msgid ""
 "You are attempting to close the application without applying your changes.\n"
 "    *    To apply changes you have made during this session, click No and "
@@ -5506,57 +5495,6 @@ msgid ""
 "All changes that you have made during this session will be lost."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2783
+#: ../sepolicy/sepolicy/gui.py:2777
 msgid "Loss of data Dialog"
 msgstr ""
-
-#~ msgid "SELinux Gui"
-#~ msgstr "SELinux Gui"
-
-#~ msgid "Type to search for a process"
-#~ msgstr "ஒரு செயலாக்கத்தைத் தேட இங்கு தட்டச்சு செய்யவும்"
-
-#~ msgid "Modify an existing item"
-#~ msgstr "முன்பே உள்ள உருப்படியில் மாற்றம் செய்"
-
-#~ msgid "Delete an existing item"
-#~ msgstr "முன்பே உள்ள உருப்படியை அழி"
-
-#~ msgid "Add a new item"
-#~ msgstr "புதிய உருப்படியைச் சேர்"
-
-#~ msgid "File path used to enter the above selected process domain."
-#~ msgstr "மேலே தேர்ந்தெடுத்த செயலாக்க டொமைனை உள்ளிடப் பயன்படுத்திய கோப்புப் பாதை."
-
-#~ msgid "Files to which the above selected process domain can write."
-#~ msgstr "மேலே தேர்ந்தெடுத்த செயலாக்க டொமைன் எழுதக்கூடிய கோப்புகள்."
-
-#~ msgid "File Types defined for the selected domain"
-#~ msgstr "தேர்ந்தெடுத்த டொமைனுக்கான வரையறுக்கப்பட்ட கோப்பு வகைகள்"
-
-#~ msgid "Network Ports to which the selected domain is allowed to connect."
-#~ msgstr "தேர்ந்தெடுக்கப்பட்ட டொமைன் இணைக்க அனுமதிக்கப்பட்ட பிணைய முனையங்கள்."
-
-#~ msgid "Modified"
-#~ msgstr "மாற்ற‌ப்பட்டது"
-
-#~ msgid "Network Ports to which the selected domain is allowed to listen."
-#~ msgstr "தேர்ந்தெடுக்கப்பட்ட டொமைன் கவனிக்க அனுமதிக்கப்பட்ட பிணைய முனையங்கள்."
-
-#~ msgid "Executable File Type"
-#~ msgstr "செயல்படுத்தக்கூடிய கோப்பு வகை"
-
-#~ msgid "Transtype"
-#~ msgstr "Transtype"
-
-#~ msgid "Reset"
-#~ msgstr "மீட்டமை"
-
-#~ msgid "Reset to system default"
-#~ msgstr "கணினி முன்னிருப்புக்கு மீட்டமைக்கவும்"
-
-#~ msgid "Save your changes"
-#~ msgstr "உங்கள் மாற்றங்களை சேமிக்கவும்"
-
-#~ msgid "GTK Not Available"
-#~ msgstr "GTK கிடைக்கவில்லை"
