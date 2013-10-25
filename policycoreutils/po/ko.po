@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Policycoreutils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-10 16:04-0400\n"
+"POT-Creation-Date: 2013-10-15 15:17-0400\n"
 "PO-Revision-Date: 2013-07-10 20:44+0000\n"
 "Last-Translator: dwalsh <dwalsh@redhat.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/fedora/language/"
@@ -145,7 +145,7 @@ msgid "Version"
 msgstr "버전"
 
 #: ../semanage/seobject.py:303 ../gui/statusPage.py:75
-#: ../sepolicy/sepolicy/sepolicy.glade:3430
+#: ../sepolicy/sepolicy/sepolicy.glade:3449
 msgid "Disabled"
 msgstr "비활성화 "
 
@@ -287,8 +287,8 @@ msgstr "로그인 맵핑 목록을 만들 수 없습니다"
 
 #: ../semanage/seobject.py:707 ../semanage/seobject.py:719
 #: ../gui/system-config-selinux.glade:100
-#: ../sepolicy/sepolicy/sepolicy.glade:1166
-#: ../sepolicy/sepolicy/sepolicy.glade:3155
+#: ../sepolicy/sepolicy/sepolicy.glade:1180
+#: ../sepolicy/sepolicy/sepolicy.glade:3174
 msgid "Login Name"
 msgstr "로그인 이름"
 
@@ -297,9 +297,10 @@ msgstr "로그인 이름"
 #: ../gui/system-config-selinux.glade:128
 #: ../gui/system-config-selinux.glade:915
 #: ../gui/system-config-selinux.glade:2285 ../gui/usersPage.py:44
-#: ../sepolicy/sepolicy/sepolicy.glade:1192
-#: ../sepolicy/sepolicy/sepolicy.glade:3173
-#: ../sepolicy/sepolicy/sepolicy.glade:3259
+#: ../sepolicy/sepolicy/sepolicy.glade:1206
+#: ../sepolicy/sepolicy/sepolicy.glade:3192
+#: ../sepolicy/sepolicy/sepolicy.glade:3278
+#: ../sepolicy/sepolicy/sepolicy.glade:4973
 msgid "SELinux User"
 msgstr "SELinux 사용자"
 
@@ -336,8 +337,8 @@ msgid "Could not create SELinux user for %s"
 msgstr "%s에 대한 SELinux 사용자를 생성할 수 없습니다"
 
 #: ../semanage/seobject.py:780
-#, python-format
-msgid "Could not add role %s for %s"
+#, fuzzy, python-format
+msgid "Could not add role %(ROLE)s for %(NAME)s"
 msgstr "%s에 대한 %s의 역할을 추가할 수 없습니다"
 
 #: ../semanage/seobject.py:789
@@ -346,8 +347,8 @@ msgid "Could not set MLS level for %s"
 msgstr "%s에 대한 MLS 레벨을 설정할 수 없습니다"
 
 #: ../semanage/seobject.py:792
-#, python-format
-msgid "Could not add prefix %s for %s"
+#, fuzzy, python-format
+msgid "Could not add prefix %(ROLE)s for %(PREFIX)s"
 msgstr "%s에 대한 %s의 접두어를 추가할 수 없습니다"
 
 #: ../semanage/seobject.py:795
@@ -420,9 +421,9 @@ msgstr "MCS 범위"
 
 #: ../semanage/seobject.py:977 ../semanage/seobject.py:982
 #: ../gui/system-config-selinux.glade:992 ../gui/usersPage.py:59
-#: ../sepolicy/sepolicy/sepolicy.glade:3279
-#: ../sepolicy/sepolicy/sepolicy.glade:5170
-#: ../sepolicy/sepolicy/sepolicy.glade:5411
+#: ../sepolicy/sepolicy/sepolicy.glade:3298
+#: ../sepolicy/sepolicy/sepolicy.glade:5309
+#: ../sepolicy/sepolicy/sepolicy.glade:5458
 msgid "SELinux Roles"
 msgstr "SELinux 기능"
 
@@ -439,8 +440,8 @@ msgid "Invalid Port"
 msgstr "잘못된 포트"
 
 #: ../semanage/seobject.py:1018
-#, python-format
-msgid "Could not create a key for %s/%s"
+#, fuzzy, python-format
+msgid "Could not create a key for %(PROTOTYPE)s/%(PORT)s"
 msgstr "%s/%s 에 대한 키를 생성할 수 없습니다"
 
 #: ../semanage/seobject.py:1029
@@ -453,55 +454,55 @@ msgstr "유형 필요"
 msgid "Type %s is invalid, must be a port type"
 msgstr "유형 %s이 잘못되었습니다, 포트 유형이어야 합니다 "
 
-#: ../semanage/seobject.py:1040 ../semanage/seobject.py:1102
-#: ../semanage/seobject.py:1157 ../semanage/seobject.py:1163
-#, python-format
-msgid "Could not check if port %s/%s is defined"
+#: ../semanage/seobject.py:1040 ../semanage/seobject.py:1157
+#: ../semanage/seobject.py:1163
+#, fuzzy, python-format
+msgid "Could not check if port %(PROTOCOL)s/%(PORT)s is defined"
 msgstr "%s/%s에 대한 포트가 지정되었는지 확인할 수 없습니다 "
 
 #: ../semanage/seobject.py:1042
-#, python-format
-msgid "Port %s/%s already defined"
+#, fuzzy, python-format
+msgid "Port %(PROTOCOL)s/%(PORT)s already defined"
 msgstr "%s/%s에 대한 포트가 이미 지정되었습니다"
 
 #: ../semanage/seobject.py:1046
-#, python-format
-msgid "Could not create port for %s/%s"
+#, fuzzy, python-format
+msgid "Could not create port for %(PROTOCOL)s/%(PORT)s"
 msgstr "%s/%s 에 대한 포트를 생성할 수 없습니다"
 
 #: ../semanage/seobject.py:1052
-#, python-format
-msgid "Could not create context for %s/%s"
+#, fuzzy, python-format
+msgid "Could not create context for %(PROTOCOL)s/%(PORT)s"
 msgstr "%s/%s 에 대한 문맥을 생성할 수 없습니다"
 
 #: ../semanage/seobject.py:1056
-#, python-format
-msgid "Could not set user in port context for %s/%s"
+#, fuzzy, python-format
+msgid "Could not set user in port context for %(PROTOCOL)s/%(PORT)s"
 msgstr "%s/%s 에 대한 포트 문맥의 사용자를 설정할 수 없습니다"
 
 #: ../semanage/seobject.py:1060
-#, python-format
-msgid "Could not set role in port context for %s/%s"
+#, fuzzy, python-format
+msgid "Could not set role in port context for %(PROTOCOL)s/%(PORT)s"
 msgstr "%s/%s 에 대한 포트 문맥의 역할을 설정할 수 없습니다"
 
 #: ../semanage/seobject.py:1064
-#, python-format
-msgid "Could not set type in port context for %s/%s"
+#, fuzzy, python-format
+msgid "Could not set type in port context for %(PROTOCOL)s/%(PORT)s"
 msgstr "%s/%s 에 대한 포트 문맥의 유형을 설정할 수 없습니다"
 
 #: ../semanage/seobject.py:1069
-#, python-format
-msgid "Could not set mls fields in port context for %s/%s"
+#, fuzzy, python-format
+msgid "Could not set mls fields in port context for %(PROTOCOL)s/%(PORT)s"
 msgstr "%s/%s 에 대한 포트 문맥의 mls 항목을 설정할 수 없습니다"
 
 #: ../semanage/seobject.py:1073
-#, python-format
-msgid "Could not set port context for %s/%s"
+#, fuzzy, python-format
+msgid "Could not set port context for %(PROTOCOL)s/%(PORT)s"
 msgstr "%s/%s 에 대한 포트 문맥을 설정할 수 없습니다"
 
 #: ../semanage/seobject.py:1077
-#, python-format
-msgid "Could not add port %s/%s"
+#, fuzzy, python-format
+msgid "Could not add port %(PROTOCOL)s/%(PORT)s"
 msgstr "%s/%s 에 대한 포트를 추가할 수 없습니다"
 
 #: ../semanage/seobject.py:1091 ../semanage/seobject.py:1367
@@ -513,19 +514,24 @@ msgstr "setype 또는 serange 필요"
 msgid "Requires setype"
 msgstr "setype 필요"
 
-#: ../semanage/seobject.py:1104 ../semanage/seobject.py:1159
-#, python-format
-msgid "Port %s/%s is not defined"
+#: ../semanage/seobject.py:1102
+#, fuzzy, python-format
+msgid "Could not check if port @%(PROTOCOL)s/%(PORT)s is defined"
+msgstr "%s/%s에 대한 포트가 지정되었는지 확인할 수 없습니다 "
+
+#: ../semanage/seobject.py:1104
+#, fuzzy, python-format
+msgid "Port @%(PROTOCOL)s/%(PORT)s is not defined"
 msgstr "%s/%s에 대한 포트가 지정되지 않았습니다"
 
 #: ../semanage/seobject.py:1108
-#, python-format
-msgid "Could not query port %s/%s"
+#, fuzzy, python-format
+msgid "Could not query port %(PROTOCOL)s/%(PORT)s"
 msgstr "%s/%s에 대한 포트를 질의할 수 없습니다"
 
 #: ../semanage/seobject.py:1119
-#, python-format
-msgid "Could not modify port %s/%s"
+#, fuzzy, python-format
+msgid "Could not modify port %(PROTOCOL)s/%(PORT)s"
 msgstr "%s/%s에 대한 포트를 수정할 수 없습니다"
 
 #: ../semanage/seobject.py:1132
@@ -537,23 +543,28 @@ msgstr "포트 목록을 만들수 없습니다 "
 msgid "Could not delete the port %s"
 msgstr "%s 포트를 삭제할 수 없습니다 "
 
+#: ../semanage/seobject.py:1159
+#, fuzzy, python-format
+msgid "Port %(PROTOCOL)s/%(PORT)s is not defined"
+msgstr "%s/%s에 대한 포트가 지정되지 않았습니다"
+
 #: ../semanage/seobject.py:1165
-#, python-format
-msgid "Port %s/%s is defined in policy, cannot be deleted"
+#, fuzzy, python-format
+msgid "Port %(PROTOCOL)s/%(PORT)s is defined in policy, cannot be deleted"
 msgstr "%s/%s에 대한 포트가 정책에 지정되어 있어 이를 삭제할 수 없습니다"
 
 #: ../semanage/seobject.py:1169
-#, python-format
-msgid "Could not delete port %s/%s"
+#, fuzzy, python-format
+msgid "Could not delete port %(PROTOCOL)s/%(PORT)s"
 msgstr "%s/%s에 대한 포트를 삭제할 수 없습니다"
 
 #: ../semanage/seobject.py:1185 ../semanage/seobject.py:1207
 msgid "Could not list ports"
 msgstr "포트 목록을 만들수 없습니다"
 
-#: ../semanage/seobject.py:1246 ../sepolicy/sepolicy/sepolicy.glade:2675
-#: ../sepolicy/sepolicy/sepolicy.glade:2773
-#: ../sepolicy/sepolicy/sepolicy.glade:4687
+#: ../semanage/seobject.py:1246 ../sepolicy/sepolicy/sepolicy.glade:2694
+#: ../sepolicy/sepolicy/sepolicy.glade:2792
+#: ../sepolicy/sepolicy/sepolicy.glade:4706
 msgid "SELinux Port Type"
 msgstr "SELinux 포트 유형"
 
@@ -562,7 +573,7 @@ msgid "Proto"
 msgstr "Proto"
 
 #: ../semanage/seobject.py:1246 ../gui/system-config-selinux.glade:335
-#: ../sepolicy/sepolicy/sepolicy.glade:1417
+#: ../sepolicy/sepolicy/sepolicy.glade:1431
 msgid "Port Number"
 msgstr "포트 번호"
 
@@ -783,8 +794,9 @@ msgid "Equivalence class for %s already exists"
 msgstr "%s에 대해 동등한 클래스가 이미 존재합니다"
 
 #: ../semanage/seobject.py:1750
-#, python-format
-msgid "File spec %s conflicts with equivalency rule '%s %s'"
+#, fuzzy, python-format
+msgid ""
+"File spec %(TARGET)s conflicts with equivalency rule '%(SOURCE)s %(DEST)s'"
 msgstr "파일 사양 %s이 해당 규칙 '%s %s'과 충돌합니다"
 
 #: ../semanage/seobject.py:1759
@@ -816,9 +828,10 @@ msgid "File specification can not include spaces"
 msgstr "파일 사양에 공백이 포함되어 있어서는 안됩니다"
 
 #: ../semanage/seobject.py:1795
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"File spec %s conflicts with equivalency rule '%s %s'; Try adding '%s' instead"
+"File spec %(TARGET)s conflicts with equivalency rule '%(SOURCE)s %(DEST)s'; "
+"Try adding '%(DEST1)s' instead"
 msgstr ""
 "파일 사양 %s이 해당 규칙 '%s %s'과 충돌합니다; 대신 '%s'를 추가해 보십시오 "
 
@@ -957,8 +970,8 @@ msgid "Could not modify boolean %s"
 msgstr "%s에 대한 부을을 수정할 수 없습니다"
 
 #: ../semanage/seobject.py:2122
-#, python-format
-msgid "Bad format %s: Record %s"
+#, fuzzy, python-format
+msgid "Bad format %(BOOLNAME)s: Record %(VALUE)s"
 msgstr "잘못된 형식 %s: 기록 %s "
 
 #: ../semanage/seobject.py:2146
@@ -996,9 +1009,9 @@ msgid "Default"
 msgstr "디폴트 "
 
 #: ../semanage/seobject.py:2228 ../gui/polgen.glade:113
-#: ../gui/polgengui.py:274 ../sepolicy/sepolicy/sepolicy.glade:2147
-#: ../sepolicy/sepolicy/sepolicy.glade:2517
-#: ../sepolicy/sepolicy/sepolicy.glade:5021
+#: ../gui/polgengui.py:274 ../sepolicy/sepolicy/sepolicy.glade:2166
+#: ../sepolicy/sepolicy/sepolicy.glade:2536
+#: ../sepolicy/sepolicy/sepolicy.glade:5175
 msgid "Description"
 msgstr "설명 "
 
@@ -1633,7 +1646,7 @@ msgid "<b>Enter name of application or user role:</b>"
 msgstr "<b>애플리케이션 이름이나 사용자 역할을 입력합니다:</b>"
 
 #: ../gui/polgen.glade:728 ../gui/polgengui.py:272
-#: ../sepolicy/sepolicy/sepolicy.glade:2182
+#: ../sepolicy/sepolicy/sepolicy.glade:2201
 msgid "Name"
 msgstr "이름"
 
@@ -1721,7 +1734,7 @@ msgid "<b>TCP Ports</b>"
 msgstr "<b>TCP 포트</b>"
 
 #: ../gui/polgen.glade:1223 ../gui/polgen.glade:1390 ../gui/polgen.glade:1589
-#: ../gui/polgen.glade:1698 ../sepolicy/sepolicy/sepolicy.glade:4314
+#: ../gui/polgen.glade:1698 ../sepolicy/sepolicy/sepolicy.glade:4333
 msgid "All"
 msgstr "전체 "
 
@@ -1951,10 +1964,10 @@ msgstr ""
 "유형"
 
 #: ../gui/portsPage.py:91 ../gui/system-config-selinux.glade:363
-#: ../sepolicy/sepolicy/sepolicy.glade:1443
-#: ../sepolicy/sepolicy/sepolicy.glade:2657
-#: ../sepolicy/sepolicy/sepolicy.glade:2755
-#: ../sepolicy/sepolicy/sepolicy.glade:4672
+#: ../sepolicy/sepolicy/sepolicy.glade:1457
+#: ../sepolicy/sepolicy/sepolicy.glade:2676
+#: ../sepolicy/sepolicy/sepolicy.glade:2774
+#: ../sepolicy/sepolicy/sepolicy.glade:4691
 msgid "Protocol"
 msgstr "프로토콜 "
 
@@ -1966,9 +1979,9 @@ msgstr ""
 "MLS/MCS\n"
 "레벨"
 
-#: ../gui/portsPage.py:101 ../sepolicy/sepolicy/sepolicy.glade:2638
-#: ../sepolicy/sepolicy/sepolicy.glade:2737
-#: ../sepolicy/sepolicy/sepolicy.glade:4658
+#: ../gui/portsPage.py:101 ../sepolicy/sepolicy/sepolicy.glade:2657
+#: ../sepolicy/sepolicy/sepolicy.glade:2756
+#: ../sepolicy/sepolicy/sepolicy.glade:4677
 msgid "Port"
 msgstr "포트 "
 
@@ -2006,14 +2019,14 @@ msgid "Modify %s"
 msgstr "%s 수정 "
 
 #: ../gui/statusPage.py:69 ../gui/system-config-selinux.glade:2819
-#: ../sepolicy/sepolicy/sepolicy.glade:3413
-#: ../sepolicy/sepolicy/sepolicy.glade:3486
+#: ../sepolicy/sepolicy/sepolicy.glade:3432
+#: ../sepolicy/sepolicy/sepolicy.glade:3505
 msgid "Permissive"
 msgstr "허용 "
 
 #: ../gui/statusPage.py:70 ../gui/system-config-selinux.glade:2837
-#: ../sepolicy/sepolicy/sepolicy.glade:3394
-#: ../sepolicy/sepolicy/sepolicy.glade:3468
+#: ../sepolicy/sepolicy/sepolicy.glade:3413
+#: ../sepolicy/sepolicy/sepolicy.glade:3487
 msgid "Enforcing"
 msgstr "강제 "
 
@@ -2021,7 +2034,7 @@ msgstr "강제 "
 msgid "Status"
 msgstr "상태"
 
-#: ../gui/statusPage.py:133 ../sepolicy/sepolicy/gui.py:2619
+#: ../gui/statusPage.py:133 ../sepolicy/sepolicy/gui.py:2661
 msgid ""
 "Changing the policy type will cause a relabel of the entire file system on "
 "the next boot. Relabeling takes a long time depending on the size of the "
@@ -2047,7 +2060,7 @@ msgstr ""
 "또한 허용 모드로 변경하기 위해 재부팅할 필요가 없습니다. 계속 진행하시겠습니"
 "까?"
 
-#: ../gui/statusPage.py:152 ../sepolicy/sepolicy/gui.py:2753
+#: ../gui/statusPage.py:152 ../sepolicy/sepolicy/gui.py:2795
 msgid ""
 "Changing to SELinux enabled will cause a relabel of the entire file system "
 "on the next boot. Relabeling takes a long time depending on the size of the "
@@ -2113,7 +2126,7 @@ msgstr ""
 
 #: ../gui/system-config-selinux.glade:773
 #: ../sepolicy/sepolicy/sepolicy.glade:729
-#: ../sepolicy/sepolicy/sepolicy.glade:1489
+#: ../sepolicy/sepolicy/sepolicy.glade:1503
 msgid "MLS"
 msgstr "MLS"
 
@@ -2126,7 +2139,7 @@ msgid "SELinux Administration"
 msgstr "SELinux 관리"
 
 #: ../gui/system-config-selinux.glade:1122
-#: ../sepolicy/sepolicy/sepolicy.glade:4162
+#: ../sepolicy/sepolicy/sepolicy.glade:4181
 msgid "Add"
 msgstr "추가"
 
@@ -2202,7 +2215,7 @@ msgstr "사용자 정의 부울과 모든 부울을 전환"
 #: ../gui/system-config-selinux.glade:2467
 #: ../gui/system-config-selinux.glade:2692
 #: ../gui/system-config-selinux.glade:2867
-#: ../sepolicy/sepolicy/sepolicy.glade:1992
+#: ../sepolicy/sepolicy/sepolicy.glade:2011
 msgid "Filter"
 msgstr "필터 "
 
@@ -3684,6 +3697,33 @@ msgstr ""
 msgid "Allow ZoneMinder to run su/sudo."
 msgstr ""
 
+#: ../sepolicy/sepolicy/help/booleans_more.txt:4
+#: ../sepolicy/sepolicy/gui.py:939 ../sepolicy/sepolicy/gui.py:1231
+#: ../sepolicy/sepolicy/gui.py:1671 ../sepolicy/sepolicy/gui.py:1917
+#: ../sepolicy/sepolicy/gui.py:2740
+msgid "More..."
+msgstr ""
+
+#: ../sepolicy/sepolicy/help/start.txt:1
+#: ../sepolicy/sepolicy/sepolicy.glade:189
+#: ../sepolicy/sepolicy/sepolicy.glade:4425
+#: ../sepolicy/sepolicy/sepolicy.glade:4518
+#: ../sepolicy/sepolicy/sepolicy.glade:4664
+#: ../sepolicy/sepolicy/sepolicy.glade:4813
+#: ../sepolicy/sepolicy/sepolicy.glade:4947
+#: ../sepolicy/sepolicy/sepolicy.glade:5088
+#: ../sepolicy/sepolicy/sepolicy.glade:5161
+#: ../sepolicy/sepolicy/sepolicy.glade:5296
+#, fuzzy
+msgid "Select"
+msgstr "포트 선택 "
+
+#: ../sepolicy/sepolicy/help/system.txt:1
+msgid ""
+"This screen allows you to view modify the way SELinux is running on your "
+"system."
+msgstr ""
+
 #: ../sepolicy/sepolicy.py:194
 #, python-format
 msgid "Interface %s does not exist."
@@ -3917,7 +3957,7 @@ msgstr "대체 SELinux 정책, /sys/fs/selinux/policy는 기본값입니다 "
 msgid "-- Allowed %s [ %s ]"
 msgstr ""
 
-#: ../sepolicy/sepolicy/__init__.py:95 ../sepolicy/sepolicy/gui.py:1135
+#: ../sepolicy/sepolicy/__init__.py:95 ../sepolicy/sepolicy/gui.py:1156
 msgid "all files"
 msgstr ""
 
@@ -4095,7 +4135,7 @@ msgid "Setup Script"
 msgstr "스크립트 설정 "
 
 #: ../sepolicy/sepolicy/sepolicy.glade:25
-#: ../sepolicy/sepolicy/sepolicy.glade:4369
+#: ../sepolicy/sepolicy/sepolicy.glade:4388
 #, fuzzy
 msgid "Applications"
 msgstr "애플리케이션 "
@@ -4104,47 +4144,37 @@ msgstr "애플리케이션 "
 msgid "Select domain"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:80 ../sepolicy/sepolicy/gui.py:67
+#: ../sepolicy/sepolicy/sepolicy.glade:80 ../sepolicy/sepolicy/gui.py:68
 msgid "Advanced Search >>"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:95 ../sepolicy/sepolicy/gui.py:2306
+#: ../sepolicy/sepolicy/sepolicy.glade:95 ../sepolicy/sepolicy/gui.py:2348
 msgid "File Equivalence"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:112 ../sepolicy/sepolicy/gui.py:2316
+#: ../sepolicy/sepolicy/sepolicy.glade:112 ../sepolicy/sepolicy/gui.py:2358
 #, fuzzy
 msgid "Users"
 msgstr "사용자 추가 "
 
 #: ../sepolicy/sepolicy/sepolicy.glade:129
-#: ../sepolicy/sepolicy/sepolicy.glade:1897
-#: ../sepolicy/sepolicy/sepolicy.glade:3802 ../sepolicy/sepolicy/gui.py:2297
+#: ../sepolicy/sepolicy/sepolicy.glade:1916
+#: ../sepolicy/sepolicy/sepolicy.glade:3821 ../sepolicy/sepolicy/gui.py:2339
 msgid "System"
 msgstr ""
-
-#: ../sepolicy/sepolicy/sepolicy.glade:189
-#: ../sepolicy/sepolicy/sepolicy.glade:4406
-#: ../sepolicy/sepolicy/sepolicy.glade:4499
-#: ../sepolicy/sepolicy/sepolicy.glade:4645
-#: ../sepolicy/sepolicy/sepolicy.glade:4793
-#: ../sepolicy/sepolicy/sepolicy.glade:4934
-#: ../sepolicy/sepolicy/sepolicy.glade:5007
-#, fuzzy
-msgid "Select"
-msgstr "포트 선택 "
 
 #: ../sepolicy/sepolicy/sepolicy.glade:204
 #: ../sepolicy/sepolicy/sepolicy.glade:557
 #: ../sepolicy/sepolicy/sepolicy.glade:702
-#: ../sepolicy/sepolicy/sepolicy.glade:1243
-#: ../sepolicy/sepolicy/sepolicy.glade:1539
-#: ../sepolicy/sepolicy/sepolicy.glade:4579
-#: ../sepolicy/sepolicy/sepolicy.glade:4729
-#: ../sepolicy/sepolicy/sepolicy.glade:4859
-#: ../sepolicy/sepolicy/sepolicy.glade:5077
-#: ../sepolicy/sepolicy/sepolicy.glade:5233
-#: ../sepolicy/sepolicy/sepolicy.glade:5474
+#: ../sepolicy/sepolicy/sepolicy.glade:1257
+#: ../sepolicy/sepolicy/sepolicy.glade:1553
+#: ../sepolicy/sepolicy/sepolicy.glade:4598
+#: ../sepolicy/sepolicy/sepolicy.glade:4748
+#: ../sepolicy/sepolicy/sepolicy.glade:4879
+#: ../sepolicy/sepolicy/sepolicy.glade:5013
+#: ../sepolicy/sepolicy/sepolicy.glade:5231
+#: ../sepolicy/sepolicy/sepolicy.glade:5362
+#: ../sepolicy/sepolicy/sepolicy.glade:5522
 msgid "Cancel"
 msgstr ""
 
@@ -4159,10 +4189,9 @@ msgid "Retry"
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:460
-#: ../sepolicy/sepolicy/sepolicy.glade:1124
-#: ../sepolicy/sepolicy/sepolicy.glade:1372
-#: ../sepolicy/sepolicy/sepolicy.glade:5102
-#: ../sepolicy/sepolicy/sepolicy.glade:5343
+#: ../sepolicy/sepolicy/sepolicy.glade:1138
+#: ../sepolicy/sepolicy/sepolicy.glade:1386
+#: ../sepolicy/sepolicy/sepolicy.glade:5390
 #, fuzzy
 msgid "Network Port Definitions"
 msgstr "네트워크 포트 "
@@ -4174,13 +4203,12 @@ msgid ""
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:501
-#: ../sepolicy/sepolicy/sepolicy.glade:4045
+#: ../sepolicy/sepolicy/sepolicy.glade:4064
 msgid "Path"
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:511
-#: ../sepolicy/sepolicy/sepolicy.glade:5154
-#: ../sepolicy/sepolicy/sepolicy.glade:5395
+#: ../sepolicy/sepolicy/sepolicy.glade:5442
 msgid ""
 "Specify a new SELinux user name.  By convention SELinux User names usually "
 "end in an _u."
@@ -4191,17 +4219,16 @@ msgid "Enter the path to which you want to setup an equivalence label."
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:528
-#: ../sepolicy/sepolicy/sepolicy.glade:4062
-#: ../sepolicy/sepolicy/sepolicy.glade:4819
+#: ../sepolicy/sepolicy/sepolicy.glade:4081
+#: ../sepolicy/sepolicy/sepolicy.glade:4839
 msgid "Equivalence Path"
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:542
 #: ../sepolicy/sepolicy/sepolicy.glade:687
-#: ../sepolicy/sepolicy/sepolicy.glade:1228
-#: ../sepolicy/sepolicy/sepolicy.glade:1524
-#: ../sepolicy/sepolicy/sepolicy.glade:5218
-#: ../sepolicy/sepolicy/sepolicy.glade:5459
+#: ../sepolicy/sepolicy/sepolicy.glade:1242
+#: ../sepolicy/sepolicy/sepolicy.glade:1538
+#: ../sepolicy/sepolicy/sepolicy.glade:5507
 msgid "Save to update"
 msgstr ""
 
@@ -4223,16 +4250,16 @@ msgid ""
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:744
-#: ../sepolicy/sepolicy/sepolicy.glade:1471
-#: ../sepolicy/sepolicy/sepolicy.glade:3510 ../sepolicy/sepolicy/gui.py:66
+#: ../sepolicy/sepolicy/sepolicy.glade:1485
+#: ../sepolicy/sepolicy/sepolicy.glade:3529 ../sepolicy/sepolicy/gui.py:67
 msgid "Advanced >>"
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:765
-#: ../sepolicy/sepolicy/sepolicy.glade:2305
-#: ../sepolicy/sepolicy/sepolicy.glade:2417
-#: ../sepolicy/sepolicy/sepolicy.glade:2539
-#: ../sepolicy/sepolicy/sepolicy.glade:4539
+#: ../sepolicy/sepolicy/sepolicy.glade:2324
+#: ../sepolicy/sepolicy/sepolicy.glade:2436
+#: ../sepolicy/sepolicy/sepolicy.glade:2558
+#: ../sepolicy/sepolicy/sepolicy.glade:4558
 msgid "Class"
 msgstr ""
 
@@ -4295,394 +4322,392 @@ msgstr ""
 msgid "Analyzing Policy..."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1141
+#: ../sepolicy/sepolicy/sepolicy.glade:1155
 msgid ""
 "Add Login Mapping. Login Mapping will be created when update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1176
+#: ../sepolicy/sepolicy/sepolicy.glade:1190
 msgid ""
 "Enter the login user name of the user to which you wish to add SELinux User "
 "confinement."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1205
+#: ../sepolicy/sepolicy/sepolicy.glade:1219
 msgid ""
 "Select the SELinux User to assign to this login user.  Login users by "
 "default get assigned by the __default__ user."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1268
+#: ../sepolicy/sepolicy/sepolicy.glade:1282
 msgid ""
 "Enter MLS/MCS Range for this login User.  Defaults to the range for the "
 "Selected SELinux User."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1271
-#: ../sepolicy/sepolicy/sepolicy.glade:3191
-#: ../sepolicy/sepolicy/sepolicy.glade:3312
-#: ../sepolicy/sepolicy/sepolicy.glade:5184
-#: ../sepolicy/sepolicy/sepolicy.glade:5425
+#: ../sepolicy/sepolicy/sepolicy.glade:1285
+#: ../sepolicy/sepolicy/sepolicy.glade:3210
+#: ../sepolicy/sepolicy/sepolicy.glade:3331
+#: ../sepolicy/sepolicy/sepolicy.glade:5472
 #, fuzzy
 msgid "MLS Range"
 msgstr "MCS 범위"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1283
+#: ../sepolicy/sepolicy/sepolicy.glade:1297
 msgid ""
 "Specify the MLS Range for this user to login in with.  Defaults to the "
 "selected SELinux Users MLS Range."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1389
+#: ../sepolicy/sepolicy/sepolicy.glade:1403
 msgid ""
 "<operation> Network Port for <selected domain>.  Ports will be created when "
 "update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1427
+#: ../sepolicy/sepolicy/sepolicy.glade:1441
 msgid "Enter the port number or range to which you want to add a port type."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1457
+#: ../sepolicy/sepolicy/sepolicy.glade:1471
 #, fuzzy
 msgid "Port Type"
 msgstr "SELinux 포트 유형"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1502
+#: ../sepolicy/sepolicy/sepolicy.glade:1516
 msgid "Select the port type you want to assign to the specified port number."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1566
+#: ../sepolicy/sepolicy/sepolicy.glade:1580
 msgid "tcp"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1570
+#: ../sepolicy/sepolicy/sepolicy.glade:1584
 msgid ""
 "Select <b>tcp</b> if the port type should be assigned to tcp port numbers."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1583
+#: ../sepolicy/sepolicy/sepolicy.glade:1597
 msgid "udp"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1587
+#: ../sepolicy/sepolicy/sepolicy.glade:1601
 msgid ""
 "Select <b>udp</b> if the port type should be assigned to udp port numbers."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1609
+#: ../sepolicy/sepolicy/sepolicy.glade:1623
 msgid "Enter the MLS Label to assign to this port."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1706
+#: ../sepolicy/sepolicy/sepolicy.glade:1725
 #, fuzzy
 msgid "SELinux Configuration"
 msgstr "SELinux 관리"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1742
+#: ../sepolicy/sepolicy/sepolicy.glade:1761
 msgid "Select..."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1791
-#: ../sepolicy/sepolicy/sepolicy.glade:2211
+#: ../sepolicy/sepolicy/sepolicy.glade:1810
+#: ../sepolicy/sepolicy/sepolicy.glade:2230
 msgid "Booleans"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1795
+#: ../sepolicy/sepolicy/sepolicy.glade:1814
 msgid ""
 "Display boolean information that can be used to modify the policy for the "
 "'selected domain'."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1809
-#: ../sepolicy/sepolicy/sepolicy.glade:2596
+#: ../sepolicy/sepolicy/sepolicy.glade:1828
+#: ../sepolicy/sepolicy/sepolicy.glade:2615
 msgid "Files"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1813
+#: ../sepolicy/sepolicy/sepolicy.glade:1832
 msgid ""
 "Display file type information that can be used by the 'selected domain'."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1827
-#: ../sepolicy/sepolicy/sepolicy.glade:2829
+#: ../sepolicy/sepolicy/sepolicy.glade:1846
+#: ../sepolicy/sepolicy/sepolicy.glade:2848
 msgid "Network"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1831
+#: ../sepolicy/sepolicy/sepolicy.glade:1850
 msgid ""
 "Display network ports to which the 'selected domain' can connect or listen "
 "to."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1845
-#: ../sepolicy/sepolicy/sepolicy.glade:3120
+#: ../sepolicy/sepolicy/sepolicy.glade:1864
+#: ../sepolicy/sepolicy/sepolicy.glade:3139
 msgid "Transitions"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1849
+#: ../sepolicy/sepolicy/sepolicy.glade:1868
 msgid ""
 "Display applications that can transition into or out of the 'selected "
 "domain'."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1863
-#: ../sepolicy/sepolicy/sepolicy.glade:3221
+#: ../sepolicy/sepolicy/sepolicy.glade:1882
+#: ../sepolicy/sepolicy/sepolicy.glade:3240
 #, fuzzy
 msgid "Login Mapping"
 msgstr "SELinux 로그인 맵핑 추가 "
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1866
-#: ../sepolicy/sepolicy/sepolicy.glade:1883
-#: ../sepolicy/sepolicy/sepolicy.glade:1900
+#: ../sepolicy/sepolicy/sepolicy.glade:1885
+#: ../sepolicy/sepolicy/sepolicy.glade:1902
+#: ../sepolicy/sepolicy/sepolicy.glade:1919
 msgid "Manage the SELinux configuration"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1880
-#: ../sepolicy/sepolicy/sepolicy.glade:3343
+#: ../sepolicy/sepolicy/sepolicy.glade:1899
+#: ../sepolicy/sepolicy/sepolicy.glade:3362
 #, fuzzy
 msgid "SELinux Users"
 msgstr "SELinux 사용자"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1914
-#: ../sepolicy/sepolicy/sepolicy.glade:4015
+#: ../sepolicy/sepolicy/sepolicy.glade:1933
+#: ../sepolicy/sepolicy/sepolicy.glade:4034
 msgid "Lockdown"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1917
+#: ../sepolicy/sepolicy/sepolicy.glade:1936
 msgid ""
 "Lockdown the SELinux System.\n"
 "This screen can be used to turn up the SELinux Protections."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1932
+#: ../sepolicy/sepolicy/sepolicy.glade:1951
 msgid "radiobutton"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2020
+#: ../sepolicy/sepolicy/sepolicy.glade:2039
 msgid "Show Modified Only"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2059
+#: ../sepolicy/sepolicy/sepolicy.glade:2078
 msgid "Mislabeled files exist"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2079
+#: ../sepolicy/sepolicy/sepolicy.glade:2098
 msgid "Show mislabeled files only"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2119
-#: ../sepolicy/sepolicy/sepolicy.glade:3243
+#: ../sepolicy/sepolicy/sepolicy.glade:2138
+#: ../sepolicy/sepolicy/sepolicy.glade:3262
 msgid ""
 "If-Then-Else rules written in policy that can \n"
 "allow alternative access control."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2131
+#: ../sepolicy/sepolicy/sepolicy.glade:2150
 msgid "Enabled"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2251
-#: ../sepolicy/sepolicy/sepolicy.glade:2363
-#: ../sepolicy/sepolicy/sepolicy.glade:2481
-#: ../sepolicy/sepolicy/sepolicy.glade:4512
-#: ../sepolicy/sepolicy/sepolicy.glade:4806
+#: ../sepolicy/sepolicy/sepolicy.glade:2270
+#: ../sepolicy/sepolicy/sepolicy.glade:2382
+#: ../sepolicy/sepolicy/sepolicy.glade:2500
+#: ../sepolicy/sepolicy/sepolicy.glade:4531
+#: ../sepolicy/sepolicy/sepolicy.glade:4826
 msgid "File Path"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2287
-#: ../sepolicy/sepolicy/sepolicy.glade:2398
+#: ../sepolicy/sepolicy/sepolicy.glade:2306
+#: ../sepolicy/sepolicy/sepolicy.glade:2417
 #, fuzzy
 msgid "SELinux File Type"
 msgstr "SELinux 유형"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2331
+#: ../sepolicy/sepolicy/sepolicy.glade:2350
 msgid "File path used to enter the 'selected domain'."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2332
+#: ../sepolicy/sepolicy/sepolicy.glade:2351
 msgid "Executable Files"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2447
+#: ../sepolicy/sepolicy/sepolicy.glade:2466
 msgid "Files to which the 'selected domain' can write."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2448
+#: ../sepolicy/sepolicy/sepolicy.glade:2467
 msgid "Writable files"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2570
+#: ../sepolicy/sepolicy/sepolicy.glade:2589
 msgid "File Types defined for the 'selected domain'."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2571
+#: ../sepolicy/sepolicy/sepolicy.glade:2590
 msgid "Application File Types"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2703
+#: ../sepolicy/sepolicy/sepolicy.glade:2722
 msgid "Network Ports to which the 'selected domain' is allowed to connect."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2704
+#: ../sepolicy/sepolicy/sepolicy.glade:2723
 msgid "Outbound"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2803
+#: ../sepolicy/sepolicy/sepolicy.glade:2822
 msgid "Network Ports to which the 'selected domain' is allowed to listen."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2804
+#: ../sepolicy/sepolicy/sepolicy.glade:2823
 msgid "Inbound"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2865
+#: ../sepolicy/sepolicy/sepolicy.glade:2884
 #, fuzzy
 msgid ""
 "Boolean \n"
 "Enabled"
 msgstr "부울 이름 "
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2891
+#: ../sepolicy/sepolicy/sepolicy.glade:2910
 #, fuzzy
 msgid "Boolean name"
 msgstr "부울 이름 "
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2908
+#: ../sepolicy/sepolicy/sepolicy.glade:2927
 #, fuzzy
 msgid "SELinux Application Type"
 msgstr "SELinux 포트 유형"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2929
+#: ../sepolicy/sepolicy/sepolicy.glade:2948
 msgid ""
 "Executables which will transition to a different domain, when the 'selected "
 "domain' executes them."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2932
+#: ../sepolicy/sepolicy/sepolicy.glade:2951
 msgid "Applicaton Transitions From 'select domain'"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2955
+#: ../sepolicy/sepolicy/sepolicy.glade:2974
 #, fuzzy
 msgid ""
 "Boolean\n"
 "Enabled"
 msgstr "부울 이름 "
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2971
+#: ../sepolicy/sepolicy/sepolicy.glade:2990
 msgid "Calling Process Domain"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2987
+#: ../sepolicy/sepolicy/sepolicy.glade:3006
 msgid "Executable File"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3011
+#: ../sepolicy/sepolicy/sepolicy.glade:3030
 msgid ""
 "Executables which will transition to the 'selected domain', when executing a "
 "selected domains entrypoint."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3012
+#: ../sepolicy/sepolicy/sepolicy.glade:3031
 msgid "Application Transitions Into 'select domain'"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3027
+#: ../sepolicy/sepolicy/sepolicy.glade:3046
 msgid ""
 "File Transitions define what happens when the current domain creates the "
 "content of a particular class in a directory of the destination type. "
 "Optionally a file name could be specified for the transition."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3035
+#: ../sepolicy/sepolicy/sepolicy.glade:3054
 #, fuzzy
 msgid "SELinux Directory Type"
 msgstr "SELinux 포트 유형"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3048
+#: ../sepolicy/sepolicy/sepolicy.glade:3067
 msgid "Destination Class"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3062
+#: ../sepolicy/sepolicy/sepolicy.glade:3081
 #, fuzzy
 msgid "SELinux Destination Type"
 msgstr "SELinux 포트 유형"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3075
+#: ../sepolicy/sepolicy/sepolicy.glade:3094
 #, fuzzy
 msgid "File Name"
 msgstr "모듈 이름 "
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3097
+#: ../sepolicy/sepolicy/sepolicy.glade:3116
 msgid "File Transitions From 'select domain'"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3296
-#: ../sepolicy/sepolicy/sepolicy.glade:5277
-#: ../sepolicy/sepolicy/sepolicy.glade:5518
+#: ../sepolicy/sepolicy/sepolicy.glade:3315
+#: ../sepolicy/sepolicy/sepolicy.glade:5566
 #, fuzzy
 msgid "Default Level"
 msgstr "디폴트 "
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3382
+#: ../sepolicy/sepolicy/sepolicy.glade:3401
 msgid "Select the system mode when the system first boots up"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3455
+#: ../sepolicy/sepolicy/sepolicy.glade:3474
 msgid "Select the system mode for the current session"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3532
+#: ../sepolicy/sepolicy/sepolicy.glade:3551
 #, fuzzy
 msgid "System Policy Type:"
 msgstr "시스템 디폴트 정책 유형:"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3593
+#: ../sepolicy/sepolicy/sepolicy.glade:3612
 #, fuzzy
 msgid "<b>System Mode</b>"
 msgstr "<b>선택:</b>"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3631
+#: ../sepolicy/sepolicy/sepolicy.glade:3650
 msgid "Import system settings from another machine"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3639
+#: ../sepolicy/sepolicy/sepolicy.glade:3658
 msgid "Import"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3658
+#: ../sepolicy/sepolicy/sepolicy.glade:3677
 msgid "Export system settings to a file"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3668
+#: ../sepolicy/sepolicy/sepolicy.glade:3687
 msgid "Export"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3687
+#: ../sepolicy/sepolicy/sepolicy.glade:3706
 msgid "Relabel all files back to system defaults on reboot"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3724
-#: ../sepolicy/sepolicy/sepolicy.glade:3825
-#: ../sepolicy/sepolicy/sepolicy.glade:3889
-#: ../sepolicy/sepolicy/sepolicy.glade:3952 ../sepolicy/sepolicy/gui.py:60
+#: ../sepolicy/sepolicy/sepolicy.glade:3743
+#: ../sepolicy/sepolicy/sepolicy.glade:3844
+#: ../sepolicy/sepolicy/sepolicy.glade:3908
+#: ../sepolicy/sepolicy/sepolicy.glade:3971 ../sepolicy/sepolicy/gui.py:61
 msgid "Yes"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3741
-#: ../sepolicy/sepolicy/sepolicy.glade:3843
-#: ../sepolicy/sepolicy/sepolicy.glade:3906
-#: ../sepolicy/sepolicy/sepolicy.glade:3969 ../sepolicy/sepolicy/gui.py:60
+#: ../sepolicy/sepolicy/sepolicy.glade:3760
+#: ../sepolicy/sepolicy/sepolicy.glade:3862
+#: ../sepolicy/sepolicy/sepolicy.glade:3925
+#: ../sepolicy/sepolicy/sepolicy.glade:3988 ../sepolicy/sepolicy/gui.py:61
 msgid "No"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3782
+#: ../sepolicy/sepolicy/sepolicy.glade:3801
 msgid "<b>System Configuration</b>"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3829
-#: ../sepolicy/sepolicy/sepolicy.glade:3847
+#: ../sepolicy/sepolicy/sepolicy.glade:3848
+#: ../sepolicy/sepolicy/sepolicy.glade:3866
 msgid ""
 "An unconfined domain is a process label that allows the process to do what "
 "it wants, without SELinux interfering.  Applications started at boot by the "
@@ -4692,13 +4717,13 @@ msgid ""
 "unconfined_t from the users/login screens."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3865
+#: ../sepolicy/sepolicy/sepolicy.glade:3884
 msgid "<b>Disable ability to run unconfined system processes?</b>"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3893
-#: ../sepolicy/sepolicy/sepolicy.glade:3910
-#: ../sepolicy/sepolicy/sepolicy.glade:3973
+#: ../sepolicy/sepolicy/sepolicy.glade:3912
+#: ../sepolicy/sepolicy/sepolicy.glade:3929
+#: ../sepolicy/sepolicy/sepolicy.glade:3992
 msgid ""
 "An permissive domain is a process label that allows the process to do what "
 "it wants, with SELinux only logging the denials, but not enforcing them.  "
@@ -4707,11 +4732,11 @@ msgid ""
 "allowed."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3928
+#: ../sepolicy/sepolicy/sepolicy.glade:3947
 msgid "<b>Disable all permissive processes?</b>"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3956
+#: ../sepolicy/sepolicy/sepolicy.glade:3975
 msgid ""
 "A permissive domain is a process label that allows the process to do what it "
 "wants, with SELinux only logging the denials, but not enforcing them.  "
@@ -4720,179 +4745,204 @@ msgid ""
 "allowed."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3994
+#: ../sepolicy/sepolicy/sepolicy.glade:4013
 msgid "<b>Deny all processes from ptracing or debugging other processes?</b>"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4031
+#: ../sepolicy/sepolicy/sepolicy.glade:4050
 msgid ""
 "File equivalence cause the system to label content under the new path as if "
 "it were under the equivalence path."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4087
+#: ../sepolicy/sepolicy/sepolicy.glade:4106
 msgid "Files Equivalence"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4100
+#: ../sepolicy/sepolicy/sepolicy.glade:4119
 msgid "<b>...SELECT TO VIEW DATA...</b>"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4131
+#: ../sepolicy/sepolicy/sepolicy.glade:4150
 msgid "Delete"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4147
+#: ../sepolicy/sepolicy/sepolicy.glade:4166
 msgid "Modify"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4208
+#: ../sepolicy/sepolicy/sepolicy.glade:4227
 msgid "Revert"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4213
+#: ../sepolicy/sepolicy/sepolicy.glade:4232
 msgid ""
 "Revert button will launch a dialog window which allows you to revert changes "
 "within the current transaction."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4225 ../sepolicy/sepolicy/gui.py:2379
+#: ../sepolicy/sepolicy/sepolicy.glade:4244 ../sepolicy/sepolicy/gui.py:2421
 msgid "Update"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4230
+#: ../sepolicy/sepolicy/sepolicy.glade:4249
 msgid "Commit all changes in your current transaction to the server."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4278
+#: ../sepolicy/sepolicy/sepolicy.glade:4297
 msgid "Applications - Advanced Search"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4331
+#: ../sepolicy/sepolicy/sepolicy.glade:4350
 msgid "Installed"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4383
+#: ../sepolicy/sepolicy/sepolicy.glade:4402
 msgid "Process Types"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4424
+#: ../sepolicy/sepolicy/sepolicy.glade:4443
 msgid "More Details"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4460
-#: ../sepolicy/sepolicy/sepolicy.glade:4754
+#: ../sepolicy/sepolicy/sepolicy.glade:4479
+#: ../sepolicy/sepolicy/sepolicy.glade:4773
 #, fuzzy
 msgid "Delete Modified File Labeling"
 msgstr "파일 레이블 설정 "
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4478
+#: ../sepolicy/sepolicy/sepolicy.glade:4497
 msgid ""
 "Select file labeling to delete. File labeling will be deleted when update is "
 "applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4525
+#: ../sepolicy/sepolicy/sepolicy.glade:4544
 msgid "SELinux File Label"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4564
-#: ../sepolicy/sepolicy/sepolicy.glade:4714
-#: ../sepolicy/sepolicy/sepolicy.glade:4844
+#: ../sepolicy/sepolicy/sepolicy.glade:4583
+#: ../sepolicy/sepolicy/sepolicy.glade:4733
+#: ../sepolicy/sepolicy/sepolicy.glade:4864
+#: ../sepolicy/sepolicy/sepolicy.glade:4998
+#: ../sepolicy/sepolicy/sepolicy.glade:5347
 msgid "Save to Update"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4604
+#: ../sepolicy/sepolicy/sepolicy.glade:4623
 #, fuzzy
 msgid "Delete Modified Ports"
 msgstr "네트워크 포트 삭제"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4622
+#: ../sepolicy/sepolicy/sepolicy.glade:4641
 msgid "Select ports to delete. Ports will be deleted when update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4771
+#: ../sepolicy/sepolicy/sepolicy.glade:4791
 msgid ""
 "Select file equivalence labeling to delete.File equivalence labeling will be "
 "deleted when update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4887
+#: ../sepolicy/sepolicy/sepolicy.glade:4907
+#: ../sepolicy/sepolicy/sepolicy.glade:5256
+#, fuzzy
+msgid "Delete Modified Users Mapping."
+msgstr "파일 레이블 설정 "
+
+#: ../sepolicy/sepolicy/sepolicy.glade:4925
+msgid ""
+"Select login user mapping to delete. Login user mapping will be deleted when "
+"update is applied."
+msgstr ""
+
+#: ../sepolicy/sepolicy/sepolicy.glade:4960
+#, fuzzy
+msgid "Login name"
+msgstr "로그인 이름"
+
+#: ../sepolicy/sepolicy/sepolicy.glade:5041
 #, fuzzy
 msgid "More Types"
 msgstr "파일 유형"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4914
+#: ../sepolicy/sepolicy/sepolicy.glade:5068
 msgid "Types"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4973
+#: ../sepolicy/sepolicy/sepolicy.glade:5127
 msgid ""
 "Review the updates you have made before committing them to the system.  To "
 "reset an item, uncheck the checkbox.  All items checked will be updated in "
 "the system when you select update."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5036
+#: ../sepolicy/sepolicy/sepolicy.glade:5190
 #, fuzzy
 msgid "Action"
 msgstr "애플리케이션 "
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5062
+#: ../sepolicy/sepolicy/sepolicy.glade:5216
 msgid "Apply"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5119
-#: ../sepolicy/sepolicy/sepolicy.glade:5360
+#: ../sepolicy/sepolicy/sepolicy.glade:5274
+msgid ""
+"Select users mapping to delete.Users mapping will be deleted when update is "
+"applied."
+msgstr ""
+
+#: ../sepolicy/sepolicy/sepolicy.glade:5322
+#, fuzzy
+msgid "SELinux Username"
+msgstr "SELinux 사용자"
+
+#: ../sepolicy/sepolicy/sepolicy.glade:5407
 msgid ""
 "Add User Roles. SELinux User Roles will be created when Update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5144
-#: ../sepolicy/sepolicy/sepolicy.glade:5385
+#: ../sepolicy/sepolicy/sepolicy.glade:5432
 #, fuzzy
 msgid "SELinux User Name"
 msgstr "SELinux 사용자"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5258
-#: ../sepolicy/sepolicy/sepolicy.glade:5499
+#: ../sepolicy/sepolicy/sepolicy.glade:5547
 msgid ""
 "Enter MLS/MCS Range for this SELinux User.\n"
 "s0-s0:c1023"
 msgstr ""
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5289
-#: ../sepolicy/sepolicy/sepolicy.glade:5530
+#: ../sepolicy/sepolicy/sepolicy.glade:5578
 #, fuzzy
 msgid ""
 "Specify the default level that you would like this SELinux user to login "
 "with.  Defaults to s0."
 msgstr "이 사용자가 관리하려는 도메인을 선택합니다."
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5293
-#: ../sepolicy/sepolicy/sepolicy.glade:5534
+#: ../sepolicy/sepolicy/sepolicy.glade:5582
 msgid "Enter Default Level for SELinux User to login with. Default s0"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:61
+#: ../sepolicy/sepolicy/gui.py:62
 #, fuzzy
 msgid "Disable"
 msgstr "비활성화 "
 
-#: ../sepolicy/sepolicy/gui.py:61
+#: ../sepolicy/sepolicy/gui.py:62
 #, fuzzy
 msgid "Enable"
 msgstr "감사 활성화 "
 
-#: ../sepolicy/sepolicy/gui.py:66
+#: ../sepolicy/sepolicy/gui.py:67
 msgid "Advanced <<"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:67
+#: ../sepolicy/sepolicy/gui.py:68
 msgid "Advanced Search <<"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:92
+#: ../sepolicy/sepolicy/gui.py:93
 msgid ""
 "<small>\n"
 "To change from Disabled to Enforcing mode\n"
@@ -4902,535 +4952,552 @@ msgid ""
 "  * Change the system mode to Enforcing</small>\n"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:115
+#: ../sepolicy/sepolicy/gui.py:116
 #, fuzzy, python-format
 msgid "%s is not a valid domain"
 msgstr "%s는 유효한 문맥이 아닙니다\n"
 
-#: ../sepolicy/sepolicy/gui.py:624
+#: ../sepolicy/sepolicy/gui.py:639
 msgid "System Status: Disabled"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:722
+#: ../sepolicy/sepolicy/gui.py:737
 msgid "Help: Start Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:726
+#: ../sepolicy/sepolicy/gui.py:741
 #, fuzzy
 msgid "Help: Booleans Page"
 msgstr "부울 이름 "
 
-#: ../sepolicy/sepolicy/gui.py:732
+#: ../sepolicy/sepolicy/gui.py:747
 msgid "Help: Executable Files Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:735
+#: ../sepolicy/sepolicy/gui.py:750
 msgid "Help: Writable Files Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:738
+#: ../sepolicy/sepolicy/gui.py:753
 msgid "Help: Application Types Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:743
+#: ../sepolicy/sepolicy/gui.py:758
 msgid "Help: Outbound Network Connections Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:746
+#: ../sepolicy/sepolicy/gui.py:761
 msgid "Help: Inbound Network Connections Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:752
+#: ../sepolicy/sepolicy/gui.py:767
 msgid "Help: Transition from application Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:755
+#: ../sepolicy/sepolicy/gui.py:770
 msgid "Help: Transition into application Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:758
+#: ../sepolicy/sepolicy/gui.py:773
 msgid "Help: Transition application file Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:762
+#: ../sepolicy/sepolicy/gui.py:777
 msgid "Help: Systems Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:766
+#: ../sepolicy/sepolicy/gui.py:781
 msgid "Help: Lockdown Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:770
+#: ../sepolicy/sepolicy/gui.py:785
 #, fuzzy
 msgid "Help: Login Page"
 msgstr "로그인 이름"
 
-#: ../sepolicy/sepolicy/gui.py:774
+#: ../sepolicy/sepolicy/gui.py:789
 #, fuzzy
 msgid "Help: SELinux User Page"
 msgstr "SELinux 사용자 맵핑 삭제"
 
-#: ../sepolicy/sepolicy/gui.py:778
+#: ../sepolicy/sepolicy/gui.py:793
 msgid "Help: File Equivalence Page"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:922 ../sepolicy/sepolicy/gui.py:1211
-#: ../sepolicy/sepolicy/gui.py:1644 ../sepolicy/sepolicy/gui.py:1885
-#: ../sepolicy/sepolicy/gui.py:2698
-msgid "More..."
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1031
+#: ../sepolicy/sepolicy/gui.py:1048
 #, python-format
 msgid "File path used to enter the '%s' domain."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1032
+#: ../sepolicy/sepolicy/gui.py:1049
 #, python-format
 msgid "Files to which the '%s' domain can write."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1033
+#: ../sepolicy/sepolicy/gui.py:1050
 #, python-format
 msgid "Network Ports to which the '%s' is allowed to connect."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1034
+#: ../sepolicy/sepolicy/gui.py:1051
 #, python-format
 msgid "Network Ports to which the '%s' is allowed to listen."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1035
+#: ../sepolicy/sepolicy/gui.py:1052
 #, python-format
 msgid "File Types defined for the '%s'."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1036
+#: ../sepolicy/sepolicy/gui.py:1053
 #, python-format
 msgid ""
 "Display boolean information that can be used to modify the policy for the "
 "'%s'."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1037
+#: ../sepolicy/sepolicy/gui.py:1054
 #, python-format
 msgid "Display file type information that can be used by the '%s'."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1038
+#: ../sepolicy/sepolicy/gui.py:1055
 #, python-format
 msgid "Display network ports to which the '%s' can connect or listen to."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1039
+#: ../sepolicy/sepolicy/gui.py:1056
 #, python-format
 msgid "Application Transitions Into '%s'"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1040
+#: ../sepolicy/sepolicy/gui.py:1057
 #, python-format
 msgid "Application Transitions From '%s'"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1041
+#: ../sepolicy/sepolicy/gui.py:1058
 #, fuzzy, python-format
 msgid "File Transitions From '%s'"
 msgstr "네임 스페이스로 전환하는데 실패했습니다\n"
 
-#: ../sepolicy/sepolicy/gui.py:1042
+#: ../sepolicy/sepolicy/gui.py:1059
 #, python-format
 msgid ""
 "Executables which will transition to the '%s', when executing a selected "
 "domains entrypoint."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1043
+#: ../sepolicy/sepolicy/gui.py:1060
 #, python-format
 msgid ""
 "Executables which will transition to a different domain, when the '%s' "
 "executes them."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1044
+#: ../sepolicy/sepolicy/gui.py:1061
 #, python-format
 msgid "Files by '%s' will transitions to a different label."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1045
+#: ../sepolicy/sepolicy/gui.py:1062
 #, python-format
 msgid "Display applications that can transition into or out of the '%s'."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1149
+#: ../sepolicy/sepolicy/gui.py:1170
 msgid "MISSING FILE PATH"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1265 ../sepolicy/sepolicy/gui.py:1267
+#: ../sepolicy/sepolicy/gui.py:1285 ../sepolicy/sepolicy/gui.py:1287
 #, fuzzy
 msgid "Boolean section."
 msgstr "부울 이름 "
 
-#: ../sepolicy/sepolicy/gui.py:1265
+#: ../sepolicy/sepolicy/gui.py:1285
 msgid "To disable this transition, go to the "
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1267
+#: ../sepolicy/sepolicy/gui.py:1287
 msgid "To enable this transition, go to the "
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1324
+#: ../sepolicy/sepolicy/gui.py:1344
 #, fuzzy
 msgid "executable"
 msgstr "실행 가능 "
 
-#: ../sepolicy/sepolicy/gui.py:1327
+#: ../sepolicy/sepolicy/gui.py:1347
 #, fuzzy
 msgid "writable"
 msgstr "비활성화 "
 
-#: ../sepolicy/sepolicy/gui.py:1330
+#: ../sepolicy/sepolicy/gui.py:1350
 #, fuzzy
 msgid "application"
 msgstr "애플리케이션 "
 
-#: ../sepolicy/sepolicy/gui.py:1331
-#, python-format
-msgid "Add new %s file path for '%s' domains."
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1332
-#, python-format
-msgid "Delete modified %s file paths for '%s' domain."
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1333
-#, python-format
-msgid ""
-"Modify selected modified %s file path for '%s' domain. Only bolded items in "
-"the list can be selected, this indicates they were modified previously."
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1345
-msgid "connect"
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1348
-msgid "listen for inbound connections"
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1350
-#, python-format
-msgid "Add new port definition to which the '%s' domains is allowed to %s."
-msgstr ""
-
 #: ../sepolicy/sepolicy/gui.py:1351
 #, python-format
-msgid ""
-"Delete modified port definitions to which the '%s' domain is allowed to %s."
+msgid "Add new %(TYPE)s file path for '%(DOMAIN)s' domains."
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1352
 #, python-format
-msgid "Modify port definitions to which the '%s' domain is allowed to %s."
+msgid "Delete %(TYPE)s file paths for '%(DOMAIN)s' domain."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1381
+#: ../sepolicy/sepolicy/gui.py:1353
+#, python-format
+msgid ""
+"Modify %(TYPE)s file path for '%(DOMAIN)s' domain. Only bolded items in the "
+"list can be selected, this indicates they were modified previously."
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1365
+msgid "connect"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1368
+msgid "listen for inbound connections"
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1370
+msgid "Add new port definition to which the '%(APP)s' domain is allowed to %s."
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1371
+msgid ""
+"Delete modified port definitions to which the '%(APP)s' domain is allowed to "
+"%s."
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1372
+#, python-format
+msgid ""
+"Modify port definitions to which the '%(APP)s' domain is allowed to %(PERM)s."
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1401
 #, fuzzy
 msgid "Add new SELinux User/Role definition."
 msgstr "SELinux 사용자 맵핑 추가 "
 
-#: ../sepolicy/sepolicy/gui.py:1382
+#: ../sepolicy/sepolicy/gui.py:1402
 #, fuzzy
 msgid "Delete modified SELinux User/Role definitions."
 msgstr "SELinux 사용자 맵핑 삭제"
 
-#: ../sepolicy/sepolicy/gui.py:1383
+#: ../sepolicy/sepolicy/gui.py:1403
 msgid "Modify selected modified SELinux User/Role definitions."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1390
+#: ../sepolicy/sepolicy/gui.py:1410
 #, fuzzy
 msgid "Add new Login Mapping definition."
 msgstr "SELinux 로그인 맵핑 추가 "
 
-#: ../sepolicy/sepolicy/gui.py:1391
+#: ../sepolicy/sepolicy/gui.py:1411
 #, fuzzy
 msgid "Delete modified Login Mapping definitions."
 msgstr "%s에 대한 로그인 맵핑을 수정할 수정할 수 없습니다"
 
-#: ../sepolicy/sepolicy/gui.py:1392
+#: ../sepolicy/sepolicy/gui.py:1412
 msgid "Modify selected modified Login Mapping definitions."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1399
+#: ../sepolicy/sepolicy/gui.py:1419
 msgid "Add new File Equivalence definition."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1400
+#: ../sepolicy/sepolicy/gui.py:1420
 msgid "Delete modified File Equivalence definitions."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1401
+#: ../sepolicy/sepolicy/gui.py:1421
 msgid ""
 "Modify selected modified File Equivalence definitions. Only bolded items in "
 "the list can be selected, this indicates they were modified previously."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1429
+#: ../sepolicy/sepolicy/gui.py:1449
 #, python-format
 msgid "Boolean %s Allow Rules"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1442
+#: ../sepolicy/sepolicy/gui.py:1462
 #, python-format
 msgid "Add Network Port for %s.  Ports will be created when update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1443
+#: ../sepolicy/sepolicy/gui.py:1463
 #, fuzzy, python-format
 msgid "Add Network Port for %s"
 msgstr "네트워크 포트 추가 "
 
-#: ../sepolicy/sepolicy/gui.py:1448
+#: ../sepolicy/sepolicy/gui.py:1468
 #, python-format
 msgid ""
 "Add File Labeling for %s. File labels will be created when update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1449 ../sepolicy/sepolicy/gui.py:1500
+#: ../sepolicy/sepolicy/gui.py:1469 ../sepolicy/sepolicy/gui.py:1522
 #, fuzzy, python-format
 msgid "Add File Labeling for %s"
 msgstr "파일 레이블 설정 "
 
-#: ../sepolicy/sepolicy/gui.py:1459
+#: ../sepolicy/sepolicy/gui.py:1479
 msgid "Add Login Mapping. User Mapping will be created when Update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1460
+#: ../sepolicy/sepolicy/gui.py:1480
 #, fuzzy
 msgid "Add Login Mapping"
 msgstr "SELinux 로그인 맵핑 추가 "
 
-#: ../sepolicy/sepolicy/gui.py:1465
+#: ../sepolicy/sepolicy/gui.py:1485
 msgid ""
 "Add SELinux User Role. SELinux user roles will be created when update is "
 "applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1466
+#: ../sepolicy/sepolicy/gui.py:1486
 #, fuzzy
 msgid "Add SELinux Users"
 msgstr "SELinux 사용자 추가 "
 
-#: ../sepolicy/sepolicy/gui.py:1473
+#: ../sepolicy/sepolicy/gui.py:1493
 msgid ""
 "Add File Equivalency Mapping. Mapping will be created when update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1474
+#: ../sepolicy/sepolicy/gui.py:1494
 #, fuzzy
 msgid "Add SELinux File Equivalency"
 msgstr ""
 "\n"
 "SELinux 로컬 fcontext 해당 \n"
 
-#: ../sepolicy/sepolicy/gui.py:1499
+#: ../sepolicy/sepolicy/gui.py:1521
 #, python-format
 msgid ""
 "Modify File Labeling for %s. File labels will be created when update is "
 "applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1566
+#: ../sepolicy/sepolicy/gui.py:1577
+msgid ""
+"Modify SELinux User Role. SELinux user roles will be modified when update is "
+"applied."
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1578
+#, fuzzy
+msgid "Modify SELinux Users"
+msgstr "SELinux 사용자 추가 "
+
+#: ../sepolicy/sepolicy/gui.py:1586
+msgid ""
+"Modify Login Mapping. Login Mapping will be modified when Update is applied."
+msgstr ""
+
+#: ../sepolicy/sepolicy/gui.py:1587
+#, fuzzy
+msgid "Modify Login Mapping"
+msgstr "로그인 맵핑 목록을 만들 수 없습니다"
+
+#: ../sepolicy/sepolicy/gui.py:1593
 msgid ""
 "Modify File Equivalency Mapping. Mapping will be created when update is "
 "applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1567
+#: ../sepolicy/sepolicy/gui.py:1594
 #, fuzzy
 msgid "Modify SELinux File Equivalency"
 msgstr "SELinux 사용자 맵핑 편집 "
 
-#: ../sepolicy/sepolicy/gui.py:1652
+#: ../sepolicy/sepolicy/gui.py:1679
 #, python-format
 msgid ""
 "Modify Network Port for %s.  Ports will be created when update is applied."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1653
+#: ../sepolicy/sepolicy/gui.py:1680
 #, fuzzy, python-format
 msgid "Modify Network Port for %s"
 msgstr "네트워크 포트 편집 "
 
-#: ../sepolicy/sepolicy/gui.py:1866
+#: ../sepolicy/sepolicy/gui.py:1898
 #, python-format
 msgid "The entry '%s' is not a valid path.  Paths must begin with a '/'."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:1879
+#: ../sepolicy/sepolicy/gui.py:1911
 msgid "Port number must be between 1 and 65536"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2146
+#: ../sepolicy/sepolicy/gui.py:2188
 #, fuzzy, python-format
 msgid "SELinux name: %s"
 msgstr "SELinux 기능"
 
-#: ../sepolicy/sepolicy/gui.py:2157
+#: ../sepolicy/sepolicy/gui.py:2199
 #, python-format
 msgid "Add file labeling for %s"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2159
+#: ../sepolicy/sepolicy/gui.py:2201
 #, fuzzy, python-format
 msgid "Delete file labeling for %s"
 msgstr "%s에 대한 파일 문맥을 삭제할 수 없습니다"
 
-#: ../sepolicy/sepolicy/gui.py:2161
+#: ../sepolicy/sepolicy/gui.py:2203
 #, fuzzy, python-format
 msgid "Modify file labeling for %s"
 msgstr "%s에 대한 파일 문맥을 수정할 수 없습니다"
 
-#: ../sepolicy/sepolicy/gui.py:2165
+#: ../sepolicy/sepolicy/gui.py:2207
 #, python-format
 msgid "File path: %s"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2168
+#: ../sepolicy/sepolicy/gui.py:2210
 #, python-format
 msgid "File class: %s"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2171 ../sepolicy/sepolicy/gui.py:2195
+#: ../sepolicy/sepolicy/gui.py:2213 ../sepolicy/sepolicy/gui.py:2237
 #, fuzzy, python-format
 msgid "SELinux file type: %s"
 msgstr "SELinux 유형"
 
-#: ../sepolicy/sepolicy/gui.py:2180
+#: ../sepolicy/sepolicy/gui.py:2222
 #, fuzzy, python-format
 msgid "Add ports for %s"
 msgstr "잘못된 형식 %s: 기록 %s "
 
-#: ../sepolicy/sepolicy/gui.py:2182
+#: ../sepolicy/sepolicy/gui.py:2224
 #, fuzzy, python-format
 msgid "Delete ports for %s"
 msgstr "%s 삭제 "
 
-#: ../sepolicy/sepolicy/gui.py:2184
+#: ../sepolicy/sepolicy/gui.py:2226
 #, fuzzy, python-format
 msgid "Modify ports for %s"
 msgstr "%s 수정 "
 
-#: ../sepolicy/sepolicy/gui.py:2187
+#: ../sepolicy/sepolicy/gui.py:2229
 #, fuzzy, python-format
 msgid "Network ports: %s"
 msgstr "네트워크 포트 "
 
-#: ../sepolicy/sepolicy/gui.py:2190
+#: ../sepolicy/sepolicy/gui.py:2232
 #, fuzzy, python-format
 msgid "Network protocol: %s"
 msgstr "네트워크 포트 "
 
-#: ../sepolicy/sepolicy/gui.py:2204
+#: ../sepolicy/sepolicy/gui.py:2246
 #, fuzzy
 msgid "Add user"
 msgstr "사용자 추가 "
 
-#: ../sepolicy/sepolicy/gui.py:2206
+#: ../sepolicy/sepolicy/gui.py:2248
 #, fuzzy
 msgid "Delete user"
 msgstr "사용자 삭제 "
 
-#: ../sepolicy/sepolicy/gui.py:2208
+#: ../sepolicy/sepolicy/gui.py:2250
 #, fuzzy
 msgid "Modify user"
 msgstr "사용자 편집 "
 
-#: ../sepolicy/sepolicy/gui.py:2211
+#: ../sepolicy/sepolicy/gui.py:2253
 #, fuzzy, python-format
 msgid "SELinux User : %s"
 msgstr "SELinux 사용자"
 
-#: ../sepolicy/sepolicy/gui.py:2216
+#: ../sepolicy/sepolicy/gui.py:2258
 #, fuzzy, python-format
 msgid "Roles: %s"
 msgstr "역할 "
 
-#: ../sepolicy/sepolicy/gui.py:2220 ../sepolicy/sepolicy/gui.py:2245
+#: ../sepolicy/sepolicy/gui.py:2262 ../sepolicy/sepolicy/gui.py:2287
 #, fuzzy, python-format
 msgid "MLS/MCS Range: %s"
 msgstr "MLS/MCS 범위"
 
-#: ../sepolicy/sepolicy/gui.py:2229
+#: ../sepolicy/sepolicy/gui.py:2271
 #, fuzzy
 msgid "Add login mapping"
 msgstr "SELinux 로그인 맵핑 추가 "
 
-#: ../sepolicy/sepolicy/gui.py:2231
+#: ../sepolicy/sepolicy/gui.py:2273
 #, fuzzy
 msgid "Delete login mapping"
 msgstr "SELinux 사용자 맵핑 삭제"
 
-#: ../sepolicy/sepolicy/gui.py:2233
+#: ../sepolicy/sepolicy/gui.py:2275
 #, fuzzy
 msgid "Modify login mapping"
 msgstr "로그인 맵핑 목록을 만들 수 없습니다"
 
-#: ../sepolicy/sepolicy/gui.py:2237
+#: ../sepolicy/sepolicy/gui.py:2279
 #, fuzzy, python-format
-msgid "Linux User : %s"
-msgstr "SELinux 사용자"
+msgid "Login Name : %s"
+msgstr "로그인 이름"
 
-#: ../sepolicy/sepolicy/gui.py:2241
+#: ../sepolicy/sepolicy/gui.py:2283
 #, fuzzy, python-format
 msgid "SELinux User: %s"
 msgstr "SELinux 사용자"
 
-#: ../sepolicy/sepolicy/gui.py:2254
+#: ../sepolicy/sepolicy/gui.py:2296
 msgid "Add file equiv labeling."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2256
+#: ../sepolicy/sepolicy/gui.py:2298
 msgid "Delete file equiv labeling."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2258
+#: ../sepolicy/sepolicy/gui.py:2300
 msgid "Modify file equiv labeling."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2262
+#: ../sepolicy/sepolicy/gui.py:2304
 #, python-format
 msgid "File path : %s"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2266
+#: ../sepolicy/sepolicy/gui.py:2308
 #, python-format
 msgid "Equivalence: %s"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2369
+#: ../sepolicy/sepolicy/gui.py:2411
 #, python-format
-msgid "Run restorecon on %s to change its type from %s to the default %s?"
+msgid ""
+"Run restorecon on %(PATH)s to change its type from %(CUR_CONTEXT)s to the "
+"default %(DEF_CONTEXT)s?"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2381
+#: ../sepolicy/sepolicy/gui.py:2423
 msgid "Update Changes"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2383
+#: ../sepolicy/sepolicy/gui.py:2425
 msgid "Revert Changes"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2556
+#: ../sepolicy/sepolicy/gui.py:2598
 msgid "System Status: Enforcing"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2558
+#: ../sepolicy/sepolicy/gui.py:2600
 msgid "System Status: Permissive"
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2749
+#: ../sepolicy/sepolicy/gui.py:2791
 #, fuzzy
 msgid ""
 "Changing to SELinux disabled requires a reboot.  It is not recommended.  If "
@@ -5447,7 +5514,7 @@ msgstr ""
 "또한 허용 모드로 변경하기 위해 재부팅할 필요가 없습니다. 계속 진행하시겠습니"
 "까?"
 
-#: ../sepolicy/sepolicy/gui.py:2783
+#: ../sepolicy/sepolicy/gui.py:2825
 msgid ""
 "You are attempting to close the application without applying your changes.\n"
 "    *    To apply changes you have made during this session, click No and "
@@ -5456,6 +5523,10 @@ msgid ""
 "All changes that you have made during this session will be lost."
 msgstr ""
 
-#: ../sepolicy/sepolicy/gui.py:2783
+#: ../sepolicy/sepolicy/gui.py:2825
 msgid "Loss of data Dialog"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Linux User : %s"
+#~ msgstr "SELinux 사용자"
