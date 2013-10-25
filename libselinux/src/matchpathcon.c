@@ -2,6 +2,7 @@
 #include <string.h>
 #include <errno.h>
 #include <stdio.h>
+#include <syslog.h>
 #include "selinux_internal.h"
 #include "label_internal.h"
 #include "callbacks.h"
@@ -62,7 +63,7 @@ static void
 {
 	va_list ap;
 	va_start(ap, fmt);
-	vfprintf(stderr, fmt, ap);
+	vsyslog(LOG_ERR, fmt, ap);
 	va_end(ap);
 }
 
