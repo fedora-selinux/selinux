@@ -16,9 +16,9 @@
 # along with systemd; If not, see <http://www.gnu.org/licenses/>.
 
 __contains_word () {
-        local word=$1; shift
-        for w in $*; do [[ $w = $word ]] && return 0; done
-        return 1
+    local word=$1; shift
+    for w in $*; do [[ $w = $word ]] && return 0; done
+    return 1
 }
 
 __get_all_paths () {
@@ -28,37 +28,40 @@ __get_all_ftypes () {
     echo '-- -d -c -b -s -l -p'
 }
 __get_all_networks () {
-    seinfo -u 2> /dev/null | tail -n +3
+    /usr/bin/seinfo -u 2> /dev/null | tail -n +3
 }
 __get_all_booleans () {
-    getsebool -a 2> /dev/null
+    /usr/bin/getsebool -a 2> /dev/null
 }
 __get_all_types () {
-    seinfo -t 2> /dev/null | tail -n +3
+    /usr/bin/seinfo -t 2> /dev/null | tail -n +3
+}
+__get_all_roles () {
+    /usr/bin/seinfo -r 2> /dev/null | tail -n +3
 }
 __get_all_admin_interaces () {
-    awk '/InterfaceVector.*_admin /{ print $2 }' /var/lib/sepolgen/interface_info | awk -F '_admin' '{ print $1 }'
+    /usr/bin/awk '/InterfaceVector.*_admin /{ print $2 }' /var/lib/sepolgen/interface_info | /usr/bin/awk -F '_admin' '{ print $1 }'
 }
 __get_all_user_role_interaces () {
-    awk '/InterfaceVector.*_role /{ print $2 }' /var/lib/sepolgen/interface_info | awk -F '_role' '{ print $1 }'
+    /usr/bin/awk '/InterfaceVector.*_role /{ print $2 }' /var/lib/sepolgen/interface_info | /usr/bin/awk -F '_role' '{ print $1 }'
 }
 __get_all_user_domains () {
-    seinfo -auserdomain -x 2> /dev/null | tail -n +2
+    /usr/bin/seinfo -auserdomain -x 2> /dev/null | tail -n +2
 }
 __get_all_users () {
-    seinfo -u 2> /dev/null | tail -n +2
+    /usr/bin/seinfo -u 2> /dev/null | tail -n +2
 }
 __get_all_classes () {
-    seinfo -c 2> /dev/null | tail -n +2
+    /usr/bin/seinfo -c 2> /dev/null | tail -n +2
 }
 __get_all_port_types () {
-    seinfo -aport_type -x 2> /dev/null | tail -n +2
+    /usr/bin/seinfo -aport_type -x 2> /dev/null | tail -n +2
 }
 __get_all_domain_types () {
-    seinfo -adomain -x 2> /dev/null | tail -n +2
+    /usr/bin/seinfo -adomain -x 2> /dev/null | tail -n +2
 }
 __get_all_domains () {
-    seinfo -adomain -x 2>/dev/null | sed 's/_t$//g'
+    /usr/bin/seinfo -adomain -x 2>/dev/null | sed 's/_t$//g'
 }
 _sepolicy () {
         local command=${COMP_WORDS[1]}
