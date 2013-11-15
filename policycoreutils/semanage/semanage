@@ -234,7 +234,7 @@ def parser_add_type(parser, name):
 def parser_add_level(parser, name):
     parser.add_argument('-L', '--level', default='s0', help=_('Default SELinux Level for SELinux user, s0 Default. (MLS/MCS Systems only)'))
 def parser_add_range(parser, name):
-    parser.add_argument('-r', '--range', default="s0",
+    parser.add_argument('-r', '--range', default=None,
                              help=_('''
 MLS/MCS Security Range (MLS/MCS Systems only)
 SELinux Range  for SELinux login mapping
