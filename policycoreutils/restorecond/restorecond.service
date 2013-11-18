@@ -4,9 +4,10 @@ After=syslog.target
 ConditionPathExists=/etc/selinux/restorecond.conf
 
 [Service]
-Type=oneshot
-ExecStart=/usr/sbin/restorecond
-RemainAfterExit=yes
+Environment=LANG=C
+
+ExecStart=/usr/sbin/restorecond -d
+ExecStop=/bin/kill -WINCH ${MAINPID}
 
 [Install]
 WantedBy=multi-user.target
