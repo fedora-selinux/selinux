@@ -494,7 +494,7 @@ int selinux_init_load_policy(int *enforce)
 	 * already mounted and selinuxmnt set above.
 	 */
 
-	if (seconfig == -1) {
+	if (*enforce == -1) {
 		/* Runtime disable of SELinux. */
 		rc = security_disable();
 		if (rc == 0) {
