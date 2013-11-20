@@ -10,6 +10,7 @@ import gettext
 import sepolgen.defaults as defaults
 import sepolgen.interfaces as interfaces
 import sys
+import subprocess
 gettext.bindtextdomain(PROGNAME, "/usr/share/locale")
 gettext.textdomain(PROGNAME)
 try:
@@ -116,6 +117,25 @@ trans_file_type_str["-b"] = "b"
 trans_file_type_str["-s"] = "s"
 trans_file_type_str["-l"] = "l"
 trans_file_type_str["-p"] = "p"
+
+def get_all_modules():
+    all_modules = []
+    cmd = "semodule -l 2>/dev/null"
+    try:
+        output = subprocess.check_output(cmd,
+                                         stderr=subprocess.STDOUT,
+                                         shell=True)
+        l = output.split("\n")
+
+    except subprocess.CalledProcessError as e:
+        from .sedbus import SELinuxDBus
+        l = SELinuxDBus().semodule_list().split("\n")
+
+    for i in l:
+        if len(i):
+            all_modules.append(i.split()[0])
+            
+    return all_modules
 
 def get_file_types(setype):
     flist=[]
@@ -473,7 +493,6 @@ portrecs = None
 portrecsbynum = None
 
 def gen_interfaces():
-    import subprocess
     ifile = defaults.interface_info()
     headers = defaults.headers()
     rebuild = False
