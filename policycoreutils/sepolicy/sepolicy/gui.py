@@ -1098,15 +1098,16 @@ class SELinuxGui():
             if rec[0] == "module":
                 self.cust_dict["module"][rec[-1]] = { "enabled": rec[2] != "-d" }
 
-        if "module" not in self.cust_dict:
+        for i in keys:
+            if i not in self.cust_dict:
+                self.cust_dict.update({i:{}})
+
+        if not self.cust_dict["module"]:
             return
         for semodule, button in [ ("unconfined", self.disable_unconfined_button), ("permissivedomains", self.disable_permissive_button) ]:
             if semodule in self.cust_dict["module"]:
                 button.set_active(self.cust_dict["module"][semodule]["enabled"])
 
-        for i in keys:
-            if i not in self.cust_dict:
-                self.cust_dict.update({i:{}})
 
     def executable_files_initialize(self, application):
         self.entrypoints = sepolicy.get_entrypoints(application)
