@@ -54,5 +54,5 @@ if __name__ == "__main__":
         dbus_proxy = SELinuxDBus()
         resp = dbus_proxy.setenforce(int(sys.argv[1]))
         print (resp)
-    except dbus.DBusException, e:
-        print e
+    except dbus.DBusException as e:
+        print (e)

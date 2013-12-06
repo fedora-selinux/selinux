@@ -18,20 +18,17 @@
 # You should have received a copy of the GNU General Public License
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #
-import string
 import gtk
 import gtk.glade
-import os
 import gobject
 import sys
-import tempfile
 import seobject
 import semanagePage
 
 INSTALLPATH='/usr/share/system-config-selinux'
 sys.path.append(INSTALLPATH)
 
-import commands
+import subprocess
 ENFORCING=0
 PERMISSIVE=1
 DISABLED=2
@@ -50,10 +47,8 @@ try:
                     unicode=False,
                     codeset = 'utf-8')
 except IOError:
-    import __builtin__
-    __builtin__.__dict__['_'] = unicode
-
-from glob import fnmatch
+    import builtins
+    builtins.__dict__['_'] = str
 
 class Modifier:
     def __init__(self,name, on, save):
@@ -103,8 +98,6 @@ class booleansPage:
         self.revertButton = xml.get_widget("booleanRevertButton")
         self.revertButton.set_sensitive(self.local)
         self.revertButton.connect("clicked", self.on_revert_clicked)
-        listStore = gtk.ListStore(gobject.TYPE_STRING)
-        cell = gtk.CellRendererText()
 
         self.store = gtk.ListStore(gobject.TYPE_BOOLEAN, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.store.set_sort_column_id(1, gtk.SORT_ASCENDING)
@@ -123,7 +116,7 @@ class booleansPage:
         self.booleansView.append_column(col)
 
         col = gtk.TreeViewColumn("Description", gtk.CellRendererText(), text=DESC)
-	col.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+        col.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
         col.set_fixed_width(400)
         col.set_sort_column_id(DESC)
         col.set_resizable(True)
@@ -170,16 +163,15 @@ class booleansPage:
         # change cursor
         if boolean == None:
             return
+        self.wait()
         try:
-            self.wait()
-            (rc, out) = commands.getstatusoutput("semanage boolean -d %s" % boolean)
-
-            self.ready()
-            if rc != 0:
-                return self.error(out)
+            subprocess.check_output("semanage boolean -d %s" % boolean,
+                                    stderr=subprocess.STDOUT,
+                                    shell=True)
             self.load(self.filter)
-        except ValueError, e:
-            self.error(e.args[0])
+        except subprocess.CalledProcessError as e:
+            self.error(e.output)
+        self.ready()
 
     def filter_changed(self, *arg):
         filter =  arg[0].get_text()
@@ -224,17 +216,25 @@ class booleansPage:
         self.store.set_value(iter, ACTIVE , not val)
         self.wait()
         setsebool="/usr/sbin/setsebool -P %s %d" % (key, not val)
-        rc,out = commands.getstatusoutput(setsebool)
-        if rc != 0:
-            self.error(out)
-        self.load(self.filter)
+        try:
+            subprocess.check_output(setsebool,
+                                    stderr=subprocess.STDOUT,
+                                    shell=True)
+            self.load(self.filter)
+        except subprocess.CalledProcessError as e:
+            self.error(e.output)
         self.ready()
 
     def on_revert_clicked(self, button):
         self.wait()
         setsebool="semanage boolean --deleteall"
-        commands.getstatusoutput(setsebool)
-        self.load(self.filter)
+        try:
+            subprocess.check_output(setsebool,
+                                    stderr=subprocess.STDOUT,
+                                    shell=True)
+            self.load(self.filter)
+        except subprocess.CalledProcessError as e:
+            self.error(e.output)
         self.ready()
 
     def on_local_clicked(self, button):

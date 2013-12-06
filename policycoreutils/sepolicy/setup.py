@@ -4,7 +4,7 @@
 # Author: Dan Walsh <dwalsh@redhat.com>
 import os
 from distutils.core import setup, Extension
-policy = Extension("sepolicy._policy", 
+policy = Extension("sepolicy.policy", 
                    libraries=["apol", "qpol"],
                    sources=[ "policy.c", "info.c", "search.c"]
 )

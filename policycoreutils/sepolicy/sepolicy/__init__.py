@@ -3,7 +3,7 @@
 # Author: Dan Walsh <dwalsh@redhat.com>
 # Author: Ryan Hallisey <rhallise@redhat.com>
 
-import _policy
+from . import policy as _policy
 import selinux, glob
 PROGNAME="policycoreutils"
 import gettext
@@ -14,12 +14,15 @@ gettext.bindtextdomain(PROGNAME, "/usr/share/locale")
 gettext.textdomain(PROGNAME)
 try:
     gettext.install(PROGNAME,
-                    localedir="/usr/share/locale",
-                    unicode=False,
+                    unicode=True,
+                    codeset = 'utf-8')
+except TypeError:
+    # Failover to python3 install
+    gettext.install(PROGNAME,
                     codeset = 'utf-8')
 except IOError:
-    import __builtin__
-    __builtin__.__dict__['_'] = unicode
+    import builtins
+    builtins.__dict__['_'] = str
 
 TYPE = _policy.TYPE
 ROLE = _policy.ROLE
@@ -28,6 +31,8 @@ PORT = _policy.PORT
 USER = _policy.USER
 BOOLEAN = _policy.BOOLEAN
 TCLASS =  _policy.CLASS
+SENS =  _policy.SENS
+CATS =  _policy.CATS
 
 ALLOW = 'allow'
 AUDITALLOW = 'auditallow'
@@ -59,7 +64,7 @@ def search(types, info = {}):
 
     dict_list = _policy.search(seinfo)
     if dict_list and len(perms) != 0:
-        dict_list = filter(lambda x: _dict_has_perms(x, perms), dict_list)
+        dict_list = [x for x in dict_list if _dict_has_perms(x, perms)]
     return dict_list
 
 def get_conditionals(src,dest,tclass,perm):
@@ -75,7 +80,7 @@ def get_conditionals(src,dest,tclass,perm):
                 allows=[]
                 allows.append(i)
     try:
-        for i in map(lambda y: (y), filter(lambda x: set(perm).issubset(x[PERMS]) and x['boolean'], allows)):
+        for i in [(y) for y in [x for x in allows if set(perm).issubset(x[PERMS]) and x['boolean']]]:
             tdict.update({'source':i['source'],'boolean':i['boolean']})
             if tdict not in tlist:
                 tlist.append(tdict)
@@ -86,8 +91,8 @@ def get_conditionals(src,dest,tclass,perm):
     return (tlist)
 
 def get_conditionals_format_text(cond):
-    enabled = len(filter(lambda x: x['boolean'][0][1], cond)) > 0
-    return _("-- Allowed %s [ %s ]") % (enabled, " || ".join(set(map(lambda x: "%s=%d" % (x['boolean'][0][0], x['boolean'][0][1]), cond))))
+    enabled = len([x for x in cond if x['boolean'][0][1]]) > 0
+    return _("-- Allowed %s [ %s ]") % (enabled, " || ".join(set(["%s=%d" % (x['boolean'][0][0], x['boolean'][0][1]) for x in cond])))
 
 def get_types_from_attribute(attribute):
     return info(ATTRIBUTE,attribute)[0]["types"]
@@ -169,7 +174,7 @@ def find_file(reg):
     try:
         pat = re.compile(r"%s$" % reg)
     except:
-        print "bad reg:", reg
+        print("bad reg:", reg)
         return []
     p = reg
     if p.endswith("(/.*)?"):
@@ -181,19 +186,19 @@ def find_file(reg):
         if path[-1] != "/":    # is pass in it breaks without try block
             path += "/"
     except IndexError:
-        print "try failed got an IndexError"
+        print("try failed got an IndexError")
         pass
 
     try:
         pat = re.compile(r"%s$" % reg)
-        return filter(pat.match, map(lambda x: path + x, os.listdir(path)))
+        return list(filter(pat.match, [path + x for x in os.listdir(path)]))
     except:
         return []
 
 def find_all_files(domain, exclude_list = []):
     all_entrypoints = []
     executable_files = get_entrypoints(domain)
-    for exe in executable_files.keys():
+    for exe in list(executable_files.keys()):
         if exe.endswith("_exec_t") and exe not in exclude_list:
             for path in executable_files[exe]:
                 for f in find_file(path):
@@ -221,7 +226,7 @@ def read_file_equiv(edict, fc_path, modify):
             f = e.split()
             edict[f[0]] = { "equiv" : f[1], "modify" : modify }
         return edict
-
+    
 file_equiv_modified=None
 def get_file_equiv_modified(fc_path = selinux.selinux_file_context_path()):
         global file_equiv_modified
@@ -239,7 +244,7 @@ def get_file_equiv(fc_path = selinux.selinux_file_context_path()):
         file_equiv = get_file_equiv_modified(fc_path)
         file_equiv = read_file_equiv(file_equiv, fc_path + ".subs_dist", modify = False)
         return file_equiv
-
+        
 local_files=None
 def get_local_file_paths(fc_path = selinux.selinux_file_context_path()):
     global local_files
@@ -309,7 +314,7 @@ def get_fcdict(fc_path = selinux.selinux_file_context_path()):
 
 def get_transitions_into(setype):
     try:
-        return filter(lambda x: x["transtype"] == setype, search([TRANSITION],{ 'class':'process'}))
+        return [x for x in search([TRANSITION],{ 'class':'process'}) if x["transtype"] == setype]
     except TypeError:
         pass
     return None
@@ -323,7 +328,7 @@ def get_transitions(setype):
 
 def get_file_transitions(setype):
     try:
-        return filter(lambda x: x['class'] != "process", search([TRANSITION],{'source':setype}))
+        return [x for x in search([TRANSITION],{'source':setype}) if x['class'] != "process"]
     except TypeError:
         pass
     return None
@@ -347,7 +352,7 @@ def get_all_entrypoints():
 def get_entrypoint_types(setype):
     entrypoints = []
     try:
-        entrypoints = map(lambda x: x['target'],filter(lambda x: x['source'] == setype, search([ALLOW],{'source':setype,  'permlist':['entrypoint'], 'class':'file'})))
+        entrypoints = [x['target'] for x in [x for x in search([ALLOW],{'source':setype,  'permlist':['entrypoint'], 'class':'file'}) if x['source'] == setype]]
     except TypeError:
         pass
     return entrypoints
@@ -355,7 +360,7 @@ def get_entrypoint_types(setype):
 def get_init_transtype(path):
     entrypoint = selinux.getfilecon(path)[1].split(":")[2]
     try:
-        entrypoints = filter(lambda x: x['target'] == entrypoint, search([TRANSITION],{'source':"init_t", 'class':'process'}))
+        entrypoints = [x for x in search([TRANSITION],{'source':"init_t", 'class':'process'}) if x['target'] == entrypoint]
         if len(entrypoints) == 0:
             return None
         return entrypoints[0]["transtype"]
@@ -365,7 +370,7 @@ def get_init_transtype(path):
 
 def get_init_entrypoint(transtype):
     try:
-        entrypoints = filter(lambda x: x['transtype'] == transtype, search([TRANSITION],{'source':"init_t", 'class':'process'}))
+        entrypoints = [x for x in search([TRANSITION],{'source':"init_t", 'class':'process'}) if x['transtype'] == transtype]
         if len(entrypoints) == 0:
             return None
         return entrypoints[0]["target"]
@@ -375,7 +380,7 @@ def get_init_entrypoint(transtype):
 
 def get_init_entrypoint_target(entrypoint):
     try:
-        entrypoints = map(lambda x: x['transtype'], search([TRANSITION],{'source':"init_t",  'target':entrypoint, 'class':'process'}))
+        entrypoints = [x['transtype'] for x in search([TRANSITION],{'source':"init_t",  'target':entrypoint, 'class':'process'})]
         return entrypoints[0]
     except TypeError:
         pass
@@ -413,7 +418,7 @@ def get_methods():
     # List of per_role_template interfaces
         ifs = interfaces.InterfaceSet()
         ifs.from_file(fd)
-        methods = ifs.interfaces.keys()
+        methods = list(ifs.interfaces.keys())
         fd.close()
     except:
         sys.stderr.write("could not open interface info [%s]\n" % fn)
@@ -426,7 +431,7 @@ all_types = None
 def get_all_types():
     global all_types
     if all_types == None:
-        all_types = map(lambda x: x['name'], info(TYPE))
+        all_types = [x['name'] for x in info(TYPE)]
     return all_types
 
 user_types =  None
@@ -468,7 +473,7 @@ portrecs = None
 portrecsbynum = None
 
 def gen_interfaces():
-    import commands
+    import subprocess
     ifile = defaults.interface_info()
     headers = defaults.headers()
     rebuild = False
@@ -480,7 +485,9 @@ def gen_interfaces():
 
     if os.getuid() != 0:
         raise ValueError(_("You must regenerate interface info by running /usr/bin/sepolgen-ifgen"))
-    print commands.getstatusoutput("/usr/bin/sepolgen-ifgen")[1]
+    print(subprocess.check_output("/usr/bin/sepolgen-ifgen",
+                                  stderr=subprocess.STDOUT,
+                                  shell=True))
 
 def gen_port_dict():
     global portrecs
@@ -514,12 +521,26 @@ def get_all_domains():
             all_domains = info(ATTRIBUTE,"domain")[0]["types"]
         return all_domains
 
+def mls_cmp(x,y):
+    return cmp(int(x[1:]), int(y[1:]))
+
+mls_range = None
+def get_mls_range():
+        global mls_range
+        if mls_range:
+                return mls_rangeroles
+        range_dict = info(SENS)
+        keys = range_dict.keys()
+        keys.sort(cmp=mls_cmp)
+        mls_range = "%s-%s" % (keys[0], range_dict[keys[-1]])
+        return mls_range
+
 roles = None
 def get_all_roles():
         global roles
         if roles:
                 return roles
-        roles = map(lambda x: x['name'], info(ROLE))
+        roles = [x['name'] for x in info(ROLE)]
         roles.remove("object_r")
         roles.sort()
         return roles
@@ -552,7 +573,7 @@ def get_login_mappings():
     return login_mappings
 
 def get_all_users():
-    users = map(lambda x: x['name'], get_selinux_users())
+    users = [x['name'] for x in get_selinux_users()]
     users.sort()
     return users
 
@@ -700,7 +721,7 @@ all_attributes = None
 def get_all_attributes():
         global all_attributes
         if not all_attributes:
-                all_attributes = map(lambda x: x['name'], info(ATTRIBUTE))
+                all_attributes = [x['name'] for x in info(ATTRIBUTE)]
         return all_attributes
 
 def policy(policy_file):
@@ -730,7 +751,7 @@ def policy(policy_file):
 try:
     policy_file = get_installed_policy()
     policy(policy_file)
-except ValueError, e:
+except ValueError as e:
     if selinux.is_selinux_enabled() == 1:
         raise e
 
@@ -758,7 +779,7 @@ def get_bools(setype):
     bools = []
     domainbools = []
     domainname, short_name = gen_short_name(setype)
-    for i in map(lambda x: x['boolean'], filter(lambda x: 'boolean' in x, search([ALLOW],{'source' : setype}))):
+    for i in [x['boolean'] for x in [x for x in search([ALLOW],{'source' : setype}) if 'boolean' in x]]:
         for b in i:
             if not isinstance(b,tuple):
                 continue
@@ -821,7 +842,7 @@ def gen_bool_dict(path="/usr/share/selinux/devel/policy.xml"):
                         desc = i.find("desc").find("p").text.strip("\n")
                         desc = re.sub("\n", " ", desc)
                         booleans_dict[i.get('name')] = ("global", i.get('dftval'), desc)
-        except IOError, e:
+        except IOError as e:
                 pass
         return booleans_dict
 
@@ -844,12 +865,13 @@ def get_os_version():
     os_version = ""
     pkg_name = "selinux-policy"
     try:
-        import commands
-        rc, output = commands.getstatusoutput("rpm -q '%s'" % pkg_name)
-        if rc == 0:
-            os_version = output.split(".")[-2]
-    except:
-        os_version = ""
+        import subprocess
+        output = subprocess.check_output("rpm -q '%s'" % pkg_name,
+                                         stderr=subprocess.STDOUT,
+                                         shell=True)
+        os_version = str(output).split(".")[-2]
+    except subprocess.CalledProcessError as e:
+        print(e.output)
 
     if os_version[0:2] == "fc":
         os_version = "Fedora"+os_version[2:]
@@ -871,7 +893,7 @@ def reinit():
     global file_types
     global local_files
     global methods
-    global methods
+    global methods    
     global portrecs
     global portrecsbynum
     global port_types

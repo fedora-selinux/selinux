@@ -9,18 +9,18 @@ object_list = [ 'login', 'user', 'port', 'module', 'interface', 'node', 'fcontex
 class SemanageTests(unittest.TestCase):
     def assertDenied(self, err):
         self.assertTrue('Permission denied' in err,
-                     '"Permission denied" not found in %r' % err)
+                        '"Permission denied" not found in %r' % err)
     def assertNotFound(self, err):
         self.assertTrue('not found' in err,
-                     '"not found" not found in %r' % err)
+                        '"not found" not found in %r' % err)
 
     def assertFailure(self, status):
         self.assertTrue(status != 0,
-                     '"semanage succeeded when it should have failed')
+                        '"semanage succeeded when it should have failed')
 
     def assertSuccess(self, status, err):
         self.assertTrue(status == 0,
-                     '"semanage should have succeeded for this test %r' %  err)
+                        '"semanage should have succeeded for this test %r' %  err)
 
     def test_extract(self):
         for object in object_list:

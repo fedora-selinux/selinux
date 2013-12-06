@@ -18,7 +18,7 @@ class selinux_server(slip.dbus.service.Object):
     #
     # The semanage method runs a transaction on a series of semanage commands,
     # these commnds can take the output of customized
-    #
+    # 
     @slip.dbus.polkit.require_auth("org.selinux.semanage")
     @dbus.service.method("org.selinux", in_signature='s')
     def semanage(self, buf):
@@ -27,10 +27,10 @@ class selinux_server(slip.dbus.service.Object):
         output = p.communicate()
         if p.returncode and p.returncode != 0:
             raise dbus.exceptions.DBusException(output[1])
-
+        
     #
     # The customized method will return all of the custommizations for policy
-    # on the server.  This output can be used with the semanage method on
+    # on the server.  This output can be used with the semanage method on 
     # another server to make the two systems have duplicate policy.
     #
     @slip.dbus.polkit.require_auth("org.selinux.customized")
@@ -42,7 +42,7 @@ class selinux_server(slip.dbus.service.Object):
         if p.returncode and p.returncode != 0:
             raise OSError("Failed to read SELinux configuration: %s", output)
         return buf
-
+        
     #
     # The semodule_list method will return the output of semodule -l, using the customized polkit,
     # since this is a readonly behaviour
@@ -56,7 +56,7 @@ class selinux_server(slip.dbus.service.Object):
         if p.returncode and p.returncode != 0:
             raise OSError("Failed to list SELinux modules: %s", output)
         return buf
-
+        
     #
     # The restorecon method modifies any file path to the default system label
     #
@@ -86,7 +86,7 @@ class selinux_server(slip.dbus.service.Object):
             os.unlink("/.autorelabel")
 
     def write_selinux_config(self, enforcing=None, policy=None):
-        path = selinux.selinux_path() + "config"
+        path = selinux.selinux_path() + "config" 
         backup_path = path + ".bck"
         fd = open(path)
         lines = fd.readlines()
@@ -104,7 +104,7 @@ class selinux_server(slip.dbus.service.Object):
         os.rename(backup_path, path)
 
     #
-    # The change_default_enforcement modifies the current enforcement mode
+    # The change_default_enforcement modifies the current enforcement mode 
     #
     @slip.dbus.polkit.require_auth("org.selinux.change_default_mode")
     @dbus.service.method("org.selinux", in_signature='s')
@@ -113,7 +113,7 @@ class selinux_server(slip.dbus.service.Object):
         if value not in values:
             raise ValueError("Enforcement mode must be %s" % ", ".join(values))
         self.write_selinux_config(enforcing=value)
-
+        
 
     #
     # The change_default_policy method modifies the policy type
@@ -125,7 +125,7 @@ class selinux_server(slip.dbus.service.Object):
         if os.path.isdir(path):
             return self.write_selinux_config(policy=value)
         raise ValueError("%s does not exist" % path)
-
+        
 if __name__ == "__main__":
         mainloop = gobject.MainLoop()
         dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)

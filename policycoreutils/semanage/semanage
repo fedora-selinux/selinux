@@ -18,7 +18,7 @@
 #
 #    You should have received a copy of the GNU General Public License
 #    along with this program; if not, write to the Free Software
-#    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA     
+#    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 #                                        02111-1307  USA
 #
 #
@@ -28,14 +28,19 @@ import seobject
 import sys
 import gettext
 PROGNAME="policycoreutils"
+gettext.bindtextdomain(PROGNAME, "/usr/share/locale")
+gettext.textdomain(PROGNAME)
 try:
-       gettext.install(PROGNAME,
-                       localedir="/usr/share/locale",
-                       unicode=True,
-                       codeset = 'utf-8')
+    gettext.install(PROGNAME,
+                    unicode=True,
+                    codeset = 'utf-8')
+except TypeError:
+    # Failover to python3 install
+    gettext.install(PROGNAME,
+                    codeset = 'utf-8')
 except IOError:
-       import __builtin__
-       __builtin__.__dict__['_'] = unicode
+    import builtins
+    builtins.__dict__['_'] = str
 
 # define custom usages for selected main actions
 usage_login = "semanage login [-h] [-n] [-N] [-s STORE] ["
@@ -61,16 +66,16 @@ usage_boolean_dict = {' --modify':('(','--on','|','--off',')','boolean'), ' --li
 
 import sepolicy
 class CheckRole(argparse.Action):
-    def __call__(self, parser, namespace, value, option_string=None):
-        newval = getattr(namespace, self.dest)
-        if not newval:
-               newval = []
-        roles = sepolicy.get_all_roles()
-        for v in value.split():
-               if v not in roles:
-                      raise ValueError("%s must be an SELinux role:\nValid roles: %s" % (v, ", ".join(roles)))
-               newval.append(v)
-        setattr(namespace, self.dest, newval)
+       def __call__(self, parser, namespace, value, option_string=None):
+              newval = getattr(namespace, self.dest)
+              if not newval:
+                     newval = []
+              roles = sepolicy.get_all_roles()
+              for v in value.split():
+                     if v not in roles:
+                            raise ValueError("%s must be an SELinux role:\nValid roles: %s" % (v, ", ".join(roles)))
+                     newval.append(v)
+              setattr(namespace, self.dest, newval)
 
 store = ''
 class SetStore(argparse.Action):
@@ -103,7 +108,7 @@ class SetImportFile(argparse.Action):
         if values and values is not "-":
                try:
                       sys.stdin = open(values, 'r')
-               except IOError,e:
+               except IOError as e:
                       sys.stderr.write("%s: %s\n" % (e.__class__.__name__, str(e)))
                       sys.exit(1)
         setattr(namespace, self.dest, values)
@@ -155,7 +160,7 @@ object_dict = {'login':login_ini, 'user':user_ini, 'port':port_ini, 'module':mod
 def generate_custom_usage(usage_text,usage_dict):
     # generate custom usage from given text and dictonary
     sorted_keys = []
-    for i in usage_dict.keys():
+    for i in list(usage_dict.keys()):
         sorted_keys.append(i)
     sorted_keys.sort()
     for k in sorted_keys:
@@ -170,18 +175,18 @@ def handle_opts(args,dict,target_key):
     # {action:[conflict_opts,require_opts]}
 
     # first we need to catch conflicts
-    for k in args.__dict__.keys():
+    for k in list(args.__dict__.keys()):
         try:
             if k in dict[target_key][0] and args.__dict__[k]:
-                print("%s option can not be used with --%s" % (target_key,k))
+                print(("%s option can not be used with --%s" % (target_key,k)))
                 sys.exit(2)
         except KeyError:
             continue
 
-    for k in args.__dict__.keys():
+    for k in list(args.__dict__.keys()):
         try:
          if k in dict[target_key][1] and not args.__dict__[k]:
-            print("%s option is needed for %s" % (k,target_key))
+            print(("%s option is needed for %s" % (k,target_key)))
             sys.exit(2)
         except KeyError:
             continue
@@ -207,7 +212,7 @@ def handleLogin(args):
         OBJECT.deleteall()
     if args.action is "extract":
         for i in OBJECT.customized():
-            print "login %s" % (str(i))
+            print("login %s" % (str(i)))
 
 def parser_add_store(parser, name):
     parser.add_argument('-S', '--store', action=SetStore, help=_("Select an alternate SELinux Policy Store to manage"))
@@ -289,7 +294,7 @@ def handleFcontext(args):
     fcontext_equal_args = {'equal':[('list','locallist','type','ftype','seuser','deleteall','extract'),()]}
 
     if args.action is None:
-        print("usage: "+"%s" % generate_custom_usage(usage_fcontext, usage_fcontext_dict))
+        print(("usage: "+"%s" % generate_custom_usage(usage_fcontext, usage_fcontext_dict)))
         sys.exit(2)
     elif args.action and args.equal:
         handle_opts(args, fcontext_equal_args, "equal")
@@ -320,7 +325,7 @@ def handleFcontext(args):
         OBJECT.deleteall()
     if args.action is "extract":
         for i in OBJECT.customized():
-            print "fcontext %s" % str(i)
+            print("fcontext %s" % str(i))
 
 def setupFcontextParser(subparsers):
     ftype_help = '''
@@ -378,7 +383,7 @@ def handleUser(args):
         OBJECT.deleteall()
     if args.action is "extract":
         for i in OBJECT.customized():
-            print "user %s" % str(i)
+            print("user %s" % str(i))
 
 def setupUserParser(subparsers):
     generated_usage = generate_custom_usage(usage_user, usage_user_dict)
@@ -427,7 +432,7 @@ def handlePort(args):
         OBJECT.deleteall()
     if args.action is "extract":
         for i in OBJECT.customized():
-            print "port %s" % str(i)
+            print("port %s" % str(i))
 
 def setupPortParser(subparsers):
     generated_usage = generate_custom_usage(usage_port, usage_port_dict)
@@ -470,7 +475,7 @@ def handleInterface(args):
         OBJECT.deleteall()
     if args.action is "extract":
         for i in OBJECT.customized():
-            print "interface %s" % str(i)
+            print("interface %s" % str(i))
 
 def setupInterfaceParser(subparsers):
     generated_usage = generate_custom_usage(usage_interface, usage_interface_dict)
@@ -509,7 +514,7 @@ def handleModule(args):
         OBJECT.list(args.noheading, args.locallist)
     if args.action is "extract":
         for i in OBJECT.customized():
-            print "module %s" % str(i)
+            print("module %s" % str(i))
 
 def setupModuleParser(subparsers):
     moduleParser = subparsers.add_parser('module', help=_('Manage SELinux policy modules'))
@@ -548,7 +553,7 @@ def handleNode(args):
         OBJECT.deleteall()
     if args.action is "extract":
         for i in OBJECT.customized():
-            print "node %s" % str(i)
+            print("node %s" % str(i))
 
 def setupNodeParser(subparsers):
     generated_usage = generate_custom_usage(usage_node, usage_node_dict)
@@ -576,14 +581,14 @@ def setupNodeParser(subparsers):
 def handleBoolean(args):
     boolean_args = {'list':[('state','boolean'),('')],'modify':[('localist'),('')], 'extract':[('locallist','state','boolean'),('')],'deleteall':[('locallist'),('')],'state':[('locallist','list','extract','deleteall'),('modify')]}
     if args.action is None:
-        print("Usage: "+"%s" % generate_custom_usage(usage_boolean, usage_boolean_dict))
+        print(("Usage: "+"%s" % generate_custom_usage(usage_boolean, usage_boolean_dict)))
         sys.exit(2)
     # TODO: should be added to handle_opts logic
     elif args.action is "modify" and not args.boolean:
-        print "boolean name required "
+        print("boolean name required ")
         sys.exit(1)
     elif args.action is "modify" and args.boolean and not args.state:
-        print "state option is needed"
+        print("state option is needed")
         sys.exit(1)
     else:
         handle_opts(args,boolean_args,args.action)
@@ -600,7 +605,7 @@ def handleBoolean(args):
         OBJECT.deleteall()
     if args.action is "extract":
         for i in OBJECT.customized():
-            print "boolean %s" % str(i)
+            print("boolean %s" % str(i))
 
 def setupBooleanParser(subparsers):
     generated_usage = generate_custom_usage(usage_boolean, usage_boolean_dict)
@@ -666,11 +671,11 @@ def setupDontauditParser(subparsers):
 def handleExport(args):
     manageditems=[ "boolean", "login", "interface", "user", "port", "node", "fcontext", "module"]
     for i in manageditems:
-        print "%s -D" % i
+           print("%s -D" % i)
     for i in manageditems:
         OBJECT = object_dict[i]()
         for c in OBJECT.customized():
-            print "%s %s" % (i, str(c))
+           print("%s %s" % (i, str(c)))
 
     sys.exit(0)
 
@@ -739,10 +744,10 @@ def handleImport(args):
             commandParser = createCommandParser()
             args = commandParser.parse_args(mkargv(l))
             args.func(args)
-        except ValueError,e:
+        except ValueError as e:
             sys.stderr.write("%s: %s\n" % (e.__class__.__name__, str(e)))
             sys.exit(1)
-        except IOError,e:
+        except IOError as e:
             sys.stderr.write("%s: %s\n" % (e.__class__.__name__, str(e)))
             sys.exit(1)
         except KeyboardInterrupt:
@@ -760,11 +765,11 @@ def setupImportParser(subparsers):
 
 def createCommandParser():
     commandParser = seParser(prog='semanage',
-                                            formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-                                            description='''semanage is used to configure certain elements
-                                                            of SELinux policy with-out requiring modification
-                                                            to or recompilation from policy source.''')
-
+                             formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+                             description='''semanage is used to configure certain elements
+                             of SELinux policy with-out requiring modification
+                             to or recompilation from policy source.''')
+    
     #To add a new subcommand define the parser for it in a function above and call it here.
     subparsers = commandParser.add_subparsers(dest='subcommand')
     setupImportParser(subparsers)
@@ -804,6 +809,8 @@ def make_io_args(args):
     return args_subcommand+args_ie+args_file
 
 def make_args(sys_args):
+    if len(sys_args) == 1:
+           return [ "-h" ] 
     args = []
     if "-o" in sys_args[1:] or "-i" in sys_args[1:]:
         args=make_io_args(sys_args[1:])
@@ -818,21 +825,21 @@ def do_parser():
         args = commandParser.parse_args(make_args(sys.argv))
         args.func(args)
         sys.exit(0)
-    except IOError,e:
+    except IOError as e:
         sys.stderr.write("%s: %s\n" % (e.__class__.__name__, str(e)))
         sys.exit(1)
     except KeyboardInterrupt:
         sys.exit(0)
-    except ValueError, e:
+    except ValueError as e:
         sys.stderr.write("%s: %s\n" % (e.__class__.__name__, e.args[0]))
         sys.exit(1)
-    except KeyError, e:
+    except KeyError as e:
         sys.stderr.write("%s: %s\n" % (e.__class__.__name__, e.args[0]))
         sys.exit(1)
-    except OSError, e:
+    except OSError as e:
         sys.stderr.write("%s: %s\n" % (e.__class__.__name__, e.args[1]))
         sys.exit(1)
-    except RuntimeError, e:
+    except RuntimeError as e:
         sys.stderr.write("%s: %s\n" % (e.__class__.__name__, e.args[0]))
         sys.exit(1)
 

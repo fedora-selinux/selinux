@@ -16,18 +16,14 @@
 ## Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ## Author: Dan Walsh
-import string
 import gtk
 import gtk.glade
 import os
-import gobject
 import sys
-import tempfile
 
 INSTALLPATH = '/usr/share/system-config-selinux'
 sys.path.append(INSTALLPATH)
 
-import commands
 ENFORCING = 1
 PERMISSIVE = 0
 DISABLED = -1
@@ -47,8 +43,8 @@ import selinux
 try:
     gettext.install(PROGNAME, localedir="/usr/share/locale", unicode=1)
 except IOError:
-    import __builtin__
-    __builtin__.__dict__['_'] = unicode
+    import builtins
+    builtins.__dict__['_'] = unicode
 
 class statusPage:
     def __init__(self, xml):
@@ -127,21 +123,21 @@ class statusPage:
         return rc
 
     def typemenu_changed(self, menu):
-        type = self.get_type()
+        setype = self.get_type()
         enabled = self.enabledOptionMenu.get_active()
-        if self.initialtype != type:
+        if self.initialtype != setype:
             if self.verify(_("Changing the policy type will cause a relabel of the entire file system on the next boot. Relabeling takes a long time depending on the size of the file system.  Do you wish to continue?")) == gtk.RESPONSE_NO:
                 menu.set_active(self.typeHistory)
                 return None
 
             self.relabel_checkbutton.set_active(True)
 
-        self.write_selinux_config(modearray[enabled], type )
+        self.write_selinux_config(modearray[enabled], setype )
         self.typeHistory = menu.get_active()
 
     def enabled_changed(self, combo):
         enabled = combo.get_active()
-        type = self.get_type()
+        setype = self.get_type()
 
         if self.initEnabled != DISABLED and enabled == DISABLED:
             if self.verify(_("Changing to SELinux disabled requires a reboot.  It is not recommended.  If you later decide to turn SELinux back on, the system will be required to relabel.  If you just want to see if SELinux is causing a problem on your system, you can go to permissive mode which will only log errors and not enforce SELinux policy.  Permissive mode does not require a reboot    Do you wish to continue?")) == gtk.RESPONSE_NO:
@@ -154,11 +150,11 @@ class statusPage:
                 return None
             self.relabel_checkbutton.set_active(True)
 
-        self.write_selinux_config(modearray[enabled], type )
+        self.write_selinux_config(modearray[enabled], setype )
         self.enabled = enabled
 
-    def write_selinux_config(self, enforcing, type):
-        path = selinux.selinux_path() + "config" 
+    def write_selinux_config(self, enforcing, setype):
+        path = selinux.selinux_path() + "config"
         backup_path = path + ".bck"
         fd = open(path)
         lines = fd.readlines()
@@ -169,7 +165,7 @@ class statusPage:
                 fd.write("SELINUX=%s\n" % enforcing)
                 continue
             if l.startswith("SELINUXTYPE="):
-                fd.write("SELINUXTYPE=%s\n" % type)
+                fd.write("SELINUXTYPE=%s\n" % setype)
                 continue
             fd.write(l)
         fd.close()

@@ -18,10 +18,9 @@
 ## Author: Dan Walsh
 import gtk
 import gtk.glade
-import os
 import gobject
 import seobject
-import commands
+import subprocess
 from semanagePage import *;
 
 SPEC_COL = 0
@@ -55,8 +54,8 @@ try:
                     unicode=False,
                     codeset = 'utf-8')
 except IOError:
-    import __builtin__
-    __builtin__.__dict__['_'] = unicode
+    import builtins
+    builtins.__dict__['_'] = str
 
 
 class fcontextPage(semanagePage):
@@ -72,16 +71,16 @@ class fcontextPage(semanagePage):
         self.view.set_search_equal_func(self.search)
 
         col = gtk.TreeViewColumn(_("File\nSpecification"), gtk.CellRendererText(), text=SPEC_COL)
-	col.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-	col.set_fixed_width(250)
+        col.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+        col.set_fixed_width(250)
 
         col.set_sort_column_id(SPEC_COL)
         col.set_resizable(True)
         self.view.append_column(col)
         col = gtk.TreeViewColumn(_("Selinux\nFile Type"), gtk.CellRendererText(), text=TYPE_COL)
 
-	col.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
-	col.set_fixed_width(250)
+        col.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
+        col.set_fixed_width(250)
         col.set_sort_column_id(TYPE_COL)
         col.set_resizable(True)
         self.view.append_column(col)
@@ -97,16 +96,16 @@ class fcontextPage(semanagePage):
         liststore=self.fcontextFileTypeCombo.get_model()
         for k in seobject.file_types:
             if len(k) > 0 and  k[0] != '-':
-                iter=liststore.append()
-                liststore.set_value(iter, 0, k)
-        iter = liststore.get_iter_first()
-        self.fcontextFileTypeCombo.set_active_iter(iter)
+                it=liststore.append()
+                liststore.set_value(it, 0, k)
+        it = liststore.get_iter_first()
+        self.fcontextFileTypeCombo.set_active_iter(it)
         self.fcontextTypeEntry = xml.get_widget("fcontextTypeEntry")
         self.fcontextMLSEntry = xml.get_widget("fcontextMLSEntry")
 
-    def match(self, fcon_dict, k, filter):
+    def match(self, fcon_dict, k, filt):
         try:
-            f=filter.lower()
+            f=filt.lower()
             for con in k:
                 k=con.lower()
                 if k.find(f) >= 0:
@@ -119,46 +118,46 @@ class fcontextPage(semanagePage):
             pass
         return False
 
-    def load(self, filter=""):
-        self.filter=filter
+    def load(self, filt=""):
+        self.filter=filt
         self.fcontext=seobject.fcontextRecords()
         self.store.clear()
         fcon_dict=self.fcontext.get_all(self.local)
-        keys = fcon_dict.keys()
+        keys = list(fcon_dict.keys())
         keys.sort()
         for k in keys:
-            if not self.match(fcon_dict, k, filter):
+            if not self.match(fcon_dict, k, filt):
                 continue
-            iter=self.store.append()
-            self.store.set_value(iter, SPEC_COL, k[0])
-            self.store.set_value(iter, FTYPE_COL, k[1])
+            it=self.store.append()
+            self.store.set_value(it, SPEC_COL, k[0])
+            self.store.set_value(it, FTYPE_COL, k[1])
             if fcon_dict[k]:
                 rec="%s:%s" % (fcon_dict[k][2], seobject.translate(fcon_dict[k][3],False))
             else:
                 rec="<<None>>"
-            self.store.set_value(iter, TYPE_COL, rec)
+            self.store.set_value(it, TYPE_COL, rec)
         self.view.get_selection().select_path ((0,))
 
     def filter_changed(self, *arg):
-        filter =  arg[0].get_text()
-        if filter != self.filter:
-            self.load(filter)
+        filt =  arg[0].get_text()
+        if filt != self.filter:
+            self.load(filt)
 
     def dialogInit(self):
-        store, iter = self.view.get_selection().get_selected()
-        self.fcontextEntry.set_text(store.get_value(iter, SPEC_COL))
+        store, it = self.view.get_selection().get_selected()
+        self.fcontextEntry.set_text(store.get_value(it, SPEC_COL))
         self.fcontextEntry.set_sensitive(False)
-        scontext = store.get_value(iter, TYPE_COL)
+        scontext = store.get_value(it, TYPE_COL)
         scon=context(scontext)
         self.fcontextTypeEntry.set_text(scon.type)
         self.fcontextMLSEntry.set_text(scon.mls)
-        type=store.get_value(iter, FTYPE_COL)
+        setype=store.get_value(it, FTYPE_COL)
         liststore=self.fcontextFileTypeCombo.get_model()
-        iter = liststore.get_iter_first()
-        while iter != None and liststore.get_value(iter,0) != type:
-            iter = liststore.iter_next(iter)
-        if iter != None:
-            self.fcontextFileTypeCombo.set_active_iter(iter)
+        it = liststore.get_iter_first()
+        while it != None and liststore.get_value(it,0) != setype:
+            it = liststore.iter_next(it)
+        if it != None:
+            self.fcontextFileTypeCombo.set_active_iter(it)
         self.fcontextFileTypeCombo.set_sensitive(False)
 
     def dialogClear(self):
@@ -169,55 +168,60 @@ class fcontextPage(semanagePage):
         self.fcontextMLSEntry.set_text("s0")
 
     def delete(self):
-        store, iter = self.view.get_selection().get_selected()
+        store, it = self.view.get_selection().get_selected()
+        fspec=store.get_value(it, SPEC_COL)
+        ftype=store.get_value(it, FTYPE_COL)
+        self.wait()
         try:
-            fspec=store.get_value(iter, SPEC_COL)
-            ftype=store.get_value(iter, FTYPE_COL)
-            self.wait()
-            (rc, out) = commands.getstatusoutput("semanage fcontext -d -f '%s' '%s'" % (ftype, fspec))
-            self.ready()
-
-            if rc != 0:
-                return self.error(out)
-            store.remove(iter)
+            subprocess.check_output("semanage fcontext -d -f '%s' '%s'" % (ftype, fspec),
+                                    stderr=subprocess.STDOUT,
+                                    shell=True)
+            store.remove(it)
             self.view.get_selection().select_path ((0,))
-        except ValueError, e:
-            self.error(e.args[0])
+        except subprocess.CalledProcessError as e:
+            self.error(e.output)
+        self.ready()
 
     def add(self):
         ftype=["", "--", "-d", "-c", "-b", "-s", "-l", "-p" ]
         fspec=self.fcontextEntry.get_text().strip()
-        type=self.fcontextTypeEntry.get_text().strip()
+        setype=self.fcontextTypeEntry.get_text().strip()
         mls=self.fcontextMLSEntry.get_text().strip()
         list_model=self.fcontextFileTypeCombo.get_model()
         active = self.fcontextFileTypeCombo.get_active()
         self.wait()
-        (rc, out) = commands.getstatusoutput("semanage fcontext -a -t %s -r %s -f '%s' '%s'" % (type, mls, ftype[active], fspec))
-        self.ready()
-        if rc != 0:
-            self.error(out)
+        try:
+            subprocess.check_output("semanage fcontext -a -t %s -r %s -f '%s' '%s'" % (setype, mls, ftype[active], fspec),
+                                    stderr=subprocess.STDOUT,
+                                    shell=True)
+            self.ready()
+            it=self.store.append()
+            self.store.set_value(it, SPEC_COL, fspec)
+            self.store.set_value(it, FTYPE_COL, ftype)
+            self.store.set_value(it, TYPE_COL, "%s:%s" % (setype, mls))
+        except subprocess.CalledProcessError as e:
+            self.error(e.output)
+            self.ready()
             return False
-
-        iter=self.store.append()
-        self.store.set_value(iter, SPEC_COL, fspec)
-        self.store.set_value(iter, FTYPE_COL, ftype)
-        self.store.set_value(iter, TYPE_COL, "%s:%s" % (type, mls))
 
     def modify(self):
         fspec=self.fcontextEntry.get_text().strip()
-        type=self.fcontextTypeEntry.get_text().strip()
+        setype=self.fcontextTypeEntry.get_text().strip()
         mls=self.fcontextMLSEntry.get_text().strip()
         list_model=self.fcontextFileTypeCombo.get_model()
-        iter = self.fcontextFileTypeCombo.get_active_iter()
-        ftype=list_model.get_value(iter,0)
+        it = self.fcontextFileTypeCombo.get_active_iter()
+        ftype=list_model.get_value(it,0)
         self.wait()
-        (rc, out) = commands.getstatusoutput("semanage fcontext -m -t %s -r %s -f '%s' '%s'" % (type, mls, ftype, fspec))
-        self.ready()
-        if rc != 0:
-            self.error(out)
+        try:
+            subprocess.check_output("semanage fcontext -m -t %s -r %s -f '%s' '%s'" % (setype, mls, ftype, fspec),
+                                    stderr=subprocess.STDOUT,
+                                    shell=True)
+            self.ready()
+            store, it = self.view.get_selection().get_selected()
+            self.store.set_value(it, SPEC_COL, fspec)
+            self.store.set_value(it, FTYPE_COL, ftype)
+            self.store.set_value(it, TYPE_COL, "%s:%s" % (setype, mls))
+        except subprocess.CalledProcessError as e:
+            self.error(e.output)
+            self.ready()
             return False
-
-        store, iter = self.view.get_selection().get_selected()
-        self.store.set_value(iter, SPEC_COL, fspec)
-        self.store.set_value(iter, FTYPE_COL, ftype)
-        self.store.set_value(iter, TYPE_COL, "%s:%s" % (type, mls))

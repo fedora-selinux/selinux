@@ -1,12 +1,14 @@
 /**
  *  @file
- *  Command line tool to search TE rules.
+ *  Python bindings to search TE rules.
  *
+ *  @author Thomas Liu  <tliu@redhat.com>
+ *  @author Dan Walsh  <dwalsh@redhat.com>
+ *
+ *  Sections copied from sesearch.c in setools package
  *  @author Frank Mayer  mayerf@tresys.com
  *  @author Jeremy A. Mowery jmowery@tresys.com
  *  @author Paul Rosenfeld  prosenfeld@tresys.com
- *  @author Thomas Liu  <tliu@redhat.com>
- *  @author Dan Walsh  <dwalsh@redhat.com>
  *
  *  Copyright (C) 2003-2008 Tresys Technology, LLC
  *
@@ -112,7 +114,7 @@ static PyObject* get_sens(const char *name, const apol_policy_t * policydb)
 	if (apol_level_get_by_query(policydb, query, &v))
 		goto cleanup;
 
-	dict = PyDict_New(); 
+	dict = PyDict_New();
 	if (!dict) goto err;
 	for (i = 0; i < apol_vector_get_size(v); i++) {
 		level = apol_vector_get_element(v, i);
@@ -142,7 +144,7 @@ cleanup:
 	free(tmp);
 	apol_level_query_destroy(&query);
 	apol_vector_destroy(&v);
-	errno = error; 
+	errno = error;
 	return dict;
 }
 
@@ -227,7 +229,7 @@ static int qpol_level_datum_compare(const void *datum1, const void *datum2, void
 }
 
 /**
- * Gets a textual representation of a MLS category and 
+ * Gets a textual representation of a MLS category and
  * all of that category's sensitivies.
  *
  * @param type_datum Reference to sepol type_datum
@@ -243,7 +245,7 @@ static PyObject* get_cat_sens(const qpol_cat_t * cat_datum, const apol_policy_t 
 	size_t i, n_sens = 0;
 	int error = 0;
 	PyObject *list = NULL;
-	PyObject *dict = PyDict_New(); 
+	PyObject *dict = PyDict_New();
 	if (!dict) goto err;
 	if (!cat_datum || !policydb)
 		goto err;
@@ -260,7 +262,7 @@ static PyObject* get_cat_sens(const qpol_cat_t * cat_datum, const apol_policy_t 
 	if (apol_level_get_by_query(policydb, query, &v))
 		goto err;
 	apol_vector_sort(v, &qpol_level_datum_compare, (void *)policydb);
-	dict = PyDict_New(); 
+	dict = PyDict_New();
 	if (!dict) goto err;
 	if (py_insert_string(dict, "name", cat_name))
 		goto err;
@@ -333,7 +335,7 @@ static PyObject* get_cats(const char *name, const apol_policy_t * policydb)
 		if (!cat_datum)
 			goto err;
 		obj = get_cat_sens(cat_datum, policydb);
-		if (!obj) 
+		if (!obj)
 			goto err;
 		rt = py_append_obj(list, obj);
 		Py_DECREF(obj);
@@ -408,7 +410,7 @@ cleanup:
 }
 
 /**
- * Gets a textual representation of an attribute, and 
+ * Gets a textual representation of an attribute, and
  * all of that attribute's types.
  *
  * @param type_datum Reference to sepol type_datum
@@ -424,7 +426,7 @@ static PyObject* get_attr(const qpol_type_t * type_datum, const apol_policy_t * 
 	unsigned char isattr;
 	int error = 0;
 	int rt = 0;
-	PyObject *dict = PyDict_New(); 
+	PyObject *dict = PyDict_New();
 	if (!dict) goto err;
 
 	if (qpol_type_get_name(q, type_datum, &attr_name))
@@ -442,7 +444,7 @@ static PyObject* get_attr(const qpol_type_t * type_datum, const apol_policy_t * 
 			goto err;
 		list = PyList_New(0);
 		if (!list) goto err;
-		
+
 		for (; !qpol_iterator_end(iter); qpol_iterator_next(iter)) {
 			if (qpol_iterator_get_item(iter, (void **)&attr_datum))
 				goto err;
@@ -601,7 +603,7 @@ static PyObject* get_type(const qpol_type_t * type_datum, const apol_policy_t * 
 	int error = 0;
 	int rt;
 	unsigned char isalias, ispermissive, isattr;
-	PyObject *dict = PyDict_New(); 
+	PyObject *dict = PyDict_New();
 	if (!dict) goto err;
 
 	if (qpol_type_get_name(q, type_datum, &type_name))
@@ -638,7 +640,7 @@ err:
 	py_decref(dict); dict = NULL;
 
 cleanup:
-	errno = error; 
+	errno = error;
 	return dict;
 }
 
@@ -674,7 +676,7 @@ static PyObject* get_booleans(const char *name, const apol_policy_t * policydb)
 		if (qpol_bool_get_state(q, bool_datum, &state))
 			goto err;
 
-		dict = PyDict_New(); 
+		dict = PyDict_New();
 		if (!dict) goto err;
 		if (py_insert_string(dict, "name", name))
 			goto err;
@@ -696,7 +698,7 @@ static PyObject* get_booleans(const char *name, const apol_policy_t * policydb)
 			if (qpol_bool_get_state(q, bool_datum, &state))
 				goto err;
 
-			dict = PyDict_New(); 
+			dict = PyDict_New();
 			if (!dict) goto err;
 			if (py_insert_string(dict, "name", bool_name))
 				goto err;
@@ -718,7 +720,7 @@ err:
 
 cleanup:
 	qpol_iterator_destroy(&iter);
-	errno = error; 
+	errno = error;
 	return list;
 }
 
@@ -750,7 +752,7 @@ static PyObject* get_user(const qpol_user_t * user_datum, const apol_policy_t * 
 	if (qpol_user_get_name(q, user_datum, &user_name))
 		goto err;
 
-	dict = PyDict_New(); 
+	dict = PyDict_New();
 	if (!dict) goto err;
 
 	if (py_insert_string(dict, "name", user_name))
@@ -775,7 +777,7 @@ static PyObject* get_user(const qpol_user_t * user_datum, const apol_policy_t * 
 		    goto err;
 		free(tmp); tmp=NULL;
 	}
-	
+
 	if (qpol_user_get_role_iter(q, user_datum, &iter))
 		goto err;
 	for (; !qpol_iterator_end(iter); qpol_iterator_next(iter)) {
@@ -1000,7 +1002,7 @@ cleanup:
 }
 
 /**
- * get a textual representation of a role, and 
+ * get a textual representation of a role, and
  * all of that role's types.
  *
  * @param type_datum Reference to sepol type_datum
@@ -1046,7 +1048,7 @@ static PyObject* get_role(const qpol_role_t * role_datum, const apol_policy_t * 
 		if (rt) goto err;
 	}
 	qpol_iterator_destroy(&iter);
-	
+
 	if (qpol_role_get_type_iter(q, role_datum, &iter))
 		goto err;
 	if (qpol_iterator_get_size(iter, &n_types))
@@ -1129,7 +1131,7 @@ static PyObject*  get_ports(const char *num, const apol_policy_t * policydb)
 		}
 
 		if ((ocon_proto != IPPROTO_TCP) &&
-		    (ocon_proto != IPPROTO_UDP)) 
+		    (ocon_proto != IPPROTO_UDP))
 			goto err;
 
 		if (qpol_portcon_get_context(q, portcon, &ctxt)) {
@@ -1145,13 +1147,13 @@ static PyObject*  get_ports(const char *num, const apol_policy_t * policydb)
 		if ((c = apol_context_create_from_qpol_context(policydb, ctxt)) == NULL) {
 			goto err;
 		}
-		
+
 		if((type = apol_context_get_type(c)) == NULL) {
 			apol_context_destroy(&c);
 			goto err;
 		}
-			
-		dict = PyDict_New(); 
+
+		dict = PyDict_New();
 		if (!dict) goto err;
 		if (py_insert_string(dict, "type", type))
 			goto err;
@@ -1224,7 +1226,7 @@ static PyObject*  get_roles(const char *name, const apol_policy_t * policydb)
 		}
 		obj = get_role(role_datum, policydb);
 		rt = py_append_obj(list, obj);
-		Py_DECREF(obj); 
+		Py_DECREF(obj);
 		if (rt) goto err;
 	} else {
 		if (qpol_policy_get_role_iter(q, &iter))
@@ -1235,7 +1237,7 @@ static PyObject*  get_roles(const char *name, const apol_policy_t * policydb)
 				goto err;
 			obj = get_role(role_datum, policydb);
 			rt = py_append_obj(list, obj);
-			Py_DECREF(obj); 
+			Py_DECREF(obj);
 			if (rt) goto err;
 		}
 		qpol_iterator_destroy(&iter);
@@ -1283,7 +1285,7 @@ static PyObject* get_types(const char *name, const apol_policy_t * policydb)
 		}
 		obj = get_type(type_datum, policydb);
 		rt = py_append_obj(list, obj);
-		Py_DECREF(obj); 
+		Py_DECREF(obj);
 		if (rt) goto err;
 	} else {
 		if (qpol_policy_get_type_iter(q, &iter))
@@ -1294,7 +1296,7 @@ static PyObject* get_types(const char *name, const apol_policy_t * policydb)
 				goto err;
 			obj = get_type(type_datum, policydb);
 			rt = py_append_obj(list, obj);
-			Py_DECREF(obj); 
+			Py_DECREF(obj);
 			if (rt) goto err;
 		}
 	}
@@ -1356,14 +1358,14 @@ PyObject* info( int type, const char *name)
 PyObject *wrap_info(PyObject *UNUSED(self), PyObject *args){
     int type;
     const char *name;
-    
+
     if (!policy) {
 	    PyErr_SetString(PyExc_RuntimeError,"Policy not loaded");
 	    return NULL;
     }
 
     if (!PyArg_ParseTuple(args, "iz", &type, &name))
-        return NULL;
+	return NULL;
 
     return info(type, name);
 }

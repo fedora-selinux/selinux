@@ -43,7 +43,7 @@ def get_types(src, tclass, perm):
         raise ValueError("The %s type is not allowed to %s any types" % (src, ",".join(perm)))
 
     tlist = []
-    for l in map(lambda y: y[sepolicy.TARGET], filter(lambda x: set(perm).issubset(x[sepolicy.PERMS]), allows)):
+    for l in [y[sepolicy.TARGET] for y in [x for x in allows if set(perm).issubset(x[sepolicy.PERMS])]]:
         tlist = tlist + expand_attribute(l)
     return tlist
 

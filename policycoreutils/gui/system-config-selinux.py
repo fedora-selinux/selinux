@@ -25,9 +25,9 @@ import string
 import sys
 try:
     import gtk
-except RuntimeError, e:
-    print "system-config-selinux:", e
-    print "This is a graphical application and requires DISPLAY to be set."
+except RuntimeError as e:
+    print("system-config-selinux:", e)
+    print("This is a graphical application and requires DISPLAY to be set.")
     sys.exit (1)
 
 import gtk.glade
@@ -57,8 +57,8 @@ try:
                     unicode=False,
                     codeset = 'utf-8')
 except IOError:
-    import __builtin__
-    __builtin__.__dict__['_'] = unicode
+    import builtins
+    builtins.__dict__['_'] = str
 
 gnome.program_init("SELinux Management Tool", "5")
 
@@ -95,7 +95,7 @@ class childWindow:
                 self.add_page(portsPage.portsPage(xml))
                 self.add_page(modulesPage.modulesPage(xml)) # modules
                 self.add_page(domainsPage.domainsPage(xml)) # domains
-            except ValueError, e:
+            except ValueError as e:
                 self.error(e.message)
 
         xml.signal_connect("on_quit_activate", self.destroy)

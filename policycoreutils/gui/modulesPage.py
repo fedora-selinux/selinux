@@ -20,7 +20,7 @@ import string
 import gtk
 import gtk.glade
 import os
-import commands
+import subprocess
 import gobject
 import sys
 import seobject
@@ -41,8 +41,8 @@ try:
                     unicode=False,
                     codeset = 'utf-8')
 except IOError:
-    import __builtin__
-    __builtin__.__dict__['_'] = unicode
+    import builtins
+    builtins.__dict__['_'] = str
 
 class modulesPage(semanagePage):
     def __init__(self, xml):
@@ -85,8 +85,8 @@ class modulesPage(semanagePage):
         except:
             return 0
 
-    def load(self, filter=""):
-        self.filter=filter
+    def load(self, filt=""):
+        self.filter=filt
         self.store.clear()
         try:
             fd = Popen("semodule -l", shell=True, stdout=PIPE).stdout
@@ -94,11 +94,11 @@ class modulesPage(semanagePage):
             fd.close()
             for i in l:
                 module, ver, newline = i.split('\t')
-                if not (self.match(module, filter) or self.match(ver, filter)):
+                if not (self.match(module, filt) or self.match(ver, filt)):
                     continue
-                iter = self.store.append()
-                self.store.set_value(iter, 0, module.strip())
-                self.store.set_value(iter, 1, ver.strip())
+                it = self.store.append()
+                self.store.set_value(it, 0, module.strip())
+                self.store.set_value(it, 1, ver.strip())
         except:
             pass
         self.view.get_selection().select_path ((0,))
@@ -107,53 +107,51 @@ class modulesPage(semanagePage):
     def new_module(self, args):
         try:
             Popen(["/usr/share/system-config-selinux/polgengui.py"])
-        except ValueError, e:
+        except ValueError as e:
             self.error(e.args[0])
 
     def delete(self):
-        store, iter = self.view.get_selection().get_selected()
-        module = store.get_value(iter, 0)
+        store, it = self.view.get_selection().get_selected()
+        module = store.get_value(it, 0)
+        self.wait()
         try:
-            self.wait()
-            status, output = commands.getstatusoutput("semodule -r %s" % module)
-            self.ready()
-            if status != 0:
-                self.error(output)
-            else:
-                store.remove(iter)
-                self.view.get_selection().select_path ((0,))
-
-        except ValueError, e:
-            self.error(e.args[0])
+            subprocess.check_output("semodule -r %s" % module,
+                                    stderr=subprocess.STDOUT,
+                                    shell=True)
+            store.remove(it)
+            self.view.get_selection().select_path ((0,))
+        except subprocess.CalledProcessError as e:
+            self.error(e.output)
+        self.ready()
 
     def enable_audit(self, button):
         self.audit_enabled = not self.audit_enabled
+        if self.audit_enabled:
+            cmd = "semodule -DB"
+            label = _("Disable Audit")
+        else:
+            cmd = "semodule -B"
+            label = _("Enable Audit")
+        self.wait()
         try:
-            self.wait()
-            if self.audit_enabled:
-                status, output =commands.getstatusoutput("semodule -DB")
-                button.set_label(_("Disable Audit"))
-            else:
-                status, output =commands.getstatusoutput("semodule -B")
-                button.set_label(_("Enable Audit"))
-            self.ready()
-
-            if status != 0:
-                self.error(output)
-
-        except ValueError, e:
-            self.error(e.args[0])
+            subprocess.check_output(cmd,
+                                    stderr=subprocess.STDOUT,
+                                    shell=True)
+            button.set_label(label)
+        except subprocess.CalledProcessError as e:
+            self.error(e.output)
+        self.ready()
 
     def disable_audit(self, button):
+        self.wait()
+        cmd = "semodule -B"
         try:
-            self.wait()
-            status, output =commands.getstatusoutput("semodule -B")
-            self.ready()
-            if status != 0:
-                self.error(output)
-
-        except ValueError, e:
-            self.error(e.args[0])
+            subprocess.check_output(cmd,
+                                    stderr=subprocess.STDOUT,
+                                    shell=True)
+        except subprocess.CalledProcessError as e:
+            self.error(e.output)
+        self.ready()
 
     def propertiesDialog(self):
         # Do nothing
@@ -167,10 +165,10 @@ class modulesPage(semanagePage):
                                         gtk.STOCK_OPEN, gtk.RESPONSE_OK))
         dialog.set_default_response(gtk.RESPONSE_OK)
 
-        filter = gtk.FileFilter()
-        filter.set_name("Policy Files")
-        filter.add_pattern("*.pp")
-        dialog.add_filter(filter)
+        filt = gtk.FileFilter()
+        filt.set_name("Policy Files")
+        filt.add_pattern("*.pp")
+        dialog.add_filter(filt)
 
         response = dialog.run()
         if response == gtk.RESPONSE_OK:
@@ -178,14 +176,13 @@ class modulesPage(semanagePage):
         dialog.destroy()
 
     def add(self, file):
+        self.wait()
+        cmd = "semodule -i %s" % file
         try:
-            self.wait()
-            status, output =commands.getstatusoutput("semodule -i %s" % file)
-            self.ready()
-            if status != 0:
-                self.error(output)
-            else:
-                self.load()
-
-        except ValueError, e:
-            self.error(e.args[0])
+            subprocess.check_output(cmd,
+                                    stderr=subprocess.STDOUT,
+                                    shell=True)
+            self.load()
+        except subprocess.CalledProcessError as e:
+            self.error(e.output)
+        self.ready()
