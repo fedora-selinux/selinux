@@ -1,4 +1,4 @@
-SUBDIRS = src include utils man
+SUBDIRS = src include utils man golang
 
 DISABLE_SETRANS ?= n
 DISABLE_RPM ?= n
