@@ -25,6 +25,11 @@ int security_compute_relabel_raw(const char * scon,
 		return -1;
 	}
 
+	if ((! scon) || (! tcon)) {
+		errno=EINVAL;
+		return -1;
+	}
+
 	snprintf(path, sizeof path, "%s/relabel", selinux_mnt);
 	fd = open(path, O_RDWR);
 	if (fd < 0)
