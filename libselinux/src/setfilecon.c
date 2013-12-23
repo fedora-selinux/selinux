@@ -9,8 +9,12 @@
 
 int setfilecon_raw(const char *path, const char * context)
 {
-	int rc = setxattr(path, XATTR_NAME_SELINUX, context, strlen(context) + 1,
-			0);
+	int rc;
+	if (! context) {
+		errno=EINVAL;
+		return -1;
+	}
+	rc = setxattr(path, XATTR_NAME_SELINUX, context, strlen(context) + 1, 0);
 	if (rc < 0 && errno == ENOTSUP) {
 		char * ccontext = NULL;
 		int err = errno;
