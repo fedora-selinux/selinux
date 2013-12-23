@@ -24,6 +24,11 @@ int security_compute_user_raw(const security_context_t scon,
 		return -1;
 	}
 
+	if (! scon) {
+		errno=EINVAL;
+		return -1;
+	}
+
 	snprintf(path, sizeof path, "%s/user", selinux_mnt);
 	fd = open(path, O_RDWR);
 	if (fd < 0)

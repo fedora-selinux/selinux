@@ -17,6 +17,11 @@ int security_canonicalize_context_raw(const security_context_t con,
 	size_t size;
 	int fd, ret;
 
+	if (! con) {
+		errno=EINVAL;
+		return -1;
+	}
+
 	if (!selinux_mnt) {
 		errno = ENOENT;
 		return -1;

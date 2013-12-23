@@ -14,6 +14,11 @@ int security_check_context_raw(const security_context_t con)
 	char path[PATH_MAX];
 	int fd, ret;
 
+	if (! con) {
+		errno=EINVAL;
+		return -1;
+	}
+
 	if (!selinux_mnt) {
 		errno = ENOENT;
 		return -1;
