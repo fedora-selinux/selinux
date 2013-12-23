@@ -64,6 +64,11 @@ int security_compute_create_name_raw(const char * scon,
 		return -1;
 	}
 
+	if ((! scon) || (! tcon)) {
+		errno=EINVAL;
+		return -1;
+	}
+
 	snprintf(path, sizeof path, "%s/create", selinux_mnt);
 	fd = open(path, O_RDWR | O_CLOEXEC);
 	if (fd < 0)
