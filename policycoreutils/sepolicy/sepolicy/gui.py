@@ -2180,7 +2180,6 @@ class SELinuxGui():
         self.update = True
         self.update_treestore.clear()
         for bools in self.cur_dict["boolean"]:
-            operation = self.cur_dict["boolean"][bools]["action"]
             iter = self.update_treestore.append(None)
             self.update_treestore.set_value(iter, 0, True)
             self.update_treestore.set_value(iter, 1,  sepolicy.boolean_desc(bools))
