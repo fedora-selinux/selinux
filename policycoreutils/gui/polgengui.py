@@ -39,24 +39,6 @@ import subprocess
 
 import re
 
-def get_all_modules():
-    all_modules = []
-    cmd = "semodule -l 2>/dev/null"
-    try:
-        output = subprocess.check_output(cmd,
-                                         stderr=subprocess.STDOUT,
-                                         shell=True)
-        l = output.split("\n")
-        for i in l:
-            all_modules.append(i.split()[0])
-            
-    except subprocess.CalledProcessError as e:
-        self.error(e.output)
-    self.ready()
-
-    return all_modules
-
-
 ##
 ## I18N
 ##
@@ -195,7 +177,7 @@ class childWindow:
 
         try:
             self.all_types = generate.get_all_types()
-            self.all_modules = get_all_modules()
+            self.all_modules = sepolicy.get_all_modules()
             self.all_roles = generate.get_all_roles()
             self.all_users = generate.get_all_users()
         except RuntimeError as e:

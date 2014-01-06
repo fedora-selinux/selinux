@@ -758,7 +758,7 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="use_underline">True</property>
-                        <signal name="clicked" handler="on_exec_select_clicked" swapped="no"/>
+                        <signal name="clicked" handler="on_exec_select_clicked"/>
                       </widget>
                       <packing>
                         <property name="left_attach">2</property>
@@ -840,7 +840,7 @@
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
                         <property name="use_underline">True</property>
-                        <signal name="clicked" handler="on_init_script_select_clicked" swapped="no"/>
+                        <signal name="clicked" handler="on_init_script_select_clicked" />
                       </widget>
                       <packing>
                         <property name="left_attach">2</property>
@@ -1983,7 +1983,7 @@ Tab</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <signal name="clicked" handler="on_add_clicked" swapped="no"/>
+                            <signal name="clicked" handler="on_add_clicked" />
                             <child>
                               <widget class="GtkAlignment" id="alignment6">
                                 <property name="visible">True</property>
@@ -2036,7 +2036,7 @@ Tab</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <signal name="clicked" handler="on_add_dir_clicked" swapped="no"/>
+                            <signal name="clicked" handler="on_add_dir_clicked" />
                             <child>
                               <widget class="GtkAlignment" id="alignment5">
                                 <property name="visible">True</property>
@@ -2091,7 +2091,7 @@ Tab</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="use_stock">True</property>
-                            <signal name="clicked" handler="on_delete_clicked" swapped="no"/>
+                            <signal name="clicked" handler="on_delete_clicked" />
                             <accelerator key="Delete" signal="clicked"/>
                           </widget>
                           <packing>
@@ -2188,7 +2188,7 @@ Tab</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
-                            <signal name="clicked" handler="on_add_boolean_clicked" swapped="no"/>
+                            <signal name="clicked" handler="on_add_boolean_clicked" />
                             <child>
                               <widget class="GtkAlignment" id="alignment1">
                                 <property name="visible">True</property>
@@ -2243,7 +2243,7 @@ Tab</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">False</property>
                             <property name="use_stock">True</property>
-                            <signal name="clicked" handler="on_delete_boolean_clicked" swapped="no"/>
+                            <signal name="clicked" handler="on_delete_boolean_clicked" />
                             <accelerator key="Delete" signal="clicked"/>
                           </widget>
                           <packing>
@@ -2414,7 +2414,7 @@ Tab</property>
                 <property name="can_default">True</property>
                 <property name="receives_default">False</property>
                 <property name="use_stock">True</property>
-                <signal name="activate" handler="on_cancel_activate" swapped="no"/>
+                <signal name="activate" handler="on_cancel_activate" />
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -2430,7 +2430,7 @@ Tab</property>
                 <property name="can_default">True</property>
                 <property name="receives_default">False</property>
                 <property name="use_stock">True</property>
-                <signal name="activate" handler="on_back_activate" swapped="no"/>
+                <signal name="activate" handler="on_back_activate" />
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -2446,7 +2446,7 @@ Tab</property>
                 <property name="can_default">True</property>
                 <property name="receives_default">False</property>
                 <property name="use_stock">True</property>
-                <signal name="activate" handler="on_forward_activate" swapped="no"/>
+                <signal name="activate" handler="on_forward_activate" />
               </widget>
               <packing>
                 <property name="expand">False</property>
