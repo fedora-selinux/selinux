@@ -20,7 +20,7 @@ import string
 import gtk
 import gtk.glade
 import os
-import commands
+import subprocess
 import gobject
 import sys
 import seobject
@@ -41,8 +41,8 @@ try:
                     unicode=False,
                     codeset = 'utf-8')
 except IOError:
-    import __builtin__
-    __builtin__.__dict__['_'] = unicode
+    import builtins
+    builtins.__dict__['_'] = str
 
 class domainsPage(semanagePage):
     def __init__(self, xml):
@@ -115,18 +115,17 @@ class domainsPage(semanagePage):
         selection = self.view.get_selection()
         store, iter = selection.get_selected()
         domain = store.get_value(iter, 0)
+        self.wait()
+        cmd = "semanage permissive -d %s_t" % domain
         try:
-            self.wait()
-            status, output = commands.getstatusoutput("semanage permissive -d %s_t" % domain)
-            self.ready()
-            if status != 0:
-                self.error(output)
-            else:
-                domain = store.set_value(iter, 1, "")
-                self.itemSelected(selection)
-
-        except ValueError, e:
-            self.error(e.args[0])
+            subprocess.check_output(cmd, 
+                                    stderr=subprocess.STDOUT,
+                                    shell=True)
+            domain = store.set_value(iter, 1, "")
+            self.itemSelected(selection)
+        except subprocess.CalledProcessError as e:
+            self.error(e.output)
+        self.ready()
 
     def propertiesDialog(self):
         # Do nothing
@@ -140,15 +139,14 @@ class domainsPage(semanagePage):
         selection = self.view.get_selection()
         store, iter = selection.get_selected()
         domain = store.get_value(iter, 0)
+        self.wait()
+        cmd = "semanage permissive -a %s_t" % domain
         try:
-            self.wait()
-            status, output = commands.getstatusoutput("semanage permissive -a %s_t" % domain)
-            self.ready()
-            if status != 0:
-                self.error(output)
-            else:
-                domain = store.set_value(iter, 1, _("Permissive"))
-                self.itemSelected(selection)
-
-        except ValueError, e:
-            self.error(e.args[0])
+            subprocess.check_output(cmd, 
+                                    stderr=subprocess.STDOUT,
+                                    shell=True)
+            domain = store.set_value(iter, 1, _("Permissive"))
+            self.itemSelected(selection)
+        except subprocess.CalledProcessError as e:
+            self.error(e.output)
+        self.ready()

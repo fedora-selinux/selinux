@@ -16,14 +16,11 @@
 ## Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ## Author: Dan Walsh
-import string
 import gtk
 import gtk.glade
-import os
 import gobject
-import sys
 import seobject
-import commands
+import subprocess
 from semanagePage import *;
 
 ##
@@ -43,8 +40,8 @@ try:
                     unicode=False,
                     codeset = 'utf-8')
 except IOError:
-    import __builtin__
-    __builtin__.__dict__['_'] = unicode
+    import builtins
+    builtins.__dict__['_'] = str
 
 class portsPage(semanagePage):
     def __init__(self, xml):
@@ -62,19 +59,19 @@ class portsPage(semanagePage):
         self.ports_properties_button = xml.get_widget("portsPropertiesButton")
         self.ports_delete_button = xml.get_widget("portsDeleteButton")
         liststore = self.ports_protocol_combo.get_model()
-        iter = liststore.get_iter_first()
-        self.ports_protocol_combo.set_active_iter(iter)
+        it = liststore.get_iter_first()
+        self.ports_protocol_combo.set_active_iter(it)
         self.init_store()
         self.edit = True
         self.load()
 
     def filter_changed(self, *arg):
-        filter =  arg[0].get_text()
-        if filter != self.filter:
+        filt =  arg[0].get_text()
+        if filt != self.filter:
             if self.edit:
-                self.load(filter)
+                self.load(filt)
             else:
-                self.group_load(filter)
+                self.group_load(filt)
 
     def init_store(self):
         self.store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING , gobject.TYPE_STRING)
@@ -116,43 +113,43 @@ class portsPage(semanagePage):
         except:
             return 0
 
-    def load(self,filter = ""):
-        self.filter=filter
+    def load(self,filt = ""):
+        self.filter=filt
         self.port = seobject.portRecords()
-        dict = self.port.get_all(self.local)
-        keys = dict.keys()
+        pdict = self.port.get_all(self.local)
+        keys = list(pdict.keys())
         keys.sort()
         self.store.clear()
         for k in keys:
-            if not (self.match(str(k[0]), filter) or self.match(dict[k][0], filter) or self.match(k[2], filter) or self.match(dict[k][1], filter) or self.match(dict[k][1], filter)):
+            if not (self.match(str(k[0]), filt) or self.match(pdict[k][0], filt) or self.match(k[2], filt) or self.match(pdict[k][1], filt) or self.match(pdict[k][1], filt)):
                 continue
-            iter = self.store.append()
+            it = self.store.append()
             if k[0] == k[1]:
-                self.store.set_value(iter, PORT_COL, k[0])
+                self.store.set_value(it, PORT_COL, k[0])
             else:
                 rec = "%s-%s" % k[:2]
-                self.store.set_value(iter, PORT_COL, rec)
-            self.store.set_value(iter, TYPE_COL, dict[k][0])
-            self.store.set_value(iter, PROTOCOL_COL, k[2])
-            self.store.set_value(iter, MLS_COL, dict[k][1])
+                self.store.set_value(it, PORT_COL, rec)
+            self.store.set_value(it, TYPE_COL, pdict[k][0])
+            self.store.set_value(it, PROTOCOL_COL, k[2])
+            self.store.set_value(it, MLS_COL, pdict[k][1])
         self.view.get_selection().select_path ((0,))
 
-    def group_load(self, filter = ""):
-        self.filter=filter
+    def group_load(self, filt = ""):
+        self.filter=filt
         self.port = seobject.portRecords()
-        dict = self.port.get_all_by_type(self.local)
-        keys = dict.keys()
+        pdict = self.port.get_all_by_type(self.local)
+        keys = list(pdict.keys())
         keys.sort()
         self.store.clear()
         for k in keys:
-            ports_string = ", ".join(dict[k])
-            if not (self.match(ports_string, filter) or self.match(k[0], filter) or self.match(k[1], filter) ):
+            ports_string = ", ".join(pdict[k])
+            if not (self.match(ports_string, filt) or self.match(k[0], filt) or self.match(k[1], filt) ):
                 continue
-            iter = self.store.append()
-            self.store.set_value(iter, TYPE_COL, k[0])
-            self.store.set_value(iter, PROTOCOL_COL, k[1])
-            self.store.set_value(iter, PORT_COL, ports_string)
-            self.store.set_value(iter, MLS_COL, "")
+            it = self.store.append()
+            self.store.set_value(it, TYPE_COL, k[0])
+            self.store.set_value(it, PROTOCOL_COL, k[1])
+            self.store.set_value(it, PORT_COL, ports_string)
+            self.store.set_value(it, MLS_COL, "")
         self.view.get_selection().select_path ((0,))
 
     def propertiesDialog(self):
@@ -160,19 +157,19 @@ class portsPage(semanagePage):
             semanagePage.propertiesDialog(self)
 
     def dialogInit(self):
-        store, iter = self.view.get_selection().get_selected()
-        self.ports_number_entry.set_text(store.get_value(iter, PORT_COL))
+        store, it = self.view.get_selection().get_selected()
+        self.ports_number_entry.set_text(store.get_value(it, PORT_COL))
         self.ports_number_entry.set_sensitive(False)
         self.ports_protocol_combo.set_sensitive(False)
-        self.ports_name_entry.set_text(store.get_value(iter, TYPE_COL))
-        self.ports_mls_entry.set_text(store.get_value(iter, MLS_COL))
-        protocol = store.get_value(iter, PROTOCOL_COL)
+        self.ports_name_entry.set_text(store.get_value(it, TYPE_COL))
+        self.ports_mls_entry.set_text(store.get_value(it, MLS_COL))
+        protocol = store.get_value(it, PROTOCOL_COL)
         liststore = self.ports_protocol_combo.get_model()
-        iter = liststore.get_iter_first()
-        while iter != None and liststore.get_value(iter,0) != protocol:
-            iter = liststore.iter_next(iter)
-        if iter != None:
-            self.ports_protocol_combo.set_active_iter(iter)
+        it = liststore.get_iter_first()
+        while it != None and liststore.get_value(it,0) != protocol:
+            it = liststore.iter_next(it)
+        if it != None:
+            self.ports_protocol_combo.set_active_iter(it)
 
     def dialogClear(self):
         self.ports_number_entry.set_text("")
@@ -182,19 +179,20 @@ class portsPage(semanagePage):
         self.ports_mls_entry.set_text("s0")
 
     def delete(self):
-        store, iter = self.view.get_selection().get_selected()
-        port = store.get_value(iter, PORT_COL)
-        protocol = store.get_value(iter, 1)
+        store, it = self.view.get_selection().get_selected()
+        port = store.get_value(it, PORT_COL)
+        protocol = store.get_value(it, 1)
+        self.wait()
+        cmd = "semanage port -d -p %s %s" % (protocol, port)
         try:
-            self.wait()
-            (rc, out) = commands.getstatusoutput("semanage port -d -p %s %s" % (protocol, port))
-            self.ready()
-            if rc != 0:
-                return self.error(out)
-            store.remove(iter)
+            subprocess.check_output(cmd,
+                                    stderr=subprocess.STDOUT,
+                                    shell=True)
+            store.remove(it)
             self.view.get_selection().select_path ((0,))
-        except ValueError, e:
-            self.error(e.args[0])
+        except subprocess.CalledProcessError as e:
+            self.error(e.output)
+        self.ready()
 
     def add(self):
         target = self.ports_name_entry.get_text().strip()
@@ -207,39 +205,47 @@ class portsPage(semanagePage):
                 self.error(_("Port number \"%s\" is not valid.  0 < PORT_NUMBER < 65536 ") % port_number )
                 return False
         list_model = self.ports_protocol_combo.get_model()
-        iter = self.ports_protocol_combo.get_active_iter()
-        protocol = list_model.get_value(iter,0)
+        it = self.ports_protocol_combo.get_active_iter()
+        protocol = list_model.get_value(it,0)
         self.wait()
-        (rc, out) = commands.getstatusoutput("semanage port -a -p %s -r %s -t %s %s" % (protocol, mls, target, port_number))
+        cmd = "semanage port -a -p %s -r %s -t %s %s" % (protocol, mls, target, port_number)
+        try:
+            subprocess.check_output(cmd,
+                                    stderr=subprocess.STDOUT,
+                                    shell=True)
+            it = self.store.append()
+            self.store.set_value(it, TYPE_COL, target)
+            self.store.set_value(it, PORT_COL, port_number)
+            self.store.set_value(it, PROTOCOL_COL, protocol)
+            self.store.set_value(it, MLS_COL, mls)
+        except subprocess.CalledProcessError as e:
+            self.error(e.output)
         self.ready()
-        if rc != 0:
-            self.error(out)
-            return False
-        iter = self.store.append()
-
-        self.store.set_value(iter, TYPE_COL, target)
-        self.store.set_value(iter, PORT_COL, port_number)
-        self.store.set_value(iter, PROTOCOL_COL, protocol)
-        self.store.set_value(iter, MLS_COL, mls)
 
     def modify(self):
         target = self.ports_name_entry.get_text().strip()
         mls = self.ports_mls_entry.get_text().strip()
         port_number = self.ports_number_entry.get_text().strip()
         list_model = self.ports_protocol_combo.get_model()
-        iter = self.ports_protocol_combo.get_active_iter()
-        protocol = list_model.get_value(iter,0)
+        it = self.ports_protocol_combo.get_active_iter()
+        protocol = list_model.get_value(it,0)
         self.wait()
-        (rc, out) = commands.getstatusoutput("semanage port -m -p %s -r %s -t %s %s" % (protocol, mls, target, port_number))
-        self.ready()
-        if rc != 0:
-            self.error(out)
+        cmd = "semanage port -m -p %s -r %s -t %s %s" % (protocol, mls, target, port_number)
+        try:
+            subprocess.check_output(cmd,
+                                    stderr=subprocess.STDOUT,
+                                    shell=True)
+            store, it = self.view.get_selection().get_selected()
+            self.store.set_value(it, TYPE_COL, target)
+            self.store.set_value(it, PORT_COL, port_number)
+            self.store.set_value(it, PROTOCOL_COL, protocol)
+            self.store.set_value(it, MLS_COL, mls)
+            self.ready()
+            return True
+        except subprocess.CalledProcessError as e:
+            self.error(e.output)
+            self.ready()
             return False
-        store, iter = self.view.get_selection().get_selected()
-        self.store.set_value(iter, TYPE_COL, target)
-        self.store.set_value(iter, PORT_COL, port_number)
-        self.store.set_value(iter, PROTOCOL_COL, protocol)
-        self.store.set_value(iter, MLS_COL, mls)
 
     def on_group_clicked(self, button):
         self.ports_add_button.set_sensitive(self.group)

@@ -111,7 +111,7 @@ role sepolicy_r;
 role sepolicy_source_r;
 role sepolicy_target_r;
 
-#################################
+################################# 
 #
 # Local policy
 #

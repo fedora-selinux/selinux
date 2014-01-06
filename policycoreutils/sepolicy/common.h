@@ -9,12 +9,18 @@
 # define UNUSED(x) x
 #endif
 
-#define py_decref(x) { if (x) 	Py_DECREF(x); }
+#if PY_MAJOR_VERSION < 3
+#define PyLong_AsLong PyInt_AsLong
+#undef PyUnicode_FromString
+#define PyUnicode_FromString PyString_FromString
+#endif
+
+#define py_decref(x) { if (x)	Py_DECREF(x); }
 
 static int py_append_string(PyObject *list, const char* value)
 {
 	int rt;
-	PyObject *obj = PyString_FromString(value);
+	PyObject *obj = PyUnicode_FromString(value);
 	if (!obj) return -1;
 	rt = PyList_Append(list, obj);
 	Py_DECREF(obj);
@@ -40,11 +46,9 @@ static int py_insert_obj(PyObject *dict, const char *name, PyObject *obj)
 static int py_insert_string(PyObject *dict, const char *name, const char* value)
 {
 	int rt;
-	PyObject *obj = PyString_FromString(value);
+	PyObject *obj = PyUnicode_FromString(value);
 	if (!obj) return -1;
 	rt = PyDict_SetItemString(dict, name, obj);
 	Py_DECREF(obj);
 	return rt;
 }
-
-

@@ -27,21 +27,21 @@ import sepolicy
 from sepolicy import get_all_types, get_all_attributes, get_all_roles
 import time
 
-from templates import executable
-from templates import boolean
-from templates import etc_rw
-from templates import unit_file
-from templates import var_cache
-from templates import var_spool
-from templates import var_lib
-from templates import var_log
-from templates import var_run
-from templates import tmp
-from templates import rw
-from templates import network
-from templates import script
-from templates import spec
-from templates import user
+from .templates import executable
+from .templates import boolean
+from .templates import etc_rw
+from .templates import unit_file
+from .templates import var_cache
+from .templates import var_spool
+from .templates import var_lib
+from .templates import var_log
+from .templates import var_run
+from .templates import tmp
+from .templates import rw
+from .templates import network
+from .templates import script
+from .templates import spec
+from .templates import user
 import sepolgen.interfaces as interfaces
 import sepolgen.defaults as defaults
 
@@ -55,12 +55,15 @@ gettext.bindtextdomain(PROGNAME, "/usr/share/locale")
 gettext.textdomain(PROGNAME)
 try:
     gettext.install(PROGNAME,
-                    localedir="/usr/share/locale",
-                    unicode=False,
+                    unicode=True,
+                    codeset = 'utf-8')
+except TypeError:
+    # Failover to python3 install
+    gettext.install(PROGNAME,
                     codeset = 'utf-8')
 except IOError:
-    import __builtin__
-    __builtin__.__dict__['_'] = unicode
+    import builtins
+    builtins.__dict__['_'] = str
 
 def get_rpm_nvr_from_header(hdr):
     'Given an RPM header return the package NVR as a string'
@@ -82,7 +85,7 @@ def get_rpm_nvr_list(package):
             nvr = get_rpm_nvr_from_header(h)
             break
     except:
-        print("Failed to retrieve rpm info for %s") % package
+        print(("Failed to retrieve rpm info for %s") % package)
         nvr = None
 
     return nvr
@@ -98,7 +101,7 @@ def get_all_ports():
     return dict
 
 def get_all_users():
-    users = map(lambda x: x['name'], sepolicy.info(sepolicy.USER))
+    users = [x['name'] for x in sepolicy.info(sepolicy.USER)]
     users.remove("system_u")
     users.remove("root")
     users.sort()
@@ -141,13 +144,13 @@ poltype[RUSER] = _("Confined Root Administrator Role")
 poltype[NEWTYPE] = _("Module information for a new type")
 
 def get_poltype_desc():
-    keys = poltype.keys()
+    keys = list(poltype.keys())
     keys.sort()
     msg = _("Valid Types:\n")
     for k in keys:
         msg += "%2s: %s\n" % (k, poltype[k])
     return msg
-        
+
 APPLICATIONS = [ DAEMON, DBUS, INETD, USER, CGI ]
 USERS = [ XUSER, TUSER, LUSER, AUSER, RUSER]
 
@@ -181,7 +184,7 @@ def verify_ports(ports):
 
 class policy:
 
-	def __init__(self, name, type):
+        def __init__(self, name, type):
                 self.rpms = []
                 self.ports = []
                 self.all_roles = get_all_roles()
@@ -190,14 +193,14 @@ class policy:
                 if type not in poltype:
                     raise ValueError(_("You must enter a valid policy type"))
 
-		if not name:
+                if not name:
                     raise ValueError(_("You must enter a name for your policy module for your '%s'.") % poltype[type])
                 try:
                     self.ports = get_all_ports()
-                except ValueError, e:
-                    print "Can not get port types, must be root for this information"
-                except RuntimeError, e:
-                    print "Can not get port types", e
+                except ValueError as e:
+                    print("Can not get port types, must be root for this information")
+                except RuntimeError as e:
+                    print("Can not get port types", e)
 
                 self.symbols = {}
                 self.symbols["openlog"] = "set_use_kerberos(True)"
@@ -289,32 +292,32 @@ class policy:
                 self.symbols["audit_control"] = "add_capability('audit_control')"
                 self.symbols["setfcap"] = "add_capability('setfcap')"
 
-		self.DEFAULT_DIRS = {}
-		self.DEFAULT_DIRS["/etc"] = ["etc_rw", [], etc_rw];
-		self.DEFAULT_DIRS["/tmp"] = ["tmp", [], tmp];
-		self.DEFAULT_DIRS["rw"] = ["rw", [], rw];
-		self.DEFAULT_DIRS["/usr/lib/systemd/system"] = ["unit_file", [], unit_file];
-		self.DEFAULT_DIRS["/lib/systemd/system"] = ["unit_file", [], unit_file];
-		self.DEFAULT_DIRS["/etc/systemd/system"] = ["unit_file", [], unit_file];
-		self.DEFAULT_DIRS["/var/cache"] = ["var_cache", [], var_cache];
-		self.DEFAULT_DIRS["/var/lib"] = ["var_lib", [], var_lib];
-		self.DEFAULT_DIRS["/var/log"] = ["var_log", [], var_log];
-		self.DEFAULT_DIRS["/var/run"] = ["var_run", [], var_run];
-		self.DEFAULT_DIRS["/var/spool"] = ["var_spool", [], var_spool];
+                self.DEFAULT_DIRS = {}
+                self.DEFAULT_DIRS["/etc"] = ["etc_rw", [], etc_rw];
+                self.DEFAULT_DIRS["/tmp"] = ["tmp", [], tmp];
+                self.DEFAULT_DIRS["rw"] = ["rw", [], rw];
+                self.DEFAULT_DIRS["/usr/lib/systemd/system"] = ["unit_file", [], unit_file];
+                self.DEFAULT_DIRS["/lib/systemd/system"] = ["unit_file", [], unit_file];
+                self.DEFAULT_DIRS["/etc/systemd/system"] = ["unit_file", [], unit_file];
+                self.DEFAULT_DIRS["/var/cache"] = ["var_cache", [], var_cache];
+                self.DEFAULT_DIRS["/var/lib"] = ["var_lib", [], var_lib];
+                self.DEFAULT_DIRS["/var/log"] = ["var_log", [], var_log];
+                self.DEFAULT_DIRS["/var/run"] = ["var_run", [], var_run];
+                self.DEFAULT_DIRS["/var/spool"] = ["var_spool", [], var_spool];
 
-		self.DEFAULT_EXT = {}
-		self.DEFAULT_EXT["_tmp_t"] = tmp;
-		self.DEFAULT_EXT["_unit_file_t"] = unit_file;
-		self.DEFAULT_EXT["_var_cache_t"] = var_cache;
-		self.DEFAULT_EXT["_var_lib_t"] = var_lib;
-		self.DEFAULT_EXT["_var_log_t"] = var_log;
-		self.DEFAULT_EXT["_var_run_t"] = var_run;
-		self.DEFAULT_EXT["_var_spool_t"] = var_spool;
-		self.DEFAULT_EXT["_port_t"] = network;
+                self.DEFAULT_EXT = {}
+                self.DEFAULT_EXT["_tmp_t"] = tmp;
+                self.DEFAULT_EXT["_unit_file_t"] = unit_file;
+                self.DEFAULT_EXT["_var_cache_t"] = var_cache;
+                self.DEFAULT_EXT["_var_lib_t"] = var_lib;
+                self.DEFAULT_EXT["_var_log_t"] = var_log;
+                self.DEFAULT_EXT["_var_run_t"] = var_run;
+                self.DEFAULT_EXT["_var_spool_t"] = var_spool;
+                self.DEFAULT_EXT["_port_t"] = network;
 
                 self.DEFAULT_KEYS=["/etc", "/var/cache", "/var/log", "/tmp", "rw", "/var/lib", "/var/run", "/var/spool", "/etc/systemd/system", "/usr/lib/systemd/system", "/lib/systemd/system" ]
 
-		self.DEFAULT_TYPES = (\
+                self.DEFAULT_TYPES = (\
 ( self.generate_daemon_types, self.generate_daemon_rules), \
 ( self.generate_dbusd_types, self.generate_dbusd_rules), \
 ( self.generate_inetd_types, self.generate_inetd_rules), \
@@ -331,47 +334,47 @@ class policy:
                 if not re.match(r"^[a-zA-Z0-9-_]+$", name):
                     raise ValueError(_("Name must be alpha numberic with no spaces. Consider using option \"-n MODULENAME\""))
 
-		if type == CGI:
-			self.name = "httpd_%s_script" % name
-		else:
-			self.name = name
+                if type == CGI:
+                        self.name = "httpd_%s_script" % name
+                else:
+                        self.name = name
 
                 self.file_name = name
 
                 self.capabilities = []
                 self.processes = []
-		self.type = type
-		self.initscript = ""
+                self.type = type
+                self.initscript = ""
                 self.program = None
-		self.in_tcp = [False, False, False, []]
-		self.in_udp = [False, False, False, []]
-		self.out_tcp = [False, False, False, []]
-		self.out_udp = [False, False, False, []]
-		self.use_resolve = False
-		self.use_tmp = False
-		self.use_uid = False
-		self.use_syslog = False
-		self.use_kerberos = False
-		self.manage_krb5_rcache = False
-		self.use_pam = False
-		self.use_dbus = False
-		self.use_audit = False
-		self.use_etc = self.type not in [ EUSER, NEWTYPE ]
-		self.use_localization = self.type not in [ EUSER, NEWTYPE ]
-		self.use_fd = self.type not in [ EUSER, NEWTYPE ]
-		self.use_terminal = False
-		self.use_mail = False
-		self.booleans = {}
-		self.files = {}
-		self.dirs = {}
+                self.in_tcp = [False, False, False, []]
+                self.in_udp = [False, False, False, []]
+                self.out_tcp = [False, False, False, []]
+                self.out_udp = [False, False, False, []]
+                self.use_resolve = False
+                self.use_tmp = False
+                self.use_uid = False
+                self.use_syslog = False
+                self.use_kerberos = False
+                self.manage_krb5_rcache = False
+                self.use_pam = False
+                self.use_dbus = False
+                self.use_audit = False
+                self.use_etc = self.type not in [ EUSER, NEWTYPE ]
+                self.use_localization = self.type not in [ EUSER, NEWTYPE ]
+                self.use_fd = self.type not in [ EUSER, NEWTYPE ]
+                self.use_terminal = False
+                self.use_mail = False
+                self.booleans = {}
+                self.files = {}
+                self.dirs = {}
                 self.found_tcp_ports=[]
                 self.found_udp_ports=[]
                 self.need_tcp_type=False
                 self.need_udp_type=False
-		self.admin_domains = []
-		self.existing_domains = []
-		self.transition_domains = []
-		self.transition_users = []
+                self.admin_domains = []
+                self.existing_domains = []
+                self.transition_domains = []
+                self.transition_users = []
                 self.roles = []
 
         def __isnetset(self, l):
@@ -414,162 +417,162 @@ class policy:
             return self.use_tcp() or self.use_udp()
 
         def find_port(self, port, protocol="tcp"):
-            for begin,end,p in self.ports.keys():
+            for begin,end,p in list(self.ports.keys()):
                 if port >= begin and port <= end and protocol == p:
                     return self.ports[begin, end, protocol]
             return  None
 
-	def set_program(self, program):
+        def set_program(self, program):
                 if self.type not in APPLICATIONS:
                     raise ValueError(_("User Role types can not be assigned executables."))
 
-		self.program = program
+                self.program = program
 
-	def set_init_script(self, initscript):
+        def set_init_script(self, initscript):
                 if self.type != DAEMON:
                     raise ValueError(_("Only Daemon apps can use an init script.."))
 
-		self.initscript = initscript
+                self.initscript = initscript
 
-	def set_in_tcp(self, all, reserved, unreserved, ports):
-		self.in_tcp = [ all, reserved, unreserved, verify_ports(ports)]
+        def set_in_tcp(self, all, reserved, unreserved, ports):
+                self.in_tcp = [ all, reserved, unreserved, verify_ports(ports)]
 
-	def set_in_udp(self, all, reserved, unreserved, ports):
-		self.in_udp = [ all, reserved, unreserved, verify_ports(ports)]
+        def set_in_udp(self, all, reserved, unreserved, ports):
+                self.in_udp = [ all, reserved, unreserved, verify_ports(ports)]
 
-	def set_out_tcp(self, all, ports):
-		self.out_tcp = [ all , False, False, verify_ports(ports) ]
+        def set_out_tcp(self, all, ports):
+                self.out_tcp = [ all , False, False, verify_ports(ports) ]
 
-	def set_out_udp(self, all, ports):
-		self.out_udp = [ all , False, False, verify_ports(ports) ]
+        def set_out_udp(self, all, ports):
+                self.out_udp = [ all , False, False, verify_ports(ports) ]
 
-	def set_use_resolve(self, val):
-		if val != True and val != False:
-			raise  ValueError(_("use_resolve must be a boolean value "))
+        def set_use_resolve(self, val):
+                if val != True and val != False:
+                        raise  ValueError(_("use_resolve must be a boolean value "))
 
-		self.use_resolve = val
+                self.use_resolve = val
 
-	def set_use_syslog(self, val):
-		if val != True and val != False:
-			raise  ValueError(_("use_syslog must be a boolean value "))
+        def set_use_syslog(self, val):
+                if val != True and val != False:
+                        raise  ValueError(_("use_syslog must be a boolean value "))
 
-		self.use_syslog = val
+                self.use_syslog = val
 
-	def set_use_kerberos(self, val):
-		if val != True and val != False:
-			raise  ValueError(_("use_kerberos must be a boolean value "))
+        def set_use_kerberos(self, val):
+                if val != True and val != False:
+                        raise  ValueError(_("use_kerberos must be a boolean value "))
 
-		self.use_kerberos = val
+                self.use_kerberos = val
 
-	def set_manage_krb5_rcache(self, val):
-		if val != True and val != False:
-			raise  ValueError(_("manage_krb5_rcache must be a boolean value "))
+        def set_manage_krb5_rcache(self, val):
+                if val != True and val != False:
+                        raise  ValueError(_("manage_krb5_rcache must be a boolean value "))
 
-		self.manage_krb5_rcache = val
+                self.manage_krb5_rcache = val
 
-	def set_use_pam(self, val):
-		self.use_pam = val == True
+        def set_use_pam(self, val):
+                self.use_pam = val == True
 
-	def set_use_dbus(self, val):
-		self.use_dbus = val == True
+        def set_use_dbus(self, val):
+                self.use_dbus = val == True
 
-	def set_use_audit(self, val):
-		self.use_audit = val == True
+        def set_use_audit(self, val):
+                self.use_audit = val == True
 
-	def set_use_etc(self, val):
-		self.use_etc = val == True
+        def set_use_etc(self, val):
+                self.use_etc = val == True
 
-	def set_use_localization(self, val):
-		self.use_localization = val == True
+        def set_use_localization(self, val):
+                self.use_localization = val == True
 
-	def set_use_fd(self, val):
-		self.use_fd = val == True
+        def set_use_fd(self, val):
+                self.use_fd = val == True
 
-	def set_use_terminal(self, val):
-		self.use_terminal = val == True
+        def set_use_terminal(self, val):
+                self.use_terminal = val == True
 
-	def set_use_mail(self, val):
-		self.use_mail = val == True
+        def set_use_mail(self, val):
+                self.use_mail = val == True
 
-	def set_use_tmp(self, val):
+        def set_use_tmp(self, val):
             if self.type in USERS:
                 raise ValueError(_("USER Types automatically get a tmp type"))
 
             if val:
-		self.DEFAULT_DIRS["/tmp"][1].append("/tmp");
+                self.DEFAULT_DIRS["/tmp"][1].append("/tmp");
             else:
-		self.DEFAULT_DIRS["/tmp"][1]=[]
+                self.DEFAULT_DIRS["/tmp"][1]=[]
 
-	def set_use_uid(self, val):
-		self.use_uid = val == True
+        def set_use_uid(self, val):
+                self.use_uid = val == True
 
-	def generate_uid_rules(self):
+        def generate_uid_rules(self):
                 if self.use_uid:
                     return re.sub("TEMPLATETYPE", self.name, executable.te_uid_rules)
                 else:
                     return ""
 
-	def generate_syslog_rules(self):
+        def generate_syslog_rules(self):
                 if self.use_syslog:
                     return re.sub("TEMPLATETYPE", self.name, executable.te_syslog_rules)
                 else:
                     return ""
 
-	def generate_resolve_rules(self):
+        def generate_resolve_rules(self):
                 if self.use_resolve:
                     return re.sub("TEMPLATETYPE", self.name, executable.te_resolve_rules)
                 else:
                     return ""
 
-	def generate_kerberos_rules(self):
+        def generate_kerberos_rules(self):
                 if self.use_kerberos:
                     return re.sub("TEMPLATETYPE", self.name, executable.te_kerberos_rules)
                 else:
                     return ""
 
-	def generate_manage_krb5_rcache_rules(self):
+        def generate_manage_krb5_rcache_rules(self):
                 if self.manage_krb5_rcache:
                     return re.sub("TEMPLATETYPE", self.name, executable.te_manage_krb5_rcache_rules)
                 else:
                     return ""
 
-	def generate_pam_rules(self):
+        def generate_pam_rules(self):
                 newte =""
                 if self.use_pam:
                     newte = re.sub("TEMPLATETYPE", self.name, executable.te_pam_rules)
                 return newte
 
-	def generate_audit_rules(self):
+        def generate_audit_rules(self):
                 newte =""
                 if self.use_audit:
                     newte = re.sub("TEMPLATETYPE", self.name, executable.te_audit_rules)
                 return newte
 
-	def generate_etc_rules(self):
+        def generate_etc_rules(self):
                 newte =""
                 if self.use_etc:
                     newte = re.sub("TEMPLATETYPE", self.name, executable.te_etc_rules)
                 return newte
 
-	def generate_fd_rules(self):
+        def generate_fd_rules(self):
                 newte =""
                 if self.use_fd:
                     newte = re.sub("TEMPLATETYPE", self.name, executable.te_fd_rules)
                 return newte
 
-	def generate_localization_rules(self):
+        def generate_localization_rules(self):
                 newte =""
                 if self.use_localization:
                     newte = re.sub("TEMPLATETYPE", self.name, executable.te_localization_rules)
                 return newte
 
-	def generate_dbus_rules(self):
+        def generate_dbus_rules(self):
                 newte =""
                 if self.type != DBUS and self.use_dbus:
                     newte = re.sub("TEMPLATETYPE", self.name, executable.te_dbus_rules)
                 return newte
 
-	def generate_mail_rules(self):
+        def generate_mail_rules(self):
                 newte =""
                 if self.use_mail:
                     newte = re.sub("TEMPLATETYPE", self.name, executable.te_mail_rules)
@@ -589,7 +592,7 @@ allow %s_t %s_t:%s_socket name_%s;
 """ % (port_name, self.name, port_name, protocol, action)
             return line
 
-	def generate_network_types(self):
+        def generate_network_types(self):
             for i in self.in_tcp[PORTS]:
                 rec = self.find_port(int(i), "tcp")
                 if rec == None:
@@ -627,7 +630,7 @@ allow %s_t %s_t:%s_socket name_%s;
                 return re.sub("TEMPLATETYPE", self.name, network.te_types)
             return ""
 
-	def __find_path(self, file):
+        def __find_path(self, file):
             for d in self.DEFAULT_DIRS:
                 if file.find(d) == 0:
                     self.DEFAULT_DIRS[d][1].append(file)
@@ -635,34 +638,34 @@ allow %s_t %s_t:%s_socket name_%s;
             self.DEFAULT_DIRS["rw"][1].append(file)
             return self.DEFAULT_DIRS["rw"]
 
-	def add_capability(self, capability):
+        def add_capability(self, capability):
             if capability not in self.capabilities:
                 self.capabilities.append(capability)
 
-	def set_types(self, types):
+        def set_types(self, types):
             self.types = types
 
-	def add_process(self, process):
+        def add_process(self, process):
             if process not in self.processes:
                 self.processes.append(process)
 
-	def add_boolean(self, name, description):
+        def add_boolean(self, name, description):
                 self.booleans[name] = description
 
-	def add_file(self, file):
-		self.files[file] = self.__find_path(file)
+        def add_file(self, file):
+                self.files[file] = self.__find_path(file)
 
-	def add_dir(self, file):
-		self.dirs[file] = self.__find_path(file)
+        def add_dir(self, file):
+                self.dirs[file] = self.__find_path(file)
 
-	def generate_capabilities(self):
+        def generate_capabilities(self):
             newte = ""
             self.capabilities.sort()
             if len(self.capabilities) > 0:
                 newte = "allow %s_t self:capability { %s };\n" % (self.name, " ".join(self.capabilities))
             return newte
 
-	def generate_process(self):
+        def generate_process(self):
             newte = ""
             self.processes.sort()
             if len(self.processes) > 0:
@@ -670,9 +673,9 @@ allow %s_t %s_t:%s_socket name_%s;
             return newte
 
 
-	def generate_network_rules(self):
-		newte = ""
-		if self.use_network():
+        def generate_network_rules(self):
+                newte = ""
+                if self.use_network():
                     newte = "\n"
 
                     newte += re.sub("TEMPLATETYPE", self.name, network.te_network)
@@ -725,7 +728,7 @@ allow %s_t %s_t:%s_socket name_%s;
 
                         for i in self.found_udp_ports:
                             newte += i
-		return newte
+                return newte
 
         def generate_transition_rules(self):
             newte = ""
@@ -750,11 +753,11 @@ allow %s_t %s_t:%s_socket name_%s;
                         tmp = re.sub("TEMPLATETYPE", name, user.te_admin_domain_rules)
                         if role not in self.all_roles:
                             tmp = re.sub(role, "system_r", tmp)
-                            
-                        
+
+
                         newte += re.sub("APPLICATION", app, tmp)
 
-                return newte 
+                return newte
 
             if self.type == RUSER:
                 newte += re.sub("TEMPLATETYPE", self.name, user.te_admin_rules)
@@ -772,7 +775,7 @@ allow %s_t %s_t:%s_socket name_%s;
 
             return newte
 
-	def generate_dbus_if(self):
+        def generate_dbus_if(self):
                 newif = ""
                 if self.use_dbus:
                     newif = re.sub("TEMPLATETYPE", self.name, executable.if_dbus_rules)
@@ -808,31 +811,31 @@ allow %s_t %s_t:%s_socket name_%s;
 
             return ""
 
-	def generate_cgi_types(self):
-		return re.sub("TEMPLATETYPE", self.file_name, executable.te_cgi_types)
+        def generate_cgi_types(self):
+                return re.sub("TEMPLATETYPE", self.file_name, executable.te_cgi_types)
 
-	def generate_sandbox_types(self):
-		return re.sub("TEMPLATETYPE", self.file_name, executable.te_sandbox_types)
+        def generate_sandbox_types(self):
+                return re.sub("TEMPLATETYPE", self.file_name, executable.te_sandbox_types)
 
-	def generate_userapp_types(self):
-		return re.sub("TEMPLATETYPE", self.name, executable.te_userapp_types)
+        def generate_userapp_types(self):
+                return re.sub("TEMPLATETYPE", self.name, executable.te_userapp_types)
 
-	def generate_inetd_types(self):
-		return re.sub("TEMPLATETYPE", self.name, executable.te_inetd_types)
+        def generate_inetd_types(self):
+                return re.sub("TEMPLATETYPE", self.name, executable.te_inetd_types)
 
-	def generate_dbusd_types(self):
-		return re.sub("TEMPLATETYPE", self.name, executable.te_dbusd_types)
+        def generate_dbusd_types(self):
+                return re.sub("TEMPLATETYPE", self.name, executable.te_dbusd_types)
 
-	def generate_min_login_user_types(self):
-		return re.sub("TEMPLATETYPE", self.name, user.te_min_login_user_types)
+        def generate_min_login_user_types(self):
+                return re.sub("TEMPLATETYPE", self.name, user.te_min_login_user_types)
 
-	def generate_login_user_types(self):
-		return re.sub("TEMPLATETYPE", self.name, user.te_login_user_types)
+        def generate_login_user_types(self):
+                return re.sub("TEMPLATETYPE", self.name, user.te_login_user_types)
 
-	def generate_admin_user_types(self):
-		return re.sub("TEMPLATETYPE", self.name, user.te_admin_user_types)
+        def generate_admin_user_types(self):
+                return re.sub("TEMPLATETYPE", self.name, user.te_admin_user_types)
 
-	def generate_existing_user_types(self):
+        def generate_existing_user_types(self):
                 if len(self.existing_domains) == 0:
                     raise ValueError(_("'%s' policy modules require existing domains") % poltype[self.type])
                 newte = re.sub("TEMPLATETYPE", self.name, user.te_existing_user_types)
@@ -844,27 +847,27 @@ allow %s_t %s_t:%s_socket name_%s;
                     role = d.split("_t")[0] + "_r"
                     if role in self.all_roles:
                         newte += """
-	role %s;""" % role
+        role %s;""" % role
                 newte += """
 ')
 """
-		return newte;
+                return newte;
 
-	def generate_x_login_user_types(self):
-		return re.sub("TEMPLATETYPE", self.name, user.te_x_login_user_types)
+        def generate_x_login_user_types(self):
+                return re.sub("TEMPLATETYPE", self.name, user.te_x_login_user_types)
 
-	def generate_root_user_types(self):
-		return re.sub("TEMPLATETYPE", self.name, user.te_root_user_types)
+        def generate_root_user_types(self):
+                return re.sub("TEMPLATETYPE", self.name, user.te_root_user_types)
 
-	def generate_new_types(self):
+        def generate_new_types(self):
                 newte = ""
                 if len(self.types) == 0:
                     raise ValueError(_("Type field required"))
-                    
+
                 for t in self.types:
                     for i in self.DEFAULT_EXT:
                         if t.endswith(i):
-                            print t, t[:-len(i)]
+                            print(t, t[:-len(i)])
                             newte += re.sub("TEMPLATETYPE", t[:-len(i)], self.DEFAULT_EXT[i].te_types)
                             break
 
@@ -876,46 +879,46 @@ allow %s_t %s_t:%s_socket name_%s;
 
                 return newte
 
-	def generate_new_rules(self):
+        def generate_new_rules(self):
                 return ""
 
-	def generate_daemon_types(self):
+        def generate_daemon_types(self):
                 newte = re.sub("TEMPLATETYPE", self.name, executable.te_daemon_types)
                 if self.initscript != "":
                     newte += re.sub("TEMPLATETYPE", self.name, executable.te_initscript_types)
-		return newte
+                return newte
 
-	def generate_tmp_types(self):
-		if self.use_tmp:
+        def generate_tmp_types(self):
+                if self.use_tmp:
                     return re.sub("TEMPLATETYPE", self.name, tmp.te_types)
                 else:
                     return ""
 
-	def generate_booleans(self):
+        def generate_booleans(self):
             newte = ""
             for b in self.booleans:
                 tmp = re.sub("BOOLEAN", b, boolean.te_boolean)
                 newte += re.sub("DESCRIPTION", self.booleans[b], tmp)
             return newte
 
-	def generate_boolean_rules(self):
+        def generate_boolean_rules(self):
             newte = ""
             for b in self.booleans:
                 newte += re.sub("BOOLEAN", b, boolean.te_rules)
             return newte
 
-	def generate_sandbox_te(self):
-		return re.sub("TEMPLATETYPE", self.name, executable.te_sandbox_types)
+        def generate_sandbox_te(self):
+                return re.sub("TEMPLATETYPE", self.name, executable.te_sandbox_types)
 
-	def generate_cgi_te(self):
-		return re.sub("TEMPLATETYPE", self.name, executable.te_cgi_types)
+        def generate_cgi_te(self):
+                return re.sub("TEMPLATETYPE", self.name, executable.te_cgi_types)
 
-	def generate_daemon_rules(self):
+        def generate_daemon_rules(self):
                 newif =  re.sub("TEMPLATETYPE", self.name, executable.te_daemon_rules)
 
                 return  newif
 
-	def generate_new_type_if(self):
+        def generate_new_type_if(self):
                 newif = ""
                 for t in self.types:
                     for i in self.DEFAULT_EXT:
@@ -925,46 +928,46 @@ allow %s_t %s_t:%s_socket name_%s;
                             break
                 return newif
 
-	def generate_login_user_rules(self):
-		return re.sub("TEMPLATETYPE", self.name, user.te_login_user_rules)
+        def generate_login_user_rules(self):
+                return re.sub("TEMPLATETYPE", self.name, user.te_login_user_rules)
 
-	def generate_existing_user_rules(self):
-		nerules = re.sub("TEMPLATETYPE", self.name, user.te_existing_user_rules)
+        def generate_existing_user_rules(self):
+                nerules = re.sub("TEMPLATETYPE", self.name, user.te_existing_user_rules)
                 return nerules
 
-	def generate_x_login_user_rules(self):
-		return re.sub("TEMPLATETYPE", self.name, user.te_x_login_user_rules)
+        def generate_x_login_user_rules(self):
+                return re.sub("TEMPLATETYPE", self.name, user.te_x_login_user_rules)
 
-	def generate_root_user_rules(self):
+        def generate_root_user_rules(self):
                 newte =re.sub("TEMPLATETYPE", self.name, user.te_root_user_rules)
-		return newte
+                return newte
 
-	def generate_userapp_rules(self):
-		return re.sub("TEMPLATETYPE", self.name, executable.te_userapp_rules)
+        def generate_userapp_rules(self):
+                return re.sub("TEMPLATETYPE", self.name, executable.te_userapp_rules)
 
-	def generate_inetd_rules(self):
-		return re.sub("TEMPLATETYPE", self.name, executable.te_inetd_rules)
+        def generate_inetd_rules(self):
+                return re.sub("TEMPLATETYPE", self.name, executable.te_inetd_rules)
 
-	def generate_dbusd_rules(self):
-		return re.sub("TEMPLATETYPE", self.name, executable.te_dbusd_rules)
+        def generate_dbusd_rules(self):
+                return re.sub("TEMPLATETYPE", self.name, executable.te_dbusd_rules)
 
-	def generate_tmp_rules(self):
-		if self.use_tmp:
+        def generate_tmp_rules(self):
+                if self.use_tmp:
                     return re.sub("TEMPLATETYPE", self.name, tmp.te_rules)
                 else:
                     return ""
 
-	def generate_cgi_rules(self):
-		newte = ""
-		newte += re.sub("TEMPLATETYPE", self.name, executable.te_cgi_rules)
-		return newte
+        def generate_cgi_rules(self):
+                newte = ""
+                newte += re.sub("TEMPLATETYPE", self.name, executable.te_cgi_rules)
+                return newte
 
-	def generate_sandbox_rules(self):
-		newte = ""
-		newte += re.sub("TEMPLATETYPE", self.name, executable.te_sandbox_rules)
-		return newte
+        def generate_sandbox_rules(self):
+                newte = ""
+                newte += re.sub("TEMPLATETYPE", self.name, executable.te_sandbox_rules)
+                return newte
 
-	def generate_user_if(self):
+        def generate_user_if(self):
                 newif =""
                 if self.use_terminal or self.type == USER:
                     newif = re.sub("TEMPLATETYPE", self.name, executable.if_user_program_rules)
@@ -973,7 +976,7 @@ allow %s_t %s_t:%s_socket name_%s;
                     newif += re.sub("TEMPLATETYPE", self.name, executable.if_role_change_rules)
                 return newif
 
-	def generate_if(self):
+        def generate_if(self):
                 newif = ""
                 newif += re.sub("TEMPLATETYPE", self.name, executable.if_heading_rules)
                 if self.program:
@@ -982,8 +985,8 @@ allow %s_t %s_t:%s_socket name_%s;
                     newif += re.sub("TEMPLATETYPE", self.name, executable.if_initscript_rules)
 
                 for d in self.DEFAULT_KEYS:
-			if len(self.DEFAULT_DIRS[d][1]) > 0:
-				newif += re.sub("TEMPLATETYPE", self.name, self.DEFAULT_DIRS[d][2].if_rules)
+                        if len(self.DEFAULT_DIRS[d][1]) > 0:
+                                newif += re.sub("TEMPLATETYPE", self.name, self.DEFAULT_DIRS[d][2].if_rules)
                                 for i in self.DEFAULT_DIRS[d][1]:
                                         if os.path.exists(i) and stat.S_ISSOCK(os.stat(i)[stat.ST_MODE]):
                                             newif += re.sub("TEMPLATETYPE", self.name, self.DEFAULT_DIRS[d][2].if_stream_rules)
@@ -995,17 +998,17 @@ allow %s_t %s_t:%s_socket name_%s;
                 newif += self.generate_new_type_if()
                 newif += self.generate_new_rules()
 
-		return newif
+                return newif
 
-	def generate_default_types(self):
-		return self.DEFAULT_TYPES[self.type][0]()
+        def generate_default_types(self):
+                return self.DEFAULT_TYPES[self.type][0]()
 
-	def generate_default_rules(self):
+        def generate_default_rules(self):
                 if self.DEFAULT_TYPES[self.type][1]:
                     return self.DEFAULT_TYPES[self.type][1]()
                 return ""
 
-	def generate_roles_rules(self):
+        def generate_roles_rules(self):
             newte = ""
             if self.type in ( TUSER, XUSER, AUSER, LUSER ):
                 roles = ""
@@ -1017,12 +1020,12 @@ allow %s_t %s_t:%s_socket name_%s;
                         newte += re.sub("ROLE", role, tmp)
             return newte
 
-	def generate_te(self):
-		newte = self.generate_default_types()
+        def generate_te(self):
+                newte = self.generate_default_types()
                 for d in self.DEFAULT_KEYS:
-			if len(self.DEFAULT_DIRS[d][1]) > 0:
-				# CGI scripts already have a rw_t
-				if self.type != CGI or d != "rw":
+                        if len(self.DEFAULT_DIRS[d][1]) > 0:
+                                # CGI scripts already have a rw_t
+                                if self.type != CGI or d != "rw":
                                     newte += re.sub("TEMPLATETYPE", self.name, self.DEFAULT_DIRS[d][2].te_types)
 
                 if self.type != EUSER:
@@ -1034,14 +1037,14 @@ allow %s_t %s_t:%s_socket name_%s;
 """ % self.name
                 newte += self.generate_capabilities()
                 newte += self.generate_process()
-		newte += self.generate_network_types()
-		newte += self.generate_tmp_types()
-		newte += self.generate_booleans()
-		newte += self.generate_default_rules()
-		newte += self.generate_boolean_rules()
+                newte += self.generate_network_types()
+                newte += self.generate_tmp_types()
+                newte += self.generate_booleans()
+                newte += self.generate_default_rules()
+                newte += self.generate_boolean_rules()
 
                 for d in self.DEFAULT_KEYS:
-			if len(self.DEFAULT_DIRS[d][1]) > 0:
+                        if len(self.DEFAULT_DIRS[d][1]) > 0:
                             if self.type == EUSER:
                                 newte_tmp = ""
                                 for domain in self.existing_domains:
@@ -1059,40 +1062,40 @@ allow %s_t %s_t:%s_socket name_%s;
                                         newte += re.sub("TEMPLATETYPE", self.name, self.DEFAULT_DIRS[d][2].te_stream_rules)
                                     break
 
-		newte += self.generate_tmp_rules()
-		newte += self.generate_network_rules()
-		newte += self.generate_fd_rules()
-		newte += self.generate_etc_rules()
-		newte += self.generate_pam_rules()
-		newte += self.generate_uid_rules()
-		newte += self.generate_audit_rules()
-		newte += self.generate_syslog_rules()
-		newte += self.generate_localization_rules()
-		newte += self.generate_resolve_rules()
-		newte += self.generate_roles_rules()
-		newte += self.generate_mail_rules()
-		newte += self.generate_transition_rules()
-		newte += self.generate_admin_rules()
-		newte += self.generate_dbus_rules()
-		newte += self.generate_kerberos_rules()
-		newte += self.generate_manage_krb5_rcache_rules()
+                newte += self.generate_tmp_rules()
+                newte += self.generate_network_rules()
+                newte += self.generate_fd_rules()
+                newte += self.generate_etc_rules()
+                newte += self.generate_pam_rules()
+                newte += self.generate_uid_rules()
+                newte += self.generate_audit_rules()
+                newte += self.generate_syslog_rules()
+                newte += self.generate_localization_rules()
+                newte += self.generate_resolve_rules()
+                newte += self.generate_roles_rules()
+                newte += self.generate_mail_rules()
+                newte += self.generate_transition_rules()
+                newte += self.generate_admin_rules()
+                newte += self.generate_dbus_rules()
+                newte += self.generate_kerberos_rules()
+                newte += self.generate_manage_krb5_rcache_rules()
 
-		return newte
+                return newte
 
-	def generate_fc(self):
-		newfc = ""
+        def generate_fc(self):
+                newfc = ""
                 fclist = []
-		for i in self.files.keys():
+                for i in list(self.files.keys()):
                         if os.path.exists(i) and stat.S_ISSOCK(os.stat(i)[stat.ST_MODE]):
                             t1 = re.sub("TEMPLATETYPE", self.name, self.files[i][2].fc_sock_file)
                         else:
                             t1 = re.sub("TEMPLATETYPE", self.name, self.files[i][2].fc_file)
-			t2 = re.sub("FILENAME", i, t1)
+                        t2 = re.sub("FILENAME", i, t1)
                         fclist.append(re.sub("FILETYPE", self.files[i][0], t2))
 
-		for i in self.dirs.keys():
-			t1 = re.sub("TEMPLATETYPE", self.name, self.dirs[i][2].fc_dir)
-			t2 = re.sub("FILENAME", i, t1)
+                for i in list(self.dirs.keys()):
+                        t1 = re.sub("TEMPLATETYPE", self.name, self.dirs[i][2].fc_dir)
+                        t2 = re.sub("FILENAME", i, t1)
                         fclist.append(re.sub("FILETYPE", self.dirs[i][0], t2))
 
                 if self.type in USERS +  [ SANDBOX ]:
@@ -1112,9 +1115,9 @@ allow %s_t %s_t:%s_socket name_%s;
 
                 fclist.sort()
                 newfc="\n".join(fclist)
-		return newfc
+                return newfc
 
-	def generate_user_sh(self):
+        def generate_user_sh(self):
             newsh = ""
             if self.type not in ( TUSER, XUSER, AUSER, LUSER, RUSER):
                 return newsh
@@ -1140,7 +1143,7 @@ allow %s_t %s_t:%s_socket name_%s;
 
             return newsh
 
-	def generate_sh(self):
+        def generate_sh(self):
                 temp  = re.sub("TEMPLATETYPE", self.file_name, script.compile)
                 temp  = re.sub("DOMAINTYPE", self.name, temp)
                 if self.type == EUSER:
@@ -1154,11 +1157,11 @@ allow %s_t %s_t:%s_socket name_%s;
                 if self.initscript != "":
                     newsh += re.sub("FILENAME", self.initscript, script.restorecon)
 
-		for i in self.files.keys():
-			newsh += re.sub("FILENAME", i, script.restorecon)
+                for i in list(self.files.keys()):
+                        newsh += re.sub("FILENAME", i, script.restorecon)
 
-		for i in self.dirs.keys():
-			newsh += re.sub("FILENAME", i, script.restorecon)
+                for i in list(self.dirs.keys()):
+                        newsh += re.sub("FILENAME", i, script.restorecon)
 
                 for i in self.in_tcp[PORTS] + self.out_tcp[PORTS]:
                     if self.find_port(i,"tcp") == None:
@@ -1167,88 +1170,88 @@ allow %s_t %s_t:%s_socket name_%s;
 
                 for i in self.in_udp[PORTS]:
                     if self.find_port(i,"udp") == None:
-			t1 = re.sub("PORTNUM", "%d" % i, script.udp_ports)
-			newsh += re.sub("TEMPLATETYPE", self.name, t1)
+                        t1 = re.sub("PORTNUM", "%d" % i, script.udp_ports)
+                        newsh += re.sub("TEMPLATETYPE", self.name, t1)
 
                 newsh += self.generate_user_sh()
                 newsh += re.sub("TEMPLATEFILE", self.file_name, script.rpm)
 
-		return newsh
+                return newsh
 
-	def generate_spec(self):
-	 	newspec = ""
+        def generate_spec(self):
+            newspec = ""
 
-		selinux_policyver = get_rpm_nvr_list("selinux-policy")[1]
-		POLICYCOREUTILSVER = get_rpm_nvr_list("checkpolicy")[1]
+            selinux_policyver = get_rpm_nvr_list("selinux-policy")[1]
+            POLICYCOREUTILSVER = get_rpm_nvr_list("checkpolicy")[1]
 
-                newspec += spec.header_comment_section
-		if self.type in APPLICATIONS:
-			newspec += spec.define_relabel_files_begin
-			if self.program:
-				newspec += re.sub("FILENAME", self.program, spec.define_relabel_files_end)
-			if self.initscript != "":
-				newspec += re.sub("FILENAME", self.initscript, spec.define_relabel_files_end)
-			for i in self.files.keys():
-				newspec += re.sub("FILENAME", i, spec.define_relabel_files_end)
-			for i in self.dirs.keys():
-				newspec += re.sub("FILENAME", i, spec.define_relabel_files_end)
+            newspec += spec.header_comment_section
+            if self.type in APPLICATIONS:
+                newspec += spec.define_relabel_files_begin
+                if self.program:
+                    newspec += re.sub("FILENAME", self.program, spec.define_relabel_files_end)
+                    if self.initscript != "":
+                        newspec += re.sub("FILENAME", self.initscript, spec.define_relabel_files_end)
+                    for i in list(self.files.keys()):
+                        newspec += re.sub("FILENAME", i, spec.define_relabel_files_end)
+                    for i in list(self.dirs.keys()):
+                        newspec += re.sub("FILENAME", i, spec.define_relabel_files_end)
 
-                newspec += re.sub("VERSION", selinux_policyver, spec.base_section)
-                newspec = re.sub("MODULENAME", self.file_name, newspec)
-                newspec = re.sub("DOMAINNAME", self.name, newspec)
-                if len(self.rpms) > 0:
-                    newspec += "Requires(post): %s\n" % ", ".join(self.rpms)
-                newspec += re.sub("MODULENAME", self.file_name, spec.mid_section)
-                newspec = re.sub("DOMAINNAME", self.name, newspec)
-                newspec = re.sub("TODAYSDATE", time.strftime("%a %b %e %Y"), newspec) 
+            newspec += re.sub("VERSION", selinux_policyver, spec.base_section)
+            newspec = re.sub("MODULENAME", self.file_name, newspec)
+            newspec = re.sub("DOMAINNAME", self.name, newspec)
+            if len(self.rpms) > 0:
+                newspec += "Requires(post): %s\n" % ", ".join(self.rpms)
+            newspec += re.sub("MODULENAME", self.file_name, spec.mid_section)
+            newspec = re.sub("DOMAINNAME", self.name, newspec)
+            newspec = re.sub("TODAYSDATE", time.strftime("%a %b %e %Y"), newspec)
 
-		if self.type not in APPLICATIONS:
-                    newspec = re.sub("%relabel_files", "", newspec) 
-                    
-                # Remove man pages from EUSER spec file
-                if self.type == EUSER:
-                    newspec = re.sub(".*%s_selinux.8.*" % self.name,"", newspec)
-                # Remove user context file from non users spec file
-                if self.type not in ( TUSER, XUSER, AUSER, LUSER, RUSER):
-                    newspec = re.sub(".*%s_u.*" % self.name,"", newspec)
-                return newspec
+            if self.type not in APPLICATIONS:
+                newspec = re.sub("%relabel_files", "", newspec)
 
-	def write_spec(self, out_dir):
-		specfile = "%s/%s_selinux.spec" % (out_dir, self.file_name)
-		fd = open(specfile, "w")
-		fd.write(self.generate_spec())
-		fd.close()
+            # Remove man pages from EUSER spec file
+            if self.type == EUSER:
+                newspec = re.sub(".*%s_selinux.8.*" % self.name,"", newspec)
+            # Remove user context file from non users spec file
+            if self.type not in ( TUSER, XUSER, AUSER, LUSER, RUSER):
+                newspec = re.sub(".*%s_u.*" % self.name,"", newspec)
+            return newspec
 
-		return specfile
+        def write_spec(self, out_dir):
+            specfile = "%s/%s_selinux.spec" % (out_dir, self.file_name)
+            fd = open(specfile, "w")
+            fd.write(self.generate_spec())
+            fd.close()
 
-	def write_te(self, out_dir):
-                tefile = "%s/%s.te" % (out_dir, self.file_name)
-		fd = open(tefile, "w")
-		fd.write(self.generate_te())
-		fd.close()
-		return tefile
+            return specfile
 
-	def write_sh(self, out_dir):
-                shfile = "%s/%s.sh" % (out_dir, self.file_name)
-		fd = open(shfile, "w")
-		fd.write(self.generate_sh())
-		fd.close()
-                os.chmod(shfile, 0750)
-		return shfile
+        def write_te(self, out_dir):
+            tefile = "%s/%s.te" % (out_dir, self.file_name)
+            fd = open(tefile, "w")
+            fd.write(self.generate_te())
+            fd.close()
+            return tefile
 
-	def write_if(self, out_dir):
-                iffile = "%s/%s.if" % (out_dir, self.file_name)
-		fd = open(iffile, "w")
-		fd.write(self.generate_if())
-		fd.close()
-		return iffile
+        def write_sh(self, out_dir):
+            shfile = "%s/%s.sh" % (out_dir, self.file_name)
+            fd = open(shfile, "w")
+            fd.write(self.generate_sh())
+            fd.close()
+            os.chmod(shfile, 0o750)
+            return shfile
 
-	def write_fc(self,out_dir):
-                fcfile = "%s/%s.fc" % (out_dir, self.file_name)
-                fd = open(fcfile, "w")
-                fd.write(self.generate_fc())
-                fd.close()
-		return fcfile
+        def write_if(self, out_dir):
+            iffile = "%s/%s.if" % (out_dir, self.file_name)
+            fd = open(iffile, "w")
+            fd.write(self.generate_if())
+            fd.close()
+            return iffile
+
+        def write_fc(self,out_dir):
+            fcfile = "%s/%s.fc" % (out_dir, self.file_name)
+            fd = open(fcfile, "w")
+            fd.write(self.generate_fc())
+            fd.close()
+            return fcfile
 
         def __extract_rpms(self):
             import yum
@@ -1316,10 +1319,10 @@ allow %s_t %s_t:%s_socket name_%s;
             if os.path.isfile("/etc/rc.d/init.d/%s"  % self.name):
                 self.set_init_script("/etc/rc\.d/init\.d/%s"  % self.name)
 
-            # we don't want to have subdir in the .fc policy file 
+            # we don't want to have subdir in the .fc policy file
             # if we already specify labeling for parent dir
             temp_basepath = []
-            for p in self.DEFAULT_DIRS.keys():
+            for p in list(self.DEFAULT_DIRS.keys()):
                 temp_dirs = []
                 try:
                     temp_basepath = self.DEFAULT_DIRS[p][1][0] + "/"
@@ -1334,9 +1337,9 @@ allow %s_t %s_t:%s_socket name_%s;
 
                 if len(temp_dirs) is not 0:
                     for i in temp_dirs:
-                        if i in self.dirs.keys():
+                        if i in list(self.dirs.keys()):
                             del(self.dirs[i])
-                        elif i in self.files.keys():
+                        elif i in list(self.files.keys()):
                             del(self.files[i])
                         else:
                             continue
@@ -1358,10 +1361,10 @@ Warning %s does not exist
             for s in fd.read().split():
                 for b in self.symbols:
                     if s.startswith(b):
-                        exec "self.%s" %  self.symbols[b]
+                        exec("self.%s" %  self.symbols[b])
             fd.close()
 
-	def generate(self, out_dir = os.getcwd() ):
+        def generate(self, out_dir = os.getcwd() ):
             out = "Created the following files:\n"
             out += "%s # %s\n" % (self.write_te(out_dir), _("Type Enforcement file"))
             out += "%s # %s\n" % (self.write_if(out_dir), _("Interface file"))

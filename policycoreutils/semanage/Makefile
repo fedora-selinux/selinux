@@ -3,8 +3,7 @@ PREFIX ?= $(DESTDIR)/usr
 LIBDIR ?= $(PREFIX)/lib
 SBINDIR ?= $(PREFIX)/sbin
 MANDIR = $(PREFIX)/share/man
-PYLIBVER ?= $(shell python -c 'import sys;print "python%d.%d" % sys.version_info[0:2]')
-PYTHONLIBDIR ?= $(LIBDIR)/$(PYLIBVER)
+PYTHON ?= /usr/bin/python
 BASHCOMPLETIONDIR ?= $(DESTDIR)/usr/share/bash-completion/completions
 
 TARGETS=semanage
@@ -18,8 +17,7 @@ install: all
 	-mkdir -p $(SBINDIR)
 	install -m 755 semanage $(SBINDIR)
 	install -m 644 *.8 $(MANDIR)/man8
-	test -d $(PYTHONLIBDIR)/site-packages || install -m 755 -d $(PYTHONLIBDIR)/site-packages
-	install -m 755 seobject.py $(PYTHONLIBDIR)/site-packages
+	LDFLAGS="" ${PYTHON} setup.py install --root=$(DESTDIR)/
 	-mkdir -p $(BASHCOMPLETIONDIR)
 	install -m 644 $(BASHCOMPLETIONS) $(BASHCOMPLETIONDIR)/semanage
 

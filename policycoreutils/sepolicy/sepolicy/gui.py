@@ -47,12 +47,15 @@ gettext.bindtextdomain(PROGNAME, "/usr/share/locale")
 gettext.textdomain(PROGNAME)
 try:
     gettext.install(PROGNAME,
-                    localedir="/usr/share/locale",
-                    unicode=False,
+                    unicode=True,
+                    codeset = 'utf-8')
+except TypeError:
+    # Failover to python3 install
+    gettext.install(PROGNAME,
                     codeset = 'utf-8')
 except IOError:
-    import __builtin__
-    __builtin__.__dict__['_'] = unicode
+    import builtins
+    builtins.__dict__['_'] = str
 
 reverse_file_type_str = {}
 for f in sepolicy.file_type_str:
@@ -60,8 +63,6 @@ for f in sepolicy.file_type_str:
 
 enabled=[_("No"), _("Yes")]
 action=[_("Disable"), _("Enable")]
-def compare(a, b):
-    return cmp(a.lower(),b.lower())
 
 import distutils.sysconfig
 ADVANCED_LABEL = ( _("Advanced >>"), _("Advanced <<") )
@@ -106,12 +107,12 @@ class SELinuxGui():
         self.dbus = SELinuxDBus()
         try:
             customized = self.dbus.customized()
-        except dbus.exceptions.DBusException, e:
-            print e
+        except dbus.exceptions.DBusException as e:
+            print(e)
             self.quit()
 
         sepolicy_domains = sepolicy.get_all_domains()
-        sepolicy_domains.sort(compare)
+        sepolicy_domains.sort(key=str.lower)
         if app and app not in sepolicy_domains:
             self.error(_("%s is not a valid domain" % app))
             self.quit()
@@ -234,7 +235,7 @@ class SELinuxGui():
             self.advanced_system.set_visible(False)
             self.system_policy_label.set_visible(False)
             self.system_policy_type_combobox.set_visible(False)
-
+            
         self.enforcing_button_default = builder.get_object("Enforcing_button_default")
         self.permissive_button_default = builder.get_object("Permissive_button_default")
         self.disabled_button_default = builder.get_object("Disabled_button_default")
@@ -814,7 +815,7 @@ class SELinuxGui():
         self.set_application_label = True
 
     def resize_wrap(self, *args):
-        print args
+        print(args)
 
     def initialize_system_default_mode(self):
         self.enforce_mode = selinux.selinux_getenforcemode()[1]
@@ -827,7 +828,7 @@ class SELinuxGui():
 
     def populate_system_policy(self):
         selinux_path = selinux.selinux_path()
-        types = map(lambda x: x[1], filter(lambda x: x[0]==selinux_path, os.walk(selinux_path)))[0]
+        types = [x[1] for x in os.walk(selinux_path) if x[0]==selinux_path][0]
         types.sort()
         ctr = 0
         for item in types:
@@ -852,14 +853,14 @@ class SELinuxGui():
                     # Returns true if filter_txt exists within the val
                     if(val.find(self.filter_txt) != -1 or val.lower().find(self.filter_txt) != -1) :
                         return True
-                except AttributeError, TypeError:
+                except AttributeError as TypeError:
                     pass
         except: #ValueError:
             pass
         return False
 
     def net_update(self, app, netd, protocol, direction, model):
-        for k in netd.keys():
+        for k in list(netd.keys()):
             for t,ports in netd[k]:
                 pkey = (",".join(ports), protocol)
                 if pkey in self.cur_dict["port"]:
@@ -1116,7 +1117,7 @@ class SELinuxGui():
 
     def executable_files_initialize(self, application):
         self.entrypoints = sepolicy.get_entrypoints(application)
-        for exe in self.entrypoints.keys():
+        for exe in list(self.entrypoints.keys()):
             if len(self.entrypoints[exe]) == 0:
                 continue
             file_class = self.entrypoints[exe][1]
@@ -1153,7 +1154,7 @@ class SELinuxGui():
     def writable_files_initialize(self, application):
         # Traversing the dictionary data struct
         self.writable_files = sepolicy.get_writable_files(application)
-        for write in self.writable_files.keys():
+        for write in list(self.writable_files.keys()):
             if len(self.writable_files[write]) < 2:
                 self.files_initial_data_insert(self.writable_files_liststore, None, write, _("all files"))
                 continue
@@ -1196,7 +1197,7 @@ class SELinuxGui():
 
     def application_files_initialize(self, application):
         self.file_types = sepolicy.get_file_types(application)
-        for app in self.file_types.keys():
+        for app in list(self.file_types.keys()):
             if len(self.file_types[app]) == 0:
                 continue
             file_class = self.file_types[app][1]
@@ -1369,8 +1370,8 @@ class SELinuxGui():
                 self.treeview = self.network_in_treeview
                 category = _("listen for inbound connections")
 
-            self.add_button.set_tooltip_text(_("Add new port definition to which the '%(APP)s' domain is allowed to %s.") % {"APP": self.application, "PERM": category})
-            self.delete_button.set_tooltip_text(_("Delete modified port definitions to which the '%(APP)s' domain is allowed to %s.") % {"APP": self.application, "PERM": category})
+            self.add_button.set_tooltip_text(_("Add new port definition to which the '%(APP)s' domain is allowed to %(PERM)s.") % {"APP": self.application, "PERM": category})
+            self.delete_button.set_tooltip_text(_("Delete modified port definitions to which the '%(APP)s' domain is allowed to %(PERM)s.") % {"APP": self.application, "PERM": category})
             self.modify_button.set_tooltip_text(_("Modify port definitions to which the '%(APP)s' domain is allowed to %(PERM)s.") % {"APP": self.application, "PERM": category})
 
         if self.transitions_radio_button.get_active():
@@ -1441,7 +1442,7 @@ class SELinuxGui():
         sort_column, _ = model.get_sort_column_id()
         val1 = self.unmarkup(model.get_value(row1, sort_column))
         val2 = self.unmarkup(model.get_value(row2, sort_column))
-        return cmp(val1,val2)
+        return (val1 > val2) - (val1 < val2)
 
     def display_more_detail(self, windows, path):
         it = self.boolean_filter.get_iter(path)
@@ -1638,7 +1639,7 @@ class SELinuxGui():
                 self.files_class_combolist.set_value(iter, 0, sepolicy.file_type_str[files])
 
             if ipage == EXE_PAGE and self.entrypoints != None:
-                for exe in self.entrypoints.keys():
+                for exe in list(self.entrypoints.keys()):
                     if exe.startswith(compare):
                         iter = self.files_type_combolist.append()
                         self.files_type_combolist.set_value(iter, 0, exe)
@@ -1648,7 +1649,7 @@ class SELinuxGui():
                 self.files_class_combobox.set_sensitive(False)
 
             elif ipage == WRITABLE_PAGE and self.writable_files != None:
-                for write in self.writable_files.keys():
+                for write in list(self.writable_files.keys()):
                     if write.startswith(compare) and not self.exclude_type(write, exclude_list) and write in self.file_types:
                         iter = self.files_type_combolist.append()
                         self.files_type_combolist.set_value(iter, 0, write)
@@ -1665,7 +1666,7 @@ class SELinuxGui():
                         self.more_types_files_liststore.set_value(iter, 0, app)
                 self.files_class_combobox.set_active(0)
         except AttributeError:
-            print "error"
+            print("error")
             pass
         self.files_type_combobox.set_active(0)
         self.files_mls_entry.set_text("s0")
@@ -1712,7 +1713,7 @@ class SELinuxGui():
                 netd += sepolicy.network.get_network_connect(self.application, "udp", "name_bind")
 
             port_types = []
-            for k in netd.keys():
+            for k in list(netd.keys()):
                 for t,ports in netd[k]:
                     if t not in port_types + ["port_t", "unreserved_port_t"]:
                         if t.endswith("_type"):
@@ -1807,7 +1808,7 @@ class SELinuxGui():
             self.wait_mouse()
             try:
                 self.dbus.semanage(update_buffer)
-            except dbus.exceptions.DBusException, e:
+            except dbus.exceptions.DBusException as e:
                 self.error(e)
             self.ready_mouse()
 
@@ -1885,7 +1886,7 @@ class SELinuxGui():
         tree.set_value(iter, 2, fclass)
 
     def restore_to_default(self, *args):
-        print "restore to defualt clicked..."
+        print("restore to defualt clicked...")
 
     def invalid_entry_retry(self, *args):
         self.closewindow(self.error_check_window)
@@ -2138,7 +2139,7 @@ class SELinuxGui():
 
     def on_save_delete_file_equiv_clicked(self, *args):
         for delete in self.files_delete_liststore:
-            print delete[0], delete[1], delete[2],
+            print(delete[0], delete[1], delete[2])
 
     def on_toggle_update(self, cell, path, model):
         model[path][0] = not model[path][0]
@@ -2445,8 +2446,8 @@ class SELinuxGui():
         self.wait_mouse()
         try:
             self.dbus.semanage(update_buffer)
-        except dbus.exceptions.DBusException, e:
-            print e
+        except dbus.exceptions.DBusException as e:
+            print(e)
         self.ready_mouse()
         self.init_cur()
 
@@ -2729,7 +2730,7 @@ class SELinuxGui():
             return
         try:
             self.dbus.relabel_on_boot(active)
-        except dbus.exceptions.DBusException, e:
+        except dbus.exceptions.DBusException as e:
             self.error(e)
 
     def closewindow(self, window, *args):

@@ -32,12 +32,12 @@ def convert_customization(buf):
                 cust_dict["fcontext"][(rec[-1],rec[3])] = { "type": rec[5] }
         if rec[0] == "module":
             cust_dict["module"][rec[-1]] = { "enabled": rec[2] != "-d" }
-
+        
     return cust_dict
-if __name__ == "__main__":
+if __name__ == "__main__": 
     try:
         dbus_proxy = SELinuxDBus()
         resp = dbus_proxy.customized()
-        print convert_customization(resp)
-    except dbus.DBusException, e:
-        print e
+        print(convert_customization(resp))
+    except dbus.DBusException as e:
+        print(e)

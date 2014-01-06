@@ -30,25 +30,29 @@ import gnome
 import sys
 try:
     from sepolicy import generate
-except ValueError,e:
+except ValueError as e:
     sys.stderr.write("%s: %s\n" % (e.__class__.__name__, str(e)))
     sys.exit(1)
-
+    
 import sepolicy.interface
-import commands
+import subprocess
 
 import re
 
 def get_all_modules():
+    all_modules = []
+    cmd = "semodule -l 2>/dev/null"
     try:
-        all_modules = []
-        rc, output=commands.getstatusoutput("semodule -l 2>/dev/null")
-        if rc == 0:
-            l = output.split("\n")
-            for i in l:
-                all_modules.append(i.split()[0])
-    except:
-        pass
+        output = subprocess.check_output(cmd,
+                                         stderr=subprocess.STDOUT,
+                                         shell=True)
+        l = output.split("\n")
+        for i in l:
+            all_modules.append(i.split()[0])
+            
+    except subprocess.CalledProcessError as e:
+        self.error(e.output)
+    self.ready()
 
     return all_modules
 
@@ -67,8 +71,8 @@ try:
                     unicode=False,
                     codeset = 'utf-8')
 except IOError:
-    import __builtin__
-    __builtin__.__dict__['_'] = unicode
+    import builtins
+    builtins.__dict__['_'] = str
 
 gnome.program_init("SELinux Policy Generation Tool", "5")
 
@@ -194,7 +198,7 @@ class childWindow:
             self.all_modules = get_all_modules()
             self.all_roles = generate.get_all_roles()
             self.all_users = generate.get_all_users()
-        except RuntimeError, e:
+        except RuntimeError as e:
             self.all_types = []
             self.all_modules = []
             self.all_roles = []
@@ -262,7 +266,7 @@ class childWindow:
         self.out_udp_entry = self.xml.get_widget("out_udp_entry")
         self.network_buttons[self.out_udp_all_checkbutton] = [ self.out_udp_entry ]
 
-        for b in self.network_buttons.keys():
+        for b in list(self.network_buttons.keys()):
             b.connect("clicked",self.network_all_clicked)
 
         self.boolean_treeview = self.xml.get_widget("boolean_treeview")
@@ -333,7 +337,7 @@ class childWindow:
             for a in sepolicy.interface.get_admin():
                 iter = self.admin_store.append()
                 self.admin_store.set_value(iter, 0, a)
-        except ValueError,e:
+        except ValueError as e:
             self.error(e.message)
 
     def confine_application(self):
@@ -519,7 +523,7 @@ class childWindow:
 
             self.info(my_policy.generate(outputdir))
             return False
-        except ValueError, e:
+        except ValueError as e:
             self.error(e.message)
 
     def delete(self, args):
@@ -687,7 +691,7 @@ class childWindow:
         try:
             generate.verify_ports(self.in_tcp_entry.get_text())
             generate.verify_ports(self.in_udp_entry.get_text())
-        except ValueError, e:
+        except ValueError as e:
             self.error(e.message)
             return True
 
@@ -695,7 +699,7 @@ class childWindow:
         try:
             generate.verify_ports(self.out_tcp_entry.get_text())
             generate.verify_ports(self.out_udp_entry.get_text())
-        except ValueError, e:
+        except ValueError as e:
             self.error(e.message)
             return True
 
@@ -734,12 +738,12 @@ class childWindow:
             policy.set_program(exe)
             policy.gen_writeable()
             policy.gen_symbols()
-            for f in policy.files.keys():
+            for f in list(policy.files.keys()):
                 iter = self.store.append()
                 self.store.set_value(iter, 0, f)
                 self.store.set_value(iter, 1, FILE)
 
-            for f in policy.dirs.keys():
+            for f in list(policy.dirs.keys()):
                 iter = self.store.append()
                 self.store.set_value(iter, 0, f)
                 self.store.set_value(iter, 1, DIR)

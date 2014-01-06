@@ -78,4 +78,4 @@ class setrans:
 
     def output(self):
         self.seen = []
-        print self.out(self.source)
+        print(self.out(self.source))

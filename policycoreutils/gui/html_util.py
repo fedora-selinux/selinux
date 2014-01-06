@@ -30,7 +30,8 @@ import htmllib
 import formatter as Formatter
 import string
 from types import *
-import StringIO
+import io
+import collections
 
 #------------------------------------------------------------------------------
 
@@ -119,7 +120,7 @@ def unescape_html(s):
 
 def html_to_text(html, maxcol=80):
     try:
-        buffer = StringIO.StringIO()
+        buffer = io.StringIO()
         formatter = Formatter.AbstractFormatter(TextWriter(buffer, maxcol))
         parser = HTMLParserAnchor(formatter)
         parser.feed(html)
@@ -127,7 +128,7 @@ def html_to_text(html, maxcol=80):
         text = buffer.getvalue()
         buffer.close()
         return text
-    except Exception, e:
+    except Exception as e:
         log_program.error('cannot convert html to text: %s' % e)
         return None
 
@@ -149,7 +150,7 @@ def html_document(*body_components):
         elif type(body_component) in [TupleType, ListType]:
             for item in body_component:
                 doc += item
-        elif callable(body_component):
+        elif isinstance(body_component, collections.Callable):
             result = body_component()
             if type(result) in [TupleType, ListType]:
                 for item in result:

@@ -189,7 +189,7 @@ static PyObject* get_ra_results(const apol_policy_t * policy, const apol_vector_
 		if (qpol_role_get_name(q, role, &tmp)) {
 			goto err;
 		}
-		obj = PyString_FromString(tmp);
+		obj = PyUnicode_FromString(tmp);
 		if (py_insert_obj(dict, "source", obj))
 			goto err;
 
@@ -199,7 +199,7 @@ static PyObject* get_ra_results(const apol_policy_t * policy, const apol_vector_
 		if (qpol_role_get_name(q, role, &tmp)) {
 			goto err;
 		}
-		obj = PyString_FromString(tmp);
+		obj = PyUnicode_FromString(tmp);
 		if (py_insert_obj(dict, "target", obj))
 			goto err;
 
@@ -327,7 +327,7 @@ static PyObject* get_bool(const qpol_policy_t *q, const qpol_cond_t * cond, int 
 			goto err;
 		}
 		if (expr_type != QPOL_COND_EXPR_BOOL) {
-			obj = PyString_FromString(apol_cond_expr_type_to_str(expr_type));
+			obj = PyUnicode_FromString(apol_cond_expr_type_to_str(expr_type));
 			if (!obj) goto err;
 			if (py_append_obj(boollist, obj))
 				goto err;
@@ -341,7 +341,7 @@ static PyObject* get_bool(const qpol_policy_t *q, const qpol_cond_t * cond, int 
 			if (qpol_bool_get_name(q, cond_bool, &bool_name)) {
 				goto err;
 			}
-			obj = PyString_FromString(bool_name);
+			obj = PyUnicode_FromString(bool_name);
 			if (py_tuple_insert_obj(tuple, 0, obj))
 				goto err;
 			obj = PyBool_FromLong(enabled);
@@ -994,14 +994,14 @@ PyObject* search(bool allow,
 static int Dict_ContainsInt(PyObject *dict, const char *key){
     PyObject *item = PyDict_GetItemString(dict, key);
     if (item)
-	return PyInt_AsLong(item);
+	return PyLong_AsLong(item);
     return false;
 }
 
 static const char *Dict_ContainsString(PyObject *dict, const char *key){
     PyObject *item = PyDict_GetItemString(dict, key);
     if (item)
-	return PyString_AsString(item);
+	    return PyBytes_AsString(item);
     return NULL;
 }
 

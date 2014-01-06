@@ -27,7 +27,7 @@ sepolgen:
 	ln -sf sepolicy sepolgen
 
 test:
-	@python test_sepolicy.py -v
+	@$(PYTHON) test_sepolicy.py -v
 
 install:
 	$(PYTHON) setup.py install `test -n "$(DESTDIR)" && echo --root $(DESTDIR)`

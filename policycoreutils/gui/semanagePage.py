@@ -37,8 +37,8 @@ try:
                     unicode=False,
                     codeset = 'utf-8')
 except IOError:
-    import __builtin__
-    __builtin__.__dict__['_'] = unicode
+    import builtins
+    builtins.__dict__['_'] = str
 
 def idle_func():
     while gtk.events_pending():
@@ -77,9 +77,9 @@ class semanagePage:
         return
 
     def filter_changed(self, *arg):
-        filter =  arg[0].get_text()
-        if filter != self.filter:
-            self.load(filter)
+        filt =  arg[0].get_text()
+        if filt != self.filter:
+            self.load(filt)
 
     def search(self, model, col, key, i):
         sort_col = self.store.get_sort_column_id()[0]
@@ -122,12 +122,36 @@ class semanagePage:
         dlg.destroy()
 
     def deleteDialog(self):
-        store, iter = self.view.get_selection().get_selected()
-        if self.verify(_("Are you sure you want to delete %s '%s'?" % (self.description, store.get_value(iter, 0))), _("Delete %s" % self.description)) == gtk.RESPONSE_YES:
+        store, it = self.view.get_selection().get_selected()
+        if self.verify(_("Are you sure you want to delete %s '%s'?" % (self.description, store.get_value(it, 0))), _("Delete %s" % self.description)) == gtk.RESPONSE_YES:
             self.delete()
 
     def use_menus(self):
         return True
+
+    def load(self, filt):
+        raise RuntimeError("load method not implemented in parent class");
+
+    def filter(self):
+        raise RuntimeError("filter method not implemented in parent class");
+
+    def store(self):
+        raise RuntimeError("store method not implemented in parent class");
+
+    def add(self):
+        raise RuntimeError("add method not implemented");
+
+    def modify(self):
+        raise RuntimeError("modify method not implemented");
+
+    def delete(self):
+        raise RuntimeError("delete method not implemented");
+
+    def dialogInit(self):
+        raise RuntimeError("dialogInit method not implemented");
+
+    def dialogClear(self):
+        raise RuntimeError("dialogClear method not implemented");
 
     def addDialog(self):
         self.dialogClear()
@@ -136,10 +160,10 @@ class semanagePage:
 
         while self.dialog.run() ==  gtk.RESPONSE_OK:
             try:
-                if self.add() == False:
+                if not self.add():
                     continue
                 break;
-            except ValueError, e:
+            except ValueError as e:
                 self.error(e.args[0])
         self.dialog.hide()
 
@@ -149,10 +173,10 @@ class semanagePage:
         self.dialog.set_position(gtk.WIN_POS_MOUSE)
         while self.dialog.run() ==  gtk.RESPONSE_OK:
             try:
-                if self.modify() == False:
+                if not self.modify():
                     continue
                 break;
-            except ValueError, e:
+            except ValueError as e:
                 self.error(e.args[0])
         self.dialog.hide()
 

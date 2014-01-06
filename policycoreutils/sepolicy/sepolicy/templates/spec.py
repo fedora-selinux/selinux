@@ -39,7 +39,7 @@ install -m 644 %{SOURCE1} %{buildroot}%{_datadir}/selinux/devel/include/contrib/
 install -d %{buildroot}%{_mandir}/man8/
 install -m 644 %{SOURCE2} %{buildroot}%{_mandir}/man8/DOMAINNAME_selinux.8
 install -d %{buildroot}/etc/selinux/targeted/contexts/users/
-install -m 644 %{SOURCE3} %{buildroot}/etc/selinux/targeted/contexts/users/DOMAINNAME_u
+install -m 644 %{SOURCE3} %{buildroot}/etc/selinux/targeted/contexts/users/DOMAINNAME_u 
 
 %post
 semodule -n -i %{_datadir}/selinux/packages/MODULENAME.pp
@@ -65,7 +65,7 @@ exit 0
 %attr(0600,root,root) %{_datadir}/selinux/packages/MODULENAME.pp
 %{_datadir}/selinux/devel/include/contrib/MODULENAME.if
 %{_mandir}/man8/DOMAINNAME_selinux.8.*
-/etc/selinux/targeted/contexts/users/DOMAINNAME_u
+/etc/selinux/targeted/contexts/users/DOMAINNAME_u 
 
 %changelog
 * TODAYSDATE YOUR NAME <YOUR@EMAILADDRESS> 1.0-1
