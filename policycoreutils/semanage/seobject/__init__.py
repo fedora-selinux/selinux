@@ -440,8 +440,8 @@ permissive %s;
                fd.write(modtxt)
                fd.close()
                mc = module.ModuleCompiler()
-               mc.create_module_package(filename, 1)
-               fd = open("permissive_%s.pp" % setype)
+               mc.create_module_package(filename, False)
+               fd = open("%s.pp" % name)
                data = fd.read()
                fd.close()
 
@@ -449,12 +449,6 @@ permissive %s;
                if rc >= 0:
                       self.commit()
 
-               for root, dirs, files in os.walk("tmp", topdown = False):
-                      for name in files:
-                             os.remove(os.path.join(root, name))
-                      for name in dirs:
-                             os.rmdir(os.path.join(root, name))
-               os.removedirs("tmp")
                for i in glob.glob("permissive_%s.*" % setype):
                       os.remove(i)
                if rc < 0:
