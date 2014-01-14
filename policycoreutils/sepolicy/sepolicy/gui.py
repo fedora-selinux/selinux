@@ -2405,8 +2405,11 @@ class SELinuxGui():
         cur = selinux.getfilecon(path)[1].split(":")[2]
         con = selinux.matchpathcon(path,0)[1].split(":")[2]
         if self.verify(_("Run restorecon on %(PATH)s to change its type from %(CUR_CONTEXT)s to the default %(DEF_CONTEXT)s?") % {"PATH":path, "CUR_CONTEXT": cur, "DEF_CONTEXT": con}, title="restorecon dialog") == Gtk.ResponseType.YES:
+        try:
             self.dbus.restorecon(path)
             self.application_selected()
+        except dbus.exceptions.DBusException as e:
+            self.error(e)
 
     def new_updates(self, *args):
         self.update_button.set_sensitive(self.modified())
@@ -2441,7 +2444,7 @@ class SELinuxGui():
         try:
             self.dbus.semanage(update_buffer)
         except dbus.exceptions.DBusException as e:
-            print(e)
+            self.error(e)
         self.ready_mouse()
         self.init_cur()
 
@@ -2554,8 +2557,11 @@ class SELinuxGui():
         if not self.finish_init:
             return
 
-        self.dbus.setenforce(button.get_active())
-        self.set_enforce_text(button.get_active())
+        try:
+                self.dbus.setenforce(button.get_active())
+                self.set_enforce_text(button.get_active())
+        except dbus.exceptions.DBusException as e:
+            self.error(e)
 
     def on_browse_select(self, *args):
         filename = self.file_dialog.get_filename()
@@ -2615,16 +2621,22 @@ class SELinuxGui():
             self.system_policy_type_combobox.set_active(self.typeHistory)
             return None
 
-        self.dbus.change_default_policy(self.combo_get_active_text(self.system_policy_type_combobox))
-        self.dbus.relabel_on_boot(True)
-        self.typeHistory = self.system_policy_type_combobox.get_active()
+        try:
+            self.dbus.change_default_policy(self.combo_get_active_text(self.system_policy_type_combobox))
+            self.dbus.relabel_on_boot(True)
+            self.typeHistory = self.system_policy_type_combobox.get_active()
+        except dbus.exceptions.DBusException as e:
+            self.error(e)
 
     def change_default_mode(self, button):
         if not self.finish_init:
             return
         self.enabled_changed(button)
         if button.get_active():
-            self.dbus.change_default_mode(button.get_label().lower())
+            try:
+                self.dbus.change_default_mode(button.get_label().lower())
+            except dbus.exceptions.DBusException as e:
+                self.error(e)
 
     def import_config_show(self, *args):
         self.file_dialog.set_action(Gtk.FileChooserAction.OPEN)
@@ -2767,10 +2779,13 @@ class SELinuxGui():
         if not self.finish_init:
             return
         self.wait_mouse()
-        if self.enable_permissive_button.get_active():
-            self.dbus.semanage("module -e permissivedomains")
-        else:
-            self.dbus.semanage("module -d permissivedomains")
+        try:
+            if self.enable_permissive_button.get_active():
+                self.dbus.semanage("module -e permissivedomains")
+            else:
+                self.dbus.semanage("module -d permissivedomains")
+        except dbus.exceptions.DBusException as e:
+            self.error(e)
         self.ready_mouse()
 
     def confirmation_close(self, button, *args):

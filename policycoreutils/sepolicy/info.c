@@ -96,7 +96,6 @@ static PyObject* get_sens(const char *name, const apol_policy_t * policydb)
 {
 	PyObject *dict = NULL;
 	int error = 0;
-	int rt = 0;
 	size_t i;
 	char *tmp = NULL;
 	const char *lvl_name = NULL;
@@ -128,7 +127,6 @@ static PyObject* get_sens(const char *name, const apol_policy_t * policydb)
 		if (py_insert_string(dict, lvl_name, tmp))
 			goto err;
 		free(tmp); tmp = NULL;
-		if (rt) goto err;
 	}
 
 	if (name && !apol_vector_get_size(v)) {
