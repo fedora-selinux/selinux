@@ -2405,11 +2405,11 @@ class SELinuxGui():
         cur = selinux.getfilecon(path)[1].split(":")[2]
         con = selinux.matchpathcon(path,0)[1].split(":")[2]
         if self.verify(_("Run restorecon on %(PATH)s to change its type from %(CUR_CONTEXT)s to the default %(DEF_CONTEXT)s?") % {"PATH":path, "CUR_CONTEXT": cur, "DEF_CONTEXT": con}, title="restorecon dialog") == Gtk.ResponseType.YES:
-        try:
-            self.dbus.restorecon(path)
-            self.application_selected()
-        except dbus.exceptions.DBusException as e:
-            self.error(e)
+            try:
+                self.dbus.restorecon(path)
+                self.application_selected()
+            except dbus.exceptions.DBusException as e:
+                self.error(e)
 
     def new_updates(self, *args):
         self.update_button.set_sensitive(self.modified())
