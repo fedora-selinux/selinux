@@ -144,6 +144,24 @@ func mcs_exists(mcs string) bool {
 	return mcs_list[mcs] 
 }
 
+func Int_to_mcs(id int, catRange uint32) string {
+        if ((id < 1) || (id >523776)) {
+          return "";
+        }
+
+	SETSIZE := int(catRange);
+	TIER := SETSIZE;
+
+	ORD := id;
+	for ;ORD > TIER; {
+		ORD = ORD - TIER;
+		TIER -= 1;
+	}
+	TIER = SETSIZE - TIER;
+	ORD = ORD + TIER;
+	return fmt.Sprintf("s0:c%d,c%d", TIER, ORD);
+}
+
 func uniq_mcs(catRange uint32) string {
 	var n uint32
 	var c1,c2 uint32
@@ -225,7 +243,7 @@ func Get_lxc_contexts() (process_label string, file_label string) {
 	}
 exit:
 	var scon Context
-	mcs := uniq_mcs(1024)
+	mcs := Int_to_mcs(os.Getpid(), 1024)
 	scon = New_context(process_label)
 	scon.Set_level(mcs)
 	process_label = scon.Get()
@@ -275,8 +293,10 @@ func Test() {
 	} else {
 		fmt.Println("Disabled")
 	}
-	fmt.Println(Selinux_getenforce())
-	fmt.Println(Selinux_getenforcemode())
+	fmt.Println("getenforce ", Selinux_getenforce())
+	fmt.Println("getenforcemode ", Selinux_getenforcemode())
 	flabel,_ = Matchpathcon("/home/dwalsh/.emacs", 0)
 	fmt.Println(flabel)
+	pid := os.Getpid()
+	fmt.Printf("PID:%d MCS:%s\n", pid, Int_to_mcs(pid, 1023))
 }
