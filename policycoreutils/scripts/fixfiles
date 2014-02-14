@@ -108,6 +108,7 @@ exclude_dirs_from_relabelling() {
 fullFlag=0
 BOOTTIME=""
 VERBOSE="-p"
+[ -t 1 ] || VERBOSE=""
 FORCEFLAG=""
 RPMFILES=""
 PREFC=""
