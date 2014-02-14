@@ -9,9 +9,14 @@ install:
 	install -m 644 selinux.go $(GODIR)
 
 test:
+	@mkdir selinux
+	@cp selinux.go selinux
+	GOPATH=$(pwd) go run test.go 
+	@rm -rf selinux
 
 clean:
-
+	@rm -f *~
+	@rm -rf selinux
 indent:
 
 relabel:
