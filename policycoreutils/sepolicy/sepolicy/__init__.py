@@ -896,6 +896,8 @@ def get_os_version():
         os_version = "Fedora"+os_version[2:]
     elif os_version[0:2] == "el":
         os_version = "RHEL"+os_version[2:]
+    elif os_version[0:2] == "sa":
+        os_version = "RHEL"+os_version[2:]
     else:
         os_version = ""
 
