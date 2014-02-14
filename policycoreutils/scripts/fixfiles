@@ -116,6 +116,7 @@ exclude_dirs() {
 fullFlag=0
 BOOTTIME=""
 VERBOSE="-p"
+[ -t 1 ] || VERBOSE=""
 FORCEFLAG=""
 DIRS=""
 RPMILES=""
