@@ -47,6 +47,74 @@ func Setfilecon(path,scon string) (int, error) {
 	return int(rc), err
 }
 
+func Getfilecon(path string) (string, error) {
+	var scon C.security_context_t
+	var fcon string
+        rc, err := C.lgetfilecon(C.CString(path),&scon)
+	if (rc >= 0) {
+		fcon = C.GoString(scon)	
+		err = nil
+	}
+	return fcon, err
+}
+
+func Setfscreatecon(scon string) (int, error) {
+	var (
+		rc C.int
+		err error
+	)
+	if (scon != "") {
+		rc, err = C.setfscreatecon(C.CString(scon))
+	} else {
+		rc, err = C.setfscreatecon(nil)
+	}
+	return int(rc), err
+}
+
+func Getfscreatecon() (string, error) {
+	var scon C.security_context_t
+	var fcon string
+        rc, err := C.getfscreatecon(&scon)
+	if (rc >= 0) {
+		fcon = C.GoString(scon)	
+		err = nil
+		C.freecon(scon)
+	}
+	return fcon, err
+}
+
+func Getcon() (string) {
+	var pcon C.security_context_t
+	C.getcon(&pcon)
+	scon := C.GoString(pcon)
+	C.freecon(pcon)
+	return scon
+}
+
+func Getpidcon(pid int) (string, error) {
+	var pcon C.security_context_t
+	var scon string
+	rc, err := C.getpidcon(C.pid_t(pid), &pcon)
+	if (rc >= 0) {
+		scon = C.GoString(pcon)
+		C.freecon(pcon)
+		err = nil
+	}
+	return scon, err
+}
+
+func Getpeercon(socket int) (string, error) {
+	var pcon C.security_context_t
+	var scon string
+	rc, err := C.getpeercon(C.int(socket), &pcon)
+	if (rc >= 0) {
+		scon = C.GoString(pcon)
+		C.freecon(pcon)
+		err = nil
+	}
+	return scon, err
+}
+
 func Setexeccon(scon string) (int, error) {
 	var val *C.char
 	if ! Selinux_enabled() {
@@ -299,4 +367,12 @@ func Test() {
 	fmt.Println(flabel)
 	pid := os.Getpid()
 	fmt.Printf("PID:%d MCS:%s\n", pid, Int_to_mcs(pid, 1023))
+	fmt.Println(Getcon())
+	fmt.Println(Getfilecon("/etc/passwd"))
+	fmt.Println(Getpidcon(1))
+	Setfscreatecon("unconfined_u:unconfined_r:unconfined_t:s0")
+	fmt.Println(Getfscreatecon())
+	Setfscreatecon("")
+	fmt.Println(Getfscreatecon())
+	fmt.Println(Getpidcon(1))
 }
