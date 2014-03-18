@@ -137,6 +137,25 @@ def get_all_modules():
             
     return all_modules
 
+def get_all_modules_from_mod_lst():
+    mod_lst_path = ["/usr/share/selinux/targeted/base.lst","/usr/share/selinux/targeted/modules-base.lst","/usr/share/selinux/targeted/modules-contrib.lst"]
+    all_modules = []
+    mod_temp = []
+    for i in mod_lst_path:
+        try:
+            fd =  open(i,"r")
+            modules = fd.readlines()
+            fd.close()
+            modules = modules[0].split(" ")[:-1]
+            for m in modules:
+                mod_temp.append(m[:-3])
+            all_modules.extend(mod_temp)
+            mod_temp = []
+        except:
+            all_modules = []
+
+    return all_modules
+
 def get_file_types(setype):
     flist=[]
     mpaths={}
