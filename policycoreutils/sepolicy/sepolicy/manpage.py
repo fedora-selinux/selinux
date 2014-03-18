@@ -1172,7 +1172,7 @@ Three things can happen when %(type)s attempts to execute a program.
 
 Execute the following to see the types that the SELinux user %(type)s can execute without transitioning:
 
-.B search -A -s %(type)s -c file -p execute_no_trans
+.B sesearch -A -s %(type)s -c file -p execute_no_trans
 
 .TP
 
