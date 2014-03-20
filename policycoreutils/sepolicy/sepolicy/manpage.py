@@ -175,7 +175,8 @@ class HTMLManPages:
                 self.old_path = path + "/"
                 self.new_path = self.old_path + self.os_version+"/"
 
-                if self.os_version in fedora_releases or rhel_releases:
+                if (self.os_version in fedora_releases) or (self.os_version in rhel_releases) or (self.os_version == "Misc"):
+
                         self.__gen_html_manpages()
                 else:
                         print(("SELinux HTML man pages can not be generated for this %s" % os_version))
@@ -255,7 +256,7 @@ Fedora or Red Hat Enterprise Linux Man Pages.</h2>
 <html>
 <head>
         <link rel=stylesheet type="text/css" href="../style.css" title="style">
-        <title>Linux man-pages online for Fedora18</title>
+        <title>Linux man-pages online for Fedora</title>
 </head>
 <body>
 <h1>SELinux man pages for Fedora18</h1>

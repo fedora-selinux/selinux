@@ -907,18 +907,19 @@ def get_os_version():
         output = subprocess.check_output("rpm -q '%s'" % pkg_name,
                                          stderr=subprocess.STDOUT,
                                          shell=True)
-        os_version = str(output).split(".")[-2]
-    except subprocess.CalledProcessError as e:
-        print(e.output)
+        try:
+            os_version = str(output).split(".")[-2]
+            if os_version[0:2] == "fc":
+                os_version = "Fedora"+os_version[2:]
+            elif os_version[0:2] == "el":
+                os_version = "RHEL"+os_version[2:]
+            else:
+                os_version = "Misc"
+        except IndexError:
+            os_version = "Misc"
 
-    if os_version[0:2] == "fc":
-        os_version = "Fedora"+os_version[2:]
-    elif os_version[0:2] == "el":
-        os_version = "RHEL"+os_version[2:]
-    elif os_version[0:2] == "sa":
-        os_version = "RHEL"+os_version[2:]
-    else:
-        os_version = ""
+    except subprocess.CalledProcessError:
+        os_version = "Misc"
 
     return os_version
 
