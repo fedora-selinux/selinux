@@ -1,30 +1,30 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Alain PORTAL <aportal@univ-montp2.fr>, 2007
 # Charles-Antoine Couret <cacouret@wanadoo.fr>, 2009
 # dominique bribanick <chepioq@gmail.com>, 2013
 # MarbolanGos Fabien <marbolangos@gmail.com>, 2013
 # Gauthier Ancelin <gauthier.ancelin@laposte.net>, 2007
-# Jérôme Fenal <jfenal@gmail.com>, 2012-2013
+# Jérôme Fenal <jfenal@gmail.com>, 2012-2014
+# MarbolanGos Fabien <marbolangos@gmail.com>, 2013
 # Matthieu Rondeau <milanito1985@yahoo.fr>, 2008
-# Sam Friedmann <sam.friedmann@redhat.com>, 2010
+# Sam Friedmann <sam.friedmann@redhat.com>, 2010,2014
 # Thomas Canniot <mrtom@fedoraproject.org>, 2006,2010
 msgid ""
 msgstr ""
 "Project-Id-Version: Policycoreutils\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-03 16:04-0500\n"
-"PO-Revision-Date: 2013-12-20 13:58+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/fedora/language/"
-"fr/)\n"
-"Language: fr\n"
+"PO-Revision-Date: 2014-02-27 00:13+0000\n"
+"Last-Translator: Sam Friedmann <sam.friedmann@redhat.com>\n"
+"Language-Team: French (http://www.transifex.com/projects/p/fedora/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: ../run_init/run_init.c:67
@@ -32,10 +32,7 @@ msgid ""
 "USAGE: run_init <script> <args ...>\n"
 "  where: <script> is the name of the init script to run,\n"
 "         <args ...> are the arguments to that script."
-msgstr ""
-"SYNTAXE : run_init <script> <args ...>\n"
-"  où : <script> est le nom du script d'initialisation à exécuter,\n"
-"       <args ...> sont les arguments à passer au script."
+msgstr "SYNTAXE : run_init <script> <args ...>\n  où : <script> est le nom du script d'initialisation à exécuter,\n       <args ...> sont les arguments à passer au script."
 
 #: ../run_init/run_init.c:126 ../newrole/newrole.c:1128
 #, c-format
@@ -54,9 +51,7 @@ msgstr "Mot de passe :"
 #: ../run_init/run_init.c:197 ../newrole/newrole.c:366
 #, c-format
 msgid "Cannot find your entry in the shadow passwd file.\n"
-msgstr ""
-"Impossible de trouver votre entrée dans le fichier des mots de passe "
-"cachés.\n"
+msgstr "Impossible de trouver votre entrée dans le fichier des mots de passe cachés.\n"
 
 #: ../run_init/run_init.c:203 ../newrole/newrole.c:373
 #, c-format
@@ -193,7 +188,7 @@ msgstr "Types permissifs intrinsèques"
 #: ../semanage/seobject/__init__.py:419
 #, python-format
 msgid "%s is not a domain type"
-msgstr ""
+msgstr "%s n'est pas un type de domaine"
 
 #: ../semanage/seobject/__init__.py:424
 msgid ""
@@ -201,26 +196,17 @@ msgid ""
 "In some distributions it is included in the policycoreutils-devel patckage.\n"
 "# yum install policycoreutils-devel\n"
 "Or similar for your distro."
-msgstr ""
-"Le module python sepolgen est requis pour configurer les domaines "
-"permissifs.\n"
-"Dans la plupart des distributions, il est inclus dans le paquet  "
-"policycoreutils-devel.\n"
-"# yum install policycoreutils-devel\n"
-"Ou la commande équivalente de votre distribution."
+msgstr "Le module python sepolgen est requis pour configurer les domaines permissifs.\nDans la plupart des distributions, il est inclus dans le paquet  policycoreutils-devel.\n# yum install policycoreutils-devel\nOu la commande équivalente de votre distribution."
 
 #: ../semanage/seobject/__init__.py:461
 #, python-format
 msgid "Could not set permissive domain %s (module installation failed)"
-msgstr ""
-"Impossible de définir le domaine permissif %s (échec de l'installation du "
-"module)"
+msgstr "Impossible de définir le domaine permissif %s (échec de l'installation du module)"
 
 #: ../semanage/seobject/__init__.py:467
 #, python-format
 msgid "Could not remove permissive domain %s (remove failed)"
-msgstr ""
-"Impossible de supprimer le domaine permissif %s (échec de la suppression)"
+msgstr "Impossible de supprimer le domaine permissif %s (échec de la suppression)"
 
 #: ../semanage/seobject/__init__.py:501 ../semanage/seobject/__init__.py:575
 #: ../semanage/seobject/__init__.py:621 ../semanage/seobject/__init__.py:743
@@ -296,16 +282,12 @@ msgstr "Impossible de modifier le mappage pour %s"
 #: ../semanage/seobject/__init__.py:633
 #, python-format
 msgid "Login mapping for %s is defined in policy, cannot be deleted"
-msgstr ""
-"La correspondance utilisateurs - identités SELinux pour %s est définie dans "
-"une stratégie, elle ne peut être supprimée"
+msgstr "La correspondance utilisateurs - identités SELinux pour %s est définie dans une stratégie, elle ne peut être supprimée"
 
 #: ../semanage/seobject/__init__.py:637
 #, python-format
 msgid "Could not delete login mapping for %s"
-msgstr ""
-"Impossible de supprimer la correspondance utilisateurs - identités SELinux "
-"pour %s"
+msgstr "Impossible de supprimer la correspondance utilisateurs - identités SELinux pour %s"
 
 #: ../semanage/seobject/__init__.py:659 ../semanage/seobject/__init__.py:692
 #: ../semanage/seobject/__init__.py:939
@@ -366,7 +348,7 @@ msgstr "Impossible de créer une identité SELinux pour %s"
 #: ../semanage/seobject/__init__.py:793
 #, python-format
 msgid "Could not add role %(ROLE)s for %(NAME)s"
-msgstr ""
+msgstr "Impossible d'ajouter le rôle %(ROLE)s pour %(NAME)s"
 
 #: ../semanage/seobject/__init__.py:802
 #, python-format
@@ -374,9 +356,9 @@ msgid "Could not set MLS level for %s"
 msgstr "Impossible de régler le niveau MLS pour %s"
 
 #: ../semanage/seobject/__init__.py:805
-#, fuzzy, python-format
+#, python-format
 msgid "Could not add prefix %(PREFIX)s for %(ROLE)s"
-msgstr "Impossible d'ajouter le contexte du fichier pour %s"
+msgstr "Impossible d'ajouter le préfixe %(PREFIX)s pour %(ROLE)s"
 
 #: ../semanage/seobject/__init__.py:808
 #, python-format
@@ -409,9 +391,7 @@ msgstr "Impossible de modifier l'identité SELinux %s"
 #: ../semanage/seobject/__init__.py:908
 #, python-format
 msgid "SELinux user %s is defined in policy, cannot be deleted"
-msgstr ""
-"L'identité SELinux %s est définie dans une stratégie, elle ne peut être "
-"supprimée"
+msgstr "L'identité SELinux %s est définie dans une stratégie, elle ne peut être supprimée"
 
 #: ../semanage/seobject/__init__.py:919
 #, python-format
@@ -470,7 +450,7 @@ msgstr "Port invalide"
 #: ../semanage/seobject/__init__.py:1030
 #, python-format
 msgid "Could not create a key for %(PROTOTYPE)s/%(PORT)s"
-msgstr ""
+msgstr "Impossible de créer la clé de %(PROTOTYPE)s/%(PORT)s"
 
 #: ../semanage/seobject/__init__.py:1041
 msgid "Type is required"
@@ -486,52 +466,52 @@ msgstr "Le type %s est invalide, il doit être un type de port"
 #: ../semanage/seobject/__init__.py:1175
 #, python-format
 msgid "Could not check if port %(PROTOCOL)s/%(PORT)s is defined"
-msgstr ""
+msgstr "Impossible de vérifier si le port %(PROTOCOL)s/%(PORT)s est défini"
 
 #: ../semanage/seobject/__init__.py:1054
 #, python-format
 msgid "Port %(PROTOCOL)s/%(PORT)s already defined"
-msgstr ""
+msgstr "Le port %(PROTOCOL)s/%(PORT)s est déjà défini"
 
 #: ../semanage/seobject/__init__.py:1058
 #, python-format
 msgid "Could not create port for %(PROTOCOL)s/%(PORT)s"
-msgstr ""
+msgstr "Impossible de créer le port pour %(PROTOCOL)s/%(PORT)s"
 
 #: ../semanage/seobject/__init__.py:1064
 #, python-format
 msgid "Could not create context for %(PROTOCOL)s/%(PORT)s"
-msgstr ""
+msgstr "Impossible de créer le contexte pour %(PROTOCOL)s/%(PORT)s"
 
 #: ../semanage/seobject/__init__.py:1068
 #, python-format
 msgid "Could not set user in port context for %(PROTOCOL)s/%(PORT)s"
-msgstr ""
+msgstr "Impossible de définir l'utilisateur dans le contexte du port pour %(PROTOCOL)s/%(PORT)s"
 
 #: ../semanage/seobject/__init__.py:1072
 #, python-format
 msgid "Could not set role in port context for %(PROTOCOL)s/%(PORT)s"
-msgstr ""
+msgstr "Impossible de définir le rôle dans le contexte du port pour %(PROTOCOL)s/%(PORT)s"
 
 #: ../semanage/seobject/__init__.py:1076
 #, python-format
 msgid "Could not set type in port context for %(PROTOCOL)s/%(PORT)s"
-msgstr ""
+msgstr "Impossible de définir le type dans le contexte du port pour %(PROTOCOL)s/%(PORT)s"
 
 #: ../semanage/seobject/__init__.py:1081
 #, python-format
 msgid "Could not set mls fields in port context for %(PROTOCOL)s/%(PORT)s"
-msgstr ""
+msgstr "Impossible de définir les champs mls dans le contexte du port pour %(PROTOCOL)s/%(PORT)s"
 
 #: ../semanage/seobject/__init__.py:1085
 #, python-format
 msgid "Could not set port context for %(PROTOCOL)s/%(PORT)s"
-msgstr ""
+msgstr "Impossible de définir le contexte du port pour %(PROTOCOL)s/%(PORT)s"
 
 #: ../semanage/seobject/__init__.py:1089
 #, python-format
 msgid "Could not add port %(PROTOCOL)s/%(PORT)s"
-msgstr ""
+msgstr "Impossible d'ajouter le port %(PROTOCOL)s/%(PORT)s"
 
 #: ../semanage/seobject/__init__.py:1103 ../semanage/seobject/__init__.py:1379
 #: ../semanage/seobject/__init__.py:1578
@@ -545,22 +525,22 @@ msgstr "setype obligatoire"
 #: ../semanage/seobject/__init__.py:1114
 #, python-format
 msgid "Could not check if port @%(PROTOCOL)s/%(PORT)s is defined"
-msgstr ""
+msgstr "Impossible de vérifier si le port @%(PROTOCOL)s/%(PORT)s est défini"
 
 #: ../semanage/seobject/__init__.py:1116
 #, python-format
 msgid "Port @%(PROTOCOL)s/%(PORT)s is not defined"
-msgstr ""
+msgstr "Le port @%(PROTOCOL)s/%(PORT)s n'est pas défini"
 
 #: ../semanage/seobject/__init__.py:1120
 #, python-format
 msgid "Could not query port %(PROTOCOL)s/%(PORT)s"
-msgstr ""
+msgstr "Impossible d'interroger le port %(PROTOCOL)s/%(PORT)s"
 
 #: ../semanage/seobject/__init__.py:1131
 #, python-format
 msgid "Could not modify port %(PROTOCOL)s/%(PORT)s"
-msgstr ""
+msgstr "Impossible de modifier le port %(PROTOCOL)s/%(PORT)s"
 
 #: ../semanage/seobject/__init__.py:1144
 msgid "Could not list the ports"
@@ -574,17 +554,17 @@ msgstr "Impossible de supppimer le port %s"
 #: ../semanage/seobject/__init__.py:1171
 #, python-format
 msgid "Port %(PROTOCOL)s/%(PORT)s is not defined"
-msgstr ""
+msgstr "Le port %(PROTOCOL)s/%(PORT)s n'est pas défini"
 
 #: ../semanage/seobject/__init__.py:1177
 #, python-format
 msgid "Port %(PROTOCOL)s/%(PORT)s is defined in policy, cannot be deleted"
-msgstr ""
+msgstr "Le port %(PROTOCOL)s/%(PORT)s est défini dans la stratégie, il ne peut pas être supprimé"
 
 #: ../semanage/seobject/__init__.py:1181
 #, python-format
 msgid "Could not delete port %(PROTOCOL)s/%(PORT)s"
-msgstr ""
+msgstr "Impossible de supprimer le port %(PROTOCOL)s/%(PORT)s"
 
 #: ../semanage/seobject/__init__.py:1197 ../semanage/seobject/__init__.py:1219
 msgid "Could not list ports"
@@ -657,8 +637,7 @@ msgstr "Impossible de définir le masque pour %s"
 #: ../semanage/seobject/__init__.py:1343
 #, python-format
 msgid "Could not set user in addr context for %s"
-msgstr ""
-"Impossible de définir l'utilisateur dans le contexte de l'adresse pour %s"
+msgstr "Impossible de définir l'utilisateur dans le contexte de l'adresse pour %s"
 
 #: ../semanage/seobject/__init__.py:1347
 #, python-format
@@ -673,8 +652,7 @@ msgstr "Impossible de définir le type dans le contexte de l'adresse pour %s"
 #: ../semanage/seobject/__init__.py:1356
 #, python-format
 msgid "Could not set mls fields in addr context for %s"
-msgstr ""
-"Impossible de définir les champs MLS dans le contexte de l'adresse pour %s"
+msgstr "Impossible de définir les champs MLS dans le contexte de l'adresse pour %s"
 
 #: ../semanage/seobject/__init__.py:1360
 #, python-format
@@ -704,8 +682,7 @@ msgstr "Impossible de modifier l'adresse %s"
 #: ../semanage/seobject/__init__.py:1434
 #, python-format
 msgid "Addr %s is defined in policy, cannot be deleted"
-msgstr ""
-"L'adresse %s est définie dans la stratégie, elle ne peut être supprimée"
+msgstr "L'adresse %s est définie dans la stratégie, elle ne peut être supprimée"
 
 #: ../semanage/seobject/__init__.py:1438
 #, python-format
@@ -738,8 +715,7 @@ msgstr "Impossible de créer l'interface pour %s"
 #: ../semanage/seobject/__init__.py:1540
 #, python-format
 msgid "Could not set user in interface context for %s"
-msgstr ""
-"Impossible de définir l'utilisateur dans le contexte d'interface pour %s"
+msgstr "Impossible de définir l'utilisateur dans le contexte d'interface pour %s"
 
 #: ../semanage/seobject/__init__.py:1544
 #, python-format
@@ -754,8 +730,7 @@ msgstr "Impossible de définir le type dans le contexte d'interface pour %s"
 #: ../semanage/seobject/__init__.py:1553
 #, python-format
 msgid "Could not set mls fields in interface context for %s"
-msgstr ""
-"Impossible de définir les champs MLS dans le contexte d'interface pour %s"
+msgstr "Impossible de définir les champs MLS dans le contexte d'interface pour %s"
 
 #: ../semanage/seobject/__init__.py:1557
 #, python-format
@@ -790,8 +765,7 @@ msgstr "Impossible de modifier l'interface %s"
 #: ../semanage/seobject/__init__.py:1628
 #, python-format
 msgid "Interface %s is defined in policy, cannot be deleted"
-msgstr ""
-"L'interface %s est définie dans la stratégie, elle ne peut être supprimée"
+msgstr "L'interface %s est définie dans la stratégie, elle ne peut être supprimée"
 
 #: ../semanage/seobject/__init__.py:1632
 #, python-format
@@ -817,12 +791,12 @@ msgstr "Contexte"
 #: ../semanage/seobject/__init__.py:1750
 #, python-format
 msgid "Target %s is not valid. Target is not allowed to end with '/'"
-msgstr ""
+msgstr "La cible %s n'est pas valide. La cible ne peut pas se terminer par une barre oblique « / »"
 
 #: ../semanage/seobject/__init__.py:1753
 #, python-format
 msgid "Substitute %s is not valid. Substitute is not allowed to end with '/'"
-msgstr ""
+msgstr "Le substitut %s n'est pas valide. Le substitut ne peut pas se terminer par une barre oblique « / »"
 
 #: ../semanage/seobject/__init__.py:1756
 #, python-format
@@ -833,7 +807,7 @@ msgstr "La classe d'équivalence pour %s est déjà définie"
 #, python-format
 msgid ""
 "File spec %(TARGET)s conflicts with equivalency rule '%(SOURCE)s %(DEST)s'"
-msgstr ""
+msgstr "La spécification du fichier %(TARGET)s est en conflit avec la règle d'équivalence « %(SOURCE)s %(DEST)s »"
 
 #: ../semanage/seobject/__init__.py:1771
 #, python-format
@@ -843,8 +817,7 @@ msgstr "La classe d'équivalence pour %s n'existe pas"
 #: ../semanage/seobject/__init__.py:1785
 #, python-format
 msgid "Could not set user in file context for %s"
-msgstr ""
-"Impossible de définir l'utilisateur dans le contexte du fichier pour %s"
+msgstr "Impossible de définir l'utilisateur dans le contexte du fichier pour %s"
 
 #: ../semanage/seobject/__init__.py:1789
 #, python-format
@@ -854,8 +827,7 @@ msgstr "Impossible de définir le rôle dans le contexte du fichier pour %s"
 #: ../semanage/seobject/__init__.py:1794 ../semanage/seobject/__init__.py:1860
 #, python-format
 msgid "Could not set mls fields in file context for %s"
-msgstr ""
-"Impossible de définir les champs MLS dans le contexte du fichier pour %s"
+msgstr "Impossible de définir les champs MLS dans le contexte du fichier pour %s"
 
 #: ../semanage/seobject/__init__.py:1800
 msgid "Invalid file specification"
@@ -870,13 +842,12 @@ msgstr "La spécification de fichier ne peut inclure d'espace"
 msgid ""
 "File spec %(TARGET)s conflicts with equivalency rule '%(SOURCE)s %(DEST)s'; "
 "Try adding '%(DEST1)s' instead"
-msgstr ""
+msgstr "La spécification du fichier %(TARGET)s est en conflit avec la règle d'équivalence « %(SOURCE)s %(DEST)s » ; essayez d'ajouter « %(DEST1)s » à la place"
 
 #: ../semanage/seobject/__init__.py:1826
 #, python-format
 msgid "Type %s is invalid, must be a file or device type"
-msgstr ""
-"Le type %s est invalide, il doit être un type de fichier ou de périphérique"
+msgstr "Le type %s est invalide, il doit être un type de fichier ou de périphérique"
 
 #: ../semanage/seobject/__init__.py:1834 ../semanage/seobject/__init__.py:1839
 #: ../semanage/seobject/__init__.py:1895 ../semanage/seobject/__init__.py:1977
@@ -937,9 +908,7 @@ msgstr "Impossible de supprimer le contexte du fichier pour %s"
 #: ../semanage/seobject/__init__.py:1983
 #, python-format
 msgid "File context for %s is defined in policy, cannot be deleted"
-msgstr ""
-"Le contexte du fichier pour %s est défini dans la stratégie, il ne peut être "
-"supprimé"
+msgstr "Le contexte du fichier pour %s est défini dans la stratégie, il ne peut être supprimé"
 
 #: ../semanage/seobject/__init__.py:1989
 #, python-format
@@ -966,17 +935,13 @@ msgstr "type"
 msgid ""
 "\n"
 "SELinux Distribution fcontext Equivalence \n"
-msgstr ""
-"\n"
-"Équivalence fcontext de distribution SELinux \n"
+msgstr "\nÉquivalence fcontext de distribution SELinux \n"
 
 #: ../semanage/seobject/__init__.py:2063
 msgid ""
 "\n"
 "SELinux Local fcontext Equivalence \n"
-msgstr ""
-"\n"
-"Équivalence fcontext locale SELinux \n"
+msgstr "\nÉquivalence fcontext locale SELinux \n"
 
 #: ../semanage/seobject/__init__.py:2099 ../semanage/seobject/__init__.py:2150
 #: ../semanage/seobject/__init__.py:2156
@@ -1012,7 +977,7 @@ msgstr "Impossible de modifier les booléens %s"
 #: ../semanage/seobject/__init__.py:2134
 #, python-format
 msgid "Bad format %(BOOLNAME)s: Record %(VALUE)s"
-msgstr ""
+msgstr "Mauvais format %(BOOLNAME)s: enregistrement %(VALUE)s"
 
 #: ../semanage/seobject/__init__.py:2158
 #, python-format
@@ -1063,9 +1028,7 @@ msgstr "impossible de définir PAM_TTY\n"
 #: ../newrole/newrole.c:290
 #, c-format
 msgid "newrole: service name configuration hashtable overflow\n"
-msgstr ""
-"nouveau rôle : débordement de table de hachage pour la configuration du nom "
-"de service\n"
+msgstr "nouveau rôle : débordement de table de hachage pour la configuration du nom de service\n"
 
 #: ../newrole/newrole.c:300
 #, c-format
@@ -1135,16 +1098,12 @@ msgstr "Erreur ! Impossible d'effacer O_NONBLOCK sur %s\n"
 #: ../newrole/newrole.c:710
 #, c-format
 msgid "%s!  Could not get current context for %s, not relabeling tty.\n"
-msgstr ""
-"%s ! Impossible de récupérer le contexte actuel pour %s, le terminal ne sera "
-"pas renommé.\n"
+msgstr "%s ! Impossible de récupérer le contexte actuel pour %s, le terminal ne sera pas renommé.\n"
 
 #: ../newrole/newrole.c:720
 #, c-format
 msgid "%s!  Could not get new context for %s, not relabeling tty.\n"
-msgstr ""
-"%s ! Impossible de récupérer le nouveau contexte pour %s, le terminal ne "
-"sera pas renommé.\n"
+msgstr "%s ! Impossible de récupérer le nouveau contexte pour %s, le terminal ne sera pas renommé.\n"
 
 #: ../newrole/newrole.c:730
 #, c-format
@@ -1184,9 +1143,7 @@ msgstr "Erreur : niveaux multiples spécifiés\n"
 #: ../newrole/newrole.c:870
 #, c-format
 msgid "Error: you are not allowed to change levels on a non secure terminal \n"
-msgstr ""
-"Erreur : vous n'êtes pas autorisé à changer de niveau sur un terminal non "
-"sûr\n"
+msgstr "Erreur : vous n'êtes pas autorisé à changer de niveau sur un terminal non sûr\n"
 
 #: ../newrole/newrole.c:896
 #, c-format
@@ -1260,8 +1217,7 @@ msgstr "impossible de trouver old_context.\n"
 #: ../newrole/newrole.c:1081
 #, c-format
 msgid "Warning!  Could not retrieve tty information.\n"
-msgstr ""
-"Attention ! Impossible de récupérer les informations liées au terminal.\n"
+msgstr "Attention ! Impossible de récupérer les informations liées au terminal.\n"
 
 #: ../newrole/newrole.c:1102
 #, c-format
@@ -1335,8 +1291,7 @@ msgstr "La stratégie %s est déjà chargée et un chargement initial est requis
 #: ../load_policy/load_policy.c:80
 #, c-format
 msgid "%s:  Can't load policy and enforcing mode requested:  %s\n"
-msgstr ""
-"%s : Ne peut charger la stratégie et le mode d'application demandés :  %s\n"
+msgstr "%s : Ne peut charger la stratégie et le mode d'application demandés :  %s\n"
 
 #: ../load_policy/load_policy.c:90
 #, c-format
@@ -1350,8 +1305,7 @@ msgstr "Requiert au moins une catégorie"
 #: ../scripts/chcat:106 ../scripts/chcat:183
 #, c-format
 msgid "Can not modify sensitivity levels using '+' on %s"
-msgstr ""
-"Impossible de modifier le niveau de sensibilité en utilisant « + » sur %s"
+msgstr "Impossible de modifier le niveau de sensibilité en utilisant « + » sur %s"
 
 #: ../scripts/chcat:110
 #, c-format
@@ -1451,55 +1405,41 @@ msgstr "Étiquetage des fichiers"
 msgid ""
 "File\n"
 "Specification"
-msgstr ""
-"Spécification\n"
-"de fichier"
+msgstr "Spécification\nde fichier"
 
 #: ../gui/fcontextPage.py:80
 msgid ""
 "Selinux\n"
 "File Type"
-msgstr ""
-"Type de fichier\n"
-"SELinux"
+msgstr "Type de fichier\nSELinux"
 
 #: ../gui/fcontextPage.py:87
 msgid ""
 "File\n"
 "Type"
-msgstr ""
-"Type de\n"
-"Fichier"
+msgstr "Type de\nFichier"
 
 #: ../gui/loginsPage.py:45 ../gui/system-config-selinux.glade:2098
 msgid "User Mapping"
-msgstr ""
-"Correspondance\n"
-"d'utilisateurs"
+msgstr "Correspondance\nd'utilisateurs"
 
 #: ../gui/loginsPage.py:49
 msgid ""
 "Login\n"
 "Name"
-msgstr ""
-"Nom de\n"
-"connexion"
+msgstr "Nom de\nconnexion"
 
 #: ../gui/loginsPage.py:53 ../gui/usersPage.py:47
 msgid ""
 "SELinux\n"
 "User"
-msgstr ""
-"Utilisateur\n"
-"SELinux"
+msgstr "Utilisateur\nSELinux"
 
 #: ../gui/loginsPage.py:56 ../gui/usersPage.py:52
 msgid ""
 "MLS/\n"
 "MCS Range"
-msgstr ""
-"Étendue\n"
-"MLS/MCS"
+msgstr "Étendue\nMLS/MCS"
 
 #: ../gui/loginsPage.py:130
 #, python-format
@@ -1555,9 +1495,7 @@ msgstr "Outil de création de stratégie SELinux"
 msgid ""
 "<b>Select the policy type for the application or user role you want to "
 "confine:</b>"
-msgstr ""
-"<b>Sélectionnez le type de stratégie pour l'application ou le rôle "
-"utilisateur que vous souhaitez confiner :</b>"
+msgstr "<b>Sélectionnez le type de stratégie pour l'application ou le rôle utilisateur que vous souhaitez confiner :</b>"
 
 #: ../gui/polgen.glade:284
 msgid "<b>Applications</b>"
@@ -1571,10 +1509,7 @@ msgstr "Démon init standard"
 msgid ""
 "Standard Init Daemon are daemons started on boot via init scripts.  Usually "
 "requires a script in /etc/rc.d/init.d"
-msgstr ""
-"Les démons standard d'initialisation sont les démons démarré à l'amorçage "
-"via les scripts init. Requièrent habituellement un script dans /etc/rc.d/"
-"init.d"
+msgstr "Les démons standard d'initialisation sont les démons démarré à l'amorçage via les scripts init. Requièrent habituellement un script dans /etc/rc.d/init.d"
 
 #: ../gui/polgen.glade:332 ../sepolicy/sepolicy/generate.py:133
 msgid "DBUS System Daemon"
@@ -1605,9 +1540,7 @@ msgstr "Application utilisateur"
 msgid ""
 "User Application are any application that you would like to confine that is "
 "started by a user"
-msgstr ""
-"Une application utilisateur est toute application démarrée par un "
-"utilisateur que vous souhaitez confiner"
+msgstr "Une application utilisateur est toute application démarrée par un utilisateur que vous souhaitez confiner"
 
 #: ../gui/polgen.glade:400 ../sepolicy/sepolicy/generate.py:136
 msgid "Sandbox"
@@ -1623,7 +1556,7 @@ msgstr "Rôles utilisateurs existants"
 
 #: ../gui/polgen.glade:482
 msgid "Modify an existing login user record."
-msgstr "Modifier les enregistrements d'un compte utilisateur existant"
+msgstr "Modifier les enregistrements d'un compte utilisateur existant."
 
 #: ../gui/polgen.glade:495
 msgid "Minimal Terminal User Role"
@@ -1633,10 +1566,7 @@ msgstr "Rôle utilisateur minimal terminal"
 msgid ""
 "This user will login to a machine only via a terminal or remote login.  By "
 "default this user will have  no setuid, no networking, no su, no sudo."
-msgstr ""
-"Cet utilisateur se connectera à une machine uniquement par le terminal ou "
-"une connexion distante. Par défaut, cet utilisateur n'aura pas le droit "
-"setuid, pas de réseau, pas su ni sudo."
+msgstr "Cet utilisateur se connectera à une machine uniquement par le terminal ou une connexion distante. Par défaut, cet utilisateur n'aura pas le droit setuid, pas de réseau, pas su ni sudo."
 
 #: ../gui/polgen.glade:512
 msgid "Minimal X Windows User Role"
@@ -1646,10 +1576,7 @@ msgstr "Rôle utilisateur minimal X Window"
 msgid ""
 "This user can login to a machine via X or terminal.  By default this user "
 "will have no setuid, no networking, no sudo, no su"
-msgstr ""
-"Cet utilisateur peut se connecter à une machine via X ou un terminal. Par "
-"défaut, cet utilisateur n'aura pas le droit setuid, pas de réseau, pas sudo "
-"ni su"
+msgstr "Cet utilisateur peut se connecter à une machine via X ou un terminal. Par défaut, cet utilisateur n'aura pas le droit setuid, pas de réseau, pas sudo ni su"
 
 #: ../gui/polgen.glade:529
 msgid "User Role"
@@ -1659,9 +1586,7 @@ msgstr "Rôle utilisateur"
 msgid ""
 "User with full networking, no setuid applications without transition, no "
 "sudo, no su."
-msgstr ""
-"Utilisateur avec accès réseau total, pas de droit setuid sans transition, "
-"pas sudo ni su."
+msgstr "Utilisateur avec accès réseau total, pas de droit setuid sans transition, pas sudo ni su."
 
 #: ../gui/polgen.glade:546
 msgid "Admin User Role"
@@ -1669,11 +1594,9 @@ msgstr "Rôle utilisateur administrateur"
 
 #: ../gui/polgen.glade:550
 msgid ""
-"User with full networking, no setuid applications without transition, no su, "
-"can sudo to Root Administration Roles"
-msgstr ""
-"Utilisateur avec accès réseau total, pas d'application setuid sans "
-"transition, pas su, peut utiliser sudo vers les rôles administrateur root"
+"User with full networking, no setuid applications without transition, no su,"
+" can sudo to Root Administration Roles"
+msgstr "Utilisateur avec accès réseau total, pas d'application setuid sans transition, pas su, peut utiliser sudo vers les rôles administrateur root"
 
 #: ../gui/polgen.glade:592
 msgid "<b>Root Users</b>"
@@ -1685,13 +1608,10 @@ msgstr "Rôle utilisateur administrateur root"
 
 #: ../gui/polgen.glade:627
 msgid ""
-"Select Root Administrator User Role, if this user will be used to administer "
-"the machine while running as root.  This user will not be able to login to "
+"Select Root Administrator User Role, if this user will be used to administer"
+" the machine while running as root.  This user will not be able to login to "
 "the system directly."
-msgstr ""
-"Sélectionnez le rôle utilisateur administrateur root si cet utilisateur sera "
-"utilisé pour administrer la machine en tant que root. Cet utilisateur ne "
-"sera pas capable de se connecter au système directement."
+msgstr "Sélectionnez le rôle utilisateur administrateur root si cet utilisateur sera utilisé pour administrer la machine en tant que root. Cet utilisateur ne sera pas capable de se connecter au système directement."
 
 #: ../gui/polgen.glade:705
 msgid "<b>Enter name of application or user role:</b>"
@@ -1712,8 +1632,7 @@ msgstr "..."
 
 #: ../gui/polgen.glade:776
 msgid "Enter unique name for the confined application or user role."
-msgstr ""
-"Entrez un nom unique pour l'application confiné ou le rôle utilisateur."
+msgstr "Entrez un nom unique pour l'application confiné ou le rôle utilisateur."
 
 #: ../gui/polgen.glade:794
 msgid "Executable"
@@ -1726,9 +1645,7 @@ msgstr "Script de démarrage"
 #: ../gui/polgen.glade:821
 msgid ""
 "Enter complete path to init script used to start the confined application."
-msgstr ""
-"Entrez le chemin complet du script d'initialisation utilisé pour démarrer "
-"l'application confinée."
+msgstr "Entrez le chemin complet du script d'initialisation utilisé pour démarrer l'application confinée."
 
 #: ../gui/polgen.glade:887
 msgid "<b>Select existing role to modify:</b>"
@@ -1736,8 +1653,7 @@ msgstr "<b>Sélectionner le rôle existant à modifier :</b>"
 
 #: ../gui/polgen.glade:908
 msgid "Select the user roles that will transiton to the %s domain."
-msgstr ""
-"Sélectionnez les rôles utilisateur qui transitionneront vers le domaine %s."
+msgstr "Sélectionnez les rôles utilisateur qui transitionneront vers le domaine %s."
 
 #: ../gui/polgen.glade:928
 msgid "role tab"
@@ -1749,27 +1665,22 @@ msgstr "<b>Sélectionnez les rôles vers lesquels %s fera la transition :</b>"
 
 #: ../gui/polgen.glade:963
 msgid "Select applications domains that %s will transition to."
-msgstr ""
-"Sélectionnez les domaines applicatifs vers lesquels %s fera la transition."
+msgstr "Sélectionnez les domaines applicatifs vers lesquels %s fera la transition."
 
 #: ../gui/polgen.glade:983
 msgid ""
 "transition \n"
 "role tab"
-msgstr ""
-"transition \n"
-"onglet rôle"
+msgstr "transition \nonglet rôle"
 
 #: ../gui/polgen.glade:1001
 msgid "<b>Select the user_roles that will transition to %s:</b>"
-msgstr ""
-"<b>Sélectionnez les rôles utilisateurs qui feront la transition vers %s :</b>"
+msgstr "<b>Sélectionnez les rôles utilisateurs qui feront la transition vers %s :</b>"
 
 #: ../gui/polgen.glade:1019
-msgid "Select the user roles that will transiton to this applications domains."
-msgstr ""
-"Sélectionnez les rôles utilisateur qui transitionneront verss ce domaine "
-"applicatif."
+msgid ""
+"Select the user roles that will transiton to this applications domains."
+msgstr "Sélectionnez les rôles utilisateur qui transitionneront verss ce domaine applicatif."
 
 #: ../gui/polgen.glade:1056
 msgid "<b>Select domains that %s will administer:</b>"
@@ -1777,9 +1688,7 @@ msgstr "<b>Sélectionnez les domaines que %s administrera :</b>"
 
 #: ../gui/polgen.glade:1074 ../gui/polgen.glade:1129
 msgid "Select the domains that you would like this user administer."
-msgstr ""
-"Sélectionnez les domaines que vous souhaitez voir administraté par cet "
-"utilisateur."
+msgstr "Sélectionnez les domaines que vous souhaitez voir administraté par cet utilisateur."
 
 #: ../gui/polgen.glade:1111
 msgid "<b>Select additional roles for %s:</b>"
@@ -1808,8 +1717,7 @@ msgstr "600-1024"
 
 #: ../gui/polgen.glade:1244 ../gui/polgen.glade:1411
 msgid "Allow %s to call bindresvport with 0. Binding to port 600-1024"
-msgstr ""
-"Autorise %s à appeler bindresvport avec 0. Affectation à un port 600-1024"
+msgstr "Autorise %s à appeler bindresvport avec 0. Affectation à un port 600-1024"
 
 #: ../gui/polgen.glade:1257 ../gui/polgen.glade:1424
 msgid "Unreserved Ports (>1024)"
@@ -1819,9 +1727,7 @@ msgstr "Ports non-réservés (> 1024)"
 msgid ""
 "Enter a comma separated list of udp ports or ranges of ports that %s binds "
 "to. Example: 612, 650-660"
-msgstr ""
-"Entrez une liste séparée par des virgules des ports ou plages de ports UDP "
-"auxquels %s se liera. Par exemple : 612, 650-660"
+msgstr "Entrez une liste séparée par des virgules des ports ou plages de ports UDP auxquels %s se liera. Par exemple : 612, 650-660"
 
 #: ../gui/polgen.glade:1289 ../gui/polgen.glade:1456 ../gui/polgen.glade:1609
 #: ../gui/polgen.glade:1718
@@ -1840,9 +1746,7 @@ msgstr "<b>Ports UDP</b>"
 msgid ""
 "Network\n"
 "Bind tab"
-msgstr ""
-"Réseau\n"
-"Onglet lien"
+msgstr "Réseau\nOnglet lien"
 
 #: ../gui/polgen.glade:1537
 msgid "<b>Select network ports that %s connects to:</b>"
@@ -1856,9 +1760,7 @@ msgstr "Autorise %s à se connecter à n'importe quel port tcp"
 msgid ""
 "Enter a comma separated list of tcp ports or ranges of ports that %s "
 "connects to. Example: 612, 650-660"
-msgstr ""
-"Entrez une liste séparée par des virgules des ports ou plages de ports TCP "
-"auxquels %s se connectera. Par exemple : 612, 650-660"
+msgstr "Entrez une liste séparée par des virgules des ports ou plages de ports TCP auxquels %s se connectera. Par exemple : 612, 650-660"
 
 #: ../gui/polgen.glade:1702
 msgid "Allows %s to connect to any udp port"
@@ -1868,14 +1770,11 @@ msgstr "Autorise %s à se connecter à n'importe quel port udp"
 msgid ""
 "Enter a comma separated list of udp ports or ranges of ports that %s "
 "connects to. Example: 612, 650-660"
-msgstr ""
-"Entrez une liste séparée par des virgules des ports ou plages de ports UDP "
-"auxquels %s se connectera. Par exemple : 612, 650-660"
+msgstr "Entrez une liste séparée par des virgules des ports ou plages de ports UDP auxquels %s se connectera. Par exemple : 612, 650-660"
 
 #: ../gui/polgen.glade:1792
 msgid "<b>Select common application traits for %s:</b>"
-msgstr ""
-"<b>Sélectionnez les caractéristiques communes des applications pour %s:</b>"
+msgstr "<b>Sélectionnez les caractéristiques communes des applications pour %s:</b>"
 
 #: ../gui/polgen.glade:1809
 msgid "Writes syslog messages\t"
@@ -1917,9 +1816,7 @@ msgstr "<b>Ajoutez les fichiers et répertoires que %s gère</b>"
 msgid ""
 "Files/Directories which the %s \"manages\". Pid Files, Log Files, /var/lib "
 "Files ..."
-msgstr ""
-"Les fichiers et répertoires que %s « gère ». Fichiers pid, journaux, /var/"
-"lib, etc."
+msgstr "Les fichiers et répertoires que %s « gère ». Fichiers pid, journaux, /var/lib, etc."
 
 #: ../gui/polgen.glade:2166
 msgid "<b>Add booleans from the %s policy:</b>"
@@ -1968,29 +1865,22 @@ msgstr "Sélectionnez le script d'initialisation à confiner."
 
 #: ../gui/polgengui.py:567
 msgid "Select file(s) that confined application creates or writes"
-msgstr ""
-"Sélectionnez le ou les fichiers que cette application confinée créera ou "
-"accèdera en écriture"
+msgstr "Sélectionnez le ou les fichiers que cette application confinée créera ou accèdera en écriture"
 
 #: ../gui/polgengui.py:574
 msgid "Select directory(s) that the confined application owns and writes into"
-msgstr ""
-"Sélectionnez le ou les répertoires que cette application confinée possède et "
-"dans lesquels elle écrira"
+msgstr "Sélectionnez le ou les répertoires que cette application confinée possède et dans lesquels elle écrira"
 
 #: ../gui/polgengui.py:636
 msgid "Select directory to generate policy files in"
-msgstr ""
-"Sélectionnez le répertoire dans lequel créer les fichiers de la stratégie"
+msgstr "Sélectionnez le répertoire dans lequel créer les fichiers de la stratégie"
 
 #: ../gui/polgengui.py:653
 #, python-format
 msgid ""
 "Type %s_t already defined in current policy.\n"
 "Do you want to continue?"
-msgstr ""
-"Le type %s_t est déjà défini dans la stratégie courante.\n"
-"Voulez-vous continuer ?"
+msgstr "Le type %s_t est déjà défini dans la stratégie courante.\nVoulez-vous continuer ?"
 
 #: ../gui/polgengui.py:653 ../gui/polgengui.py:657
 msgid "Verify Name"
@@ -2001,16 +1891,12 @@ msgstr "Vérifier le nom"
 msgid ""
 "Module %s.pp already loaded in current policy.\n"
 "Do you want to continue?"
-msgstr ""
-"Le module %s.pp est déjà chargé dans la stratégie courante.\n"
-"Voulez-vous continuer ?"
+msgstr "Le module %s.pp est déjà chargé dans la stratégie courante.\nVoulez-vous continuer ?"
 
 #: ../gui/polgengui.py:703
 msgid ""
 "You must add a name made up of letters and numbers and containing no spaces."
-msgstr ""
-"Vous devez ajouter un nom composé de lettres et de chiffres et ne contenant "
-"pas d'espaces."
+msgstr "Vous devez ajouter un nom composé de lettres et de chiffres et ne contenant pas d'espaces."
 
 #: ../gui/polgengui.py:717
 msgid "You must enter a executable"
@@ -2028,9 +1914,7 @@ msgstr "Port réseau"
 msgid ""
 "SELinux Port\n"
 "Type"
-msgstr ""
-"Port SELinux\n"
-"Type"
+msgstr "Port SELinux\nType"
 
 #: ../gui/portsPage.py:88 ../gui/system-config-selinux.glade:363
 #: ../sepolicy/sepolicy/sepolicy.glade:1439
@@ -2044,9 +1928,7 @@ msgstr "Protocole"
 msgid ""
 "MLS/MCS\n"
 "Level"
-msgstr ""
-"Niveau\n"
-"MLS/MCS"
+msgstr "Niveau\nMLS/MCS"
 
 #: ../gui/portsPage.py:98 ../sepolicy/sepolicy/sepolicy.glade:2639
 #: ../sepolicy/sepolicy/sepolicy.glade:2738
@@ -2108,11 +1990,7 @@ msgid ""
 "Changing the policy type will cause a relabel of the entire file system on "
 "the next boot. Relabeling takes a long time depending on the size of the "
 "file system.  Do you wish to continue?"
-msgstr ""
-"La modification du type de stratégie va provoquer un réétiquetage de "
-"l'ensemble du système de fichiers au prochain démarrage. Le réétiquetage "
-"dure longtemps en fonction de la taille du système de fichiers. Souhaitez-"
-"vous continuer ?"
+msgstr "La modification du type de stratégie va provoquer un réétiquetage de l'ensemble du système de fichiers au prochain démarrage. Le réétiquetage dure longtemps en fonction de la taille du système de fichiers. Souhaitez-vous continuer ?"
 
 #: ../gui/statusPage.py:143
 msgid ""
@@ -2120,26 +1998,16 @@ msgid ""
 "you later decide to turn SELinux back on, the system will be required to "
 "relabel.  If you just want to see if SELinux is causing a problem on your "
 "system, you can go to permissive mode which will only log errors and not "
-"enforce SELinux policy.  Permissive mode does not require a reboot    Do you "
-"wish to continue?"
-msgstr ""
-"La désactivation de SELinux nécessite un redémarrage. Il n'est pas "
-"recommandé. Si vous décidez plus tard de réactiver SELinux, un réétiquetage "
-"du système sera nécessaire. Si vous voulez juste voir si SELinux est à "
-"l'origine d'un problème sur votre système, vous pouvez passer en mode "
-"permissif qui ne fera que consigner les erreurs sans appliquer la stratégie "
-"SELinux. Le mode permissif ne nécessite pas de redémarrer. Souhaitez-vous "
-"continuer ?"
+"enforce SELinux policy.  Permissive mode does not require a reboot    Do you"
+" wish to continue?"
+msgstr "La désactivation de SELinux nécessite un redémarrage. Il n'est pas recommandé. Si vous décidez plus tard de réactiver SELinux, un réétiquetage du système sera nécessaire. Si vous voulez juste voir si SELinux est à l'origine d'un problème sur votre système, vous pouvez passer en mode permissif qui ne fera que consigner les erreurs sans appliquer la stratégie SELinux. Le mode permissif ne nécessite pas de redémarrer. Souhaitez-vous continuer ?"
 
 #: ../gui/statusPage.py:148 ../sepolicy/sepolicy/gui.py:2747
 msgid ""
 "Changing to SELinux enabled will cause a relabel of the entire file system "
 "on the next boot. Relabeling takes a long time depending on the size of the "
 "file system.  Do you wish to continue?"
-msgstr ""
-"L'activation de SELinux va provoquer un réétiquetage de l'ensemble du "
-"système de fichiers au prochain démarrage. Le réétiquetage dure longtemps en "
-"fonction de la taille du système de fichiers. Souhaitez-vous continuer ?"
+msgstr "L'activation de SELinux va provoquer un réétiquetage de l'ensemble du système de fichiers au prochain démarrage. Le réétiquetage dure longtemps en fonction de la taille du système de fichiers. Souhaitez-vous continuer ?"
 
 #: ../gui/system-config-selinux.glade:11
 msgid "system-config-selinux"
@@ -2149,9 +2017,7 @@ msgstr "system-config-selinux"
 msgid ""
 "Copyright (c)2006 Red Hat, Inc.\n"
 "Copyright (c) 2006 Dan Walsh <dwalsh@redhat.com>"
-msgstr ""
-"Copyright (c)2006 Red Hat, Inc.\n"
-"Copyright (c) 2006 Dan Walsh <dwalsh@redhat.com>"
+msgstr "Copyright (c)2006 Red Hat, Inc.\nCopyright (c) 2006 Dan Walsh <dwalsh@redhat.com>"
 
 #: ../gui/system-config-selinux.glade:22
 #: ../gui/system-config-selinux.glade:544
@@ -2185,15 +2051,7 @@ msgid ""
 "socket\n"
 "symbolic link\n"
 "named pipe\n"
-msgstr ""
-"tous les fichiers\n"
-"fichiers normaux\n"
-"répertoire\n"
-"périphérique caractère\n"
-"périphérique bloc\n"
-"socket\n"
-"lien symbolique\n"
-"tube nommé\n"
+msgstr "tous les fichiers\nfichiers normaux\nrépertoire\npériphérique caractère\npériphérique bloc\nsocket\nlien symbolique\ntube nommé\n"
 
 #: ../gui/system-config-selinux.glade:773
 #: ../sepolicy/sepolicy/sepolicy.glade:711
@@ -2239,10 +2097,7 @@ msgid ""
 "Disabled\n"
 "Permissive\n"
 "Enforcing\n"
-msgstr ""
-"Disabled\n"
-"Permissive\n"
-"Enforcing\n"
+msgstr "Disabled\nPermissive\nEnforcing\n"
 
 #: ../gui/system-config-selinux.glade:1373
 msgid "Current Enforcing Mode"
@@ -2258,12 +2113,7 @@ msgid ""
 "Relabeling can take a very long time, depending on the size of the system.  "
 "If you are changing policy types or going from disabled to enforcing, a "
 "relabel is required."
-msgstr ""
-"Choisissez si vous souhaitez réétiqueter l'ensemble du système de fichiers "
-"au prochain démarrage. Le réétiquetage dure longtemps en fonction de la "
-"taille du système de fichiers. Si vous modifiez le type de stratégie ou "
-"allez de désactivé à application de la stratégie, un réétiquetage est "
-"nécessaire."
+msgstr "Choisissez si vous souhaitez réétiqueter l'ensemble du système de fichiers au prochain démarrage. Le réétiquetage dure longtemps en fonction de la taille du système de fichiers. Si vous modifiez le type de stratégie ou allez de désactivé à application de la stratégie, un réétiquetage est nécessaire."
 
 #: ../gui/system-config-selinux.glade:1509
 msgid "Relabel on next reboot."
@@ -2310,8 +2160,7 @@ msgstr "Supprimer un contexte fichier"
 
 #: ../gui/system-config-selinux.glade:1819
 msgid "Toggle between all and customized file context"
-msgstr ""
-"Basculer entre Tous les contextes fichiers, et les contextes personnalisés"
+msgstr "Basculer entre Tous les contextes fichiers, et les contextes personnalisés"
 
 #: ../gui/system-config-selinux.glade:1939
 msgid "label38"
@@ -2384,11 +2233,9 @@ msgstr "Supprimer un module de stratégie chargeable"
 
 #: ../gui/system-config-selinux.glade:2661
 msgid ""
-"Enable/Disable additional audit rules, that are normally not reported in the "
-"log files."
-msgstr ""
-"Activer/désactiver les règles d'audit supplémentaires, qui ne sont "
-"normalement pas signalées dans les fichiers journaux."
+"Enable/Disable additional audit rules, that are normally not reported in the"
+" log files."
+msgstr "Activer/désactiver les règles d'audit supplémentaires, qui ne sont normalement pas signalées dans les fichiers journaux."
 
 #: ../gui/system-config-selinux.glade:2781
 msgid "label44"
@@ -2418,32 +2265,27 @@ msgstr "L'utilisateur SELinux « %s » est nécessaire"
 #: booleans.py:1
 msgid ""
 "Allow ABRT to modify public files used for public file transfer services."
-msgstr ""
-"Permettre à ABRT de modifier les fichiers publics utilisés pour les services "
-"de transfert de fichiers publics."
+msgstr "Permettre à ABRT de modifier les fichiers publics utilisés pour les services de transfert de fichiers publics."
 
 #: booleans.py:2
 msgid ""
 "Determine whether ABRT can run in the abrt_handle_event_t domain to handle "
 "ABRT event scripts."
-msgstr ""
+msgstr "Déterminer si ABRT peut être exécuté dans le domaine abrt_handle_event_t afin de gérer les scripts d'événements ABRT."
 
 #: booleans.py:3
 msgid ""
-"Determine whether abrt-handle-upload can modify public files used for public "
-"file transfer services in /var/spool/abrt-upload/."
-msgstr ""
+"Determine whether abrt-handle-upload can modify public files used for public"
+" file transfer services in /var/spool/abrt-upload/."
+msgstr "Déterminer si abrt-handle-upload peut modifier les fichiers publics utilisés pour les services de transfert de fichiers publics dans /var/spool/abrt-upload/."
 
 #: booleans.py:4
 msgid "Allow antivirus programs to read non security files on a system"
-msgstr ""
-"Autoriser les programmes antivirus à lire des fichiers non relatifs à la "
-"sécurité sur un système"
+msgstr "Autoriser les programmes antivirus à lire des fichiers non relatifs à la sécurité sur un système"
 
 #: booleans.py:5
 msgid "Determine whether can antivirus programs use JIT compiler."
-msgstr ""
-"Déterminer si les programmes antivirus peuvent utiliser le compilateur JIT."
+msgstr "Déterminer si les programmes antivirus peuvent utiliser le compilateur JIT."
 
 #: booleans.py:6
 msgid "Allow auditadm to exec content"
@@ -2453,19 +2295,15 @@ msgstr "Autoriser auditadm à exécuter du contenu"
 msgid ""
 "Allow users to resolve user passwd entries directly from ldap rather then "
 "using a sssd server"
-msgstr ""
-"Autoriser les utilisateurs à résoudre les entrées utilisateur et mot de "
-"passe directement depuis LDAP plutôt que d'utiliser un serveur sssd"
+msgstr "Autoriser les utilisateurs à résoudre les entrées utilisateur et mot de passe directement depuis LDAP plutôt que d'utiliser un serveur sssd"
 
 #: booleans.py:8
 msgid "Allow users to login using a radius server"
-msgstr ""
-"Autoriser les utilisateurs à se connecter en utilisant un serveur radius"
+msgstr "Autoriser les utilisateurs à se connecter en utilisant un serveur radius"
 
 #: booleans.py:9
 msgid "Allow users to login using a yubikey  server"
-msgstr ""
-"Autoriser les utilisateurs à se connecter en utilisant un serveur yubikey"
+msgstr "Autoriser les utilisateurs à se connecter en utilisant un serveur yubikey"
 
 #: booleans.py:10
 msgid "Determine whether awstats can purge httpd log files."
@@ -2473,45 +2311,34 @@ msgstr "Déterminer si awstats peut purger les fichiers journaux de httpd."
 
 #: booleans.py:11
 msgid "Determine whether boinc can execmem/execstack."
-msgstr ""
+msgstr "Déterminer si boinc peut effectuer execmem/execstack."
 
 #: booleans.py:12
 msgid ""
 "Determine whether cdrecord can read various content. nfs, samba, removable "
 "devices, user temp and untrusted content files"
-msgstr ""
-"Déterminer si cdrecord  à lire divers contenus, tels que nfs, samba, des "
-"périphériques amovibles, des fichiers temporaires d'utilisateur et des "
-"fichiers de contenus non-approuvés."
+msgstr "Déterminer si cdrecord peut lire divers contenus, tels que nfs, samba, des périphériques amovibles, des fichiers temporaires d'utilisateurs et des fichiers de contenus non-approuvés."
 
 #: booleans.py:13
 msgid ""
 "Allow cluster administrative domains to connect to the network using TCP."
-msgstr ""
-"Autoriser les domaines administratifs de cluster à se connecter au réseau en "
-"utilisant TCP."
+msgstr "Autoriser les domaines administratifs de cluster à se connecter au réseau en utilisant TCP."
 
 #: booleans.py:14
 msgid "Allow cluster administrative domains to manage all files on a system."
-msgstr ""
-"Autoriser les domaines administratifs de cluster à gérer tous les fichiers "
-"sur un système."
+msgstr "Autoriser les domaines administratifs de cluster à gérer tous les fichiers sur un système."
 
 #: booleans.py:15
 msgid ""
 "Allow cluster administrative cluster domains memcheck-amd64- to use "
 "executable memory"
-msgstr ""
-"Autoriser les domaines administratifs de cluster memcheck-amd64- à utiliser "
-"la mémoire exécutable"
+msgstr "Autoriser les domaines administratifs de cluster memcheck-amd64- à utiliser la mémoire exécutable"
 
 #: booleans.py:16
 msgid ""
 "Determine whether Cobbler can modify public files used for public file "
 "transfer services."
-msgstr ""
-"Déterminer si Cobbler peut modifier des fichiers publics utilisés pour des "
-"services de transferts de fichiers publics."
+msgstr "Déterminer si Cobbler peut modifier des fichiers publics utilisés pour des services de transferts de fichiers publics."
 
 #: booleans.py:17
 msgid "Determine whether Cobbler can connect to the network using TCP."
@@ -2536,15 +2363,13 @@ msgstr "Déterminer si Condor peut se connecter au réseau en utilisant TCP."
 #: booleans.py:22
 msgid ""
 "Allow system cron jobs to relabel filesystem for restoring file contexts."
-msgstr ""
-"Autoriser les tâches système cron à réétiqueter le système de fichiers afin "
-"de restaurer les contextes de fichiers."
+msgstr "Autoriser les tâches système cron à réétiqueter le système de fichiers afin de restaurer les contextes de fichiers."
 
 #: booleans.py:23
 msgid ""
 "Determine whether crond can execute jobs in the user domain as opposed to "
 "the the generic cronjob domain."
-msgstr ""
+msgstr "Déterminer si crond peut exécuter des tâches dans le domaine utilisateur au lieu du domaine cronjob générique."
 
 #: booleans.py:24
 msgid "Determine whether cvs can read shadow password files."
@@ -2556,7 +2381,7 @@ msgstr "Autoriser tous les démons à écrire les fichiers core sur /"
 
 #: booleans.py:26
 msgid "Enable cluster mode for daemons."
-msgstr ""
+msgstr "Activer le mode cluster pour les démons."
 
 #: booleans.py:27
 msgid "Allow all daemons to use tcp wrappers."
@@ -2568,7 +2393,7 @@ msgstr "Autoriser tous les démons à accéder aux terminaux en lecture/écritur
 
 #: booleans.py:29
 msgid "Allow dbadm to exec content"
-msgstr ""
+msgstr "Autoriser dbadm à exécuter un contenu"
 
 #: booleans.py:30
 msgid "Determine whether dbadm can manage generic user files."
@@ -2580,24 +2405,18 @@ msgstr "Déterminer si dbadm peut lire les fichiers utilisateurs génériques."
 
 #: booleans.py:32
 msgid ""
-"Deny user domains applications to map a memory region as both executable and "
-"writable, this is dangerous and the executable should be reported in bugzilla"
-msgstr ""
-"Interdire aux applications des domaines d'utilisateurs de faire correspondre "
-"une région de la mémoire comme étant à la fois accessible en écriture et "
-"exécutable, ceci est dangereux et l'exécutable devrait être rapporté sur "
-"Bugzilla"
+"Deny user domains applications to map a memory region as both executable and"
+" writable, this is dangerous and the executable should be reported in "
+"bugzilla"
+msgstr "Interdire aux applications des domaines d'utilisateurs de faire correspondre une région de la mémoire comme étant à la fois accessible en écriture et exécutable, ceci est dangereux et l'exécutable devrait être rapporté sur Bugzilla"
 
 #: booleans.py:33
 msgid "Deny any process from ptracing or debugging any other processes."
-msgstr ""
-"Interdire à tout processus l'utilisation de ptrace ou le débogage d'un autre "
-"processus."
+msgstr "Interdire à tout processus l'utilisation de ptrace ou le débogage d'un autre processus."
 
 #: booleans.py:34
 msgid "Allow dhcpc client applications to execute iptables commands"
-msgstr ""
-"Autoriser les applications clientes dhcpc à exécuter les commandes iptables"
+msgstr "Autoriser les applications clientes dhcpc à exécuter les commandes iptables"
 
 #: booleans.py:35
 msgid "Determine whether DHCP daemon can use LDAP backends."
@@ -2605,22 +2424,17 @@ msgstr "Déterminer si le démon DHCP peut utiliser des moteurs LDAP."
 
 #: booleans.py:36
 msgid "Allow all domains to use other domains file descriptors"
-msgstr ""
-"Autoriser tous les domaines à utiliser les descripteurs de fichiers des "
-"autres domaines"
+msgstr "Autoriser tous les domaines à utiliser les descripteurs de fichiers des autres domaines"
 
 #: booleans.py:37
 msgid "Allow all domains to have the kernel load modules"
-msgstr ""
-"Autoriser tous les domaines à posséder les modules chargeables du noyau"
+msgstr "Autoriser tous les domaines à posséder les modules chargeables du noyau"
 
 #: booleans.py:38
 msgid ""
 "Determine whether entropyd can use audio devices as the source for the "
 "entropy feeds."
-msgstr ""
-"Autoriser si entropyd peut utiliser les périphériques audio comme source "
-"d'entropie."
+msgstr "Autoriser si entropyd peut utiliser les périphériques audio comme source d'entropie."
 
 #: booleans.py:39
 msgid "Determine whether exim can connect to databases."
@@ -2630,9 +2444,7 @@ msgstr "Déterminer si exim peut se connecter à des bases de données."
 msgid ""
 "Determine whether exim can create, read, write, and delete generic user "
 "content files."
-msgstr ""
-"Déterminer si exim peut créer, lire, écrire et supprimer des fichiers "
-"utilisateurs génériques."
+msgstr "Déterminer si exim peut créer, lire, écrire et supprimer des fichiers utilisateurs génériques."
 
 #: booleans.py:41
 msgid "Determine whether exim can read generic user content files."
@@ -2640,9 +2452,7 @@ msgstr "Déterminer si exim peut lire les fichiers utilisateurs génériques."
 
 #: booleans.py:42
 msgid "Enable extra rules in the cron domain to support fcron."
-msgstr ""
-"Activer des règles supplémentaires du domaine cron pour prendre en charge "
-"fcron."
+msgstr "Activer des règles supplémentaires du domaine cron pour prendre en charge fcron."
 
 #: booleans.py:43
 msgid "Determine whether fenced can connect to the TCP network."
@@ -2659,18 +2469,13 @@ msgstr "Autoriser tous les domaines à s'exécuter dans le mode fips_mode"
 #: booleans.py:46
 msgid ""
 "Determine whether ftpd can read and write files in user home directories."
-msgstr ""
-"Déterminer si ftp peut accéder à des fichiers en lecture et en écriture dans "
-"les répertoires utilisateurs."
+msgstr "Déterminer si ftp peut accéder à des fichiers en lecture et en écriture dans les répertoires utilisateurs."
 
 #: booleans.py:47
 msgid ""
-"Determine whether ftpd can modify public files used for public file transfer "
-"services. Directories/Files must be labeled public_content_rw_t."
-msgstr ""
-"Déterminer si ftpd peut modifier les fichiers publics utilisés pour les "
-"services de transfert de fichiers publics. Les fichiers ou répertoires "
-"doivent être étiquetés public_content_rw_t."
+"Determine whether ftpd can modify public files used for public file transfer"
+" services. Directories/Files must be labeled public_content_rw_t."
+msgstr "Déterminer si ftpd peut modifier les fichiers publics utilisés pour les services de transfert de fichiers publics. Les fichiers ou répertoires doivent être étiquetés public_content_rw_t."
 
 #: booleans.py:48
 msgid "Determine whether ftpd can connect to all unreserved ports."
@@ -2678,48 +2483,36 @@ msgstr "Déterminer si ftpd peut se connecter sur tout port non-réservé."
 
 #: booleans.py:49
 msgid "Determine whether ftpd can connect to databases over the TCP network."
-msgstr ""
-"Déterminer si ftpd peut se connecter à des bases de données sur le réseau "
-"TCP."
+msgstr "Déterminer si ftpd peut se connecter à des bases de données sur le réseau TCP."
 
 #: booleans.py:50
 msgid ""
 "Determine whether ftpd can login to local users and can read and write all "
 "files on the system, governed by DAC."
-msgstr ""
-"Déterminer si sftpd peut se connecter aux utilisateurs locaux et lire ou "
-"écrire tous les fichiers du système, gouverné par le contrôle d'accès "
-"discrétionnaire."
+msgstr "Déterminer si sftpd peut se connecter aux utilisateurs locaux et lire ou écrire tous les fichiers du système, gouverné par le contrôle d'accès discrétionnaire."
 
 #: booleans.py:51
 msgid ""
 "Determine whether ftpd can use CIFS used for public file transfer services."
-msgstr ""
-"Déterminer si ftp peut utiliser CIFS pour des services de transferts de "
-"fichiers publics."
+msgstr "Déterminer si ftp peut utiliser CIFS pour des services de transferts de fichiers publics."
 
 #: booleans.py:52
 msgid "Allow ftpd to use ntfs/fusefs volumes."
-msgstr ""
+msgstr "Autoriser ftpd à utiliser des volumes ntfs/fusefs."
 
 #: booleans.py:53
 msgid ""
 "Determine whether ftpd can use NFS used for public file transfer services."
-msgstr ""
-"Déterminer si ftp peut utiliser NFS pour des services de transferts de "
-"fichiers publics."
+msgstr "Déterminer si ftp peut utiliser NFS pour des services de transferts de fichiers publics."
 
 #: booleans.py:54
 msgid ""
 "Determine whether ftpd can bind to all unreserved ports for passive mode."
-msgstr ""
-"Déterminer si ftpd peut lier tous les ports non-réservés pour le mode passif."
+msgstr "Déterminer si ftpd peut lier tous les ports non-réservés pour le mode passif."
 
 #: booleans.py:55
 msgid "Determine whether Git CGI can search home directories."
-msgstr ""
-"Autoriser le CGI Git à effectuer des recherches dans les répertoires "
-"utilisateurs."
+msgstr "Autoriser le CGI Git à effectuer des recherches dans les répertoires utilisateurs."
 
 #: booleans.py:56
 msgid "Determine whether Git CGI can access cifs file systems."
@@ -2733,34 +2526,25 @@ msgstr "Déterminer si le CGI Git peut accéder aux systèmes de fichiers nfs."
 msgid ""
 "Determine whether Git session daemon can bind TCP sockets to all unreserved "
 "ports."
-msgstr ""
-"Déterminer si le démon de session Git peut lier les sockets TCP à tous ports "
-"non-réservés."
+msgstr "Déterminer si le démon de session Git peut lier les sockets TCP à tous ports non-réservés."
 
 #: booleans.py:59
 msgid ""
 "Determine whether calling user domains can execute Git daemon in the "
 "git_session_t domain."
-msgstr ""
-"Déterminer si les domaines utilisateurs appelants peuvent exécuter le démon "
-"Git dans le domaine git_session_t."
+msgstr "Déterminer si les domaines utilisateurs appelants peuvent exécuter le démon Git dans le domaine git_session_t."
 
 #: booleans.py:60
 msgid "Determine whether Git system daemon can search home directories."
-msgstr ""
-"Déterminer si le démon système Git à effectuer des recherches dans les "
-"répertoires utilisateurs."
+msgstr "Déterminer si le démon système Git à effectuer des recherches dans les répertoires utilisateurs."
 
 #: booleans.py:61
 msgid "Determine whether Git system daemon can access cifs file systems."
-msgstr ""
-"Déterminer si le démon système Git peut accéder aux systèmes de fichiers "
-"cifs."
+msgstr "Déterminer si le démon système Git peut accéder aux systèmes de fichiers cifs."
 
 #: booleans.py:62
 msgid "Determine whether Git system daemon can access nfs file systems."
-msgstr ""
-"Déterminer si le démon système Git peut accéder aux systèmes de fichiers nfs."
+msgstr "Déterminer si le démon système Git peut accéder aux systèmes de fichiers nfs."
 
 #: booleans.py:63
 msgid "Determine whether Gitosis can send mail."
@@ -2774,43 +2558,32 @@ msgstr "Activer la lecture de urandom pour tous les domaines."
 msgid ""
 "Allow glusterfsd to modify public files used for public file transfer "
 "services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-"Autoriser glusterd à modifier les fichiers publics utilisés pour les "
-"services de transfert de fichiers publics. Les fichiers ou répertoires "
-"doivent être étiquetés public_content_rw_t."
+msgstr "Autoriser glusterd à modifier les fichiers publics utilisés pour les services de transfert de fichiers publics. Les fichiers ou répertoires doivent être étiquetés public_content_rw_t."
 
 #: booleans.py:66
 msgid "Allow glusterfsd to share any file/directory read only."
-msgstr ""
-"Autoriser glusterfsd à partager n'importe quel fichier/répertoire accessible "
-"en lecture seule."
+msgstr "Autoriser glusterfsd à partager n'importe quel fichier/répertoire accessible en lecture seule."
 
 #: booleans.py:67
 msgid "Allow glusterfsd to share any file/directory read/write."
-msgstr ""
-"Autoriser glusterfsd à partager n'importe quel fichier/répertoire accessible "
-"en lecture/écriture."
+msgstr "Autoriser glusterfsd à partager n'importe quel fichier/répertoire accessible en lecture/écriture."
 
 #: booleans.py:68
 msgid ""
 "Allow usage of the gpg-agent --write-env-file option. This also allows gpg-"
 "agent to manage user files."
-msgstr ""
-"Autoriser l'utilisation de l'option gpg-agent --write-env-file. Ceci permet "
-"aussi à gpg-agent de gérer les fichiers utilisateur."
+msgstr "Autoriser l'utilisation de l'option gpg-agent --write-env-file. Ceci permet aussi à gpg-agent de gérer les fichiers utilisateur."
 
 #: booleans.py:69
 msgid ""
 "Allow gpg web domain to modify public files used for public file transfer "
 "services."
-msgstr ""
-"Autoriser le domaine web gpg à modifier les fichiers publics utilisés pour "
-"les services de transfert de fichiers publics."
+msgstr "Autoriser le domaine web gpg à modifier les fichiers publics utilisés pour les services de transfert de fichiers publics."
 
 #: booleans.py:70
 msgid ""
 "Allow gssd to list tmp directories and read the kerberos credential cache."
-msgstr ""
+msgstr "Autoriser gssd à répertorier les répertoires tmp et à lire le cache des informations d'identification kerberos."
 
 #: booleans.py:71
 msgid "Allow guest to exec content"
@@ -2820,10 +2593,7 @@ msgstr "Autoriser guest à exécuter du contenu"
 msgid ""
 "Allow Apache to modify public files used for public file transfer services. "
 "Directories/Files must be labeled public_content_rw_t."
-msgstr ""
-"Autoriser Apache à modifier les fichiers publics utilisés pour les services "
-"de transfert de fichiers publics. Les fichiers ou répertoires doivent être "
-"étiquetés public_content_rw_t."
+msgstr "Autoriser Apache à modifier les fichiers publics utilisés pour les services de transfert de fichiers publics. Les fichiers ou répertoires doivent être étiquetés public_content_rw_t."
 
 #: booleans.py:73
 msgid "Allow httpd to use built in scripting (usually php)"
@@ -2837,9 +2607,7 @@ msgstr "Autoriser le démon http à vérifier le spam"
 msgid ""
 "Allow httpd to act as a FTP client connecting to the ftp port and ephemeral "
 "ports"
-msgstr ""
-"Autoriser httpd à agir en tant que client FTP se connectant au port ftp et "
-"aux ports éphémères"
+msgstr "Autoriser httpd à agir en tant que client FTP se connectant au port ftp et aux ports éphémères"
 
 #: booleans.py:76
 msgid "Allow httpd to connect to the ldap port"
@@ -2855,22 +2623,17 @@ msgstr "Autoriser le démon http à se connecter à zabbix"
 
 #: booleans.py:79
 msgid "Allow HTTPD scripts and modules to connect to the network using TCP."
-msgstr ""
-"Autoriser les scripts et modules HTTPD à se connecter au réseau à l'aide de "
-"TCP."
+msgstr "Autoriser les scripts et modules HTTPD à se connecter au réseau à l'aide de TCP."
 
 #: booleans.py:80
-msgid "Allow HTTPD scripts and modules to connect to cobbler over the network."
-msgstr ""
-"Autoriser des scripts et modules HTTPD à se connecter à cobbler à travers le "
-"réseau."
+msgid ""
+"Allow HTTPD scripts and modules to connect to cobbler over the network."
+msgstr "Autoriser des scripts et modules HTTPD à se connecter à cobbler à travers le réseau."
 
 #: booleans.py:81
 msgid ""
 "Allow HTTPD scripts and modules to connect to databases over the network."
-msgstr ""
-"Autoriser les scripts et modules HTTPD à se connecter aux bases de données "
-"sur le réseau."
+msgstr "Autoriser les scripts et modules HTTPD à se connecter aux bases de données sur le réseau."
 
 #: booleans.py:82
 msgid "Allow httpd to connect to memcache server"
@@ -2894,8 +2657,7 @@ msgstr "Autoriser la prise en charge de cgi pour httpd"
 
 #: booleans.py:87
 msgid "Allow httpd to act as a FTP server by listening on the ftp port."
-msgstr ""
-"Autoriser httpd à agir en tant que serveur FTP en écoutant sur le port ftp."
+msgstr "Autoriser httpd à agir en tant que serveur FTP en écoutant sur le port ftp."
 
 #: booleans.py:88
 msgid "Allow httpd to read home directories"
@@ -2927,9 +2689,7 @@ msgstr "Autoriser httpd à lire le contenu utilisateur"
 
 #: booleans.py:95
 msgid "Allow Apache to run in stickshift mode, not transition to passenger"
-msgstr ""
-"Autoriser Apache à fonctionner en mode évolutif, ne pas faire la transition "
-"vers passager"
+msgstr "Autoriser Apache à fonctionner en mode évolutif, ne pas faire la transition vers passager"
 
 #: booleans.py:96
 msgid "Allow HTTPD scripts and modules to server cobbler files."
@@ -2942,17 +2702,13 @@ msgstr "Autoriser le démon httpd à modifier ses limites de ressources"
 #: booleans.py:98
 msgid ""
 "Allow HTTPD to run SSI executables in the same domain as system CGI scripts."
-msgstr ""
-"Autoriser HTTPD à exécuter les exécutables SSI dans le même domaine ques les "
-"scripts CGI système."
+msgstr "Autoriser HTTPD à exécuter les exécutables SSI dans le même domaine que les scripts CGI système."
 
 #: booleans.py:99
 msgid ""
 "Allow apache scripts to write to public content, directories/files must be "
 "labeled public_rw_content_t."
-msgstr ""
-"Autoriser les scripts apache à écrire sur des contenus publics. Les fichiers "
-"ou répertoires doivent être étiquetés public_rw_content_t."
+msgstr "Autoriser les scripts apache à écrire sur des contenus publics. Les fichiers ou répertoires doivent être étiquetés public_rw_content_t."
 
 #: booleans.py:100
 msgid "Allow Apache to execute tmp content."
@@ -2962,9 +2718,7 @@ msgstr "Autoriser Apache à exécuter le contenu tmp."
 msgid ""
 "Unify HTTPD to communicate with the terminal. Needed for entering the "
 "passphrase for certificates at the terminal."
-msgstr ""
-"Unifier HTTPD pour communiquer avec le terminal. Ceci est nécessaire pour "
-"saisir la phrase de passe des certificats sur le terminal."
+msgstr "Unifier HTTPD pour communiquer avec le terminal. Ceci est nécessaire pour saisir la phrase de passe des certificats sur le terminal."
 
 #: booleans.py:102
 msgid "Unify HTTPD handling of all content files."
@@ -3006,21 +2760,17 @@ msgstr "Déterminer si icecast peut écouter ou se connecteur à tout port TCP."
 msgid ""
 "Determine whether irc clients can listen on and connect to any unreserved "
 "TCP ports."
-msgstr ""
-"Déterminer si les clients IRC peuvent écouter ou se connecteur à tout port "
-"non-réservé."
+msgstr "Déterminer si les clients IRC peuvent écouter ou se connecteur à tout port non-réservé."
 
 #: booleans.py:112
 msgid ""
 "Allow the Irssi IRC Client to connect to any port, and to bind to any "
 "unreserved port."
-msgstr ""
-"Autoriser le client IRC Irssi à se connecter à tous les ports et à se lier à "
-"tout port non-réservé."
+msgstr "Autoriser le client IRC Irssi à se connecter à tous les ports et à se lier à tout port non-réservé."
 
 #: booleans.py:113
 msgid "Allow s-c-kdump to run bootloader in bootloader_t."
-msgstr ""
+msgstr "Autoriser s-c-kdump à exécuter le chargeur d'amorçage dans bootloader_t."
 
 #: booleans.py:114
 msgid "Allow confined applications to run with kerberos."
@@ -3036,7 +2786,7 @@ msgstr "Autoriser ksmtuned à utiliser les systèmes de fichiers nfs"
 
 #: booleans.py:117
 msgid "Allow logadm to exec content"
-msgstr ""
+msgstr "Autoriser logadm à exécuter un contenu"
 
 #: booleans.py:118
 msgid "Allow syslogd daemon to send mail"
@@ -3048,16 +2798,15 @@ msgstr "Autoriser syslogd à accéder aux terminaux en lecture/écriture"
 
 #: booleans.py:120
 msgid "Allow logging in and using the system from /dev/console."
-msgstr ""
-"Autoriser la connexion et l'utilisation du système depuis /dev/console."
+msgstr "Autoriser la connexion et l'utilisation du système depuis /dev/console."
 
 #: booleans.py:121
 msgid "Determine whether logwatch can connect to mail over the network."
-msgstr ""
+msgstr "Déterminer si logwatch peut se connecter à mail sur le réseau."
 
 #: booleans.py:122
 msgid "Allow epylog to send mail"
-msgstr ""
+msgstr "Autoriser epylog à envoyer des courriels"
 
 #: booleans.py:123
 msgid "Allow mailman to access FUSE file systems"
@@ -3081,16 +2830,13 @@ msgstr "Déterminer si mcelog prend en charge le mode serveur."
 
 #: booleans.py:128
 msgid "Determine whether minidlna can read generic user content."
-msgstr ""
+msgstr "Déterminer si minidlna peut lire les contenus utilisateur générique."
 
 #: booleans.py:129
 msgid ""
 "Control the ability to mmap a low area of the address space, as configured "
 "by /proc/sys/kernel/mmap_min_addr."
-msgstr ""
-"Contrôler la capacité d'allouer de l'espace dans la zone mémoire basse de "
-"l'espace d'adressage via mmap, comme configuré par /proc/sys/kernel/"
-"mmap_min_addr."
+msgstr "Contrôler la capacité d'allouer de l'espace dans la zone mémoire basse de l'espace d'adressage via mmap, comme configuré par /proc/sys/kernel/mmap_min_addr."
 
 #: booleans.py:130
 msgid "Allow mock to read files in home directories."
@@ -3098,14 +2844,11 @@ msgstr "Autoriser mock à lire les fichiers dans les répertoires utilisateurs."
 
 #: booleans.py:131
 msgid "Allow the mount commands to mount any directory or file."
-msgstr ""
-"Autorise la commande « mount » à monter n'importe quel répertoire ou fichier."
+msgstr "Autorise la commande « mount » à monter n'importe quel répertoire ou fichier."
 
 #: booleans.py:132
 msgid "Allow mozilla plugin domain to connect to the network using TCP."
-msgstr ""
-"Autoriser le domaine des greffons mozilla à se connecter au réseau à l'aide "
-"de TCP."
+msgstr "Autoriser le domaine des greffons mozilla à se connecter au réseau à l'aide de TCP."
 
 #: booleans.py:133
 msgid "Allow mozilla plugin to support GPS."
@@ -3117,9 +2860,7 @@ msgstr "Autorise le greffon mozilla à prendre en charge les protocoles spice."
 
 #: booleans.py:135
 msgid "Allow confined web browsers to read home directory content"
-msgstr ""
-"Autoriser les navigateurs web confinés à lire le contenu des répertoires "
-"utilisateurs"
+msgstr "Autoriser les navigateurs web confinés à lire le contenu des répertoires utilisateurs"
 
 #: booleans.py:136
 msgid "Determine whether mpd can traverse user home directories."
@@ -3149,31 +2890,21 @@ msgstr "Déterminer si Bind peut lier les sockets tcp aux ports http."
 msgid ""
 "Determine whether Bind can write to master zone files. Generally this is "
 "used for dynamic DNS or zone transfers."
-msgstr ""
-"Déterminer si BIND peut accéder en écriture aux fichiers de la zone "
-"principale. Ceci est habituellement utilisé pour le DNS dynamique ou les "
-"transferts de zone."
+msgstr "Déterminer si BIND peut accéder en écriture aux fichiers de la zone principale. Ceci est habituellement utilisé pour le DNS dynamique ou les transferts de zone."
 
 #: booleans.py:143
 msgid "Allow any files/directories to be exported read/only via NFS."
-msgstr ""
-"Autoriser que tout fichier/répertoire puisse être exporté en lecture/"
-"écriture via NFS."
+msgstr "Autoriser que tout fichier/répertoire puisse être exporté en lecture/écriture via NFS."
 
 #: booleans.py:144
 msgid "Allow any files/directories to be exported read/write via NFS."
-msgstr ""
-"Autoriser tous les fichiers ou répertoires à être exportés en lecture/"
-"écriture via NFS."
+msgstr "Autoriser tous les fichiers ou répertoires à être exportés en lecture/écriture via NFS."
 
 #: booleans.py:145
 msgid ""
 "Allow nfs servers to modify public files used for public file transfer "
 "services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-"Autoriser les serveurs nfs à modifier les fichiers publics utilisés pour les "
-"services de transfert de fichiers publics. Les fichiers ou répertoires "
-"doivent être étiquetés public_content_rw_t."
+msgstr "Autoriser les serveurs nfs à modifier les fichiers publics utilisés pour les services de transfert de fichiers publics. Les fichiers ou répertoires doivent être étiquetés public_content_rw_t."
 
 #: booleans.py:146
 msgid "Allow system to run with NIS"
@@ -3181,8 +2912,7 @@ msgstr "Autoriser le système à être exécuté avec NIS"
 
 #: booleans.py:147
 msgid "Allow confined applications to use nscd shared memory."
-msgstr ""
-"Autoriser les applications confinées à utiliser la mémoire partagée de nscd."
+msgstr "Autoriser les applications confinées à utiliser la mémoire partagée de nscd."
 
 #: booleans.py:148
 msgid "Allow openshift to lockdown app"
@@ -3190,22 +2920,19 @@ msgstr "Autoriser openshift à verrouiller les applications"
 
 #: booleans.py:149
 msgid "Determine whether openvpn can connect to the TCP network."
-msgstr ""
+msgstr "Déterminer si openvpn peut se connecter au réseau TCP."
 
 #: booleans.py:150
 msgid "Determine whether openvpn can read generic user home content files."
-msgstr ""
-"Déterminer si openvpn peut accéder à des fichiers en lecture et en écriture "
-"dans les contenus génériques des répertoires utilisateurs."
+msgstr "Déterminer si openvpn peut accéder à des fichiers en lecture et en écriture dans les contenus génériques des répertoires utilisateurs."
 
 #: booleans.py:151
 msgid "Allow openvpn to run unconfined scripts"
-msgstr ""
+msgstr "Autoriser openvpn à exécuter des scripts non-confinés"
 
 #: booleans.py:152
 msgid "Allow piranha-lvs domain to connect to the network using TCP."
-msgstr ""
-"Autoriser le domaine piranha-lvs à se connecter au réseau en utilisant TCP."
+msgstr "Autoriser le domaine piranha-lvs à se connecter au réseau en utilisant TCP."
 
 #: booleans.py:153
 msgid "Allow polipo to connect to all ports > 1023"
@@ -3215,17 +2942,13 @@ msgstr "Autoriser polipo à se connecter à tous les ports > 1023"
 msgid ""
 "Determine whether Polipo session daemon can bind tcp sockets to all "
 "unreserved ports."
-msgstr ""
-"Déterminer si le démon de session Polipo peut lier les sockets tcp à tous "
-"les ports non-réservés."
+msgstr "Déterminer si le démon de session Polipo peut lier les sockets tcp à tous les ports non-réservés."
 
 #: booleans.py:155
 msgid ""
 "Determine whether calling user domains can execute Polipo daemon in the "
 "polipo_session_t domain."
-msgstr ""
-"Déterminer si les domaines utilisateurs appelants peuvent exécuter le démon "
-"Polipo dans le domaine polipo_session_t."
+msgstr "Déterminer si les domaines utilisateurs appelants peuvent exécuter le démon Polipo dans le domaine polipo_session_t."
 
 #: booleans.py:156
 msgid "Determine whether polipo can access cifs file systems."
@@ -3241,31 +2964,23 @@ msgstr "Activer la prise en charge de répertoires multi-instances."
 
 #: booleans.py:159
 msgid "Allow postfix_local domain full write access to mail_spool directories"
-msgstr ""
-"Autoriser le domaine postfix_local à accéder en écriture aux répertoires "
-"mail_spool."
+msgstr "Autoriser le domaine postfix_local à accéder en écriture aux répertoires mail_spool."
 
 #: booleans.py:160
 msgid "Allow postgresql to use ssh and rsync for point-in-time recovery"
-msgstr ""
-"Autoriser postgresql à utiliser ssh et rsync pour la récupération à pointage "
-"dans le temps"
+msgstr "Autoriser postgresql à utiliser ssh et rsync pour la récupération à pointage dans le temps"
 
 #: booleans.py:161
 msgid "Allow transmit client label to foreign database"
-msgstr ""
-"Autoriser à transmettre l'étiquette du client à une base de données externe"
+msgstr "Autoriser à transmettre l'étiquette du client à une base de données externe"
 
 #: booleans.py:162
 msgid "Allow database admins to execute DML statement"
-msgstr ""
-"Autoriser les administrateurs de bases de données à exécuter des "
-"instructions DML"
+msgstr "Autoriser les administrateurs de bases de données à exécuter des instructions DML"
 
 #: booleans.py:163
 msgid "Allow unprivileged users to execute DDL statement"
-msgstr ""
-"Autoriser les utilisateurs non-privilégiés à exécuter des instructions DDL"
+msgstr "Autoriser les utilisateurs non-privilégiés à exécuter des instructions DDL"
 
 #: booleans.py:164
 msgid "Allow pppd to load kernel modules for certain modems"
@@ -3282,9 +2997,7 @@ msgstr "Déterminer si privoxy peut se connecter sur tous les ports TCP."
 #: booleans.py:167
 msgid ""
 "Permit to prosody to bind apache port. Need to be activated to use BOSH."
-msgstr ""
-"Permettre à prosody à se lier à un port apache. Doit être activé pour "
-"utiliser BOSH."
+msgstr "Permettre à prosody à se lier à un port apache. Doit être activé pour utiliser BOSH."
 
 #: booleans.py:168
 msgid "Allow Puppet client to manage all file types."
@@ -3292,9 +3005,7 @@ msgstr "Autoriser le client Puppet à gérer tous les types de fichiers."
 
 #: booleans.py:169
 msgid "Allow Puppet master to use connect to MySQL and PostgreSQL database"
-msgstr ""
-"Autoriser Puppet master à se connecter aux bases de données MySQL et "
-"PostgreSQL"
+msgstr "Autoriser Puppet master à se connecter aux bases de données MySQL et PostgreSQL"
 
 #: booleans.py:170
 msgid "Allow racoon to read shadow"
@@ -3304,10 +3015,7 @@ msgstr "Autoriser racoon à lire shadow"
 msgid ""
 "Allow rsync to modify public files used for public file transfer services.  "
 "Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-"Autoriser rsync à modifier les fichiers publics utilisés pour les services "
-"de transfert de fichiers publics. Les fichiers ou répertoires doivent être "
-"étiquetés public_content_rw_t."
+msgstr "Autoriser rsync à modifier les fichiers publics utilisés pour les services de transfert de fichiers publics. Les fichiers ou répertoires doivent être étiquetés public_content_rw_t."
 
 #: booleans.py:172
 msgid "Allow rsync to run as a client"
@@ -3315,28 +3023,21 @@ msgstr "Autoriser rsync à s'exécuter en tant que client"
 
 #: booleans.py:173
 msgid "Allow rsync to export any files/directories read only."
-msgstr ""
-"Autoriser rsync à exporter tout fichier/répertoire accessible en lecture "
-"seule."
+msgstr "Autoriser rsync à exporter tout fichier/répertoire accessible en lecture seule."
 
 #: booleans.py:174
 msgid "Allow rsync server to manage all files/directories on the system."
-msgstr ""
-"Autoriser rsync à gérer tous les fichiers ou répertoires sur le système."
+msgstr "Autoriser rsync à gérer tous les fichiers ou répertoires sur le système."
 
 #: booleans.py:175
 msgid "Allow samba to create new home directories (e.g. via PAM)"
-msgstr ""
-"Autoriser samba à créer de nouveaux répertoires utilisateurs (par ex. via "
-"PAM)"
+msgstr "Autoriser samba à créer de nouveaux répertoires utilisateurs (par ex. via PAM)"
 
 #: booleans.py:176
 msgid ""
 "Allow samba to act as the domain controller, add users, groups and change "
 "passwords."
-msgstr ""
-"Autoriser samba à agir en tant que contrôleur de domaine, à ajouter des "
-"utilisateurs et des groupes, et à modifier les mots de passe."
+msgstr "Autoriser samba à agir en tant que contrôleur de domaine, à ajouter des utilisateurs et des groupes, et à modifier les mots de passe."
 
 #: booleans.py:177
 msgid "Allow samba to share users home directories."
@@ -3348,9 +3049,7 @@ msgstr "Autoriser samba à partager tout fichier/répertoire en lecture-seule."
 
 #: booleans.py:179
 msgid "Allow samba to share any file/directory read/write."
-msgstr ""
-"Autoriser samba à partager n'importe quel fichier/répertoire accessible en "
-"lecture/écriture."
+msgstr "Autoriser samba à partager n'importe quel fichier/répertoire accessible en lecture/écriture."
 
 #: booleans.py:180
 msgid "Allow samba to act as a portmapper"
@@ -3392,9 +3091,7 @@ msgstr "Autoriser secadm à exécuter du contenu"
 msgid ""
 "disallow programs, such as newrole, from transitioning to administrative "
 "user domains."
-msgstr ""
-"interdire à des programmes, comme newrole, de faire la transition vers des "
-"domaines utilisateurs administratifs."
+msgstr "interdire à des programmes, comme newrole, de faire la transition vers des domaines utilisateurs administratifs."
 
 #: booleans.py:190
 msgid "Disable kernel module loading."
@@ -3405,10 +3102,7 @@ msgid ""
 "Boolean to determine whether the system permits loading policy, setting "
 "enforcing mode, and changing boolean values.  Set this to true and you have "
 "to reboot to set it back."
-msgstr ""
-"Booléen qui permet de déterminer si les domaines confinés peuvent charger "
-"une stratégie, d'activer le mode « application », et de modifier les valeurs "
-"booléennes. Après activation, vous devrez redémarrer pour le remodifier."
+msgstr "Booléen qui permet de déterminer si les domaines confinés peuvent charger une stratégie, d'activer le mode « application », et de modifier les valeurs booléennes. Après activation, vous devrez redémarrer pour le remodifier."
 
 #: booleans.py:192
 msgid "Allow regular users direct dri device access"
@@ -3419,31 +3113,20 @@ msgid ""
 "Allow unconfined executables to make their heap memory executable.  Doing "
 "this is a really bad idea. Probably indicates a badly coded executable, but "
 "could indicate an attack. This executable should be reported in bugzilla"
-msgstr ""
-"Autoriser les exécutables non-confinés à rendre leur mémoire de tas "
-"exécutable. Ceci est une mauvaise idée et indique un exécutable mal codé, "
-"mais peut aussi indiquer une attaque. Cet exécutable devrait être rapporté "
-"sur Bugzilla."
+msgstr "Autoriser les exécutables non-confinés à rendre leur mémoire de tas exécutable. Ceci est une mauvaise idée et indique un exécutable mal codé, mais peut aussi indiquer une attaque. Cet exécutable devrait être rapporté sur Bugzilla."
 
 #: booleans.py:194
 msgid ""
 "Allow all unconfined executables to use libraries requiring text relocation "
 "that are not labeled textrel_shlib_t"
-msgstr ""
-"Autoriser tous les exécutables non-confinés à utiliser des bibliothèques "
-"requérant une relocalisation de segment text qui ne sont pas étiquetées "
-"textrel_shlib_t"
+msgstr "Autoriser tous les exécutables non-confinés à utiliser des bibliothèques requérant une relocalisation de segment text qui ne sont pas étiquetées textrel_shlib_t"
 
 #: booleans.py:195
 msgid ""
 "Allow unconfined executables to make their stack executable.  This should "
 "never, ever be necessary. Probably indicates a badly coded executable, but "
 "could indicate an attack. This executable should be reported in bugzilla"
-msgstr ""
-"Si vous souhaitez autoriser des exécutables non-confinés à rendre leur pile "
-"exécutable. Ceci ne devrait jamais être nécessaire et indique probablement "
-"un exécutable mal codé, mais il pourrait aussi s'agir d'une attaque. Cet "
-"exécutable devrait être rapporté sur Bugzilla"
+msgstr "Si vous souhaitez autoriser des exécutables non-confinés à rendre leur pile exécutable. Ceci ne devrait jamais être nécessaire et indique probablement un exécutable mal codé, mais il pourrait aussi s'agir d'une attaque. Cet exécutable devrait être rapporté sur Bugzilla"
 
 #: booleans.py:196
 msgid "Allow users to connect to the local mysql server"
@@ -3451,10 +3134,9 @@ msgstr "Autoriser les utilisateurs à se connecter au serveur local mysql"
 
 #: booleans.py:197
 msgid ""
-"Allow confined users the ability to execute the ping and traceroute commands."
-msgstr ""
-"Autoriser les utilisateurs confinés à utiliser les commandes ping et "
-"traceroute."
+"Allow confined users the ability to execute the ping and traceroute "
+"commands."
+msgstr "Autoriser les utilisateurs confinés à utiliser les commandes ping et traceroute."
 
 #: booleans.py:198
 msgid "Allow users to connect to PostgreSQL"
@@ -3464,9 +3146,7 @@ msgstr "Autoriser les utilisateurs à se connecter à PostgreSQL"
 msgid ""
 "Allow user to r/w files on filesystems that do not have extended attributes "
 "(FAT, CDROM, FLOPPY)"
-msgstr ""
-"Autoriser l'utilisateur à accéder en lecture/écriture aux systèmes de "
-"fichiers ne possédant pas d'attributs étendus (FAT, CDROM, FLOPPY)"
+msgstr "Autoriser l'utilisateur à accéder en lecture/écriture aux systèmes de fichiers ne possédant pas d'attributs étendus (FAT, CDROM, FLOPPY)"
 
 #: booleans.py:200
 msgid "Allow user music sharing"
@@ -3474,52 +3154,37 @@ msgstr "Autoriser le partage de musique des utilisateurs"
 
 #: booleans.py:201
 msgid ""
-"Allow users to run TCP servers (bind to ports and accept connection from the "
-"same domain and outside users)  disabling this forces FTP passive mode and "
+"Allow users to run TCP servers (bind to ports and accept connection from the"
+" same domain and outside users)  disabling this forces FTP passive mode and "
 "may change other protocols."
-msgstr ""
-"Autoriser les utilisateurs à exécuter des serveurs TCP (lier aux ports et "
-"accepter la connexion depuis le même domaine et des utilisateurs externes). "
-"Désactiver ceci force le mode FTP passif et peut modifier d'autres "
-"protocoles."
+msgstr "Autoriser les utilisateurs à exécuter des serveurs TCP (lier aux ports et accepter la connexion depuis le même domaine et des utilisateurs externes). Désactiver ceci force le mode FTP passif et peut modifier d'autres protocoles."
 
 #: booleans.py:202
 msgid "Allow user  to use ssh chroot environment."
-msgstr ""
-"Autoriser les utilisateurs à utiliser les environnements chroot de ssh."
+msgstr "Autoriser les utilisateurs à utiliser les environnements chroot de ssh."
 
 #: booleans.py:203
 msgid ""
 "Determine whether sftpd can modify public files used for public file "
 "transfer services. Directories/Files must be labeled public_content_rw_t."
-msgstr ""
-"Déterminer si sftpd peut modifier les fichiers publics utilisés pour les "
-"services de transfert de fichiers publics. Les fichiers ou répertoires "
-"doivent être étiquetés public_content_rw_t."
+msgstr "Déterminer si sftpd peut modifier les fichiers publics utilisés pour les services de transfert de fichiers publics. Les fichiers ou répertoires doivent être étiquetés public_content_rw_t."
 
 #: booleans.py:204
 msgid ""
 "Determine whether sftpd-can read and write files in user home directories."
-msgstr ""
-"Déterminer si sftpd peut accéder aux fichiers en lecture et en écriture dans "
-"les répertoires utilisateurs"
+msgstr "Déterminer si sftpd peut accéder aux fichiers en lecture et en écriture dans les répertoires utilisateurs"
 
 #: booleans.py:205
 msgid ""
 "Determine whether sftpd-can login to local users and read and write all "
 "files on the system, governed by DAC."
-msgstr ""
-"Déterminer si sftpd peut se connecter aux utilisateurs locaux et lire ou "
-"écrire tous les fichiers du système, gouverné par le contrôle d'accès "
-"discrétionnaire."
+msgstr "Déterminer si sftpd peut se connecter aux utilisateurs locaux et lire ou écrire tous les fichiers du système, gouverné par le contrôle d'accès discrétionnaire."
 
 #: booleans.py:206
 msgid ""
 "Determine whether sftpd can read and write files in user ssh home "
 "directories."
-msgstr ""
-"Déterminer si sftpd peut accéder aux fichiers en lecture et en écriture dans "
-"les répertoires utilisateurs."
+msgstr "Déterminer si sftpd peut accéder aux fichiers en lecture et en écriture dans les répertoires utilisateurs."
 
 #: booleans.py:207
 msgid "Allow sge to connect to the network using any TCP port"
@@ -3531,18 +3196,13 @@ msgstr "Autoriser sge à accéder aux systèmes de fichiers nfs."
 
 #: booleans.py:209
 msgid "Determine whether smartmon can support devices on 3ware controllers."
-msgstr ""
-"Déterminer si smartmon peut prendre en charge les périphériques sur des "
-"contrôleurs 3ware."
+msgstr "Déterminer si smartmon peut prendre en charge les périphériques sur des contrôleurs 3ware."
 
 #: booleans.py:210
 msgid ""
 "Allow samba to modify public files used for public file transfer services.  "
 "Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-"Autoriser samba à modifier des fichiers publics utilisés pour les services "
-"de transfert de fichiers publics. Les fichiers ou répertoires doivent être "
-"étiquetés public_content_rw_t."
+msgstr "Autoriser samba à modifier des fichiers publics utilisés pour les services de transfert de fichiers publics. Les fichiers ou répertoires doivent être étiquetés public_content_rw_t."
 
 #: booleans.py:211
 msgid "Allow user spamassassin clients to use the network."
@@ -3550,8 +3210,7 @@ msgstr "Autoriser les clients spamassassin à utiliser le réseau."
 
 #: booleans.py:212
 msgid "Allow spamd to read/write user home directories."
-msgstr ""
-"Autoriser spamd à accéder en lecture/écriture aux répertoires utilisateurs."
+msgstr "Autoriser spamd à accéder en lecture/écriture aux répertoires utilisateurs."
 
 #: booleans.py:213
 msgid "Determine whether squid can connect to all TCP ports."
@@ -3565,9 +3224,7 @@ msgstr "Déterminer si squid peut fonctionner comme un mandataire transparent."
 msgid ""
 "Allow ssh with chroot env to read and write files in the user home "
 "directories"
-msgstr ""
-"Autoriser ssh avec l'environnement chroot à accéder aux fichiers en lecture "
-"et écriture dans les répertoires utilisateurs"
+msgstr "Autoriser ssh avec l'environnement chroot à accéder aux fichiers en lecture et écriture dans les répertoires utilisateurs"
 
 #: booleans.py:216
 msgid "allow host key based authentication"
@@ -3583,39 +3240,30 @@ msgstr "Autoriser staff à exécuter du contenu"
 
 #: booleans.py:219
 msgid "allow staff user to create and transition to svirt domains."
-msgstr ""
-"autoriser un utilisateur staff à créer puis faire la transition vers des "
-"domaines svirt."
+msgstr "autoriser un utilisateur staff à créer puis faire la transition vers des domaines svirt."
 
 #: booleans.py:220
 msgid "Allow sysadm to exec content"
 msgstr "Autoriser sysadm à exécuter du contenu"
 
 #: booleans.py:221
-msgid "Allow the Telepathy connection managers to connect to any network port."
-msgstr ""
-"Autoriser les gestionnaires de connexion Telepathy à se connecter à "
-"n'importe quel port réseau."
+msgid ""
+"Allow the Telepathy connection managers to connect to any network port."
+msgstr "Autoriser les gestionnaires de connexion Telepathy à se connecter à n'importe quel port réseau."
 
 #: booleans.py:222
 msgid ""
 "Allow the Telepathy connection managers to connect to any generic TCP port."
-msgstr ""
-"Autoriser les gestionnaires de connexion Telepathy à se connecter à tout "
-"port TCP générique."
+msgstr "Autoriser les gestionnaires de connexion Telepathy à se connecter à tout port TCP générique."
 
 #: booleans.py:223
 msgid ""
 "Allow tftp to modify public files used for public file transfer services."
-msgstr ""
-"Autoriser tftp à modifier les fichiers publics utilisés pour les services de "
-"transfert de fichiers publics."
+msgstr "Autoriser tftp à modifier les fichiers publics utilisés pour les services de transfert de fichiers publics."
 
 #: booleans.py:224
 msgid "Allow tftp to read and write files in the user home directories"
-msgstr ""
-"Autoriser tftp à accéder aux fichiers en lecture et en écriture dans les "
-"répertoires utilisateurs"
+msgstr "Autoriser tftp à accéder aux fichiers en lecture et en écriture dans les répertoires utilisateurs"
 
 #: booleans.py:225
 msgid "Determine whether tor can bind tcp sockets to all unreserved ports."
@@ -3629,29 +3277,21 @@ msgstr "Autoriser tor à agir en tant que relais"
 msgid ""
 "allow unconfined users to transition to the chrome sandbox domains when "
 "running chrome-sandbox"
-msgstr ""
-"autoriser les utilisateurs non-confinés à faire la transition vers les "
-"domaines bacs à sable de chrome lors de l'exécution de chrome-sandbox"
+msgstr "autoriser les utilisateurs non-confinés à faire la transition vers les domaines bacs à sable de chrome lors de l'exécution de chrome-sandbox"
 
 #: booleans.py:228
 msgid "Allow a user to login as an unconfined domain"
-msgstr ""
-"Autoriser un utilisateur à se connecter en tant que domaine non-confiné"
+msgstr "Autoriser un utilisateur à se connecter en tant que domaine non-confiné"
 
 #: booleans.py:229
 msgid ""
 "Allow unconfined users to transition to the Mozilla plugin domain when "
 "running xulrunner plugin-container."
-msgstr ""
-"Autoriser des utilisateurs non-confinés à faire la transition vers le "
-"domaine des greffons Mozilla lors de l'exécution de xulrunner plugin-"
-"container."
+msgstr "Autoriser des utilisateurs non-confinés à faire la transition vers le domaine des greffons Mozilla lors de l'exécution de xulrunner plugin-container."
 
 #: booleans.py:230
 msgid "Allow unprivledged user to create and transition to svirt domains."
-msgstr ""
-"Autoriser un utilisateur non privilégié à créer puis à faire la transition "
-"vers des domaines svirt."
+msgstr "Autoriser un utilisateur non privilégié à créer puis à faire la transition vers des domaines svirt."
 
 #: booleans.py:231
 msgid "Support ecryptfs home directories"
@@ -3683,37 +3323,31 @@ msgstr "Déterminer si varnishd peut utiliser le réseau TCP complet."
 
 #: booleans.py:238
 msgid ""
-"Determine whether attempts by vbetool to mmap low regions should be silently "
-"blocked."
-msgstr ""
-"Déterminer si les tentatives de vbetool d'utiliser mmap sur les régions de "
-"mémoire basse doivent être ignorées en silence."
+"Determine whether attempts by vbetool to mmap low regions should be silently"
+" blocked."
+msgstr "Déterminer si les tentatives de vbetool d'utiliser mmap sur les régions de mémoire basse doivent être ignorées en silence."
 
 #: booleans.py:239
 msgid "Allow sandbox containers to send audit messages"
-msgstr ""
+msgstr "Autoriser les conteneurs sandbox à envoyer des messages d'audit"
 
 #: booleans.py:240
 msgid "Allow sandbox containers to use netlink system calls"
-msgstr ""
+msgstr "Autoriser les conteneurs sandbox à utiliser des appels système netlink"
 
 #: booleans.py:241
 msgid "Allow virtual processes to run as userdomains"
-msgstr ""
+msgstr "Autoriser les processus virtuels à être exécutés en tant que domaines utilisateur"
 
 #: booleans.py:242
 msgid ""
 "Allow confined virtual guests to use serial/parallel communication ports"
-msgstr ""
-"Autoriser les invités virtuels confinés à utiliser des ports de "
-"communication série/parallèles"
+msgstr "Autoriser les invités virtuels confinés à utiliser des ports de communication série/parallèles"
 
 #: booleans.py:243
 msgid ""
 "Allow confined virtual guests to use executable memory and executable stack"
-msgstr ""
-"Autoriser les invités virtuels confinés à utiliser la mémoire exécutable et "
-"la pile exécutable"
+msgstr "Autoriser les invités virtuels confinés à utiliser la mémoire exécutable et la pile exécutable"
 
 #: booleans.py:244
 msgid "Allow confined virtual guests to read fuse files"
@@ -3725,9 +3359,7 @@ msgstr "Autoriser les invités virtuels confinés à gérer des fichiers nfs"
 
 #: booleans.py:246
 msgid "Allow confined virtual guests to interact with rawip sockets"
-msgstr ""
-"Autoriser les invités virtuels confinés à interagir avec des sockets IP "
-"brutes"
+msgstr "Autoriser les invités virtuels confinés à interagir avec des sockets IP brutes"
 
 #: booleans.py:247
 msgid "Allow confined virtual guests to manage cifs files"
@@ -3739,8 +3371,7 @@ msgstr "Autoriser les invités virtuels confinés à interagir avec sanlock"
 
 #: booleans.py:249
 msgid "Allow confined virtual guests to use usb devices"
-msgstr ""
-"Autoriser les invités virtuels confinés à utiliser des périphériques usb"
+msgstr "Autoriser les invités virtuels confinés à utiliser des périphériques usb"
 
 #: booleans.py:250
 msgid "Allow confined virtual guests to interact with the xserver"
@@ -3758,29 +3389,22 @@ msgstr "Déterminer si webadm peut lire les fichiers utilisateurs génériques."
 msgid ""
 "Determine whether attempts by wine to mmap low regions should be silently "
 "blocked."
-msgstr ""
-"Déterminer si les tentatives de wine d'utiliser mmap sur les régions de "
-"mémoire basse doivent être ignorées en silence."
+msgstr "Déterminer si les tentatives de wine d'utiliser mmap sur les régions de mémoire basse doivent être ignorées en silence."
 
 #: booleans.py:254
 msgid "Allow the graphical login program to execute bootloader"
-msgstr ""
-"Autoriser le programme de connexion graphique à exécuter le chargeur "
-"d'amorçage"
+msgstr "Autoriser le programme de connexion graphique à exécuter le chargeur d'amorçage"
 
 #: booleans.py:255
 msgid ""
 "Allow the graphical login program to login directly as sysadm_r:sysadm_t"
-msgstr ""
-"Autoriser le programme de connexion graphique à se connecter directement en "
-"tant que sysadm_r:sysadm_t"
+msgstr "Autoriser le programme de connexion graphique à se connecter directement en tant que sysadm_r:sysadm_t"
 
 #: booleans.py:256
 msgid ""
-"Allow the graphical login program to create files in HOME dirs as xdm_home_t."
-msgstr ""
-"Autorise le programme de mire de connexion graphique à créer des fichiers "
-"dans les répertoires HOME comme xdm_home_t."
+"Allow the graphical login program to create files in HOME dirs as "
+"xdm_home_t."
+msgstr "Autorise le programme de mire de connexion graphique à créer des fichiers dans les répertoires HOME comme xdm_home_t."
 
 #: booleans.py:257
 msgid "Allow xen to manage nfs files"
@@ -3790,22 +3414,16 @@ msgstr "Autoriser xen à gérer les fichiers nfs"
 msgid ""
 "Allow xend to run blktapctrl/tapdisk. Not required if using dedicated "
 "logical volumes for disk images."
-msgstr ""
-"Autoriser xend à exécuter blktapctrl/tapdisk. Ceci n'est pas nécessaires si "
-"des volumes logiques dédiés sont utilisés pour les images disque."
+msgstr "Autoriser xend à exécuter blktapctrl/tapdisk. Ceci n'est pas nécessaires si des volumes logiques dédiés sont utilisés pour les images disque."
 
 #: booleans.py:259
 msgid "Allow xend to run qemu-dm. Not required if using paravirt and no vfb."
-msgstr ""
-"Autoriser xend à exécuter qemu-dm. Ceci n'est pas nécessaire si vous "
-"utilisez la paravirtualisation et pas de vfb."
+msgstr "Autoriser xend à exécuter qemu-dm. Ceci n'est pas nécessaire si vous utilisez la paravirtualisation et pas de vfb."
 
 #: booleans.py:260
 msgid ""
 "Allow xguest users to configure Network Manager and connect to apache ports"
-msgstr ""
-"Autoriser les utilisateurs xguest à configurer Network Manager et à se "
-"connecter aux ports apache"
+msgstr "Autoriser les utilisateurs xguest à configurer Network Manager et à se connecter aux ports apache"
 
 #: booleans.py:261
 msgid "Allow xguest to exec content"
@@ -3817,14 +3435,11 @@ msgstr "Autoriser les utilisateurs xguest à monter des supports amovibles"
 
 #: booleans.py:263
 msgid "Allow xguest to use blue tooth devices"
-msgstr ""
-"Autoriser les utilisateurs xguest à utiliser des périphériques bluetooth"
+msgstr "Autoriser les utilisateurs xguest à utiliser des périphériques bluetooth"
 
 #: booleans.py:264
 msgid "Allows clients to write to the X server shared memory segments."
-msgstr ""
-"Autoriser les clients à écrire sur les segments de la mémoire partagée du "
-"serveur X."
+msgstr "Autoriser les clients à écrire sur les segments de la mémoire partagée du serveur X."
 
 #: booleans.py:265
 msgid "Allows XServer to execute writable memory"
@@ -3840,7 +3455,7 @@ msgstr "Déterminer si zabbix peut se connecter sur tous les ports TCP."
 
 #: booleans.py:268
 msgid "Allow zarafa domains to setrlimit/sys_rouserce."
-msgstr ""
+msgstr "Autoriser les domaines zarafa à effectuer setrlimit/sys_rouserce."
 
 #: booleans.py:269
 msgid "Allow zebra daemon to write it configuration files"
@@ -3850,9 +3465,7 @@ msgstr "Autoriser le démon zebra à écrire des fichiers de configuration"
 msgid ""
 "Allow ZoneMinder to modify public files used for public file transfer "
 "services."
-msgstr ""
-"Autoriser ZoneMinder à modifier les fichiers publics utilisés pour les "
-"services de transfert de fichiers publics."
+msgstr "Autoriser ZoneMinder à modifier les fichiers publics utilisés pour les services de transfert de fichiers publics."
 
 #: booleans.py:271
 msgid "Allow ZoneMinder to run su/sudo."
@@ -3865,7 +3478,7 @@ msgstr "L'interface %s n'existe pas."
 
 #: ../sepolicy/sepolicy.py:293
 msgid "You need to install policycoreutils-gui package to use the gui option"
-msgstr ""
+msgstr "Vous devez installer le paquetage policycoreutils-gui afin d'utiliser l'option gui"
 
 #: ../sepolicy/sepolicy.py:297
 msgid "Graphical User Interface for SELinux Policy"
@@ -3877,7 +3490,7 @@ msgstr "Nom(s) de domaine des pages de manuel à créer"
 
 #: ../sepolicy/sepolicy.py:312
 msgid "Alternative root needs to be setup"
-msgstr ""
+msgstr "Le répertoire racine alternatif doit être paramétré"
 
 #: ../sepolicy/sepolicy.py:328
 msgid "Generate SELinux man pages"
@@ -3893,9 +3506,7 @@ msgstr "nom du système d'exploitation pour les pages de manuel"
 
 #: ../sepolicy/sepolicy.py:335
 msgid "Generate HTML man pages structure for selected SELinux man page"
-msgstr ""
-"Créer la structure HTML des pages de manuel pour les pages de manuel SELinux "
-"sélectionnées"
+msgstr "Créer la structure HTML des pages de manuel pour les pages de manuel SELinux sélectionnées"
 
 #: ../sepolicy/sepolicy.py:337
 msgid "Alternate root directory, defaults to /"
@@ -3905,7 +3516,7 @@ msgstr "Répertoire racine alternatif, par défaut /"
 msgid ""
 "With this flag, alternative root path needs to include file context files "
 "and policy.xml file"
-msgstr ""
+msgstr "Avec cet indicateur, le chemin d'accès racine alternatif doit inclure des fichiers de contexte de fichier et le fichier policy.xml"
 
 #: ../sepolicy/sepolicy.py:343
 msgid "All domains"
@@ -3933,13 +3544,11 @@ msgstr "afficher les ports auquel ce domaine peut se lier ou se connecter"
 
 #: ../sepolicy/sepolicy.py:368
 msgid "show ports to which this application can bind and/or connect"
-msgstr ""
+msgstr "afficher les ports auxquels cette application peut se lier ou se connecter"
 
 #: ../sepolicy/sepolicy.py:383
 msgid "query SELinux policy to see if domains can communicate with each other"
-msgstr ""
-"interroger la stratégie SELinux pour voir si les domaines peuvent "
-"communiquer ensemble"
+msgstr "interroger la stratégie SELinux pour voir si les domaines peuvent communiquer ensemble"
 
 #: ../sepolicy/sepolicy.py:386
 msgid "Source Domain"
@@ -3951,8 +3560,7 @@ msgstr "Domaine cible"
 
 #: ../sepolicy/sepolicy.py:408
 msgid "query SELinux Policy to see description of booleans"
-msgstr ""
-"Interroger la stratégie SELinux pour voir les descriptions des booléens"
+msgstr "Interroger la stratégie SELinux pour voir les descriptions des booléens"
 
 #: ../sepolicy/sepolicy.py:412
 msgid "get all booleans descriptions"
@@ -3966,9 +3574,7 @@ msgstr "booléan pour lequel obtenir la description"
 msgid ""
 "query SELinux Policy to see how a source process domain can transition to "
 "the target process domain"
-msgstr ""
-"interroger la stratégie SELinux pour voir si un domaine de traitement source "
-"peut faire la transition vers un domaine de traitement cible"
+msgstr "interroger la stratégie SELinux pour voir si un domaine de traitement source peut faire la transition vers un domaine de traitement cible"
 
 #: ../sepolicy/sepolicy.py:428
 msgid "source process domain"
@@ -3991,23 +3597,23 @@ msgstr "Commande nécessaire pour ce type de stratégie"
 #, python-format
 msgid ""
 "-t option can not be used with '%s' domains. Read usage for more details."
-msgstr ""
+msgstr "l'option -t ne peut pas être utilisée avec les domaines « %s ». Veuillez lire l'utilisation pour plus de détails."
 
 #: ../sepolicy/sepolicy.py:494
 #, python-format
 msgid ""
 "-d option can not be used with '%s' domains. Read usage for more details."
-msgstr ""
+msgstr "l'option -d ne peut pas être utilisée avec les domaines « %s ».  Veuillez lire l'utilisation pour plus de détails."
 
 #: ../sepolicy/sepolicy.py:498
 #, python-format
 msgid ""
 "-a option can not be used with '%s' domains. Read usage for more details."
-msgstr ""
+msgstr "l'option -a ne peut pas être utilisée avec les domaines « %s ».  Veuillez lire l'utilisation pour plus de détails."
 
 #: ../sepolicy/sepolicy.py:502
 msgid "-w option can not be used with the --newtype option"
-msgstr ""
+msgstr "l'option -w ne peut pas être utilisée avec l'option --newtype"
 
 #: ../sepolicy/sepolicy.py:522
 msgid "List SELinux Policy interfaces"
@@ -4027,15 +3633,11 @@ msgstr "Entrez le type de domaine que vous allez étendre"
 
 #: ../sepolicy/sepolicy.py:557
 msgid "Enter SELinux user(s) which will transition to this domain"
-msgstr ""
-"Entrez le ou les utilisateurs SELinux qui feront la transition vers ce "
-"domaine"
+msgstr "Entrez le ou les utilisateurs SELinux qui feront la transition vers ce domaine"
 
 #: ../sepolicy/sepolicy.py:560
 msgid "Enter SELinux role(s) to which the administror domain will transition"
-msgstr ""
-"Entrez le ou les rôles SELinux vers lesquels le domaine administrateur fera "
-"transition"
+msgstr "Entrez le ou les rôles SELinux vers lesquels le domaine administrateur fera transition"
 
 #: ../sepolicy/sepolicy.py:563
 msgid "Enter domain(s) which this confined admin will administrate"
@@ -4087,7 +3689,7 @@ msgstr "Stratégie SELinux alternative, par défaut /sys/fs/selinux/policy"
 #: ../sepolicy/sepolicy/__init__.py:96
 #, python-format
 msgid "-- Allowed %s [ %s ]"
-msgstr ""
+msgstr "-- Autorisé %s [ %s ]"
 
 #: ../sepolicy/sepolicy/__init__.py:102 ../sepolicy/sepolicy/gui.py:1152
 msgid "all files"
@@ -4127,9 +3729,7 @@ msgstr "Aucune stratégie SELinux installée"
 
 #: ../sepolicy/sepolicy/__init__.py:506
 msgid "You must regenerate interface info by running /usr/bin/sepolgen-ifgen"
-msgstr ""
-"Vous devez régénérer l'information des interfaces en lançant  /usr/bin/"
-"sepolgen-ifgen"
+msgstr "Vous devez régénérer l'information des interfaces en lançant  /usr/bin/sepolgen-ifgen"
 
 #: ../sepolicy/sepolicy/__init__.py:768
 #, python-format
@@ -4188,25 +3788,21 @@ msgstr "Vous devez entrer un type valide de stratégie"
 #: ../sepolicy/sepolicy/generate.py:197
 #, python-format
 msgid "You must enter a name for your policy module for your '%s'."
-msgstr ""
+msgstr "Vous devez saisir un nom pour le module de stratégie de votre « %s »."
 
 #: ../sepolicy/sepolicy/generate.py:335
 msgid ""
 "Name must be alpha numberic with no spaces. Consider using option \"-n "
 "MODULENAME\""
-msgstr ""
-"Le nom doit être alphanumérique sans espaces. Pensez à utiliser l'option « -"
-"n MODULENAME »"
+msgstr "Le nom doit être alphanumérique sans espaces. Pensez à utiliser l'option « -n MODULENAME »"
 
 #: ../sepolicy/sepolicy/generate.py:427
 msgid "User Role types can not be assigned executables."
-msgstr ""
-"Les types de rôles utilisateurs ne peuvent se voir affecter des exécutables."
+msgstr "Les types de rôles utilisateurs ne peuvent se voir affecter des exécutables."
 
 #: ../sepolicy/sepolicy/generate.py:433
 msgid "Only Daemon apps can use an init script.."
-msgstr ""
-"Seules les applications démon peuvent utiliser un script d'initialisation..."
+msgstr "Seules les applications démon peuvent utiliser un script d'initialisation..."
 
 #: ../sepolicy/sepolicy/generate.py:451
 msgid "use_resolve must be a boolean value "
@@ -4231,7 +3827,7 @@ msgstr "Les types UTILISATEUR automatiquement un type tmp"
 #: ../sepolicy/sepolicy/generate.py:840
 #, python-format
 msgid "'%s' policy modules require existing domains"
-msgstr ""
+msgstr "Les modules de stratégie « %s » requièrent des domaines existant"
 
 #: ../sepolicy/sepolicy/generate.py:865
 msgid "Type field required"
@@ -4242,9 +3838,7 @@ msgstr "Champ type nécessaire"
 msgid ""
 "You need to define a new type which ends with: \n"
 " %s"
-msgstr ""
-"Vous devez définir un nouveau type qui se termine par :\n"
-" %s"
+msgstr "Vous devez définir un nouveau type qui se termine par :\n %s"
 
 #: ../sepolicy/sepolicy/generate.py:1106
 msgid "You must enter the executable path for your confined process"
@@ -4273,7 +3867,7 @@ msgstr "Script de configuration"
 #: ../sepolicy/sepolicy/sepolicy.glade:25
 #: ../sepolicy/sepolicy/sepolicy.glade:4330
 msgid "Applications"
-msgstr ""
+msgstr "Applications"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:52
 msgid "Select domain"
@@ -4281,21 +3875,21 @@ msgstr "Sélectionner le domaine"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:80 ../sepolicy/sepolicy/gui.py:69
 msgid "Advanced Search >>"
-msgstr ""
+msgstr "Recherche avancée >>"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:95 ../sepolicy/sepolicy/gui.py:2343
 msgid "File Equivalence"
-msgstr ""
+msgstr "Équivalence de fichier"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:112 ../sepolicy/sepolicy/gui.py:2353
 msgid "Users"
-msgstr ""
+msgstr "Utilisateurs"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:129
 #: ../sepolicy/sepolicy/sepolicy.glade:1898
 #: ../sepolicy/sepolicy/sepolicy.glade:3803 ../sepolicy/sepolicy/gui.py:2334
 msgid "System"
-msgstr ""
+msgstr "Système"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:189
 #: ../sepolicy/sepolicy/sepolicy.glade:4367
@@ -4307,7 +3901,7 @@ msgstr ""
 #: ../sepolicy/sepolicy/sepolicy.glade:5103
 #: ../sepolicy/sepolicy/sepolicy.glade:5238
 msgid "Select"
-msgstr ""
+msgstr "Sélectionner"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:204
 #: ../sepolicy/sepolicy/sepolicy.glade:539
@@ -4322,52 +3916,52 @@ msgstr ""
 #: ../sepolicy/sepolicy/sepolicy.glade:5304
 #: ../sepolicy/sepolicy/sepolicy.glade:5464
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:332
 msgid ""
 "The entry that was entered is incorrect.  Please try again in the "
 "ex:/.../... format."
-msgstr ""
+msgstr "L'entrée saisie est incorrecte. Veuillez réessayer sous le format ex:/.../... ."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:358
 msgid "Retry"
-msgstr ""
+msgstr "Réessayer"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:442
 #: ../sepolicy/sepolicy/sepolicy.glade:1120
 #: ../sepolicy/sepolicy/sepolicy.glade:1368
 #: ../sepolicy/sepolicy/sepolicy.glade:5332
 msgid "Network Port Definitions"
-msgstr ""
+msgstr "Définitions des ports réseau"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:458
 msgid ""
 "Add file Equivalence Mapping.  Mapping will be created when Update is "
 "applied."
-msgstr ""
+msgstr "Ajouter le mappage d'équivalence. Le mappage sera créé une fois la mise à jour (« Update ») appliquée."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:483
 #: ../sepolicy/sepolicy/sepolicy.glade:4046
 msgid "Path"
-msgstr ""
+msgstr "Chemin"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:493
 #: ../sepolicy/sepolicy/sepolicy.glade:5384
 msgid ""
 "Specify a new SELinux user name.  By convention SELinux User names usually "
 "end in an _u."
-msgstr ""
+msgstr "Spécifiez un nouveau nom d'utilisateur SELinux. Par convention, les noms d'utilisateur SELinux se terminent habituellement par _u."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:497
 msgid "Enter the path to which you want to setup an equivalence label."
-msgstr ""
+msgstr "Saisissez le chemin sur lequel vous souhaitez installer une étiquette d'équivalence."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:510
 #: ../sepolicy/sepolicy/sepolicy.glade:4063
 #: ../sepolicy/sepolicy/sepolicy.glade:4781
 msgid "Equivalence Path"
-msgstr ""
+msgstr "Chemin d'équivalence"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:524
 #: ../sepolicy/sepolicy/sepolicy.glade:669
@@ -4375,30 +3969,30 @@ msgstr ""
 #: ../sepolicy/sepolicy/sepolicy.glade:1520
 #: ../sepolicy/sepolicy/sepolicy.glade:5449
 msgid "Save to update"
-msgstr ""
+msgstr "Enregistrer pour mettre à jour"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:564
 msgid ""
 "Specify the mapping between the new path and the equivalence path.  "
 "Everything under this new path will be labeled as if they were under the "
 "equivalence path."
-msgstr ""
+msgstr "Spécifier le mappage entre le nouveau chemin et le chemin d'équivalence. Tout ce qui se trouve sous ce nouveau chemin sera étiqueté comme si cela se trouvait sous le chemin d'équivalence."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:621
 msgid "Add a file"
-msgstr ""
+msgstr "Ajouter un fichier"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:638
 msgid ""
-"<operation> File Labeling for <selected domain>. File labels will be created "
-"when update is applied."
-msgstr ""
+"<operation> File Labeling for <selected domain>. File labels will be created"
+" when update is applied."
+msgstr "<opération> Étiquetage du fichier pour le <domaine sélectionné>. Les étiquettes de fichiers seront créées une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:726
 #: ../sepolicy/sepolicy/sepolicy.glade:1467
 #: ../sepolicy/sepolicy/sepolicy.glade:3511 ../sepolicy/sepolicy/gui.py:68
 msgid "Advanced >>"
-msgstr ""
+msgstr "Avancé >>"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:747
 #: ../sepolicy/sepolicy/sepolicy.glade:2306
@@ -4410,54 +4004,54 @@ msgstr "Classe"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:763
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:777
 msgid ""
 "Select the file class to which this label will be applied.  Defaults to all "
 "classes."
-msgstr ""
+msgstr "Sélectionner la classe du fichier à laquelle cette étiquette sera appliquée. Par défaut, celle-ci est appliquée à toutes les classes."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:804
 msgid "Make Path Recursive"
-msgstr ""
+msgstr "Rendre le chemin récursif"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:808
 msgid ""
 "Select Make Path Recursive if you want to apply this label to all children "
 "of the specified directory path. objects under the directory to have this "
 "label."
-msgstr ""
+msgstr "Sélectionnez « Rendre le chemin récursif » si vous souhaitez appliquer l'étiquette de manière récursive à tous les enfants du chemin indiqué. Les objets sous ce répertoire se verront attribuer cette étiquette."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:821
 msgid "Browse"
-msgstr ""
+msgstr "Parcourir"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:825
 msgid "Browse to select the file/directory for labeling."
-msgstr ""
+msgstr "Parcourir pour sélectionner le fichier ou répertoire pour l'étiquetage."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:869
 msgid "Path  "
-msgstr ""
+msgstr "Chemin  "
 
 #: ../sepolicy/sepolicy/sepolicy.glade:880
 msgid ""
-"Specify the path using regular expressions that you would like to modify the "
-"labeling."
-msgstr ""
+"Specify the path using regular expressions that you would like to modify the"
+" labeling."
+msgstr "Spécifiez le chemin en utilisant des expressions régulières que vous souhaitez voir modifier l'étiquetage."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:902
 msgid "Select the SELinux file type to assign to this path."
-msgstr ""
+msgstr "Sélectionner le type de fichier SELinux à assigner à ce chemin."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:929
 msgid "Enter the MLS Label to assign to this file path."
-msgstr ""
+msgstr "Saisissez l'étiquette MLS à assigner à ce chemin de fichier."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:933
 msgid "SELinux MLS Label you wish to assign to this path."
-msgstr ""
+msgstr "Étiquette MLS SELinux que vous souhaitez assigner à ce chemin."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1070
 msgid "Analyzing Policy..."
@@ -4466,86 +4060,86 @@ msgstr "Analyse de la stratégie..."
 #: ../sepolicy/sepolicy/sepolicy.glade:1137
 msgid ""
 "Add Login Mapping. Login Mapping will be created when update is applied."
-msgstr ""
+msgstr "Ajouter le mappage de connexion. Le mappage de connexion sera créé une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1172
 msgid ""
 "Enter the login user name of the user to which you wish to add SELinux User "
 "confinement."
-msgstr ""
+msgstr "Saisissez le nom d'utilisateur de connexion de l'utilisateur auquel vous souhaitez ajouter le confinement d'utilisateur SELinux."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1201
 msgid ""
 "Select the SELinux User to assign to this login user.  Login users by "
 "default get assigned by the __default__ user."
-msgstr ""
+msgstr "Sélectionnez l'utilisateur SELinux à assigner à cet utilisateur de connexion. Par défaut, les utilisateurs de connexion sont assignés par l'utilisateur « __default__ user »."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1264
 msgid ""
 "Enter MLS/MCS Range for this login User.  Defaults to the range for the "
 "Selected SELinux User."
-msgstr ""
+msgstr "Saisissez la plage MLS/MCS pour cet utilisateur de connexion. Défini par défaut à la plage de l'utilisateur SELinux sélectionné."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1267
 #: ../sepolicy/sepolicy/sepolicy.glade:3192
 #: ../sepolicy/sepolicy/sepolicy.glade:3313
 #: ../sepolicy/sepolicy/sepolicy.glade:5414
 msgid "MLS Range"
-msgstr ""
+msgstr "Plage MLS"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1279
 msgid ""
 "Specify the MLS Range for this user to login in with.  Defaults to the "
 "selected SELinux Users MLS Range."
-msgstr ""
+msgstr "Spécifiez la plage MLS pour la connexion de cet utilisateur. Défini par défaut aux plages MLS des utilisateurs SELinux sélectionnés."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1385
 msgid ""
 "<operation> Network Port for <selected domain>.  Ports will be created when "
 "update is applied."
-msgstr ""
+msgstr "<opération> Port réseau pour le <domaine sélectionné>.  Les ports seront créés une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1423
 msgid "Enter the port number or range to which you want to add a port type."
-msgstr ""
+msgstr "Saisissez le numéro ou la plage de port auquel vous souhaitez ajouter un type."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1453
 msgid "Port Type"
-msgstr ""
+msgstr "Type de port"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1498
 msgid "Select the port type you want to assign to the specified port number."
-msgstr ""
+msgstr "Sélectionnez le type de port que vous souhaitez assigner au numéro de port."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1562
 msgid "tcp"
-msgstr ""
+msgstr "tcp"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1566
 msgid ""
 "Select <b>tcp</b> if the port type should be assigned to tcp port numbers."
-msgstr ""
+msgstr "Sélectionnez <b>tcp</b> si le type du port doit être assigné aux numéros des ports tcp."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1579
 msgid "udp"
-msgstr ""
+msgstr "udp"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1583
 msgid ""
 "Select <b>udp</b> if the port type should be assigned to udp port numbers."
-msgstr ""
+msgstr "Sélectionnez <b>udp</b> si le type du port doit être assigné aux numéros des ports udp."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1605
 msgid "Enter the MLS Label to assign to this port."
-msgstr ""
+msgstr "Saisissez l'étiquette MLS à assigner à ce port."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1707
 msgid "SELinux Configuration"
-msgstr ""
+msgstr "Configuration SELinux"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1743
 msgid "Select..."
-msgstr ""
+msgstr "Sélectionner..."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1792
 #: ../sepolicy/sepolicy/sepolicy.glade:2212
@@ -4556,9 +4150,7 @@ msgstr "Booléens"
 msgid ""
 "Display boolean information that can be used to modify the policy for the "
 "'selected domain'."
-msgstr ""
-"Affiche les informations de booléens qui peuvent être utilisées pour "
-"modifier la stratégie du domaine sélectionné."
+msgstr "Affiche les informations de booléens qui peuvent être utilisées pour modifier la stratégie du domaine sélectionné."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1810
 #: ../sepolicy/sepolicy/sepolicy.glade:2597
@@ -4568,9 +4160,7 @@ msgstr "Fichiers"
 #: ../sepolicy/sepolicy/sepolicy.glade:1814
 msgid ""
 "Display file type information that can be used by the 'selected domain'."
-msgstr ""
-"Affiche les informations de types de fichiers qui peuvent être utilisés par "
-"le domaine sélectionné."
+msgstr "Affiche les informations de types de fichiers qui peuvent être utilisés par le domaine sélectionné."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1828
 #: ../sepolicy/sepolicy/sepolicy.glade:2830
@@ -4581,9 +4171,7 @@ msgstr "Réseau"
 msgid ""
 "Display network ports to which the 'selected domain' can connect or listen "
 "to."
-msgstr ""
-"Affiche les ports réseau auxquels le domaine sélectionné peut se connecter "
-"ou écouter."
+msgstr "Affiche les ports réseau auxquels le domaine sélectionné peut se connecter ou écouter."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1846
 #: ../sepolicy/sepolicy/sepolicy.glade:3121
@@ -4594,40 +4182,38 @@ msgstr "Transitions"
 msgid ""
 "Display applications that can transition into or out of the 'selected "
 "domain'."
-msgstr ""
-"Affiche les applications qui peuvent faire la transition dans ou à travers "
-"le domaine sélectionné."
+msgstr "Affiche les applications qui peuvent faire la transition dans ou à travers le domaine sélectionné."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1864
 #: ../sepolicy/sepolicy/sepolicy.glade:3222
 msgid "Login Mapping"
-msgstr ""
+msgstr "Mappage de connexion"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1867
 #: ../sepolicy/sepolicy/sepolicy.glade:1884
 #: ../sepolicy/sepolicy/sepolicy.glade:1901
 msgid "Manage the SELinux configuration"
-msgstr ""
+msgstr "Gérer la configuration SELinux"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1881
 #: ../sepolicy/sepolicy/sepolicy.glade:3344
 msgid "SELinux Users"
-msgstr ""
+msgstr "Utilisateurs SELinux"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1915
 #: ../sepolicy/sepolicy/sepolicy.glade:4016
 msgid "Lockdown"
-msgstr ""
+msgstr "Verrouillage"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1918
 msgid ""
 "Lockdown the SELinux System.\n"
 "This screen can be used to turn up the SELinux Protections."
-msgstr ""
+msgstr "Verrouiller le système SELinux.\nCet écran peut être utilisé pour activer les protections SELinux."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1933
 msgid "radiobutton"
-msgstr ""
+msgstr "bouton radio"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2021
 msgid "Show Modified Only"
@@ -4635,18 +4221,18 @@ msgstr "N'afficher que les modifiés"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2060
 msgid "Mislabeled files exist"
-msgstr ""
+msgstr "Il existe des fichiers mal étiquetés"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2080
 msgid "Show mislabeled files only"
-msgstr ""
+msgstr "Uniquement afficher les fichiers mal étiquetés"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2120
 #: ../sepolicy/sepolicy/sepolicy.glade:3244
 msgid ""
 "If-Then-Else rules written in policy that can\n"
 "allow alternative access control."
-msgstr ""
+msgstr "Règles If-Then-Else inscrites dans la stratégie pouvant\n autoriser un contrôle d'accès alternatif."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2132
 msgid "Enabled"
@@ -4663,7 +4249,7 @@ msgstr "Chemin du fichier"
 #: ../sepolicy/sepolicy/sepolicy.glade:2288
 #: ../sepolicy/sepolicy/sepolicy.glade:2399
 msgid "SELinux File Type"
-msgstr ""
+msgstr "Type de fichier SELinux"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2332
 msgid "File path used to enter the 'selected domain'."
@@ -4679,7 +4265,7 @@ msgstr "Fichiers dans lesquels le domaine sélectionné peut écrire."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2449
 msgid "Writable files"
-msgstr ""
+msgstr "Fichiers accessibles en écriture"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2571
 msgid "File Types defined for the 'selected domain'."
@@ -4691,8 +4277,7 @@ msgstr "Types des fichiers d'application"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2704
 msgid "Network Ports to which the 'selected domain' is allowed to connect."
-msgstr ""
-"Ports réseaux auxquels le domaine sélectionné est autorisé à se connecter."
+msgstr "Ports réseaux auxquels le domaine sélectionné est autorisé à se connecter."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2705
 msgid "Outbound"
@@ -4711,30 +4296,25 @@ msgstr "Entrant"
 msgid ""
 "Boolean\n"
 "Enabled"
-msgstr ""
+msgstr "Booléen\nActivé"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2892
 msgid "Boolean name"
-msgstr ""
+msgstr "Nom de booléen"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2909
 msgid "SELinux Application Type"
-msgstr ""
+msgstr "Type d'application SELinux"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2930
 msgid ""
 "Executables which will transition to a different domain, when the 'selected "
 "domain' executes them."
-msgstr ""
-"Exécutables qui feront la transition vers un domaine différent, quand le "
-"domaine sélectionné l'exécutera."
+msgstr "Exécutables qui feront la transition vers un domaine différent, quand le domaine sélectionné l'exécutera."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2933
-#, fuzzy
 msgid "Application Transitions From 'select domain'"
-msgstr ""
-"Affiche les applications qui peuvent faire la transition dans ou à travers "
-"le domaine sélectionné."
+msgstr "L'application effectue une transition à partir du « domaine sélectionné »"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2972
 msgid "Calling Process Domain"
@@ -4746,83 +4326,81 @@ msgstr "Fichier exécutable"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3012
 msgid ""
-"Executables which will transition to the 'selected domain', when executing a "
-"selected domains entrypoint."
-msgstr ""
-"Exécutables qui feront la transition vers le domaine sélectionné, lors de "
-"l'exécution d'un point d'entrée des domaines sélectionnés."
+"Executables which will transition to the 'selected domain', when executing a"
+" selected domains entrypoint."
+msgstr "Exécutables qui feront la transition vers le domaine sélectionné, lors de l'exécution d'un point d'entrée des domaines sélectionnés."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3013
 msgid "Application Transitions Into 'select domain'"
-msgstr ""
+msgstr "L'application effectue une transition vers un « domaine sélectionné »"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3028
 msgid ""
 "File Transitions define what happens when the current domain creates the "
 "content of a particular class in a directory of the destination type. "
 "Optionally a file name could be specified for the transition."
-msgstr ""
+msgstr "Les transitions de fichiers définissent ce qui se produit lorsque le domaine actuel crée le contenu d'une classe particulière dans un répertoire du type destinataire. Optionnellement, un nom de fichier peut être spécifié pour la transition."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3036
 msgid "SELinux Directory Type"
-msgstr ""
+msgstr "Type de répertoire SELinux"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3049
 msgid "Destination Class"
-msgstr ""
+msgstr "Classe destinataire"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3063
 msgid "SELinux Destination Type"
-msgstr ""
+msgstr "Type destinataire SELinux"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3076
 msgid "File Name"
-msgstr ""
+msgstr "Nom du fichier"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3098
 msgid "File Transitions From 'select domain'"
-msgstr ""
+msgstr "Le fichier effectue une transition à partir du « domaine sélectionné »"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3297
 #: ../sepolicy/sepolicy/sepolicy.glade:5508
 msgid "Default Level"
-msgstr ""
+msgstr "Niveau par défaut"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3383
 msgid "Select the system mode when the system first boots up"
-msgstr ""
+msgstr "Sélectionnez le mode du système lorsque le système démarre pour la première fois"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3456
 msgid "Select the system mode for the current session"
-msgstr ""
+msgstr "Sélectionnez le mode du système pour la session actuelle"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3533
 msgid "System Policy Type:"
-msgstr ""
+msgstr "Type de stratégie du système :"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3594
 msgid "<b>System Mode</b>"
-msgstr ""
+msgstr "<b>Mode du système</b>"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3632
 msgid "Import system settings from another machine"
-msgstr ""
+msgstr "Importer les paramètres système d'une autre machine"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3640
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3659
 msgid "Export system settings to a file"
-msgstr ""
+msgstr "Exporter les paramètres système vers un fichier"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3669
 msgid "Export"
-msgstr ""
+msgstr "Exporter"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3688
 msgid "Relabel all files back to system defaults on reboot"
-msgstr ""
+msgstr "Étiqueter à nouveau tous les fichiers selon leurs valeurs par défaut lors du redémarrage"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3725
 #: ../sepolicy/sepolicy/sepolicy.glade:3826
@@ -4840,7 +4418,7 @@ msgstr "Non"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3783
 msgid "<b>System Configuration</b>"
-msgstr ""
+msgstr "<b>Configuration du système</b>"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3830
 #: ../sepolicy/sepolicy/sepolicy.glade:3848
@@ -4851,11 +4429,11 @@ msgid ""
 "unconfined if this module is enabled.  Disabling it means all daemons will "
 "now be confined.  To disable the unconfined_t user you must first remove "
 "unconfined_t from the users/login screens."
-msgstr ""
+msgstr "Un domaine non confiné est une étiquette de processus autorisant le processus à faire ce qu'il veut, sans que SELinux n'interfère. Les applications lancées au démarrage par le système init que SELinux n'a pas défini dans la stratégie SELinux seront exécutées de manière non confinée si ce module est activé. Le désactiver signifie que tous les démons seront maintenant confinés. Pour désactiver l'utilisateur « unconfined_t », vous devez d'abord supprimer « unconfined_t » des écrans de connexion ou des utilisateurs."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3866
 msgid "<b>Disable ability to run unconfined system processes?</b>"
-msgstr ""
+msgstr "<b>Désactiver la capacité d'exécution de processus système non confinés ?</b>"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3894
 #: ../sepolicy/sepolicy/sepolicy.glade:3911
@@ -4866,38 +4444,38 @@ msgid ""
 "Usually permissive domains indicate experimental policy, disabling the "
 "module could cause SELinux to deny access to a domain, that should be "
 "allowed."
-msgstr ""
+msgstr "Un domaine permissif est une étiquette de processus autorisant le processus à faire ce qu'il veut, SELinux ne journalise que les refus, mais ne les applique pas. Les domaines permissifs indiquent habituellement une stratégie expérimentale, désactiver le module pourrait causer à SELinux de refuser l'accès à un domaine qui devrait être autorisé."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3929
 msgid "<b>Disable all permissive processes?</b>"
-msgstr ""
+msgstr "<b>Désactiver tous les processus permissifs ?</b>"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3957
 msgid ""
-"A permissive domain is a process label that allows the process to do what it "
-"wants, with SELinux only logging the denials, but not enforcing them.  "
+"A permissive domain is a process label that allows the process to do what it"
+" wants, with SELinux only logging the denials, but not enforcing them.  "
 "Usually permissive domains indicate experimental policy, disabling the "
 "module could cause SELinux to deny access to a domain, that should be "
 "allowed."
-msgstr ""
+msgstr "Un domaine permissif est une étiquette de processus autorisant le processus à faire ce qu'il veut, SELinux ne journalise que les refus, mais ne les applique pas. Les domaines permissifs indiquent habituellement une stratégie expérimentale, désactiver le module pourrait causer à SELinux de refuser l'accès à un domaine qui devrait être autorisé."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3995
 msgid "<b>Deny all processes from ptracing or debugging other processes?</b>"
-msgstr ""
+msgstr "<b>Refuser à tous les processus d'effectuer le ptracing ou le débogage d'autres processus ?</b>"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4032
 msgid ""
 "File equivalence cause the system to label content under the new path as if "
 "it were under the equivalence path."
-msgstr ""
+msgstr "L'équivalence de fichier permet au système d'étiqueter un contenu sous le nouveau chemin comme s'il se trouvait sous le chemin d'équivalence."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4088
 msgid "Files Equivalence"
-msgstr ""
+msgstr "Équivalence de fichiers"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4101
 msgid "<b>...SELECT TO VIEW DATA...</b>"
-msgstr ""
+msgstr "<b>...SÉLECTIONNER POUR AFFICHER LES DONNÉES...</b>"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4132
 msgid "Delete"
@@ -4909,13 +4487,13 @@ msgstr "Modifier"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4209
 msgid "Revert"
-msgstr ""
+msgstr "Rétablir"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4214
 msgid ""
-"Revert button will launch a dialog window which allows you to revert changes "
-"within the current transaction."
-msgstr ""
+"Revert button will launch a dialog window which allows you to revert changes"
+" within the current transaction."
+msgstr "Le bouton Rétablir lance une fenêtre vous permettant de rétablir des modifications dans la transaction actuelle."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4226 ../sepolicy/sepolicy/gui.py:2416
 msgid "Update"
@@ -4923,30 +4501,30 @@ msgstr "Mise à jour"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4231
 msgid "Commit all changes in your current transaction to the server."
-msgstr ""
+msgstr "Committer toutes les modifications de votre transaction sur le serveur."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4279
 msgid "Applications - Advanced Search"
-msgstr ""
+msgstr "Applications - Recherche avancée"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4344
 msgid "Process Types"
-msgstr ""
+msgstr "Types de processus"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4385
 msgid "More Details"
-msgstr ""
+msgstr "Plus de détails"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4421
 #: ../sepolicy/sepolicy/sepolicy.glade:4715
 msgid "Delete Modified File Labeling"
-msgstr ""
+msgstr "Supprimer l'étiquetage des fichiers modifiés"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4439
 msgid ""
-"Select file labeling to delete. File labeling will be deleted when update is "
-"applied."
-msgstr ""
+"Select file labeling to delete. File labeling will be deleted when update is"
+" applied."
+msgstr "Sélectionnez l'étiquetage de fichier à supprimer. L'étiquetage de fichier sera supprimé une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4486
 msgid "SELinux File Label"
@@ -4958,110 +4536,110 @@ msgstr "Étiquette du fichier SELinux"
 #: ../sepolicy/sepolicy/sepolicy.glade:4940
 #: ../sepolicy/sepolicy/sepolicy.glade:5289
 msgid "Save to Update"
-msgstr ""
+msgstr "Enregistrer pour mettre à jour"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4565
 msgid "Delete Modified Ports"
-msgstr ""
+msgstr "Supprimer les ports modifiés"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4583
 msgid "Select ports to delete. Ports will be deleted when update is applied."
-msgstr ""
+msgstr "Sélectionner les ports à supprimer. Les ports seront supprimés une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4733
 msgid ""
 "Select file equivalence labeling to delete. File equivalence labeling will "
 "be deleted when update is applied."
-msgstr ""
+msgstr "Sélectionnez l'étiquetage d'équivalence de fichiers à supprimer. L'étiquetage d'équivalence de fichiers sera supprimé une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4849
 #: ../sepolicy/sepolicy/sepolicy.glade:5198
 msgid "Delete Modified Users Mapping."
-msgstr ""
+msgstr "Supprimer le mappage des utilisateurs modifiés."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4867
 msgid ""
-"Select login user mapping to delete. Login user mapping will be deleted when "
-"update is applied."
-msgstr ""
+"Select login user mapping to delete. Login user mapping will be deleted when"
+" update is applied."
+msgstr "Sélectionnez le mappage d'utilisateur de connexion à supprimer. Le mappage d'utilisateur de connexion sera supprimé une fois la mise à jour supprimée."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4902
 msgid "Login name"
-msgstr ""
+msgstr "Nom de connexion"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4983
 msgid "More Types"
-msgstr ""
+msgstr "Plus de types"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5010
 msgid "Types"
-msgstr ""
+msgstr "Types"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5069
 msgid ""
 "Review the updates you have made before committing them to the system.  To "
 "reset an item, uncheck the checkbox.  All items checked will be updated in "
 "the system when you select update."
-msgstr ""
+msgstr "Examinez les mises à jour effectuées avant de les committer sur le système. Pour réinitialiser un élément, veuillez décocher la case. Tous les éléments cochés seront mis à jour dans le système si vous sélectionnez mettre à jour."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5132
 msgid "Action"
-msgstr ""
+msgstr "Action"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5158
 msgid "Apply"
-msgstr ""
+msgstr "Appliquer"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5216
 msgid ""
 "Select users mapping to delete.Users mapping will be deleted when update is "
 "applied."
-msgstr ""
+msgstr "Sélectionnez le mappages des utilisateurs à supprimer. Le mappage des utilisateurs sera supprimé une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5264
 msgid "SELinux Username"
-msgstr ""
+msgstr "Nom d'utilisateur SELinux"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5349
 msgid ""
 "Add User Roles. SELinux User Roles will be created when Update is applied."
-msgstr ""
+msgstr "Ajouter des rôles utilisateur. Les rôles utilisateur SELinux seront créés une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5374
 msgid "SELinux User Name"
-msgstr ""
+msgstr "Nom d'utilisateur SELinux"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5489
 msgid ""
 "Enter MLS/MCS Range for this SELinux User.\n"
 "s0-s0:c1023"
-msgstr ""
+msgstr "Saisissez la plage MLS/MCS pour cet utilisateur SELinux.\ns0-s0:c1023"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5520
 msgid ""
 "Specify the default level that you would like this SELinux user to login "
 "with.  Defaults to s0."
-msgstr ""
+msgstr "Spécifiez le niveau par défaut avec lequel vous souhaitez que cet utilisateur SELinux se connecte. La valeur par défaut est s0."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5524
 msgid "Enter Default Level for SELinux User to login with. Default s0"
-msgstr ""
+msgstr "Saisissez le niveau par défaut avec lequel l'utilisateur SELinux se connectera. La valeur par défaut est s0"
 
 #: ../sepolicy/sepolicy/gui.py:65
 msgid "Disable"
-msgstr ""
+msgstr "Désactiver"
 
 #: ../sepolicy/sepolicy/gui.py:65
 msgid "Enable"
-msgstr ""
+msgstr "Activer"
 
 #: ../sepolicy/sepolicy/gui.py:68
 msgid "Advanced <<"
-msgstr ""
+msgstr "Avancé <<"
 
 #: ../sepolicy/sepolicy/gui.py:69
 msgid "Advanced Search <<"
-msgstr ""
+msgstr "Recherche avancée <<"
 
 #: ../sepolicy/sepolicy/gui.py:94
 msgid ""
@@ -5071,12 +4649,12 @@ msgid ""
 "- Reboot, so that the system can relabel\n"
 "- Once the system is working as planned\n"
 "  * Change the system mode to Enforcing</small>\n"
-msgstr ""
+msgstr "<small>\nPour passer du mode « Désactivé » (Disabled) au mode « Appliqué » (Enforcing)\n- Passez du mode système « Désactivé » (Disabled) au mode « Permissif » (Permissive)\n- Redémarrez afin que le système puisse effectuer un nouvel étiquetage\n- Une fois que le système fonctionne comme prévu\n  * Basculez le mode système sur « Appliqué » (Enforcing)</small>\n"
 
 #: ../sepolicy/sepolicy/gui.py:488
 #, python-format
 msgid "%s is not a valid domain"
-msgstr ""
+msgstr "%s n'est pas un domaine valide"
 
 #: ../sepolicy/sepolicy/gui.py:636
 msgid "System Status: Disabled"
@@ -5084,69 +4662,69 @@ msgstr "État du système : désactivé"
 
 #: ../sepolicy/sepolicy/gui.py:734
 msgid "Help: Start Page"
-msgstr ""
+msgstr "Aide : page de démarrage"
 
 #: ../sepolicy/sepolicy/gui.py:738
 msgid "Help: Booleans Page"
-msgstr ""
+msgstr "Aide : page booléens"
 
 #: ../sepolicy/sepolicy/gui.py:744
 msgid "Help: Executable Files Page"
-msgstr ""
+msgstr "Aide : page fichiers exécutables"
 
 #: ../sepolicy/sepolicy/gui.py:747
 msgid "Help: Writable Files Page"
-msgstr ""
+msgstr "Aide : page fichiers accessibles en écriture"
 
 #: ../sepolicy/sepolicy/gui.py:750
 msgid "Help: Application Types Page"
-msgstr ""
+msgstr "Aide : page types d'application"
 
 #: ../sepolicy/sepolicy/gui.py:755
 msgid "Help: Outbound Network Connections Page"
-msgstr ""
+msgstr "Aide : page connexions réseau sortantes"
 
 #: ../sepolicy/sepolicy/gui.py:758
 msgid "Help: Inbound Network Connections Page"
-msgstr ""
+msgstr "Aide : page connexions réseau entrantes"
 
 #: ../sepolicy/sepolicy/gui.py:764
 msgid "Help: Transition from application Page"
-msgstr ""
+msgstr "Aide : page transitions à partir d'applications"
 
 #: ../sepolicy/sepolicy/gui.py:767
 msgid "Help: Transition into application Page"
-msgstr ""
+msgstr "Aide : page transitions vers des applications"
 
 #: ../sepolicy/sepolicy/gui.py:770
 msgid "Help: Transition application file Page"
-msgstr ""
+msgstr "Aide : page transitions de fichiers d'applications"
 
 #: ../sepolicy/sepolicy/gui.py:774
 msgid "Help: Systems Page"
-msgstr ""
+msgstr "Aide : page systèmes"
 
 #: ../sepolicy/sepolicy/gui.py:778
 msgid "Help: Lockdown Page"
-msgstr ""
+msgstr "Aide: page verrouillage"
 
 #: ../sepolicy/sepolicy/gui.py:782
 msgid "Help: Login Page"
-msgstr ""
+msgstr "Aide : page connexion"
 
 #: ../sepolicy/sepolicy/gui.py:786
 msgid "Help: SELinux User Page"
-msgstr ""
+msgstr "Aide : page utilisateur SELinux"
 
 #: ../sepolicy/sepolicy/gui.py:790
 msgid "Help: File Equivalence Page"
-msgstr ""
+msgstr "Aide : page équivalence de fichiers"
 
 #: ../sepolicy/sepolicy/gui.py:936 ../sepolicy/sepolicy/gui.py:1227
 #: ../sepolicy/sepolicy/gui.py:1667 ../sepolicy/sepolicy/gui.py:1913
 #: ../sepolicy/sepolicy/gui.py:2692
 msgid "More..."
-msgstr ""
+msgstr "Plus..."
 
 #: ../sepolicy/sepolicy/gui.py:1044
 #, python-format
@@ -5178,9 +4756,7 @@ msgstr "Types de fichiers définis pour le « %s »."
 msgid ""
 "Display boolean information that can be used to modify the policy for the "
 "'%s'."
-msgstr ""
-"Afficher les informations des booléens qui peuvent être utilisés pour "
-"modifier la stratégie de « %s »."
+msgstr "Afficher les informations des booléens qui peuvent être utilisés pour modifier la stratégie de « %s »."
 
 #: ../sepolicy/sepolicy/gui.py:1050
 #, python-format
@@ -5195,157 +4771,153 @@ msgstr "Afficher les ports réseaux que le « %s » peut se connecter ou écou
 #: ../sepolicy/sepolicy/gui.py:1052
 #, python-format
 msgid "Application Transitions Into '%s'"
-msgstr ""
+msgstr "L'application effectue une transition vers « %s »"
 
 #: ../sepolicy/sepolicy/gui.py:1053
 #, python-format
 msgid "Application Transitions From '%s'"
-msgstr ""
+msgstr "L'application effectue une transition à partir de « %s »"
 
 #: ../sepolicy/sepolicy/gui.py:1054
 #, python-format
 msgid "File Transitions From '%s'"
-msgstr ""
+msgstr "Le fichier effectue une transition à partir de « %s »"
 
 #: ../sepolicy/sepolicy/gui.py:1055
 #, python-format
 msgid ""
 "Executables which will transition to the '%s', when executing a selected "
 "domains entrypoint."
-msgstr ""
-"Exécutables qui feront la transition vers le « %s », lors de l'exécution "
-"d'un point d'entrée des domaines sélectionnés."
+msgstr "Exécutables qui feront la transition vers le « %s », lors de l'exécution d'un point d'entrée des domaines sélectionnés."
 
 #: ../sepolicy/sepolicy/gui.py:1056
 #, python-format
 msgid ""
 "Executables which will transition to a different domain, when the '%s' "
 "executes them."
-msgstr ""
-"Exécutables qui fera la transition vers un domaine différent quand « %s » "
-"les exécute."
+msgstr "Exécutables qui fera la transition vers un domaine différent quand « %s » les exécute."
 
 #: ../sepolicy/sepolicy/gui.py:1057
 #, python-format
 msgid "Files by '%s' will transitions to a different label."
-msgstr ""
+msgstr "Les fichiers par « %s » vont effectuer une transition vers une autre étiquette."
 
 #: ../sepolicy/sepolicy/gui.py:1058
 #, python-format
 msgid "Display applications that can transition into or out of the '%s'."
-msgstr ""
-"Afficher les applications qui peuvent faire la transition dans ou à travers "
-"« %s »."
+msgstr "Afficher les applications qui peuvent faire la transition dans ou à travers « %s »."
 
 #: ../sepolicy/sepolicy/gui.py:1166
 msgid "MISSING FILE PATH"
-msgstr ""
+msgstr "CHEMIN D'ACCÈS DU FICHIER MANQUANT"
 
 #: ../sepolicy/sepolicy/gui.py:1281 ../sepolicy/sepolicy/gui.py:1283
 msgid "Boolean section."
-msgstr ""
+msgstr "Section Booléen."
 
 #: ../sepolicy/sepolicy/gui.py:1281
 msgid "To disable this transition, go to the "
-msgstr ""
+msgstr "Pour désactiver cette transition, rendez vous sur "
 
 #: ../sepolicy/sepolicy/gui.py:1283
 msgid "To enable this transition, go to the "
-msgstr ""
+msgstr "Pour activer cette transition, rendez vous sur "
 
 #: ../sepolicy/sepolicy/gui.py:1340
 msgid "executable"
-msgstr ""
+msgstr "exécutable"
 
 #: ../sepolicy/sepolicy/gui.py:1343
 msgid "writable"
-msgstr ""
+msgstr "accessible en écriture"
 
 #: ../sepolicy/sepolicy/gui.py:1346
 msgid "application"
-msgstr ""
+msgstr "application"
 
 #: ../sepolicy/sepolicy/gui.py:1347
 #, python-format
 msgid "Add new %(TYPE)s file path for '%(DOMAIN)s' domains."
-msgstr ""
+msgstr "Ajouter un nouveau chemin d'accès de fichier %(TYPE)s pour les domaines « %(DOMAIN)s »."
 
 #: ../sepolicy/sepolicy/gui.py:1348
 #, python-format
 msgid "Delete %(TYPE)s file paths for '%(DOMAIN)s' domain."
-msgstr ""
+msgstr "Supprimer les chemins d'accès des fichiers %(TYPE)s pour les domaines « %(DOMAIN)s »."
 
 #: ../sepolicy/sepolicy/gui.py:1349
 #, python-format
 msgid ""
 "Modify %(TYPE)s file path for '%(DOMAIN)s' domain. Only bolded items in the "
 "list can be selected, this indicates they were modified previously."
-msgstr ""
+msgstr "Modifier le chemin d'accès de fichier %(TYPE)s pour le domaine « %(DOMAIN)s ». Seuls les éléments en gras dans la liste peuvent être sélectionnés, ceci indique qu'ils ont été modifiés au préalable."
 
 #: ../sepolicy/sepolicy/gui.py:1361
 msgid "connect"
-msgstr ""
+msgstr "connecter"
 
 #: ../sepolicy/sepolicy/gui.py:1364
 msgid "listen for inbound connections"
-msgstr ""
+msgstr "écouter les connexions entrantes"
 
 #: ../sepolicy/sepolicy/gui.py:1366
 #, python-format
 msgid ""
-"Add new port definition to which the '%(APP)s' domain is allowed to %(PERM)s."
-msgstr ""
+"Add new port definition to which the '%(APP)s' domain is allowed to "
+"%(PERM)s."
+msgstr "Ajouter une nouvelle définition de port avec laquelle le domaine « %(APP)s » est autorisé à %(PERM)s."
 
 #: ../sepolicy/sepolicy/gui.py:1367
 #, python-format
 msgid ""
-"Delete modified port definitions to which the '%(APP)s' domain is allowed to "
-"%(PERM)s."
-msgstr ""
+"Delete modified port definitions to which the '%(APP)s' domain is allowed to"
+" %(PERM)s."
+msgstr "Supprimer les définitions de port modifiées avec lesquelles le domaine « %(APP)s » est autorisé à %(PERM)s."
 
 #: ../sepolicy/sepolicy/gui.py:1368
 #, python-format
 msgid ""
-"Modify port definitions to which the '%(APP)s' domain is allowed to %(PERM)s."
-msgstr ""
+"Modify port definitions to which the '%(APP)s' domain is allowed to "
+"%(PERM)s."
+msgstr "Modifier les définitions de port avec lesquelles le domaine « %(APP)s » est autorisé à %(PERM)s."
 
 #: ../sepolicy/sepolicy/gui.py:1397
 msgid "Add new SELinux User/Role definition."
-msgstr ""
+msgstr "Ajouter une nouvelle définition de rôle ou utilisateur SELinux."
 
 #: ../sepolicy/sepolicy/gui.py:1398
 msgid "Delete modified SELinux User/Role definitions."
-msgstr ""
+msgstr "Supprimer les définitions d'utilisateur ou de rôles SELinux modifiées."
 
 #: ../sepolicy/sepolicy/gui.py:1399
 msgid "Modify selected modified SELinux User/Role definitions."
-msgstr ""
+msgstr "Modifier les définitions d'utilisateurs ou de rôles SELinux sélectionnées."
 
 #: ../sepolicy/sepolicy/gui.py:1406
 msgid "Add new Login Mapping definition."
-msgstr ""
+msgstr "Ajouter une nouvelle définition de mappage de connexion."
 
 #: ../sepolicy/sepolicy/gui.py:1407
 msgid "Delete modified Login Mapping definitions."
-msgstr ""
+msgstr "Supprimer les définitions des mappages de connexion modifiées."
 
 #: ../sepolicy/sepolicy/gui.py:1408
 msgid "Modify selected modified Login Mapping definitions."
-msgstr ""
+msgstr "Modifier les définitions des mappages de connexion modifiées sélectionnées."
 
 #: ../sepolicy/sepolicy/gui.py:1415
 msgid "Add new File Equivalence definition."
-msgstr ""
+msgstr "Ajouter une nouvelle définition d'équivalence de fichiers."
 
 #: ../sepolicy/sepolicy/gui.py:1416
 msgid "Delete modified File Equivalence definitions."
-msgstr ""
+msgstr "Supprimer les définitions d'équivalence de fichiers modifiées."
 
 #: ../sepolicy/sepolicy/gui.py:1417
 msgid ""
 "Modify selected modified File Equivalence definitions. Only bolded items in "
 "the list can be selected, this indicates they were modified previously."
-msgstr ""
+msgstr "Modifier les définitions d'équivalence de fichiers modifiées sélectionnées. Seuls les éléments en gras dans la liste peuvent être sélectionnés, ceci indique qu'ils ont été modifiés au préalable."
 
 #: ../sepolicy/sepolicy/gui.py:1445
 #, python-format
@@ -5354,257 +4926,261 @@ msgstr "Autoriser les règles booléennes %s"
 
 #: ../sepolicy/sepolicy/gui.py:1458
 #, python-format
-msgid "Add Network Port for %s.  Ports will be created when update is applied."
-msgstr ""
+msgid ""
+"Add Network Port for %s.  Ports will be created when update is applied."
+msgstr "Ajouter le port réseau pour %s. Les ports seront créés une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/gui.py:1459
 #, python-format
 msgid "Add Network Port for %s"
-msgstr ""
+msgstr "Ajouter le port réseau pour %s"
 
 #: ../sepolicy/sepolicy/gui.py:1464
 #, python-format
 msgid ""
-"Add File Labeling for %s. File labels will be created when update is applied."
-msgstr ""
+"Add File Labeling for %s. File labels will be created when update is "
+"applied."
+msgstr "Ajouter l'étiquetage de fichier pour %s. Les étiquettes de fichiers seront créées une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/gui.py:1465 ../sepolicy/sepolicy/gui.py:1518
 #, python-format
 msgid "Add File Labeling for %s"
-msgstr ""
+msgstr "Ajouter l'étiquetage de fichier pour %s"
 
 #: ../sepolicy/sepolicy/gui.py:1475
-msgid "Add Login Mapping. User Mapping will be created when Update is applied."
-msgstr ""
+msgid ""
+"Add Login Mapping. User Mapping will be created when Update is applied."
+msgstr "Ajouter le mappage de connexion. Le mappage utilisateur sera créé une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/gui.py:1476
 msgid "Add Login Mapping"
-msgstr ""
+msgstr "Ajouter le mappage de connexion"
 
 #: ../sepolicy/sepolicy/gui.py:1481
 msgid ""
 "Add SELinux User Role. SELinux user roles will be created when update is "
 "applied."
-msgstr ""
+msgstr "Ajouter un rôle utilisateur SELinux. Les rôles utilisateur SELinux seront créés une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/gui.py:1482
 msgid "Add SELinux Users"
-msgstr ""
+msgstr "Ajouter des utilisateurs SELinux"
 
 #: ../sepolicy/sepolicy/gui.py:1489
 msgid ""
-"Add File Equivalency Mapping. Mapping will be created when update is applied."
-msgstr ""
+"Add File Equivalency Mapping. Mapping will be created when update is "
+"applied."
+msgstr "Ajouter le mappage d'équivalence de fichiers. Le mappage sera créé une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/gui.py:1490
 msgid "Add SELinux File Equivalency"
-msgstr ""
+msgstr "Ajouter l'équivalence de fichiers SELinux"
 
 #: ../sepolicy/sepolicy/gui.py:1517
 #, python-format
 msgid ""
 "Modify File Labeling for %s. File labels will be created when update is "
 "applied."
-msgstr ""
+msgstr "Modifier l'étiquetage de fichier pour %s. Les étiquettes de fichiers seront créées une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/gui.py:1573
 msgid ""
-"Modify SELinux User Role. SELinux user roles will be modified when update is "
-"applied."
-msgstr ""
+"Modify SELinux User Role. SELinux user roles will be modified when update is"
+" applied."
+msgstr "Modifier le rôle utilisateur SELinux. Les rôles utilisateurs SELinux seront créés une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/gui.py:1574
 msgid "Modify SELinux Users"
-msgstr ""
+msgstr "Modifier les utilisateurs SELinux"
 
 #: ../sepolicy/sepolicy/gui.py:1582
 msgid ""
 "Modify Login Mapping. Login Mapping will be modified when Update is applied."
-msgstr ""
+msgstr "Modifier le mappage de connexion. Le mappage de connexion sera modifié une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/gui.py:1583
 msgid "Modify Login Mapping"
-msgstr ""
+msgstr "Modifier le mappage de connexion"
 
 #: ../sepolicy/sepolicy/gui.py:1589
 msgid ""
 "Modify File Equivalency Mapping. Mapping will be created when update is "
 "applied."
-msgstr ""
+msgstr "Modifier le mappage d'équivalence de fichiers. Le mappage sera créé une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/gui.py:1590
 msgid "Modify SELinux File Equivalency"
-msgstr ""
+msgstr "Modifier l'équivalence de fichiers SELinux"
 
 #: ../sepolicy/sepolicy/gui.py:1675
 #, python-format
 msgid ""
 "Modify Network Port for %s.  Ports will be created when update is applied."
-msgstr ""
+msgstr "Modifier le port réseau pour %s. Les ports seront créés une fois la mise à jour appliquée."
 
 #: ../sepolicy/sepolicy/gui.py:1676
 #, python-format
 msgid "Modify Network Port for %s"
-msgstr ""
+msgstr "Modifier le port réseau pour %s"
 
 #: ../sepolicy/sepolicy/gui.py:1894
 #, python-format
 msgid "The entry '%s' is not a valid path.  Paths must begin with a '/'."
-msgstr ""
+msgstr "L'entrée « %s » n'est pas un chemin d'accès valide. Les chemins d'accès doivent commencer par une barre oblique « / »."
 
 #: ../sepolicy/sepolicy/gui.py:1907
 msgid "Port number must be between 1 and 65536"
-msgstr ""
+msgstr "Le numéro du port doit être entre 1 et 65536"
 
 #: ../sepolicy/sepolicy/gui.py:2183
 #, python-format
 msgid "SELinux name: %s"
-msgstr ""
+msgstr "Nom SELinux : %s"
 
 #: ../sepolicy/sepolicy/gui.py:2194
 #, python-format
 msgid "Add file labeling for %s"
-msgstr ""
+msgstr "Ajouter l'étiquette du fichier pour %s"
 
 #: ../sepolicy/sepolicy/gui.py:2196
 #, python-format
 msgid "Delete file labeling for %s"
-msgstr ""
+msgstr "Supprimer l'étiquette du fichier pour %s"
 
 #: ../sepolicy/sepolicy/gui.py:2198
 #, python-format
 msgid "Modify file labeling for %s"
-msgstr ""
+msgstr "Modifier l'étiquette du fichier pour %s"
 
 #: ../sepolicy/sepolicy/gui.py:2202
 #, python-format
 msgid "File path: %s"
-msgstr ""
+msgstr "Chemin d'accès du fichier : %s"
 
 #: ../sepolicy/sepolicy/gui.py:2205
 #, python-format
 msgid "File class: %s"
-msgstr ""
+msgstr "Classe du fichier : %s"
 
 #: ../sepolicy/sepolicy/gui.py:2208 ../sepolicy/sepolicy/gui.py:2232
 #, python-format
 msgid "SELinux file type: %s"
-msgstr ""
+msgstr "Type de fichier SELinux : %s"
 
 #: ../sepolicy/sepolicy/gui.py:2217
 #, python-format
 msgid "Add ports for %s"
-msgstr ""
+msgstr "Ajouter des ports pour %s"
 
 #: ../sepolicy/sepolicy/gui.py:2219
 #, python-format
 msgid "Delete ports for %s"
-msgstr ""
+msgstr "Supprimer des ports pour %s"
 
 #: ../sepolicy/sepolicy/gui.py:2221
 #, python-format
 msgid "Modify ports for %s"
-msgstr ""
+msgstr "Modifier des ports pour %s"
 
 #: ../sepolicy/sepolicy/gui.py:2224
 #, python-format
 msgid "Network ports: %s"
-msgstr ""
+msgstr "Ports réseau : %s"
 
 #: ../sepolicy/sepolicy/gui.py:2227
 #, python-format
 msgid "Network protocol: %s"
-msgstr ""
+msgstr "Protocole réseau : %s"
 
 #: ../sepolicy/sepolicy/gui.py:2241
 msgid "Add user"
-msgstr ""
+msgstr "Ajouter un utilisateur"
 
 #: ../sepolicy/sepolicy/gui.py:2243
 msgid "Delete user"
-msgstr ""
+msgstr "Supprimer un utilisateur"
 
 #: ../sepolicy/sepolicy/gui.py:2245
 msgid "Modify user"
-msgstr ""
+msgstr "Modifier un utilisateur"
 
 #: ../sepolicy/sepolicy/gui.py:2248
 #, python-format
 msgid "SELinux User : %s"
-msgstr ""
+msgstr "Utilisateur SELinux : %s"
 
 #: ../sepolicy/sepolicy/gui.py:2253
 #, python-format
 msgid "Roles: %s"
-msgstr ""
+msgstr "Rôles : %s"
 
 #: ../sepolicy/sepolicy/gui.py:2257 ../sepolicy/sepolicy/gui.py:2282
 #, python-format
 msgid "MLS/MCS Range: %s"
-msgstr ""
+msgstr "Plage MLS/MCS : %s"
 
 #: ../sepolicy/sepolicy/gui.py:2266
 msgid "Add login mapping"
-msgstr ""
+msgstr "Ajouter le mappage de connexion"
 
 #: ../sepolicy/sepolicy/gui.py:2268
 msgid "Delete login mapping"
-msgstr ""
+msgstr "Supprimer le mappage de connexion"
 
 #: ../sepolicy/sepolicy/gui.py:2270
 msgid "Modify login mapping"
-msgstr ""
+msgstr "Modifier le mappage de connexion"
 
 #: ../sepolicy/sepolicy/gui.py:2274
 #, python-format
 msgid "Login Name : %s"
-msgstr ""
+msgstr "Nom de connexion : %s"
 
 #: ../sepolicy/sepolicy/gui.py:2278
 #, python-format
 msgid "SELinux User: %s"
-msgstr ""
+msgstr "Utilisateur SELinux : %s"
 
 #: ../sepolicy/sepolicy/gui.py:2291
 msgid "Add file equiv labeling."
-msgstr ""
+msgstr "Ajouter une étiquette d'équivalence de fichiers."
 
 #: ../sepolicy/sepolicy/gui.py:2293
 msgid "Delete file equiv labeling."
-msgstr ""
+msgstr "Supprimer une étiquette d'équivalence de fichiers."
 
 #: ../sepolicy/sepolicy/gui.py:2295
 msgid "Modify file equiv labeling."
-msgstr ""
+msgstr "Modifier une étiquette d'équivalence de fichiers."
 
 #: ../sepolicy/sepolicy/gui.py:2299
 #, python-format
 msgid "File path : %s"
-msgstr ""
+msgstr "Chemin d'accès du fichier : %s"
 
 #: ../sepolicy/sepolicy/gui.py:2303
 #, python-format
 msgid "Equivalence: %s"
-msgstr ""
+msgstr "Équivalence : %s"
 
 #: ../sepolicy/sepolicy/gui.py:2406
 #, python-format
 msgid ""
 "Run restorecon on %(PATH)s to change its type from %(CUR_CONTEXT)s to the "
 "default %(DEF_CONTEXT)s?"
-msgstr ""
+msgstr "Exécuter restorecon sur %(PATH)s pour modifier son type de %(CUR_CONTEXT)s au type par défaut %(DEF_CONTEXT)s ?"
 
 #: ../sepolicy/sepolicy/gui.py:2418
 msgid "Update Changes"
-msgstr ""
+msgstr "Mettre à jour les modifications"
 
 #: ../sepolicy/sepolicy/gui.py:2420
 msgid "Revert Changes"
-msgstr ""
+msgstr "Rétablir les changements"
 
 #: ../sepolicy/sepolicy/gui.py:2547
 msgid "System Status: Enforcing"
-msgstr "État du système : en application"
+msgstr "État du système : appliqué"
 
 #: ../sepolicy/sepolicy/gui.py:2549
 msgid "System Status: Permissive"
@@ -5618,17 +5194,15 @@ msgid ""
 "system, you can go to permissive mode which will only log errors and not "
 "enforce SELinux policy.  Permissive mode does not require a reboot.  Do you "
 "wish to continue?"
-msgstr ""
+msgstr "Basculer SELinux sur « Désactivé » (Disabled) nécessite un redémarrage. Ceci n'est pas recommandé. Si vous décidez plus tard de réactiver SELinux, le système devra effectuer un nouvel étiquetage. Si vous souhaitez uniquement voir si SELinux pose problème à votre système, vous pouvez basculer en mode permissif, ce qui journalisera uniquement les erreurs et n'appliquera pas la stratégie SELinux. Le mode permissif ne requiert pas de redémarrage. Souhaitez-vous continuer ?"
 
 #: ../sepolicy/sepolicy/gui.py:2777
 msgid ""
 "You are attempting to close the application without applying your changes.\n"
-"    *    To apply changes you have made during this session, click No and "
-"click Update.\n"
-"    *    To leave the application without applying your changes, click Yes.  "
-"All changes that you have made during this session will be lost."
-msgstr ""
+"    *    To apply changes you have made during this session, click No and click Update.\n"
+"    *    To leave the application without applying your changes, click Yes.  All changes that you have made during this session will be lost."
+msgstr "Vous avez tenté de fermer l'application sans appliquer les modifications.\n    *    Pour appliquer les modifications effectuées pendant cette session, veuillez cliquer sur Non, puis sur Mettre à jour.\n    *    Pour quitter l'application sans appliquer les modifications, veuillez cliquer sur Oui.  Toutes les modifications effectuées pendant cette session seront perdues."
 
 #: ../sepolicy/sepolicy/gui.py:2777
 msgid "Loss of data Dialog"
-msgstr ""
+msgstr "Boîte de dialogue des pertes de données"
