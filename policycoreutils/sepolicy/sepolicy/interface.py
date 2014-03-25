@@ -119,11 +119,19 @@ def get_interface_dict(path="/usr/share/selinux/devel/policy.xml"):
     global interface_dict
     import os
     import xml.etree.ElementTree
+    from sepolicy import get_all_modules, get_all_modules_from_mod_lst
     if interface_dict:
         return interface_dict
 
+    active_modules = []
     interface_dict = {}
     param_list = []
+
+    if get_all_modules_from_mod_lst():
+        active_modules = get_all_modules_from_mod_lst()
+    else:
+        print((_("Using only non-base modules.")))
+        active_modules = get_all_modules()
 
     xml_path = """<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
 <policy>
@@ -142,16 +150,17 @@ def get_interface_dict(path="/usr/share/selinux/devel/policy.xml"):
             tree = xml.etree.ElementTree.fromstring(xml_path)
         for l in tree.findall("layer"):
             for m in l.findall("module"):
-                for i in m.getiterator('interface'):
-                    for e in i.findall("param"):
-                        param_list.append(e.get('name'))
-                    interface_dict[(i.get("name"))] = [param_list,(i.find('summary').text),"interface"]
-                    param_list = []
-                for i in m.getiterator('template'):
-                    for e in i.findall("param"):
-                        param_list.append(e.get('name'))
-                    interface_dict[(i.get("name"))] = [param_list,(i.find('summary').text),"template"]
-                    param_list = []
+                if m.get("name") in active_modules:
+                    for i in m.getiterator('interface'):
+                        for e in i.findall("param"):
+                            param_list.append(e.get('name'))
+                        interface_dict[(i.get("name"))] = [param_list,(i.find('summary').text),"interface"]
+                        param_list = []
+                    for i in m.getiterator('template'):
+                        for e in i.findall("param"):
+                            param_list.append(e.get('name'))
+                        interface_dict[(i.get("name"))] = [param_list,(i.find('summary').text),"template"]
+                        param_list = []
     except IOError as e:
         pass
     return interface_dict
@@ -196,13 +205,14 @@ def get_xml_file(if_file):
 
 def interface_compile_test(interface, path = "/usr/share/selinux/devel/policy.xml"):
     exclude_interfaces = ["userdom","kernel","corenet","files", "dev"]
+    exclude_interface_name = ["selinux_genbool"]
     exclude_interface_type = ["template"]
 
     import subprocess, os
     policy_files = {'pp':"compiletest.pp", 'te':"compiletest.te", 'fc':"compiletest.fc", 'if':"compiletest.if"}
     idict = get_interface_dict(path)
 
-    if not (interface.split("_")[0] in exclude_interfaces or idict[interface][2] in exclude_interface_type):
+    if not (interface in exclude_interface_name or interface.split("_")[0] in exclude_interfaces or idict[interface][2] in exclude_interface_type):
         print((_("Compiling %s interface" % interface)))
         try:
             fd = open(policy_files['te'], "w")

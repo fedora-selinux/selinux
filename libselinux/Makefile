@@ -1,4 +1,4 @@
-SUBDIRS = src include utils man
+SUBDIRS = src include utils man golang
 
 DISABLE_AVC ?= n
 DISABLE_SETRANS ?= n

@@ -1,25 +1,25 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER, 2006
 # Leah Liu <lliu@redhat.com>, 2008-2010
 # Tommy He <lovenemesis@gmail.com>, 2013
 # Tony Fu <tfu@redhat.com>, 2006
-# Wei Liu <LLIU@REDHAT.COM>, 2012-2013
+# Wei Liu <LLIU@REDHAT.COM>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Policycoreutils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-15 15:17-0400\n"
-"PO-Revision-Date: 2013-07-10 20:44+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
-"Language-Team: Chinese (China) <trans-zh_cn@lists.fedoraproject.org>\n"
-"Language: zh_CN\n"
+"POT-Creation-Date: 2014-01-03 16:04-0500\n"
+"PO-Revision-Date: 2014-02-24 01:27+0000\n"
+"Last-Translator: Wei Liu <LLIU@REDHAT.COM>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/fedora/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../run_init/run_init.c:67
@@ -27,10 +27,7 @@ msgid ""
 "USAGE: run_init <script> <args ...>\n"
 "  where: <script> is the name of the init script to run,\n"
 "         <args ...> are the arguments to that script."
-msgstr ""
-"使用方法：run_init <script> <args ...>\n"
-"  这里：<script> 是要运行的初始脚本名，\n"
-"         <args ...> 是这个脚本的参数。"
+msgstr "使用方法：run_init <script> <args ...>\n  这里：<script> 是要运行的初始脚本名，\n         <args ...> 是这个脚本的参数。"
 
 #: ../run_init/run_init.c:126 ../newrole/newrole.c:1128
 #, c-format
@@ -94,924 +91,927 @@ msgstr "******************** 重要 ***********************\n"
 msgid "To make this policy package active, execute:"
 msgstr "要激活这个策略包，执行："
 
-#: ../semanage/seobject.py:210
+#: ../semanage/seobject/__init__.py:220
 msgid "Could not create semanage handle"
 msgstr "无法创建 semanage 句柄"
 
-#: ../semanage/seobject.py:218
+#: ../semanage/seobject/__init__.py:228
 msgid "SELinux policy is not managed or store cannot be accessed."
 msgstr "没有管理 SELinux 策略或者无法访问存储。"
 
-#: ../semanage/seobject.py:223
+#: ../semanage/seobject/__init__.py:233
 msgid "Cannot read policy store."
 msgstr "无法读取策略存储。"
 
-#: ../semanage/seobject.py:228
+#: ../semanage/seobject/__init__.py:238
 msgid "Could not establish semanage connection"
 msgstr "无法建立 semanage 连接"
 
-#: ../semanage/seobject.py:233
+#: ../semanage/seobject/__init__.py:243
 msgid "Could not test MLS enabled status"
 msgstr "无法测试启用了 MLS 的状态"
 
-#: ../semanage/seobject.py:239 ../semanage/seobject.py:254
+#: ../semanage/seobject/__init__.py:249 ../semanage/seobject/__init__.py:264
 msgid "Not yet implemented"
 msgstr "尚未实施"
 
-#: ../semanage/seobject.py:243
+#: ../semanage/seobject/__init__.py:253
 msgid "Semanage transaction already in progress"
 msgstr "Semanage 事务进行中"
 
-#: ../semanage/seobject.py:252
+#: ../semanage/seobject/__init__.py:262
 msgid "Could not start semanage transaction"
 msgstr "无法启动 semanage 事务"
 
-#: ../semanage/seobject.py:264
+#: ../semanage/seobject/__init__.py:274
 msgid "Could not commit semanage transaction"
 msgstr "无法提交 semanage 事务"
 
-#: ../semanage/seobject.py:269
+#: ../semanage/seobject/__init__.py:279
 msgid "Semanage transaction not in progress"
 msgstr "Semanage 事务未进行"
 
-#: ../semanage/seobject.py:281 ../semanage/seobject.py:376
+#: ../semanage/seobject/__init__.py:291 ../semanage/seobject/__init__.py:386
 msgid "Could not list SELinux modules"
 msgstr "无法列出 SELinux 模块"
 
-#: ../semanage/seobject.py:300
+#: ../semanage/seobject/__init__.py:310
 msgid "Modules Name"
 msgstr "模块名称"
 
-#: ../semanage/seobject.py:300 ../gui/modulesPage.py:63
+#: ../semanage/seobject/__init__.py:310 ../gui/modulesPage.py:63
 msgid "Version"
 msgstr "版本"
 
-#: ../semanage/seobject.py:303 ../gui/statusPage.py:75
-#: ../sepolicy/sepolicy/sepolicy.glade:3449
+#: ../semanage/seobject/__init__.py:313 ../gui/statusPage.py:71
+#: ../sepolicy/sepolicy/sepolicy.glade:3431
 msgid "Disabled"
 msgstr "已禁用"
 
-#: ../semanage/seobject.py:312
+#: ../semanage/seobject/__init__.py:322
 #, python-format
 msgid "Module does not exists %s "
-msgstr ""
+msgstr "模块不存在 %s"
 
-#: ../semanage/seobject.py:322
+#: ../semanage/seobject/__init__.py:332
 #, python-format
 msgid "Could not disable module %s (remove failed)"
 msgstr "无法禁用模块 %s (删除失败)"
 
-#: ../semanage/seobject.py:333
+#: ../semanage/seobject/__init__.py:343
 #, python-format
 msgid "Could not enable module %s (remove failed)"
 msgstr "无法启用模块 %s (删除失败)"
 
-#: ../semanage/seobject.py:348
+#: ../semanage/seobject/__init__.py:358
 #, python-format
 msgid "Could not remove module %s (remove failed)"
 msgstr "无法删除模块 %s (删除失败)"
 
-#: ../semanage/seobject.py:363
+#: ../semanage/seobject/__init__.py:373
 msgid "dontaudit requires either 'on' or 'off'"
 msgstr "dontaudit 需为 'on' 或者 'off'"
 
-#: ../semanage/seobject.py:391
-msgid "Builtin Permissive Types"
-msgstr "内嵌 Permissive 类型"
-
-#: ../semanage/seobject.py:401
+#: ../semanage/seobject/__init__.py:402
 msgid "Customized Permissive Types"
 msgstr "自定义 Permissive 类型"
 
-#: ../semanage/seobject.py:410
+#: ../semanage/seobject/__init__.py:410
+msgid "Builtin Permissive Types"
+msgstr "内嵌 Permissive 类型"
+
+#: ../semanage/seobject/__init__.py:419
+#, python-format
+msgid "%s is not a domain type"
+msgstr "%s 不是域类型"
+
+#: ../semanage/seobject/__init__.py:424
 msgid ""
 "The sepolgen python module is required to setup permissive domains.\n"
 "In some distributions it is included in the policycoreutils-devel patckage.\n"
 "# yum install policycoreutils-devel\n"
 "Or similar for your distro."
-msgstr ""
+msgstr "sepolgen python 模块需要设置允许的域。\n在有些发行本中是包含的 policycoreutils-devel 软件包中。\n# yum install policycoreutils-devel\n或者您使用的发行本中的类似命令。"
 
-#: ../semanage/seobject.py:447
+#: ../semanage/seobject/__init__.py:461
 #, python-format
 msgid "Could not set permissive domain %s (module installation failed)"
 msgstr "无法设定 permissive 域 %s（模块安装失败）"
 
-#: ../semanage/seobject.py:453
+#: ../semanage/seobject/__init__.py:467
 #, python-format
 msgid "Could not remove permissive domain %s (remove failed)"
 msgstr "无法删除 permissive 域 %s（删除操作失败）"
 
-#: ../semanage/seobject.py:488 ../semanage/seobject.py:562
-#: ../semanage/seobject.py:608 ../semanage/seobject.py:730
-#: ../semanage/seobject.py:760 ../semanage/seobject.py:827
-#: ../semanage/seobject.py:884 ../semanage/seobject.py:1144
-#: ../semanage/seobject.py:1879 ../semanage/seobject.py:1942
-#: ../semanage/seobject.py:1961 ../semanage/seobject.py:2084
-#: ../semanage/seobject.py:2135
+#: ../semanage/seobject/__init__.py:501 ../semanage/seobject/__init__.py:575
+#: ../semanage/seobject/__init__.py:621 ../semanage/seobject/__init__.py:743
+#: ../semanage/seobject/__init__.py:773 ../semanage/seobject/__init__.py:839
+#: ../semanage/seobject/__init__.py:896 ../semanage/seobject/__init__.py:1156
+#: ../semanage/seobject/__init__.py:1891 ../semanage/seobject/__init__.py:1954
+#: ../semanage/seobject/__init__.py:1973 ../semanage/seobject/__init__.py:2096
+#: ../semanage/seobject/__init__.py:2147
 #, python-format
 msgid "Could not create a key for %s"
 msgstr "无法为 %s 创建密钥"
 
-#: ../semanage/seobject.py:492 ../semanage/seobject.py:566
-#: ../semanage/seobject.py:612 ../semanage/seobject.py:618
+#: ../semanage/seobject/__init__.py:505 ../semanage/seobject/__init__.py:579
+#: ../semanage/seobject/__init__.py:625 ../semanage/seobject/__init__.py:631
 #, python-format
 msgid "Could not check if login mapping for %s is defined"
 msgstr "无法检查是否已经为 %s 规定了登录映射"
 
-#: ../semanage/seobject.py:501
+#: ../semanage/seobject/__init__.py:514
 #, python-format
 msgid "Linux Group %s does not exist"
 msgstr "Linux 组群 %s 不存在"
 
-#: ../semanage/seobject.py:506
+#: ../semanage/seobject/__init__.py:519
 #, python-format
 msgid "Linux User %s does not exist"
 msgstr "Linux用户 %s 不存在"
 
-#: ../semanage/seobject.py:510
+#: ../semanage/seobject/__init__.py:523
 #, python-format
 msgid "Could not create login mapping for %s"
 msgstr "无法为 %s 创建登录映射"
 
-#: ../semanage/seobject.py:514 ../semanage/seobject.py:775
+#: ../semanage/seobject/__init__.py:527 ../semanage/seobject/__init__.py:788
 #, python-format
 msgid "Could not set name for %s"
 msgstr "无法为 %s 设置名称"
 
-#: ../semanage/seobject.py:519 ../semanage/seobject.py:785
+#: ../semanage/seobject/__init__.py:532 ../semanage/seobject/__init__.py:798
 #, python-format
 msgid "Could not set MLS range for %s"
 msgstr "无法为 %s 设置 MLS 范围"
 
-#: ../semanage/seobject.py:523
+#: ../semanage/seobject/__init__.py:536
 #, python-format
 msgid "Could not set SELinux user for %s"
 msgstr "无法为 %s 设置 SELinux 用户"
 
-#: ../semanage/seobject.py:527
+#: ../semanage/seobject/__init__.py:540
 #, python-format
 msgid "Could not add login mapping for %s"
 msgstr "无法为 %s 添加登录映射"
 
-#: ../semanage/seobject.py:545
+#: ../semanage/seobject/__init__.py:558
 msgid "Requires seuser or serange"
 msgstr "需要 seuser 或 serange"
 
-#: ../semanage/seobject.py:568 ../semanage/seobject.py:614
+#: ../semanage/seobject/__init__.py:581 ../semanage/seobject/__init__.py:627
 #, python-format
 msgid "Login mapping for %s is not defined"
 msgstr "未定义 %s 的登录映射"
 
-#: ../semanage/seobject.py:572
+#: ../semanage/seobject/__init__.py:585
 #, python-format
 msgid "Could not query seuser for %s"
 msgstr "无法为 %s 查询 seuser"
 
-#: ../semanage/seobject.py:586
+#: ../semanage/seobject/__init__.py:599
 #, python-format
 msgid "Could not modify login mapping for %s"
 msgstr "无法为 %s 修改登录映射"
 
-#: ../semanage/seobject.py:620
+#: ../semanage/seobject/__init__.py:633
 #, python-format
 msgid "Login mapping for %s is defined in policy, cannot be deleted"
 msgstr "已经在策略中规定了 %s 的登录映射，无法将其删除。"
 
-#: ../semanage/seobject.py:624
+#: ../semanage/seobject/__init__.py:637
 #, python-format
 msgid "Could not delete login mapping for %s"
 msgstr "无法删除 %s 的登录映射"
 
-#: ../semanage/seobject.py:646 ../semanage/seobject.py:679
-#: ../semanage/seobject.py:927
+#: ../semanage/seobject/__init__.py:659 ../semanage/seobject/__init__.py:692
+#: ../semanage/seobject/__init__.py:939
 msgid "Could not list login mappings"
 msgstr "无法列出登录映射"
 
-#: ../semanage/seobject.py:707 ../semanage/seobject.py:719
+#: ../semanage/seobject/__init__.py:720 ../semanage/seobject/__init__.py:732
 #: ../gui/system-config-selinux.glade:100
-#: ../sepolicy/sepolicy/sepolicy.glade:1180
-#: ../sepolicy/sepolicy/sepolicy.glade:3174
+#: ../sepolicy/sepolicy/sepolicy.glade:1162
+#: ../sepolicy/sepolicy/sepolicy.glade:3156
 msgid "Login Name"
 msgstr "登录名"
 
-#: ../semanage/seobject.py:707 ../semanage/seobject.py:719
-#: ../semanage/seobject.py:977 ../semanage/seobject.py:982
+#: ../semanage/seobject/__init__.py:720 ../semanage/seobject/__init__.py:732
+#: ../semanage/seobject/__init__.py:989 ../semanage/seobject/__init__.py:994
 #: ../gui/system-config-selinux.glade:128
 #: ../gui/system-config-selinux.glade:915
-#: ../gui/system-config-selinux.glade:2285 ../gui/usersPage.py:44
-#: ../sepolicy/sepolicy/sepolicy.glade:1206
-#: ../sepolicy/sepolicy/sepolicy.glade:3192
-#: ../sepolicy/sepolicy/sepolicy.glade:3278
-#: ../sepolicy/sepolicy/sepolicy.glade:4973
+#: ../gui/system-config-selinux.glade:2285 ../gui/usersPage.py:41
+#: ../sepolicy/sepolicy/sepolicy.glade:1188
+#: ../sepolicy/sepolicy/sepolicy.glade:3174
+#: ../sepolicy/sepolicy/sepolicy.glade:3260
+#: ../sepolicy/sepolicy/sepolicy.glade:4915
 msgid "SELinux User"
 msgstr "SELinux 用户"
 
-#: ../semanage/seobject.py:707 ../gui/system-config-selinux.glade:156
+#: ../semanage/seobject/__init__.py:720 ../gui/system-config-selinux.glade:156
 #: ../gui/system-config-selinux.glade:943
 msgid "MLS/MCS Range"
 msgstr "MLS/MCS 范围"
 
-#: ../semanage/seobject.py:707
+#: ../semanage/seobject/__init__.py:720
 msgid "Service"
 msgstr "服务"
 
-#: ../semanage/seobject.py:733 ../semanage/seobject.py:764
-#: ../semanage/seobject.py:831 ../semanage/seobject.py:888
-#: ../semanage/seobject.py:894
+#: ../semanage/seobject/__init__.py:746 ../semanage/seobject/__init__.py:777
+#: ../semanage/seobject/__init__.py:843 ../semanage/seobject/__init__.py:900
+#: ../semanage/seobject/__init__.py:906
 #, python-format
 msgid "Could not check if SELinux user %s is defined"
 msgstr "无法检查是否已定义了 SELinux 用户 %s"
 
-#: ../semanage/seobject.py:736 ../semanage/seobject.py:837
-#: ../semanage/seobject.py:900
+#: ../semanage/seobject/__init__.py:749 ../semanage/seobject/__init__.py:849
+#: ../semanage/seobject/__init__.py:912
 #, python-format
 msgid "Could not query user for %s"
 msgstr "无法为 %s 查询用户"
 
-#: ../semanage/seobject.py:756
+#: ../semanage/seobject/__init__.py:769
 #, python-format
 msgid "You must add at least one role for %s"
 msgstr "您必须至少为 %s 添加一个角色"
 
-#: ../semanage/seobject.py:771
+#: ../semanage/seobject/__init__.py:784
 #, python-format
 msgid "Could not create SELinux user for %s"
 msgstr "无法为 %s 创建 SELinux 用户"
 
-#: ../semanage/seobject.py:780
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:793
+#, python-format
 msgid "Could not add role %(ROLE)s for %(NAME)s"
-msgstr "无法为 %s 添加角色 %s"
+msgstr "无法为 %(NAME)s 添加角色  %(ROLE)s"
 
-#: ../semanage/seobject.py:789
+#: ../semanage/seobject/__init__.py:802
 #, python-format
 msgid "Could not set MLS level for %s"
 msgstr "无法为 %s 设置 MLS 级别"
 
-#: ../semanage/seobject.py:792
-#, fuzzy, python-format
-msgid "Could not add prefix %(ROLE)s for %(PREFIX)s"
-msgstr "无法为 %s 添加前缀 %s"
+#: ../semanage/seobject/__init__.py:805
+#, python-format
+msgid "Could not add prefix %(PREFIX)s for %(ROLE)s"
+msgstr "无法为 %(ROLE)s 添加前缀 %(PREFIX)s"
 
-#: ../semanage/seobject.py:795
+#: ../semanage/seobject/__init__.py:808
 #, python-format
 msgid "Could not extract key for %s"
 msgstr "无法为 %s 提取密钥"
 
-#: ../semanage/seobject.py:799
+#: ../semanage/seobject/__init__.py:812
 #, python-format
 msgid "Could not add SELinux user %s"
 msgstr "无法添加 SELinux 用户 %s"
 
-#: ../semanage/seobject.py:821
+#: ../semanage/seobject/__init__.py:833
 msgid "Requires prefix, roles, level or range"
 msgstr "需要前缀、角色、级别或范围"
 
-#: ../semanage/seobject.py:823
+#: ../semanage/seobject/__init__.py:835
 msgid "Requires prefix or roles"
 msgstr "需要前缀或角色"
 
-#: ../semanage/seobject.py:833 ../semanage/seobject.py:890
+#: ../semanage/seobject/__init__.py:845 ../semanage/seobject/__init__.py:902
 #, python-format
 msgid "SELinux user %s is not defined"
 msgstr "未定义 SELinux 用户 %s"
 
-#: ../semanage/seobject.py:862
+#: ../semanage/seobject/__init__.py:874
 #, python-format
 msgid "Could not modify SELinux user %s"
 msgstr "无法修改 SELinux 用户 %s"
 
-#: ../semanage/seobject.py:896
+#: ../semanage/seobject/__init__.py:908
 #, python-format
 msgid "SELinux user %s is defined in policy, cannot be deleted"
 msgstr "已在策略中定义了 SELinux 用户 %s，无法将其删除。"
 
-#: ../semanage/seobject.py:907
+#: ../semanage/seobject/__init__.py:919
 #, python-format
 msgid "Could not delete SELinux user %s"
 msgstr "无法删除 SELinux 用户 %s"
 
-#: ../semanage/seobject.py:945
+#: ../semanage/seobject/__init__.py:957
 msgid "Could not list SELinux users"
 msgstr "无法列出 SELinux 用户"
 
-#: ../semanage/seobject.py:951
+#: ../semanage/seobject/__init__.py:963
 #, python-format
 msgid "Could not list roles for user %s"
 msgstr "无法为用户 %s 列出角色"
 
-#: ../semanage/seobject.py:976
+#: ../semanage/seobject/__init__.py:988
 msgid "Labeling"
 msgstr "标记中"
 
-#: ../semanage/seobject.py:976
+#: ../semanage/seobject/__init__.py:988
 msgid "MLS/"
 msgstr "MLS/"
 
-#: ../semanage/seobject.py:977
+#: ../semanage/seobject/__init__.py:989
 msgid "Prefix"
 msgstr "前缀"
 
-#: ../semanage/seobject.py:977
+#: ../semanage/seobject/__init__.py:989
 msgid "MCS Level"
 msgstr "MCS 级别"
 
-#: ../semanage/seobject.py:977
+#: ../semanage/seobject/__init__.py:989
 msgid "MCS Range"
 msgstr "MCS 范围"
 
-#: ../semanage/seobject.py:977 ../semanage/seobject.py:982
-#: ../gui/system-config-selinux.glade:992 ../gui/usersPage.py:59
-#: ../sepolicy/sepolicy/sepolicy.glade:3298
-#: ../sepolicy/sepolicy/sepolicy.glade:5309
-#: ../sepolicy/sepolicy/sepolicy.glade:5458
+#: ../semanage/seobject/__init__.py:989 ../semanage/seobject/__init__.py:994
+#: ../gui/system-config-selinux.glade:992 ../gui/usersPage.py:56
+#: ../sepolicy/sepolicy/sepolicy.glade:3280
+#: ../sepolicy/sepolicy/sepolicy.glade:5251
+#: ../sepolicy/sepolicy/sepolicy.glade:5400
 msgid "SELinux Roles"
 msgstr "SELinux 角色"
 
-#: ../semanage/seobject.py:1002
+#: ../semanage/seobject/__init__.py:1014
 msgid "Protocol udp or tcp is required"
 msgstr "需要 udp 或 tcp 协议"
 
-#: ../semanage/seobject.py:1004
+#: ../semanage/seobject/__init__.py:1016
 msgid "Port is required"
 msgstr "需要端口"
 
-#: ../semanage/seobject.py:1014
+#: ../semanage/seobject/__init__.py:1026
 msgid "Invalid Port"
 msgstr "无效端口"
 
-#: ../semanage/seobject.py:1018
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1030
+#, python-format
 msgid "Could not create a key for %(PROTOTYPE)s/%(PORT)s"
-msgstr "无法为 %s/%s 生成密钥"
+msgstr "无法为 %(PROTOTYPE)s/%(PORT)s 创建密钥"
 
-#: ../semanage/seobject.py:1029
+#: ../semanage/seobject/__init__.py:1041
 msgid "Type is required"
 msgstr "需要类型"
 
-#: ../semanage/seobject.py:1032 ../semanage/seobject.py:1096
-#: ../semanage/seobject.py:1873
+#: ../semanage/seobject/__init__.py:1044 ../semanage/seobject/__init__.py:1108
+#: ../semanage/seobject/__init__.py:1885
 #, python-format
 msgid "Type %s is invalid, must be a port type"
 msgstr "类型 %s 无效，必须是端口类型"
 
-#: ../semanage/seobject.py:1040 ../semanage/seobject.py:1157
-#: ../semanage/seobject.py:1163
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1052 ../semanage/seobject/__init__.py:1169
+#: ../semanage/seobject/__init__.py:1175
+#, python-format
 msgid "Could not check if port %(PROTOCOL)s/%(PORT)s is defined"
-msgstr "无法检查是否已定义端口 %s/%s"
+msgstr "如果定义端口 %(PROTOCOL)s/%(PORT)s 则无法检查"
 
-#: ../semanage/seobject.py:1042
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1054
+#, python-format
 msgid "Port %(PROTOCOL)s/%(PORT)s already defined"
-msgstr "已定义端口 %s/%s"
+msgstr "已定义端口 %(PROTOCOL)s/%(PORT)s"
 
-#: ../semanage/seobject.py:1046
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1058
+#, python-format
 msgid "Could not create port for %(PROTOCOL)s/%(PORT)s"
-msgstr "无法为 %s/%s 创建端口"
+msgstr "无法为 %(PROTOCOL)s/%(PORT)s 创建端口"
 
-#: ../semanage/seobject.py:1052
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1064
+#, python-format
 msgid "Could not create context for %(PROTOCOL)s/%(PORT)s"
-msgstr "无法为 %s/%s 创建上下文"
+msgstr "无法为 %(PROTOCOL)s/%(PORT)s 创建上下文"
 
-#: ../semanage/seobject.py:1056
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1068
+#, python-format
 msgid "Could not set user in port context for %(PROTOCOL)s/%(PORT)s"
-msgstr "无法在端口上下文中为 %s/%s 设置用户"
+msgstr "无法为 %(PROTOCOL)s/%(PORT)s 在端口上下文中设定用户"
 
-#: ../semanage/seobject.py:1060
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1072
+#, python-format
 msgid "Could not set role in port context for %(PROTOCOL)s/%(PORT)s"
-msgstr "无法在端口上下文中为 %s/%s 设置角色"
+msgstr "无法为 %(PROTOCOL)s/%(PORT)s 在端口上下文中设定角色"
 
-#: ../semanage/seobject.py:1064
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1076
+#, python-format
 msgid "Could not set type in port context for %(PROTOCOL)s/%(PORT)s"
-msgstr "无法在端口上下文中为 %s/%s 设置类型"
+msgstr "无法为 %(PROTOCOL)s/%(PORT)s 在端口上下文中设定类型"
 
-#: ../semanage/seobject.py:1069
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1081
+#, python-format
 msgid "Could not set mls fields in port context for %(PROTOCOL)s/%(PORT)s"
-msgstr "无法在端口 上下文中为 %s/%s 设置 mls 字段"
+msgstr "无法为 %(PROTOCOL)s/%(PORT)s 在端口上下文中设定 mls 字段"
 
-#: ../semanage/seobject.py:1073
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1085
+#, python-format
 msgid "Could not set port context for %(PROTOCOL)s/%(PORT)s"
-msgstr "无法为 %s/%s 设置端口上下文"
+msgstr "无法为 %(PROTOCOL)s/%(PORT)s 设定端口上下文"
 
-#: ../semanage/seobject.py:1077
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1089
+#, python-format
 msgid "Could not add port %(PROTOCOL)s/%(PORT)s"
-msgstr "无法添加端口 %s/%s"
+msgstr "无法为 %(PROTOCOL)s/%(PORT)s 添加端口"
 
-#: ../semanage/seobject.py:1091 ../semanage/seobject.py:1367
-#: ../semanage/seobject.py:1566
+#: ../semanage/seobject/__init__.py:1103 ../semanage/seobject/__init__.py:1379
+#: ../semanage/seobject/__init__.py:1578
 msgid "Requires setype or serange"
 msgstr "需要 setype 或 serange"
 
-#: ../semanage/seobject.py:1093
+#: ../semanage/seobject/__init__.py:1105
 msgid "Requires setype"
 msgstr "需要 settype"
 
-#: ../semanage/seobject.py:1102
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1114
+#, python-format
 msgid "Could not check if port @%(PROTOCOL)s/%(PORT)s is defined"
-msgstr "无法检查是否已定义端口 %s/%s"
+msgstr "如果定义端口 @%(PROTOCOL)s/%(PORT)s 则无法检查"
 
-#: ../semanage/seobject.py:1104
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1116
+#, python-format
 msgid "Port @%(PROTOCOL)s/%(PORT)s is not defined"
-msgstr "未定义端口 %s/%s"
+msgstr "未定义端口 @%(PROTOCOL)s/%(PORT)s"
 
-#: ../semanage/seobject.py:1108
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1120
+#, python-format
 msgid "Could not query port %(PROTOCOL)s/%(PORT)s"
-msgstr "无法查询端口 %s/%s"
+msgstr "无法查询端口 %(PROTOCOL)s/%(PORT)s"
 
-#: ../semanage/seobject.py:1119
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1131
+#, python-format
 msgid "Could not modify port %(PROTOCOL)s/%(PORT)s"
-msgstr "无法修改端口 %s/%s"
+msgstr "无法修改端口 %(PROTOCOL)s/%(PORT)s"
 
-#: ../semanage/seobject.py:1132
+#: ../semanage/seobject/__init__.py:1144
 msgid "Could not list the ports"
 msgstr "无法列出端口"
 
-#: ../semanage/seobject.py:1148
+#: ../semanage/seobject/__init__.py:1160
 #, python-format
 msgid "Could not delete the port %s"
 msgstr "无法删除端口 %s"
 
-#: ../semanage/seobject.py:1159
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1171
+#, python-format
 msgid "Port %(PROTOCOL)s/%(PORT)s is not defined"
-msgstr "未定义端口 %s/%s"
+msgstr "未定义端口 %(PROTOCOL)s/%(PORT)s"
 
-#: ../semanage/seobject.py:1165
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1177
+#, python-format
 msgid "Port %(PROTOCOL)s/%(PORT)s is defined in policy, cannot be deleted"
-msgstr "已在策略中定义了端口 %s/%s，无法将其删除。"
+msgstr "在策略中定义了端口 %(PROTOCOL)s/%(PORT)s，无法删除。"
 
-#: ../semanage/seobject.py:1169
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1181
+#, python-format
 msgid "Could not delete port %(PROTOCOL)s/%(PORT)s"
-msgstr "无法删除端口 %s/%s"
+msgstr "无法删除端口 %(PROTOCOL)s/%(PORT)s"
 
-#: ../semanage/seobject.py:1185 ../semanage/seobject.py:1207
+#: ../semanage/seobject/__init__.py:1197 ../semanage/seobject/__init__.py:1219
 msgid "Could not list ports"
 msgstr "无法列出端口"
 
-#: ../semanage/seobject.py:1246 ../sepolicy/sepolicy/sepolicy.glade:2694
-#: ../sepolicy/sepolicy/sepolicy.glade:2792
-#: ../sepolicy/sepolicy/sepolicy.glade:4706
+#: ../semanage/seobject/__init__.py:1258
+#: ../sepolicy/sepolicy/sepolicy.glade:2676
+#: ../sepolicy/sepolicy/sepolicy.glade:2774
+#: ../sepolicy/sepolicy/sepolicy.glade:4648
 msgid "SELinux Port Type"
 msgstr "SELinux 端口类型"
 
-#: ../semanage/seobject.py:1246
+#: ../semanage/seobject/__init__.py:1258
 msgid "Proto"
 msgstr "协议"
 
-#: ../semanage/seobject.py:1246 ../gui/system-config-selinux.glade:335
-#: ../sepolicy/sepolicy/sepolicy.glade:1431
+#: ../semanage/seobject/__init__.py:1258
+#: ../gui/system-config-selinux.glade:335
+#: ../sepolicy/sepolicy/sepolicy.glade:1413
 msgid "Port Number"
 msgstr "端口号"
 
-#: ../semanage/seobject.py:1270
+#: ../semanage/seobject/__init__.py:1282
 msgid "Node Address is required"
 msgstr "需要节点地址"
 
-#: ../semanage/seobject.py:1285
+#: ../semanage/seobject/__init__.py:1297
 msgid "Unknown or missing protocol"
 msgstr "未知或者缺少协议"
 
-#: ../semanage/seobject.py:1299
+#: ../semanage/seobject/__init__.py:1311
 msgid "SELinux node type is required"
 msgstr "SELinux 节点类型是必选的"
 
-#: ../semanage/seobject.py:1302 ../semanage/seobject.py:1370
+#: ../semanage/seobject/__init__.py:1314 ../semanage/seobject/__init__.py:1382
 #, python-format
 msgid "Type %s is invalid, must be a node type"
 msgstr "类型 %s 无效，必须是节点类型"
 
-#: ../semanage/seobject.py:1306 ../semanage/seobject.py:1374
-#: ../semanage/seobject.py:1410 ../semanage/seobject.py:1508
-#: ../semanage/seobject.py:1570 ../semanage/seobject.py:1604
-#: ../semanage/seobject.py:1818
+#: ../semanage/seobject/__init__.py:1318 ../semanage/seobject/__init__.py:1386
+#: ../semanage/seobject/__init__.py:1422 ../semanage/seobject/__init__.py:1520
+#: ../semanage/seobject/__init__.py:1582 ../semanage/seobject/__init__.py:1616
+#: ../semanage/seobject/__init__.py:1830
 #, python-format
 msgid "Could not create key for %s"
 msgstr "无法为 %s 创建密钥"
 
-#: ../semanage/seobject.py:1308 ../semanage/seobject.py:1378
-#: ../semanage/seobject.py:1414 ../semanage/seobject.py:1420
+#: ../semanage/seobject/__init__.py:1320 ../semanage/seobject/__init__.py:1390
+#: ../semanage/seobject/__init__.py:1426 ../semanage/seobject/__init__.py:1432
 #, python-format
 msgid "Could not check if addr %s is defined"
 msgstr "无法检查是否定义了 addr %s"
 
-#: ../semanage/seobject.py:1317
+#: ../semanage/seobject/__init__.py:1329
 #, python-format
 msgid "Could not create addr for %s"
 msgstr "无法为 %s 创建 addr"
 
-#: ../semanage/seobject.py:1323 ../semanage/seobject.py:1524
-#: ../semanage/seobject.py:1767
+#: ../semanage/seobject/__init__.py:1335 ../semanage/seobject/__init__.py:1536
+#: ../semanage/seobject/__init__.py:1779
 #, python-format
 msgid "Could not create context for %s"
 msgstr "无法为 %s 创建上下文"
 
-#: ../semanage/seobject.py:1327
+#: ../semanage/seobject/__init__.py:1339
 #, python-format
 msgid "Could not set mask for %s"
 msgstr "无法为 %s 设置掩码"
 
-#: ../semanage/seobject.py:1331
+#: ../semanage/seobject/__init__.py:1343
 #, python-format
 msgid "Could not set user in addr context for %s"
 msgstr "无法在 addr 上下文中为 %s 设置用户"
 
-#: ../semanage/seobject.py:1335
+#: ../semanage/seobject/__init__.py:1347
 #, python-format
 msgid "Could not set role in addr context for %s"
 msgstr "无法在 addr 上下文中为 %s 设置角色"
 
-#: ../semanage/seobject.py:1339
+#: ../semanage/seobject/__init__.py:1351
 #, python-format
 msgid "Could not set type in addr context for %s"
 msgstr "无法在 addr 上下文中为 %s 设置类型"
 
-#: ../semanage/seobject.py:1344
+#: ../semanage/seobject/__init__.py:1356
 #, python-format
 msgid "Could not set mls fields in addr context for %s"
 msgstr "无法在 addr 上下文中为 %s 设置 mls 字段"
 
-#: ../semanage/seobject.py:1348
+#: ../semanage/seobject/__init__.py:1360
 #, python-format
 msgid "Could not set addr context for %s"
 msgstr "无法为 %s 设置 addr 上下文"
 
-#: ../semanage/seobject.py:1352
+#: ../semanage/seobject/__init__.py:1364
 #, python-format
 msgid "Could not add addr %s"
 msgstr "无法添加 addr %s"
 
-#: ../semanage/seobject.py:1380 ../semanage/seobject.py:1416
+#: ../semanage/seobject/__init__.py:1392 ../semanage/seobject/__init__.py:1428
 #, python-format
 msgid "Addr %s is not defined"
 msgstr "没有定义 addr %s"
 
-#: ../semanage/seobject.py:1384
+#: ../semanage/seobject/__init__.py:1396
 #, python-format
 msgid "Could not query addr %s"
 msgstr "无法查询 addr %s"
 
-#: ../semanage/seobject.py:1394
+#: ../semanage/seobject/__init__.py:1406
 #, python-format
 msgid "Could not modify addr %s"
 msgstr "无法修改 addr %s"
 
-#: ../semanage/seobject.py:1422
+#: ../semanage/seobject/__init__.py:1434
 #, python-format
 msgid "Addr %s is defined in policy, cannot be deleted"
 msgstr "已在策略中定义了 addr %s，无法将其删除。"
 
-#: ../semanage/seobject.py:1426
+#: ../semanage/seobject/__init__.py:1438
 #, python-format
 msgid "Could not delete addr %s"
 msgstr "无法删除 addr %s"
 
-#: ../semanage/seobject.py:1438
+#: ../semanage/seobject/__init__.py:1450
 msgid "Could not deleteall node mappings"
 msgstr "无法删除所有节点映射"
 
-#: ../semanage/seobject.py:1452
+#: ../semanage/seobject/__init__.py:1464
 msgid "Could not list addrs"
 msgstr "无法列出 addr"
 
-#: ../semanage/seobject.py:1504 ../semanage/seobject.py:1811
+#: ../semanage/seobject/__init__.py:1516 ../semanage/seobject/__init__.py:1823
 msgid "SELinux Type is required"
 msgstr "需要 SELinux 类型"
 
-#: ../semanage/seobject.py:1512 ../semanage/seobject.py:1574
-#: ../semanage/seobject.py:1608 ../semanage/seobject.py:1614
+#: ../semanage/seobject/__init__.py:1524 ../semanage/seobject/__init__.py:1586
+#: ../semanage/seobject/__init__.py:1620 ../semanage/seobject/__init__.py:1626
 #, python-format
 msgid "Could not check if interface %s is defined"
 msgstr "无法检查是否已定义接口 %s"
 
-#: ../semanage/seobject.py:1519
+#: ../semanage/seobject/__init__.py:1531
 #, python-format
 msgid "Could not create interface for %s"
 msgstr "无法为 %s 创建接口"
 
-#: ../semanage/seobject.py:1528
+#: ../semanage/seobject/__init__.py:1540
 #, python-format
 msgid "Could not set user in interface context for %s"
 msgstr "无法在接口 context 中为 %s 设置用户"
 
-#: ../semanage/seobject.py:1532
+#: ../semanage/seobject/__init__.py:1544
 #, python-format
 msgid "Could not set role in interface context for %s"
 msgstr "无法在接口 context 中为 %s 设置角色"
 
-#: ../semanage/seobject.py:1536
+#: ../semanage/seobject/__init__.py:1548
 #, python-format
 msgid "Could not set type in interface context for %s"
 msgstr "无法在接口 context 中为 %s 设置类型"
 
-#: ../semanage/seobject.py:1541
+#: ../semanage/seobject/__init__.py:1553
 #, python-format
 msgid "Could not set mls fields in interface context for %s"
 msgstr "无法在接口上下文中为 %s 设置 mls 字段"
 
-#: ../semanage/seobject.py:1545
+#: ../semanage/seobject/__init__.py:1557
 #, python-format
 msgid "Could not set interface context for %s"
 msgstr "无法为 %s 设置接口上下文"
 
-#: ../semanage/seobject.py:1549
+#: ../semanage/seobject/__init__.py:1561
 #, python-format
 msgid "Could not set message context for %s"
 msgstr "无法为 %s 设置信息上下文"
 
-#: ../semanage/seobject.py:1553
+#: ../semanage/seobject/__init__.py:1565
 #, python-format
 msgid "Could not add interface %s"
 msgstr "无法添加接口 %s"
 
-#: ../semanage/seobject.py:1576 ../semanage/seobject.py:1610
+#: ../semanage/seobject/__init__.py:1588 ../semanage/seobject/__init__.py:1622
 #, python-format
 msgid "Interface %s is not defined"
 msgstr "未定义接口 %s"
 
-#: ../semanage/seobject.py:1580
+#: ../semanage/seobject/__init__.py:1592
 #, python-format
 msgid "Could not query interface %s"
 msgstr "无法查询接口 %s"
 
-#: ../semanage/seobject.py:1591
+#: ../semanage/seobject/__init__.py:1603
 #, python-format
 msgid "Could not modify interface %s"
 msgstr "无法修改接口 %s"
 
-#: ../semanage/seobject.py:1616
+#: ../semanage/seobject/__init__.py:1628
 #, python-format
 msgid "Interface %s is defined in policy, cannot be deleted"
 msgstr "已在策略中定义了接口 %s，无法将其删除"
 
-#: ../semanage/seobject.py:1620
+#: ../semanage/seobject/__init__.py:1632
 #, python-format
 msgid "Could not delete interface %s"
 msgstr "无法删除接口 %s"
 
-#: ../semanage/seobject.py:1632
+#: ../semanage/seobject/__init__.py:1644
 msgid "Could not delete all interface  mappings"
 msgstr "无法删除所有接口映射"
 
-#: ../semanage/seobject.py:1646
+#: ../semanage/seobject/__init__.py:1658
 msgid "Could not list interfaces"
 msgstr "无法列出接口"
 
-#: ../semanage/seobject.py:1671
+#: ../semanage/seobject/__init__.py:1683
 msgid "SELinux Interface"
 msgstr "SELinux 接口"
 
-#: ../semanage/seobject.py:1671 ../semanage/seobject.py:2033
+#: ../semanage/seobject/__init__.py:1683 ../semanage/seobject/__init__.py:2045
 msgid "Context"
 msgstr "上下文"
 
-#: ../semanage/seobject.py:1738
+#: ../semanage/seobject/__init__.py:1750
 #, python-format
 msgid "Target %s is not valid. Target is not allowed to end with '/'"
-msgstr ""
+msgstr "目标 %s 无效。目标不能以 ‘/’ 结尾。"
 
-#: ../semanage/seobject.py:1741
+#: ../semanage/seobject/__init__.py:1753
 #, python-format
-msgid "Substiture %s is not valid. Substitute is not allowed to end with '/'"
-msgstr ""
+msgid "Substitute %s is not valid. Substitute is not allowed to end with '/'"
+msgstr "替换 %s 无效。替换不能以 '/' 结尾。"
 
-#: ../semanage/seobject.py:1744
+#: ../semanage/seobject/__init__.py:1756
 #, python-format
 msgid "Equivalence class for %s already exists"
 msgstr "已存在 %s 的等效类型"
 
-#: ../semanage/seobject.py:1750
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1762
+#, python-format
 msgid ""
 "File spec %(TARGET)s conflicts with equivalency rule '%(SOURCE)s %(DEST)s'"
-msgstr "文件说明 %s 与等效规则 '%s %s' 冲突"
+msgstr "文件说明 %(TARGET)s 与等式规则 '%(SOURCE)s %(DEST)s' 冲突"
 
-#: ../semanage/seobject.py:1759
+#: ../semanage/seobject/__init__.py:1771
 #, python-format
 msgid "Equivalence class for %s does not exists"
 msgstr "%s 的等效类型不存在"
 
-#: ../semanage/seobject.py:1773
+#: ../semanage/seobject/__init__.py:1785
 #, python-format
 msgid "Could not set user in file context for %s"
 msgstr "无法在文件 context 中为 %s 设置用户"
 
-#: ../semanage/seobject.py:1777
+#: ../semanage/seobject/__init__.py:1789
 #, python-format
 msgid "Could not set role in file context for %s"
 msgstr "无法在文件 context 中为 %s 设置角色"
 
-#: ../semanage/seobject.py:1782 ../semanage/seobject.py:1848
+#: ../semanage/seobject/__init__.py:1794 ../semanage/seobject/__init__.py:1860
 #, python-format
 msgid "Could not set mls fields in file context for %s"
 msgstr "无法在文件 context 中为 %s 设置 mls 字段"
 
-#: ../semanage/seobject.py:1788
+#: ../semanage/seobject/__init__.py:1800
 msgid "Invalid file specification"
 msgstr "无效文件说明"
 
-#: ../semanage/seobject.py:1790
+#: ../semanage/seobject/__init__.py:1802
 msgid "File specification can not include spaces"
 msgstr "文件说明不能有空格"
 
-#: ../semanage/seobject.py:1795
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:1807
+#, python-format
 msgid ""
 "File spec %(TARGET)s conflicts with equivalency rule '%(SOURCE)s %(DEST)s'; "
 "Try adding '%(DEST1)s' instead"
-msgstr "文件说明 %s 与等效规则 '%s %s' 冲突。请尝试添加 '%s'。"
+msgstr "文件说明 %(TARGET)s 与等式规则 '%(SOURCE)s %(DEST)s' 冲突；请尝试添加 '%(DEST1)s'。"
 
-#: ../semanage/seobject.py:1814
+#: ../semanage/seobject/__init__.py:1826
 #, python-format
 msgid "Type %s is invalid, must be a file or device type"
 msgstr "类型 %s 无效，必须是文件或设备类型"
 
-#: ../semanage/seobject.py:1822 ../semanage/seobject.py:1827
-#: ../semanage/seobject.py:1883 ../semanage/seobject.py:1965
-#: ../semanage/seobject.py:1969
+#: ../semanage/seobject/__init__.py:1834 ../semanage/seobject/__init__.py:1839
+#: ../semanage/seobject/__init__.py:1895 ../semanage/seobject/__init__.py:1977
+#: ../semanage/seobject/__init__.py:1981
 #, python-format
 msgid "Could not check if file context for %s is defined"
 msgstr "如果已定义 %s 的文件上下文，则无法检查。"
 
-#: ../semanage/seobject.py:1835
+#: ../semanage/seobject/__init__.py:1847
 #, python-format
 msgid "Could not create file context for %s"
 msgstr "无法为 %s 创建文件上下文"
 
-#: ../semanage/seobject.py:1843
+#: ../semanage/seobject/__init__.py:1855
 #, python-format
 msgid "Could not set type in file context for %s"
 msgstr "无法在文件 context 中为 %s 设置类型"
 
-#: ../semanage/seobject.py:1851 ../semanage/seobject.py:1911
-#: ../semanage/seobject.py:1915
+#: ../semanage/seobject/__init__.py:1863 ../semanage/seobject/__init__.py:1923
+#: ../semanage/seobject/__init__.py:1927
 #, python-format
 msgid "Could not set file context for %s"
 msgstr "无法为 %s 设置文件上下文"
 
-#: ../semanage/seobject.py:1857
+#: ../semanage/seobject/__init__.py:1869
 #, python-format
 msgid "Could not add file context for %s"
 msgstr "无法为 %s 添加文件上下文"
 
-#: ../semanage/seobject.py:1871
+#: ../semanage/seobject/__init__.py:1883
 msgid "Requires setype, serange or seuser"
 msgstr "需要 setype、serange 或 seuser"
 
-#: ../semanage/seobject.py:1887 ../semanage/seobject.py:1973
+#: ../semanage/seobject/__init__.py:1899 ../semanage/seobject/__init__.py:1985
 #, python-format
 msgid "File context for %s is not defined"
 msgstr "未定义 %s 的文件上下文"
 
-#: ../semanage/seobject.py:1893
+#: ../semanage/seobject/__init__.py:1905
 #, python-format
 msgid "Could not query file context for %s"
 msgstr "无法为 %s 查询文件上下文"
 
-#: ../semanage/seobject.py:1919
+#: ../semanage/seobject/__init__.py:1931
 #, python-format
 msgid "Could not modify file context for %s"
 msgstr "无法为 %s 修改文件上下文"
 
-#: ../semanage/seobject.py:1932
+#: ../semanage/seobject/__init__.py:1944
 msgid "Could not list the file contexts"
 msgstr "无法列出文件上下文"
 
-#: ../semanage/seobject.py:1946
+#: ../semanage/seobject/__init__.py:1958
 #, python-format
 msgid "Could not delete the file context %s"
 msgstr "无法删除文件上下文 %s"
 
-#: ../semanage/seobject.py:1971
+#: ../semanage/seobject/__init__.py:1983
 #, python-format
 msgid "File context for %s is defined in policy, cannot be deleted"
 msgstr "已在策略中定义了 %s 的文件上下文，无法将其删除。"
 
-#: ../semanage/seobject.py:1977
+#: ../semanage/seobject/__init__.py:1989
 #, python-format
 msgid "Could not delete file context for %s"
 msgstr "无法为 %s 删除文件上下文"
 
-#: ../semanage/seobject.py:1992
+#: ../semanage/seobject/__init__.py:2004
 msgid "Could not list file contexts"
 msgstr "无法列出文件上下文"
 
-#: ../semanage/seobject.py:1996
+#: ../semanage/seobject/__init__.py:2008
 msgid "Could not list local file contexts"
 msgstr "无法列出本地文件上下文"
 
-#: ../semanage/seobject.py:2033
+#: ../semanage/seobject/__init__.py:2045
 msgid "SELinux fcontext"
 msgstr "SELinux fcontext"
 
-#: ../semanage/seobject.py:2033
+#: ../semanage/seobject/__init__.py:2045
 msgid "type"
 msgstr "类型"
 
-#: ../semanage/seobject.py:2046
+#: ../semanage/seobject/__init__.py:2058
 msgid ""
 "\n"
 "SELinux Distribution fcontext Equivalence \n"
-msgstr ""
-"\n"
-"SELinux Distribution fcontext Equivalence\n"
+msgstr "\nSELinux Distribution fcontext Equivalence\n"
 
-#: ../semanage/seobject.py:2051
+#: ../semanage/seobject/__init__.py:2063
 msgid ""
 "\n"
 "SELinux Local fcontext Equivalence \n"
-msgstr ""
-"\n"
-"SELinux Local fcontext Equivalence\n"
+msgstr "\nSELinux Local fcontext Equivalence\n"
 
-#: ../semanage/seobject.py:2087 ../semanage/seobject.py:2138
-#: ../semanage/seobject.py:2144
+#: ../semanage/seobject/__init__.py:2099 ../semanage/seobject/__init__.py:2150
+#: ../semanage/seobject/__init__.py:2156
 #, python-format
 msgid "Could not check if boolean %s is defined"
 msgstr "无法检查是否已定义布尔值 %s"
 
-#: ../semanage/seobject.py:2089 ../semanage/seobject.py:2140
+#: ../semanage/seobject/__init__.py:2101 ../semanage/seobject/__init__.py:2152
 #, python-format
 msgid "Boolean %s is not defined"
 msgstr "尚未定义布尔值 %s"
 
-#: ../semanage/seobject.py:2093
+#: ../semanage/seobject/__init__.py:2105
 #, python-format
 msgid "Could not query file context %s"
 msgstr "无法查询文件上下文 %s"
 
-#: ../semanage/seobject.py:2098
+#: ../semanage/seobject/__init__.py:2110
 #, python-format
 msgid "You must specify one of the following values: %s"
 msgstr "您必需指定以下值之一：%s"
 
-#: ../semanage/seobject.py:2103
+#: ../semanage/seobject/__init__.py:2115
 #, python-format
 msgid "Could not set active value of boolean %s"
 msgstr "无法设定活跃布尔值 %s"
 
-#: ../semanage/seobject.py:2106
+#: ../semanage/seobject/__init__.py:2118
 #, python-format
 msgid "Could not modify boolean %s"
 msgstr "无法修改布尔值 %s"
 
-#: ../semanage/seobject.py:2122
-#, fuzzy, python-format
+#: ../semanage/seobject/__init__.py:2134
+#, python-format
 msgid "Bad format %(BOOLNAME)s: Record %(VALUE)s"
-msgstr "错误格式 %s：记录 %s"
+msgstr "坏格式 %(BOOLNAME)s：记录 %(VALUE)s"
 
-#: ../semanage/seobject.py:2146
+#: ../semanage/seobject/__init__.py:2158
 #, python-format
 msgid "Boolean %s is defined in policy, cannot be deleted"
 msgstr "已在策略中定义了布尔值 %s，无法将其删除。"
 
-#: ../semanage/seobject.py:2150
+#: ../semanage/seobject/__init__.py:2162
 #, python-format
 msgid "Could not delete boolean %s"
 msgstr "无法删除布尔值 %s"
 
-#: ../semanage/seobject.py:2162 ../semanage/seobject.py:2179
+#: ../semanage/seobject/__init__.py:2174 ../semanage/seobject/__init__.py:2191
 msgid "Could not list booleans"
 msgstr "无法列出布尔值"
 
-#: ../semanage/seobject.py:2214
+#: ../semanage/seobject/__init__.py:2226
 msgid "off"
 msgstr "关"
 
-#: ../semanage/seobject.py:2214
+#: ../semanage/seobject/__init__.py:2226
 msgid "on"
 msgstr "开"
 
-#: ../semanage/seobject.py:2228
+#: ../semanage/seobject/__init__.py:2240
 msgid "SELinux boolean"
 msgstr "SELinux 布尔值"
 
-#: ../semanage/seobject.py:2228
+#: ../semanage/seobject/__init__.py:2240
 msgid "State"
 msgstr "状态"
 
-#: ../semanage/seobject.py:2228
+#: ../semanage/seobject/__init__.py:2240
 msgid "Default"
 msgstr "默认"
 
-#: ../semanage/seobject.py:2228 ../gui/polgen.glade:113
-#: ../gui/polgengui.py:274 ../sepolicy/sepolicy/sepolicy.glade:2166
-#: ../sepolicy/sepolicy/sepolicy.glade:2536
-#: ../sepolicy/sepolicy/sepolicy.glade:5175
+#: ../semanage/seobject/__init__.py:2240 ../gui/polgen.glade:113
+#: ../gui/polgengui.py:260 ../sepolicy/sepolicy/sepolicy.glade:2148
+#: ../sepolicy/sepolicy/sepolicy.glade:2518
+#: ../sepolicy/sepolicy/sepolicy.glade:5117
 msgid "Description"
 msgstr "描述"
 
@@ -1377,66 +1377,66 @@ msgstr "chcat -l +CompanyConfidential juser"
 msgid "Options Error %s "
 msgstr "选项错误 %s "
 
-#: ../gui/booleansPage.py:194 ../gui/system-config-selinux.glade:1706
+#: ../gui/booleansPage.py:186 ../gui/system-config-selinux.glade:1706
 msgid "Boolean"
 msgstr "布尔值"
 
-#: ../gui/booleansPage.py:245 ../gui/semanagePage.py:162
+#: ../gui/booleansPage.py:245 ../gui/semanagePage.py:186
 msgid "all"
 msgstr "全部"
 
-#: ../gui/booleansPage.py:247 ../gui/semanagePage.py:164
+#: ../gui/booleansPage.py:247 ../gui/semanagePage.py:188
 #: ../gui/system-config-selinux.glade:1615
 #: ../gui/system-config-selinux.glade:1820
 #: ../gui/system-config-selinux.glade:2437
 msgid "Customized"
 msgstr "自定义"
 
-#: ../gui/fcontextPage.py:64 ../gui/system-config-selinux.glade:1911
+#: ../gui/fcontextPage.py:63 ../gui/system-config-selinux.glade:1911
 msgid "File Labeling"
 msgstr "文件标签"
 
-#: ../gui/fcontextPage.py:74
+#: ../gui/fcontextPage.py:73
 msgid ""
 "File\n"
 "Specification"
 msgstr "文件说明"
 
-#: ../gui/fcontextPage.py:81
+#: ../gui/fcontextPage.py:80
 msgid ""
 "Selinux\n"
 "File Type"
 msgstr "Selinux 文件类型"
 
-#: ../gui/fcontextPage.py:88
+#: ../gui/fcontextPage.py:87
 msgid ""
 "File\n"
 "Type"
 msgstr " 文件类型"
 
-#: ../gui/loginsPage.py:48 ../gui/system-config-selinux.glade:2098
+#: ../gui/loginsPage.py:45 ../gui/system-config-selinux.glade:2098
 msgid "User Mapping"
 msgstr "用户映射"
 
-#: ../gui/loginsPage.py:52
+#: ../gui/loginsPage.py:49
 msgid ""
 "Login\n"
 "Name"
 msgstr "登录名"
 
-#: ../gui/loginsPage.py:56 ../gui/usersPage.py:50
+#: ../gui/loginsPage.py:53 ../gui/usersPage.py:47
 msgid ""
 "SELinux\n"
 "User"
 msgstr "SELinux 用户"
 
-#: ../gui/loginsPage.py:59 ../gui/usersPage.py:55
+#: ../gui/loginsPage.py:56 ../gui/usersPage.py:52
 msgid ""
 "MLS/\n"
 "MCS Range"
 msgstr "MLS/⏎ MCS 范围"
 
-#: ../gui/loginsPage.py:133
+#: ../gui/loginsPage.py:130
 #, python-format
 msgid "Login '%s' is required"
 msgstr "需要登录 '%s' "
@@ -1449,15 +1449,15 @@ msgstr "策略模块"
 msgid "Module Name"
 msgstr "模块名称"
 
-#: ../gui/modulesPage.py:135
+#: ../gui/modulesPage.py:131
 msgid "Disable Audit"
 msgstr "禁用审核"
 
-#: ../gui/modulesPage.py:138 ../gui/system-config-selinux.glade:2662
+#: ../gui/modulesPage.py:134 ../gui/system-config-selinux.glade:2662
 msgid "Enable Audit"
 msgstr "启用审核"
 
-#: ../gui/modulesPage.py:163
+#: ../gui/modulesPage.py:161
 msgid "Load Policy Module"
 msgstr "载入策略模块"
 
@@ -1496,7 +1496,7 @@ msgstr "<b>为您要限制的程序或者用户角色选择策略类型：</b>"
 msgid "<b>Applications</b>"
 msgstr "<b>应用程序</b>"
 
-#: ../gui/polgen.glade:316 ../sepolicy/sepolicy/generate.py:130
+#: ../gui/polgen.glade:316 ../sepolicy/sepolicy/generate.py:132
 msgid "Standard Init Daemon"
 msgstr "标准初始化守护进程"
 
@@ -1504,11 +1504,9 @@ msgstr "标准初始化守护进程"
 msgid ""
 "Standard Init Daemon are daemons started on boot via init scripts.  Usually "
 "requires a script in /etc/rc.d/init.d"
-msgstr ""
-"标准初始化守护进程是那些通过 init 脚步启动的守护进程。通常需要在 /etc/rc.d/"
-"init.d 中有一个脚本。"
+msgstr "标准初始化守护进程是那些通过 init 脚步启动的守护进程。通常需要在 /etc/rc.d/init.d 中有一个脚本。"
 
-#: ../gui/polgen.glade:332 ../sepolicy/sepolicy/generate.py:131
+#: ../gui/polgen.glade:332 ../sepolicy/sepolicy/generate.py:133
 msgid "DBUS System Daemon"
 msgstr "DBUS 系统守护进程"
 
@@ -1520,7 +1518,7 @@ msgstr "互联网服务守护进程 (inetd)"
 msgid "Internet Services Daemon are daemons started by xinetd"
 msgstr "互联网服务守护进程是那些使用 xinetd 启动的守护进程。"
 
-#: ../gui/polgen.glade:366 ../sepolicy/sepolicy/generate.py:133
+#: ../gui/polgen.glade:366 ../sepolicy/sepolicy/generate.py:135
 msgid "Web Application/Script (CGI)"
 msgstr "网页应用程序/脚本 (CGI)"
 
@@ -1529,7 +1527,7 @@ msgid ""
 "Web Applications/Script (CGI) CGI scripts started by the web server (apache)"
 msgstr "网页应用程序/脚本 (CGI) CGI 脚本由网页服务器 (apache) 启动。"
 
-#: ../gui/polgen.glade:383 ../sepolicy/sepolicy/generate.py:135
+#: ../gui/polgen.glade:383 ../sepolicy/sepolicy/generate.py:137
 msgid "User Application"
 msgstr "用户程序"
 
@@ -1539,7 +1537,7 @@ msgid ""
 "started by a user"
 msgstr "用户程序是您要控制的由某个用户启动的任意应用程序"
 
-#: ../gui/polgen.glade:400 ../sepolicy/sepolicy/generate.py:134
+#: ../gui/polgen.glade:400 ../sepolicy/sepolicy/generate.py:136
 msgid "Sandbox"
 msgstr "沙箱"
 
@@ -1563,9 +1561,7 @@ msgstr "最低终端用户角色"
 msgid ""
 "This user will login to a machine only via a terminal or remote login.  By "
 "default this user will have  no setuid, no networking, no su, no sudo."
-msgstr ""
-"这个用户将使用终端或者远程登录登录某台机器。默认情况下这个用户将没有 setuid、"
-"联网、su、sudo 权限。"
+msgstr "这个用户将使用终端或者远程登录登录某台机器。默认情况下这个用户将没有 setuid、联网、su、sudo 权限。"
 
 #: ../gui/polgen.glade:512
 msgid "Minimal X Windows User Role"
@@ -1575,9 +1571,7 @@ msgstr "最低 X 视窗用户角色"
 msgid ""
 "This user can login to a machine via X or terminal.  By default this user "
 "will have no setuid, no networking, no sudo, no su"
-msgstr ""
-"这个用户通过 X 或者终端登录到某台机器。默认情况下这个用户将没有 setuid、联"
-"网、su、sudo 权限。"
+msgstr "这个用户通过 X 或者终端登录到某台机器。默认情况下这个用户将没有 setuid、联网、su、sudo 权限。"
 
 #: ../gui/polgen.glade:529
 msgid "User Role"
@@ -1595,11 +1589,9 @@ msgstr "管理员用户角色"
 
 #: ../gui/polgen.glade:550
 msgid ""
-"User with full networking, no setuid applications without transition, no su, "
-"can sudo to Root Administration Roles"
-msgstr ""
-"用户可完全联网，没有不转换的 setuid 应用程序，没有 sudo，可以 sudo 为 Root 管"
-"理员角色。"
+"User with full networking, no setuid applications without transition, no su,"
+" can sudo to Root Administration Roles"
+msgstr "用户可完全联网，没有不转换的 setuid 应用程序，没有 sudo，可以 sudo 为 Root 管理员角色。"
 
 #: ../gui/polgen.glade:592
 msgid "<b>Root Users</b>"
@@ -1611,19 +1603,17 @@ msgstr "Root 管理员用户角色"
 
 #: ../gui/polgen.glade:627
 msgid ""
-"Select Root Administrator User Role, if this user will be used to administer "
-"the machine while running as root.  This user will not be able to login to "
+"Select Root Administrator User Role, if this user will be used to administer"
+" the machine while running as root.  This user will not be able to login to "
 "the system directly."
-msgstr ""
-"如果要使用这个用户管理作为 root 运行的机器，则请选择 Root 管理员用户角色。这"
-"个用户将无法直接登录到该系统。"
+msgstr "如果要使用这个用户管理作为 root 运行的机器，则请选择 Root 管理员用户角色。这个用户将无法直接登录到该系统。"
 
 #: ../gui/polgen.glade:705
 msgid "<b>Enter name of application or user role:</b>"
 msgstr "<b>输入应用程序或者用户角色名称：</b>"
 
-#: ../gui/polgen.glade:728 ../gui/polgengui.py:272
-#: ../sepolicy/sepolicy/sepolicy.glade:2201
+#: ../gui/polgen.glade:728 ../gui/polgengui.py:258
+#: ../sepolicy/sepolicy/sepolicy.glade:2183
 msgid "Name"
 msgstr "名称"
 
@@ -1676,16 +1666,15 @@ msgstr "选择 %s 要转换成的程序域。"
 msgid ""
 "transition \n"
 "role tab"
-msgstr ""
-"转换 \n"
-"角色标签"
+msgstr "转换 \n角色标签"
 
 #: ../gui/polgen.glade:1001
 msgid "<b>Select the user_roles that will transition to %s:</b>"
 msgstr "<b>选择要转换成 %s 的 user_roles：</b>"
 
 #: ../gui/polgen.glade:1019
-msgid "Select the user roles that will transiton to this applications domains."
+msgid ""
+"Select the user roles that will transiton to this applications domains."
 msgstr "选择要转换成这个程序域的用户角色。"
 
 #: ../gui/polgen.glade:1056
@@ -1709,7 +1698,7 @@ msgid "<b>TCP Ports</b>"
 msgstr "<b>TCP 端口</b>"
 
 #: ../gui/polgen.glade:1223 ../gui/polgen.glade:1390 ../gui/polgen.glade:1589
-#: ../gui/polgen.glade:1698 ../sepolicy/sepolicy/sepolicy.glade:4333
+#: ../gui/polgen.glade:1698
 msgid "All"
 msgstr "全部"
 
@@ -1752,9 +1741,7 @@ msgstr "<b>UDP 端口</b>"
 msgid ""
 "Network\n"
 "Bind tab"
-msgstr ""
-"网络\n"
-"捆绑标签"
+msgstr "网络\n捆绑标签"
 
 #: ../gui/polgen.glade:1537
 msgid "<b>Select network ports that %s connects to:</b>"
@@ -1768,8 +1755,7 @@ msgstr "允许 %s 连接到任意 tcp 端口"
 msgid ""
 "Enter a comma separated list of tcp ports or ranges of ports that %s "
 "connects to. Example: 612, 650-660"
-msgstr ""
-"输入使用逗号分开的 %s 要连接的 tcp 端口或者端口范围列表，例如：612, 650-660"
+msgstr "输入使用逗号分开的 %s 要连接的 tcp 端口或者端口范围列表，例如：612, 650-660"
 
 #: ../gui/polgen.glade:1702
 msgid "Allows %s to connect to any udp port"
@@ -1779,8 +1765,7 @@ msgstr "允许 %s 连接到任意 udp 端口"
 msgid ""
 "Enter a comma separated list of udp ports or ranges of ports that %s "
 "connects to. Example: 612, 650-660"
-msgstr ""
-"输入使用逗号分开的 %s 要连接的 udp 端口或者端口范围列表，例如：612, 650-660"
+msgstr "输入使用逗号分开的 %s 要连接的 udp 端口或者端口范围列表，例如：612, 650-660"
 
 #: ../gui/polgen.glade:1792
 msgid "<b>Select common application traits for %s:</b>"
@@ -1844,122 +1829,118 @@ msgstr "<b>您要在哪个目录中创建 %s 策略？</b>"
 msgid "Policy Directory"
 msgstr "策略目录"
 
-#: ../gui/polgengui.py:282
+#: ../gui/polgengui.py:268
 msgid "Role"
 msgstr "角色"
 
-#: ../gui/polgengui.py:289
+#: ../gui/polgengui.py:275
 msgid "Existing_User"
 msgstr "现有用户（_U）"
 
-#: ../gui/polgengui.py:303 ../gui/polgengui.py:311 ../gui/polgengui.py:325
+#: ../gui/polgengui.py:289 ../gui/polgengui.py:297 ../gui/polgengui.py:311
 msgid "Application"
 msgstr "应用程序"
 
-#: ../gui/polgengui.py:370
+#: ../gui/polgengui.py:356
 #, python-format
 msgid "%s must be a directory"
 msgstr "%s 必须是一个目录"
 
-#: ../gui/polgengui.py:430 ../gui/polgengui.py:711
+#: ../gui/polgengui.py:416 ../gui/polgengui.py:697
 msgid "You must select a user"
 msgstr "您必须选择一个用户"
 
-#: ../gui/polgengui.py:560
+#: ../gui/polgengui.py:546
 msgid "Select executable file to be confined."
 msgstr "选择要限制的可执行文件"
 
-#: ../gui/polgengui.py:571
+#: ../gui/polgengui.py:557
 msgid "Select init script file to be confined."
 msgstr "选择要限制的 init 脚本文件。"
 
-#: ../gui/polgengui.py:581
+#: ../gui/polgengui.py:567
 msgid "Select file(s) that confined application creates or writes"
 msgstr "选择受限制的应用程序生成或者写入的文件"
 
-#: ../gui/polgengui.py:588
+#: ../gui/polgengui.py:574
 msgid "Select directory(s) that the confined application owns and writes into"
 msgstr "选择受限制的应用程序拥有和写入的目录"
 
-#: ../gui/polgengui.py:650
+#: ../gui/polgengui.py:636
 msgid "Select directory to generate policy files in"
 msgstr "选择要生成策略文件的目录"
 
-#: ../gui/polgengui.py:667
+#: ../gui/polgengui.py:653
 #, python-format
 msgid ""
 "Type %s_t already defined in current policy.\n"
 "Do you want to continue?"
 msgstr "当前策略中已经定义类型 %s_t。要继续吗？"
 
-#: ../gui/polgengui.py:667 ../gui/polgengui.py:671
+#: ../gui/polgengui.py:653 ../gui/polgengui.py:657
 msgid "Verify Name"
 msgstr "验证名称"
 
-#: ../gui/polgengui.py:671
+#: ../gui/polgengui.py:657
 #, python-format
 msgid ""
 "Module %s.pp already loaded in current policy.\n"
 "Do you want to continue?"
 msgstr "在当前策略中已载入 %s.pp 模块。要继续吗？"
 
-#: ../gui/polgengui.py:717
+#: ../gui/polgengui.py:703
 msgid ""
 "You must add a name made up of letters and numbers and containing no spaces."
 msgstr "添加的名称必须以字母和数字组成，且不能有空格。"
 
-#: ../gui/polgengui.py:731
+#: ../gui/polgengui.py:717
 msgid "You must enter a executable"
 msgstr "您必须输入 executable"
 
-#: ../gui/polgengui.py:756 ../gui/system-config-selinux.py:180
+#: ../gui/polgengui.py:742 ../gui/system-config-selinux.py:180
 msgid "Configue SELinux"
 msgstr "配置 SELinux"
 
-#: ../gui/portsPage.py:51 ../gui/system-config-selinux.glade:2528
+#: ../gui/portsPage.py:48 ../gui/system-config-selinux.glade:2528
 msgid "Network Port"
 msgstr "网络端口"
 
-#: ../gui/portsPage.py:85
+#: ../gui/portsPage.py:82
 msgid ""
 "SELinux Port\n"
 "Type"
-msgstr ""
-"SELinux 端口\n"
-"类型"
+msgstr "SELinux 端口\n类型"
 
-#: ../gui/portsPage.py:91 ../gui/system-config-selinux.glade:363
-#: ../sepolicy/sepolicy/sepolicy.glade:1457
-#: ../sepolicy/sepolicy/sepolicy.glade:2676
-#: ../sepolicy/sepolicy/sepolicy.glade:2774
-#: ../sepolicy/sepolicy/sepolicy.glade:4691
+#: ../gui/portsPage.py:88 ../gui/system-config-selinux.glade:363
+#: ../sepolicy/sepolicy/sepolicy.glade:1439
+#: ../sepolicy/sepolicy/sepolicy.glade:2658
+#: ../sepolicy/sepolicy/sepolicy.glade:2756
+#: ../sepolicy/sepolicy/sepolicy.glade:4633
 msgid "Protocol"
 msgstr "协议"
 
-#: ../gui/portsPage.py:96 ../gui/system-config-selinux.glade:479
+#: ../gui/portsPage.py:93 ../gui/system-config-selinux.glade:479
 msgid ""
 "MLS/MCS\n"
 "Level"
-msgstr ""
-"MLS/MCS\n"
-"等级"
+msgstr "MLS/MCS\n等级"
 
-#: ../gui/portsPage.py:101 ../sepolicy/sepolicy/sepolicy.glade:2657
-#: ../sepolicy/sepolicy/sepolicy.glade:2756
-#: ../sepolicy/sepolicy/sepolicy.glade:4677
+#: ../gui/portsPage.py:98 ../sepolicy/sepolicy/sepolicy.glade:2639
+#: ../sepolicy/sepolicy/sepolicy.glade:2738
+#: ../sepolicy/sepolicy/sepolicy.glade:4619
 msgid "Port"
 msgstr "端口"
 
-#: ../gui/portsPage.py:207
+#: ../gui/portsPage.py:205
 #, python-format
 msgid "Port number \"%s\" is not valid.  0 < PORT_NUMBER < 65536 "
 msgstr "端口号 \"%s\" 无效。0 < PORT_NUMBER < 65536 "
 
-#: ../gui/portsPage.py:252
+#: ../gui/portsPage.py:258
 msgid "List View"
 msgstr "列表查看"
 
-#: ../gui/portsPage.py:255 ../gui/system-config-selinux.glade:2419
+#: ../gui/portsPage.py:261 ../gui/system-config-selinux.glade:2419
 msgid "Group View"
 msgstr "组查看"
 
@@ -1973,63 +1954,55 @@ msgstr "您确定要删除 %s '%s' 吗？"
 msgid "Delete %s"
 msgstr "删除 %s"
 
-#: ../gui/semanagePage.py:134
+#: ../gui/semanagePage.py:158
 #, python-format
 msgid "Add %s"
 msgstr "添加 %s"
 
-#: ../gui/semanagePage.py:148
+#: ../gui/semanagePage.py:172
 #, python-format
 msgid "Modify %s"
 msgstr "修改 %s"
 
-#: ../gui/statusPage.py:69 ../gui/system-config-selinux.glade:2819
-#: ../sepolicy/sepolicy/sepolicy.glade:3432
-#: ../sepolicy/sepolicy/sepolicy.glade:3505
+#: ../gui/statusPage.py:65 ../gui/system-config-selinux.glade:2819
+#: ../sepolicy/sepolicy/sepolicy.glade:3414
+#: ../sepolicy/sepolicy/sepolicy.glade:3487
 msgid "Permissive"
 msgstr "Permissive"
 
-#: ../gui/statusPage.py:70 ../gui/system-config-selinux.glade:2837
-#: ../sepolicy/sepolicy/sepolicy.glade:3413
-#: ../sepolicy/sepolicy/sepolicy.glade:3487
+#: ../gui/statusPage.py:66 ../gui/system-config-selinux.glade:2837
+#: ../sepolicy/sepolicy/sepolicy.glade:3395
+#: ../sepolicy/sepolicy/sepolicy.glade:3469
 msgid "Enforcing"
 msgstr "Enforcing"
 
-#: ../gui/statusPage.py:94
+#: ../gui/statusPage.py:90
 msgid "Status"
 msgstr "状态"
 
-#: ../gui/statusPage.py:133 ../sepolicy/sepolicy/gui.py:2661
+#: ../gui/statusPage.py:129 ../sepolicy/sepolicy/gui.py:2613
 msgid ""
 "Changing the policy type will cause a relabel of the entire file system on "
 "the next boot. Relabeling takes a long time depending on the size of the "
 "file system.  Do you wish to continue?"
-msgstr ""
-"更改策略类型将导致在下一次引导时重新标记整个文件系统。重新标记需要一定的时"
-"间，具体要看文件系统的大小。您要继续吗？"
+msgstr "更改策略类型将导致在下一次引导时重新标记整个文件系统。重新标记需要一定的时间，具体要看文件系统的大小。您要继续吗？"
 
-#: ../gui/statusPage.py:147
+#: ../gui/statusPage.py:143
 msgid ""
 "Changing to SELinux disabled requires a reboot.  It is not recommended.  If "
 "you later decide to turn SELinux back on, the system will be required to "
 "relabel.  If you just want to see if SELinux is causing a problem on your "
 "system, you can go to permissive mode which will only log errors and not "
-"enforce SELinux policy.  Permissive mode does not require a reboot    Do you "
-"wish to continue?"
-msgstr ""
-"将 SELinux 改为禁用的状态要求重启方可生效。不推荐使用此选项。如果您以后决定重"
-"新启用 SELinux，则需要重新标记该系统。如果您要看是否因为 SELinux 造成您系统中"
-"的错误，您可以选择 permissive 模式，这个模式只记录出错信息，且不强制执行 "
-"SELinux 策略。Permissive 策略不要求重启。您要继续吗？"
+"enforce SELinux policy.  Permissive mode does not require a reboot    Do you"
+" wish to continue?"
+msgstr "将 SELinux 改为禁用的状态要求重启方可生效。不推荐使用此选项。如果您以后决定重新启用 SELinux，则需要重新标记该系统。如果您要看是否因为 SELinux 造成您系统中的错误，您可以选择 permissive 模式，这个模式只记录出错信息，且不强制执行 SELinux 策略。Permissive 策略不要求重启。您要继续吗？"
 
-#: ../gui/statusPage.py:152 ../sepolicy/sepolicy/gui.py:2795
+#: ../gui/statusPage.py:148 ../sepolicy/sepolicy/gui.py:2747
 msgid ""
 "Changing to SELinux enabled will cause a relabel of the entire file system "
 "on the next boot. Relabeling takes a long time depending on the size of the "
 "file system.  Do you wish to continue?"
-msgstr ""
-"更改为启用 SELinux 将导致在下一次引导时重新标记整个文件系统。重新标记需要一定"
-"的时间，具体要看文件系统的大小。您要继续吗？"
+msgstr "更改为启用 SELinux 将导致在下一次引导时重新标记整个文件系统。重新标记需要一定的时间，具体要看文件系统的大小。您要继续吗？"
 
 #: ../gui/system-config-selinux.glade:11
 msgid "system-config-selinux"
@@ -2039,9 +2012,7 @@ msgstr "system-config-selinux"
 msgid ""
 "Copyright (c)2006 Red Hat, Inc.\n"
 "Copyright (c) 2006 Dan Walsh <dwalsh@redhat.com>"
-msgstr ""
-"版权所有 (c)2006 Red Hat, Inc.\n"
-"版权所有 (c) 2006 Dan Walsh <dwalsh@redhat.com>"
+msgstr "版权所有 (c)2006 Red Hat, Inc.\n版权所有 (c) 2006 Dan Walsh <dwalsh@redhat.com>"
 
 #: ../gui/system-config-selinux.glade:22
 #: ../gui/system-config-selinux.glade:544
@@ -2075,19 +2046,11 @@ msgid ""
 "socket\n"
 "symbolic link\n"
 "named pipe\n"
-msgstr ""
-"所有文件\n"
-"常规文件\n"
-"目录\n"
-"字符设备\n"
-"块设备\n"
-"插槽\n"
-"符号链接\n"
-"命名的管道\n"
+msgstr "所有文件\n常规文件\n目录\n字符设备\n块设备\n插槽\n符号链接\n命名的管道\n"
 
 #: ../gui/system-config-selinux.glade:773
-#: ../sepolicy/sepolicy/sepolicy.glade:729
-#: ../sepolicy/sepolicy/sepolicy.glade:1503
+#: ../sepolicy/sepolicy/sepolicy.glade:711
+#: ../sepolicy/sepolicy/sepolicy.glade:1485
 msgid "MLS"
 msgstr "MLS"
 
@@ -2100,7 +2063,7 @@ msgid "SELinux Administration"
 msgstr "添加管理员"
 
 #: ../gui/system-config-selinux.glade:1122
-#: ../sepolicy/sepolicy/sepolicy.glade:4181
+#: ../sepolicy/sepolicy/sepolicy.glade:4163
 msgid "Add"
 msgstr "添加"
 
@@ -2129,10 +2092,7 @@ msgid ""
 "Disabled\n"
 "Permissive\n"
 "Enforcing\n"
-msgstr ""
-"Disabled\n"
-"Permissive\n"
-"Enforcing\n"
+msgstr "Disabled\nPermissive\nEnforcing\n"
 
 #: ../gui/system-config-selinux.glade:1373
 msgid "Current Enforcing Mode"
@@ -2148,10 +2108,7 @@ msgid ""
 "Relabeling can take a very long time, depending on the size of the system.  "
 "If you are changing policy types or going from disabled to enforcing, a "
 "relabel is required."
-msgstr ""
-"如果您要在下次重启时重新标记整个系统则请选择此选项。重新标记需要一些时间，具"
-"体要看系统的大小。如果您要将策略类型从 disabled 改为 enforcing，就需要重新标"
-"记。"
+msgstr "如果您要在下次重启时重新标记整个系统则请选择此选项。重新标记需要一些时间，具体要看系统的大小。如果您要将策略类型从 disabled 改为 enforcing，就需要重新标记。"
 
 #: ../gui/system-config-selinux.glade:1509
 msgid "Relabel on next reboot."
@@ -2176,7 +2133,7 @@ msgstr "在自定义布尔值和全部布尔值之间切换"
 #: ../gui/system-config-selinux.glade:2467
 #: ../gui/system-config-selinux.glade:2692
 #: ../gui/system-config-selinux.glade:2867
-#: ../sepolicy/sepolicy/sepolicy.glade:2011
+#: ../sepolicy/sepolicy/sepolicy.glade:1993
 msgid "Filter"
 msgstr "过滤器"
 
@@ -2271,8 +2228,8 @@ msgstr "删除可载入的策略模块"
 
 #: ../gui/system-config-selinux.glade:2661
 msgid ""
-"Enable/Disable additional audit rules, that are normally not reported in the "
-"log files."
+"Enable/Disable additional audit rules, that are normally not reported in the"
+" log files."
 msgstr "启用/禁用额外审计规则，一般不再日志文件中报告这些规则。"
 
 #: ../gui/system-config-selinux.glade:2781
@@ -2295,7 +2252,7 @@ msgstr "进程域"
 msgid "label59"
 msgstr "label59"
 
-#: ../gui/usersPage.py:138
+#: ../gui/usersPage.py:140
 #, python-format
 msgid "SELinux user '%s' is required"
 msgstr "需要 SELinux 用户 '%s'"
@@ -2307,15 +2264,15 @@ msgstr "允许 ABRT 修改用于共用文件传输服务的共用文件。"
 
 #: booleans.py:2
 msgid ""
-"Allow ABRT to run in abrt_handle_event_t domain to handle ABRT event scripts"
-msgstr "允许在 abrt_handle_event_t 域中运行 ABRT 以便处理 ABRT 事件脚本"
+"Determine whether ABRT can run in the abrt_handle_event_t domain to handle "
+"ABRT event scripts."
+msgstr "决定 ABRT 是否可以在 abrt_handle_event_t 域中运行处理 ABRT 事件脚本。"
 
 #: booleans.py:3
-#, fuzzy
 msgid ""
-"Allow abrt-handle-upload to modify public files used for public file "
-"transfer services in /var/spool/abrt-upload/."
-msgstr "允许 tftp 修改在公共文件传输服务中使用的公共文件。"
+"Determine whether abrt-handle-upload can modify public files used for public"
+" file transfer services in /var/spool/abrt-upload/."
+msgstr "决定 abrt-handle-upload 是否可以修改  /var/spool/abrt-upload/ 公共文件传输服务中使用的公共文件。"
 
 #: booleans.py:4
 msgid "Allow antivirus programs to read non security files on a system"
@@ -2348,17 +2305,14 @@ msgid "Determine whether awstats can purge httpd log files."
 msgstr "决定 aswtats 是否可以清除 httpd 日志文件。"
 
 #: booleans.py:11
-#, fuzzy
-msgid "Allow boinc_domain execmem/execstack."
-msgstr "允许 httpd 脚本和模块执行 execmem/execstack"
+msgid "Determine whether boinc can execmem/execstack."
+msgstr "决定 bionc 是否可以执行 execmem/execstack。"
 
 #: booleans.py:12
 msgid ""
 "Determine whether cdrecord can read various content. nfs, samba, removable "
 "devices, user temp and untrusted content files"
-msgstr ""
-"决定 cdredord 是否可以读取各种内容。nfs、samba、可移动设备、用户临时文件以及"
-"不可信的内容文件。"
+msgstr "决定 cdredord 是否可以读取各种内容。nfs、samba、可移动设备、用户临时文件以及不可信的内容文件。"
 
 #: booleans.py:13
 msgid ""
@@ -2407,2109 +2361,2062 @@ msgid ""
 msgstr "允许系统 cron 任务重新标记文件系统以便恢复文件上下文。"
 
 #: booleans.py:23
+msgid ""
+"Determine whether crond can execute jobs in the user domain as opposed to "
+"the the generic cronjob domain."
+msgstr "决定 crond 是否可以执行用户域中与原始 cronjob 与中相悖的任务。"
+
+#: booleans.py:24
 msgid "Determine whether cvs can read shadow password files."
 msgstr "决定 cvs 是否可以读取影子密码文件。"
 
-#: booleans.py:24
+#: booleans.py:25
 msgid "Allow all daemons to write corefiles to /"
 msgstr "允许所有守护进程将 corefile 写入 /"
 
-#: booleans.py:25
+#: booleans.py:26
+msgid "Enable cluster mode for daemons."
+msgstr "为守护进程启用集群模式。"
+
+#: booleans.py:27
 msgid "Allow all daemons to use tcp wrappers."
 msgstr "允许所有守护进程使用 tcp wrapper。"
 
-#: booleans.py:26
+#: booleans.py:28
 msgid "Allow all daemons the ability to read/write terminals"
 msgstr "允许所有守护进程可读取/写入终端"
 
-#: booleans.py:27
+#: booleans.py:29
+msgid "Allow dbadm to exec content"
+msgstr "允许 dbadm 执行内容"
+
+#: booleans.py:30
 msgid "Determine whether dbadm can manage generic user files."
 msgstr "决定 dbadm 是否可以管理通用用户文件。"
 
-#: booleans.py:28
+#: booleans.py:31
 msgid "Determine whether dbadm can read generic user files."
 msgstr "决定 dbadm 是否可以读取通用用户文件。"
 
-#: booleans.py:29
+#: booleans.py:32
 msgid ""
-"Deny user domains applications to map a memory region as both executable and "
-"writable, this is dangerous and the executable should be reported in bugzilla"
-msgstr ""
-"拒绝用户域程序与内存区映射为可执行和可写入，这样做很危险，同时应在 bugzilla "
-"中报告该可执行文件。"
+"Deny user domains applications to map a memory region as both executable and"
+" writable, this is dangerous and the executable should be reported in "
+"bugzilla"
+msgstr "拒绝用户域程序与内存区映射为可执行和可写入，这样做很危险，同时应在 bugzilla 中报告该可执行文件。"
 
-#: booleans.py:30
+#: booleans.py:33
 msgid "Deny any process from ptracing or debugging any other processes."
-msgstr ""
+msgstr "拒绝所有 ptracing 或者 debugging 任何其他进程的进程。"
 
-#: booleans.py:31
+#: booleans.py:34
 msgid "Allow dhcpc client applications to execute iptables commands"
 msgstr "允许 dhcpc 客户端程序执行 iptables 命令"
 
-#: booleans.py:32
+#: booleans.py:35
 msgid "Determine whether DHCP daemon can use LDAP backends."
 msgstr "决定 DHCP 守护进程是否可以使用 LDAP 后端。"
 
-#: booleans.py:33
+#: booleans.py:36
 msgid "Allow all domains to use other domains file descriptors"
 msgstr "允许所有域使用其他文件描述符"
 
-#: booleans.py:34
+#: booleans.py:37
 msgid "Allow all domains to have the kernel load modules"
 msgstr "允许所有域都有内核载入模块"
 
-#: booleans.py:35
+#: booleans.py:38
 msgid ""
 "Determine whether entropyd can use audio devices as the source for the "
 "entropy feeds."
 msgstr "决定 entropyd 是否可以使用音频设备作为熵值源。"
 
-#: booleans.py:36
+#: booleans.py:39
 msgid "Determine whether exim can connect to databases."
 msgstr "决定 entropyd 是否可以使用音频设备作为熵值的源。"
 
-#: booleans.py:37
+#: booleans.py:40
 msgid ""
 "Determine whether exim can create, read, write, and delete generic user "
 "content files."
 msgstr "决定手否允许 exim 创建、读取、写入和删除通用用户内容文件。"
 
-#: booleans.py:38
+#: booleans.py:41
 msgid "Determine whether exim can read generic user content files."
 msgstr "决定 exim 是否可以读取通用用户文件。"
 
-#: booleans.py:39
+#: booleans.py:42
 msgid "Enable extra rules in the cron domain to support fcron."
 msgstr "在 cron 域中启用附加规则以便支持 fcron。"
 
-#: booleans.py:40
+#: booleans.py:43
 msgid "Determine whether fenced can connect to the TCP network."
 msgstr "决定 fenced 是否可以使用 TCP 连接到该网络。"
 
-#: booleans.py:41
+#: booleans.py:44
 msgid "Determine whether fenced can use ssh."
 msgstr "决定 fenced 受可以使用 ssh。"
 
-#: booleans.py:42
+#: booleans.py:45
 msgid "Allow all domains to execute in fips_mode"
 msgstr "允许所有域以 fips_mode 执行"
 
-#: booleans.py:43
+#: booleans.py:46
 msgid ""
 "Determine whether ftpd can read and write files in user home directories."
 msgstr "决定是否允许 ftp 在用户主目录中读取和写入文件。"
 
-#: booleans.py:44
+#: booleans.py:47
 msgid ""
-"Determine whether ftpd can modify public files used for public file transfer "
-"services. Directories/Files must be labeled public_content_rw_t."
-msgstr ""
-"决定 ftpd 是否可以修改在公共文件传输服务中使用的公共文件。必须将目录/文件标记"
-"为 public_content_rw_t。"
+"Determine whether ftpd can modify public files used for public file transfer"
+" services. Directories/Files must be labeled public_content_rw_t."
+msgstr "决定 ftpd 是否可以修改在公共文件传输服务中使用的公共文件。必须将目录/文件标记为 public_content_rw_t。"
 
-#: booleans.py:45
+#: booleans.py:48
 msgid "Determine whether ftpd can connect to all unreserved ports."
 msgstr "决定 ftpd 是否可以连接到所有未保留的端口。"
 
-#: booleans.py:46
+#: booleans.py:49
 msgid "Determine whether ftpd can connect to databases over the TCP network."
 msgstr "决定 ftpd 是否可以使用 TCP 网络连接到数据库。"
 
-#: booleans.py:47
+#: booleans.py:50
 msgid ""
 "Determine whether ftpd can login to local users and can read and write all "
 "files on the system, governed by DAC."
-msgstr ""
-"决定 ftpd 是否可以登录到本地用户并读取和写入由 DAC 管理的系统中的所有文件。"
+msgstr "决定 ftpd 是否可以登录到本地用户并读取和写入由 DAC 管理的系统中的所有文件。"
 
-#: booleans.py:48
+#: booleans.py:51
 msgid ""
 "Determine whether ftpd can use CIFS used for public file transfer services."
 msgstr "决定 ftpd 是否可以为公共文件传输服务使用 CIFS。"
 
-#: booleans.py:49
-#, fuzzy
+#: booleans.py:52
 msgid "Allow ftpd to use ntfs/fusefs volumes."
-msgstr "允许 samba 导出 ntfs/fusefs 卷。"
+msgstr "允许 ftpd 使用 ntfs/fusefs 卷。"
 
-#: booleans.py:50
+#: booleans.py:53
 msgid ""
 "Determine whether ftpd can use NFS used for public file transfer services."
 msgstr "决定 ftpd 是否可以为公共文件传输服务使用 NFS。"
 
-#: booleans.py:51
+#: booleans.py:54
 msgid ""
 "Determine whether ftpd can bind to all unreserved ports for passive mode."
 msgstr "决定 ftpd 是否可以为被动模式绑定到所有未保留的端口。"
 
-#: booleans.py:52
+#: booleans.py:55
 msgid "Determine whether Git CGI can search home directories."
 msgstr "确定 Git CGI 是否可以搜索主目录。"
 
-#: booleans.py:53
+#: booleans.py:56
 msgid "Determine whether Git CGI can access cifs file systems."
 msgstr "确定 Git CGI 是否可以访问 cifs 文件系统。"
 
-#: booleans.py:54
+#: booleans.py:57
 msgid "Determine whether Git CGI can access nfs file systems."
 msgstr "确定 Git CGI 是否可以访问 nfs 文件系统。"
 
-#: booleans.py:55
+#: booleans.py:58
 msgid ""
 "Determine whether Git session daemon can bind TCP sockets to all unreserved "
 "ports."
 msgstr "确定 Git 会话守护进程是否可以将 TCP 插槽捆绑到所有未保留端口。"
 
-#: booleans.py:56
+#: booleans.py:59
 msgid ""
 "Determine whether calling user domains can execute Git daemon in the "
 "git_session_t domain."
 msgstr "确定调用用户域是否可以在 git_session_t 域中执行 Git 守护进程。"
 
-#: booleans.py:57
+#: booleans.py:60
 msgid "Determine whether Git system daemon can search home directories."
 msgstr "确定 Git 系统守护进程是否可以搜索主目录。"
 
-#: booleans.py:58
+#: booleans.py:61
 msgid "Determine whether Git system daemon can access cifs file systems."
 msgstr "确定 Git 系统守护进程是否可以访问 cifs 文件系统。"
 
-#: booleans.py:59
+#: booleans.py:62
 msgid "Determine whether Git system daemon can access nfs file systems."
 msgstr "确定 Git 守护进程是否可以访问 nfs 文件系统。"
 
-#: booleans.py:60
+#: booleans.py:63
 msgid "Determine whether Gitosis can send mail."
 msgstr "决定 Gitosis 是否可以发送邮件。"
 
-#: booleans.py:61
+#: booleans.py:64
 msgid "Enable reading of urandom for all domains."
 msgstr "为所有域启用非随机读取。"
 
-#: booleans.py:62
+#: booleans.py:65
 msgid ""
 "Allow glusterfsd to modify public files used for public file transfer "
 "services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-"允许 glusterfsd 修改公共文件传输服务使用的公共文件。必须将文件/目录标记为 "
-"public_content_rw_t。"
+msgstr "允许 glusterfsd 修改公共文件传输服务使用的公共文件。必须将文件/目录标记为 public_content_rw_t。"
 
-#: booleans.py:63
+#: booleans.py:66
 msgid "Allow glusterfsd to share any file/directory read only."
 msgstr "允许 glusterfsd 共享所有只读的文件/目录。"
 
-#: booleans.py:64
+#: booleans.py:67
 msgid "Allow glusterfsd to share any file/directory read/write."
 msgstr "允许 glusterfsd 共享所有可读写的文件/目录。"
 
-#: booleans.py:65
+#: booleans.py:68
 msgid ""
 "Allow usage of the gpg-agent --write-env-file option. This also allows gpg-"
 "agent to manage user files."
-msgstr ""
-"允许使用 gpg-agent 的 --write-env-file 选项。这还允许 gpg-agent 管理用户文"
-"件。"
+msgstr "允许使用 gpg-agent 的 --write-env-file 选项。这还允许 gpg-agent 管理用户文件。"
 
-#: booleans.py:66
+#: booleans.py:69
 msgid ""
 "Allow gpg web domain to modify public files used for public file transfer "
 "services."
 msgstr "允许 gpg web 域修改在公共文件传输服务中使用的公共文件。"
 
-#: booleans.py:67
-#, fuzzy
+#: booleans.py:70
 msgid ""
 "Allow gssd to list tmp directories and read the kerberos credential cache."
-msgstr "允许 gssd 读取 tmp 目录。用于访问 kerberos tgt。"
+msgstr "允许 gssd 列出 tmp 目录并读取 kerberos 认证缓存。"
 
-#: booleans.py:68
+#: booleans.py:71
 msgid "Allow guest to exec content"
 msgstr "允许访客执行内容"
 
-#: booleans.py:69
+#: booleans.py:72
 msgid ""
 "Allow Apache to modify public files used for public file transfer services. "
 "Directories/Files must be labeled public_content_rw_t."
-msgstr ""
-"允许 Apache 修改在公共文件传输服务中使用的公共文件。必须将目录/文件标记为 "
-"public_content_rw_t。"
+msgstr "允许 Apache 修改在公共文件传输服务中使用的公共文件。必须将目录/文件标记为 public_content_rw_t。"
 
-#: booleans.py:70
+#: booleans.py:73
 msgid "Allow httpd to use built in scripting (usually php)"
 msgstr "允许 httpd 使用内嵌脚本 (通常为 php)"
 
-#: booleans.py:71
+#: booleans.py:74
 msgid "Allow http daemon to check spam"
 msgstr "允许 http 守护进程检查 spam"
 
-#: booleans.py:72
+#: booleans.py:75
 msgid ""
 "Allow httpd to act as a FTP client connecting to the ftp port and ephemeral "
 "ports"
 msgstr "允许 httpd 作为连接到 ftp 端口和一次性端口的 FTP 客户端"
 
-#: booleans.py:73
+#: booleans.py:76
 msgid "Allow httpd to connect to the ldap port"
 msgstr "允许 httpd 连接到 ldap 端口"
 
-#: booleans.py:74
+#: booleans.py:77
 msgid "Allow http daemon to connect to mythtv"
-msgstr ""
+msgstr "允许 http 守护进程连接到 mythtv"
 
-#: booleans.py:75
+#: booleans.py:78
 msgid "Allow http daemon to connect to zabbix"
 msgstr "允许 http 守护进程连接到 zabbix"
 
-#: booleans.py:76
+#: booleans.py:79
 msgid "Allow HTTPD scripts and modules to connect to the network using TCP."
 msgstr "允许 HTTPD 脚本和模块使用 TCP 连接到网络。"
 
-#: booleans.py:77
-msgid "Allow HTTPD scripts and modules to connect to cobbler over the network."
+#: booleans.py:80
+msgid ""
+"Allow HTTPD scripts and modules to connect to cobbler over the network."
 msgstr "允许 HTTPD 脚本和模块通过网络连接到 cobbler。"
 
-#: booleans.py:78
+#: booleans.py:81
 msgid ""
 "Allow HTTPD scripts and modules to connect to databases over the network."
 msgstr "允许 HTTPD 脚本和模块通过网络连接到数据库。"
 
-#: booleans.py:79
+#: booleans.py:82
 msgid "Allow httpd to connect to memcache server"
 msgstr "允许 httpd 连接到 memcache 服务器"
 
-#: booleans.py:80
+#: booleans.py:83
 msgid "Allow httpd to act as a relay"
 msgstr "允许 httpd 作为中继使用"
 
-#: booleans.py:81
+#: booleans.py:84
 msgid "Allow http daemon to send mail"
 msgstr "允许 httpd 守护进程发送邮件"
 
-#: booleans.py:82
+#: booleans.py:85
 msgid "Allow Apache to communicate with avahi service via dbus"
 msgstr "允许 Apache 通过 dbus 与 avahi 沟通"
 
-#: booleans.py:83
+#: booleans.py:86
 msgid "Allow httpd cgi support"
 msgstr "允许 httpd cgi 支持"
 
-#: booleans.py:84
+#: booleans.py:87
 msgid "Allow httpd to act as a FTP server by listening on the ftp port."
 msgstr "允许 httpd 在 ftp 端口侦听从而作为 FTP 服务器使用。"
 
-#: booleans.py:85
+#: booleans.py:88
 msgid "Allow httpd to read home directories"
 msgstr "允许 httpd 读取主目录"
 
-#: booleans.py:86
+#: booleans.py:89
 msgid "Allow httpd scripts and modules execmem/execstack"
 msgstr "允许 httpd 脚本和模块执行 execmem/execstack"
 
-#: booleans.py:87
+#: booleans.py:90
 msgid "Allow HTTPD to connect to port 80 for graceful shutdown"
 msgstr "允许 HTTPD 连接到端口 80 以便正常关闭"
 
-#: booleans.py:88
+#: booleans.py:91
 msgid "Allow httpd processes to manage IPA content"
 msgstr "允许 httpd 进程管理 IPA 内容"
 
-#: booleans.py:89
+#: booleans.py:92
 msgid "Allow Apache to use mod_auth_ntlm_winbind"
 msgstr "允许 Apache 使用 mod_auth_ntlm_winbind"
 
-#: booleans.py:90
+#: booleans.py:93
 msgid "Allow Apache to use mod_auth_pam"
 msgstr "允许 Apache 使用 mod_auth_pam"
 
-#: booleans.py:91
+#: booleans.py:94
 msgid "Allow httpd to read user content"
 msgstr "允许 httpd 读取用户内容"
 
-#: booleans.py:92
+#: booleans.py:95
 msgid "Allow Apache to run in stickshift mode, not transition to passenger"
 msgstr "允许 Apache 使用 stickshift 模式而不转换为 passenger 运行"
 
-#: booleans.py:93
+#: booleans.py:96
 msgid "Allow HTTPD scripts and modules to server cobbler files."
-msgstr ""
+msgstr "允许在服务器 cobbler 文件中使用 HTTPD 脚本和模块。"
 
-#: booleans.py:94
+#: booleans.py:97
 msgid "Allow httpd daemon to change its resource limits"
 msgstr "允许 httpd 守护进程更改其资源限制"
 
-#: booleans.py:95
+#: booleans.py:98
 msgid ""
 "Allow HTTPD to run SSI executables in the same domain as system CGI scripts."
 msgstr "允许 HTTPD 在与系统 CGI 脚本相同的域中运行 SSI 可执行进程。"
 
-#: booleans.py:96
+#: booleans.py:99
 msgid ""
 "Allow apache scripts to write to public content, directories/files must be "
 "labeled public_rw_content_t."
-msgstr ""
-"允许 apache 脚本写入公共内容，必须将目录/内容标记为 public_rw_content_t。"
+msgstr "允许 apache 脚本写入公共内容，必须将目录/内容标记为 public_rw_content_t。"
 
-#: booleans.py:97
+#: booleans.py:100
 msgid "Allow Apache to execute tmp content."
 msgstr "允许 Apache 执行 tmp 内容。"
 
-#: booleans.py:98
+#: booleans.py:101
 msgid ""
 "Unify HTTPD to communicate with the terminal. Needed for entering the "
 "passphrase for certificates at the terminal."
 msgstr "统一让 HTTPD 与终端沟通。在终端为证书输入密码短语时需要。"
 
-#: booleans.py:99
+#: booleans.py:102
 msgid "Unify HTTPD handling of all content files."
 msgstr "统一让 HTTPD 处理所有内容文件。"
 
-#: booleans.py:100
+#: booleans.py:103
 msgid "Allow httpd to access cifs file systems"
 msgstr "允许 httpd 访问 cifs 文件系统"
 
-#: booleans.py:101
+#: booleans.py:104
 msgid "Allow httpd to access FUSE file systems"
 msgstr "允许 httpd 访问 FUSE 文件系统"
 
-#: booleans.py:102
+#: booleans.py:105
 msgid "Allow httpd to run gpg"
 msgstr "允许 httpd 运行 gpg"
 
-#: booleans.py:103
+#: booleans.py:106
 msgid "Allow httpd to access nfs file systems"
 msgstr "允许 httpd 访问 nfs 文件系统"
 
-#: booleans.py:104
+#: booleans.py:107
 msgid "Allow httpd to access openstack ports"
 msgstr "允许 httpd 访问 openstack 端口"
 
-#: booleans.py:105
+#: booleans.py:108
 msgid "Allow httpd to connect to  sasl"
-msgstr ""
+msgstr "允许 httpd 连接到  sasl"
 
-#: booleans.py:106
+#: booleans.py:109
 msgid "Allow Apache to query NS records"
 msgstr "允许 Apache 查询 NS 记录"
 
-#: booleans.py:107
+#: booleans.py:110
 msgid "Determine whether icecast can listen on and connect to any TCP port."
 msgstr "决定 icecast 是否可以连接到任意 TCP 端口并进行侦听。"
 
-#: booleans.py:108
+#: booleans.py:111
 msgid ""
 "Determine whether irc clients can listen on and connect to any unreserved "
 "TCP ports."
 msgstr "决定 irc 客户端是否可以连接到任意未保留的 TCP 端口并进行侦听。"
 
-#: booleans.py:109
+#: booleans.py:112
 msgid ""
 "Allow the Irssi IRC Client to connect to any port, and to bind to any "
 "unreserved port."
 msgstr "允许 Irssi IRC 客户端连接到任意端口，捆绑到任意未保留端口。"
 
-#: booleans.py:110
+#: booleans.py:113
+msgid "Allow s-c-kdump to run bootloader in bootloader_t."
+msgstr "允许 s-c-kdump 在 bootloader_t 运行引导装载程序。"
+
+#: booleans.py:114
 msgid "Allow confined applications to run with kerberos."
 msgstr "允许受限制程序声音 kerberos 运行。"
 
-#: booleans.py:111
+#: booleans.py:115
 msgid "Allow ksmtuned to use cifs/Samba file systems"
 msgstr "允许 ksmtuned 使用 cifs/Samba 文件系统"
 
-#: booleans.py:112
+#: booleans.py:116
 msgid "Allow ksmtuned to use nfs file systems"
 msgstr "允许 ksmtuned 使用 nfs 文件系统"
 
-#: booleans.py:113
+#: booleans.py:117
+msgid "Allow logadm to exec content"
+msgstr "允许 logadm 执行内容"
+
+#: booleans.py:118
 msgid "Allow syslogd daemon to send mail"
 msgstr "允许 syslogd 守护进程发送邮件"
 
-#: booleans.py:114
+#: booleans.py:119
 msgid "Allow syslogd the ability to read/write terminals"
 msgstr "允许 syslogd 读取/写入终端"
 
-#: booleans.py:115
+#: booleans.py:120
 msgid "Allow logging in and using the system from /dev/console."
 msgstr "允许从 /dev/console 登录并使用该系统。"
 
-#: booleans.py:116
-#, fuzzy
-msgid "Allow epylog to send mail"
-msgstr "允许 syslogd 守护进程发送邮件"
+#: booleans.py:121
+msgid "Determine whether logwatch can connect to mail over the network."
+msgstr "决定 logwatch 是否可以通过网络连接到邮件。"
 
-#: booleans.py:117
+#: booleans.py:122
+msgid "Allow epylog to send mail"
+msgstr "允许 epylog 发送邮件"
+
+#: booleans.py:123
 msgid "Allow mailman to access FUSE file systems"
 msgstr "允许 mailman 访问 FUSE 文件系统"
 
-#: booleans.py:118
+#: booleans.py:124
 msgid "Determine whether mcelog supports client mode."
 msgstr "决定 mcelog 是否支持客户端模式。"
 
-#: booleans.py:119
+#: booleans.py:125
 msgid "Determine whether mcelog can execute scripts."
 msgstr "决定 mcelog 是否可以执行脚本。"
 
-#: booleans.py:120
+#: booleans.py:126
 msgid "Determine whether mcelog can use all the user ttys."
 msgstr "决定 mcelog 是否可以使用所有用户 ttys。"
 
-#: booleans.py:121
+#: booleans.py:127
 msgid "Determine whether mcelog supports server mode."
 msgstr "决定 mcelog 是否支持服务器模式。"
 
-#: booleans.py:122
+#: booleans.py:128
+msgid "Determine whether minidlna can read generic user content."
+msgstr "决定 minidlna 是否可以读取常规用户内容。"
+
+#: booleans.py:129
 msgid ""
 "Control the ability to mmap a low area of the address space, as configured "
 "by /proc/sys/kernel/mmap_min_addr."
-msgstr ""
-"控制 mmap 在地址空间低端的功能，由 /proc/sys/kernel/mmap_min_addr 配置。"
+msgstr "控制 mmap 在地址空间低端的功能，由 /proc/sys/kernel/mmap_min_addr 配置。"
 
-#: booleans.py:123
+#: booleans.py:130
 msgid "Allow mock to read files in home directories."
 msgstr "允许 mock 读取主目录中的文件。"
 
-#: booleans.py:124
+#: booleans.py:131
 msgid "Allow the mount commands to mount any directory or file."
-msgstr ""
+msgstr "允许 mount 命令挂载任意目录或者文件。"
 
-#: booleans.py:125
+#: booleans.py:132
 msgid "Allow mozilla plugin domain to connect to the network using TCP."
 msgstr "允许 mozilla 插件域使用 TCP 连接到网络。"
 
-#: booleans.py:126
+#: booleans.py:133
 msgid "Allow mozilla plugin to support GPS."
-msgstr ""
+msgstr "允许 mozilla 插件支持 GPS。"
 
-#: booleans.py:127
+#: booleans.py:134
 msgid "Allow mozilla plugin to support spice protocols."
-msgstr ""
+msgstr "允许 mozilla 插件支持 spice 协议。"
 
-#: booleans.py:128
+#: booleans.py:135
 msgid "Allow confined web browsers to read home directory content"
 msgstr "允许受限制的网页浏览器读取主目录内容"
 
-#: booleans.py:129
+#: booleans.py:136
 msgid "Determine whether mpd can traverse user home directories."
 msgstr "决定 mpd 是否可以进入用户主目录。"
 
-#: booleans.py:130
+#: booleans.py:137
 msgid "Determine whether mpd can use cifs file systems."
 msgstr "决定 mpd 是否可使用 cifs 文件系统。"
 
-#: booleans.py:131
+#: booleans.py:138
 msgid "Determine whether mpd can use nfs file systems."
 msgstr "决定 mpd 是否可以使用 nfs 文件系统。"
 
-#: booleans.py:132
+#: booleans.py:139
 msgid "Determine whether mplayer can make its stack executable."
 msgstr "决定 mplayer 是否可以使其栈可执行。"
 
-#: booleans.py:133
+#: booleans.py:140
 msgid "Allow mysqld to connect to all ports"
 msgstr "允许 mysqld 连接到所有端口"
 
-#: booleans.py:134
+#: booleans.py:141
 msgid "Determine whether Bind can bind tcp socket to http ports."
 msgstr "决定 Bind 是否可以将 tcp 插槽捆绑到 http 端口。"
 
-#: booleans.py:135
+#: booleans.py:142
 msgid ""
 "Determine whether Bind can write to master zone files. Generally this is "
 "used for dynamic DNS or zone transfers."
 msgstr "决定 Bind 是否可以写入主区文件。通常是在动态 DNS 或者区域转换中使用。"
 
-#: booleans.py:136
+#: booleans.py:143
 msgid "Allow any files/directories to be exported read/only via NFS."
 msgstr "允许所有文件/目录通过 NFS 以只读方式导出。"
 
-#: booleans.py:137
+#: booleans.py:144
 msgid "Allow any files/directories to be exported read/write via NFS."
 msgstr "允许所有文件/目录通过 NFS 以读写方式导出。"
 
-#: booleans.py:138
+#: booleans.py:145
 msgid ""
 "Allow nfs servers to modify public files used for public file transfer "
 "services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-"允许 nfs 服务器修改在公共文件传输服务中使用的公共恩及。必须将文件/目录标记为 "
-"public_content_rw_t。"
+msgstr "允许 nfs 服务器修改在公共文件传输服务中使用的公共恩及。必须将文件/目录标记为 public_content_rw_t。"
 
-#: booleans.py:139
+#: booleans.py:146
 msgid "Allow system to run with NIS"
 msgstr "允许系统使用 NIS 运行"
 
-#: booleans.py:140
+#: booleans.py:147
 msgid "Allow confined applications to use nscd shared memory."
 msgstr "允许受限制的程序使用 nscd 共享内存。"
 
-#: booleans.py:141
+#: booleans.py:148
 msgid "Allow openshift to lockdown app"
 msgstr "允许 OpenShift 锁定程序"
 
-#: booleans.py:142
-#, fuzzy
+#: booleans.py:149
 msgid "Determine whether openvpn can connect to the TCP network."
-msgstr "决定 fenced 是否可以使用 TCP 连接到该网络。"
+msgstr "决定 openvpn 是否可以连接到 TCP 网络。"
 
-#: booleans.py:143
+#: booleans.py:150
 msgid "Determine whether openvpn can read generic user home content files."
 msgstr "决定 openvpn 是否可以读取通用用户主目录内容文件。"
 
-#: booleans.py:144
-#, fuzzy
+#: booleans.py:151
 msgid "Allow openvpn to run unconfined scripts"
-msgstr "允许 samba 运行不受限制的脚本"
+msgstr "允许 openvpn 运行未定义脚本"
 
-#: booleans.py:145
+#: booleans.py:152
 msgid "Allow piranha-lvs domain to connect to the network using TCP."
 msgstr "允许 piranha-lvs 域使用 TCP 连接到网络。"
 
-#: booleans.py:146
+#: booleans.py:153
 msgid "Allow polipo to connect to all ports > 1023"
 msgstr "允许 polipo 连接到所有大于 1023 的端口"
 
-#: booleans.py:147
+#: booleans.py:154
 msgid ""
 "Determine whether Polipo session daemon can bind tcp sockets to all "
 "unreserved ports."
 msgstr "确定 Polipo 会话守护进程是否可将 tcp 插槽捆绑到所有未保留端口。"
 
-#: booleans.py:148
+#: booleans.py:155
 msgid ""
 "Determine whether calling user domains can execute Polipo daemon in the "
 "polipo_session_t domain."
 msgstr "确定调用用户域是否可在 polipo_session_t 域中执行 Polipo 守护进程。"
 
-#: booleans.py:149
+#: booleans.py:156
 msgid "Determine whether polipo can access cifs file systems."
 msgstr "确定 polipo 是否可访问 cifs 文件系统。"
 
-#: booleans.py:150
+#: booleans.py:157
 msgid "Determine whether Polipo can access nfs file systems."
 msgstr "确定 polipo 是否可访问 nfs 文件系统。"
 
-#: booleans.py:151
+#: booleans.py:158
 msgid "Enable polyinstantiated directory support."
 msgstr "启用多实例化目录支持。"
 
-#: booleans.py:152
+#: booleans.py:159
 msgid "Allow postfix_local domain full write access to mail_spool directories"
 msgstr "允许 postfix_local 域对 mail_spool 目录有完全写入访问"
 
-#: booleans.py:153
+#: booleans.py:160
 msgid "Allow postgresql to use ssh and rsync for point-in-time recovery"
 msgstr "允许 postgresql 使用 ssh 和 rsync 执行时间点恢复"
 
-#: booleans.py:154
+#: booleans.py:161
 msgid "Allow transmit client label to foreign database"
 msgstr "允许将可获得标签传送到外部数据库"
 
-#: booleans.py:155
+#: booleans.py:162
 msgid "Allow database admins to execute DML statement"
 msgstr "允许数据库管理员执行 DML 语句"
 
-#: booleans.py:156
+#: booleans.py:163
 msgid "Allow unprivileged users to execute DDL statement"
 msgstr "允许非特权用户执行 DDL 语句"
 
-#: booleans.py:157
+#: booleans.py:164
 msgid "Allow pppd to load kernel modules for certain modems"
 msgstr "允许 pppd 为某些调制解调器载入内核模块"
 
-#: booleans.py:158
+#: booleans.py:165
 msgid "Allow pppd to be run for a regular user"
 msgstr "允许为一般用户运行 pppd"
 
-#: booleans.py:159
+#: booleans.py:166
 msgid "Determine whether privoxy can connect to all tcp ports."
 msgstr "决定 privoxy 是否可以连接到所有 tcp 端口。"
 
-#: booleans.py:160
+#: booleans.py:167
 msgid ""
 "Permit to prosody to bind apache port. Need to be activated to use BOSH."
-msgstr ""
+msgstr "允许 prosody 绑定 bind apache 端口。要激活它方可使用 BOSH。"
 
-#: booleans.py:161
+#: booleans.py:168
 msgid "Allow Puppet client to manage all file types."
 msgstr "允许 Puppet 客户端管理所有文件类型。"
 
-#: booleans.py:162
+#: booleans.py:169
 msgid "Allow Puppet master to use connect to MySQL and PostgreSQL database"
 msgstr "允许 Puppet 主机使用到 MySQL 和 PostgreSQL 数据库的连接"
 
-#: booleans.py:163
+#: booleans.py:170
 msgid "Allow racoon to read shadow"
 msgstr "允许 racoon 读取 shadow"
 
-#: booleans.py:164
+#: booleans.py:171
 msgid ""
 "Allow rsync to modify public files used for public file transfer services.  "
 "Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-"允许 rsync 修改公共文件传输服务使用的公共文件。必须将文件/目录标记为 "
-"public_content_rw_t。"
+msgstr "允许 rsync 修改公共文件传输服务使用的公共文件。必须将文件/目录标记为 public_content_rw_t。"
 
-#: booleans.py:165
+#: booleans.py:172
 msgid "Allow rsync to run as a client"
 msgstr "允许 rsync 作为客户端运行"
 
-#: booleans.py:166
+#: booleans.py:173
 msgid "Allow rsync to export any files/directories read only."
 msgstr "允许 rsync 以只读方式导出任意文件/目录。"
 
-#: booleans.py:167
+#: booleans.py:174
 msgid "Allow rsync server to manage all files/directories on the system."
 msgstr "允许 rsync 服务器管理系统中的所有文件/目录。"
 
-#: booleans.py:168
+#: booleans.py:175
 msgid "Allow samba to create new home directories (e.g. via PAM)"
 msgstr "允许 samba 创建新主目录 (例如：使用 PAM)"
 
-#: booleans.py:169
+#: booleans.py:176
 msgid ""
 "Allow samba to act as the domain controller, add users, groups and change "
 "passwords."
 msgstr "允许 samba 作为域控制器使用添加用户、组以及更改密码。"
 
-#: booleans.py:170
+#: booleans.py:177
 msgid "Allow samba to share users home directories."
 msgstr "允许 samba 共享用户主目录。"
 
-#: booleans.py:171
+#: booleans.py:178
 msgid "Allow samba to share any file/directory read only."
 msgstr "允许 samba 共享所有只读的文件/目录。"
 
-#: booleans.py:172
+#: booleans.py:179
 msgid "Allow samba to share any file/directory read/write."
 msgstr "允许 samba 共享所有可读写的文件/目录。"
 
-#: booleans.py:173
+#: booleans.py:180
 msgid "Allow samba to act as a portmapper"
 msgstr "允许 samba 作为 protmapper 使用"
 
-#: booleans.py:174
+#: booleans.py:181
 msgid "Allow samba to run unconfined scripts"
 msgstr "允许 samba 运行不受限制的脚本"
 
-#: booleans.py:175
+#: booleans.py:182
 msgid "Allow samba to export ntfs/fusefs volumes."
 msgstr "允许 samba 导出 ntfs/fusefs 卷。"
 
-#: booleans.py:176
+#: booleans.py:183
 msgid "Allow samba to export NFS volumes."
 msgstr "允许 samba 导出 NFS 卷。"
 
-#: booleans.py:177
+#: booleans.py:184
 msgid "Allow sanlock to read/write fuse files"
 msgstr "允许 sanlock 读取/写入 fuse 文件"
 
-#: booleans.py:178
+#: booleans.py:185
 msgid "Allow sanlock to manage nfs files"
 msgstr "允许 sanlock 管理 nfs 文件"
 
-#: booleans.py:179
+#: booleans.py:186
 msgid "Allow sanlock to manage cifs files"
 msgstr "允许 sanlock 管理 cifs 文件"
 
-#: booleans.py:180
+#: booleans.py:187
 msgid "Allow sasl to read shadow"
 msgstr "允许 sasl 读取 shadow"
 
-#: booleans.py:181
+#: booleans.py:188
 msgid "Allow secadm to exec content"
 msgstr "允许安全管理员执行内容"
 
-#: booleans.py:182
+#: booleans.py:189
 msgid ""
 "disallow programs, such as newrole, from transitioning to administrative "
 "user domains."
 msgstr "不允许类似 newrole 的程序转换到管理用户域。"
 
-#: booleans.py:183
+#: booleans.py:190
 msgid "Disable kernel module loading."
 msgstr "禁用内核模块载入。"
 
-#: booleans.py:184
+#: booleans.py:191
 msgid ""
 "Boolean to determine whether the system permits loading policy, setting "
 "enforcing mode, and changing boolean values.  Set this to true and you have "
 "to reboot to set it back."
-msgstr ""
-"确定系统是否允许载入策略的布尔值，设定 enforcing 模式，并更改布尔值。将其设定"
-"为 true 后必须重启方可将其设定会原来的值。"
+msgstr "确定系统是否允许载入策略的布尔值，设定 enforcing 模式，并更改布尔值。将其设定为 true 后必须重启方可将其设定会原来的值。"
 
-#: booleans.py:185
+#: booleans.py:192
 msgid "Allow regular users direct dri device access"
 msgstr "允许常规用户的直接 dri 设备访问"
 
-#: booleans.py:186
+#: booleans.py:193
 msgid ""
 "Allow unconfined executables to make their heap memory executable.  Doing "
 "this is a really bad idea. Probably indicates a badly coded executable, but "
 "could indicate an attack. This executable should be reported in bugzilla"
-msgstr ""
-"允许不受限制的可执行文件使其堆内存可执行。这样做很不好。可能会表示有坏的代码"
-"可执行文件，但也可以代表受到攻击。应在 bugzilla 中报告这个可执行文件。"
+msgstr "允许不受限制的可执行文件使其堆内存可执行。这样做很不好。可能会表示有坏的代码可执行文件，但也可以代表受到攻击。应在 bugzilla 中报告这个可执行文件。"
 
-#: booleans.py:187
+#: booleans.py:194
 msgid ""
 "Allow all unconfined executables to use libraries requiring text relocation "
 "that are not labeled textrel_shlib_t"
-msgstr ""
-"允许不受限制的可执行文件使用需要重新定位文本，且没有标记为 textrel_shlib_t 的"
-"库。"
+msgstr "允许不受限制的可执行文件使用需要重新定位文本，且没有标记为 textrel_shlib_t 的库。"
 
-#: booleans.py:188
+#: booleans.py:195
 msgid ""
 "Allow unconfined executables to make their stack executable.  This should "
 "never, ever be necessary. Probably indicates a badly coded executable, but "
 "could indicate an attack. This executable should be reported in bugzilla"
-msgstr ""
-"允许不受限制的可执行文件使其栈成为可执行。这永远都不需要。可能会表示有坏的代"
-"码可执行文件，但也可以代表受到攻击。应在 bugzilla 中报告这个可执行文件。"
+msgstr "允许不受限制的可执行文件使其栈成为可执行。这永远都不需要。可能会表示有坏的代码可执行文件，但也可以代表受到攻击。应在 bugzilla 中报告这个可执行文件。"
 
-#: booleans.py:189
+#: booleans.py:196
 msgid "Allow users to connect to the local mysql server"
 msgstr "允许用户连接到本地 mysql 服务器"
 
-#: booleans.py:190
+#: booleans.py:197
 msgid ""
-"Allow confined users the ability to execute the ping and traceroute commands."
+"Allow confined users the ability to execute the ping and traceroute "
+"commands."
 msgstr "允许受限制用户执行 ping 和 traceroute 命令。"
 
-#: booleans.py:191
+#: booleans.py:198
 msgid "Allow users to connect to PostgreSQL"
 msgstr "允许用户连接到 PostgreSQL"
 
-#: booleans.py:192
+#: booleans.py:199
 msgid ""
 "Allow user to r/w files on filesystems that do not have extended attributes "
 "(FAT, CDROM, FLOPPY)"
 msgstr "允许用户在没有扩展属性的文件系统 (FAT、CDROM、FLOPPY) 读取/写入文件"
 
-#: booleans.py:193
+#: booleans.py:200
 msgid "Allow user music sharing"
 msgstr "允许用户共享音乐"
 
-#: booleans.py:194
+#: booleans.py:201
 msgid ""
-"Allow users to run TCP servers (bind to ports and accept connection from the "
-"same domain and outside users)  disabling this forces FTP passive mode and "
+"Allow users to run TCP servers (bind to ports and accept connection from the"
+" same domain and outside users)  disabling this forces FTP passive mode and "
 "may change other protocols."
-msgstr ""
-"允许用户运行 TCP 服务器 (捆绑到端口并接受来自同一域或者外部用户的连接) ，禁用"
-"此功能可强制 FTP 被动模式，并可更改其他协议。"
+msgstr "允许用户运行 TCP 服务器 (捆绑到端口并接受来自同一域或者外部用户的连接) ，禁用此功能可强制 FTP 被动模式，并可更改其他协议。"
 
-#: booleans.py:195
+#: booleans.py:202
 msgid "Allow user  to use ssh chroot environment."
 msgstr "允许用户使用 ssh chroot 环境。"
 
-#: booleans.py:196
+#: booleans.py:203
 msgid ""
 "Determine whether sftpd can modify public files used for public file "
 "transfer services. Directories/Files must be labeled public_content_rw_t."
-msgstr ""
-"决定 sftpd 是否可以修改在公共文件传输服务中使用的公共文件。必须将目录/文件标"
-"记为 public_content_rw_t。"
+msgstr "决定 sftpd 是否可以修改在公共文件传输服务中使用的公共文件。必须将目录/文件标记为 public_content_rw_t。"
 
-#: booleans.py:197
+#: booleans.py:204
 msgid ""
 "Determine whether sftpd-can read and write files in user home directories."
 msgstr "决定是否允许 sftpd 在用户主目录中读取和写入文件。"
 
-#: booleans.py:198
+#: booleans.py:205
 msgid ""
 "Determine whether sftpd-can login to local users and read and write all "
 "files on the system, governed by DAC."
-msgstr ""
-"决定 sftpd 是否可以登录到本地用户并读取和写入由 DAC 管理的系统中的所有文件。"
+msgstr "决定 sftpd 是否可以登录到本地用户并读取和写入由 DAC 管理的系统中的所有文件。"
 
-#: booleans.py:199
+#: booleans.py:206
 msgid ""
 "Determine whether sftpd can read and write files in user ssh home "
 "directories."
 msgstr "决定是否允许 sftpd 在用户主目录中读取和写入文件。"
 
-#: booleans.py:200
+#: booleans.py:207
 msgid "Allow sge to connect to the network using any TCP port"
 msgstr "允许 sge 使用任意 TCP 端口连接到网络"
 
-#: booleans.py:201
+#: booleans.py:208
 msgid "Allow sge to access nfs file systems."
 msgstr "允许 sge 访问 nfs 文件系统。"
 
-#: booleans.py:202
+#: booleans.py:209
 msgid "Determine whether smartmon can support devices on 3ware controllers."
 msgstr "决定 smartmon 是否可以支持 3ware 控制器中的设备。"
 
-#: booleans.py:203
+#: booleans.py:210
 msgid ""
 "Allow samba to modify public files used for public file transfer services.  "
 "Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-"允许 samba 修改在公共文件传输服务中使用的公共文件。必须将文件/目录标记为 "
-"public_content_rw_t。"
+msgstr "允许 samba 修改在公共文件传输服务中使用的公共文件。必须将文件/目录标记为 public_content_rw_t。"
 
-#: booleans.py:204
+#: booleans.py:211
 msgid "Allow user spamassassin clients to use the network."
 msgstr "允许用户 spamassassin 客户端使用该网络"
 
-#: booleans.py:205
+#: booleans.py:212
 msgid "Allow spamd to read/write user home directories."
 msgstr "允许 spamd 读取/写入用户主目录。"
 
-#: booleans.py:206
+#: booleans.py:213
 msgid "Determine whether squid can connect to all TCP ports."
 msgstr "决定 squid 是否可以连接到所有 TCP 端口。"
 
-#: booleans.py:207
+#: booleans.py:214
 msgid "Determine whether squid can run as a transparent proxy."
 msgstr "决定 squid 是否可以作为透明代理运行。"
 
-#: booleans.py:208
+#: booleans.py:215
 msgid ""
 "Allow ssh with chroot env to read and write files in the user home "
 "directories"
 msgstr "允许 ssh 使用 chrrot 环境读取和写入用户主目录"
 
-#: booleans.py:209
+#: booleans.py:216
 msgid "allow host key based authentication"
 msgstr "允许基于验证的主机密钥"
 
-#: booleans.py:210
+#: booleans.py:217
 msgid "Allow ssh logins as sysadm_r:sysadm_t"
 msgstr "允许 ssh 作为 sysadm_r:sysadm_t 登录"
 
-#: booleans.py:211
+#: booleans.py:218
 msgid "Allow staff to exec content"
 msgstr "允许成员执行内容"
 
-#: booleans.py:212
+#: booleans.py:219
 msgid "allow staff user to create and transition to svirt domains."
 msgstr "允许 staff 用户创建和转换 svirt 域。"
 
-#: booleans.py:213
+#: booleans.py:220
 msgid "Allow sysadm to exec content"
 msgstr "允许系统管理员执行内容"
 
-#: booleans.py:214
-msgid "Allow the Telepathy connection managers to connect to any network port."
+#: booleans.py:221
+msgid ""
+"Allow the Telepathy connection managers to connect to any network port."
 msgstr "允许 Telepathy 连接管理器连接到任意网络端口。"
 
-#: booleans.py:215
+#: booleans.py:222
 msgid ""
 "Allow the Telepathy connection managers to connect to any generic TCP port."
 msgstr "允许 Telepathy 连接管理器连接到任意原始 TCP 端口。"
 
-#: booleans.py:216
-msgid "Allow testpolicy to exec content"
-msgstr ""
-
-#: booleans.py:217
+#: booleans.py:223
 msgid ""
 "Allow tftp to modify public files used for public file transfer services."
 msgstr "允许 tftp 修改在公共文件传输服务中使用的公共文件。"
 
-#: booleans.py:218
+#: booleans.py:224
 msgid "Allow tftp to read and write files in the user home directories"
 msgstr "允许 tftp 在用户主目录中读取和写入文件"
 
-#: booleans.py:219
+#: booleans.py:225
 msgid "Determine whether tor can bind tcp sockets to all unreserved ports."
 msgstr "决定 tor 是否可以将 tcp 插槽捆绑到所有未保留的端口。"
 
-#: booleans.py:220
+#: booleans.py:226
 msgid "Allow tor to act as a relay"
 msgstr "允许 tor 作为中继使用"
 
-#: booleans.py:221
+#: booleans.py:227
 msgid ""
 "allow unconfined users to transition to the chrome sandbox domains when "
 "running chrome-sandbox"
 msgstr "允许未限定用户在运行 chrome 沙箱时转换到 chrome 沙箱域"
 
-#: booleans.py:222
+#: booleans.py:228
 msgid "Allow a user to login as an unconfined domain"
 msgstr "允许用户作为未限定域登录"
 
-#: booleans.py:223
+#: booleans.py:229
 msgid ""
 "Allow unconfined users to transition to the Mozilla plugin domain when "
 "running xulrunner plugin-container."
 msgstr "允许未限定用户在运行 xulrunner 插件容器时转换为 Mozilla 插件域。"
 
-#: booleans.py:224
+#: booleans.py:230
 msgid "Allow unprivledged user to create and transition to svirt domains."
 msgstr "允许非特权用户创建并转换到 svirt 域。"
 
-#: booleans.py:225
+#: booleans.py:231
 msgid "Support ecryptfs home directories"
 msgstr "支持 ecryptfs 主目录"
 
-#: booleans.py:226
+#: booleans.py:232
 msgid "Support fusefs home directories"
 msgstr "支持 fusefs 主目录"
 
-#: booleans.py:227
+#: booleans.py:233
 msgid "Determine whether to support lpd server."
 msgstr "决定 tor 是否支持 lpd 服务器。"
 
-#: booleans.py:228
+#: booleans.py:234
 msgid "Support NFS home directories"
 msgstr "支持 NFS 主目录"
 
-#: booleans.py:229
+#: booleans.py:235
 msgid "Support SAMBA home directories"
 msgstr "支持 SAMBA 主目录"
 
-#: booleans.py:230
+#: booleans.py:236
 msgid "Allow user to exec content"
 msgstr "允许用户执行内容"
 
-#: booleans.py:231
+#: booleans.py:237
 msgid "Determine whether varnishd can use the full TCP network."
 msgstr "决定 varnishd 是否可以使用全部 TCP 网络。"
 
-#: booleans.py:232
+#: booleans.py:238
 msgid ""
-"Determine whether attempts by vbetool to mmap low regions should be silently "
-"blocked."
+"Determine whether attempts by vbetool to mmap low regions should be silently"
+" blocked."
 msgstr "决定是否应该静谧地阻断 vbetool 在 mmap 低频段的尝试。"
 
-#: booleans.py:233
-#, fuzzy
-msgid "Allow virtual processes to run as userdomains"
-msgstr "允许受限制的虚拟机读取 fuse 文件"
+#: booleans.py:239
+msgid "Allow sandbox containers to send audit messages"
+msgstr "允许沙箱容器发送审核信息"
 
-#: booleans.py:234
+#: booleans.py:240
+msgid "Allow sandbox containers to use netlink system calls"
+msgstr "允许沙箱容器使用网络链接系统调用"
+
+#: booleans.py:241
+msgid "Allow virtual processes to run as userdomains"
+msgstr "允许悉尼进程作为用户域运行"
+
+#: booleans.py:242
 msgid ""
 "Allow confined virtual guests to use serial/parallel communication ports"
 msgstr "允许受限制的虚拟机使用串口/并口沟通端口"
 
-#: booleans.py:235
+#: booleans.py:243
 msgid ""
 "Allow confined virtual guests to use executable memory and executable stack"
 msgstr "允许受限制的虚拟机使用可执行内存和可执行栈"
 
-#: booleans.py:236
+#: booleans.py:244
 msgid "Allow confined virtual guests to read fuse files"
 msgstr "允许受限制的虚拟机读取 fuse 文件"
 
-#: booleans.py:237
+#: booleans.py:245
 msgid "Allow confined virtual guests to manage nfs files"
 msgstr "允许受限制的虚拟机管理 nfs 文件"
 
-#: booleans.py:238
+#: booleans.py:246
 msgid "Allow confined virtual guests to interact with rawip sockets"
 msgstr "允许受限制的虚拟机与 rawip Socket 互动"
 
-#: booleans.py:239
+#: booleans.py:247
 msgid "Allow confined virtual guests to manage cifs files"
 msgstr "允许受限制的虚拟机管理 cifs 文件"
 
-#: booleans.py:240
+#: booleans.py:248
 msgid "Allow confined virtual guests to interact with the sanlock"
 msgstr "允许受限制的虚拟机与 sanlock 互动"
 
-#: booleans.py:241
+#: booleans.py:249
 msgid "Allow confined virtual guests to use usb devices"
 msgstr "允许受限制的虚拟机使用 usb 设备"
 
-#: booleans.py:242
+#: booleans.py:250
 msgid "Allow confined virtual guests to interact with the xserver"
 msgstr "允许受限制的虚拟机与 xserver 互动"
 
-#: booleans.py:243
+#: booleans.py:251
 msgid "Determine whether webadm can manage generic user files."
 msgstr "决定 webadm 是否可以管理通用用户文件。"
 
-#: booleans.py:244
+#: booleans.py:252
 msgid "Determine whether webadm can read generic user files."
 msgstr "决定 webadm 是否可以读取通用用户文件。"
 
-#: booleans.py:245
+#: booleans.py:253
 msgid ""
 "Determine whether attempts by wine to mmap low regions should be silently "
 "blocked."
 msgstr "决定是否应该静谧地阻断 wine 在 mmap 低频段的尝试。"
 
-#: booleans.py:246
+#: booleans.py:254
 msgid "Allow the graphical login program to execute bootloader"
 msgstr "允许图形登录程序执行引导装载程序"
 
-#: booleans.py:247
+#: booleans.py:255
 msgid ""
 "Allow the graphical login program to login directly as sysadm_r:sysadm_t"
 msgstr "允许图形登录程序直接作为 sysadm_r:sysadm_t 登录"
 
-#: booleans.py:248
+#: booleans.py:256
 msgid ""
-"Allow the graphical login program to create files in HOME dirs as xdm_home_t."
-msgstr ""
+"Allow the graphical login program to create files in HOME dirs as "
+"xdm_home_t."
+msgstr "允许图形登录程序在 HOME 目录中创建 xdm_home_t 文件。"
 
-#: booleans.py:249
+#: booleans.py:257
 msgid "Allow xen to manage nfs files"
 msgstr "允许 xen 管理 nfs 文件"
 
-#: booleans.py:250
+#: booleans.py:258
 msgid ""
 "Allow xend to run blktapctrl/tapdisk. Not required if using dedicated "
 "logical volumes for disk images."
-msgstr ""
-"允许 xend 运行 blktapctrl/tapdisk。如果磁盘映像使用非专用逻辑卷则不需要。"
+msgstr "允许 xend 运行 blktapctrl/tapdisk。如果磁盘映像使用非专用逻辑卷则不需要。"
 
-#: booleans.py:251
+#: booleans.py:259
 msgid "Allow xend to run qemu-dm. Not required if using paravirt and no vfb."
 msgstr "允许 xend 运行 qemu-dm。如果使用半虚拟或者没有 vfb 则不需要。"
 
-#: booleans.py:252
+#: booleans.py:260
 msgid ""
 "Allow xguest users to configure Network Manager and connect to apache ports"
 msgstr "允许 xguest 用户配置 Network Manager 并连接到 apache 端口"
 
-#: booleans.py:253
+#: booleans.py:261
 msgid "Allow xguest to exec content"
 msgstr "允许X窗口访客执行内容"
 
-#: booleans.py:254
+#: booleans.py:262
 msgid "Allow xguest users to mount removable media"
 msgstr "允许 xguest 用户挂载可移动介质"
 
-#: booleans.py:255
+#: booleans.py:263
 msgid "Allow xguest to use blue tooth devices"
 msgstr "允许 xguest 使用蓝牙设备"
 
-#: booleans.py:256
+#: booleans.py:264
 msgid "Allows clients to write to the X server shared memory segments."
 msgstr "允许客户端写入 X 服务器共享的内存片段。"
 
-#: booleans.py:257
+#: booleans.py:265
 msgid "Allows XServer to execute writable memory"
 msgstr "允许 XServer 执行可写入内存"
 
-#: booleans.py:258
+#: booleans.py:266
 msgid "Support X userspace object manager"
 msgstr "支持 X 用户控件对象管理器"
 
-#: booleans.py:259
+#: booleans.py:267
 msgid "Determine whether zabbix can connect to all TCP ports"
 msgstr "决定 zabbox 是否可以连接到所有 TCP 端口。"
 
-#: booleans.py:260
-#, fuzzy
+#: booleans.py:268
 msgid "Allow zarafa domains to setrlimit/sys_rouserce."
-msgstr "允许所有域以 fips_mode 执行"
+msgstr "允许 zarafa 域 setrlimit/sys_rouserce。"
 
-#: booleans.py:261
+#: booleans.py:269
 msgid "Allow zebra daemon to write it configuration files"
 msgstr "允许 zebra 守护进程将其写入配置文件"
 
-#: booleans.py:262
+#: booleans.py:270
 msgid ""
 "Allow ZoneMinder to modify public files used for public file transfer "
 "services."
 msgstr "允许 ZoneMinder 修改公共文件传输服务使用的公共文件"
 
-#: booleans.py:263
+#: booleans.py:271
 msgid "Allow ZoneMinder to run su/sudo."
-msgstr ""
+msgstr "允许 ZoneMinder 运行 su/sudo。"
 
-#: ../sepolicy/sepolicy/help/booleans_more.txt:4
-#: ../sepolicy/sepolicy/gui.py:939 ../sepolicy/sepolicy/gui.py:1231
-#: ../sepolicy/sepolicy/gui.py:1671 ../sepolicy/sepolicy/gui.py:1917
-#: ../sepolicy/sepolicy/gui.py:2740
-msgid "More..."
-msgstr ""
-
-#: ../sepolicy/sepolicy/help/start.txt:1
-#: ../sepolicy/sepolicy/sepolicy.glade:189
-#: ../sepolicy/sepolicy/sepolicy.glade:4425
-#: ../sepolicy/sepolicy/sepolicy.glade:4518
-#: ../sepolicy/sepolicy/sepolicy.glade:4664
-#: ../sepolicy/sepolicy/sepolicy.glade:4813
-#: ../sepolicy/sepolicy/sepolicy.glade:4947
-#: ../sepolicy/sepolicy/sepolicy.glade:5088
-#: ../sepolicy/sepolicy/sepolicy.glade:5161
-#: ../sepolicy/sepolicy/sepolicy.glade:5296
-#, fuzzy
-msgid "Select"
-msgstr "选择端口"
-
-#: ../sepolicy/sepolicy/help/system.txt:1
-msgid ""
-"This screen allows you to view modify the way SELinux is running on your "
-"system."
-msgstr ""
-
-#: ../sepolicy/sepolicy.py:194
+#: ../sepolicy/sepolicy.py:195
 #, python-format
 msgid "Interface %s does not exist."
-msgstr ""
+msgstr "接口 %s 不存在。"
 
-#: ../sepolicy/sepolicy.py:292
+#: ../sepolicy/sepolicy.py:293
 msgid "You need to install policycoreutils-gui package to use the gui option"
-msgstr ""
+msgstr "您需要安装 policycoreutils-gui 软件包使用该 gui 选项"
 
-#: ../sepolicy/sepolicy.py:296
+#: ../sepolicy/sepolicy.py:297
 msgid "Graphical User Interface for SELinux Policy"
-msgstr ""
+msgstr "SELinux 策略的图形用户界面"
 
-#: ../sepolicy/sepolicy.py:299 ../sepolicy/sepolicy.py:345
+#: ../sepolicy/sepolicy.py:300 ../sepolicy/sepolicy.py:346
 msgid "Domain name(s) of man pages to be created"
 msgstr "生成 man page 的域名"
 
-#: ../sepolicy/sepolicy.py:311
-#, fuzzy
+#: ../sepolicy/sepolicy.py:312
 msgid "Alternative root needs to be setup"
-msgstr "备选 root 目录，默认为 /"
+msgstr "需要设置可替换 root"
 
-#: ../sepolicy/sepolicy.py:327
+#: ../sepolicy/sepolicy.py:328
 msgid "Generate SELinux man pages"
 msgstr "生成 SELinux man page"
 
-#: ../sepolicy/sepolicy.py:330
+#: ../sepolicy/sepolicy.py:331
 msgid "path in which the generated SELinux man pages will be stored"
 msgstr "保存生成的 SELinux man page 的路径"
 
-#: ../sepolicy/sepolicy.py:332
+#: ../sepolicy/sepolicy.py:333
 msgid "name of the OS for man pages"
 msgstr "man 手册对应的操作系统名称"
 
-#: ../sepolicy/sepolicy.py:334
+#: ../sepolicy/sepolicy.py:335
 msgid "Generate HTML man pages structure for selected SELinux man page"
 msgstr "为选中的 SELinux 手册页面生成 HTML 手册页面结构"
 
-#: ../sepolicy/sepolicy.py:336
+#: ../sepolicy/sepolicy.py:337
 msgid "Alternate root directory, defaults to /"
 msgstr "备选 root 目录，默认为 /"
 
-#: ../sepolicy/sepolicy.py:338
+#: ../sepolicy/sepolicy.py:339
 msgid ""
 "With this flag, alternative root path needs to include file context files "
 "and policy.xml file"
-msgstr ""
+msgstr "使用这个标签，需要在文件上下文文件以及 policy.xml 文件中包含可替换 root 路径"
 
-#: ../sepolicy/sepolicy.py:342
+#: ../sepolicy/sepolicy.py:343
 msgid "All domains"
 msgstr "所有域"
 
-#: ../sepolicy/sepolicy.py:350
+#: ../sepolicy/sepolicy.py:351
 msgid "Query SELinux policy network information"
 msgstr "查询 SELinux 策略网络信息"
 
-#: ../sepolicy/sepolicy.py:355
+#: ../sepolicy/sepolicy.py:356
 msgid "list all SELinux port types"
 msgstr "列出所有 SELinux 端口类型"
 
-#: ../sepolicy/sepolicy.py:358
+#: ../sepolicy/sepolicy.py:359
 msgid "show SELinux type related to the port"
 msgstr "显示与该端口关联的 SELinux 类型"
 
-#: ../sepolicy/sepolicy.py:361
+#: ../sepolicy/sepolicy.py:362
 msgid "Show ports defined for this SELinux type"
 msgstr "显示为这个 SELinux 类型定义的端口"
 
-#: ../sepolicy/sepolicy.py:364
+#: ../sepolicy/sepolicy.py:365
 msgid "show ports to which this domain can bind and/or connect"
 msgstr "显示这个域可捆绑和（/或者）连接的端口"
 
-#: ../sepolicy/sepolicy.py:367
-#, fuzzy
+#: ../sepolicy/sepolicy.py:368
 msgid "show ports to which this application can bind and/or connect"
-msgstr "显示这个域可捆绑和（/或者）连接的端口"
+msgstr "显示这个程序可绑定和（/或者）连接的端口"
 
-#: ../sepolicy/sepolicy.py:382
+#: ../sepolicy/sepolicy.py:383
 msgid "query SELinux policy to see if domains can communicate with each other"
 msgstr "查询 SELinux 策略看看域之间是否互相联络"
 
-#: ../sepolicy/sepolicy.py:385
+#: ../sepolicy/sepolicy.py:386
 msgid "Source Domain"
 msgstr "源域"
 
-#: ../sepolicy/sepolicy.py:388
+#: ../sepolicy/sepolicy.py:389
 msgid "Target Domain"
 msgstr "目标域"
 
-#: ../sepolicy/sepolicy.py:407
+#: ../sepolicy/sepolicy.py:408
 msgid "query SELinux Policy to see description of booleans"
 msgstr "查询 SELinux 策略查看布尔值描述"
 
-#: ../sepolicy/sepolicy.py:411
+#: ../sepolicy/sepolicy.py:412
 msgid "get all booleans descriptions"
 msgstr "获取所有布尔值描述"
 
-#: ../sepolicy/sepolicy.py:414
+#: ../sepolicy/sepolicy.py:415
 msgid "boolean to get description"
 msgstr "获取描述的布尔值"
 
-#: ../sepolicy/sepolicy.py:424
+#: ../sepolicy/sepolicy.py:425
 msgid ""
 "query SELinux Policy to see how a source process domain can transition to "
 "the target process domain"
 msgstr "查询 SELinux 策略看看如何将源进程域转换为目标进程域"
 
-#: ../sepolicy/sepolicy.py:427
+#: ../sepolicy/sepolicy.py:428
 msgid "source process domain"
 msgstr "源进程域"
 
-#: ../sepolicy/sepolicy.py:430
+#: ../sepolicy/sepolicy.py:431
 msgid "target process domain"
 msgstr "目标进程域"
 
-#: ../sepolicy/sepolicy.py:472
+#: ../sepolicy/sepolicy.py:473
 #, python-format
 msgid "sepolicy generate: error: one of the arguments %s is required"
 msgstr "生成 sepolicy：错误：需要参数 %s 之一"
 
-#: ../sepolicy/sepolicy.py:477
+#: ../sepolicy/sepolicy.py:478
 msgid "Command required for this type of policy"
 msgstr "对于此类型策略所需的命令"
 
-#: ../sepolicy/sepolicy.py:488
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy.py:489
+#, python-format
 msgid ""
 "-t option can not be used with '%s' domains. Read usage for more details."
-msgstr "-t 选项不能和这个选项一同使用。详情请查看选项用法。"
+msgstr "在 '%s' 域中不能使用 -t 选项。详情请阅读用法。"
 
-#: ../sepolicy/sepolicy.py:493
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy.py:494
+#, python-format
 msgid ""
 "-d option can not be used with '%s' domains. Read usage for more details."
-msgstr "-d 选项不能和这个选项一同使用。详情请查看选项用法。"
+msgstr "在 '%s' 域中不能使用 -d 选项。详情请阅读用法。"
 
-#: ../sepolicy/sepolicy.py:497
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy.py:498
+#, python-format
 msgid ""
 "-a option can not be used with '%s' domains. Read usage for more details."
-msgstr "-a 选项不能和这个选项一同使用。详情请查看选项用法。"
+msgstr "在 '%s' 域中不能使用 -a 选项。详情请阅读用法。"
 
-#: ../sepolicy/sepolicy.py:501
-#, fuzzy
+#: ../sepolicy/sepolicy.py:502
 msgid "-w option can not be used with the --newtype option"
-msgstr "-t 选项不能和这个选项一同使用。详情请查看选项用法。"
+msgstr "-w 选项不能与 --newtype 选项一同使用"
 
-#: ../sepolicy/sepolicy.py:521
+#: ../sepolicy/sepolicy.py:522
 msgid "List SELinux Policy interfaces"
 msgstr "列出 SELinux 策略接口"
 
-#: ../sepolicy/sepolicy.py:541
+#: ../sepolicy/sepolicy.py:542
 msgid "Enter interface names, you wish to query"
-msgstr ""
+msgstr "输入您要查询的接口名称"
 
-#: ../sepolicy/sepolicy.py:550
+#: ../sepolicy/sepolicy.py:551
 msgid "Generate SELinux Policy module template"
 msgstr "生成 SELinux 策略模块模板"
 
-#: ../sepolicy/sepolicy.py:553
+#: ../sepolicy/sepolicy.py:554
 msgid "Enter domain type which you will be extending"
 msgstr "输入您将要延伸至的域类型"
 
-#: ../sepolicy/sepolicy.py:556
+#: ../sepolicy/sepolicy.py:557
 msgid "Enter SELinux user(s) which will transition to this domain"
 msgstr "输入将转移至此域的 SELinux 用户(们)"
 
-#: ../sepolicy/sepolicy.py:559
+#: ../sepolicy/sepolicy.py:560
 msgid "Enter SELinux role(s) to which the administror domain will transition"
-msgstr ""
+msgstr "输入管理员域将要转换的 SELinux 角色"
 
-#: ../sepolicy/sepolicy.py:562
+#: ../sepolicy/sepolicy.py:563
 msgid "Enter domain(s) which this confined admin will administrate"
-msgstr ""
+msgstr "输入这个受限制管理员将要管理的域"
 
-#: ../sepolicy/sepolicy.py:565
+#: ../sepolicy/sepolicy.py:566
 msgid "name of policy to generate"
 msgstr "生成策略的名称"
 
-#: ../sepolicy/sepolicy.py:572
+#: ../sepolicy/sepolicy.py:573
 msgid "path in which the generated policy files will be stored"
 msgstr "保存生成的 SELinux 策略文件的路径"
 
-#: ../sepolicy/sepolicy.py:574
+#: ../sepolicy/sepolicy.py:575
 msgid "path to which the confined processes will need to write"
 msgstr "需要写入到受限制进程的路径"
 
-#: ../sepolicy/sepolicy.py:575
+#: ../sepolicy/sepolicy.py:576
 msgid "Policy types which require a command"
 msgstr "需要命令的策略类型"
 
-#: ../sepolicy/sepolicy.py:579 ../sepolicy/sepolicy.py:582
-#: ../sepolicy/sepolicy.py:585 ../sepolicy/sepolicy.py:588
-#: ../sepolicy/sepolicy.py:591 ../sepolicy/sepolicy.py:597
-#: ../sepolicy/sepolicy.py:600 ../sepolicy/sepolicy.py:603
-#: ../sepolicy/sepolicy.py:609 ../sepolicy/sepolicy.py:612
-#: ../sepolicy/sepolicy.py:615 ../sepolicy/sepolicy.py:618
+#: ../sepolicy/sepolicy.py:580 ../sepolicy/sepolicy.py:583
+#: ../sepolicy/sepolicy.py:586 ../sepolicy/sepolicy.py:589
+#: ../sepolicy/sepolicy.py:592 ../sepolicy/sepolicy.py:598
+#: ../sepolicy/sepolicy.py:601 ../sepolicy/sepolicy.py:604
+#: ../sepolicy/sepolicy.py:610 ../sepolicy/sepolicy.py:613
+#: ../sepolicy/sepolicy.py:616 ../sepolicy/sepolicy.py:619
 #, python-format
 msgid "Generate '%s' policy"
 msgstr "生成 '%s' 策略"
 
-#: ../sepolicy/sepolicy.py:606
+#: ../sepolicy/sepolicy.py:607
 #, python-format
 msgid "Generate '%s' policy "
 msgstr "生成 '%s' 策略"
 
-#: ../sepolicy/sepolicy.py:620
+#: ../sepolicy/sepolicy.py:621
 msgid "executable to confine"
 msgstr "要限制的可执行文件"
 
-#: ../sepolicy/sepolicy.py:625
+#: ../sepolicy/sepolicy.py:626
 msgid "commands"
 msgstr "命令"
 
-#: ../sepolicy/sepolicy.py:628
+#: ../sepolicy/sepolicy.py:629
 msgid "Alternate SELinux policy, defaults to /sys/fs/selinux/policy"
 msgstr "备选的 SELinux 策略，默认至 /sys/fs/selinux/policy"
 
-#: ../sepolicy/sepolicy/__init__.py:89
+#: ../sepolicy/sepolicy/__init__.py:96
 #, python-format
 msgid "-- Allowed %s [ %s ]"
-msgstr ""
+msgstr "-- 允许的 %s [ %s ]"
 
-#: ../sepolicy/sepolicy/__init__.py:95 ../sepolicy/sepolicy/gui.py:1156
+#: ../sepolicy/sepolicy/__init__.py:102 ../sepolicy/sepolicy/gui.py:1152
 msgid "all files"
-msgstr ""
+msgstr "所有文件"
 
-#: ../sepolicy/sepolicy/__init__.py:96
+#: ../sepolicy/sepolicy/__init__.py:103
 msgid "regular file"
-msgstr ""
+msgstr "常规文件"
 
-#: ../sepolicy/sepolicy/__init__.py:97
+#: ../sepolicy/sepolicy/__init__.py:104
 msgid "directory"
-msgstr ""
+msgstr "目录"
 
-#: ../sepolicy/sepolicy/__init__.py:98
+#: ../sepolicy/sepolicy/__init__.py:105
 msgid "character device"
-msgstr ""
+msgstr "字符设备"
 
-#: ../sepolicy/sepolicy/__init__.py:99
+#: ../sepolicy/sepolicy/__init__.py:106
 msgid "block device"
-msgstr ""
+msgstr "块设备"
 
-#: ../sepolicy/sepolicy/__init__.py:100
+#: ../sepolicy/sepolicy/__init__.py:107
 msgid "socket file"
-msgstr ""
+msgstr "套接字文件"
 
-#: ../sepolicy/sepolicy/__init__.py:101
+#: ../sepolicy/sepolicy/__init__.py:108
 msgid "symbolic link"
-msgstr ""
+msgstr "符号链接"
 
-#: ../sepolicy/sepolicy/__init__.py:102
+#: ../sepolicy/sepolicy/__init__.py:109
 msgid "named pipe"
-msgstr ""
+msgstr "命名的管道"
 
-#: ../sepolicy/sepolicy/__init__.py:398
+#: ../sepolicy/sepolicy/__init__.py:427
 msgid "No SELinux Policy installed"
 msgstr "未安装 SELinux 策略"
 
-#: ../sepolicy/sepolicy/__init__.py:478
+#: ../sepolicy/sepolicy/__init__.py:506
 msgid "You must regenerate interface info by running /usr/bin/sepolgen-ifgen"
-msgstr ""
+msgstr "您必须运行 /usr/bin/sepolgen-ifgen 创新生成接口信息"
 
-#: ../sepolicy/sepolicy/__init__.py:724
+#: ../sepolicy/sepolicy/__init__.py:768
 #, python-format
 msgid "Failed to read %s policy file"
 msgstr "读取 %s 策略文件失败"
 
-#: ../sepolicy/sepolicy/__init__.py:829
+#: ../sepolicy/sepolicy/__init__.py:873
 msgid "unknown"
 msgstr "未知"
 
-#: ../sepolicy/sepolicy/generate.py:132
+#: ../sepolicy/sepolicy/generate.py:134
 msgid "Internet Services Daemon"
 msgstr "互联网服务守护进程"
 
-#: ../sepolicy/sepolicy/generate.py:136
+#: ../sepolicy/sepolicy/generate.py:138
 msgid "Existing Domain Type"
 msgstr "已有域类型"
 
-#: ../sepolicy/sepolicy/generate.py:137
+#: ../sepolicy/sepolicy/generate.py:139
 msgid "Minimal Terminal Login User Role"
 msgstr "最小终端登录用户角色"
 
-#: ../sepolicy/sepolicy/generate.py:138
+#: ../sepolicy/sepolicy/generate.py:140
 msgid "Minimal X Windows Login User Role"
 msgstr "最小 X 窗口登录用户角色"
 
-#: ../sepolicy/sepolicy/generate.py:139
+#: ../sepolicy/sepolicy/generate.py:141
 msgid "Desktop Login User Role"
 msgstr "桌面登录用户角色"
 
-#: ../sepolicy/sepolicy/generate.py:140
+#: ../sepolicy/sepolicy/generate.py:142
 msgid "Administrator Login User Role"
 msgstr "管理员登录用户角色"
 
-#: ../sepolicy/sepolicy/generate.py:141
+#: ../sepolicy/sepolicy/generate.py:143
 msgid "Confined Root Administrator Role"
 msgstr "受限 Root 管理员角色"
 
-#: ../sepolicy/sepolicy/generate.py:142
+#: ../sepolicy/sepolicy/generate.py:144
 msgid "Module information for a new type"
 msgstr "新类型的模块信息"
 
-#: ../sepolicy/sepolicy/generate.py:147
+#: ../sepolicy/sepolicy/generate.py:149
 msgid "Valid Types:\n"
 msgstr "有效类型：\n"
 
-#: ../sepolicy/sepolicy/generate.py:181
+#: ../sepolicy/sepolicy/generate.py:183
 #, python-format
 msgid "Ports must be numbers or ranges of numbers from 1 to %d "
 msgstr "端口必须是从 1 到 %d 的数字或者一组数字"
 
-#: ../sepolicy/sepolicy/generate.py:192
+#: ../sepolicy/sepolicy/generate.py:194
 msgid "You must enter a valid policy type"
 msgstr "您必须输入一个有效的策略类型"
 
-#: ../sepolicy/sepolicy/generate.py:195
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/generate.py:197
+#, python-format
 msgid "You must enter a name for your policy module for your '%s'."
-msgstr "您必须为您 %s 的策略模块输入一个名字。"
+msgstr "您必须在您 '%s' 的策略模块输入一个名称。"
 
-#: ../sepolicy/sepolicy/generate.py:333
+#: ../sepolicy/sepolicy/generate.py:335
 msgid ""
 "Name must be alpha numberic with no spaces. Consider using option \"-n "
 "MODULENAME\""
 msgstr "名称必须是数字字母组合，且没有空格。请考虑使用选项 \"-n MODULENAME\"。"
 
-#: ../sepolicy/sepolicy/generate.py:425
+#: ../sepolicy/sepolicy/generate.py:427
 msgid "User Role types can not be assigned executables."
 msgstr "不能讲用户角色类型设定为 executable"
 
-#: ../sepolicy/sepolicy/generate.py:431
+#: ../sepolicy/sepolicy/generate.py:433
 msgid "Only Daemon apps can use an init script.."
 msgstr "只有守护进程程序可以使用 init 脚本。"
 
-#: ../sepolicy/sepolicy/generate.py:449
+#: ../sepolicy/sepolicy/generate.py:451
 msgid "use_resolve must be a boolean value "
 msgstr "use_resolve 必须是一个布尔值"
 
-#: ../sepolicy/sepolicy/generate.py:455
+#: ../sepolicy/sepolicy/generate.py:457
 msgid "use_syslog must be a boolean value "
 msgstr "use_syslog 必须是一个布尔值"
 
-#: ../sepolicy/sepolicy/generate.py:461
+#: ../sepolicy/sepolicy/generate.py:463
 msgid "use_kerberos must be a boolean value "
 msgstr "use_kerberos 必须是一个布尔值"
 
-#: ../sepolicy/sepolicy/generate.py:467
+#: ../sepolicy/sepolicy/generate.py:469
 msgid "manage_krb5_rcache must be a boolean value "
 msgstr "manage_krb5_rcache 必须是一个布尔值"
 
-#: ../sepolicy/sepolicy/generate.py:497
+#: ../sepolicy/sepolicy/generate.py:499
 msgid "USER Types automatically get a tmp type"
 msgstr "USER 类型自动为 tmp 类型"
 
-#: ../sepolicy/sepolicy/generate.py:838
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/generate.py:840
+#, python-format
 msgid "'%s' policy modules require existing domains"
-msgstr "%s 策略模块需要已有域群"
+msgstr "'%s' 策略模块需要已有域"
 
-#: ../sepolicy/sepolicy/generate.py:863
+#: ../sepolicy/sepolicy/generate.py:865
 msgid "Type field required"
 msgstr "需要填写类型字段"
 
-#: ../sepolicy/sepolicy/generate.py:876
+#: ../sepolicy/sepolicy/generate.py:878
 #, python-format
 msgid ""
 "You need to define a new type which ends with: \n"
 " %s"
-msgstr ""
-"您需要定义一个新类型，其结尾为：\n"
-"%s"
+msgstr "您需要定义一个新类型，其结尾为：\n%s"
 
-#: ../sepolicy/sepolicy/generate.py:1104
+#: ../sepolicy/sepolicy/generate.py:1106
 msgid "You must enter the executable path for your confined process"
 msgstr "您必须输入要限制进程的可执行路径"
 
-#: ../sepolicy/sepolicy/generate.py:1363
+#: ../sepolicy/sepolicy/generate.py:1369
 msgid "Type Enforcement file"
 msgstr "输入强制文件"
 
-#: ../sepolicy/sepolicy/generate.py:1364
+#: ../sepolicy/sepolicy/generate.py:1370
 msgid "Interface file"
 msgstr "接口文件"
 
-#: ../sepolicy/sepolicy/generate.py:1365
+#: ../sepolicy/sepolicy/generate.py:1371
 msgid "File Contexts file"
 msgstr "文件上下文文件"
 
-#: ../sepolicy/sepolicy/generate.py:1367
+#: ../sepolicy/sepolicy/generate.py:1373
 msgid "Spec file"
 msgstr "Spec 文件"
 
-#: ../sepolicy/sepolicy/generate.py:1368
+#: ../sepolicy/sepolicy/generate.py:1374
 msgid "Setup Script"
 msgstr "设置脚本"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:25
-#: ../sepolicy/sepolicy/sepolicy.glade:4388
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:4330
 msgid "Applications"
 msgstr "应用程序"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:52
 msgid "Select domain"
-msgstr ""
+msgstr "选择域"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:80 ../sepolicy/sepolicy/gui.py:68
+#: ../sepolicy/sepolicy/sepolicy.glade:80 ../sepolicy/sepolicy/gui.py:69
 msgid "Advanced Search >>"
-msgstr ""
+msgstr "高级搜索 >>"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:95 ../sepolicy/sepolicy/gui.py:2348
+#: ../sepolicy/sepolicy/sepolicy.glade:95 ../sepolicy/sepolicy/gui.py:2343
 msgid "File Equivalence"
-msgstr ""
+msgstr "文件等价"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:112 ../sepolicy/sepolicy/gui.py:2358
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:112 ../sepolicy/sepolicy/gui.py:2353
 msgid "Users"
-msgstr "添加用户"
+msgstr "用户"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:129
-#: ../sepolicy/sepolicy/sepolicy.glade:1916
-#: ../sepolicy/sepolicy/sepolicy.glade:3821 ../sepolicy/sepolicy/gui.py:2339
+#: ../sepolicy/sepolicy/sepolicy.glade:1898
+#: ../sepolicy/sepolicy/sepolicy.glade:3803 ../sepolicy/sepolicy/gui.py:2334
 msgid "System"
-msgstr ""
+msgstr "系统"
+
+#: ../sepolicy/sepolicy/sepolicy.glade:189
+#: ../sepolicy/sepolicy/sepolicy.glade:4367
+#: ../sepolicy/sepolicy/sepolicy.glade:4460
+#: ../sepolicy/sepolicy/sepolicy.glade:4606
+#: ../sepolicy/sepolicy/sepolicy.glade:4755
+#: ../sepolicy/sepolicy/sepolicy.glade:4889
+#: ../sepolicy/sepolicy/sepolicy.glade:5030
+#: ../sepolicy/sepolicy/sepolicy.glade:5103
+#: ../sepolicy/sepolicy/sepolicy.glade:5238
+msgid "Select"
+msgstr "选择"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:204
-#: ../sepolicy/sepolicy/sepolicy.glade:557
-#: ../sepolicy/sepolicy/sepolicy.glade:702
-#: ../sepolicy/sepolicy/sepolicy.glade:1257
-#: ../sepolicy/sepolicy/sepolicy.glade:1553
-#: ../sepolicy/sepolicy/sepolicy.glade:4598
-#: ../sepolicy/sepolicy/sepolicy.glade:4748
-#: ../sepolicy/sepolicy/sepolicy.glade:4879
-#: ../sepolicy/sepolicy/sepolicy.glade:5013
-#: ../sepolicy/sepolicy/sepolicy.glade:5231
-#: ../sepolicy/sepolicy/sepolicy.glade:5362
-#: ../sepolicy/sepolicy/sepolicy.glade:5522
+#: ../sepolicy/sepolicy/sepolicy.glade:539
+#: ../sepolicy/sepolicy/sepolicy.glade:684
+#: ../sepolicy/sepolicy/sepolicy.glade:1239
+#: ../sepolicy/sepolicy/sepolicy.glade:1535
+#: ../sepolicy/sepolicy/sepolicy.glade:4540
+#: ../sepolicy/sepolicy/sepolicy.glade:4690
+#: ../sepolicy/sepolicy/sepolicy.glade:4821
+#: ../sepolicy/sepolicy/sepolicy.glade:4955
+#: ../sepolicy/sepolicy/sepolicy.glade:5173
+#: ../sepolicy/sepolicy/sepolicy.glade:5304
+#: ../sepolicy/sepolicy/sepolicy.glade:5464
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:350
+#: ../sepolicy/sepolicy/sepolicy.glade:332
 msgid ""
 "The entry that was entered is incorrect.  Please try again in the "
 "ex:/.../... format."
-msgstr ""
+msgstr "该条目未正确输入。请使用 ex:/.../... 格式再试一次。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:376
+#: ../sepolicy/sepolicy/sepolicy.glade:358
 msgid "Retry"
-msgstr ""
+msgstr "重试"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:460
-#: ../sepolicy/sepolicy/sepolicy.glade:1138
-#: ../sepolicy/sepolicy/sepolicy.glade:1386
-#: ../sepolicy/sepolicy/sepolicy.glade:5390
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:442
+#: ../sepolicy/sepolicy/sepolicy.glade:1120
+#: ../sepolicy/sepolicy/sepolicy.glade:1368
+#: ../sepolicy/sepolicy/sepolicy.glade:5332
 msgid "Network Port Definitions"
-msgstr "网络端口"
+msgstr "网络端口定义"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:476
+#: ../sepolicy/sepolicy/sepolicy.glade:458
 msgid ""
-"Add file Equivilence Mapping.  Mapping will be created when Update is "
+"Add file Equivalence Mapping.  Mapping will be created when Update is "
 "applied."
-msgstr ""
+msgstr "添加文件等价映射。应用更新时将生成映射。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:501
-#: ../sepolicy/sepolicy/sepolicy.glade:4064
+#: ../sepolicy/sepolicy/sepolicy.glade:483
+#: ../sepolicy/sepolicy/sepolicy.glade:4046
 msgid "Path"
-msgstr ""
+msgstr "路径"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:511
-#: ../sepolicy/sepolicy/sepolicy.glade:5442
+#: ../sepolicy/sepolicy/sepolicy.glade:493
+#: ../sepolicy/sepolicy/sepolicy.glade:5384
 msgid ""
 "Specify a new SELinux user name.  By convention SELinux User names usually "
 "end in an _u."
-msgstr ""
+msgstr "这次那个新的 SELinux 用户名称。通常 SELinux 用户名称以 _u 结尾。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:515
+#: ../sepolicy/sepolicy/sepolicy.glade:497
 msgid "Enter the path to which you want to setup an equivalence label."
-msgstr ""
+msgstr "输入您要设置对等标签的路径。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:528
-#: ../sepolicy/sepolicy/sepolicy.glade:4081
-#: ../sepolicy/sepolicy/sepolicy.glade:4839
+#: ../sepolicy/sepolicy/sepolicy.glade:510
+#: ../sepolicy/sepolicy/sepolicy.glade:4063
+#: ../sepolicy/sepolicy/sepolicy.glade:4781
 msgid "Equivalence Path"
-msgstr ""
+msgstr "对等路径"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:542
-#: ../sepolicy/sepolicy/sepolicy.glade:687
-#: ../sepolicy/sepolicy/sepolicy.glade:1242
-#: ../sepolicy/sepolicy/sepolicy.glade:1538
-#: ../sepolicy/sepolicy/sepolicy.glade:5507
+#: ../sepolicy/sepolicy/sepolicy.glade:524
+#: ../sepolicy/sepolicy/sepolicy.glade:669
+#: ../sepolicy/sepolicy/sepolicy.glade:1224
+#: ../sepolicy/sepolicy/sepolicy.glade:1520
+#: ../sepolicy/sepolicy/sepolicy.glade:5449
 msgid "Save to update"
-msgstr ""
+msgstr "保存更新"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:582
+#: ../sepolicy/sepolicy/sepolicy.glade:564
 msgid ""
 "Specify the mapping between the new path and the equivalence path.  "
 "Everything under this new path will be labeled as if they were under the "
 "equivalence path."
-msgstr ""
+msgstr "指定新路径与对等路径之间的映射。新路径中的所有内容如果也在对等路径中，则都将被标记。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:639
+#: ../sepolicy/sepolicy/sepolicy.glade:621
 msgid "Add a file"
-msgstr ""
+msgstr "添加文件"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:656
+#: ../sepolicy/sepolicy/sepolicy.glade:638
 msgid ""
-"<operation> File Labeling for <selected domain>. File labels will be created "
-"when update is applied."
-msgstr ""
+"<operation> File Labeling for <selected domain>. File labels will be created"
+" when update is applied."
+msgstr "<operation> File Labeling for <selected domain>。应用此更新时生成文件标签。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:744
-#: ../sepolicy/sepolicy/sepolicy.glade:1485
-#: ../sepolicy/sepolicy/sepolicy.glade:3529 ../sepolicy/sepolicy/gui.py:67
+#: ../sepolicy/sepolicy/sepolicy.glade:726
+#: ../sepolicy/sepolicy/sepolicy.glade:1467
+#: ../sepolicy/sepolicy/sepolicy.glade:3511 ../sepolicy/sepolicy/gui.py:68
 msgid "Advanced >>"
-msgstr ""
+msgstr "高级 >>"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:765
-#: ../sepolicy/sepolicy/sepolicy.glade:2324
-#: ../sepolicy/sepolicy/sepolicy.glade:2436
-#: ../sepolicy/sepolicy/sepolicy.glade:2558
-#: ../sepolicy/sepolicy/sepolicy.glade:4558
+#: ../sepolicy/sepolicy/sepolicy.glade:747
+#: ../sepolicy/sepolicy/sepolicy.glade:2306
+#: ../sepolicy/sepolicy/sepolicy.glade:2418
+#: ../sepolicy/sepolicy/sepolicy.glade:2540
+#: ../sepolicy/sepolicy/sepolicy.glade:4500
 msgid "Class"
-msgstr ""
+msgstr "等级"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:781
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:763
 msgid "Type"
-msgstr " 文件类型"
+msgstr "类型"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:795
+#: ../sepolicy/sepolicy/sepolicy.glade:777
 msgid ""
 "Select the file class to which this label will be applied.  Defaults to all "
 "classes."
-msgstr ""
+msgstr "选择要应用此标签的文件类型。默认为所有等级。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:822
+#: ../sepolicy/sepolicy/sepolicy.glade:804
 msgid "Make Path Recursive"
-msgstr ""
+msgstr "使路径递归"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:826
+#: ../sepolicy/sepolicy/sepolicy.glade:808
 msgid ""
-"Select Make Path Recursive iff you want to apply this label to all children "
+"Select Make Path Recursive if you want to apply this label to all children "
 "of the specified directory path. objects under the directory to have this "
 "label."
-msgstr ""
+msgstr "如果您要将这个标签应用到指定目录路径中的所有子文件中，请选择生成路径递，以便该目录中的所有项目都使用这个标签。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:839
+#: ../sepolicy/sepolicy/sepolicy.glade:821
 msgid "Browse"
-msgstr ""
+msgstr "浏览"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:843
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:825
 msgid "Browse to select the file/directory for labeling."
-msgstr "允许 samba 共享所有只读的文件/目录。"
+msgstr "浏览选择要标记的文件/目录。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:887
+#: ../sepolicy/sepolicy/sepolicy.glade:869
 msgid "Path  "
-msgstr ""
+msgstr "路径"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:898
+#: ../sepolicy/sepolicy/sepolicy.glade:880
 msgid ""
-"Specify the path using regular expressions that you would like to modify the "
-"labeling."
-msgstr ""
+"Specify the path using regular expressions that you would like to modify the"
+" labeling."
+msgstr "指定您要修改标签的正则表达式路径。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:920
+#: ../sepolicy/sepolicy/sepolicy.glade:902
 msgid "Select the SELinux file type to assign to this path."
-msgstr ""
+msgstr "选择要为这个路径分配的 SELinux 文件类型。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:947
+#: ../sepolicy/sepolicy/sepolicy.glade:929
 msgid "Enter the MLS Label to assign to this file path."
-msgstr ""
+msgstr "输入要为这个文件路径分配的 MLS 标签。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:951
+#: ../sepolicy/sepolicy/sepolicy.glade:933
 msgid "SELinux MLS Label you wish to assign to this path."
-msgstr ""
+msgstr "您要为这个路径分配的 SELinux MLS 标签。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1088
+#: ../sepolicy/sepolicy/sepolicy.glade:1070
 msgid "Analyzing Policy..."
-msgstr ""
+msgstr "正在分析策略......"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1155
+#: ../sepolicy/sepolicy/sepolicy.glade:1137
 msgid ""
 "Add Login Mapping. Login Mapping will be created when update is applied."
-msgstr ""
+msgstr "添加登录映射。应用更新时会生成登录映射。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1190
+#: ../sepolicy/sepolicy/sepolicy.glade:1172
 msgid ""
 "Enter the login user name of the user to which you wish to add SELinux User "
 "confinement."
-msgstr ""
+msgstr "输入您要添加到 SELinux 用户限制的用户的登录用户名。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1219
+#: ../sepolicy/sepolicy/sepolicy.glade:1201
 msgid ""
 "Select the SELinux User to assign to this login user.  Login users by "
 "default get assigned by the __default__ user."
-msgstr ""
+msgstr "选择要为其分配这个登录用户的 SELinux 用户。默认情况下登录用户由 __default__ user 分配。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1282
+#: ../sepolicy/sepolicy/sepolicy.glade:1264
 msgid ""
 "Enter MLS/MCS Range for this login User.  Defaults to the range for the "
 "Selected SELinux User."
-msgstr ""
+msgstr "为这个登录用户输入 MSL/MCS 范围。默认为所选 SELinux 用户的范围。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1285
-#: ../sepolicy/sepolicy/sepolicy.glade:3210
-#: ../sepolicy/sepolicy/sepolicy.glade:3331
-#: ../sepolicy/sepolicy/sepolicy.glade:5472
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:1267
+#: ../sepolicy/sepolicy/sepolicy.glade:3192
+#: ../sepolicy/sepolicy/sepolicy.glade:3313
+#: ../sepolicy/sepolicy/sepolicy.glade:5414
 msgid "MLS Range"
-msgstr "MCS 范围"
+msgstr "MLS 范围"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1297
+#: ../sepolicy/sepolicy/sepolicy.glade:1279
 msgid ""
 "Specify the MLS Range for this user to login in with.  Defaults to the "
 "selected SELinux Users MLS Range."
-msgstr ""
+msgstr "为这个用户指定用来登录的 MLS 范围。默认为所选 SELinux 用户 MLS 范围。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1403
+#: ../sepolicy/sepolicy/sepolicy.glade:1385
 msgid ""
 "<operation> Network Port for <selected domain>.  Ports will be created when "
 "update is applied."
-msgstr ""
+msgstr "<operation> Network Port for <selected domain>。应用此更新是生成端口。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1441
+#: ../sepolicy/sepolicy/sepolicy.glade:1423
 msgid "Enter the port number or range to which you want to add a port type."
-msgstr ""
+msgstr "输入您要添加到端口类型的端口号或者范围。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1471
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:1453
 msgid "Port Type"
-msgstr "SELinux 端口类型"
+msgstr "端口类型"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1516
+#: ../sepolicy/sepolicy/sepolicy.glade:1498
 msgid "Select the port type you want to assign to the specified port number."
-msgstr ""
+msgstr "选择您要为指定端口号分配的端口类型。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1580
+#: ../sepolicy/sepolicy/sepolicy.glade:1562
 msgid "tcp"
-msgstr ""
+msgstr "tcp"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1584
+#: ../sepolicy/sepolicy/sepolicy.glade:1566
 msgid ""
 "Select <b>tcp</b> if the port type should be assigned to tcp port numbers."
-msgstr ""
+msgstr "如果应将端口类型分配为 tcp 端口号则请选择 <b>tcp</b>。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1597
+#: ../sepolicy/sepolicy/sepolicy.glade:1579
 msgid "udp"
-msgstr ""
+msgstr "udp"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1601
+#: ../sepolicy/sepolicy/sepolicy.glade:1583
 msgid ""
 "Select <b>udp</b> if the port type should be assigned to udp port numbers."
-msgstr ""
+msgstr "如果应将端口类型分配为 tcp 端口号则请选择 <b>udp</b>。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1623
+#: ../sepolicy/sepolicy/sepolicy.glade:1605
 msgid "Enter the MLS Label to assign to this port."
-msgstr ""
+msgstr "输入要为这个端口分配的 MLS 标签。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1725
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:1707
 msgid "SELinux Configuration"
-msgstr "添加管理员"
+msgstr "SELinux 配置"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1761
+#: ../sepolicy/sepolicy/sepolicy.glade:1743
 msgid "Select..."
-msgstr ""
+msgstr "选择......"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1810
-#: ../sepolicy/sepolicy/sepolicy.glade:2230
+#: ../sepolicy/sepolicy/sepolicy.glade:1792
+#: ../sepolicy/sepolicy/sepolicy.glade:2212
 msgid "Booleans"
-msgstr ""
+msgstr "布尔值"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1814
+#: ../sepolicy/sepolicy/sepolicy.glade:1796
 msgid ""
 "Display boolean information that can be used to modify the policy for the "
 "'selected domain'."
-msgstr ""
+msgstr "显示可用来修改‘所选域’策略的布尔值信息。"
+
+#: ../sepolicy/sepolicy/sepolicy.glade:1810
+#: ../sepolicy/sepolicy/sepolicy.glade:2597
+msgid "Files"
+msgstr "文件"
+
+#: ../sepolicy/sepolicy/sepolicy.glade:1814
+msgid ""
+"Display file type information that can be used by the 'selected domain'."
+msgstr "显示‘所选域’可使用的文件类型信息。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1828
-#: ../sepolicy/sepolicy/sepolicy.glade:2615
-msgid "Files"
-msgstr ""
+#: ../sepolicy/sepolicy/sepolicy.glade:2830
+msgid "Network"
+msgstr "网络"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1832
 msgid ""
-"Display file type information that can be used by the 'selected domain'."
-msgstr ""
+"Display network ports to which the 'selected domain' can connect or listen "
+"to."
+msgstr "显示‘所选域’可连接或者侦听的网络端口。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1846
-#: ../sepolicy/sepolicy/sepolicy.glade:2848
-msgid "Network"
-msgstr ""
+#: ../sepolicy/sepolicy/sepolicy.glade:3121
+msgid "Transitions"
+msgstr "转换"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1850
 msgid ""
-"Display network ports to which the 'selected domain' can connect or listen "
-"to."
-msgstr ""
-
-#: ../sepolicy/sepolicy/sepolicy.glade:1864
-#: ../sepolicy/sepolicy/sepolicy.glade:3139
-msgid "Transitions"
-msgstr ""
-
-#: ../sepolicy/sepolicy/sepolicy.glade:1868
-msgid ""
 "Display applications that can transition into or out of the 'selected "
 "domain'."
-msgstr ""
+msgstr "显示可转换为‘所选域’或者从‘所选域’转换的应用程序。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1882
-#: ../sepolicy/sepolicy/sepolicy.glade:3240
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:1864
+#: ../sepolicy/sepolicy/sepolicy.glade:3222
 msgid "Login Mapping"
-msgstr "添加 SELinux 登录映射"
+msgstr "登录映射"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1885
-#: ../sepolicy/sepolicy/sepolicy.glade:1902
-#: ../sepolicy/sepolicy/sepolicy.glade:1919
+#: ../sepolicy/sepolicy/sepolicy.glade:1867
+#: ../sepolicy/sepolicy/sepolicy.glade:1884
+#: ../sepolicy/sepolicy/sepolicy.glade:1901
 msgid "Manage the SELinux configuration"
-msgstr ""
+msgstr "管理 SELinux 配置"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1899
-#: ../sepolicy/sepolicy/sepolicy.glade:3362
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:1881
+#: ../sepolicy/sepolicy/sepolicy.glade:3344
 msgid "SELinux Users"
 msgstr "SELinux 用户"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1933
-#: ../sepolicy/sepolicy/sepolicy.glade:4034
+#: ../sepolicy/sepolicy/sepolicy.glade:1915
+#: ../sepolicy/sepolicy/sepolicy.glade:4016
 msgid "Lockdown"
-msgstr ""
+msgstr "锁定"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1936
+#: ../sepolicy/sepolicy/sepolicy.glade:1918
 msgid ""
 "Lockdown the SELinux System.\n"
 "This screen can be used to turn up the SELinux Protections."
-msgstr ""
+msgstr "锁定 SELinux 系统。\n本页面可用来打开 SELinux 保护。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:1951
+#: ../sepolicy/sepolicy/sepolicy.glade:1933
 msgid "radiobutton"
-msgstr ""
+msgstr "单选按钮"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2039
+#: ../sepolicy/sepolicy/sepolicy.glade:2021
 msgid "Show Modified Only"
-msgstr ""
+msgstr "只显示修改的"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2078
+#: ../sepolicy/sepolicy/sepolicy.glade:2060
 msgid "Mislabeled files exist"
-msgstr ""
+msgstr "有错误标记的文件"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2098
+#: ../sepolicy/sepolicy/sepolicy.glade:2080
 msgid "Show mislabeled files only"
-msgstr ""
+msgstr "只显示错误标记的文件"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2138
-#: ../sepolicy/sepolicy/sepolicy.glade:3262
+#: ../sepolicy/sepolicy/sepolicy.glade:2120
+#: ../sepolicy/sepolicy/sepolicy.glade:3244
 msgid ""
-"If-Then-Else rules written in policy that can \n"
+"If-Then-Else rules written in policy that can\n"
 "allow alternative access control."
-msgstr ""
+msgstr "策略中写入的 If-Then-Else 规则\n可允许备选访问控制。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2150
+#: ../sepolicy/sepolicy/sepolicy.glade:2132
 msgid "Enabled"
-msgstr ""
+msgstr "已启用"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2270
-#: ../sepolicy/sepolicy/sepolicy.glade:2382
-#: ../sepolicy/sepolicy/sepolicy.glade:2500
-#: ../sepolicy/sepolicy/sepolicy.glade:4531
-#: ../sepolicy/sepolicy/sepolicy.glade:4826
+#: ../sepolicy/sepolicy/sepolicy.glade:2252
+#: ../sepolicy/sepolicy/sepolicy.glade:2364
+#: ../sepolicy/sepolicy/sepolicy.glade:2482
+#: ../sepolicy/sepolicy/sepolicy.glade:4473
+#: ../sepolicy/sepolicy/sepolicy.glade:4768
 msgid "File Path"
-msgstr ""
+msgstr "文件路径"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2306
-#: ../sepolicy/sepolicy/sepolicy.glade:2417
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:2288
+#: ../sepolicy/sepolicy/sepolicy.glade:2399
 msgid "SELinux File Type"
-msgstr "SELinux 类型"
+msgstr "SELinux 文件类型"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2350
+#: ../sepolicy/sepolicy/sepolicy.glade:2332
 msgid "File path used to enter the 'selected domain'."
-msgstr ""
+msgstr "进入‘所选域’的文件路径。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2351
+#: ../sepolicy/sepolicy/sepolicy.glade:2333
 msgid "Executable Files"
-msgstr ""
+msgstr "可执行文件"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2466
+#: ../sepolicy/sepolicy/sepolicy.glade:2448
 msgid "Files to which the 'selected domain' can write."
-msgstr ""
+msgstr "‘所选域’可写入的文件。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2467
+#: ../sepolicy/sepolicy/sepolicy.glade:2449
 msgid "Writable files"
-msgstr ""
+msgstr "可写入文件"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2589
+#: ../sepolicy/sepolicy/sepolicy.glade:2571
 msgid "File Types defined for the 'selected domain'."
-msgstr ""
+msgstr "为‘所选域’定义的文件类型。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2590
+#: ../sepolicy/sepolicy/sepolicy.glade:2572
 msgid "Application File Types"
-msgstr ""
+msgstr "应用程序文件类型"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2722
+#: ../sepolicy/sepolicy/sepolicy.glade:2704
 msgid "Network Ports to which the 'selected domain' is allowed to connect."
-msgstr ""
+msgstr "允许‘所选域’连接的网络端口。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2723
+#: ../sepolicy/sepolicy/sepolicy.glade:2705
 msgid "Outbound"
-msgstr ""
+msgstr "外出"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2822
+#: ../sepolicy/sepolicy/sepolicy.glade:2804
 msgid "Network Ports to which the 'selected domain' is allowed to listen."
-msgstr ""
+msgstr "允许‘所选域’侦听的网络端口。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2823
+#: ../sepolicy/sepolicy/sepolicy.glade:2805
 msgid "Inbound"
-msgstr ""
+msgstr "流入"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2884
-#, fuzzy
-msgid ""
-"Boolean \n"
-"Enabled"
-msgstr "布尔值名称"
-
-#: ../sepolicy/sepolicy/sepolicy.glade:2910
-#, fuzzy
-msgid "Boolean name"
-msgstr "布尔值名称"
-
-#: ../sepolicy/sepolicy/sepolicy.glade:2927
-#, fuzzy
-msgid "SELinux Application Type"
-msgstr "SELinux 端口类型"
-
-#: ../sepolicy/sepolicy/sepolicy.glade:2948
-msgid ""
-"Executables which will transition to a different domain, when the 'selected "
-"domain' executes them."
-msgstr ""
-
-#: ../sepolicy/sepolicy/sepolicy.glade:2951
-msgid "Applicaton Transitions From 'select domain'"
-msgstr ""
-
-#: ../sepolicy/sepolicy/sepolicy.glade:2974
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:2866
+#: ../sepolicy/sepolicy/sepolicy.glade:2956
 msgid ""
 "Boolean\n"
 "Enabled"
+msgstr "布尔值\n已启用"
+
+#: ../sepolicy/sepolicy/sepolicy.glade:2892
+msgid "Boolean name"
 msgstr "布尔值名称"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:2990
-msgid "Calling Process Domain"
-msgstr ""
+#: ../sepolicy/sepolicy/sepolicy.glade:2909
+msgid "SELinux Application Type"
+msgstr "SELinux 应用程序类型"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3006
-msgid "Executable File"
-msgstr ""
-
-#: ../sepolicy/sepolicy/sepolicy.glade:3030
+#: ../sepolicy/sepolicy/sepolicy.glade:2930
 msgid ""
-"Executables which will transition to the 'selected domain', when executing a "
-"selected domains entrypoint."
-msgstr ""
+"Executables which will transition to a different domain, when the 'selected "
+"domain' executes them."
+msgstr "当‘所选域’执行它们时可转换为不同域的可执行文件。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3031
+#: ../sepolicy/sepolicy/sepolicy.glade:2933
+msgid "Application Transitions From 'select domain'"
+msgstr "由‘选择域’转换的程序"
+
+#: ../sepolicy/sepolicy/sepolicy.glade:2972
+msgid "Calling Process Domain"
+msgstr "调用进程域"
+
+#: ../sepolicy/sepolicy/sepolicy.glade:2988
+msgid "Executable File"
+msgstr "可执行文件"
+
+#: ../sepolicy/sepolicy/sepolicy.glade:3012
+msgid ""
+"Executables which will transition to the 'selected domain', when executing a"
+" selected domains entrypoint."
+msgstr "执行所选域切入点时可转换为‘所选域’的可执行文件。"
+
+#: ../sepolicy/sepolicy/sepolicy.glade:3013
 msgid "Application Transitions Into 'select domain'"
-msgstr ""
+msgstr "应用程序转换为‘所选域’"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3046
+#: ../sepolicy/sepolicy/sepolicy.glade:3028
 msgid ""
 "File Transitions define what happens when the current domain creates the "
 "content of a particular class in a directory of the destination type. "
 "Optionally a file name could be specified for the transition."
-msgstr ""
+msgstr "文件转换规定当目前域在目标类型的目录中生成特定类型内容时会出现什么情况。或者可为该转换指定文件名称。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3054
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:3036
 msgid "SELinux Directory Type"
-msgstr "SELinux 端口类型"
+msgstr "SELinux 目录类型"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3067
+#: ../sepolicy/sepolicy/sepolicy.glade:3049
 msgid "Destination Class"
-msgstr ""
+msgstr "目标类型"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3081
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:3063
 msgid "SELinux Destination Type"
-msgstr "SELinux 端口类型"
+msgstr "SELinux 目标类型"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3094
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:3076
 msgid "File Name"
-msgstr "模块名称"
+msgstr "文件名"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3116
+#: ../sepolicy/sepolicy/sepolicy.glade:3098
 msgid "File Transitions From 'select domain'"
-msgstr ""
+msgstr "来自‘选择域’的文件转换"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3315
-#: ../sepolicy/sepolicy/sepolicy.glade:5566
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:3297
+#: ../sepolicy/sepolicy/sepolicy.glade:5508
 msgid "Default Level"
-msgstr "默认"
+msgstr "默认等级"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3401
+#: ../sepolicy/sepolicy/sepolicy.glade:3383
 msgid "Select the system mode when the system first boots up"
-msgstr ""
+msgstr "系统首次引导时选择文件模式"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3474
+#: ../sepolicy/sepolicy/sepolicy.glade:3456
 msgid "Select the system mode for the current session"
-msgstr ""
+msgstr "为当前会话选择系统模式"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3551
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:3533
 msgid "System Policy Type:"
-msgstr "系统默认策略类型："
+msgstr "文件策略类型："
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3612
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:3594
 msgid "<b>System Mode</b>"
-msgstr "<b>选择：</b>"
+msgstr "<b>系统模式</b>"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3650
+#: ../sepolicy/sepolicy/sepolicy.glade:3632
 msgid "Import system settings from another machine"
-msgstr ""
+msgstr "从另一台机器导入系统设置"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3658
+#: ../sepolicy/sepolicy/sepolicy.glade:3640
 msgid "Import"
-msgstr ""
+msgstr "导入"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3677
+#: ../sepolicy/sepolicy/sepolicy.glade:3659
 msgid "Export system settings to a file"
-msgstr ""
+msgstr "将系统设置导出为一个文件"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3687
+#: ../sepolicy/sepolicy/sepolicy.glade:3669
 msgid "Export"
-msgstr ""
+msgstr "导出"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3706
+#: ../sepolicy/sepolicy/sepolicy.glade:3688
 msgid "Relabel all files back to system defaults on reboot"
-msgstr ""
+msgstr "重启后将所有文件重新标记为系统默认"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3743
-#: ../sepolicy/sepolicy/sepolicy.glade:3844
-#: ../sepolicy/sepolicy/sepolicy.glade:3908
-#: ../sepolicy/sepolicy/sepolicy.glade:3971 ../sepolicy/sepolicy/gui.py:61
+#: ../sepolicy/sepolicy/sepolicy.glade:3725
+#: ../sepolicy/sepolicy/sepolicy.glade:3826
+#: ../sepolicy/sepolicy/sepolicy.glade:3890
+#: ../sepolicy/sepolicy/sepolicy.glade:3953 ../sepolicy/sepolicy/gui.py:64
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3760
-#: ../sepolicy/sepolicy/sepolicy.glade:3862
-#: ../sepolicy/sepolicy/sepolicy.glade:3925
-#: ../sepolicy/sepolicy/sepolicy.glade:3988 ../sepolicy/sepolicy/gui.py:61
+#: ../sepolicy/sepolicy/sepolicy.glade:3742
+#: ../sepolicy/sepolicy/sepolicy.glade:3844
+#: ../sepolicy/sepolicy/sepolicy.glade:3907
+#: ../sepolicy/sepolicy/sepolicy.glade:3970 ../sepolicy/sepolicy/gui.py:64
 msgid "No"
-msgstr ""
+msgstr "否"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3801
+#: ../sepolicy/sepolicy/sepolicy.glade:3783
 msgid "<b>System Configuration</b>"
-msgstr ""
+msgstr "<b>系统配置</b>"
 
+#: ../sepolicy/sepolicy/sepolicy.glade:3830
 #: ../sepolicy/sepolicy/sepolicy.glade:3848
-#: ../sepolicy/sepolicy/sepolicy.glade:3866
 msgid ""
 "An unconfined domain is a process label that allows the process to do what "
 "it wants, without SELinux interfering.  Applications started at boot by the "
@@ -4517,234 +4424,219 @@ msgid ""
 "unconfined if this module is enabled.  Disabling it means all daemons will "
 "now be confined.  To disable the unconfined_t user you must first remove "
 "unconfined_t from the users/login screens."
-msgstr ""
+msgstr "未限制的域是一个进程标签，可允许进程执行其想要的操作而没有任何 SELinux 干预。引导时由 init system 启动且没有 SELinux 策略定义的程序，如果已启用该模块，则将作为未限制程序运行。禁用它意味着限制将限制所有守护进程。要禁用 unconfined_t 用户，您必须首先在用户/登录页面中移除 unconfined_t。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3884
+#: ../sepolicy/sepolicy/sepolicy.glade:3866
 msgid "<b>Disable ability to run unconfined system processes?</b>"
-msgstr ""
+msgstr "<b>禁用可运行未限制系统进程的功能？</b>"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3912
-#: ../sepolicy/sepolicy/sepolicy.glade:3929
-#: ../sepolicy/sepolicy/sepolicy.glade:3992
+#: ../sepolicy/sepolicy/sepolicy.glade:3894
+#: ../sepolicy/sepolicy/sepolicy.glade:3911
+#: ../sepolicy/sepolicy/sepolicy.glade:3974
 msgid ""
 "An permissive domain is a process label that allows the process to do what "
 "it wants, with SELinux only logging the denials, but not enforcing them.  "
 "Usually permissive domains indicate experimental policy, disabling the "
 "module could cause SELinux to deny access to a domain, that should be "
 "allowed."
-msgstr ""
+msgstr "Permissive 域是一个进程标签，可允许进程执行其想要的操作，SELinux 只记录拒绝的操作但不会强制其执行。通常 permissive 域代表实验性策略，禁用该模块将导致 SELinux 拒绝对某个本应允许域的访问。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3947
+#: ../sepolicy/sepolicy/sepolicy.glade:3929
 msgid "<b>Disable all permissive processes?</b>"
-msgstr ""
+msgstr "<b>禁用所有 permissive 进程？</b>"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:3975
+#: ../sepolicy/sepolicy/sepolicy.glade:3957
 msgid ""
-"A permissive domain is a process label that allows the process to do what it "
-"wants, with SELinux only logging the denials, but not enforcing them.  "
+"A permissive domain is a process label that allows the process to do what it"
+" wants, with SELinux only logging the denials, but not enforcing them.  "
 "Usually permissive domains indicate experimental policy, disabling the "
 "module could cause SELinux to deny access to a domain, that should be "
 "allowed."
-msgstr ""
+msgstr "Permissive 域是一个进程标签，可允许进程执行其想要的操作，SELinux 只记录拒绝的操作但不会强制其执行。通常 permissive 域代表实验性策略，禁用该模块将导致 SELinux 拒绝对某个本应允许域的访问。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4013
+#: ../sepolicy/sepolicy/sepolicy.glade:3995
 msgid "<b>Deny all processes from ptracing or debugging other processes?</b>"
-msgstr ""
+msgstr "<b>禁用所有 ptracing 或者 debugging 其他进程的进程？</b>"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4050
+#: ../sepolicy/sepolicy/sepolicy.glade:4032
 msgid ""
 "File equivalence cause the system to label content under the new path as if "
 "it were under the equivalence path."
-msgstr ""
+msgstr "文件等价造让该系统将那个新路径中的内容如等价路径中的内容一般标记。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4106
+#: ../sepolicy/sepolicy/sepolicy.glade:4088
 msgid "Files Equivalence"
-msgstr ""
+msgstr "文件等价"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4119
+#: ../sepolicy/sepolicy/sepolicy.glade:4101
 msgid "<b>...SELECT TO VIEW DATA...</b>"
-msgstr ""
+msgstr "<b>...选择要查看的数据...</b>"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4150
+#: ../sepolicy/sepolicy/sepolicy.glade:4132
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4166
+#: ../sepolicy/sepolicy/sepolicy.glade:4148
 msgid "Modify"
-msgstr ""
+msgstr "修改"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4227
+#: ../sepolicy/sepolicy/sepolicy.glade:4209
 msgid "Revert"
-msgstr ""
+msgstr "恢复"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4232
+#: ../sepolicy/sepolicy/sepolicy.glade:4214
 msgid ""
-"Revert button will launch a dialog window which allows you to revert changes "
-"within the current transaction."
-msgstr ""
+"Revert button will launch a dialog window which allows you to revert changes"
+" within the current transaction."
+msgstr "恢复按钮将打开一个对话窗口，您可以在该窗口中恢复当前转换过程中进行的修改。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4244 ../sepolicy/sepolicy/gui.py:2421
+#: ../sepolicy/sepolicy/sepolicy.glade:4226 ../sepolicy/sepolicy/gui.py:2416
 msgid "Update"
-msgstr ""
+msgstr "更新"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4249
+#: ../sepolicy/sepolicy/sepolicy.glade:4231
 msgid "Commit all changes in your current transaction to the server."
-msgstr ""
+msgstr "将您在当前转换过程中的所有更改提交到服务器。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4297
+#: ../sepolicy/sepolicy/sepolicy.glade:4279
 msgid "Applications - Advanced Search"
-msgstr ""
+msgstr "应用程序 - 高级搜索"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4350
-msgid "Installed"
-msgstr ""
-
-#: ../sepolicy/sepolicy/sepolicy.glade:4402
+#: ../sepolicy/sepolicy/sepolicy.glade:4344
 msgid "Process Types"
-msgstr ""
+msgstr "进程类型"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4443
+#: ../sepolicy/sepolicy/sepolicy.glade:4385
 msgid "More Details"
-msgstr ""
+msgstr "详情"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4479
-#: ../sepolicy/sepolicy/sepolicy.glade:4773
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:4421
+#: ../sepolicy/sepolicy/sepolicy.glade:4715
 msgid "Delete Modified File Labeling"
-msgstr "文件标签"
+msgstr "删除修改的文件标签"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4497
+#: ../sepolicy/sepolicy/sepolicy.glade:4439
 msgid ""
-"Select file labeling to delete. File labeling will be deleted when update is "
-"applied."
-msgstr ""
+"Select file labeling to delete. File labeling will be deleted when update is"
+" applied."
+msgstr "选择要删除的文件标签。应用更新时将删除文件标签。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4544
+#: ../sepolicy/sepolicy/sepolicy.glade:4486
 msgid "SELinux File Label"
-msgstr ""
+msgstr "SELinux 文件标签"
+
+#: ../sepolicy/sepolicy/sepolicy.glade:4525
+#: ../sepolicy/sepolicy/sepolicy.glade:4675
+#: ../sepolicy/sepolicy/sepolicy.glade:4806
+#: ../sepolicy/sepolicy/sepolicy.glade:4940
+#: ../sepolicy/sepolicy/sepolicy.glade:5289
+msgid "Save to Update"
+msgstr "保存到更新"
+
+#: ../sepolicy/sepolicy/sepolicy.glade:4565
+msgid "Delete Modified Ports"
+msgstr "删除修改的端口"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4583
-#: ../sepolicy/sepolicy/sepolicy.glade:4733
-#: ../sepolicy/sepolicy/sepolicy.glade:4864
-#: ../sepolicy/sepolicy/sepolicy.glade:4998
-#: ../sepolicy/sepolicy/sepolicy.glade:5347
-msgid "Save to Update"
-msgstr ""
-
-#: ../sepolicy/sepolicy/sepolicy.glade:4623
-#, fuzzy
-msgid "Delete Modified Ports"
-msgstr "删除网络接口"
-
-#: ../sepolicy/sepolicy/sepolicy.glade:4641
 msgid "Select ports to delete. Ports will be deleted when update is applied."
-msgstr ""
+msgstr "选择要删除的端口。应用更新时将删除端口。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4791
+#: ../sepolicy/sepolicy/sepolicy.glade:4733
 msgid ""
-"Select file equivalence labeling to delete.File equivalence labeling will be "
-"deleted when update is applied."
-msgstr ""
+"Select file equivalence labeling to delete. File equivalence labeling will "
+"be deleted when update is applied."
+msgstr "选择要删除的文件等价标签。应用更新时将删除文件等价标签。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4907
-#: ../sepolicy/sepolicy/sepolicy.glade:5256
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:4849
+#: ../sepolicy/sepolicy/sepolicy.glade:5198
 msgid "Delete Modified Users Mapping."
-msgstr "文件标签"
+msgstr "删除修改的用户映射。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4925
+#: ../sepolicy/sepolicy/sepolicy.glade:4867
 msgid ""
-"Select login user mapping to delete. Login user mapping will be deleted when "
-"update is applied."
-msgstr ""
+"Select login user mapping to delete. Login user mapping will be deleted when"
+" update is applied."
+msgstr "选择要删除的登录用户映射。应用更新时将删除登录用户映射。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:4960
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:4902
 msgid "Login name"
 msgstr "登录名"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5041
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:4983
 msgid "More Types"
-msgstr " 类型"
+msgstr "更多类型"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5068
+#: ../sepolicy/sepolicy/sepolicy.glade:5010
 msgid "Types"
-msgstr ""
+msgstr "类型"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5127
+#: ../sepolicy/sepolicy/sepolicy.glade:5069
 msgid ""
 "Review the updates you have made before committing them to the system.  To "
 "reset an item, uncheck the checkbox.  All items checked will be updated in "
 "the system when you select update."
-msgstr ""
+msgstr "在向提供提交更新前要进行检查。要重新设置某个项目，只要取消其选择即可。您选择更新后将更新所有选择的项目。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5190
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:5132
 msgid "Action"
-msgstr "应用程序"
+msgstr "动作"
+
+#: ../sepolicy/sepolicy/sepolicy.glade:5158
+msgid "Apply"
+msgstr "应用"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5216
-msgid "Apply"
-msgstr ""
-
-#: ../sepolicy/sepolicy/sepolicy.glade:5274
 msgid ""
 "Select users mapping to delete.Users mapping will be deleted when update is "
 "applied."
-msgstr ""
+msgstr "选择要删除的用户映射。应用更新时将删除用户映射。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5322
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:5264
 msgid "SELinux Username"
-msgstr "SELinux 用户"
+msgstr "SELinux 用户名"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5407
+#: ../sepolicy/sepolicy/sepolicy.glade:5349
 msgid ""
 "Add User Roles. SELinux User Roles will be created when Update is applied."
-msgstr ""
+msgstr "提交用户角色。应用更新时将生成 SELinux 用户角色。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5432
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:5374
 msgid "SELinux User Name"
-msgstr "SELinux 用户"
+msgstr "SELinux 用户名"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5547
+#: ../sepolicy/sepolicy/sepolicy.glade:5489
 msgid ""
 "Enter MLS/MCS Range for this SELinux User.\n"
 "s0-s0:c1023"
-msgstr ""
+msgstr "输入这个 SELinux 用户的 MLS/MCS 范围。\ns0-s0:c1023"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5578
-#, fuzzy
+#: ../sepolicy/sepolicy/sepolicy.glade:5520
 msgid ""
 "Specify the default level that you would like this SELinux user to login "
 "with.  Defaults to s0."
-msgstr "选择您希望这个用户管理的域。"
+msgstr "指定您希望这个 SELinux 用户登录的默认级别。默认为 s0。"
 
-#: ../sepolicy/sepolicy/sepolicy.glade:5582
+#: ../sepolicy/sepolicy/sepolicy.glade:5524
 msgid "Enter Default Level for SELinux User to login with. Default s0"
-msgstr ""
+msgstr "输入 SELinux 用户登录的默认级别。默认为 s0。"
 
-#: ../sepolicy/sepolicy/gui.py:62
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:65
 msgid "Disable"
-msgstr "已禁用"
+msgstr "禁用"
 
-#: ../sepolicy/sepolicy/gui.py:62
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:65
 msgid "Enable"
-msgstr "启用审核"
-
-#: ../sepolicy/sepolicy/gui.py:67
-msgid "Advanced <<"
-msgstr ""
+msgstr "启用"
 
 #: ../sepolicy/sepolicy/gui.py:68
-msgid "Advanced Search <<"
-msgstr ""
+msgid "Advanced <<"
+msgstr "高级 <<"
 
-#: ../sepolicy/sepolicy/gui.py:93
+#: ../sepolicy/sepolicy/gui.py:69
+msgid "Advanced Search <<"
+msgstr "高级搜索 <<"
+
+#: ../sepolicy/sepolicy/gui.py:94
 msgid ""
 "<small>\n"
 "To change from Disabled to Enforcing mode\n"
@@ -4752,555 +4644,544 @@ msgid ""
 "- Reboot, so that the system can relabel\n"
 "- Once the system is working as planned\n"
 "  * Change the system mode to Enforcing</small>\n"
-msgstr ""
+msgstr "<small>\n从 Disabled 改为 Enforcing 模式\n- 将系统模式从 Disabled 改为 Permissive\n- 重启以便重新标记系统\n- 系统如预期工作后\n  * 将系统模式改为 Enforcing</small>\n"
 
-#: ../sepolicy/sepolicy/gui.py:116
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:488
+#, python-format
 msgid "%s is not a valid domain"
-msgstr "%s 不是一个有效的上下文\n"
+msgstr "%s 不是有效域"
 
-#: ../sepolicy/sepolicy/gui.py:639
+#: ../sepolicy/sepolicy/gui.py:636
 msgid "System Status: Disabled"
-msgstr ""
+msgstr "系统状态：已禁用"
 
-#: ../sepolicy/sepolicy/gui.py:737
+#: ../sepolicy/sepolicy/gui.py:734
 msgid "Help: Start Page"
-msgstr ""
+msgstr "帮助：起始页"
 
-#: ../sepolicy/sepolicy/gui.py:741
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:738
 msgid "Help: Booleans Page"
-msgstr "布尔值名称"
+msgstr "帮助：布尔值页"
+
+#: ../sepolicy/sepolicy/gui.py:744
+msgid "Help: Executable Files Page"
+msgstr "帮助：可执行文件页"
 
 #: ../sepolicy/sepolicy/gui.py:747
-msgid "Help: Executable Files Page"
-msgstr ""
+msgid "Help: Writable Files Page"
+msgstr "帮助：可写入文件页"
 
 #: ../sepolicy/sepolicy/gui.py:750
-msgid "Help: Writable Files Page"
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:753
 msgid "Help: Application Types Page"
-msgstr ""
+msgstr "帮助：应用程序类型页"
+
+#: ../sepolicy/sepolicy/gui.py:755
+msgid "Help: Outbound Network Connections Page"
+msgstr "帮助：外出网络连接页"
 
 #: ../sepolicy/sepolicy/gui.py:758
-msgid "Help: Outbound Network Connections Page"
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:761
 msgid "Help: Inbound Network Connections Page"
-msgstr ""
+msgstr "帮助：进入网络连接页"
+
+#: ../sepolicy/sepolicy/gui.py:764
+msgid "Help: Transition from application Page"
+msgstr "帮助：从应用程序转换页"
 
 #: ../sepolicy/sepolicy/gui.py:767
-msgid "Help: Transition from application Page"
-msgstr ""
+msgid "Help: Transition into application Page"
+msgstr "帮助：转换为应用程序页"
 
 #: ../sepolicy/sepolicy/gui.py:770
-msgid "Help: Transition into application Page"
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:773
 msgid "Help: Transition application file Page"
-msgstr ""
+msgstr "帮助：转换应用程序文件页"
 
-#: ../sepolicy/sepolicy/gui.py:777
+#: ../sepolicy/sepolicy/gui.py:774
 msgid "Help: Systems Page"
-msgstr ""
+msgstr "帮助：系统页"
 
-#: ../sepolicy/sepolicy/gui.py:781
+#: ../sepolicy/sepolicy/gui.py:778
 msgid "Help: Lockdown Page"
-msgstr ""
+msgstr "帮助：锁定页"
 
-#: ../sepolicy/sepolicy/gui.py:785
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:782
 msgid "Help: Login Page"
-msgstr "登录名"
+msgstr "帮助：登录页"
 
-#: ../sepolicy/sepolicy/gui.py:789
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:786
 msgid "Help: SELinux User Page"
-msgstr "删除 SELinux 用户映射"
+msgstr "帮助：SELinux 用户页"
 
-#: ../sepolicy/sepolicy/gui.py:793
+#: ../sepolicy/sepolicy/gui.py:790
 msgid "Help: File Equivalence Page"
-msgstr ""
+msgstr "帮助：文件等价页"
+
+#: ../sepolicy/sepolicy/gui.py:936 ../sepolicy/sepolicy/gui.py:1227
+#: ../sepolicy/sepolicy/gui.py:1667 ../sepolicy/sepolicy/gui.py:1913
+#: ../sepolicy/sepolicy/gui.py:2692
+msgid "More..."
+msgstr "更多......"
+
+#: ../sepolicy/sepolicy/gui.py:1044
+#, python-format
+msgid "File path used to enter the '%s' domain."
+msgstr "用来进入 '%s' 域的文件路径。"
+
+#: ../sepolicy/sepolicy/gui.py:1045
+#, python-format
+msgid "Files to which the '%s' domain can write."
+msgstr "'%s' 域可写入的文件。"
+
+#: ../sepolicy/sepolicy/gui.py:1046
+#, python-format
+msgid "Network Ports to which the '%s' is allowed to connect."
+msgstr "允许 '%s' 连接的网络端口。"
+
+#: ../sepolicy/sepolicy/gui.py:1047
+#, python-format
+msgid "Network Ports to which the '%s' is allowed to listen."
+msgstr "允许 '%s' 侦听的网络端口。"
 
 #: ../sepolicy/sepolicy/gui.py:1048
 #, python-format
-msgid "File path used to enter the '%s' domain."
-msgstr ""
+msgid "File Types defined for the '%s'."
+msgstr "为  '%s' 定义的文件类型。"
 
 #: ../sepolicy/sepolicy/gui.py:1049
-#, python-format
-msgid "Files to which the '%s' domain can write."
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1050
-#, python-format
-msgid "Network Ports to which the '%s' is allowed to connect."
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1051
-#, python-format
-msgid "Network Ports to which the '%s' is allowed to listen."
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1052
-#, python-format
-msgid "File Types defined for the '%s'."
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1053
 #, python-format
 msgid ""
 "Display boolean information that can be used to modify the policy for the "
 "'%s'."
-msgstr ""
+msgstr "显示可用来修改  '%s' 策略的布尔值信息。"
+
+#: ../sepolicy/sepolicy/gui.py:1050
+#, python-format
+msgid "Display file type information that can be used by the '%s'."
+msgstr "显示  '%s' 可使用的文件类型信息。"
+
+#: ../sepolicy/sepolicy/gui.py:1051
+#, python-format
+msgid "Display network ports to which the '%s' can connect or listen to."
+msgstr "显示  '%s' 可连接或者侦听的网络端口。"
+
+#: ../sepolicy/sepolicy/gui.py:1052
+#, python-format
+msgid "Application Transitions Into '%s'"
+msgstr "应用程序转换为 '%s'"
+
+#: ../sepolicy/sepolicy/gui.py:1053
+#, python-format
+msgid "Application Transitions From '%s'"
+msgstr "由 '%s' 转换为应用程序"
 
 #: ../sepolicy/sepolicy/gui.py:1054
 #, python-format
-msgid "Display file type information that can be used by the '%s'."
-msgstr ""
+msgid "File Transitions From '%s'"
+msgstr "由 '%s' 转换的文件"
 
 #: ../sepolicy/sepolicy/gui.py:1055
-#, python-format
-msgid "Display network ports to which the '%s' can connect or listen to."
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1056
-#, python-format
-msgid "Application Transitions Into '%s'"
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1057
-#, python-format
-msgid "Application Transitions From '%s'"
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1058
-#, fuzzy, python-format
-msgid "File Transitions From '%s'"
-msgstr "向名称空间传送失败\n"
-
-#: ../sepolicy/sepolicy/gui.py:1059
 #, python-format
 msgid ""
 "Executables which will transition to the '%s', when executing a selected "
 "domains entrypoint."
-msgstr ""
+msgstr "执行所选域切入点时可转换为  '%s' 的可执行文件。"
 
-#: ../sepolicy/sepolicy/gui.py:1060
+#: ../sepolicy/sepolicy/gui.py:1056
 #, python-format
 msgid ""
 "Executables which will transition to a different domain, when the '%s' "
 "executes them."
-msgstr ""
+msgstr "当  '%s' 执行它们时可转换为不同域的可执行文件。"
 
-#: ../sepolicy/sepolicy/gui.py:1061
+#: ../sepolicy/sepolicy/gui.py:1057
 #, python-format
 msgid "Files by '%s' will transitions to a different label."
-msgstr ""
+msgstr "'%s' 中的文件将转换为不同的标签。"
 
-#: ../sepolicy/sepolicy/gui.py:1062
+#: ../sepolicy/sepolicy/gui.py:1058
 #, python-format
 msgid "Display applications that can transition into or out of the '%s'."
-msgstr ""
+msgstr "显示可转换为 '%s' 或者从 '%s' 转换的应用程序。"
 
-#: ../sepolicy/sepolicy/gui.py:1170
+#: ../sepolicy/sepolicy/gui.py:1166
 msgid "MISSING FILE PATH"
-msgstr ""
+msgstr "缺少文件路径"
 
-#: ../sepolicy/sepolicy/gui.py:1285 ../sepolicy/sepolicy/gui.py:1287
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1281 ../sepolicy/sepolicy/gui.py:1283
 msgid "Boolean section."
-msgstr "布尔值名称"
+msgstr "布尔值部分。"
 
-#: ../sepolicy/sepolicy/gui.py:1285
+#: ../sepolicy/sepolicy/gui.py:1281
 msgid "To disable this transition, go to the "
-msgstr ""
+msgstr "要禁用这个转换，请进入"
 
-#: ../sepolicy/sepolicy/gui.py:1287
+#: ../sepolicy/sepolicy/gui.py:1283
 msgid "To enable this transition, go to the "
-msgstr ""
+msgstr "要启用这个转换请进入"
 
-#: ../sepolicy/sepolicy/gui.py:1344
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1340
 msgid "executable"
 msgstr "可执行"
 
-#: ../sepolicy/sepolicy/gui.py:1347
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1343
 msgid "writable"
-msgstr "已禁用"
+msgstr "可写入"
 
-#: ../sepolicy/sepolicy/gui.py:1350
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1346
 msgid "application"
 msgstr "应用程序"
 
-#: ../sepolicy/sepolicy/gui.py:1351
+#: ../sepolicy/sepolicy/gui.py:1347
 #, python-format
 msgid "Add new %(TYPE)s file path for '%(DOMAIN)s' domains."
-msgstr ""
+msgstr "为 '%(DOMAIN)s' 域添加新 %(TYPE)s 文件路径。"
 
-#: ../sepolicy/sepolicy/gui.py:1352
+#: ../sepolicy/sepolicy/gui.py:1348
 #, python-format
 msgid "Delete %(TYPE)s file paths for '%(DOMAIN)s' domain."
-msgstr ""
+msgstr "为 '%(DOMAIN)s' 域删除 %(TYPE)s 文件路径。"
 
-#: ../sepolicy/sepolicy/gui.py:1353
+#: ../sepolicy/sepolicy/gui.py:1349
 #, python-format
 msgid ""
 "Modify %(TYPE)s file path for '%(DOMAIN)s' domain. Only bolded items in the "
 "list can be selected, this indicates they were modified previously."
-msgstr ""
+msgstr "为 '%(DOMAIN)s' 域修改 %(TYPE)s 文件路径。只选择列表中黑体字部分，黑体字代表之前修改过他们。"
 
-#: ../sepolicy/sepolicy/gui.py:1365
+#: ../sepolicy/sepolicy/gui.py:1361
 msgid "connect"
-msgstr ""
+msgstr "连接"
 
-#: ../sepolicy/sepolicy/gui.py:1368
+#: ../sepolicy/sepolicy/gui.py:1364
 msgid "listen for inbound connections"
-msgstr ""
+msgstr "侦听进入的连接"
 
-#: ../sepolicy/sepolicy/gui.py:1370
-msgid "Add new port definition to which the '%(APP)s' domain is allowed to %s."
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1371
-msgid ""
-"Delete modified port definitions to which the '%(APP)s' domain is allowed to "
-"%s."
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1372
+#: ../sepolicy/sepolicy/gui.py:1366
 #, python-format
 msgid ""
-"Modify port definitions to which the '%(APP)s' domain is allowed to %(PERM)s."
-msgstr ""
+"Add new port definition to which the '%(APP)s' domain is allowed to "
+"%(PERM)s."
+msgstr "添加新的端口定义以便 %(PERM)s 可允许 '%(APP)s' 域。"
 
-#: ../sepolicy/sepolicy/gui.py:1401
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1367
+#, python-format
+msgid ""
+"Delete modified port definitions to which the '%(APP)s' domain is allowed to"
+" %(PERM)s."
+msgstr "删除修改的端口定义以便 %(PERM)s 可允许 '%(APP)s' 域。"
+
+#: ../sepolicy/sepolicy/gui.py:1368
+#, python-format
+msgid ""
+"Modify port definitions to which the '%(APP)s' domain is allowed to "
+"%(PERM)s."
+msgstr "修改端口定义以便 %(PERM)s 可允许 '%(APP)s' 域。"
+
+#: ../sepolicy/sepolicy/gui.py:1397
 msgid "Add new SELinux User/Role definition."
-msgstr "添加 SELinux 用户映射"
+msgstr "添加新 SELinux 用户/角色定义。"
 
-#: ../sepolicy/sepolicy/gui.py:1402
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1398
 msgid "Delete modified SELinux User/Role definitions."
-msgstr "删除 SELinux 用户映射"
+msgstr "删除修改的 SELinux 用户/角色定义。"
 
-#: ../sepolicy/sepolicy/gui.py:1403
+#: ../sepolicy/sepolicy/gui.py:1399
 msgid "Modify selected modified SELinux User/Role definitions."
-msgstr ""
+msgstr "修改所选 SELinux 用户/角色定义。"
 
-#: ../sepolicy/sepolicy/gui.py:1410
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1406
 msgid "Add new Login Mapping definition."
-msgstr "添加 SELinux 登录映射"
+msgstr "添加新登录映射定义。"
 
-#: ../sepolicy/sepolicy/gui.py:1411
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1407
 msgid "Delete modified Login Mapping definitions."
-msgstr "无法为 %s 修改登录映射"
+msgstr "删除修改的登录映射定义。"
 
-#: ../sepolicy/sepolicy/gui.py:1412
+#: ../sepolicy/sepolicy/gui.py:1408
 msgid "Modify selected modified Login Mapping definitions."
-msgstr ""
+msgstr "修改所选登录映射定义。"
 
-#: ../sepolicy/sepolicy/gui.py:1419
+#: ../sepolicy/sepolicy/gui.py:1415
 msgid "Add new File Equivalence definition."
-msgstr ""
+msgstr "添加新文件等价定义。"
 
-#: ../sepolicy/sepolicy/gui.py:1420
+#: ../sepolicy/sepolicy/gui.py:1416
 msgid "Delete modified File Equivalence definitions."
-msgstr ""
+msgstr "删除修改的文件等价定义。"
 
-#: ../sepolicy/sepolicy/gui.py:1421
+#: ../sepolicy/sepolicy/gui.py:1417
 msgid ""
 "Modify selected modified File Equivalence definitions. Only bolded items in "
 "the list can be selected, this indicates they were modified previously."
-msgstr ""
+msgstr "修改所选修改的文件等价定义。值选择列表中黑体字的项目，黑体字代表它们之前被修改过。"
 
-#: ../sepolicy/sepolicy/gui.py:1449
+#: ../sepolicy/sepolicy/gui.py:1445
 #, python-format
 msgid "Boolean %s Allow Rules"
-msgstr ""
+msgstr "布尔值 %s 允许规则"
 
-#: ../sepolicy/sepolicy/gui.py:1462
-#, python-format
-msgid "Add Network Port for %s.  Ports will be created when update is applied."
-msgstr ""
-
-#: ../sepolicy/sepolicy/gui.py:1463
-#, fuzzy, python-format
-msgid "Add Network Port for %s"
-msgstr "添加网络接口"
-
-#: ../sepolicy/sepolicy/gui.py:1468
+#: ../sepolicy/sepolicy/gui.py:1458
 #, python-format
 msgid ""
-"Add File Labeling for %s. File labels will be created when update is applied."
-msgstr ""
+"Add Network Port for %s.  Ports will be created when update is applied."
+msgstr "为 %s 添加网络端口。应用更新时生成端口。"
 
-#: ../sepolicy/sepolicy/gui.py:1469 ../sepolicy/sepolicy/gui.py:1522
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:1459
+#, python-format
+msgid "Add Network Port for %s"
+msgstr "为 %s 添加网络端口"
+
+#: ../sepolicy/sepolicy/gui.py:1464
+#, python-format
+msgid ""
+"Add File Labeling for %s. File labels will be created when update is "
+"applied."
+msgstr "为 %s 添加文件标签。应用更新时将生成文件标签。"
+
+#: ../sepolicy/sepolicy/gui.py:1465 ../sepolicy/sepolicy/gui.py:1518
+#, python-format
 msgid "Add File Labeling for %s"
-msgstr "文件标签"
+msgstr "为 %s 添加文件标签"
 
-#: ../sepolicy/sepolicy/gui.py:1479
-msgid "Add Login Mapping. User Mapping will be created when Update is applied."
-msgstr ""
+#: ../sepolicy/sepolicy/gui.py:1475
+msgid ""
+"Add Login Mapping. User Mapping will be created when Update is applied."
+msgstr "添加登录映射。应用更新时将生成用户映射。"
 
-#: ../sepolicy/sepolicy/gui.py:1480
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1476
 msgid "Add Login Mapping"
-msgstr "添加 SELinux 登录映射"
+msgstr "添加登录映射"
 
-#: ../sepolicy/sepolicy/gui.py:1485
+#: ../sepolicy/sepolicy/gui.py:1481
 msgid ""
 "Add SELinux User Role. SELinux user roles will be created when update is "
 "applied."
-msgstr ""
+msgstr "添加 SELinux 用户角色。应用更新时将生成 SELinux 用户角色。"
 
-#: ../sepolicy/sepolicy/gui.py:1486
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1482
 msgid "Add SELinux Users"
 msgstr "添加 SELinux 用户"
 
-#: ../sepolicy/sepolicy/gui.py:1493
+#: ../sepolicy/sepolicy/gui.py:1489
 msgid ""
-"Add File Equivalency Mapping. Mapping will be created when update is applied."
-msgstr ""
+"Add File Equivalency Mapping. Mapping will be created when update is "
+"applied."
+msgstr "添加文件等价映射。应用更新时将生成映射。"
 
-#: ../sepolicy/sepolicy/gui.py:1494
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1490
 msgid "Add SELinux File Equivalency"
-msgstr ""
-"\n"
-"SELinux Local fcontext Equivalence\n"
+msgstr "添加 SELinux 文件等价"
 
-#: ../sepolicy/sepolicy/gui.py:1521
+#: ../sepolicy/sepolicy/gui.py:1517
 #, python-format
 msgid ""
 "Modify File Labeling for %s. File labels will be created when update is "
 "applied."
-msgstr ""
+msgstr "为 %s 修改文件标签。应用更新时将生成文件标签。"
 
-#: ../sepolicy/sepolicy/gui.py:1577
+#: ../sepolicy/sepolicy/gui.py:1573
 msgid ""
-"Modify SELinux User Role. SELinux user roles will be modified when update is "
-"applied."
-msgstr ""
+"Modify SELinux User Role. SELinux user roles will be modified when update is"
+" applied."
+msgstr "修改 SELinux 用户角色。应用更新时将修改 SELinux 用户角色。"
 
-#: ../sepolicy/sepolicy/gui.py:1578
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1574
 msgid "Modify SELinux Users"
-msgstr "添加 SELinux 用户"
+msgstr "修改 SELinux 用户"
 
-#: ../sepolicy/sepolicy/gui.py:1586
+#: ../sepolicy/sepolicy/gui.py:1582
 msgid ""
 "Modify Login Mapping. Login Mapping will be modified when Update is applied."
-msgstr ""
+msgstr "修改登录映射。应用更新时将修改登录映射。"
 
-#: ../sepolicy/sepolicy/gui.py:1587
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1583
 msgid "Modify Login Mapping"
-msgstr "无法列出登录映射"
+msgstr "修改登录映射"
 
-#: ../sepolicy/sepolicy/gui.py:1593
+#: ../sepolicy/sepolicy/gui.py:1589
 msgid ""
 "Modify File Equivalency Mapping. Mapping will be created when update is "
 "applied."
-msgstr ""
+msgstr "修改文件等价映射。应用更新时将生成映射。"
 
-#: ../sepolicy/sepolicy/gui.py:1594
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:1590
 msgid "Modify SELinux File Equivalency"
-msgstr "修改 SELinux 用户映射"
+msgstr "修改 SELinux 文件等价"
 
-#: ../sepolicy/sepolicy/gui.py:1679
+#: ../sepolicy/sepolicy/gui.py:1675
 #, python-format
 msgid ""
 "Modify Network Port for %s.  Ports will be created when update is applied."
-msgstr ""
+msgstr "为 %s 修改网络端口。应用更新时将生成端口。"
 
-#: ../sepolicy/sepolicy/gui.py:1680
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:1676
+#, python-format
 msgid "Modify Network Port for %s"
-msgstr "编辑网络接口"
+msgstr "为 %s 修改网络端口"
 
-#: ../sepolicy/sepolicy/gui.py:1898
+#: ../sepolicy/sepolicy/gui.py:1894
 #, python-format
 msgid "The entry '%s' is not a valid path.  Paths must begin with a '/'."
-msgstr ""
+msgstr "条目 '%s' 是无效路径。路径必须以 '/' 开始。"
 
-#: ../sepolicy/sepolicy/gui.py:1911
+#: ../sepolicy/sepolicy/gui.py:1907
 msgid "Port number must be between 1 and 65536"
-msgstr ""
+msgstr "端口号必须在  1 到 65536 之间。"
 
-#: ../sepolicy/sepolicy/gui.py:2188
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2183
+#, python-format
 msgid "SELinux name: %s"
-msgstr "SELinux 角色"
+msgstr "SELinux 名称：%s"
 
-#: ../sepolicy/sepolicy/gui.py:2199
+#: ../sepolicy/sepolicy/gui.py:2194
 #, python-format
 msgid "Add file labeling for %s"
-msgstr ""
+msgstr "为 %s 添加文件标签"
 
-#: ../sepolicy/sepolicy/gui.py:2201
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2196
+#, python-format
 msgid "Delete file labeling for %s"
-msgstr "无法为 %s 删除文件上下文"
+msgstr "为 %s 删除文件标签"
 
-#: ../sepolicy/sepolicy/gui.py:2203
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2198
+#, python-format
 msgid "Modify file labeling for %s"
-msgstr "无法为 %s 修改文件上下文"
+msgstr "为 %s 修改文件标签"
 
-#: ../sepolicy/sepolicy/gui.py:2207
+#: ../sepolicy/sepolicy/gui.py:2202
 #, python-format
 msgid "File path: %s"
-msgstr ""
+msgstr "文件路径：%s"
 
-#: ../sepolicy/sepolicy/gui.py:2210
+#: ../sepolicy/sepolicy/gui.py:2205
 #, python-format
 msgid "File class: %s"
-msgstr ""
+msgstr "文件类型：%s"
 
-#: ../sepolicy/sepolicy/gui.py:2213 ../sepolicy/sepolicy/gui.py:2237
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2208 ../sepolicy/sepolicy/gui.py:2232
+#, python-format
 msgid "SELinux file type: %s"
-msgstr "SELinux 类型"
+msgstr "SELinux 文件类型：%s"
 
-#: ../sepolicy/sepolicy/gui.py:2222
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2217
+#, python-format
 msgid "Add ports for %s"
-msgstr "错误格式 %s：记录 %s"
+msgstr "为 %s 添加端口"
+
+#: ../sepolicy/sepolicy/gui.py:2219
+#, python-format
+msgid "Delete ports for %s"
+msgstr "为 %s 删除端口"
+
+#: ../sepolicy/sepolicy/gui.py:2221
+#, python-format
+msgid "Modify ports for %s"
+msgstr "为 %s 修改端口"
 
 #: ../sepolicy/sepolicy/gui.py:2224
-#, fuzzy, python-format
-msgid "Delete ports for %s"
-msgstr "删除 %s"
-
-#: ../sepolicy/sepolicy/gui.py:2226
-#, fuzzy, python-format
-msgid "Modify ports for %s"
-msgstr "修改 %s"
-
-#: ../sepolicy/sepolicy/gui.py:2229
-#, fuzzy, python-format
+#, python-format
 msgid "Network ports: %s"
-msgstr "网络端口"
+msgstr "网络端口：%s"
 
-#: ../sepolicy/sepolicy/gui.py:2232
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2227
+#, python-format
 msgid "Network protocol: %s"
-msgstr "网络端口"
+msgstr "网络协议：%s"
 
-#: ../sepolicy/sepolicy/gui.py:2246
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:2241
 msgid "Add user"
 msgstr "添加用户"
 
-#: ../sepolicy/sepolicy/gui.py:2248
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:2243
 msgid "Delete user"
 msgstr "删除用户"
 
-#: ../sepolicy/sepolicy/gui.py:2250
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:2245
 msgid "Modify user"
 msgstr "修改用户"
 
-#: ../sepolicy/sepolicy/gui.py:2253
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2248
+#, python-format
 msgid "SELinux User : %s"
-msgstr "SELinux 用户"
+msgstr "SELinux 用户：%s"
 
-#: ../sepolicy/sepolicy/gui.py:2258
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2253
+#, python-format
 msgid "Roles: %s"
-msgstr "角色"
+msgstr "角色：%s"
 
-#: ../sepolicy/sepolicy/gui.py:2262 ../sepolicy/sepolicy/gui.py:2287
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2257 ../sepolicy/sepolicy/gui.py:2282
+#, python-format
 msgid "MLS/MCS Range: %s"
-msgstr "MLS/MCS 范围"
+msgstr "MLS/MCS 范围：%s"
 
-#: ../sepolicy/sepolicy/gui.py:2271
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:2266
 msgid "Add login mapping"
-msgstr "添加 SELinux 登录映射"
+msgstr "添加登录映射"
 
-#: ../sepolicy/sepolicy/gui.py:2273
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:2268
 msgid "Delete login mapping"
-msgstr "删除 SELinux 用户映射"
+msgstr "删除登录映射"
 
-#: ../sepolicy/sepolicy/gui.py:2275
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:2270
 msgid "Modify login mapping"
-msgstr "无法列出登录映射"
+msgstr "修改登录映射"
 
-#: ../sepolicy/sepolicy/gui.py:2279
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2274
+#, python-format
 msgid "Login Name : %s"
-msgstr "登录名"
+msgstr "登录名：%s"
 
-#: ../sepolicy/sepolicy/gui.py:2283
-#, fuzzy, python-format
+#: ../sepolicy/sepolicy/gui.py:2278
+#, python-format
 msgid "SELinux User: %s"
-msgstr "SELinux 用户"
+msgstr "SELinux 用户：%s"
 
-#: ../sepolicy/sepolicy/gui.py:2296
+#: ../sepolicy/sepolicy/gui.py:2291
 msgid "Add file equiv labeling."
-msgstr ""
+msgstr "添加文件等价标签。"
 
-#: ../sepolicy/sepolicy/gui.py:2298
+#: ../sepolicy/sepolicy/gui.py:2293
 msgid "Delete file equiv labeling."
-msgstr ""
+msgstr "删除文件等价标签。"
 
-#: ../sepolicy/sepolicy/gui.py:2300
+#: ../sepolicy/sepolicy/gui.py:2295
 msgid "Modify file equiv labeling."
-msgstr ""
+msgstr "修改文件等价标签。"
 
-#: ../sepolicy/sepolicy/gui.py:2304
+#: ../sepolicy/sepolicy/gui.py:2299
 #, python-format
 msgid "File path : %s"
-msgstr ""
+msgstr "文件路径：%s"
 
-#: ../sepolicy/sepolicy/gui.py:2308
+#: ../sepolicy/sepolicy/gui.py:2303
 #, python-format
 msgid "Equivalence: %s"
-msgstr ""
+msgstr "等价：%s"
 
-#: ../sepolicy/sepolicy/gui.py:2411
+#: ../sepolicy/sepolicy/gui.py:2406
 #, python-format
 msgid ""
 "Run restorecon on %(PATH)s to change its type from %(CUR_CONTEXT)s to the "
 "default %(DEF_CONTEXT)s?"
-msgstr ""
+msgstr "在 %(PATH)s 中运行 restorecon 将其类型从 %(CUR_CONTEXT)s 改为默认的 %(DEF_CONTEXT)s》"
 
-#: ../sepolicy/sepolicy/gui.py:2423
+#: ../sepolicy/sepolicy/gui.py:2418
 msgid "Update Changes"
-msgstr ""
+msgstr "更新更改"
 
-#: ../sepolicy/sepolicy/gui.py:2425
+#: ../sepolicy/sepolicy/gui.py:2420
 msgid "Revert Changes"
-msgstr ""
+msgstr "恢复更改"
 
-#: ../sepolicy/sepolicy/gui.py:2598
+#: ../sepolicy/sepolicy/gui.py:2547
 msgid "System Status: Enforcing"
-msgstr ""
+msgstr "系统状态：Enforcing"
 
-#: ../sepolicy/sepolicy/gui.py:2600
+#: ../sepolicy/sepolicy/gui.py:2549
 msgid "System Status: Permissive"
-msgstr ""
+msgstr "系统状态：Permissive"
 
-#: ../sepolicy/sepolicy/gui.py:2791
-#, fuzzy
+#: ../sepolicy/sepolicy/gui.py:2743
 msgid ""
 "Changing to SELinux disabled requires a reboot.  It is not recommended.  If "
 "you later decide to turn SELinux back on, the system will be required to "
@@ -5308,25 +5189,15 @@ msgid ""
 "system, you can go to permissive mode which will only log errors and not "
 "enforce SELinux policy.  Permissive mode does not require a reboot.  Do you "
 "wish to continue?"
-msgstr ""
-"将 SELinux 改为禁用的状态要求重启方可生效。不推荐使用此选项。如果您以后决定重"
-"新启用 SELinux，则需要重新标记该系统。如果您要看是否因为 SELinux 造成您系统中"
-"的错误，您可以选择 permissive 模式，这个模式只记录出错信息，且不强制执行 "
-"SELinux 策略。Permissive 策略不要求重启。您要继续吗？"
+msgstr "将 SELinux 改为禁用的状态需要重启方可生效。不推荐使用此选项。如果您以后决定重新启用 SELinux，则需要重新标记该系统。如果您要看是否因为 SELinux 造成您系统中的错误，您可以选择 permissive 模式，这个模式只记录出错信息，且不强制执行 SELinux 策略。Permissive 策略不要求重启。您要继续吗？"
 
-#: ../sepolicy/sepolicy/gui.py:2825
+#: ../sepolicy/sepolicy/gui.py:2777
 msgid ""
 "You are attempting to close the application without applying your changes.\n"
-"    *    To apply changes you have made during this session, click No and "
-"click Update.\n"
-"    *    To leave the application without applying your changes, click Yes.  "
-"All changes that you have made during this session will be lost."
-msgstr ""
+"    *    To apply changes you have made during this session, click No and click Update.\n"
+"    *    To leave the application without applying your changes, click Yes.  All changes that you have made during this session will be lost."
+msgstr "您要关闭该程序而不进行任何更改。\n* 要应用您在此会话中进行的更改，请点击否，并点击更新。\n* 要让程序不采用您所做的更改，请点击是。这样您将丢失所有您在此会话中进行的更改。"
 
-#: ../sepolicy/sepolicy/gui.py:2825
+#: ../sepolicy/sepolicy/gui.py:2777
 msgid "Loss of data Dialog"
-msgstr ""
-
-#, fuzzy
-#~ msgid "Linux User : %s"
-#~ msgstr "SELinux 用户"
+msgstr "丢失数据对话"

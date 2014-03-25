@@ -81,6 +81,11 @@ sidtab_context_to_sid(struct sidtab *s,
 	int hvalue, rc = 0;
 	struct sidtab_node *cur;
 
+	if (! ctx) {
+		errno=EINVAL;
+		return -1;
+	}
+
 	*sid = NULL;
 	hvalue = sidtab_hash(ctx);
 

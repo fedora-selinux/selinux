@@ -455,7 +455,7 @@
             <property name="can_focus">False</property>
             <property name="xalign">0</property>
             <property name="xpad">10</property>
-            <property name="label" translatable="yes">Add file Equivilence Mapping.  Mapping will be created when Update is applied.</property>
+            <property name="label" translatable="yes">Add file Equivalence Mapping.  Mapping will be created when Update is applied.</property>
             <property name="justify">fill</property>
             <property name="wrap">True</property>
           </object>
@@ -805,7 +805,7 @@
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
-                        <property name="tooltip_text" translatable="yes">Select Make Path Recursive iff you want to apply this label to all children of the specified directory path. objects under the directory to have this label.</property>
+                        <property name="tooltip_text" translatable="yes">Select Make Path Recursive if you want to apply this label to all children of the specified directory path. objects under the directory to have this label.</property>
                         <property name="xalign">0.5</property>
                         <property name="draw_indicator">True</property>
                         <signal name="toggled" handler="on_make_path_recursive_toggled" swapped="no"/>
@@ -2930,7 +2930,7 @@ Enabled</property>
                                     <property name="tooltip_text" translatable="yes">Executables which will transition to a different domain, when the 'selected domain' executes them.</property>
                                     <property name="xpad">1</property>
                                     <property name="ypad">1</property>
-                                    <property name="label" translatable="yes">Applicaton Transitions From 'select domain'</property>
+                                    <property name="label" translatable="yes">Application Transitions From 'select domain'</property>
                                   </object>
                                   <packing>
                                     <property name="position">1</property>
@@ -4730,7 +4730,7 @@ allow alternative access control.</property>
             <property name="can_focus">False</property>
             <property name="xalign">0</property>
             <property name="xpad">10</property>
-            <property name="label" translatable="yes">Select file equivalence labeling to delete.File equivalence labeling will be deleted when update is applied.</property>
+            <property name="label" translatable="yes">Select file equivalence labeling to delete. File equivalence labeling will be deleted when update is applied.</property>
             <property name="justify">fill</property>
             <property name="wrap">True</property>
           </object>

@@ -440,8 +440,8 @@ permissive %s;
                fd.write(modtxt)
                fd.close()
                mc = module.ModuleCompiler()
-               mc.create_module_package(filename, 1)
-               fd = open("permissive_%s.pp" % setype)
+               mc.create_module_package(filename, False)
+               fd = open("%s.pp" % name)
                data = fd.read()
                fd.close()
 
@@ -449,12 +449,6 @@ permissive %s;
                if rc >= 0:
                       self.commit()
 
-               for root, dirs, files in os.walk("tmp", topdown = False):
-                      for name in files:
-                             os.remove(os.path.join(root, name))
-                      for name in dirs:
-                             os.rmdir(os.path.join(root, name))
-               os.removedirs("tmp")
                for i in glob.glob("permissive_%s.*" % setype):
                       os.remove(i)
                if rc < 0:
@@ -802,7 +796,7 @@ class seluserRecords(semanageRecords):
                               raise ValueError(_("Could not set MLS level for %s") % name)
                 rc = semanage_user_set_prefix(self.sh, u, prefix)
                 if rc < 0:
-                       raise ValueError(_("Could not add prefix %(ROLE)s for %(PREFIX)s") % {"ROLE":r, "PREFIX": prefix})
+                       raise ValueError(_("Could not add prefix %(PREFIX)s for %(ROLE)s") % {"ROLE":r, "PREFIX": prefix})
                 (rc, key) = semanage_user_key_extract(self.sh,u)
                 if rc < 0:
                        raise ValueError(_("Could not extract key for %s") % name)
@@ -1750,7 +1744,7 @@ class fcontextRecords(semanageRecords):
                         raise ValueError(_("Target %s is not valid. Target is not allowed to end with '/'") % target )
 
                 if substitute != "/" and substitute[-1] == "/":
-                       raise ValueError(_("Substiture %s is not valid. Substitute is not allowed to end with '/'") % substitute )
+                       raise ValueError(_("Substitute %s is not valid. Substitute is not allowed to end with '/'") % substitute )
 
                 if target in list(self.equiv.keys()):
                        raise ValueError(_("Equivalence class for %s already exists") % target)
@@ -1813,11 +1807,11 @@ class fcontextRecords(semanageRecords):
                 if seuser == "":
                         seuser = "system_u"
 
-                if not serange:
-                        serange = "s0"
-
                 if is_mls_enabled == 1:
                        serange = untranslate(serange)
+
+                       if not serange:
+                           serange = "s0"
 
                 if type == "":
                         raise ValueError(_("SELinux Type is required"))

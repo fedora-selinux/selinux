@@ -137,6 +137,25 @@ def get_all_modules():
             
     return all_modules
 
+def get_all_modules_from_mod_lst():
+    mod_lst_path = ["/usr/share/selinux/targeted/base.lst","/usr/share/selinux/targeted/modules-base.lst","/usr/share/selinux/targeted/modules-contrib.lst"]
+    all_modules = []
+    mod_temp = []
+    for i in mod_lst_path:
+        try:
+            fd =  open(i,"r")
+            modules = fd.readlines()
+            fd.close()
+            modules = modules[0].split(" ")[:-1]
+            for m in modules:
+                mod_temp.append(m[:-3])
+            all_modules.extend(mod_temp)
+            mod_temp = []
+        except:
+            all_modules = []
+
+    return all_modules
+
 def get_file_types(setype):
     flist=[]
     mpaths={}
@@ -888,16 +907,19 @@ def get_os_version():
         output = subprocess.check_output("rpm -q '%s'" % pkg_name,
                                          stderr=subprocess.STDOUT,
                                          shell=True)
-        os_version = str(output).split(".")[-2]
-    except subprocess.CalledProcessError as e:
-        print(e.output)
+        try:
+            os_version = str(output).split(".")[-2]
+            if os_version[0:2] == "fc":
+                os_version = "Fedora"+os_version[2:]
+            elif os_version[0:2] == "el":
+                os_version = "RHEL"+os_version[2:]
+            else:
+                os_version = "Misc"
+        except IndexError:
+            os_version = "Misc"
 
-    if os_version[0:2] == "fc":
-        os_version = "Fedora"+os_version[2:]
-    elif os_version[0:2] == "el":
-        os_version = "RHEL"+os_version[2:]
-    else:
-        os_version = ""
+    except subprocess.CalledProcessError:
+        os_version = "Misc"
 
     return os_version
 
