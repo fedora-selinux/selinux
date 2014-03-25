@@ -935,7 +935,10 @@ class seluserRecords(semanageRecords):
                 try:
                         self.begin()
                         for u in ulist:
-                                self.__delete(semanage_user_get_name(u))
+                                try:
+                                        self.__delete(semanage_user_get_name(u))
+                                except OSError:
+                                        continue
                         self.commit()
                 except ValueError as error:
                         self.mylog.commit(0)
