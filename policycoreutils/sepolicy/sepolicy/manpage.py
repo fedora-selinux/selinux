@@ -135,7 +135,7 @@ def prettyprint(f,trim):
 manpage_domains = []
 manpage_roles = []
 
-fedora_releases = ["Fedora17","Fedora18","Fedora19","Fedora20"]
+fedora_releases = ["Fedora17","Fedora18","Fedora19","Fedora20","Fedora21"]
 rhel_releases = ["RHEL6","RHEL7"]
 
 def get_alphabet_manpages(manpage_list):
