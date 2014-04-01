@@ -1,21 +1,20 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: Policycoreutils\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-03 16:04-0500\n"
-"PO-Revision-Date: 2013-12-20 13:58+0000\n"
+"PO-Revision-Date: 2014-01-03 21:04+0000\n"
 "Last-Translator: dwalsh <dwalsh@redhat.com>\n"
-"Language-Team: Slovak (http://www.transifex.com/projects/p/fedora/language/"
-"sk/)\n"
-"Language: sk\n"
+"Language-Team: Slovak (http://www.transifex.com/projects/p/fedora/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../run_init/run_init.c:67
@@ -23,10 +22,7 @@ msgid ""
 "USAGE: run_init <script> <args ...>\n"
 "  where: <script> is the name of the init script to run,\n"
 "         <args ...> are the arguments to that script."
-msgstr ""
-"POUŽITIE: run_init <skript> <params ...>\n"
-"  kde: <skript> je názov init skriptu pre spustenie,\n"
-"         <params ...> sú parametre pre tento skript."
+msgstr "POUŽITIE: run_init <skript> <params ...>\n  kde: <skript> je názov init skriptu pre spustenie,\n         <params ...> sú parametre pre tento skript."
 
 #: ../run_init/run_init.c:126 ../newrole/newrole.c:1128
 #, c-format
@@ -96,8 +92,7 @@ msgstr ""
 
 #: ../semanage/seobject/__init__.py:228
 msgid "SELinux policy is not managed or store cannot be accessed."
-msgstr ""
-"Pravidlá SELinuxu nie sú spravované, alebo nemožno pristupovať k pamäti."
+msgstr "Pravidlá SELinuxu nie sú spravované, alebo nemožno pristupovať k pamäti."
 
 #: ../semanage/seobject/__init__.py:233
 msgid "Cannot read policy store."
@@ -351,9 +346,9 @@ msgid "Could not set MLS level for %s"
 msgstr "Nemožno nastaviť MLS úroveň pre %s"
 
 #: ../semanage/seobject/__init__.py:805
-#, fuzzy, python-format
+#, python-format
 msgid "Could not add prefix %(PREFIX)s for %(ROLE)s"
-msgstr "Nemožno pridať kontext súboru pre %s"
+msgstr ""
 
 #: ../semanage/seobject/__init__.py:808
 #, python-format
@@ -1589,8 +1584,8 @@ msgstr ""
 
 #: ../gui/polgen.glade:550
 msgid ""
-"User with full networking, no setuid applications without transition, no su, "
-"can sudo to Root Administration Roles"
+"User with full networking, no setuid applications without transition, no su,"
+" can sudo to Root Administration Roles"
 msgstr ""
 
 #: ../gui/polgen.glade:592
@@ -1603,8 +1598,8 @@ msgstr ""
 
 #: ../gui/polgen.glade:627
 msgid ""
-"Select Root Administrator User Role, if this user will be used to administer "
-"the machine while running as root.  This user will not be able to login to "
+"Select Root Administrator User Role, if this user will be used to administer"
+" the machine while running as root.  This user will not be able to login to "
 "the system directly."
 msgstr ""
 
@@ -1673,7 +1668,8 @@ msgid "<b>Select the user_roles that will transition to %s:</b>"
 msgstr ""
 
 #: ../gui/polgen.glade:1019
-msgid "Select the user roles that will transiton to this applications domains."
+msgid ""
+"Select the user roles that will transiton to this applications domains."
 msgstr ""
 
 #: ../gui/polgen.glade:1056
@@ -1992,8 +1988,8 @@ msgid ""
 "you later decide to turn SELinux back on, the system will be required to "
 "relabel.  If you just want to see if SELinux is causing a problem on your "
 "system, you can go to permissive mode which will only log errors and not "
-"enforce SELinux policy.  Permissive mode does not require a reboot    Do you "
-"wish to continue?"
+"enforce SELinux policy.  Permissive mode does not require a reboot    Do you"
+" wish to continue?"
 msgstr ""
 
 #: ../gui/statusPage.py:148 ../sepolicy/sepolicy/gui.py:2747
@@ -2227,8 +2223,8 @@ msgstr ""
 
 #: ../gui/system-config-selinux.glade:2661
 msgid ""
-"Enable/Disable additional audit rules, that are normally not reported in the "
-"log files."
+"Enable/Disable additional audit rules, that are normally not reported in the"
+" log files."
 msgstr ""
 
 #: ../gui/system-config-selinux.glade:2781
@@ -2269,8 +2265,8 @@ msgstr ""
 
 #: booleans.py:3
 msgid ""
-"Determine whether abrt-handle-upload can modify public files used for public "
-"file transfer services in /var/spool/abrt-upload/."
+"Determine whether abrt-handle-upload can modify public files used for public"
+" file transfer services in /var/spool/abrt-upload/."
 msgstr ""
 
 #: booleans.py:4
@@ -2399,8 +2395,9 @@ msgstr ""
 
 #: booleans.py:32
 msgid ""
-"Deny user domains applications to map a memory region as both executable and "
-"writable, this is dangerous and the executable should be reported in bugzilla"
+"Deny user domains applications to map a memory region as both executable and"
+" writable, this is dangerous and the executable should be reported in "
+"bugzilla"
 msgstr ""
 
 #: booleans.py:33
@@ -2466,8 +2463,8 @@ msgstr ""
 
 #: booleans.py:47
 msgid ""
-"Determine whether ftpd can modify public files used for public file transfer "
-"services. Directories/Files must be labeled public_content_rw_t."
+"Determine whether ftpd can modify public files used for public file transfer"
+" services. Directories/Files must be labeled public_content_rw_t."
 msgstr ""
 
 #: booleans.py:48
@@ -2619,7 +2616,8 @@ msgid "Allow HTTPD scripts and modules to connect to the network using TCP."
 msgstr ""
 
 #: booleans.py:80
-msgid "Allow HTTPD scripts and modules to connect to cobbler over the network."
+msgid ""
+"Allow HTTPD scripts and modules to connect to cobbler over the network."
 msgstr ""
 
 #: booleans.py:81
@@ -3126,7 +3124,8 @@ msgstr ""
 
 #: booleans.py:197
 msgid ""
-"Allow confined users the ability to execute the ping and traceroute commands."
+"Allow confined users the ability to execute the ping and traceroute "
+"commands."
 msgstr ""
 
 #: booleans.py:198
@@ -3145,8 +3144,8 @@ msgstr ""
 
 #: booleans.py:201
 msgid ""
-"Allow users to run TCP servers (bind to ports and accept connection from the "
-"same domain and outside users)  disabling this forces FTP passive mode and "
+"Allow users to run TCP servers (bind to ports and accept connection from the"
+" same domain and outside users)  disabling this forces FTP passive mode and "
 "may change other protocols."
 msgstr ""
 
@@ -3238,7 +3237,8 @@ msgid "Allow sysadm to exec content"
 msgstr ""
 
 #: booleans.py:221
-msgid "Allow the Telepathy connection managers to connect to any network port."
+msgid ""
+"Allow the Telepathy connection managers to connect to any network port."
 msgstr ""
 
 #: booleans.py:222
@@ -3313,8 +3313,8 @@ msgstr ""
 
 #: booleans.py:238
 msgid ""
-"Determine whether attempts by vbetool to mmap low regions should be silently "
-"blocked."
+"Determine whether attempts by vbetool to mmap low regions should be silently"
+" blocked."
 msgstr ""
 
 #: booleans.py:239
@@ -3392,7 +3392,8 @@ msgstr ""
 
 #: booleans.py:256
 msgid ""
-"Allow the graphical login program to create files in HOME dirs as xdm_home_t."
+"Allow the graphical login program to create files in HOME dirs as "
+"xdm_home_t."
 msgstr ""
 
 #: booleans.py:257
@@ -3973,8 +3974,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:638
 msgid ""
-"<operation> File Labeling for <selected domain>. File labels will be created "
-"when update is applied."
+"<operation> File Labeling for <selected domain>. File labels will be created"
+" when update is applied."
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:726
@@ -4026,8 +4027,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:880
 msgid ""
-"Specify the path using regular expressions that you would like to modify the "
-"labeling."
+"Specify the path using regular expressions that you would like to modify the"
+" labeling."
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:902
@@ -4315,8 +4316,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3012
 msgid ""
-"Executables which will transition to the 'selected domain', when executing a "
-"selected domains entrypoint."
+"Executables which will transition to the 'selected domain', when executing a"
+" selected domains entrypoint."
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3013
@@ -4441,8 +4442,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3957
 msgid ""
-"A permissive domain is a process label that allows the process to do what it "
-"wants, with SELinux only logging the denials, but not enforcing them.  "
+"A permissive domain is a process label that allows the process to do what it"
+" wants, with SELinux only logging the denials, but not enforcing them.  "
 "Usually permissive domains indicate experimental policy, disabling the "
 "module could cause SELinux to deny access to a domain, that should be "
 "allowed."
@@ -4480,8 +4481,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4214
 msgid ""
-"Revert button will launch a dialog window which allows you to revert changes "
-"within the current transaction."
+"Revert button will launch a dialog window which allows you to revert changes"
+" within the current transaction."
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4226 ../sepolicy/sepolicy/gui.py:2416
@@ -4511,8 +4512,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4439
 msgid ""
-"Select file labeling to delete. File labeling will be deleted when update is "
-"applied."
+"Select file labeling to delete. File labeling will be deleted when update is"
+" applied."
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4486
@@ -4548,8 +4549,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4867
 msgid ""
-"Select login user mapping to delete. Login user mapping will be deleted when "
-"update is applied."
+"Select login user mapping to delete. Login user mapping will be deleted when"
+" update is applied."
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4902
@@ -4852,20 +4853,22 @@ msgstr ""
 #: ../sepolicy/sepolicy/gui.py:1366
 #, python-format
 msgid ""
-"Add new port definition to which the '%(APP)s' domain is allowed to %(PERM)s."
+"Add new port definition to which the '%(APP)s' domain is allowed to "
+"%(PERM)s."
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1367
 #, python-format
 msgid ""
-"Delete modified port definitions to which the '%(APP)s' domain is allowed to "
-"%(PERM)s."
+"Delete modified port definitions to which the '%(APP)s' domain is allowed to"
+" %(PERM)s."
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1368
 #, python-format
 msgid ""
-"Modify port definitions to which the '%(APP)s' domain is allowed to %(PERM)s."
+"Modify port definitions to which the '%(APP)s' domain is allowed to "
+"%(PERM)s."
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1397
@@ -4913,7 +4916,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1458
 #, python-format
-msgid "Add Network Port for %s.  Ports will be created when update is applied."
+msgid ""
+"Add Network Port for %s.  Ports will be created when update is applied."
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1459
@@ -4924,7 +4928,8 @@ msgstr ""
 #: ../sepolicy/sepolicy/gui.py:1464
 #, python-format
 msgid ""
-"Add File Labeling for %s. File labels will be created when update is applied."
+"Add File Labeling for %s. File labels will be created when update is "
+"applied."
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1465 ../sepolicy/sepolicy/gui.py:1518
@@ -4933,7 +4938,8 @@ msgid "Add File Labeling for %s"
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1475
-msgid "Add Login Mapping. User Mapping will be created when Update is applied."
+msgid ""
+"Add Login Mapping. User Mapping will be created when Update is applied."
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1476
@@ -4952,7 +4958,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1489
 msgid ""
-"Add File Equivalency Mapping. Mapping will be created when update is applied."
+"Add File Equivalency Mapping. Mapping will be created when update is "
+"applied."
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1490
@@ -4968,8 +4975,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1573
 msgid ""
-"Modify SELinux User Role. SELinux user roles will be modified when update is "
-"applied."
+"Modify SELinux User Role. SELinux user roles will be modified when update is"
+" applied."
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1574
@@ -5182,10 +5189,8 @@ msgstr ""
 #: ../sepolicy/sepolicy/gui.py:2777
 msgid ""
 "You are attempting to close the application without applying your changes.\n"
-"    *    To apply changes you have made during this session, click No and "
-"click Update.\n"
-"    *    To leave the application without applying your changes, click Yes.  "
-"All changes that you have made during this session will be lost."
+"    *    To apply changes you have made during this session, click No and click Update.\n"
+"    *    To leave the application without applying your changes, click Yes.  All changes that you have made during this session will be lost."
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:2777
