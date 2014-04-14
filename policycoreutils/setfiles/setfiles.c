@@ -153,6 +153,9 @@ int main(int argc, char **argv)
 	int recurse; /* Recursive descent. */
 	char *base;
 	int mass_relabel = 0, errors = 0;
+	const char *ropts = "e:f:hilno:pqrsvFRW0";
+	const char *sopts = "c:de:f:hilno:pqr:svFR:W0";
+	const char *opts;
 	
 	memset(&r_opts, 0, sizeof(r_opts));
 
@@ -225,8 +228,13 @@ int main(int argc, char **argv)
 	/* This must happen before getopt. */
 	r_opts.nfile = exclude_non_seclabel_mounts();
 
+	if (iamrestorecon) 
+		opts = ropts;
+	else
+		opts = sopts;
+		
 	/* Process any options. */
-	while ((opt = getopt(argc, argv, "c:de:f:hilno:pqrsvFRW0")) > 0) {
+	while ((opt = getopt(argc, argv, opts)) > 0) {
 		switch (opt) {
 		case 'c':
 			{
