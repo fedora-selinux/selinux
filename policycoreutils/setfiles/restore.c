@@ -404,19 +404,18 @@ int process_one_realpath(char *name, int recurse)
 			"Must call initialize first!");
 		return -1;
 	}
+	rc = lstat64(name, &sb);
+	if (rc < 0) {
+		if (r_opts->ignore_enoent && errno == ENOENT)
+			return 0;
+		fprintf(stderr, "%s:  lstat(%s) failed:  %s\n",
+			r_opts->progname, name,	strerror(errno));
+		return -1;
+	}
 
 	if (!r_opts->expand_realpath) {
 		return process_one(name, recurse);
 	} else {
-		rc = lstat64(name, &sb);
-		if (rc < 0) {
-			if (r_opts->ignore_enoent && errno == ENOENT)
-				return 0;
-			fprintf(stderr, "%s:  lstat(%s) failed:  %s\n",
-				r_opts->progname, name,	strerror(errno));
-			return -1;
-		}
-
 		if (S_ISLNK(sb.st_mode)) {
 			char path[PATH_MAX + 1];
 
