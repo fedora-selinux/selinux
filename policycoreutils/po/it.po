@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: Policycoreutils\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-03 16:04-0500\n"
-"PO-Revision-Date: 2014-03-23 16:34+0000\n"
+"PO-Revision-Date: 2014-04-03 07:27+0000\n"
 "Last-Translator: Gianluca Sforna <giallu@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/fedora/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -184,7 +184,7 @@ msgstr "Tipi permissivi personalizzati"
 
 #: ../semanage/seobject/__init__.py:410
 msgid "Builtin Permissive Types"
-msgstr "Tipi Permissivi Incorporati"
+msgstr "Tipi permissivi incorporati"
 
 #: ../semanage/seobject/__init__.py:419
 #, python-format
@@ -202,12 +202,12 @@ msgstr "Il modulo python sepolgen è richiesto per impostare i domini permissive
 #: ../semanage/seobject/__init__.py:461
 #, python-format
 msgid "Could not set permissive domain %s (module installation failed)"
-msgstr "Impossibile impostare il dominio permissive %s (installazione del modulo fallita)"
+msgstr "Impossibile impostare il dominio permissivo %s (installazione del modulo fallita)"
 
 #: ../semanage/seobject/__init__.py:467
 #, python-format
 msgid "Could not remove permissive domain %s (remove failed)"
-msgstr "Impossibile rimuovere il dominio permissive %s (rimozione fallita)"
+msgstr "Impossibile rimuovere il dominio permissivo %s (rimozione fallita)"
 
 #: ../semanage/seobject/__init__.py:501 ../semanage/seobject/__init__.py:575
 #: ../semanage/seobject/__init__.py:621 ../semanage/seobject/__init__.py:743
@@ -283,7 +283,7 @@ msgstr "Impossibile modificare login mapping per %s"
 #: ../semanage/seobject/__init__.py:633
 #, python-format
 msgid "Login mapping for %s is defined in policy, cannot be deleted"
-msgstr "Il login mapping per %s è definito nella policy, non può essere eliminato"
+msgstr "La mappatura del login per %s è definito nella policy, non può essere eliminato"
 
 #: ../semanage/seobject/__init__.py:637
 #, python-format
@@ -410,7 +410,7 @@ msgstr "Impossibile elencare i ruoli per l'utente %s"
 
 #: ../semanage/seobject/__init__.py:988
 msgid "Labeling"
-msgstr "Etichettare"
+msgstr "Etichettatura"
 
 #: ../semanage/seobject/__init__.py:988
 msgid "MLS/"
@@ -880,7 +880,7 @@ msgstr "Impossibile aggiungere il contesto del file per %s"
 
 #: ../semanage/seobject/__init__.py:1883
 msgid "Requires setype, serange or seuser"
-msgstr "Richiesto setype, serange o seuser"
+msgstr "Richiede setype, serange o seuser"
 
 #: ../semanage/seobject/__init__.py:1899 ../semanage/seobject/__init__.py:1985
 #, python-format
