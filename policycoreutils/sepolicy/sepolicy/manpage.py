@@ -691,10 +691,13 @@ Default Defined Ports:""")
 
     def _file_context(self):
         flist = []
+        flist_non_exec = []
         mpaths = []
         for f in self.all_file_types:
             if f.startswith(self.domainname):
                 flist.append(f)
+                if not file_type_is_executable(f) or not file_type_is_entrypoint(f):
+                    flist_non_exec.append(f)
                 if f in self.fcdict:
                     mpaths = mpaths + self.fcdict[f]["regex"]
         if len(mpaths) == 0:
@@ -753,12 +756,12 @@ SELinux %(domainname)s policy is very flexible allowing users to setup their %(d
 SELinux defines the file context types for the %(domainname)s, if you wanted to
 store files with these types in a diffent paths, you need to execute the semanage command to sepecify alternate labeling and then use restorecon to put the labels on disk.
 
-.B semanage fcontext -a -t %(type)s '/srv/%(domainname)s/content(/.*)?'
+.B semanage fcontext -a -t %(type)s '/srv/my%(domainname)s_content(/.*)?'
 .br
 .B restorecon -R -v /srv/my%(domainname)s_content
 
 Note: SELinux often uses regular expressions to specify labels that match multiple files.
-""" % {'domainname': self.domainname, "type": flist[0]})
+""" % {'domainname': self.domainname, "type": flist_non_exec[-1]})
 
         self.fd.write(r"""
 .I The following file types are defined for %(domainname)s:
