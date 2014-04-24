@@ -38,6 +38,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <stdlib.h>
+#include <limits.h>
 
 #include <sepol/policydb/expand.h>
 #include <sepol/policydb/policydb.h>
@@ -60,6 +61,7 @@ int mlspol = 0;
 extern unsigned long policydb_lineno;
 extern unsigned long source_lineno;
 extern unsigned int policydb_errors;
+extern char source_file[PATH_MAX];
 
 extern int yywarn(char *msg);
 extern int yyerror(char *msg);
@@ -1526,6 +1528,12 @@ int define_compute_type_helper(int which, avrule_t ** rule)
 	avrule_init(avrule);
 	avrule->specified = which;
 	avrule->line = policydb_lineno;
+	avrule->source_line = source_lineno;
+	avrule->source_filename = strdup(source_file);
+	if (!avrule->source_filename) {
+		yyerror("out of memory");
+		return -1;
+	}
 
 	while ((id = queue_remove(id_queue))) {
 		if (set_types(&avrule->stypes, id, &add, 0))
@@ -1739,6 +1747,13 @@ int define_te_avtab_helper(int which, avrule_t ** rule)
 	avrule_init(avrule);
 	avrule->specified = which;
 	avrule->line = policydb_lineno;
+	avrule->source_line = source_lineno;
+	avrule->source_filename = strdup(source_file);
+	if (!avrule->source_filename) {
+		yyerror("out of memory");
+		return -1;
+	}
+
 
 	while ((id = queue_remove(id_queue))) {
 		if (set_types

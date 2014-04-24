@@ -1325,6 +1325,12 @@ static int copy_avrule_list(avrule_t * list, avrule_t ** dst,
 			cur_perm = cur_perm->next;
 		}
 		new_rule->line = cur->line;
+		new_rule->source_line = cur->source_line;
+		if (cur->source_filename) {
+			new_rule->source_filename = strdup(cur->source_filename);
+			if (!new_rule->source_filename)
+				goto cleanup;
+		}
 
 		cur = cur->next;
 
