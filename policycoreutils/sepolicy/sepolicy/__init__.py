@@ -113,6 +113,21 @@ def file_type_is_entrypoint(setype):
     else:
         return False
 
+def get_attributes_from_type(setype):
+    return info(TYPE,setype)[0]["attributes"]
+
+def file_type_is_executable(setype):
+    if "exec_type" in get_attributes_from_type(setype):
+        return True
+    else:
+        return False
+
+def file_type_is_entrypoint(setype):
+    if "entry_type" in get_attributes_from_type(setype):
+        return True
+    else:
+        return False
+
 file_type_str = {}
 file_type_str["a"] = _("all files")
 file_type_str["f"] = _("regular file")
