@@ -4,10 +4,9 @@ ConditionPathExists=/etc/selinux/restorecond.conf
 ConditionSecurity=selinux
 
 [Service]
-Environment=LANG=C
-
-ExecStart=/usr/sbin/restorecond -d
-ExecStop=/bin/kill -WINCH ${MAINPID}
+Type=forking
+ExecStart=/usr/sbin/restorecond
+PIDFile=/var/run/restorecond.pid
 
 [Install]
 WantedBy=multi-user.target
