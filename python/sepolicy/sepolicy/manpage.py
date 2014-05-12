@@ -794,7 +794,8 @@ SELinux %(domainname)s policy is very flexible allowing users to setup their %(d
 .PP
 """ % {'domainname': self.domainname, 'equiv': e, 'alt': e.split('/')[-1]})
 
-        self.fd.write(r"""
+        if flist_non_exec:
+                self.fd.write(r"""
 .PP
 .B STANDARD FILE CONTEXT
 
