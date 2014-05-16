@@ -138,6 +138,9 @@ else
     FC=/etc/security/selinux/file_contexts
 fi
 
+FC_SUB_DIST=${FC}.subs_dist
+FC_SUB=${FC}.subs
+
 #
 # Log to either syslog or a LOGFILE
 #
@@ -244,6 +247,10 @@ then
 		logit "skipping the directory ${p}"
 	done
 FC=$TEMPFCFILE
+/bin/cp -p ${TEMPFCFILE} ${TEMPFCFILE}.subs_dist &>/dev/null || exit
+/bin/cp -p ${FC_SUB_DIST} ${TEMPFCFILE}.subs_dist &>/dev/null || exit
+/bin/cp -p ${TEMPFCFILE} ${TEMPFCFILE}.subs &>/dev/null || exit
+/bin/cp -p ${FC_SUB} ${TEMPFCFILE}.subs &>/dev/null || exit
 fi
 if [ ! -z "$RPMFILES" ]; then
     for i in `echo "$RPMFILES" | sed 's/,/ /g'`; do
@@ -265,7 +272,7 @@ if [ ${OPTION} != "Relabel" ]; then
     return
 fi
 echo "Cleaning up labels on /tmp"
-rm -rf /tmp/gconfd-* /tmp/pulse-* /tmp/orbit-* $TEMPFCFILE
+rm -rf /tmp/gconfd-* /tmp/pulse-* /tmp/orbit-* $TEMPFCFILE ${TEMPFCFILE}.subs_dist ${TEMPFCFILE}.subs
 
 UNDEFINED=`get_undefined_type` || exit $?
 UNLABELED=`get_unlabeled_type` || exit $?
