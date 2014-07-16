@@ -345,7 +345,7 @@ int main(int argc, char **argv)
 			if (r_opts.progress) {
 				fprintf(stderr,
 					"Progress and Verbose mutually exclusive\n");
-				exit(-1);
+				usage(argv[0]);
 			}
 			r_opts.verbose++;
 			break;
