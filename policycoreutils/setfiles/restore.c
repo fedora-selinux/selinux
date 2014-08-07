@@ -160,6 +160,9 @@ static int restore(FTSENT *ftsent, int recurse)
 	/* Get the current context of the file. */
 	ret = lgetfilecon_raw(ftsent->fts_accpath, &curcon);
 	if (ret < 0) {
+		if (errno == ENOENT) {
+			goto out;
+		}
 		if (errno == ENODATA) {
 			curcon = NULL;
 		} else {
