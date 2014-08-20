@@ -50,8 +50,12 @@ def info(setype, name=None):
     dict_list = _policy.info(setype, name)
     return dict_list
 
-def search(types, info = {}):
-    seinfo = info
+def search(types, info=None):
+    if info:
+        seinfo = info
+    else:
+        seinfo = {}
+
     valid_types = [ALLOW, AUDITALLOW, NEVERALLOW, DONTAUDIT, TRANSITION, ROLE_ALLOW]
     for setype in types:
         if setype not in valid_types:
