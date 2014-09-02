@@ -317,15 +317,19 @@ class moduleRecords(semanageRecords):
                               disabled = ""
                        print("%-25s%-10s%s" % (t[0], t[1], disabled))
 
-        def add(self, file):
-               if not os.path.exists(file):
-                       raise ValueError(_("Module does not exists %s ") % file)
-               rc = semanage_module_install_file(self.sh, file);
+        def add(self, module):
+               if not module:
+                   raise ValueError(_("You did not define module name."))
+               if not os.path.exists(module):
+                       raise ValueError(_("Module does not exists %s ") % module)
+               rc = semanage_module_install_file(self.sh, module);
                if rc >= 0:
                       self.commit()
 
         def disable(self, module):
                need_commit = False
+               if not module:
+                   raise ValueError(_("You did not define module name."))
                for m in module.split():
                       rc = semanage_module_disable(self.sh, m)
                       if rc < 0 and rc != -3:
@@ -337,6 +341,8 @@ class moduleRecords(semanageRecords):
 
         def enable(self, module):
                need_commit = False
+               if not module:
+                   raise ValueError(_("You did not define module name."))
                for m in module.split():
                       rc = semanage_module_enable(self.sh, m)
                       if rc < 0 and rc != -3:
@@ -347,11 +353,15 @@ class moduleRecords(semanageRecords):
                       self.commit()
 
         def modify(self, file):
+               if not module:
+                   raise ValueError(_("You did not define module name."))
                rc = semanage_module_upgrade_file(self.sh, file);
                if rc >= 0:
                       self.commit()
 
         def delete(self, module):
+               if not module:
+                   raise ValueError(_("You did not define module name."))
                for m in module.split():
                       rc = semanage_module_remove(self.sh, m)
                       if rc < 0 and rc != -2:
