@@ -152,6 +152,15 @@ class PolicyGenerator:
         """Return the generated module"""
         return self.module
 
+    def __restore_label(self, av):
+        import subprocess
+        import sys
+        import os
+        devnull = open(os.devnull, 'w')
+        cmd = "restorecon -nv %s" % "".join(av.get_path())
+        p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=devnull)
+        self.mislabled = p.communicate()
+
     def __add_allow_rules(self, avs):
         for av in avs:
             rule = refpolicy.AVRule(av)
@@ -160,6 +169,21 @@ class PolicyGenerator:
             rule.comment = ""
             if self.explain:
                 rule.comment = str(refpolicy.Comment(explain_access(av, verbosity=self.explain)))
+            # base_type[0] == 0 means there exists a base type but not the path
+            # base_type[0] == None means user isn't using base type
+            # base_type[1] contains the target context
+            # base_type[2] contains the source type
+            base_type = av.base_file_type()
+            if base_type[0] == 0 and av.type != audit2why.ALLOW:
+                  rule.comment += "\n#!!!! WARNING: '%s' is a base type." % "".join(base_type[1])
+
+            if (base_type[0] is not None and base_type[0] != 0
+                and av.type != audit2why.ALLOW):
+                rule.comment += "\n#!!!! WARNING '%s' is not allowed to write to %s.  Change to label %s.  \n#!!!! $ semange fcontext -a -t %s %s(/.*?)   \n#!!!! $ restorecon -r -v %s" % ("".join(base_type[2]), "".join(base_type[1]), "".join(base_type[0]), "".join(base_type[0]), "".join(av.get_path()), "".join(av.get_path()))
+
+            self.__restore_label(av)
+            if self.mislabled[0] != '' and audit2why.ALLOW:
+                rule.comment += "\n#!!!! The file '%s' is mislabeled on your system.  \n#!!!! Fix with $ restorecon -rv %s" % ("".join(av.get_path()), "".join(av.get_path()))
             if av.type == audit2why.ALLOW:
                 rule.comment += "\n#!!!! This avc is allowed in the current policy"
             if av.type == audit2why.DONTAUDIT:
