@@ -81,8 +81,9 @@ class PolicyGenerator:
             self.module = refpolicy.Module()
 
         self.dontaudit = False
-
+        self.mislabled = None
         self.domains = None
+
     def set_gen_refpol(self, if_set=None, perm_maps=None):
         """Set whether reference policy interfaces are generated.
 
@@ -152,6 +153,18 @@ class PolicyGenerator:
         """Return the generated module"""
         return self.module
 
+    def __restore_label(self, av):
+        import selinux
+        try:
+            context = selinux.matchpathcon(av.obj_path, 0)
+            split = context[1].split(":")[2]
+            if split != av.tgt_type:
+                self.mislabled = split
+                return
+        except OSError:
+            pass
+        self.mislabled = None
+
     def __add_allow_rules(self, avs):
         for av in avs:
             rule = refpolicy.AVRule(av)
@@ -160,6 +173,34 @@ class PolicyGenerator:
             rule.comment = ""
             if self.explain:
                 rule.comment = str(refpolicy.Comment(explain_access(av, verbosity=self.explain)))
+            # base_type[0] == 0 means there exists a base type but not the path
+            # base_type[0] == None means user isn't using base type
+            # base_type[1] contains the target context
+            # base_type[2] contains the source type
+            base_type = av.base_file_type()
+            if base_type[0] == 0 and av.type != audit2why.ALLOW:
+                  rule.comment += "\n#!!!! WARNING: '%s' is a base type." % "".join(base_type[1])
+            for perm in av.perms:
+                if perm == "write" or perm == "create":
+                    permission = True
+                    break
+                else:
+                    permission = False
+
+            # Catch perms 'write' and 'create' for base types
+            if (base_type[0] is not None and base_type[0] != 0
+                and permission and av.type != audit2why.ALLOW):
+                if av.obj_class == dir:
+                    comp = "(/.*?)"
+                else:
+                    comp = ""
+                rule.comment += "\n#!!!! WARNING '%s' is not allowed to write or create to %s.  Change the label to %s." % ("".join(base_type[2]), "".join(base_type[1]), "".join(base_type[0]))
+                if av.obj_path != "":
+                    rule.comment += "\n#!!!! $ semange fcontext -a -t %s %s%s   \n#!!!! $ restorecon -R -v %s" % ("".join(base_type[0]), "".join(av.obj_path), "".join(comp) ,"".join(av.obj_path))
+
+            self.__restore_label(av)
+            if self.mislabled is not None and av.type != audit2why.ALLOW:
+                rule.comment += "\n#!!!! The file '%s' is mislabeled on your system.  \n#!!!! Fix with $ restorecon -R -v %s" % ("".join(av.obj_path), "".join(av.obj_path))
             if av.type == audit2why.ALLOW:
                 rule.comment += "\n#!!!! This avc is allowed in the current policy"
             if av.type == audit2why.DONTAUDIT:
