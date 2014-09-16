@@ -263,8 +263,8 @@ class AccessVectorSet:
         for av in l:
             self.add_av(AccessVector(av))
 
-    def add(self, src_type, tgt_type, obj_class, obj_path, base_type,
-            perms, audit_msg=None, avc_type=audit2why.TERULE, data=[]):
+    def add(self, src_type, tgt_type, obj_class, perms, obj_path=None,
+            base_type=None, audit_msg=None, avc_type=audit2why.TERULE, data=[]):
         """Add an access vector to the set.
         """
         tgt = self.src.setdefault(src_type, { })

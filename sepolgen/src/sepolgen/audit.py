@@ -582,11 +582,11 @@ class AuditParser:
             if avc_filter:
                 if avc_filter.filter(avc):
                     av_set.add(avc.scontext.type, avc.tcontext.type, avc.tclass,
-                               avc.path, base_type, avc.accesses, avc,
+                               avc.accesses, avc.path, base_type, avc,
                                avc_type=avc.type, data=avc.data)
             else:
                 av_set.add(avc.scontext.type, avc.tcontext.type, avc.tclass,
-                           avc.path, base_type, avc.accesses, avc,
+                           avc.accesses, avc.path, base_type, avc,
                            avc_type=avc.type, data=avc.data)
         return av_set
 
