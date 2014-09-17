@@ -169,6 +169,7 @@ class AVCMessage(AuditMessage):
         self.exe = ""
         self.path = ""
         self.name = ""
+        self.ino = ""
         self.accesses = []
         self.denial = True
         self.type = audit2why.TERULE
@@ -230,6 +231,10 @@ class AVCMessage(AuditMessage):
                 self.exe = fields[1][1:-1]
             elif fields[0] == "name":
                 self.name = fields[1][1:-1]
+            elif fields[0] == "path":
+                self.path = fields[1][1:-1]
+            elif fields[0] == "ino":
+                self.ino = fields[1]
 
         if not found_src or not found_tgt or not found_class or not found_access:
             raise ValueError("AVC message in invalid format [%s]\n" % self.message)
@@ -354,7 +359,9 @@ class AuditParser:
         self.path_msgs = []
         self.by_header = { }
         self.check_input_file = False
-                
+        self.inode_dict = { }
+        self.__store_base_types()
+
     # Low-level parsing function - tries to determine if this audit
     # message is an SELinux related message and then parses it into
     # the appropriate AuditMessage subclass. This function deliberately
@@ -492,6 +499,60 @@ class AuditParser:
         
         return role_types
 
+    def __restore_path(self, name, inode):
+        import subprocess
+        import os
+        path = ""
+        # Optimizing
+        if name == "" or inode == "":
+            return path
+        for d in self.inode_dict:
+            if d == inode and self.inode_dict[d] == name:
+                return path
+            if d == inode and self.inode_dict[d] != name:
+                return self.inode_dict[d]
+        if inode not in self.inode_dict.keys():
+            self.inode_dict[inode] = name
+
+        command = "locate -b '\%s'" % name
+        try:
+            output = subprocess.check_output(command,
+                                             stderr=subprocess.STDOUT,
+                                             shell=True)
+            try:
+                ino = int(inode)
+            except ValueError:
+                pass
+            for file in output.split("\n"):
+                try:
+                    if int(os.lstat(file).st_ino) == ino:
+                        self.inode_dict[inode] = path = file
+                        return path
+                except:
+                    pass
+        except subprocess.CalledProcessError as e:
+            pass
+        return path
+
+    def __store_base_types(self):
+        import sepolicy
+        self.base_types = sepolicy.get_types_from_attribute("base_file_type")
+
+    def __get_base_type(self, tcontext, scontext):
+        import sepolicy
+        # Prevent unnecessary searching
+        if (self.old_scontext == scontext and
+            self.old_tcontext == tcontext):
+            return
+        self.old_scontext = scontext
+        self.old_tcontext = tcontext
+        for btype in self.base_types:
+            if btype == tcontext:
+                for writable in sepolicy.get_writable_files(scontext):
+                    if writable.endswith(tcontext) and writable.startswith(scontext.rstrip("_t")):
+                        return writable
+                return 0
+
     def to_access(self, avc_filter=None, only_denials=True):
         """Convert the audit logs access into a an access vector set.
 
@@ -510,16 +571,23 @@ class AuditParser:
            audit logs parsed by this object.
         """
         av_set = access.AccessVectorSet()
+        self.old_scontext = ""
+        self.old_tcontext = ""
         for avc in self.avc_msgs:
             if avc.denial != True and only_denials:
                 continue
+            base_type = self.__get_base_type(avc.tcontext.type, avc.scontext.type)
+            if avc.path == "":
+                avc.path = self.__restore_path(avc.name, avc.ino)
             if avc_filter:
                 if avc_filter.filter(avc):
                     av_set.add(avc.scontext.type, avc.tcontext.type, avc.tclass,
-                               avc.accesses, avc, avc_type=avc.type, data=avc.data)
+                               avc.accesses, avc.path, base_type, avc,
+                               avc_type=avc.type, data=avc.data)
             else:
                 av_set.add(avc.scontext.type, avc.tcontext.type, avc.tclass,
-                           avc.accesses, avc, avc_type=avc.type, data=avc.data)
+                           avc.accesses, avc.path, base_type, avc,
+                           avc_type=avc.type, data=avc.data)
         return av_set
 
 class AVCTypeFilter:

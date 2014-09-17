@@ -88,6 +88,8 @@ class AccessVector:
             self.audit_msgs = []
             self.type = audit2why.TERULE
             self.data = []
+            self.obj_path = None
+            self.base_type = None
 
         # The direction of the information flow represented by this
         # access vector - used for matching
@@ -132,6 +134,11 @@ class AccessVector:
     def to_string(self):
         return "allow %s %s:%s %s;" % (self.src_type, self.tgt_type,
                                         self.obj_class, self.perms.to_space_str())
+
+    def base_file_type(self):
+        base_type_array = []
+        base_type_array = [self.base_type, self.tgt_type, self.src_type]
+        return base_type_array
 
     def __cmp__(self, other):
         if self.src_type != other.src_type:
@@ -256,7 +263,8 @@ class AccessVectorSet:
         for av in l:
             self.add_av(AccessVector(av))
 
-    def add(self, src_type, tgt_type, obj_class, perms, audit_msg=None, avc_type=audit2why.TERULE, data=[]):
+    def add(self, src_type, tgt_type, obj_class, perms, obj_path=None,
+            base_type=None, audit_msg=None, avc_type=audit2why.TERULE, data=[]):
         """Add an access vector to the set.
         """
         tgt = self.src.setdefault(src_type, { })
@@ -269,7 +277,9 @@ class AccessVectorSet:
             access.src_type = src_type
             access.tgt_type = tgt_type
             access.obj_class = obj_class
+            access.obj_path = obj_path
             access.data = data
+            access.base_type = base_type
             access.type = avc_type
             cls[obj_class, avc_type] = access
 
