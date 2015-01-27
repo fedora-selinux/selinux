@@ -273,7 +273,6 @@ if [ ${OPTION} != "Relabel" ]; then
     return
 fi
 echo "Cleaning up labels on /tmp"
-echo $TEMPFCFILE ${TEMPFCFILE}.subs_dist ${TEMPFCFILE}.subs ${TEMPFCFILE}.homedirs
 rm -rf /tmp/gconfd-* /tmp/pulse-* /tmp/orbit-* $TEMPFCFILE ${TEMPFCFILE}.subs_dist ${TEMPFCFILE}.subs ${TEMPFCFILE}.homedirs
 
 UNDEFINED=`get_undefined_type` || exit $?
