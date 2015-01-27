@@ -140,7 +140,7 @@ fi
 
 FC_SUB_DIST=${FC}.subs_dist
 FC_SUB=${FC}.subs
-
+FC_HOMEDIRS=${FC}.homedirs
 #
 # Log to either syslog or a LOGFILE
 #
@@ -252,6 +252,9 @@ FC=$TEMPFCFILE
 /bin/cp -p ${FC_SUB_DIST} ${TEMPFCFILE}.subs_dist &>/dev/null || exit
 /bin/cp -p ${TEMPFCFILE} ${TEMPFCFILE}.subs &>/dev/null || exit
 /bin/cp -p ${FC_SUB} ${TEMPFCFILE}.subs &>/dev/null || exit
+/bin/cp -p ${TEMPFCFILE} ${TEMPFCFILE}.homedirs &>/dev/null || exit
+/bin/cp -p ${FC_HOMEDIRS} ${TEMPFCFILE}.homedirs &>/dev/null || exit
+
 fi
 if [ ! -z "$RPMFILES" ]; then
     for i in `echo "$RPMFILES" | sed 's/,/ /g'`; do
@@ -273,7 +276,8 @@ if [ ${OPTION} != "Relabel" ]; then
     return
 fi
 echo "Cleaning up labels on /tmp"
-rm -rf /tmp/gconfd-* /tmp/pulse-* /tmp/orbit-* $TEMPFCFILE ${TEMPFCFILE}.subs_dist ${TEMPFCFILE}.subs
+echo $TEMPFCFILE ${TEMPFCFILE}.subs_dist ${TEMPFCFILE}.subs ${TEMPFCFILE}.homedirs
+rm -rf /tmp/gconfd-* /tmp/pulse-* /tmp/orbit-* $TEMPFCFILE ${TEMPFCFILE}.subs_dist ${TEMPFCFILE}.subs ${TEMPFCFILE}.homedirs
 
 UNDEFINED=`get_undefined_type` || exit $?
 UNLABELED=`get_unlabeled_type` || exit $?
