@@ -247,11 +247,8 @@ then
 		logit "skipping the directory ${p}"
 	done
 FC=$TEMPFCFILE
-/bin/cp -p ${TEMPFCFILE} ${TEMPFCFILE}.subs_dist &>/dev/null || exit
 /bin/cp -p ${FC_SUB_DIST} ${TEMPFCFILE}.subs_dist &>/dev/null || exit
-/bin/cp -p ${TEMPFCFILE} ${TEMPFCFILE}.subs &>/dev/null || exit
 /bin/cp -p ${FC_SUB} ${TEMPFCFILE}.subs &>/dev/null || exit
-/bin/cp -p ${TEMPFCFILE} ${TEMPFCFILE}.homedirs &>/dev/null || exit
 /bin/cp -p ${FC_HOMEDIRS} ${TEMPFCFILE}.homedirs &>/dev/null || exit
 
 fi
