@@ -1272,7 +1272,8 @@ allow %s_t %s_t:%s_socket name_%s;
                             else:
                                 self.add_dir(fname)
 
-                for bpkg in installed.filter(name=pkg.sourcename):
+                pkg_basename = dnf.rpm.miscutils.splitFilename(pkg.sourcerpm)[0]
+                for bpkg in installed.filter(name=pkg_basename):
                     for fname in bpkg.files:
                         for b in self.DEFAULT_DIRS:
                             if b == "/etc":
