@@ -334,7 +334,7 @@ int main(int argc, char **argv)
 					argv[0]);
 				exit(-1);
 			}
-			set_rootpath(argv[optind++]);
+			set_rootpath(argv[optind]);
 			break;
 		case 's':
 			use_input_file = 1;
