@@ -143,9 +143,6 @@ def prettyprint(f,trim):
 manpage_domains = []
 manpage_roles = []
 
-fedora_releases = ["Fedora17","Fedora18","Fedora19","Fedora20","Fedora21","Fedora22"]
-rhel_releases = ["RHEL6","RHEL7"]
-
 def get_alphabet_manpages(manpage_list):
         alphabet_manpages = dict.fromkeys(string.ascii_letters, [])
         for i in string.ascii_letters:
@@ -183,8 +180,7 @@ class HTMLManPages:
                 self.old_path = path + "/"
                 self.new_path = self.old_path + self.os_version+"/"
 
-                if (self.os_version in fedora_releases) or (self.os_version in rhel_releases) or (self.os_version == "Misc"):
-
+                if self.os_version:
                         self.__gen_html_manpages()
                 else:
                         print(("SELinux HTML man pages can not be generated for this %s" % os_version))

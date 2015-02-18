@@ -935,21 +935,20 @@ def boolean_desc(boolean):
 
 def get_os_version():
     os_version = ""
-    pkg_name = "selinux-policy"
+    pkg_name = "system-release"
+    releases = {"redhat":"RHEL","fedora":"Fedora"}
+
     try:
         import subprocess
-        output = subprocess.check_output("rpm -q '%s'" % pkg_name,
-                                         stderr=subprocess.STDOUT,
-                                         shell=True)
+        output_name = subprocess.check_output("rpm -q --whatprovides '%s'" % pkg_name,stderr=subprocess.STDOUT,shell=True).split("-")[0]
+        output_version = subprocess.check_output("rpm -q --whatprovides '%s' --queryformat '%%{version}'" % pkg_name,stderr=subprocess.STDOUT,shell=True)
+
         try:
-            os_version = str(output).split(".")[-2]
-            if os_version[0:2] == "fc":
-                os_version = "Fedora"+os_version[2:]
-            elif os_version[0:2] == "el":
-                os_version = "RHEL"+os_version[2:]
+            if output_name in releases.keys():
+                os_version = releases[output_name]+output_version
             else:
                 os_version = "Misc"
-        except IndexError:
+        except KeyError:
             os_version = "Misc"
 
     except subprocess.CalledProcessError:
