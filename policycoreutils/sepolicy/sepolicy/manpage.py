@@ -143,9 +143,6 @@ def prettyprint(f,trim):
 manpage_domains = []
 manpage_roles = []
 
-fedora_releases = ["Fedora17","Fedora18","Fedora19","Fedora20","Fedora21","Fedora22"]
-rhel_releases = ["RHEL6","RHEL7"]
-
 def get_alphabet_manpages(manpage_list):
         alphabet_manpages = dict.fromkeys(string.ascii_letters, [])
         for i in string.ascii_letters:
@@ -183,8 +180,7 @@ class HTMLManPages:
                 self.old_path = path + "/"
                 self.new_path = self.old_path + self.os_version+"/"
 
-                if (self.os_version in fedora_releases) or (self.os_version in rhel_releases) or (self.os_version == "Misc"):
-
+                if self.os_version:
                         self.__gen_html_manpages()
                 else:
                         print(("SELinux HTML man pages can not be generated for this %s" % os_version))
@@ -221,39 +217,17 @@ class HTMLManPages:
     <title>SELinux man pages online</title>
 </head>
 <body>
-<h1>SELinux man pages</h1>
-<br></br>
-Fedora or Red Hat Enterprise Linux Man Pages.</h2>
-<br></br>
+<h1>SELinux man pages online</h1>
 <hr>
-<h3>Fedora</h3>
 <table><tr>
 <td valign="middle">
 </td>
 </tr></table>
 <pre>
 """)
-                for f in fedora_releases:
-                        fd.write("""
-<a href=%s/%s.html>%s</a> - SELinux man pages for %s """  % (f,f,f,f))
-
                 fd.write("""
-</pre>
-<hr>
-<h3>RHEL</h3>
-<table><tr>
-<td valign="middle">
-</td>
-</tr></table>
-<pre>
-""")
-                for r in rhel_releases:
-                        fd.write("""
-<a href=%s/%s.html>%s</a> - SELinux man pages for %s """ % (r,r,r,r))
+<a href=%s/%s.html>%s</a> - SELinux man pages for %s """  % (self.os_version, self.os_version,self.os_version,self.os_version))
 
-                fd.write("""
-</pre>
-        """)
                 fd.close()
                 print(("%s has been created") % index)
 
@@ -264,15 +238,15 @@ Fedora or Red Hat Enterprise Linux Man Pages.</h2>
 <html>
 <head>
         <link rel=stylesheet type="text/css" href="../style.css" title="style">
-        <title>Linux man-pages online for Fedora</title>
+        <title>SELinux man pages online</title>
 </head>
 <body>
-<h1>SELinux man pages for Fedora18</h1>
+<h1>SELinux man pages for %s</h1>
 <hr>
 <table><tr>
 <td valign="middle">
 <h3>SELinux roles</h3>
-""")
+""" % (self.os_version))
                 for letter in self.manpage_roles:
                         if len(self.manpage_roles[letter]):
                                 fd.write("""
