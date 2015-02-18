@@ -217,39 +217,17 @@ class HTMLManPages:
     <title>SELinux man pages online</title>
 </head>
 <body>
-<h1>SELinux man pages</h1>
-<br></br>
-Fedora or Red Hat Enterprise Linux Man Pages.</h2>
-<br></br>
+<h1>SELinux man pages online</h1>
 <hr>
-<h3>Fedora</h3>
 <table><tr>
 <td valign="middle">
 </td>
 </tr></table>
 <pre>
 """)
-                for f in fedora_releases:
-                        fd.write("""
-<a href=%s/%s.html>%s</a> - SELinux man pages for %s """  % (f,f,f,f))
-
                 fd.write("""
-</pre>
-<hr>
-<h3>RHEL</h3>
-<table><tr>
-<td valign="middle">
-</td>
-</tr></table>
-<pre>
-""")
-                for r in rhel_releases:
-                        fd.write("""
-<a href=%s/%s.html>%s</a> - SELinux man pages for %s """ % (r,r,r,r))
+<a href=%s/%s.html>%s</a> - SELinux man pages for %s """  % (self.os_version, self.os_version,self.os_version,self.os_version))
 
-                fd.write("""
-</pre>
-        """)
                 fd.close()
                 print(("%s has been created") % index)
 
@@ -260,15 +238,15 @@ Fedora or Red Hat Enterprise Linux Man Pages.</h2>
 <html>
 <head>
         <link rel=stylesheet type="text/css" href="../style.css" title="style">
-        <title>Linux man-pages online for Fedora</title>
+        <title>SELinux man pages online</title>
 </head>
 <body>
-<h1>SELinux man pages for Fedora18</h1>
+<h1>SELinux man pages for %s</h1>
 <hr>
 <table><tr>
 <td valign="middle">
 <h3>SELinux roles</h3>
-""")
+""" % (self.os_version))
                 for letter in self.manpage_roles:
                         if len(self.manpage_roles[letter]):
                                 fd.write("""
