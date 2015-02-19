@@ -934,28 +934,14 @@ def boolean_desc(boolean):
            return "Allow %s to %s" % (desc[0], " ".join(desc[1:]))
 
 def get_os_version():
-    os_version = ""
-    pkg_name = "selinux-policy"
+    system_release = ""
     try:
-        import subprocess
-        output = subprocess.check_output("rpm -q '%s'" % pkg_name,
-                                         stderr=subprocess.STDOUT,
-                                         shell=True)
-        try:
-            os_version = str(output).split(".")[-2]
-            if os_version[0:2] == "fc":
-                os_version = "Fedora"+os_version[2:]
-            elif os_version[0:2] == "el":
-                os_version = "RHEL"+os_version[2:]
-            else:
-                os_version = "Misc"
-        except IndexError:
-            os_version = "Misc"
+        with open('/etc/system-release') as f:
+            system_release = f.readline()
+    except IOError:
+        system_release = "Misc"
 
-    except subprocess.CalledProcessError:
-        os_version = "Misc"
-
-    return os_version
+    return system_release
 
 def reinit():
     global all_attributes
