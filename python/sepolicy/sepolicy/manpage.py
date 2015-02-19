@@ -151,10 +151,6 @@ def prettyprint(f, trim):
 manpage_domains = []
 manpage_roles = []
 
-fedora_releases = ["Fedora17", "Fedora18"]
-rhel_releases = ["RHEL6", "RHEL7"]
-
-
 def get_alphabet_manpages(manpage_list):
     alphabet_manpages = dict.fromkeys(string.ascii_letters, [])
     for i in string.ascii_letters:
@@ -184,7 +180,7 @@ def convert_manpage_to_html(html_manpage, manpage):
 class HTMLManPages:
 
     """
-            Generate a HHTML Manpages on an given SELinux domains
+            Generate a HTML Manpages on an given SELinux domains
     """
 
     def __init__(self, manpage_roles, manpage_domains, path, os_version):
@@ -192,9 +188,9 @@ class HTMLManPages:
         self.manpage_domains = get_alphabet_manpages(manpage_domains)
         self.os_version = os_version
         self.old_path = path + "/"
-        self.new_path = self.old_path + self.os_version + "/"
+        self.new_path = self.old_path
 
-        if self.os_version in fedora_releases or self.os_version in rhel_releases:
+        if self.os_version:
             self.__gen_html_manpages()
         else:
             print("SELinux HTML man pages can not be generated for this %s" % os_version)
@@ -203,7 +199,6 @@ class HTMLManPages:
     def __gen_html_manpages(self):
         self._write_html_manpage()
         self._gen_index()
-        self._gen_body()
         self._gen_css()
 
     def _write_html_manpage(self):
@@ -221,67 +216,21 @@ class HTMLManPages:
                     convert_manpage_to_html((self.new_path + r.rsplit("_selinux", 1)[0] + ".html"), self.old_path + r)
 
     def _gen_index(self):
-        index = self.old_path + "index.html"
-        fd = open(index, 'w')
-        fd.write("""
-<html>
-<head>
-    <link rel=stylesheet type="text/css" href="style.css" title="style">
-    <title>SELinux man pages online</title>
-</head>
-<body>
-<h1>SELinux man pages</h1>
-<br></br>
-Fedora or Red Hat Enterprise Linux Man Pages.</h2>
-<br></br>
-<hr>
-<h3>Fedora</h3>
-<table><tr>
-<td valign="middle">
-</td>
-</tr></table>
-<pre>
-""")
-        for f in fedora_releases:
-            fd.write("""
-<a href=%s/%s.html>%s</a> - SELinux man pages for %s """ % (f, f, f, f))
-
-        fd.write("""
-</pre>
-<hr>
-<h3>RHEL</h3>
-<table><tr>
-<td valign="middle">
-</td>
-</tr></table>
-<pre>
-""")
-        for r in rhel_releases:
-            fd.write("""
-<a href=%s/%s.html>%s</a> - SELinux man pages for %s """ % (r, r, r, r))
-
-        fd.write("""
-</pre>
-	""")
-        fd.close()
-        print("%s has been created" % index)
-
-    def _gen_body(self):
         html = self.new_path + self.os_version + ".html"
         fd = open(html, 'w')
         fd.write("""
 <html>
 <head>
-	<link rel=stylesheet type="text/css" href="../style.css" title="style">
-	<title>Linux man-pages online for Fedora18</title>
+	<link rel=stylesheet type="text/css" href="style.css" title="style">
+	<title>SELinux man pages online</title>
 </head>
 <body>
-<h1>SELinux man pages for Fedora18</h1>
+<h1>SELinux man pages for %s</h1>
 <hr>
 <table><tr>
 <td valign="middle">
 <h3>SELinux roles</h3>
-""")
+""" % self.os_version)
         for letter in self.manpage_roles:
             if len(self.manpage_roles[letter]):
                 fd.write("""
