@@ -214,7 +214,7 @@ class HTMLManPages:
 <html>
 <head>
         <link rel=stylesheet type="text/css" href="style.css" title="style">
-        <title>SELinux man pages online</title>
+        <title>SELinux man pages</title>
 </head>
 <body>
 <h1>SELinux man pages for %s</h1>
