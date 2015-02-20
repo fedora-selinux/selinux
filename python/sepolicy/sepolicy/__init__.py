@@ -1228,7 +1228,7 @@ def get_os_version():
     system_release = ""
     try:
         with open('/etc/system-release') as f:
-            system_release = f.readline()
+            system_release = f.readline().rstrip()
     except IOError:
         system_release = "Misc"
 
