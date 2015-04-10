@@ -40,7 +40,11 @@ int yywrap(void);
 
 #.*               /* ignore comments */
 module-store      return MODULE_STORE;
+store-root        return STORE_ROOT;
+compiler-directory	return COMPILER_DIR;
+ignore-module-cache return IGNORE_MODULE_CACHE;
 policy-version    return VERSION;
+target-platform   return TARGET_PLATFORM;
 expand-check      return EXPAND_CHECK;
 file-mode         return FILE_MODE;
 save-previous     return SAVE_PREVIOUS;

@@ -21,6 +21,8 @@
 #ifndef _SEMANAGE_HANDLE_H_
 #define _SEMANAGE_HANDLE_H_
 
+#include <stdint.h>
+
 /* All accesses with semanage are through a "semanage_handle".  The
  * handle may ultimately reference local config files,
  * the binary policy file, a module store, or a policy management server. 
@@ -64,6 +66,11 @@ void semanage_set_reload(semanage_handle_t * handle, int do_reload);
  * 1 for yes, 0 for no (default) */
 void semanage_set_rebuild(semanage_handle_t * handle, int do_rebuild);
 
+/* Fills *compiler_path with the location of the hll compiler sh->conf->compiler_directory_path
+ * corresponding to lang_ext.
+ * Upon success returns 0, -1 on error. */
+int semanage_get_hll_compiler_path(semanage_handle_t *sh, char *lang_ext, char **compiler_path);
+
 /* create the store if it does not exist, this only has an effect on 
  * direct connections and must be called before semanage_connect 
  * 1 for yes, 0 for no (default) */
@@ -77,6 +84,12 @@ void semanage_set_disable_dontaudit(semanage_handle_t * handle, int disable_dont
 
 /* Set whether or not to execute setfiles to check file contexts upon commit */
 void semanage_set_check_contexts(semanage_handle_t * sh, int do_check_contexts);
+
+/* Get the default priority. */
+uint16_t semanage_get_default_priority(semanage_handle_t *sh);
+
+/* Set the default priority. */
+int semanage_set_default_priority(semanage_handle_t *sh, uint16_t priority);
 
 /* Check whether policy is managed via libsemanage on this system.
  * Must be called prior to trying to connect.
@@ -126,14 +139,26 @@ int semanage_is_connected(semanage_handle_t * sh);
 /* returns 1 if policy is MLS, 0 otherwise. */
 int semanage_mls_enabled(semanage_handle_t *sh);
 
-/* Change to alternate selinux root path */
+/* Change to alternate semanage root path */
 int semanage_set_root(const char *path);
+
+/* Get the current semanage root path */
+const char * semanage_root(void);
 
 /* Get whether or not needless unused branch of tunables would be preserved */
 int semanage_get_preserve_tunables(semanage_handle_t * handle);
 
 /* Set whether or not to preserve the needless unused branch of tunables */
 void semanage_set_preserve_tunables(semanage_handle_t * handle, int preserve_tunables);
+
+/* Get the flag value for whether or not caching is ignored for compiled CIL modules from HLL files */
+int semanage_get_ignore_module_cache(semanage_handle_t *handle);
+
+/* Set semanage_handle flag for whether or not to ignore caching of compiled CIL modules from HLL files */
+void semanage_set_ignore_module_cache(semanage_handle_t *handle, int ignore_module_cache);
+
+/* set the store root path for semanage output files */
+void semanage_set_store_root(semanage_handle_t *sh, const char *store_root);
 
 /* META NOTES
  *

@@ -137,7 +137,6 @@ class Tests:
 			module = semanage.semanage_module_list_nth(mlist, idx)
 			if self.verbose: print "Module reference: ", module
 			print "Module name: ", semanage.semanage_module_get_name(module)
-			print "   Module version: ", semanage.semanage_module_get_version(module)
 
 	def test_seusers(self,sh):
 		print "Testing seusers..."
@@ -619,7 +618,9 @@ class Tests:
 		if self.verbose: print "SEFContext expr set: ", semanage.semanage_fcontext_get_expr(fcon)
 
 		semanage.semanage_fcontext_set_type(fcon, semanage.SEMANAGE_FCONTEXT_REG)
-		if self.verbose: print "SEFContext type set: ", semanage.semanage_fcontext_get_type_str(fcon)
+		if self.verbose:
+			ftype = semanage.semanage_fcontext_get_type(fcon)
+			print "SEFContext type set: ", semanage.semanage_fcontext_get_type_str(ftype)
 
 		(status, con) = semanage.semanage_context_create(sh)
 		if status < 0:
@@ -827,7 +828,7 @@ class Tests:
 		if self.verbose: print "SEBool name set: ", semanage.semanage_bool_get_name(pbool)
 
 		semanage.semanage_bool_set_value(pbool, 0)
-		if self.verbose: print "SEbool value set: ", semanage.semanage_bool_set_value(pbool)
+		if self.verbose: print "SEbool value set: ", semanage.semanage_bool_get_value(pbool)
 
 		(status,key) = semanage.semanage_bool_key_extract(sh, pbool)
 		if status < 0:
@@ -910,7 +911,7 @@ class Tests:
 		if self.verbose: print "SEBool name set: ", semanage.semanage_bool_get_name(abool)
 
 		semanage.semanage_bool_set_value(abool, 0)
-		if self.verbose: print "SEbool value set: ", semanage.semanage_bool_set_value(abool)
+		if self.verbose: print "SEbool value set: ", semanage.semanage_bool_get_value(abool)
 
 		print "Starting transaction..."
 		status = semanage.semanage_begin_transaction(sh)

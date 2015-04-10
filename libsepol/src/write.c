@@ -1514,7 +1514,7 @@ static int avrule_write(avrule_t * avrule, struct policy_file *fp)
 	cur = avrule->perms;
 	while (cur) {
 		items = 0;
-		buf[items++] = cpu_to_le32(cur->class);
+		buf[items++] = cpu_to_le32(cur->tclass);
 		buf[items++] = cpu_to_le32(cur->data);
 		items2 = put_entry(buf, sizeof(uint32_t), items, fp);
 		if (items2 != items)
@@ -1880,7 +1880,7 @@ int policydb_write(policydb_t * p, struct policy_file *fp)
 	size_t items, items2, len;
 	struct policydb_compat_info *info;
 	struct policy_data pd;
-	char *policydb_str;
+	const char *policydb_str;
 
 	if (p->unsupported_format)
 		return POLICYDB_UNSUPPORTED;

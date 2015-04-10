@@ -28,6 +28,10 @@
 	#define STATUS_ERR -1
 %}
 
+%include "stdint.i"
+%ignore semanage_module_install_pp;
+%ignore semanage_module_install_hll;
+
 %wrapper %{
 
 
@@ -89,8 +93,7 @@
 		free(arr);
 		return STATUS_ERR;
 	}
-%}
-
+%} 
 /* a few helpful typemaps are available in this library */
 %include <typemaps.i>
 /* wrap all int*'s so they can be used for results 
@@ -98,6 +101,7 @@
 %apply int *OUTPUT { int * };
 %apply int *OUTPUT { size_t * };
 %apply int *OUTPUT { unsigned int * };
+%apply int *OUTPUT { uint16_t * };
 
 %typemap(in, numinputs=0) char **(char *temp=NULL) {
 	$1 = &temp;
@@ -141,6 +145,18 @@
 }
 
 %typemap(argout) semanage_module_info_t ** {
+	$result = SWIG_Python_AppendOutput($result, SWIG_NewPointerObj(*$1, $*1_descriptor, 0));
+}
+
+/** module key typemaps **/
+
+/* the wrapper will setup this parameter for passing... the resulting python functions
+   will not take the semanage_module_key_t ** parameter */
+%typemap(in, numinputs=0) semanage_module_key_t **(semanage_module_key_t *temp=NULL) {
+	$1 = &temp;
+}
+
+%typemap(argout) semanage_module_key_t ** {
 	$result = SWIG_Python_AppendOutput($result, SWIG_NewPointerObj(*$1, $*1_descriptor, 0));
 }
 
