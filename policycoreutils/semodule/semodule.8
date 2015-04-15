@@ -30,25 +30,33 @@ Temporarily remove dontaudits from policy.  Reverts whenever policy is rebuilt
 install/replace a module package
 .TP
 .B  \-u,\-\-upgrade=MODULE_PKG
-upgrade an existing module package, or install if the module does not exist
+deprecated, alias for --install
 .TP
 .B  \-b,\-\-base=MODULE_PKG   
-install/replace base module package
-.TP
-.B  \-d,\-\-disable=MODULE_NAME
-disable existing module
-.TP
-.B  \-e,\-\-enable=MODULE_NAME
-enable existing module
-.TP
-.B \-p,\-\-path=ROOTPATH
-use an alternate root path
+deprecated, alias for --install
 .TP
 .B  \-r,\-\-remove=MODULE_NAME
 remove existing module
 .TP
-.B  \-l,\-\-list-modules      
+.B  \-l,\-\-list-modules=[KIND]
 display list of installed modules (other than base)
+.TP
+.B  KIND:
+.TP
+standard
+list highest priority, enabled, non-base modules
+.TP
+full
+list all modules
+.TP
+.B  \-X,\-\-priority=PRIORITY
+set priority for following operations (1-999)
+.TP
+.B  \-e,\-\-enabled=MODULE_NAME
+enable module
+.TP
+.B  \-d,\-\-disable=MODULE_NAME
+disable module
 .TP
 .B  \-s,\-\-store	   
 name of the store to operate on
@@ -61,6 +69,15 @@ prints help message and quit
 .TP
 .B \-P,\-\-preserve_tunables
 Preserve tunables in policy
+.TP
+.B \-C,\-\-ignore-module-cache
+Recompile CIL modules built from HLL files
+.TP
+.B \-p,\-\-path
+Use an alternate path for the policy root
+.TP
+.B \-S,\-\-store-path
+Use an alternate path for the policy store root
 .TP
 .B  \-v,\-\-verbose     
 be verbose
@@ -81,6 +98,16 @@ $ semodule \-B
 $ semodule \-i *.pp
 # Install or replace all modules in the current directory.
 $ ls *.pp | grep \-Ev "base.pp|enableaudit.pp" | xargs /usr/sbin/semodule \-b base.pp \-i
+# Disable a module.
+$ semodule \-d alsa
+# Install a module at a specific priority.
+$ semodule \-X 100 \-i alsa.pp
+# List all modules.
+$ semodule \-l full
+# Set an alternate path for the policy root
+$ semodule \-B \-p "/tmp"
+# Set an alternate path for the policy store root
+$ semodule \-B \-S "/tmp/var/lib/selinux"
 .fi
 
 .SH SEE ALSO

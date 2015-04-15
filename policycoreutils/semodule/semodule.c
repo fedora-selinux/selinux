@@ -23,13 +23,14 @@
 
 #include <semanage/modules.h>
 
-enum client_modes { NO_MODE, INSTALL_M, UPGRADE_M, BASE_M, ENABLE_M, DISABLE_M, REMOVE_M,
-	LIST_M, RELOAD
+enum client_modes {
+	NO_MODE, INSTALL_M, REMOVE_M,
+	LIST_M, RELOAD, PRIORITY_M, ENABLE_M, DISABLE_M
 };
 /* list of modes in which one ought to commit afterwards */
 static const int do_commit[] = {
-	0, 1, 1, 1, 1, 1, 1,
-	0, 0
+	0, 1, 1,
+	0, 0, 0, 1, 1,
 };
 
 struct command {
@@ -43,13 +44,15 @@ static int num_commands = 0;
 static int verbose;
 static int reload;
 static int no_reload;
-static int create_store;
 static int build;
 static int disable_dontaudit;
 static int preserve_tunables;
+static int ignore_module_cache;
+static uint16_t priority;
 
 static semanage_handle_t *sh = NULL;
 static char *store;
+static char *store_root;
 
 extern char *optarg;
 extern int optind;
@@ -87,6 +90,20 @@ static void set_store(char *storename)
 	exit(1);
 }
 
+static void set_store_root(char *path)
+{
+	if ((store_root = strdup(path)) == NULL) {
+		fprintf(stderr, "Out of memory!\n");
+		goto bad;
+	}
+
+	return;
+
+      bad:
+	cleanup();
+	exit(1);
+}
+
 /* Establish signal handlers for the process. */
 static void create_signal_handlers(void)
 {
@@ -106,13 +123,13 @@ static void usage(char *progname)
 	printf("  -R, --reload		    reload policy\n");
 	printf("  -B, --build		    build and reload policy\n");
 	printf("  -i,--install=MODULE_PKG   install a new module\n");
-	printf("  -u,--upgrade=MODULE_PKG   upgrade existing module\n");
-	printf("  -b,--base=MODULE_PKG      install new base module\n");
-	printf("  -e,--enable=MODULE_PKG    enable existing module\n");
-	printf("  -d,--disable=MODULE_PKG   disable existing module\n");
- 	printf("  -r,--remove=MODULE_NAME   remove existing module\n");
-	printf
-	    ("  -l,--list-modules         display list of installed modules\n");
+	printf("  -r,--remove=MODULE_NAME   remove existing module\n");
+	printf("  -l,--list-modules=[KIND]  display list of installed modules\n");
+	printf("     KIND:  standard  list highest priority, enabled modules\n");
+	printf("            full      list all modules\n");
+	printf("  -X,--priority=PRIORITY    set priority for following operations (1-999)\n");
+	printf("  -e,--enable=MODULE_NAME   enable module\n");
+	printf("  -d,--disable=MODULE_NAME  disable module\n");
 	printf("Other options:\n");
 	printf("  -s,--store	   name of the store to operate on\n");
 	printf("  -N,-n,--noreload do not reload policy after commit\n");
@@ -120,7 +137,9 @@ static void usage(char *progname)
 	printf("  -v,--verbose     be verbose\n");
 	printf("  -D,--disable_dontaudit	Remove dontaudits from policy\n");
 	printf("  -P,--preserve_tunables	Preserve tunables in policy\n");
+	printf("  -C,--ignore-module-cache	Rebuild CIL modules compiled from HLL files\n");
 	printf("  -p,--path        use an alternate path for the policy root\n");
+	printf("  -S,--store-path  use an alternate path for the policy store root\n");
 }
 
 /* Sets the global mode variable to new_mode, but only if no other
@@ -156,10 +175,8 @@ static void parse_command_line(int argc, char **argv)
 		{"base", required_argument, NULL, 'b'},
 		{"help", 0, NULL, 'h'},
 		{"install", required_argument, NULL, 'i'},
-		{"list-modules", 0, NULL, 'l'},
+		{"list-modules", optional_argument, NULL, 'l'},
 		{"verbose", 0, NULL, 'v'},
-		{"enable", required_argument, NULL, 'e'},
-		{"disable", required_argument, NULL, 'd'},
 		{"remove", required_argument, NULL, 'r'},
 		{"upgrade", required_argument, NULL, 'u'},
 		{"reload", 0, NULL, 'R'},
@@ -167,21 +184,26 @@ static void parse_command_line(int argc, char **argv)
 		{"build", 0, NULL, 'B'},
 		{"disable_dontaudit", 0, NULL, 'D'},
 		{"preserve_tunables", 0, NULL, 'P'},
+		{"ignore-module-cache", 0, NULL, 'C'},
+		{"priority", required_argument, NULL, 'X'},
+		{"enable", required_argument, NULL, 'e'},
+		{"disable", required_argument, NULL, 'd'},
 		{"path", required_argument, NULL, 'p'},
+		{"store-path", required_argument, NULL, 'S'},
 		{NULL, 0, NULL, 0}
 	};
 	int i;
 	verbose = 0;
 	reload = 0;
 	no_reload = 0;
-	create_store = 0;
+	priority = 400;
 	while ((i =
-		getopt_long(argc, argv, "p:s:b:hi:lvqe:d:r:u:RnNBDP", opts,
+		getopt_long(argc, argv, "s:b:hi:l::vqr:u:RnNBDCPX:e:d:p:S:", opts,
 			    NULL)) != -1) {
 		switch (i) {
 		case 'b':
-			set_mode(BASE_M, optarg);
-			create_store = 1;
+			fprintf(stderr, "The --base option is deprecated. Use --install instead.\n");
+			set_mode(INSTALL_M, optarg);
 			break;
 		case 'h':
 			usage(argv[0]);
@@ -190,28 +212,26 @@ static void parse_command_line(int argc, char **argv)
 			set_mode(INSTALL_M, optarg);
 			break;
 		case 'l':
-			set_mode(LIST_M, NULL);
+			set_mode(LIST_M, optarg);
 			break;
 		case 'v':
 			verbose = 1;
 			break;
-		case 'e':
-			set_mode(ENABLE_M, optarg);
-			break;
-		case 'd':
-			set_mode(DISABLE_M, optarg);
-			break;
 		case 'r':
 			set_mode(REMOVE_M, optarg);
+			break;
+		case 'u':
+			fprintf(stderr, "The --upgrade option is deprecated. Use --install instead.\n");
+			set_mode(INSTALL_M, optarg);
+			break;
+		case 's':
+			set_store(optarg);
 			break;
 		case 'p':
 			semanage_set_root(optarg);
 			break;
-		case 'u':
-			set_mode(UPGRADE_M, optarg);
-			break;
-		case 's':
-			set_store(optarg);
+		case 'S':
+			set_store_root(optarg);
 			break;
 		case 'R':
 			reload = 1;
@@ -230,6 +250,18 @@ static void parse_command_line(int argc, char **argv)
 			break;
 		case 'P':
 			preserve_tunables = 1;
+			break;
+		case 'C':
+			ignore_module_cache = 1;
+			break;
+		case 'X':
+			set_mode(PRIORITY_M, optarg);
+			break;
+		case 'e':
+			set_mode(ENABLE_M, optarg);
+			break;
+		case 'd':
+			set_mode(DISABLE_M, optarg);
 			break;
 		case '?':
 		default:{
@@ -259,14 +291,8 @@ static void parse_command_line(int argc, char **argv)
 
 		if (commands && commands[num_commands - 1].mode == INSTALL_M) {
 			mode = INSTALL_M;
-		} else if (commands && commands[num_commands - 1].mode == UPGRADE_M) {
-			mode = UPGRADE_M;
 		} else if (commands && commands[num_commands - 1].mode == REMOVE_M) {
 			mode = REMOVE_M;
-		} else if (commands && commands[num_commands - 1].mode == ENABLE_M) {
-			mode = ENABLE_M;
-		} else if (commands && commands[num_commands - 1].mode == DISABLE_M) {
-			mode = DISABLE_M;
 		} else {
 			fprintf(stderr, "unknown additional arguments:\n");
 			while (optind < argc)
@@ -311,23 +337,12 @@ int main(int argc, char *argv[])
 		semanage_select_store(sh, store, SEMANAGE_CON_DIRECT);
 	}
 
-	/* if installing base module create store if necessary, for bootstrapping */
-	semanage_set_create_store(sh, create_store);
-
-	if (!create_store) {
-		if (!semanage_is_managed(sh)) {
-			fprintf(stderr,
-				"%s: SELinux policy is not managed or store cannot be accessed.\n",
-				argv[0]);
-			goto cleanup;
-		}
-
-		if (semanage_access_check(sh) < SEMANAGE_CAN_READ) {
-			fprintf(stderr, "%s: Cannot read policy store.\n",
-				argv[0]);
-			goto cleanup;
-		}
+	if (store_root) {
+		semanage_set_store_root(sh, store_root);
 	}
+
+	/* create store if necessary, for bootstrapping */
+	semanage_set_create_store(sh, 1);
 
 	if ((result = semanage_connect(sh)) < 0) {
 		fprintf(stderr, "%s:  Could not connect to policy handler\n",
@@ -351,9 +366,18 @@ int main(int argc, char *argv[])
 		}
 	}
 
+	if ((result = semanage_set_default_priority(sh, priority)) != 0) {
+		fprintf(stderr,
+			"%s: Invalid priority %d (needs to be between 1 and 999)\n",
+			argv[0],
+			priority);
+		goto cleanup;
+	}
+
 	for (i = 0; i < num_commands; i++) {
 		enum client_modes mode = commands[i].mode;
 		char *mode_arg = commands[i].arg;
+
 		switch (mode) {
 		case INSTALL_M:{
 				if (verbose) {
@@ -363,50 +387,6 @@ int main(int argc, char *argv[])
 				}
 				result =
 				    semanage_module_install_file(sh, mode_arg);
-				break;
-			}
-		case UPGRADE_M:{
-				if (verbose) {
-					printf
-					    ("Attempting to upgrade module '%s':\n",
-					     mode_arg);
-				}
-				result =
-				    semanage_module_upgrade_file(sh, mode_arg);
-				break;
-			}
-		case BASE_M:{
-				if (verbose) {
-					printf
-					    ("Attempting to install base module '%s':\n",
-					     mode_arg);
-				}
-				result =
-				    semanage_module_install_base_file(sh, mode_arg);
-				break;
-			}
-		case ENABLE_M:{
-				if (verbose) {
-					printf
-					    ("Attempting to enable module '%s':\n",
-					     mode_arg);
-				}
-				result = semanage_module_enable(sh, mode_arg);
-				if ( result == -2 ) { 
-					continue;
-				}
-				break;
-			}
-		case DISABLE_M:{
-				if (verbose) {
-					printf
-					    ("Attempting to disable module '%s':\n",
-					     mode_arg);
-				}
-				result = semanage_module_disable(sh, mode_arg);
-				if ( result == -2 ) { 
-					continue;
-				}
 				break;
 			}
 		case REMOVE_M:{
@@ -422,34 +402,176 @@ int main(int argc, char *argv[])
 				break;
 			}
 		case LIST_M:{
-				semanage_module_info_t *modinfo;
-				int num_modules;
+				semanage_module_info_t *modinfos = NULL;
+				int modinfos_len = 0;
+				semanage_module_info_t *m = NULL;
+				int j = 0;
+
 				if (verbose) {
 					printf
 					    ("Attempting to list active modules:\n");
 				}
-				if ((result =
-				     semanage_module_list(sh, &modinfo,
-							  &num_modules)) >= 0) {
-					int j;
-					if (num_modules == 0) {
+
+				if (mode_arg == NULL || strcmp(mode_arg, "standard") == 0) {
+					result = semanage_module_list(sh,
+								      &modinfos,
+								      &modinfos_len);
+					if (result < 0) goto cleanup_list;
+
+					if (modinfos_len == 0) {
 						printf("No modules.\n");
 					}
-					for (j = 0; j < num_modules; j++) {
-						semanage_module_info_t *m =
-						    semanage_module_list_nth
-						    (modinfo, j);
-						printf("%s\t%s\t%s\n",
-						       semanage_module_get_name
-						       (m),
-						       semanage_module_get_version
-						       (m), 
-						       (semanage_module_get_enabled(m) ? "" : "Disabled"));
-						semanage_module_info_datum_destroy
-						    (m);
+
+					const char *name = NULL;
+
+					for (j = 0; j < modinfos_len; j++) {
+						m = semanage_module_list_nth(modinfos, j);
+
+						result = semanage_module_info_get_name(sh, m, &name);
+						if (result != 0) goto cleanup_list;
+
+						printf("%s\n", name);
 					}
-					free(modinfo);
 				}
+				else if (strcmp(mode_arg, "full") == 0) {
+					/* get the modules */
+					result = semanage_module_list_all(sh,
+									  &modinfos,
+									  &modinfos_len);
+					if (result != 0) goto cleanup_list;
+
+					if (modinfos_len == 0) {
+						printf("No modules.\n");
+					}
+
+					/* calculate column widths */
+					size_t column[4] = { 0, 0, 0, 0 };
+
+					/* fixed width columns */
+					column[0] = sizeof("000") - 1;
+					column[3] = sizeof("disabled") - 1;
+
+					/* variable width columns */
+					const char *tmp = NULL;
+					size_t size;
+					for (j = 0; j < modinfos_len; j++) {
+						m = semanage_module_list_nth(modinfos, j);
+
+						result = semanage_module_info_get_name(sh, m, &tmp);
+						if (result != 0) goto cleanup_list;
+
+						size = strlen(tmp);
+						if (size > column[1]) column[1] = size;
+
+						result = semanage_module_info_get_lang_ext(sh, m, &tmp);
+						if (result != 0) goto cleanup_list;
+
+						size = strlen(tmp);
+						if (size > column[3]) column[3] = size;
+					}
+
+					/* print out each module */
+					for (j = 0; j < modinfos_len; j++) {
+						uint16_t pri = 0;
+						const char *name = NULL;
+						int enabled = 0;
+						const char *lang_ext = NULL;
+
+						m = semanage_module_list_nth(modinfos, j);
+
+						result = semanage_module_info_get_priority(sh, m, &pri);
+						if (result != 0) goto cleanup_list;
+
+						result = semanage_module_info_get_name(sh, m, &name);
+						if (result != 0) goto cleanup_list;
+
+						result = semanage_module_info_get_enabled(sh, m, &enabled);
+						if (result != 0) goto cleanup_list;
+
+						result = semanage_module_info_get_lang_ext(sh, m, &lang_ext);
+						if (result != 0) goto cleanup_list;
+
+						printf("%0*u %-*s %-*s %-*s\n",
+							(int)column[0], pri,
+							(int)column[1], name,
+							(int)column[2], lang_ext,
+							(int)column[3], enabled ? "" : "disabled");
+					}
+				}
+				else {
+					result = -1;
+				}
+
+cleanup_list:
+				for (j = 0; j < modinfos_len; j++) {
+					m = semanage_module_list_nth(modinfos, j);
+					semanage_module_info_destroy(sh, m);
+				}
+
+				free(modinfos);
+
+				break;
+			}
+		case PRIORITY_M:{
+				char *endptr = NULL;
+				priority = (uint16_t)strtoul(mode_arg, &endptr, 10);
+
+				if ((result = semanage_set_default_priority(sh, priority)) != 0) {
+					fprintf(stderr,
+						"%s: Invalid priority %d (needs to be between 1 and 999)\n",
+						argv[0],
+						priority);
+					goto cleanup;
+				}
+
+				break;
+			}
+		case ENABLE_M:{
+				if (verbose) {
+					printf
+					    ("Attempting to enable module '%s':\n",
+					     mode_arg);
+				}
+
+				semanage_module_key_t *modkey = NULL;
+
+				result = semanage_module_key_create(sh, &modkey);
+				if (result != 0) goto cleanup_enable;
+
+				result = semanage_module_key_set_name(sh, modkey, mode_arg);
+				if (result != 0) goto cleanup_enable;
+
+				result = semanage_module_set_enabled(sh, modkey, 1);
+				if (result != 0) goto cleanup_enable;
+
+cleanup_enable:
+				semanage_module_key_destroy(sh, modkey);
+				free(modkey);
+
+				break;
+			}
+		case DISABLE_M:{
+				if (verbose) {
+					printf
+					    ("Attempting to disable module '%s':\n",
+					     mode_arg);
+				}
+
+				semanage_module_key_t *modkey = NULL;
+
+				result = semanage_module_key_create(sh, &modkey);
+				if (result != 0) goto cleanup_disable;
+
+				result = semanage_module_key_set_name(sh, modkey, mode_arg);
+				if (result != 0) goto cleanup_disable;
+
+				result = semanage_module_set_enabled(sh, modkey, 0);
+				if (result != 0) goto cleanup_disable;
+
+cleanup_disable:
+				semanage_module_key_destroy(sh, modkey);
+				free(modkey);
+
 				break;
 			}
 		default:{
@@ -483,6 +605,8 @@ int main(int argc, char *argv[])
 			semanage_set_disable_dontaudit(sh, 0);
 		if (preserve_tunables)
 			semanage_set_preserve_tunables(sh, 1);
+		if (ignore_module_cache)
+			semanage_set_ignore_module_cache(sh, 1);
 
 		result = semanage_commit(sh);
 	}

@@ -96,8 +96,8 @@ extern policydb_t *policydbp;
 extern int mlspol;
 
 static int handle_unknown = SEPOL_DENY_UNKNOWN;
-static char *txtfile = "policy.conf";
-static char *binfile = "policy";
+static const char *txtfile = "policy.conf";
+static const char *binfile = "policy";
 
 unsigned int policyvers = POLICYDB_VERSION_MAX;
 
@@ -289,9 +289,9 @@ static int identify_equiv_types(void)
 
 extern char *av_to_string(uint32_t tclass, sepol_access_vector_t av);
 
-int display_bools()
+int display_bools(void)
 {
-	int i;
+	uint32_t i;
 
 	for (i = 0; i < policydbp->p_bools.nprim; i++) {
 		printf("%s : %d\n", policydbp->p_bool_val_to_name[i],
@@ -335,7 +335,7 @@ void display_expr(cond_expr_t * exp)
 	}
 }
 
-int display_cond_expressions()
+int display_cond_expressions(void)
 {
 	cond_node_t *cur;
 
@@ -361,7 +361,7 @@ int change_bool(char *name, int state)
 	return 0;
 }
 
-static int check_level(hashtab_key_t key, hashtab_datum_t datum, void *arg)
+static int check_level(hashtab_key_t key, hashtab_datum_t datum, void *arg __attribute__ ((unused)))
 {
 	level_datum_t *levdatum = (level_datum_t *) datum;
 
@@ -381,7 +381,8 @@ int main(int argc, char **argv)
 	sepol_security_context_t scontext;
 	struct sepol_av_decision avd;
 	class_datum_t *cladatum;
-	char ans[80 + 1], *file = txtfile, *outfile = NULL, *path, *fstype;
+	const char *file = txtfile;
+	char ans[80 + 1], *outfile = NULL, *path, *fstype;
 	size_t scontext_len, pathlen;
 	unsigned int i;
 	unsigned int protocol, port;
@@ -455,7 +456,9 @@ int main(int argc, char **argv)
 			mlspol = 1;
 			break;
 		case 'c':{
-				long int n = strtol(optarg, NULL, 10);
+				long int n;
+				errno = 0;
+				n = strtol(optarg, NULL, 10);
 				if (errno) {
 					fprintf(stderr,
 						"Invalid policyvers specified: %s\n",

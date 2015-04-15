@@ -170,10 +170,10 @@ static int process_line(struct selabel_handle *rec,
 	/* Skip comment lines and empty lines. */
 	if (*buf_p == '#' || *buf_p == 0)
 		return 0;
-	items = sscanf(line_buf, "%as %as %as", &regex, &type, &context);
+	items = sscanf(line_buf, "%ms %ms %ms", &regex, &type, &context);
 	if (items < 2) {
 		COMPAT_LOG(SELINUX_WARNING,
-			    "%s:  line %d is missing fields, skipping\n", path,
+			    "%s:  line %u is missing fields, skipping\n", path,
 			    lineno);
 		if (items == 1)
 			free(regex);
@@ -204,7 +204,7 @@ static int process_line(struct selabel_handle *rec,
 	spec_arr[nspec].stem_id = find_stem_from_spec(data, regex);
 	spec_arr[nspec].regex_str = regex;
 	if (rec->validating && compile_regex(data, &spec_arr[nspec], &errbuf)) {
-		COMPAT_LOG(SELINUX_WARNING, "%s:  line %d has invalid regex %s:  %s\n",
+		COMPAT_LOG(SELINUX_WARNING, "%s:  line %u has invalid regex %s:  %s\n",
 			   path, lineno, regex, (errbuf ? errbuf : "out of memory"));
 	}
 
@@ -213,8 +213,8 @@ static int process_line(struct selabel_handle *rec,
 	spec_arr[nspec].mode = 0;
 	if (type) {
 		mode_t mode = string_to_mode(type);
-		if (mode == -1) {
-			COMPAT_LOG(SELINUX_WARNING, "%s:  line %d has invalid file type %s\n",
+		if (mode == (mode_t)-1) {
+			COMPAT_LOG(SELINUX_WARNING, "%s:  line %u has invalid file type %s\n",
 				   path, lineno, type);
 			mode = 0;
 		}
@@ -240,19 +240,20 @@ static int load_mmap(struct selabel_handle *rec, const char *path, struct stat *
 	struct saved_data *data = (struct saved_data *)rec->data;
 	char mmap_path[PATH_MAX + 1];
 	int mmapfd;
-	int rc, i;
+	int rc;
 	struct stat mmap_stat;
 	char *addr;
 	size_t len;
 	int stem_map_len, *stem_map;
 	struct mmap_area *mmap_area;
 
+	uint32_t i;
 	uint32_t *magic;
 	uint32_t *section_len;
 	uint32_t *plen;
 
 	rc = snprintf(mmap_path, sizeof(mmap_path), "%s.bin", path);
-	if (rc >= sizeof(mmap_path))
+	if (rc >= (int)sizeof(mmap_path))
 		return -1;
 
 	mmapfd = open(mmap_path, O_RDONLY | O_CLOEXEC);
@@ -313,6 +314,19 @@ static int load_mmap(struct selabel_handle *rec, const char *path, struct stat *
 	if (*section_len > SELINUX_COMPILED_FCONTEXT_MAX_VERS)
 		return -1;
 	addr += sizeof(uint32_t);
+
+	if (*section_len >= SELINUX_COMPILED_FCONTEXT_PCRE_VERS) {
+		len = strlen(pcre_version());
+		plen = (uint32_t *)addr;
+		if (*plen > mmap_area->len)
+			return -1; /* runs off the end of the map */
+		if (len != *plen)
+			return -1; /* pcre version length mismatch */
+		addr += sizeof(uint32_t);
+		if (memcmp((char *)addr, pcre_version(), len))
+			return -1; /* pcre version content mismatch */
+		addr += *plen;
+	}
 
 	/* allocate the stems_data array */
 	section_len = (uint32_t *)addr;
@@ -432,7 +446,7 @@ static int process_file(const char *path, const char *suffix, struct selabel_han
 	/* append the path suffix if we have one */
 	if (suffix) {
 		rc = snprintf(stack_path, sizeof(stack_path), "%s.%s", path, suffix);
-		if (rc >= sizeof(stack_path)) {
+		if (rc >= (int)sizeof(stack_path)) {
 			errno = ENAMETOOLONG;
 			return -1;
 		}

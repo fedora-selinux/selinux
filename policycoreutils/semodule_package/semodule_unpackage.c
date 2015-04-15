@@ -14,13 +14,13 @@
 char *progname = NULL;
 extern char *optarg;
 
-static void usage(char *progname)
+static void usage(void)
 {
 	printf("usage: %s ppfile modfile [fcfile]\n", progname);
 	exit(1);
 }
 
-static int file_to_policy_file(char *filename, struct sepol_policy_file **pf, char *mode)
+static int file_to_policy_file(const char *filename, struct sepol_policy_file **pf, const char *mode)
 {
 	FILE *f;
 
@@ -49,7 +49,7 @@ int main(int argc, char **argv)
 	progname = argv[0];
 
 	if (argc < 3) {
-		usage(progname);
+		usage();
 		exit(1);
 	}
 

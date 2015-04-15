@@ -66,7 +66,6 @@
 #include <string.h>
 #include <errno.h>
 #include <selinux/selinux.h>	/* for is_selinux_enabled() */
-#include <selinux/flask.h>	/* for SECCLASS_CHR_FILE */
 #include <selinux/context.h>	/* for context-mangling functions */
 #include <selinux/get_default_type.h>
 #include <selinux/get_context_list.h>	/* for SELINUX_DEFAULTUSER */
@@ -167,7 +166,7 @@ static char *build_new_range(char *newlevel, const char *range)
 #include <security/pam_appl.h>	/* for PAM functions */
 #include <security/pam_misc.h>	/* for misc_conv PAM utility function */
 
-char *service_name = "newrole";
+const char *service_name = "newrole";
 
 /* authenticate_via_pam()
  *
@@ -279,7 +278,7 @@ static int process_pam_config(FILE * cfg)
 			continue;
 
 		app = service = NULL;
-		ret = sscanf(buffer, "%as %as\n", &app, &service);
+		ret = sscanf(buffer, "%ms %ms\n", &app, &service);
 		if (ret < 2 || !app || !service)
 			goto err;
 
@@ -308,7 +307,7 @@ static int process_pam_config(FILE * cfg)
  *  Files specified one per line executable with a corresponding
  *  pam service name.
  */
-static int read_pam_config()
+static int read_pam_config(void)
 {
 	const char *config_file_path = PAM_SERVICE_CONFIG;
 	FILE *cfg = NULL;
@@ -716,7 +715,7 @@ static int relabel_tty(const char *ttyn, security_context_t new_context,
 
 	if (tty_con &&
 	    (security_compute_relabel(new_context, tty_con,
-				      SECCLASS_CHR_FILE, &new_tty_con) < 0)) {
+				      string_to_security_class("chr_file"), &new_tty_con) < 0)) {
 		fprintf(stderr, _("%s!  Could not get new context for %s, "
 				  "not relabeling tty.\n"),
 			enforcing ? "Error" : "Warning", ttyn);
@@ -972,7 +971,7 @@ static int parse_command_line_arguments(int argc, char **argv, char *ttyn,
 /**
  * Take care of any signal setup
  */
-static int set_signal_handles()
+static int set_signal_handles(void)
 {
 	sigset_t empty;
 
@@ -1110,7 +1109,7 @@ int main(int argc, char *argv[])
 			 * command when invoked by newrole.
 			 */
 			char *cmd = NULL;
-			rc = sscanf(argv[optind + 1], "%as", &cmd);
+			rc = sscanf(argv[optind + 1], "%ms", &cmd);
 			if (rc != EOF && cmd) {
 				char *app_service_name =
 				    (char *)hashtab_search(app_service_names,

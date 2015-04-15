@@ -26,6 +26,7 @@
 
 #include <sys/time.h>
 #include <sepol/module.h>
+#include <sepol/cil/cil.h>
 #include "handle.h"
 
 enum semanage_store_defs {
@@ -39,10 +40,7 @@ enum semanage_store_defs {
 enum semanage_sandbox_defs {
 	SEMANAGE_TOPLEVEL,
 	SEMANAGE_MODULES,
-	SEMANAGE_KERNEL,
-	SEMANAGE_BASE,
 	SEMANAGE_LINKED,
-	SEMANAGE_FC,
 	SEMANAGE_HOMEDIR_TMPL,
 	SEMANAGE_FC_TMPL,
 	SEMANAGE_COMMIT_NUM_FILE,
@@ -50,28 +48,47 @@ enum semanage_sandbox_defs {
 	SEMANAGE_INTERFACES_LOCAL,
 	SEMANAGE_NODES_LOCAL,
 	SEMANAGE_BOOLEANS_LOCAL,
-	SEMANAGE_FC_LOCAL,
 	SEMANAGE_SEUSERS_LOCAL,
 	SEMANAGE_USERS_BASE_LOCAL,
 	SEMANAGE_USERS_EXTRA_LOCAL,
-	SEMANAGE_SEUSERS,
 	SEMANAGE_USERS_EXTRA,
-	SEMANAGE_NC,
-	SEMANAGE_FC_HOMEDIRS,
 	SEMANAGE_DISABLE_DONTAUDIT,
 	SEMANAGE_PRESERVE_TUNABLES,
+	SEMANAGE_MODULES_DISABLED,
 	SEMANAGE_STORE_NUM_PATHS
+};
+
+enum semanage_final_defs {
+	SEMANAGE_FINAL_TMP,
+	SEMANAGE_FINAL_SELINUX,
+	SEMANAGE_FINAL_NUM
+};
+
+enum semanage_final_path_defs {
+	SEMANAGE_FINAL_TOPLEVEL,
+	SEMANAGE_FC,
+	SEMANAGE_FC_HOMEDIRS,
+	SEMANAGE_FC_LOCAL,
+	SEMANAGE_KERNEL,
+	SEMANAGE_NC,
+	SEMANAGE_SEUSERS,
+	SEMANAGE_FINAL_PATH_NUM
 };
 
 /* FIXME: this needs to be made a module store specific init and the
  * global configuration moved to another file.
  */
-int semanage_check_init(const char *root);
+char *semanage_conf_path(void);
+
+int semanage_check_init(semanage_handle_t *sh, const char *prefix);
 
 extern const char *semanage_fname(enum semanage_sandbox_defs file_enum);
 
 extern const char *semanage_path(enum semanage_store_defs store,
 				 enum semanage_sandbox_defs file);
+
+extern const char *semanage_final_path(enum semanage_final_defs root,
+				       enum semanage_final_path_defs suffix);
 
 int semanage_create_store(semanage_handle_t * sh, int create);
 
@@ -79,14 +96,21 @@ int semanage_store_access_check(void);
 
 int semanage_remove_directory(const char *path);
 
+int semanage_mkdir(semanage_handle_t *sh, const char *path);
+
+int semanage_mkpath(semanage_handle_t *sh, const char *path);
+
 int semanage_make_sandbox(semanage_handle_t * sh);
 
-int semanage_get_modules_names(semanage_handle_t * sh,
-			       char ***filenames, int *len);
+int semanage_make_final(semanage_handle_t * sh);
 
-int semanage_module_enabled(const char *file);
-int semanage_enable_module(const char *file);
-int semanage_disable_module(const char *file);
+int semanage_get_cil_paths(semanage_handle_t * sh, semanage_module_info_t *modinfos,
+			       int len, char ***filenames);
+
+int semanage_get_active_modules(semanage_handle_t *sh,
+			       semanage_module_info_t **modinfo, int *num_modules);
+
+
 /* lock file routines */
 int semanage_get_trans_lock(semanage_handle_t * sh);
 int semanage_get_active_lock(semanage_handle_t * sh);
@@ -94,15 +118,8 @@ void semanage_release_trans_lock(semanage_handle_t * sh);
 void semanage_release_active_lock(semanage_handle_t * sh);
 int semanage_direct_get_serial(semanage_handle_t * sh);
 
-int semanage_link_sandbox(semanage_handle_t * sh,
-			  sepol_module_package_t ** base);
-
-int semanage_link_base(semanage_handle_t * sh,
-		       sepol_module_package_t ** base);
-
-int semanage_expand_sandbox(semanage_handle_t * sh,
-			    sepol_module_package_t * base,
-			    sepol_policydb_t ** policydb);
+int semanage_load_files(semanage_handle_t * sh,
+			    cil_db_t *cildb, char **filenames, int num_modules);
 
 int semanage_read_policydb(semanage_handle_t * sh,
 			    sepol_policydb_t * policydb);

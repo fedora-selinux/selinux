@@ -1,9 +1,12 @@
+PYTHON ?= python
+
 # Installation directories.
 PREFIX ?= $(DESTDIR)/usr
 LIBDIR ?= $(PREFIX)/lib
 SBINDIR ?= $(PREFIX)/sbin
 MANDIR = $(PREFIX)/share/man
-PYTHON ?= /usr/bin/python
+PYLIBVER ?= $(shell $(PYTHON) -c 'import sys;print("python%d.%d" % sys.version_info[0:2])')
+PYTHONLIBDIR ?= $(LIBDIR)/$(PYLIBVER)
 BASHCOMPLETIONDIR ?= $(DESTDIR)/usr/share/bash-completion/completions
 
 TARGETS=semanage
@@ -22,7 +25,7 @@ install: all
 	install -m 644 $(BASHCOMPLETIONS) $(BASHCOMPLETIONDIR)/semanage
 
 test:
-	@python test-semanage.py -a
+	@$(PYTHON) test-semanage.py -a
 clean:
 
 indent:
