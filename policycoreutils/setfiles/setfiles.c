@@ -199,6 +199,7 @@ int main(int argc, char **argv)
 		r_opts.add_assoc = 1;
 		r_opts.fts_flags = FTS_PHYSICAL | FTS_XDEV;
 		ctx_validate = 1;
+		opts = sopts;
 	} else {
 		/*
 		 * restorecon:  
@@ -218,6 +219,7 @@ int main(int argc, char **argv)
 		r_opts.add_assoc = 0;
 		r_opts.fts_flags = FTS_PHYSICAL;
 		ctx_validate = 0;
+		opts = ropts;
 
 		/* restorecon only:  silent exit if no SELinux.
 		   Allows unconditional execution by scripts. */
@@ -323,18 +325,13 @@ int main(int argc, char **argv)
 				recurse = 1;
 				break;
 			}
-			if (optind + 1 >= argc) {
-				fprintf(stderr, "usage:  %s -r rootpath\n",
-					argv[0]);
-				exit(-1);
-			}
 			if (NULL != r_opts.rootpath) {
 				fprintf(stderr,
 					"%s: only one -r can be specified\n",
 					argv[0]);
 				exit(-1);
 			}
-			set_rootpath(argv[optind]);
+			set_rootpath(optarg);
 			break;
 		case 's':
 			use_input_file = 1;
