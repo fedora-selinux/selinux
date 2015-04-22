@@ -16,82 +16,6 @@
 #include <dlfcn.h>
 #include "policy.h"
 #include <limits.h>
-#include <lzma.h>
-
-static char *lzmaread(int fd, size_t *rsize) {
-	int capacity = 64*1024;
-	char *buf = NULL;
-	int tmpsize = 8 * 1024;
-	unsigned char tmp[tmpsize];
-	unsigned char tmp_out[tmpsize];
-	size_t size = 0;
-	lzma_stream strm = LZMA_STREAM_INIT;
-	lzma_action action = LZMA_RUN;
-	lzma_ret ret;
-	
-	FILE *stream = fdopen (fd, "r");
-	if (!stream) {
-		return NULL;
-	}
-	ret = lzma_stream_decoder(&strm, UINT64_MAX,
-				  LZMA_CONCATENATED);
-	
-	strm.avail_in = 0;
-	strm.next_out = tmp_out;
-	strm.avail_out = tmpsize;
-	
-	buf = (char *) malloc (capacity);
-	if (!buf)
-		goto err;
-	
-	while (1) {
-		if (strm.avail_in == 0) {
-			strm.next_in = tmp;
-			strm.avail_in = fread(tmp, 1, tmpsize, stream);
-			
-			if (ferror(stream)) {
-				// POSIX says that fread() sets errno if
-				// an error occurred. ferror() doesn't
-				// touch errno.
-				goto err;
-			}
-			if (feof(stream)) action = LZMA_FINISH;
-		}
-		
-		ret = lzma_code(&strm, action);
-		
-		// Write and check write error before checking decoder error.
-		// This way as much data as possible gets written to output
-		// even if decoder detected an error.
-		if (strm.avail_out == 0 || ret != LZMA_OK) {
-			const size_t num =  tmpsize - strm.avail_out;
-			if (num > capacity) {
-				buf = (char*) realloc (buf, size*2);
-				capacity = size;
-			}
-			memcpy (buf+size, tmp_out, num);
-			capacity -= num;
-			size += num;
-			strm.next_out = tmp_out;
-			strm.avail_out = tmpsize;
-		}
-		if (ret != LZMA_OK) {
-			if (ret == LZMA_STREAM_END) {
-				break;
-			} else {
-				goto err;
-			}
-		}
-	}
-	*rsize = size;
-	
-	goto exit;
-err:
-	free(buf); buf = NULL;
-exit:
-	lzma_end(&strm);
-	return buf;
-}
 
 int security_load_policy(void *data, size_t len)
 {
@@ -131,7 +55,7 @@ int selinux_mkload_policy(int preservebools)
 	struct stat sb;
 	struct utsname uts;
 	size_t size;
-	void *map = NULL, *data=NULL;
+	void *map, *data;
 	int fd, rc = -1, prot;
 	sepol_policydb_t *policydb;
 	sepol_policy_file_t *pf;
@@ -257,28 +181,24 @@ checkbool:
 		goto dlclose;
 	}
 
-	data = lzmaread(fd,&size);
-
-	if (!data) {
-		if (fstat(fd, &sb) < 0) {
-			fprintf(stderr,
-				"SELinux:  Could not stat policy file %s:  %s\n",
+	if (fstat(fd, &sb) < 0) {
+		fprintf(stderr,
+			"SELinux:  Could not stat policy file %s:  %s\n",
 			path, strerror(errno));
-			goto close;
-		}
-		
-		prot = PROT_READ;
-		if (setlocaldefs || preservebools)
-			prot |= PROT_WRITE;
-		
-		size = sb.st_size;
-		data = map = mmap(NULL, size, prot, MAP_PRIVATE, fd, 0);
-		if (map == MAP_FAILED) {
-			fprintf(stderr,
-				"SELinux:  Could not map policy file %s:  %s\n",
-				path, strerror(errno));
-			goto close;
-		}
+		goto close;
+	}
+
+	prot = PROT_READ;
+	if (setlocaldefs || preservebools)
+		prot |= PROT_WRITE;
+
+	size = sb.st_size;
+	data = map = mmap(NULL, size, prot, MAP_PRIVATE, fd, 0);
+	if (map == MAP_FAILED) {
+		fprintf(stderr,
+			"SELinux:  Could not map policy file %s:  %s\n",
+			path, strerror(errno));
+		goto close;
 	}
 
 	if (vers > kernvers && usesepol) {
@@ -290,8 +210,6 @@ checkbool:
 			goto unmap;
 		}
 		policy_file_set_mem(pf, data, size);
-		if (!map)
-			free(data);
 		if (policydb_read(policydb, pf)) {
 			policy_file_free(pf);
 			policydb_free(policydb);
@@ -305,8 +223,7 @@ checkbool:
 				path);
 			policy_file_free(pf);
 			policydb_free(policydb);
-			if (map)
-				munmap(map, sb.st_size);
+			munmap(map, sb.st_size);
 			close(fd);
 			vers--;
 			goto search;
@@ -358,7 +275,7 @@ checkbool:
 #endif
 	}
 
-	
+
 	rc = security_load_policy(data, size);
 	
 	if (rc)
@@ -369,8 +286,7 @@ checkbool:
       unmap:
 	if (data != map)
 		free(data);
-	if (map)
-		munmap(map, sb.st_size);
+	munmap(map, sb.st_size);
       close:
 	close(fd);
       dlclose:
