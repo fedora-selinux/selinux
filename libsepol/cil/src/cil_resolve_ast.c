@@ -55,6 +55,7 @@ struct cil_args_resolve {
 	struct cil_tree_node *optstack;
 	struct cil_tree_node *boolif;
 	struct cil_tree_node *macro;
+	struct cil_tree_node *blockstack;
 	struct cil_list *sidorder_lists;
 	struct cil_list *classorder_lists;
 	struct cil_list *catorder_lists;
@@ -3311,6 +3312,8 @@ int __cil_resolve_ast_first_child_helper(struct cil_tree_node *current, void *ex
 	struct cil_tree_node *callstack = NULL;
 	struct cil_tree_node *optstack = NULL;
 	struct cil_tree_node *parent = NULL;
+	struct cil_tree_node *blockstack = NULL;
+	struct cil_tree_node *new = NULL;
 
 	if (current == NULL || extra_args == NULL) {
 		goto exit;
@@ -3319,10 +3322,10 @@ int __cil_resolve_ast_first_child_helper(struct cil_tree_node *current, void *ex
 	callstack = args->callstack;
 	optstack = args->optstack;
 	parent = current->parent;
+	blockstack = args->blockstack;
 
-	if (parent->flavor == CIL_CALL || parent->flavor == CIL_OPTIONAL) {
+	if (parent->flavor == CIL_CALL || parent->flavor == CIL_OPTIONAL || parent->flavor == CIL_BLOCK) {
 		/* push this node onto a stack */
-		struct cil_tree_node *new;
 		cil_tree_node_init(&new);
 
 		new->data = parent->data;
@@ -3351,6 +3354,12 @@ int __cil_resolve_ast_first_child_helper(struct cil_tree_node *current, void *ex
 				new->cl_head = optstack;
 			}
 			args->optstack = new;
+		} else if (parent->flavor == CIL_BLOCK) {
+			if (blockstack != NULL) {
+				blockstack->parent = new;
+				new->cl_head = blockstack;
+			}
+			args->blockstack = new;
 		}
 	} else if (parent->flavor == CIL_BOOLEANIF) {
 		args->boolif = parent;
@@ -3370,6 +3379,7 @@ int __cil_resolve_ast_last_child_helper(struct cil_tree_node *current, void *ext
 	int rc = SEPOL_ERR;
 	struct cil_args_resolve *args = extra_args;
 	struct cil_tree_node *parent = NULL;
+	struct cil_tree_node *blockstack = NULL;
 
 	if (current == NULL ||  extra_args == NULL) {
 		goto exit;
@@ -3404,6 +3414,14 @@ int __cil_resolve_ast_last_child_helper(struct cil_tree_node *current, void *ext
 		free(optstack);
 	} else if (parent->flavor == CIL_BOOLEANIF) {
 		args->boolif = NULL;
+	} else if (parent->flavor == CIL_BLOCK) {
+		/* pop off the stack */
+		blockstack = args->blockstack;
+		args->blockstack = blockstack->cl_head;
+		if (blockstack->cl_head) {
+			blockstack->cl_head->parent = NULL;
+		}
+		free(blockstack);
 	}
 
 	return SEPOL_OK;
@@ -3435,6 +3453,7 @@ int cil_resolve_ast(struct cil_db *db, struct cil_tree_node *current)
 	extra_args.catorder_lists = NULL;
 	extra_args.sensitivityorder_lists = NULL;
 	extra_args.in_list = NULL;
+	extra_args.blockstack = NULL;
 
 	cil_list_init(&extra_args.sidorder_lists, CIL_LIST_ITEM);
 	cil_list_init(&extra_args.classorder_lists, CIL_LIST_ITEM);
@@ -3528,6 +3547,12 @@ int cil_resolve_ast(struct cil_db *db, struct cil_tree_node *current)
 			struct cil_tree_node *next = curr->cl_head;
 			free(curr);
 			extra_args.optstack = next;
+		}
+		while (extra_args.blockstack!= NULL) {
+			struct cil_tree_node *curr = extra_args.blockstack;
+			struct cil_tree_node *next = curr->cl_head;
+			free(curr);
+			extra_args.blockstack= next;
 		}
 	}
 
