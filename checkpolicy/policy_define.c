@@ -63,8 +63,8 @@ extern unsigned long source_lineno;
 extern unsigned int policydb_errors;
 extern char source_file[PATH_MAX];
 
-extern int yywarn(char *msg);
-extern int yyerror(char *msg);
+extern int yywarn(const char *msg);
+extern int yyerror(const char *msg);
 
 #define ERRORMSG_LEN 255
 static char errormsg[ERRORMSG_LEN + 1] = {0};
@@ -81,7 +81,8 @@ void init_parser(int pass_number)
 	pass = pass_number;
 }
 
-void yyerror2(char *fmt, ...)
+__attribute__ ((format(printf, 1, 2)))
+void yyerror2(const char *fmt, ...)
 {
 	va_list ap;
 	va_start(ap, fmt);
@@ -106,7 +107,7 @@ int insert_separator(int push)
 	return 0;
 }
 
-int insert_id(char *id, int push)
+int insert_id(const char *id, int push)
 {
 	char *newid = 0;
 	int error;
@@ -827,7 +828,7 @@ int define_sens(void)
 int define_dominance(void)
 {
 	level_datum_t *datum;
-	int order;
+	uint32_t order;
 	char *id;
 
 	if (!mlspol) {
@@ -994,7 +995,7 @@ int define_category(void)
 	return -1;
 }
 
-static int clone_level(hashtab_key_t key, hashtab_datum_t datum, void *arg)
+static int clone_level(hashtab_key_t key __attribute__ ((unused)), hashtab_datum_t datum, void *arg)
 {
 	level_datum_t *levdatum = (level_datum_t *) datum;
 	mls_level_t *level = (mls_level_t *) arg, *newlevel;
@@ -1574,7 +1575,7 @@ int define_compute_type_helper(int which, avrule_t ** rule)
 				goto bad;
 			}
 			class_perm_node_init(perm);
-			perm->class = i + 1;
+			perm->tclass = i + 1;
 			perm->data = datum->s.value;
 			perm->next = avrule->perms;
 			avrule->perms = perm;
@@ -1795,7 +1796,7 @@ int define_te_avtab_helper(int which, avrule_t ** rule)
 			goto out;
 		}
 		class_perm_node_init(cur_perms);
-		cur_perms->class = i + 1;
+		cur_perms->tclass = i + 1;
 		if (!perms)
 			perms = cur_perms;
 		if (tail)
@@ -2122,8 +2123,8 @@ role_datum_t *merge_roles_dom(role_datum_t * r1, role_datum_t * r2)
 }
 
 /* This function eliminates the ordering dependency of role dominance rule */
-static int dominate_role_recheck(hashtab_key_t key, hashtab_datum_t datum,
-				 void *arg)
+static int dominate_role_recheck(hashtab_key_t key __attribute__ ((unused)),
+				 hashtab_datum_t datum, void *arg)
 {
 	role_datum_t *rdp = (role_datum_t *) arg;
 	role_datum_t *rdatum = (role_datum_t *) datum;
@@ -3442,7 +3443,7 @@ static int parse_categories(char *id, level_datum_t * levdatum, ebitmap_t * cats
 	return 0;
 }
 
-static int parse_semantic_categories(char *id, level_datum_t * levdatum,
+static int parse_semantic_categories(char *id, level_datum_t * levdatum __attribute__ ((unused)),
 				     mls_semantic_cat_t ** cats)
 {
 	cat_datum_t *cdatum;
@@ -3959,7 +3960,7 @@ int define_iomem_context(unsigned long low, unsigned long high)
 	newc->u.iomem.high_iomem = high;
 
 	if (low > high) {
-		yyerror2("low memory 0x%x exceeds high memory 0x%x", low, high);
+		yyerror2("low memory 0x%lx exceeds high memory 0x%lx", low, high);
 		free(newc);
 		return -1;
 	}
@@ -3971,12 +3972,12 @@ int define_iomem_context(unsigned long low, unsigned long high)
 
 	head = policydbp->ocontexts[OCON_XEN_IOMEM];
 	for (l = NULL, c = head; c; l = c, c = c->next) {
-		unsigned int low2, high2;
+		uint32_t low2, high2;
 
 		low2 = c->u.iomem.low_iomem;
 		high2 = c->u.iomem.high_iomem;
 		if (low <= high2 && low2 <= high) {
-			yyerror2("iomemcon entry for 0x%x-0x%x overlaps with "
+			yyerror2("iomemcon entry for 0x%lx-0x%lx overlaps with "
 				"earlier entry 0x%x-0x%x", low, high,
 				low2, high2);
 			goto bad;
@@ -4023,7 +4024,7 @@ int define_ioport_context(unsigned long low, unsigned long high)
 	newc->u.ioport.high_ioport = high;
 
 	if (low > high) {
-		yyerror2("low ioport 0x%x exceeds high ioport 0x%x", low, high);
+		yyerror2("low ioport 0x%lx exceeds high ioport 0x%lx", low, high);
 		free(newc);
 		return -1;
 	}
@@ -4035,12 +4036,12 @@ int define_ioport_context(unsigned long low, unsigned long high)
 
 	head = policydbp->ocontexts[OCON_XEN_IOPORT];
 	for (l = NULL, c = head; c; l = c, c = c->next) {
-		unsigned int low2, high2;
+		uint32_t low2, high2;
 
 		low2 = c->u.ioport.low_ioport;
 		high2 = c->u.ioport.high_ioport;
 		if (low <= high2 && low2 <= high) {
-			yyerror2("ioportcon entry for 0x%x-0x%x overlaps with"
+			yyerror2("ioportcon entry for 0x%lx-0x%lx overlaps with"
 				"earlier entry 0x%x-0x%x", low, high,
 				low2, high2);
 			goto bad;
@@ -4096,7 +4097,7 @@ int define_pcidevice_context(unsigned long device)
 
 		device2 = c->u.device;
 		if (device == device2) {
-			yyerror2("duplicate pcidevicecon entry for 0x%x ",
+			yyerror2("duplicate pcidevicecon entry for 0x%lx",
 				 device);
 			goto bad;
 		}

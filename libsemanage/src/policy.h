@@ -47,22 +47,10 @@ struct semanage_policy_table {
 	int (*commit) (struct semanage_handle *);
 
 	/* Install a policy module */
-	int (*install) (struct semanage_handle *, char *, size_t);
+	int (*install) (struct semanage_handle *, char *, size_t, const char *, const char *);
 
 	/* Install a policy module */
 	int (*install_file) (struct semanage_handle *, const char *);
-
-	/* Upgrade a policy module */
-	int (*upgrade) (struct semanage_handle *, char *, size_t);
-	
-	/* Upgrade a policy module */
-	int (*upgrade_file) (struct semanage_handle *, const char *);
-
-	/* Enable a policy module */
-	int (*enable) (struct semanage_handle *, char *);
-
-	/* Disable a policy module */
-	int (*disable) (struct semanage_handle *, char *);
 
 	/* Remove a policy module */
 	int (*remove) (struct semanage_handle *, char *);
@@ -71,11 +59,35 @@ struct semanage_policy_table {
 	int (*list) (struct semanage_handle *, semanage_module_info_t **,
 		     int *);
 
-	/* Install base policy */
-	int (*install_base) (struct semanage_handle *, char *, size_t);
+	/* Get module enabled status */
+	int (*get_enabled) (struct semanage_handle *sh,
+			    const semanage_module_key_t *key,
+			    int *enabled);
 
-	/* Install a base module */
-	int (*install_base_file) (struct semanage_handle *, const char *);
+	/* Set module enabled status */
+	int (*set_enabled) (struct semanage_handle *sh,
+			    const semanage_module_key_t *key,
+			    int enabled);
+
+	/* Get a module info */
+	int (*get_module_info) (struct semanage_handle *,
+				const semanage_module_key_t *,
+				semanage_module_info_t **);
+
+	/* List all policy modules */
+	int (*list_all) (struct semanage_handle *,
+			 semanage_module_info_t **,
+			 int *);
+
+	/* Install via module info */
+	int (*install_info) (struct semanage_handle *,
+			     const semanage_module_info_t *,
+			     char *,
+			     size_t);
+
+	/* Remove via module key */
+	int (*remove_key) (struct semanage_handle *,
+			   const semanage_module_key_t *);
 };
 
 /* Should be backend independent */

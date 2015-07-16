@@ -39,8 +39,9 @@ typedef struct scope_stack {
 
 extern policydb_t *policydbp;
 extern queue_t id_queue;
-extern int yyerror(char *msg);
-extern void yyerror2(char *fmt, ...);
+extern int yyerror(const char *msg);
+__attribute__ ((format(printf, 1, 2)))
+extern void yyerror2(const char *fmt, ...);
 
 static int push_stack(int stack_type, ...);
 static void pop_stack(void);
@@ -700,7 +701,7 @@ int add_perm_to_class(uint32_t perm_value, uint32_t class_value)
 	assert(class_value >= 1);
 	scope = &decl->required;
 	if (class_value > scope->class_perms_len) {
-		int i;
+		uint32_t i;
 		ebitmap_t *new_map = realloc(scope->class_perms_map,
 					     class_value * sizeof(*new_map));
 		if (new_map == NULL) {
@@ -1224,7 +1225,7 @@ int require_cat(int pass)
 
 static int is_scope_in_stack(scope_datum_t * scope, scope_stack_t * stack)
 {
-	int i;
+	uint32_t i;
 	if (stack == NULL) {
 		return 0;	/* no matching scope found */
 	}
@@ -1445,7 +1446,7 @@ int begin_optional(int pass)
 	return -1;
 }
 
-int end_optional(int pass)
+int end_optional(int pass __attribute__ ((unused)))
 {
 	/* once nested conditionals are allowed, do the stack unfolding here */
 	pop_stack();
@@ -1481,7 +1482,7 @@ int begin_optional_else(int pass)
 
 static int copy_requirements(avrule_decl_t * dest, scope_stack_t * stack)
 {
-	int i;
+	uint32_t i;
 	if (stack == NULL) {
 		return 0;
 	}

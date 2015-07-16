@@ -72,7 +72,7 @@ static int process_file(struct saved_data *data, const char *filename)
 
 		spec->lr.ctx_raw = context;
 		spec->mode = string_to_mode(mode);
-		if (spec->mode == -1) {
+		if (spec->mode == (mode_t)-1) {
 			fprintf(stderr, "%s: line %u has invalid file type %s\n",
 				regex, line_num + 1, mode);
 			spec->mode = 0;
@@ -130,6 +130,8 @@ static int process_file(struct saved_data *data, const char *filename)
  *
  * u32 - magic number
  * u32 - version
+ * u32 - length of pcre version EXCLUDING nul
+ * char - pcre version string EXCLUDING nul
  * u32 - number of stems
  * ** Stems
  * 	u32  - length of stem EXCLUDING nul
@@ -173,6 +175,15 @@ static int write_binary_file(struct saved_data *data, int fd)
 	section_len = SELINUX_COMPILED_FCONTEXT_MAX_VERS;
 	len = fwrite(&section_len, sizeof(uint32_t), 1, bin_file);
 	if (len != 1)
+		goto err;
+
+	/* write the pcre version */
+	section_len = strlen(pcre_version());
+	len = fwrite(&section_len, sizeof(uint32_t), 1, bin_file);
+	if (len != 1)
+		goto err;
+	len = fwrite(pcre_version(), sizeof(char), section_len, bin_file);
+	if (len != section_len)
 		goto err;
 
 	/* write the number of stems coming */
@@ -338,7 +349,7 @@ int main(int argc, char *argv[])
 	path = argv[1];
 
 	if (stat(path, &buf) < 0) {
-		fprintf(stderr, "Can not stat: %s: %m\n", argv[0]);
+		fprintf(stderr, "Can not stat: %s: %m\n", path);
 		exit(EXIT_FAILURE);
 	}
 
@@ -351,7 +362,7 @@ int main(int argc, char *argv[])
 		return rc;
 
 	rc = snprintf(stack_path, sizeof(stack_path), "%s.bin", path);
-	if (rc < 0 || rc >= sizeof(stack_path))
+	if (rc < 0 || rc >= (int)sizeof(stack_path))
 		return rc;
 
 	if (asprintf(&tmp, "%sXXXXXX", stack_path) < 0)

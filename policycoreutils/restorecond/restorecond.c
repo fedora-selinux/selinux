@@ -65,9 +65,9 @@
 const char *homedir;
 static int master_fd = -1;
 
-static char *server_watch_file  = "/etc/selinux/restorecond.conf";
-static char *user_watch_file  = "/etc/selinux/restorecond_user.conf";
-static char *watch_file;
+static const char *server_watch_file  = "/etc/selinux/restorecond.conf";
+static const char *user_watch_file  = "/etc/selinux/restorecond_user.conf";
+static const char *watch_file;
 static struct restore_opts r_opts;
 
 #include <selinux/selinux.h>
@@ -111,7 +111,7 @@ static int write_pid_file(void)
 /*
  * SIGTERM handler
  */
-static void term_handler()
+static void term_handler(int s __attribute__ ((unused)))
 {
 	terminate = 1;
 	/* trigger a failure in the watch */

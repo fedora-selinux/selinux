@@ -65,7 +65,7 @@ static const char *symbol_labels[9] = {
 	"levels ", "cats   ", "attribs"
 };
 
-void usage(char *progname)
+void usage(const char *progname)
 {
 	printf("usage:  %s binary_pol_file\n\n", progname);
 	exit(1);
@@ -99,7 +99,7 @@ static void render_access_bitmap(ebitmap_t * map, uint32_t class,
 }
 
 static void display_id(policydb_t * p, FILE * fp, uint32_t symbol_type,
-		       uint32_t symbol_value, char *prefix)
+		       uint32_t symbol_value, const char *prefix)
 {
 	char *id = p->sym_val_to_name[symbol_type][symbol_value];
 	scope_datum_t *scope =
@@ -269,7 +269,7 @@ int display_avrule(avrule_t * avrule, policydb_t * policy,
 
 	cur = avrule->perms;
 	while (cur) {
-		display_id(policy, fp, SYM_CLASSES, cur->class - 1, "");
+		display_id(policy, fp, SYM_CLASSES, cur->tclass - 1, "");
 		cur = cur->next;
 	}
 
@@ -278,7 +278,7 @@ int display_avrule(avrule_t * avrule, policydb_t * policy,
 	fprintf(fp, " ");
 
 	if (avrule->specified & (AVRULE_AV | AVRULE_NEVERALLOW)) {
-		render_access_mask(avrule->perms->data, avrule->perms->class,
+		render_access_mask(avrule->perms->data, avrule->perms->tclass,
 				   policy, fp);
 	} else if (avrule->specified & AVRULE_TYPE) {
 		display_id(policy, fp, SYM_TYPES, avrule->perms->data - 1, "");
@@ -807,7 +807,7 @@ static void display_policycaps(policydb_t * p, FILE * fp)
 	}
 }
 
-int menu()
+int menu(void)
 {
 	printf("\nSelect a command:\n");
 	printf("1)  display unconditional AVTAB\n");

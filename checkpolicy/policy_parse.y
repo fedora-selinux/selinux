@@ -58,10 +58,10 @@ extern unsigned int pass;
 
 extern char yytext[];
 extern int yylex(void);
-extern int yywarn(char *msg);
-extern int yyerror(char *msg);
+extern int yywarn(const char *msg);
+extern int yyerror(const char *msg);
 
-typedef int (* require_func_t)();
+typedef int (* require_func_t)(int pass);
 
 %}
 
@@ -356,6 +356,7 @@ cond_else		: ELSE '{' cond_pol_list '}'
 			{ $$ = $3; }
 			| /* empty */ 
 			{ $$ = NULL; }
+			;
 cond_expr               : '(' cond_expr ')'
 			{ $$ = $2;}
 			| NOT cond_expr

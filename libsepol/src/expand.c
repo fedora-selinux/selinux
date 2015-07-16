@@ -1679,7 +1679,7 @@ static int expand_terule_helper(sepol_handle_t * handle,
 		    typemap ? typemap[cur->data - 1] : cur->data;
 		avkey.source_type = stype + 1;
 		avkey.target_type = ttype + 1;
-		avkey.target_class = cur->class;
+		avkey.target_class = cur->tclass;
 		avkey.specified = spec;
 
 		conflict = 0;
@@ -1791,7 +1791,7 @@ static int expand_avrule_helper(sepol_handle_t * handle,
 	while (cur) {
 		avkey.source_type = stype + 1;
 		avkey.target_type = ttype + 1;
-		avkey.target_class = cur->class;
+		avkey.target_class = cur->tclass;
 		avkey.specified = spec;
 
 		node = find_avtab_node(handle, avtab, &avkey, cond);
@@ -2574,8 +2574,8 @@ static int copy_neverallow(policydb_t * dest_pol, uint32_t * typemap,
 		if (!new_perm)
 			goto err;
 		class_perm_node_init(new_perm);
-		new_perm->class = cur_perm->class;
-		assert(new_perm->class);
+		new_perm->tclass = cur_perm->tclass;
+		assert(new_perm->tclass);
 
 		/* once we have modules with permissions we'll need to map the permissions (and classes) */
 		new_perm->data = cur_perm->data;
@@ -3159,12 +3159,12 @@ static int expand_avtab_node(avtab_key_t * k, avtab_datum_t * d, void *args)
 	newkey.target_class = k->target_class;
 	newkey.specified = k->specified;
 
-	if (stype->flavor != TYPE_ATTRIB && ttype->flavor != TYPE_ATTRIB) {
+	if (stype && ttype && stype->flavor != TYPE_ATTRIB && ttype->flavor != TYPE_ATTRIB) {
 		/* Both are individual types, no expansion required. */
 		return expand_avtab_insert(expa, k, d);
 	}
 
-	if (stype->flavor != TYPE_ATTRIB) {
+	if (stype && stype->flavor != TYPE_ATTRIB) {
 		/* Source is an individual type, target is an attribute. */
 		newkey.source_type = k->source_type;
 		ebitmap_for_each_bit(tattr, tnode, j) {
@@ -3178,7 +3178,7 @@ static int expand_avtab_node(avtab_key_t * k, avtab_datum_t * d, void *args)
 		return 0;
 	}
 
-	if (ttype->flavor != TYPE_ATTRIB) {
+	if (ttype && ttype->flavor != TYPE_ATTRIB) {
 		/* Target is an individual type, source is an attribute. */
 		newkey.target_type = k->target_type;
 		ebitmap_for_each_bit(sattr, snode, i) {
@@ -3289,12 +3289,12 @@ int expand_cond_av_node(policydb_t * p,
 	newkey.target_class = k->target_class;
 	newkey.specified = k->specified;
 
-	if (stype->flavor != TYPE_ATTRIB && ttype->flavor != TYPE_ATTRIB) {
+	if (stype && ttype && stype->flavor != TYPE_ATTRIB && ttype->flavor != TYPE_ATTRIB) {
 		/* Both are individual types, no expansion required. */
 		return expand_cond_insert(newl, expa, k, d);
 	}
 
-	if (stype->flavor != TYPE_ATTRIB) {
+	if (stype && stype->flavor != TYPE_ATTRIB) {
 		/* Source is an individual type, target is an attribute. */
 		newkey.source_type = k->source_type;
 		ebitmap_for_each_bit(tattr, tnode, j) {
@@ -3308,7 +3308,7 @@ int expand_cond_av_node(policydb_t * p,
 		return 0;
 	}
 
-	if (ttype->flavor != TYPE_ATTRIB) {
+	if (ttype && ttype->flavor != TYPE_ATTRIB) {
 		/* Target is an individual type, source is an attribute. */
 		newkey.target_type = k->target_type;
 		ebitmap_for_each_bit(sattr, snode, i) {
