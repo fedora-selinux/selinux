@@ -36,16 +36,20 @@ PROGNAME="policycoreutils"
 gettext.bindtextdomain(PROGNAME, "/usr/share/locale")
 gettext.textdomain(PROGNAME)
 try:
+    kwargs = {}
+    if sys.version_info < (3,):
+        kwargs['unicode'] = True
     gettext.install(PROGNAME,
-                    unicode=True,
-                    codeset = 'utf-8')
-except TypeError:
-    # Failover to python3 install
-    gettext.install(PROGNAME,
-                    codeset = 'utf-8')
+                    localedir="/usr/share/locale",
+                    codeset = 'utf-8',
+                    **kwarg)
 except IOError:
-    import builtins
-    builtins.__dict__['_'] = str
+    try:
+        import builtins
+        builtins.__dict__['_'] = str
+    except ImportError:
+        import __builtin__
+        __builtin__.__dict__['_'] = unicode
 
 # define custom usages for selected main actions
 usage_login = "semanage login [-h] [-n] [-N] [-s STORE] ["
@@ -680,11 +684,11 @@ def setupDontauditParser(subparsers):
 def handleExport(args):
     manageditems=[ "boolean", "login", "interface", "user", "port", "node", "fcontext", "module"]
     for i in manageditems:
-           print("%s -D" % i)
+        print("%s -D" % i)
     for i in manageditems:
         OBJECT = object_dict[i]()
         for c in OBJECT.customized():
-           print("%s %s" % (i, str(c)))
+            print("%s %s" % (i, str(c)))
 
     sys.exit(0)
 
