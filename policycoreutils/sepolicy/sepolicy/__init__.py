@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 # Author: Dan Walsh <dwalsh@redhat.com>
 # Author: Ryan Hallisey <rhallise@redhat.com>
