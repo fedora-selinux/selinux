@@ -394,7 +394,7 @@ class moduleRecords(semanageRecords):
         def deleteall(self):
                 l = [x[0] for x in [t for t in self.get_all() if t[1] == 0]]
                 for m in l:
-                        self.enable(m)
+                        self.set_enabled(m, True)
 
 class dontauditClass(semanageRecords):
         def __init__(self, store):
