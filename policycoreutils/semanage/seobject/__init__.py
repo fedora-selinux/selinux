@@ -832,7 +832,7 @@ class seluserRecords(semanageRecords):
         def __modify(self, name, roles = [], selevel = "", serange = None, prefix = ""):
                 oldserole = ""
                 oldserange = ""
-                newroles = string.join(roles, ' ');
+                newroles = ' '.join(roles);
                 if prefix == "" and len(roles) == 0  and not serange and selevel == "":
                        if is_mls_enabled == 1:
                               raise ValueError(_("Requires prefix, roles, level or range"))
@@ -856,7 +856,7 @@ class seluserRecords(semanageRecords):
                 oldserange = semanage_user_get_mlsrange(u)
                 (rc, rlist) = semanage_user_get_roles(self.sh, u)
                 if rc >= 0:
-                       oldserole = string.join(rlist, ' ');
+                       oldserole = ' '.join(rlist);
 
                 if serange:
                        semanage_user_set_mlsrange(self.sh, u, untranslate(serange))
@@ -970,7 +970,7 @@ class seluserRecords(semanageRecords):
                         if rc < 0:
                                 raise ValueError(_("Could not list roles for user %s") % name)
 
-                        roles = string.join(rlist, ' ');
+                        roles = ' '.join(rlist);
                         ddict[semanage_user_get_name(u)] = (semanage_user_get_prefix(u), semanage_user_get_mlslevel(u), semanage_user_get_mlsrange(u), roles)
 
                 return ddict
