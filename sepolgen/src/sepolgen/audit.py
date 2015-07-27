@@ -518,7 +518,8 @@ class AuditParser:
         try:
             output = subprocess.check_output(command,
                                              stderr=subprocess.STDOUT,
-                                             shell=True)
+                                             shell=True,
+                                             universal_newlines=True)
             try:
                 ino = int(inode)
             except ValueError:
