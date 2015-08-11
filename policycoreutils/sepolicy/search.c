@@ -1000,8 +1000,19 @@ static int Dict_ContainsInt(PyObject *dict, const char *key){
 
 static const char *Dict_ContainsString(PyObject *dict, const char *key){
     PyObject *item = PyDict_GetItemString(dict, key);
-    if (item)
-	    return PyBytes_AsString(item);
+    if (item) {
+        if (PyUnicode_Check(item)) {
+            char *str = NULL;
+            PyObject *item_utf8 = PyUnicode_AsUTF8String(item);
+            if (item_utf8) {
+                str = strdup(PyBytes_AsString(item_utf8));
+            }
+            Py_XDECREF(item_utf8);
+            return str;
+        } else {
+            return PyBytes_AsString(item);
+        }
+    }
     return NULL;
 }
 
