@@ -25,6 +25,7 @@ import os, sys
 import selinux
 import sepolicy
 from sepolicy import get_os_version, get_conditionals, get_conditionals_format_text
+from sepolgen import util
 import argparse
 import gettext
 PROGNAME="policycoreutils"
@@ -398,6 +399,8 @@ def booleans(args):
     from sepolicy import boolean_desc
     if args.all:
         rc, args.booleans = selinux.security_get_boolean_names()
+        if util.PY3:
+            args.booleans = [util.decode_input(x) for x in args.booleans]
     args.booleans.sort()
 
     for b in args.booleans:
