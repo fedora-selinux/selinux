@@ -9,6 +9,7 @@ PROGNAME="policycoreutils"
 import gettext
 import sepolgen.defaults as defaults
 import sepolgen.interfaces as interfaces
+from sepolgen import util
 import sys
 import subprocess
 gettext.bindtextdomain(PROGNAME, "/usr/share/locale")
@@ -872,6 +873,8 @@ def get_all_booleans():
     global booleans
     if not booleans:
         booleans = selinux.security_get_boolean_names()[1]
+        if util.PY3:
+            booleans = [util.decode_input(x) for x in booleans]
     return booleans
 
 booleans_dict = None
