@@ -163,7 +163,7 @@ def convert_manpage_to_html(html_manpage,manpage):
         except subprocess.CalledProcessError as e:
                 sys.stderr.write(e.output)
                 return
-        fd = open(html_manpage,'w')
+        fd = open(html_manpage,'wb')
         fd.write(man_page)
         fd.close()
         print(html_manpage)
