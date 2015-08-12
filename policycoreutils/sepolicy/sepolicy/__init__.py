@@ -595,7 +595,7 @@ def get_all_domains():
         return all_domains
 
 def mls_cmp(x,y):
-    return cmp(int(x[1:]), int(y[1:]))
+    return (int(x[1:]) > int(y[1:])) - (int(x[1:]) < int(y[1:]))
 
 mls_range = None
 def get_mls_range():
@@ -604,7 +604,7 @@ def get_mls_range():
                 return mls_rangeroles
         range_dict = info(SENS)
         keys = range_dict.keys()
-        keys.sort(cmp=mls_cmp)
+        keys.sort(key=util.cmp_to_key(mls_cmp))
         mls_range = "%s-%s" % (keys[0], range_dict[keys[-1]])
         return mls_range
 

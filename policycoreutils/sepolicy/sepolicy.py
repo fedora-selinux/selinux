@@ -220,7 +220,7 @@ def numcmp(val1,val2):
         if v1 < v2:
             return -1
     except:
-        return cmp(val1,val2)
+        return (val1 > val2) - (val1 < val2)
 
 def _print_net(src, protocol, perm):
     import sepolicy.network
@@ -239,7 +239,7 @@ def _print_net(src, protocol, perm):
                     port_strings.append("%s (%s) %s" % (", ".join(recs), t, boolean_text))
                 else:
                     port_strings.append("%s (%s)" % (", ".join(recs), t))
-        port_strings.sort(numcmp)
+        port_strings.sort(key=util.cmp_to_key(numcmp))
         for p in port_strings:
                 print("\t" + p)
 
