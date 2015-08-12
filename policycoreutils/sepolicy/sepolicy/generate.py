@@ -44,6 +44,7 @@ from .templates import spec
 from .templates import user
 import sepolgen.interfaces as interfaces
 import sepolgen.defaults as defaults
+from sepolgen import util
 
 ##
 ## I18N
@@ -70,6 +71,11 @@ def get_rpm_nvr_from_header(hdr):
     name    = hdr['name']
     version = hdr['version']
     release = hdr['release']
+    if util.PY3:
+        name = util.decode_input(name)
+        version = util.decode_input(version)
+        release = util.decode_input(release)
+
     release_version = version+"-"+release.split(".")[0]
     os_version = release.split(".")[1]
 
