@@ -520,9 +520,6 @@ class AuditParser:
                                              stderr=subprocess.STDOUT,
                                              shell=True,
                                              universal_newlines=True)
-            if util.PY3:
-                output = util.decode_input(output)
-
             try:
                 ino = int(inode)
             except ValueError:
