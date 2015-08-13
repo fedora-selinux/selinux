@@ -546,14 +546,11 @@ class AuditParser:
         return path
 
     def __store_base_types(self):
-        # FIXME: this is a temporary workaround until sepolicy is ported to python 3
-        # import sepolicy
-        # self.base_types = sepolicy.get_types_from_attribute("base_file_type")
-        self.base_types = []
+        import sepolicy
+        self.base_types = sepolicy.get_types_from_attribute("base_file_type")
 
     def __get_base_type(self, tcontext, scontext):
-        # FIXME: uncomment the following code when sepolicy is ported to python 3
-        # import sepolicy
+        import sepolicy
         # Prevent unnecessary searching
         if (self.old_scontext == scontext and
             self.old_tcontext == tcontext):
@@ -562,10 +559,9 @@ class AuditParser:
         self.old_tcontext = tcontext
         for btype in self.base_types:
             if btype == tcontext:
-                # FIXME: uncomment the following code when sepolicy is ported to python 3
-                # for writable in sepolicy.get_writable_files(scontext):
-                #     if writable.endswith(tcontext) and writable.startswith(scontext.rstrip("_t")):
-                #         return writable
+                for writable in sepolicy.get_writable_files(scontext):
+                    if writable.endswith(tcontext) and writable.startswith(scontext.rstrip("_t")):
+                        return writable
                 return 0
 
     def to_access(self, avc_filter=None, only_denials=True):

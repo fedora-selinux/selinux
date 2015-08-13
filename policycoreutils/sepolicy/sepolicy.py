@@ -25,6 +25,7 @@ import os, sys
 import selinux
 import sepolicy
 from sepolicy import get_os_version, get_conditionals, get_conditionals_format_text
+from sepolgen import util
 import argparse
 import gettext
 PROGNAME="policycoreutils"
@@ -219,7 +220,7 @@ def numcmp(val1,val2):
         if v1 < v2:
             return -1
     except:
-        return cmp(val1,val2)
+        return (val1 > val2) - (val1 < val2)
 
 def _print_net(src, protocol, perm):
     import sepolicy.network
@@ -238,7 +239,7 @@ def _print_net(src, protocol, perm):
                     port_strings.append("%s (%s) %s" % (", ".join(recs), t, boolean_text))
                 else:
                     port_strings.append("%s (%s)" % (", ".join(recs), t))
-        port_strings.sort(numcmp)
+        port_strings.sort(key=util.cmp_to_key(numcmp))
         for p in port_strings:
                 print("\t" + p)
 
@@ -398,6 +399,8 @@ def booleans(args):
     from sepolicy import boolean_desc
     if args.all:
         rc, args.booleans = selinux.security_get_boolean_names()
+        if util.PY3:
+            args.booleans = [util.decode_input(x) for x in args.booleans]
     args.booleans.sort()
 
     for b in args.booleans:
