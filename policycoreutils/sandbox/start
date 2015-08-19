@@ -1,5 +1,5 @@
-#! /usr/bin/python -Es
-import gtk, subprocess, sys
+#! /usr/bin/python3 -Es
+import subprocess, sys
 rc = [-1,'']
 try:
     rc=subprocess.getstatusoutput(sys.argv[1])
