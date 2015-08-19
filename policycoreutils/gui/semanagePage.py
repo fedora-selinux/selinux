@@ -17,10 +17,10 @@
 
 ## Author: Dan Walsh
 import string
-import gtk
-import gtk.glade
+from gi.repository import Gtk
+import Gtk.glade
 import os
-import gobject
+from gi.repository import GObject
 import sys
 import seobject
 
@@ -41,15 +41,15 @@ except IOError:
     builtins.__dict__['_'] = str
 
 def idle_func():
-    while gtk.events_pending():
-        gtk.main_iteration()
+    while Gtk.events_pending():
+        Gtk.main_iteration()
 
 class semanagePage:
     def __init__(self, xml, name, description):
         self.xml = xml
         self.window = self.xml.get_widget("mainWindow").get_root_window()
-        self.busy_cursor = gtk.gdk.Cursor(gtk.gdk.WATCH)
-        self.ready_cursor = gtk.gdk.Cursor(gtk.gdk.LEFT_PTR)
+        self.busy_cursor = Gdk.Cursor.new(Gdk.CursorType.WATCH)
+        self.ready_cursor = Gdk.Cursor.new(Gdk.CursorType.LEFT_PTR)
 
         self.local = False
         self.view = xml.get_widget("%sView" % name)
@@ -102,28 +102,28 @@ class semanagePage:
         self.propertiesDialog()
 
     def verify(self, message, title="" ):
-        dlg = gtk.MessageDialog(None, 0, gtk.MESSAGE_INFO,
-                                gtk.BUTTONS_YES_NO,
+        dlg = Gtk.MessageDialog(None, 0, Gtk.MessageType.INFO,
+                                Gtk.ButtonsType.YES_NO,
                                 message)
         dlg.set_title(title)
-        dlg.set_position(gtk.WIN_POS_MOUSE)
+        dlg.set_position(Gtk.WindowPosition.MOUSE)
         dlg.show_all()
         rc = dlg.run()
         dlg.destroy()
         return rc
 
     def error(self, message):
-        dlg = gtk.MessageDialog(None, 0, gtk.MESSAGE_ERROR,
-                                gtk.BUTTONS_CLOSE,
+        dlg = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
+                                Gtk.ButtonsType.CLOSE,
                                 message)
-        dlg.set_position(gtk.WIN_POS_MOUSE)
+        dlg.set_position(Gtk.WindowPosition.MOUSE)
         dlg.show_all()
         dlg.run()
         dlg.destroy()
 
     def deleteDialog(self):
         store, it = self.view.get_selection().get_selected()
-        if self.verify(_("Are you sure you want to delete %s '%s'?" % (self.description, store.get_value(it, 0))), _("Delete %s" % self.description)) == gtk.RESPONSE_YES:
+        if self.verify(_("Are you sure you want to delete %s '%s'?" % (self.description, store.get_value(it, 0))), _("Delete %s" % self.description)) == Gtk.ResponseType.YES:
             self.delete()
 
     def use_menus(self):
@@ -156,9 +156,9 @@ class semanagePage:
     def addDialog(self):
         self.dialogClear()
         self.dialog.set_title(_("Add %s" % self.description))
-        self.dialog.set_position(gtk.WIN_POS_MOUSE)
+        self.dialog.set_position(Gtk.WindowPosition.MOUSE)
 
-        while self.dialog.run() ==  gtk.RESPONSE_OK:
+        while self.dialog.run() ==  Gtk.ResponseType.OK:
             try:
                 if not self.add():
                     continue
@@ -170,8 +170,8 @@ class semanagePage:
     def propertiesDialog(self):
         self.dialogInit()
         self.dialog.set_title(_("Modify %s" % self.description))
-        self.dialog.set_position(gtk.WIN_POS_MOUSE)
-        while self.dialog.run() ==  gtk.RESPONSE_OK:
+        self.dialog.set_position(Gtk.WindowPosition.MOUSE)
+        while self.dialog.run() ==  Gtk.ResponseType.OK:
             try:
                 if not self.modify():
                     continue

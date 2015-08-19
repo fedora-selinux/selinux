@@ -17,11 +17,11 @@
 
 ## Author: Dan Walsh
 import string
-import gtk
-import gtk.glade
+from gi.repository import Gtk
+import Gtk.glade
 import os
 import subprocess
-import gobject
+from gi.repository import GObject
 import sys
 import seobject
 import selinux
@@ -51,15 +51,15 @@ class domainsPage(semanagePage):
         self.domain_filter.connect("focus_out_event", self.filter_changed)
         self.domain_filter.connect("activate", self.filter_changed)
 
-        self.store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
+        self.store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
         self.view.set_model(self.store)
-        self.store.set_sort_column_id(0, gtk.SORT_ASCENDING)
-        col = gtk.TreeViewColumn(_("Domain Name"), gtk.CellRendererText(), text = 0)
+        self.store.set_sort_column_id(0, Gtk.SortType.ASCENDING)
+        col = Gtk.TreeViewColumn(_("Domain Name"), Gtk.CellRendererText(), text = 0)
         col.set_sort_column_id(0)
         col.set_resizable(True)
         self.view.append_column(col)
-        self.store.set_sort_column_id(0, gtk.SORT_ASCENDING)
-        col = gtk.TreeViewColumn(_("Mode"), gtk.CellRendererText(), text = 1)
+        self.store.set_sort_column_id(0, Gtk.SortType.ASCENDING)
+        col = Gtk.TreeViewColumn(_("Mode"), Gtk.CellRendererText(), text = 1)
         col.set_sort_column_id(1)
         col.set_resizable(True)
         self.view.append_column(col)

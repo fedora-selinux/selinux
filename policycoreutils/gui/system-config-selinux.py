@@ -24,15 +24,15 @@ import signal
 import string
 import sys
 try:
-    import gtk
+    from gi.repository import Gtk
 except RuntimeError as e:
     print("system-config-selinux:", e)
     print("This is a graphical application and requires DISPLAY to be set.")
     sys.exit (1)
 
-import gtk.glade
+import Gtk.glade
 import os
-import gobject
+from gi.repository import GObject
 import gnome
 import statusPage
 import booleansPage
@@ -72,9 +72,9 @@ sys.path.append('/usr/share/system-config-selinux')
 ## Pull in the Glade file
 ##
 if os.access("system-config-selinux.glade", os.F_OK):
-    xml = gtk.glade.XML ("system-config-selinux.glade", domain=PROGNAME)
+    xml = Gtk.glade.XML ("system-config-selinux.glade", domain=PROGNAME)
 else:
-    xml = gtk.glade.XML ("/usr/share/system-config-selinux/system-config-selinux.glade", domain=PROGNAME)
+    xml = Gtk.glade.XML ("/usr/share/system-config-selinux/system-config-selinux.glade", domain=PROGNAME)
 
 class childWindow:
     def __init__(self):
@@ -108,10 +108,10 @@ class childWindow:
         self.delete_menu = xml.get_widget("delete_menu_item")
 
     def error(self, message):
-        dlg = gtk.MessageDialog(None, 0, gtk.MESSAGE_ERROR,
-                                gtk.BUTTONS_CLOSE,
+        dlg = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
+                                Gtk.ButtonsType.CLOSE,
                                 message)
-        dlg.set_position(gtk.WIN_POS_MOUSE)
+        dlg.set_position(Gtk.WindowPosition.MOUSE)
         dlg.show_all()
         dlg.run()
         dlg.destroy()
@@ -142,7 +142,7 @@ class childWindow:
         dlg.hide ()
 
     def destroy(self, args):
-        gtk.main_quit()
+        Gtk.main_quit()
 
     def use_menus(self, use_menus):
         self.add_menu.set_sensitive(use_menus)
@@ -165,9 +165,9 @@ class childWindow:
         self.notebook = self.xml.get_widget("notebook")
         self.view = self.xml.get_widget("selectView")
         self.view.get_selection().connect("changed", self.itemSelected)
-        self.store = gtk.ListStore(gobject.TYPE_STRING)
+        self.store = Gtk.ListStore(GObject.TYPE_STRING)
         self.view.set_model(self.store)
-        col = gtk.TreeViewColumn("",  gtk.CellRendererText(), text = 0)
+        col = Gtk.TreeViewColumn("",  Gtk.CellRendererText(), text = 0)
         col.set_resizable(True)
         self.view.append_column(col)
 
@@ -184,7 +184,7 @@ class childWindow:
         self.mainWindow.connect("destroy", self.destroy)
 
         self.mainWindow.show_all()
-        gtk.main()
+        Gtk.main()
 
 if __name__ == "__main__":
     signal.signal (signal.SIGINT, signal.SIG_DFL)

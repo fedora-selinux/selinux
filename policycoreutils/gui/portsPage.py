@@ -16,9 +16,9 @@
 ## Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ## Author: Dan Walsh
-import gtk
-import gtk.glade
-import gobject
+from gi.repository import Gtk
+import Gtk.glade
+from gi.repository import GObject
 import seobject
 import subprocess
 from semanagePage import *;
@@ -74,28 +74,28 @@ class portsPage(semanagePage):
                 self.group_load(filt)
 
     def init_store(self):
-        self.store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING , gobject.TYPE_STRING)
+        self.store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING, GObject.TYPE_STRING , GObject.TYPE_STRING)
         self.view.set_model(self.store)
-        self.store.set_sort_column_id(0, gtk.SORT_ASCENDING)
+        self.store.set_sort_column_id(0, Gtk.SortType.ASCENDING)
 
         self.view.set_search_equal_func(self.search)
-        col = gtk.TreeViewColumn(_("SELinux Port\nType"), gtk.CellRendererText(), text = TYPE_COL)
+        col = Gtk.TreeViewColumn(_("SELinux Port\nType"), Gtk.CellRendererText(), text = TYPE_COL)
         col.set_sort_column_id(TYPE_COL)
         col.set_resizable(True)
         self.view.append_column(col)
-        self.store.set_sort_column_id(TYPE_COL, gtk.SORT_ASCENDING)
+        self.store.set_sort_column_id(TYPE_COL, Gtk.SortType.ASCENDING)
 
-        col = gtk.TreeViewColumn(_("Protocol"), gtk.CellRendererText(), text = PROTOCOL_COL)
+        col = Gtk.TreeViewColumn(_("Protocol"), Gtk.CellRendererText(), text = PROTOCOL_COL)
         col.set_sort_column_id(PROTOCOL_COL)
         col.set_resizable(True)
         self.view.append_column(col)
 
-        self.mls_col = gtk.TreeViewColumn(_("MLS/MCS\nLevel"), gtk.CellRendererText(), text = MLS_COL)
+        self.mls_col = Gtk.TreeViewColumn(_("MLS/MCS\nLevel"), Gtk.CellRendererText(), text = MLS_COL)
         self.mls_col.set_resizable(True)
         self.mls_col.set_sort_column_id(MLS_COL)
         self.view.append_column(self.mls_col)
 
-        col = gtk.TreeViewColumn(_("Port"), gtk.CellRendererText(), text = PORT_COL)
+        col = Gtk.TreeViewColumn(_("Port"), Gtk.CellRendererText(), text = PORT_COL)
         col.set_sort_column_id(PORT_COL)
         col.set_resizable(True)
         self.view.append_column(col)
