@@ -29,6 +29,7 @@ import argparse
 import selinux
 import sepolicy
 from sepolicy import *
+from sepolgen import util
 
 import subprocess
 import sys, os, re, time
@@ -161,7 +162,7 @@ def convert_manpage_to_html(html_manpage,manpage):
                                         stderr=subprocess.STDOUT,
                                         shell=True)
         except subprocess.CalledProcessError as e:
-                sys.stderr.write(e.output)
+                sys.stderr.write(util.decode_input(e.output))
                 return
         fd = open(html_manpage,'wb')
         fd.write(man_page)
