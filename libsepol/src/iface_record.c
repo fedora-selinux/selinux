@@ -20,7 +20,7 @@ struct sepol_iface {
 struct sepol_iface_key {
 
 	/* Interface name */
-	const char *name;
+	char *name;
 };
 
 /* Key */
@@ -31,15 +31,24 @@ int sepol_iface_key_create(sepol_handle_t * handle,
 	sepol_iface_key_t *tmp_key =
 	    (sepol_iface_key_t *) malloc(sizeof(sepol_iface_key_t));
 
-	if (!tmp_key) {
+	char *tmp_name = strdup(name);
+
+	if (!tmp_key || !tmp_name) {
 		ERR(handle, "out of memory, could not create interface key");
-		return STATUS_ERR;
+		goto err;
 	}
 
-	tmp_key->name = name;
+	tmp_key->name = tmp_name;
 
 	*key_ptr = tmp_key;
 	return STATUS_SUCCESS;
+
+      err:
+	if (tmp_key)
+		free(tmp_key);
+	if (tmp_name)
+		free(tmp_name);
+	return STATUS_ERR;
 }
 
 hidden_def(sepol_iface_key_create)
@@ -68,6 +77,7 @@ int sepol_iface_key_extract(sepol_handle_t * handle,
 
 void sepol_iface_key_free(sepol_iface_key_t * key)
 {
+	free(key->name);
 	free(key);
 }
 
