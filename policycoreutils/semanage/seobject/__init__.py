@@ -475,7 +475,7 @@ class permissiveRecords(semanageRecords):
                        raise ValueError(_("The sepolgen python module is required to setup permissive domains.\nIn some distributions it is included in the policycoreutils-devel patckage.\n# yum install policycoreutils-devel\nOr similar for your distro."))
 
                name = "permissive_%s" % setype
-               modtxt = "(typepermissive %s)" % type
+               modtxt = "(typepermissive %s)" % setype
 
                rc = semanage_module_install(self.sh, modtxt, len(modtxt), name, "cil")
                if rc >= 0:
