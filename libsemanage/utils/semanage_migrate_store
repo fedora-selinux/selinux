@@ -290,7 +290,10 @@ if __name__ == "__main__":
 		"users.local",
 		"users_extra.local",
 		"disable_dontaudit",
-		"preserve_tunables" ]
+		"preserve_tunables",
+		"policy.kern",
+		"file_contexts",
+		"homedir_template"]
 
 
 	create_dir_from(oldroot_path(), newroot_path(), 0o755)
