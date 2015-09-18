@@ -8,10 +8,28 @@
 #include "avc_internal.h"
 
 static pthread_once_t once = PTHREAD_ONCE_INIT;
+static int selinux_enabled;
+
+static int avc_reset_callback(uint32_t event __attribute__((unused)),
+		      security_id_t ssid __attribute__((unused)),
+		      security_id_t tsid __attribute__((unused)),
+		      security_class_t tclass __attribute__((unused)),
+		      access_vector_t perms __attribute__((unused)),
+		      access_vector_t *out_retained __attribute__((unused)))
+{
+	flush_class_cache();
+	return 0;
+}
 
 static void avc_init_once(void)
 {
-	avc_open(NULL, 0);
+	selinux_enabled = is_selinux_enabled();
+	if (selinux_enabled == 1) {
+		if (avc_open(NULL, 0))
+			return;
+		avc_add_callback(avc_reset_callback, AVC_CALLBACK_RESET,
+				 0, 0, 0, 0);
+	}
 }
 
 int selinux_check_access(const char *scon, const char *tcon, const char *class, const char *perm, void *aux) {
@@ -21,18 +39,20 @@ int selinux_check_access(const char *scon, const char *tcon, const char *class, 
 	security_class_t sclass;
 	access_vector_t av;
 
-	if (is_selinux_enabled() == 0)
-		return 0;
-
 	__selinux_once(once, avc_init_once);
+
+	if (selinux_enabled != 1)
+		return 0;
 
 	rc = avc_context_to_sid(scon, &scon_id);
 	if (rc < 0)
 		return rc;
 
-       rc = avc_context_to_sid(tcon, &tcon_id);
-       if (rc < 0)
-	       return rc;
+	rc = avc_context_to_sid(tcon, &tcon_id);
+	if (rc < 0)
+		return rc;
+
+	(void) avc_netlink_check_nb();
 
        sclass = string_to_security_class(class);
        if (sclass == 0) {
