@@ -16,9 +16,9 @@
 ## Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ## Author: Dan Walsh
-from gi.repository import Gtk
-import Gtk.glade
-from gi.repository import GObject
+import gtk
+import gtk.glade
+import gobject
 import subprocess
 import seobject
 from semanagePage import *;
@@ -40,20 +40,20 @@ class usersPage(semanagePage):
     def __init__(self, xml):
         semanagePage.__init__(self, xml, "users", _("SELinux User"))
 
-        self.store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING, GObject.TYPE_STRING, GObject.TYPE_STRING, GObject.TYPE_STRING)
+        self.store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.view.set_model(self.store)
-        self.store.set_sort_column_id(0, Gtk.SortType.ASCENDING)
+        self.store.set_sort_column_id(0, gtk.SORT_ASCENDING)
 
-        col = Gtk.TreeViewColumn(_("SELinux\nUser"), Gtk.CellRendererText(), text = 0)
+        col = gtk.TreeViewColumn(_("SELinux\nUser"), gtk.CellRendererText(), text = 0)
         col.set_sort_column_id(0)
         col.set_resizable(True)
         self.view.append_column(col)
 
-        col = Gtk.TreeViewColumn(_("MLS/\nMCS Range"), Gtk.CellRendererText(), text = 1)
+        col = gtk.TreeViewColumn(_("MLS/\nMCS Range"), gtk.CellRendererText(), text = 1)
         col.set_resizable(True)
         self.view.append_column(col)
 
-        col = Gtk.TreeViewColumn(_("SELinux Roles"), Gtk.CellRendererText(), text = 2)
+        col = gtk.TreeViewColumn(_("SELinux Roles"), gtk.CellRendererText(), text = 2)
         col.set_resizable(True)
         self.view.append_column(col)
 

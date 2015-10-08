@@ -17,11 +17,11 @@
 
 ## Author: Dan Walsh
 import string
-from gi.repository import Gtk
-import Gtk.glade
+import gtk
+import gtk.glade
 import os
 import subprocess
-from gi.repository import GObject
+import gobject
 import sys
 import seobject
 import selinux
@@ -52,15 +52,15 @@ class modulesPage(semanagePage):
         self.module_filter.connect("activate", self.filter_changed)
         self.audit_enabled = False
 
-        self.store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING)
+        self.store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.view.set_model(self.store)
-        self.store.set_sort_column_id(0, Gtk.SortType.ASCENDING)
-        col = Gtk.TreeViewColumn(_("Module Name"), Gtk.CellRendererText(), text = 0)
+        self.store.set_sort_column_id(0, gtk.SORT_ASCENDING)
+        col = gtk.TreeViewColumn(_("Module Name"), gtk.CellRendererText(), text = 0)
         col.set_sort_column_id(0)
         col.set_resizable(True)
         self.view.append_column(col)
-        self.store.set_sort_column_id(0, Gtk.SortType.ASCENDING)
-        col = Gtk.TreeViewColumn(_("Version"), Gtk.CellRendererText(), text = 1)
+        self.store.set_sort_column_id(0, gtk.SORT_ASCENDING)
+        col = gtk.TreeViewColumn(_("Version"), gtk.CellRendererText(), text = 1)
         self.enable_audit_button = xml.get_widget("enableAuditButton")
         self.enable_audit_button.connect("clicked", self.enable_audit)
         self.new_button = xml.get_widget("newModuleButton")
@@ -158,20 +158,20 @@ class modulesPage(semanagePage):
         return
 
     def addDialog(self):
-        dialog = Gtk.FileChooserDialog(_("Load Policy Module"),
+        dialog = gtk.FileChooserDialog(_("Load Policy Module"),
                                        None,
-                                       Gtk.FileChooserAction.OPEN,
-                                       (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
-                                        Gtk.STOCK_OPEN, Gtk.ResponseType.OK))
-        dialog.set_default_response(Gtk.ResponseType.OK)
+                                       gtk.FILE_CHOOSER_ACTION_OPEN,
+                                       (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+                                        gtk.STOCK_OPEN, gtk.RESPONSE_OK))
+        dialog.set_default_response(gtk.RESPONSE_OK)
 
-        filt = Gtk.FileFilter()
+        filt = gtk.FileFilter()
         filt.set_name("Policy Files")
         filt.add_pattern("*.pp")
         dialog.add_filter(filt)
 
         response = dialog.run()
-        if response == Gtk.ResponseType.OK:
+        if response == gtk.RESPONSE_OK:
             self.add(dialog.get_filename())
         dialog.destroy()
 
