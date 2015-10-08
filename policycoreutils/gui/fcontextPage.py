@@ -16,9 +16,9 @@
 ## Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ## Author: Dan Walsh
-from gi.repository import Gtk
-import Gtk.glade
-from gi.repository import GObject
+import gtk
+import gtk.glade
+import gobject
 import seobject
 import subprocess
 from semanagePage import *;
@@ -65,31 +65,31 @@ class fcontextPage(semanagePage):
         self.fcontextFilter.connect("focus_out_event", self.filter_changed)
         self.fcontextFilter.connect("activate", self.filter_changed)
 
-        self.store = Gtk.ListStore(GObject.TYPE_STRING, GObject.TYPE_STRING, GObject.TYPE_STRING)
+        self.store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.view = xml.get_widget("fcontextView")
         self.view.set_model(self.store)
         self.view.set_search_equal_func(self.search)
 
-        col = Gtk.TreeViewColumn(_("File\nSpecification"), Gtk.CellRendererText(), text=SPEC_COL)
-        col.set_sizing(Gtk.TreeViewColumnSizing.FIXED)
+        col = gtk.TreeViewColumn(_("File\nSpecification"), gtk.CellRendererText(), text=SPEC_COL)
+        col.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
         col.set_fixed_width(250)
 
         col.set_sort_column_id(SPEC_COL)
         col.set_resizable(True)
         self.view.append_column(col)
-        col = Gtk.TreeViewColumn(_("Selinux\nFile Type"), Gtk.CellRendererText(), text=TYPE_COL)
+        col = gtk.TreeViewColumn(_("Selinux\nFile Type"), gtk.CellRendererText(), text=TYPE_COL)
 
-        col.set_sizing(Gtk.TreeViewColumnSizing.FIXED)
+        col.set_sizing(gtk.TREE_VIEW_COLUMN_FIXED)
         col.set_fixed_width(250)
         col.set_sort_column_id(TYPE_COL)
         col.set_resizable(True)
         self.view.append_column(col)
-        col = Gtk.TreeViewColumn(_("File\nType"), Gtk.CellRendererText(), text=2)
+        col = gtk.TreeViewColumn(_("File\nType"), gtk.CellRendererText(), text=2)
         col.set_sort_column_id(FTYPE_COL)
         col.set_resizable(True)
         self.view.append_column(col)
 
-        self.store.set_sort_column_id(SPEC_COL, Gtk.SortType.ASCENDING)
+        self.store.set_sort_column_id(SPEC_COL, gtk.SORT_ASCENDING)
         self.load()
         self.fcontextEntry = xml.get_widget("fcontextEntry")
         self.fcontextFileTypeCombo = xml.get_widget("fcontextFileTypeCombo")

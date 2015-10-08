@@ -126,8 +126,8 @@ class SELinuxGui():
         self.popup = 0
         self.applications_selection_button = builder.get_object("applications_selection_button")
         self.revert_button = builder.get_object("Revert_button")
-        self.busy_cursor = Gdk.Cursor.new(Gdk.CursorType.WATCH)
-        self.ready_cursor = Gdk.Cursor.new(Gdk.CursorType.LEFT_PTR)
+        self.busy_cursor = Gdk.Cursor(Gdk.CursorType.WATCH)
+        self.ready_cursor = Gdk.Cursor(Gdk.CursorType.LEFT_PTR)
         self.initialtype = selinux.selinux_getpolicytype()[1]
         self.current_popup = None
         self.import_export = None

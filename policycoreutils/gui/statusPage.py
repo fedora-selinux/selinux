@@ -16,8 +16,8 @@
 ## Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 ## Author: Dan Walsh
-from gi.repository import Gtk
-import Gtk.glade
+import gtk
+import gtk.glade
 import os
 import sys
 
@@ -113,10 +113,10 @@ class statusPage:
                 os.unlink(RELABELFILE)
 
     def verify(self, message):
-        dlg = Gtk.MessageDialog(None, 0, Gtk.MessageType.INFO,
-                                Gtk.ButtonsType.YES_NO,
+        dlg = gtk.MessageDialog(None, 0, gtk.MESSAGE_INFO,
+                                gtk.BUTTONS_YES_NO,
                                 message)
-        dlg.set_position(Gtk.WindowPosition.MOUSE)
+        dlg.set_position(gtk.WIN_POS_MOUSE)
         dlg.show_all()
         rc = dlg.run()
         dlg.destroy()
@@ -126,7 +126,7 @@ class statusPage:
         setype = self.get_type()
         enabled = self.enabledOptionMenu.get_active()
         if self.initialtype != setype:
-            if self.verify(_("Changing the policy type will cause a relabel of the entire file system on the next boot. Relabeling takes a long time depending on the size of the file system.  Do you wish to continue?")) == Gtk.ResponseType.NO:
+            if self.verify(_("Changing the policy type will cause a relabel of the entire file system on the next boot. Relabeling takes a long time depending on the size of the file system.  Do you wish to continue?")) == gtk.RESPONSE_NO:
                 menu.set_active(self.typeHistory)
                 return None
 
@@ -140,12 +140,12 @@ class statusPage:
         setype = self.get_type()
 
         if self.initEnabled != DISABLED and enabled == DISABLED:
-            if self.verify(_("Changing to SELinux disabled requires a reboot.  It is not recommended.  If you later decide to turn SELinux back on, the system will be required to relabel.  If you just want to see if SELinux is causing a problem on your system, you can go to permissive mode which will only log errors and not enforce SELinux policy.  Permissive mode does not require a reboot    Do you wish to continue?")) == Gtk.ResponseType.NO:
+            if self.verify(_("Changing to SELinux disabled requires a reboot.  It is not recommended.  If you later decide to turn SELinux back on, the system will be required to relabel.  If you just want to see if SELinux is causing a problem on your system, you can go to permissive mode which will only log errors and not enforce SELinux policy.  Permissive mode does not require a reboot    Do you wish to continue?")) == gtk.RESPONSE_NO:
                 combo.set_active(self.enabled)
                 return None
 
         if self.initEnabled == DISABLED and enabled < 2:
-            if self.verify(_("Changing to SELinux enabled will cause a relabel of the entire file system on the next boot. Relabeling takes a long time depending on the size of the file system.  Do you wish to continue?")) == Gtk.ResponseType.NO:
+            if self.verify(_("Changing to SELinux enabled will cause a relabel of the entire file system on the next boot. Relabeling takes a long time depending on the size of the file system.  Do you wish to continue?")) == gtk.RESPONSE_NO:
                 combo.set_active(self.enabled)
                 return None
             self.relabel_checkbutton.set_active(True)
