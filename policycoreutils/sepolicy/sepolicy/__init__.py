@@ -183,7 +183,7 @@ def get_all_modules_from_mod_lst():
             fd.close()
             modules = modules[0].split(" ")[:-1]
             for m in modules:
-                mod_temp.append(m[:-3])
+                mod_temp.append(m)
             all_modules.extend(mod_temp)
             mod_temp = []
         except:
