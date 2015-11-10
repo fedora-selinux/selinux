@@ -127,9 +127,8 @@ def get_interface_dict(path="/usr/share/selinux/devel/policy.xml"):
     interface_dict = {}
     param_list = []
 
-    if get_all_modules_from_mod_lst():
-        active_modules = get_all_modules_from_mod_lst()
-    else:
+    active_modules = get_all_modules_from_mod_lst()
+    if active_modules is None:
         print((_("Using only non-base modules.")))
         active_modules = get_all_modules()
 
