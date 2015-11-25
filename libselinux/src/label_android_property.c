@@ -1,5 +1,5 @@
 /*
- * Property Service contexts backend for labeling Android 
+ * Property Service contexts backend for labeling Android
  * property keys
  */
 
@@ -16,7 +16,7 @@
 /* A property security context specification. */
 typedef struct spec {
 	struct selabel_lookup_rec lr;	/* holds contexts for lookup result */
-	char *property_key;	/* property key string */
+	char *property_key;		/* property key string */
 } spec_t;
 
 /* Our stored configuration */
@@ -56,21 +56,23 @@ static int nodups_specs(struct saved_data *data, const char *path)
 	for (ii = 0; ii < data->nspec; ii++) {
 		curr_spec = &spec_arr[ii];
 		for (jj = ii + 1; jj < data->nspec; jj++) {
-			if (!strcmp(spec_arr[jj].property_key, curr_spec->property_key)) {
+			if (!strcmp(spec_arr[jj].property_key,
+					    curr_spec->property_key)) {
 				rc = -1;
 				errno = EINVAL;
-				if (strcmp(spec_arr[jj].lr.ctx_raw, curr_spec->lr.ctx_raw)) {
-					selinux_log(SELINUX_ERROR,
-						    "%s: Multiple different specifications for %s  (%s and %s).\n",
-						    path,
-						    curr_spec->property_key,
-						    spec_arr[jj].lr.ctx_raw,
-						    curr_spec->lr.ctx_raw);
+				if (strcmp(spec_arr[jj].lr.ctx_raw,
+						    curr_spec->lr.ctx_raw)) {
+					selinux_log
+						(SELINUX_ERROR,
+						 "%s: Multiple different specifications for %s  (%s and %s).\n",
+						 path, curr_spec->property_key,
+						 spec_arr[jj].lr.ctx_raw,
+						 curr_spec->lr.ctx_raw);
 				} else {
-					selinux_log(SELINUX_ERROR,
-						    "%s: Multiple same specifications for %s.\n",
-						    path,
-						    curr_spec->property_key);
+					selinux_log
+						(SELINUX_ERROR,
+						 "%s: Multiple same specifications for %s.\n",
+						 path, curr_spec->property_key);
 				}
 			}
 		}
@@ -82,47 +84,40 @@ static int process_line(struct selabel_handle *rec,
 			const char *path, char *line_buf,
 			int pass, unsigned lineno)
 {
-	int items, len;
-	char buf1[BUFSIZ], buf2[BUFSIZ];
-	char *buf_p, *prop = buf1, *context = buf2;
+	int items;
+	char *prop = NULL, *context = NULL;
 	struct saved_data *data = (struct saved_data *)rec->data;
 	spec_t *spec_arr = data->spec_arr;
 	unsigned int nspec = data->nspec;
 
-	len = strlen(line_buf);
-	if (line_buf[len - 1] == '\n')
-		line_buf[len - 1] = 0;
-	buf_p = line_buf;
-	while (isspace(*buf_p))
-		buf_p++;
-	/* Skip comment lines and empty lines. */
-	if (*buf_p == '#' || *buf_p == 0)
-		return 0;
-	items = sscanf(line_buf, "%255s %255s", prop, context);
+	items = read_spec_entries(line_buf, 2, &prop, &context);
+	if (items <= 0)
+		return items;
 	if (items != 2) {
-		selinux_log(SELINUX_WARNING,
-			    "%s:  line %u is missing fields, skipping\n", path,
+		selinux_log(SELINUX_ERROR,
+			    "%s:  line %u is missing fields\n", path,
 			    lineno);
-		return 0;
+		free(prop);
+		errno = EINVAL;
+		return -1;
 	}
 
-	if (pass == 1) {
+	if (pass == 0) {
+		free(prop);
+		free(context);
+	} else if (pass == 1) {
 		/* On the second pass, process and store the specification in spec. */
-		spec_arr[nspec].property_key = strdup(prop);
-		if (!spec_arr[nspec].property_key) {
-			selinux_log(SELINUX_WARNING,
-				    "%s:  out of memory at line %u on prop %s\n",
-				    path, lineno, prop);
-			return -1;
+		spec_arr[nspec].property_key = prop;
+		spec_arr[nspec].lr.ctx_raw = context;
 
-		}
-
-		spec_arr[nspec].lr.ctx_raw = strdup(context);
-		if (!spec_arr[nspec].lr.ctx_raw) {
-			selinux_log(SELINUX_WARNING,
-				    "%s:  out of memory at line %u on context %s\n",
-				    path, lineno, context);
-			return -1;
+		if (rec->validating) {
+			if (selabel_validate(rec, &spec_arr[nspec].lr) < 0) {
+				selinux_log(SELINUX_ERROR,
+					    "%s:  line %u has invalid context %s\n",
+					    path, lineno, spec_arr[nspec].lr.ctx_raw);
+				errno = EINVAL;
+				return -1;
+			}
 		}
 	}
 
@@ -130,14 +125,14 @@ static int process_line(struct selabel_handle *rec,
 	return 0;
 }
 
-static int init(struct selabel_handle *rec, struct selinux_opt *opts,
+static int init(struct selabel_handle *rec, const struct selinux_opt *opts,
 		unsigned n)
 {
 	struct saved_data *data = (struct saved_data *)rec->data;
 	const char *path = NULL;
 	FILE *fp;
 	char line_buf[BUFSIZ];
-	unsigned int lineno = 0, maxnspec, pass;
+	unsigned int lineno, maxnspec, pass;
 	int status = -1;
 	struct stat sb;
 
@@ -147,13 +142,9 @@ static int init(struct selabel_handle *rec, struct selinux_opt *opts,
 		case SELABEL_OPT_PATH:
 			path = opts[n].value;
 			break;
-		default:
-			selinux_log(SELINUX_WARNING,
-				    "Argument type (%d) not recognized. Skipping\n", opts[n].type);
-			break;
 		}
 
-	if (!path) 
+	if (!path)
 		return -1;
 
 	/* Open the specification file. */
@@ -168,17 +159,19 @@ static int init(struct selabel_handle *rec, struct selinux_opt *opts,
 
 	/*
 	 * Two passes of the specification file. First is to get the size.
-	 * After the first pass, the spec array is malloced to the appropriate 
-	 * size. Second pass is to populate the spec array and check for 
+	 * After the first pass, the spec array is malloced to the appropriate
+	 * size. Second pass is to populate the spec array and check for
 	 * dups.
 	 */
 	maxnspec = UINT_MAX / sizeof(spec_t);
 	for (pass = 0; pass < 2; pass++) {
 		data->nspec = 0;
+		lineno = 0;
 
-		while (fgets(line_buf, sizeof line_buf - 1, fp)
+		while (fgets(line_buf, sizeof(line_buf) - 1, fp)
 		       && data->nspec < maxnspec) {
-			if (process_line(rec, path, line_buf, pass, ++lineno) != 0)
+			if (process_line(rec, path, line_buf, pass, ++lineno)
+									  != 0)
 				goto finish;
 		}
 
@@ -190,7 +183,6 @@ static int init(struct selabel_handle *rec, struct selinux_opt *opts,
 		}
 
 		if (pass == 0) {
-
 			if (data->nspec == 0) {
 				status = 0;
 				goto finish;
@@ -208,7 +200,12 @@ static int init(struct selabel_handle *rec, struct selinux_opt *opts,
 
 	qsort(data->spec_arr, data->nspec, sizeof(struct spec), cmp);
 
-	status = 0;
+	status = digest_add_specfile(rec->digest, fp, NULL, sb.st_size, path);
+	if (status)
+		goto finish;
+
+	digest_gen_hash(rec->digest);
+
 finish:
 	fclose(fp);
 	return status;
@@ -238,7 +235,7 @@ static void closef(struct selabel_handle *rec)
 
 static struct selabel_lookup_rec *lookup(struct selabel_handle *rec,
 					 const char *key,
-					 int __attribute__ ((unused)) type)
+					 int __attribute__((unused)) type)
 {
 	struct saved_data *data = (struct saved_data *)rec->data;
 	spec_t *spec_arr = data->spec_arr;
@@ -271,12 +268,13 @@ finish:
 	return ret;
 }
 
-static void stats(struct selabel_handle __attribute__ ((unused)) * rec)
+static void stats(struct selabel_handle __attribute__((unused)) *rec)
 {
 	selinux_log(SELINUX_WARNING, "'stats' functionality not implemented.\n");
 }
 
-int selabel_property_init(struct selabel_handle *rec, struct selinux_opt *opts,
+int selabel_property_init(struct selabel_handle *rec,
+			  const struct selinux_opt *opts,
 			  unsigned nopts)
 {
 	struct saved_data *data;

@@ -84,6 +84,7 @@ hidden_proto(selinux_mkload_policy)
     hidden_proto(selinux_x_context_path)
     hidden_proto(selinux_openssh_contexts_path)
     hidden_proto(selinux_sepgsql_context_path)
+    hidden_proto(selinux_openssh_contexts_path)
     hidden_proto(selinux_systemd_contexts_path)
     hidden_proto(selinux_path)
     hidden_proto(selinux_check_passwd_access)
@@ -101,6 +102,8 @@ hidden_proto(selinux_trans_to_raw_context);
 hidden_proto(security_get_initial_context);
 hidden_proto(security_get_initial_context_raw);
 hidden_proto(selinux_reset_config);
+
+hidden void flush_class_cache(void);
 
 extern int load_setlocaldefs hidden;
 extern int require_seusers hidden;

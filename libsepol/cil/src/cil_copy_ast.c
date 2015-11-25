@@ -135,6 +135,7 @@ int cil_copy_blockinherit(__attribute__((unused)) struct cil_db *db, void *data,
 	cil_blockinherit_init(&new);
 
 	new->block_str = orig->block_str;
+	new->block = orig->block;
 
 	*copy = new;
 
@@ -281,6 +282,8 @@ int cil_copy_classpermission(__attribute__((unused)) struct cil_db *db, void *da
 		}
 	}
 
+	cil_classpermission_init(&new);
+
 	cil_copy_classperms_list(orig->classperms, &new->classperms);
 
 	*copy = new;
@@ -292,6 +295,8 @@ int cil_copy_classpermissionset(__attribute__((unused)) struct cil_db *db, void 
 {
 	struct cil_classpermissionset *orig = data;
 	struct cil_classpermissionset *new = NULL;
+
+	cil_classpermissionset_init(&new);
 
 	new->set_str = orig->set_str;
 
@@ -383,6 +388,41 @@ int cil_copy_user(__attribute__((unused)) struct cil_db *db, void *data, void **
 	} else {
 		*copy = datum;
 	}
+
+	return SEPOL_OK;
+}
+
+int cil_copy_userattribute(__attribute__((unused)) struct cil_db *db, void *data, void **copy, symtab_t *symtab)
+{
+	struct cil_userattribute *orig = data;
+	struct cil_userattribute *new = NULL;
+	char *key = orig->datum.name;
+	struct cil_symtab_datum *datum = NULL;
+
+	cil_symtab_get_datum(symtab, key, &datum);
+	if (datum == NULL) {
+		cil_userattribute_init(&new);
+		*copy = new;
+	} else {
+		*copy = datum;
+	}
+
+	return SEPOL_OK;
+}
+
+int cil_copy_userattributeset(struct cil_db *db, void *data, void **copy, __attribute__((unused)) symtab_t *symtab)
+{
+	struct cil_userattributeset *orig = data;
+	struct cil_userattributeset *new = NULL;
+
+	cil_userattributeset_init(&new);
+
+	new->attr_str = orig->attr_str;
+
+	cil_copy_expr(db, orig->str_expr, &new->str_expr);
+	cil_copy_expr(db, orig->datum_expr, &new->datum_expr);
+
+	*copy = new;
 
 	return SEPOL_OK;
 }
@@ -753,6 +793,59 @@ int cil_copy_avrule(__attribute__((unused)) struct cil_db *db, void *data, void 
 	new->src_str = orig->src_str;
 	new->tgt_str = orig->tgt_str;
 	cil_copy_classperms_list(orig->classperms, &new->classperms);
+
+	*copy = new;
+
+	return SEPOL_OK;
+}
+
+void cil_copy_fill_permissionx(struct cil_db *db, struct cil_permissionx *orig, struct cil_permissionx *new)
+{
+	new->kind = orig->kind;
+	new->obj_str = orig->obj_str;
+	cil_copy_expr(db, orig->expr_str, &new->expr_str);
+}
+
+int cil_copy_permissionx(struct cil_db *db, void *data, void **copy, symtab_t *symtab)
+{
+	struct cil_permissionx *orig = data;
+	struct cil_permissionx *new = NULL;
+	char *key = orig->datum.name;
+	struct cil_symtab_datum *datum = NULL;
+
+
+	cil_symtab_get_datum(symtab, key, &datum);
+	if (datum != NULL) {
+		cil_log(CIL_INFO, "cil_copy_permissionx: permissionx cannot be redefined\n");
+		return SEPOL_ERR;
+	}
+
+	cil_permissionx_init(&new);
+	cil_copy_fill_permissionx(db, orig, new);
+
+	*copy = new;
+
+	return SEPOL_OK;
+}
+
+
+int cil_copy_avrulex(__attribute__((unused)) struct cil_db *db, void *data, void **copy, __attribute__((unused)) symtab_t *symtab)
+{
+	struct cil_avrulex *orig = data;
+	struct cil_avrulex *new = NULL;
+
+	cil_avrulex_init(&new);
+
+	new->rule_kind = orig->rule_kind;
+	new->src_str = orig->src_str;
+	new->tgt_str = orig->tgt_str;
+
+	if (new->permx_str != NULL) {
+		new->permx_str = orig->permx_str;
+	} else {
+		cil_permissionx_init(&new->permx);
+		cil_copy_fill_permissionx(db, orig->permx, new->permx);
+	}
 
 	*copy = new;
 
@@ -1210,6 +1303,27 @@ int cil_copy_pcidevicecon(struct cil_db *db, void *data, void **copy, __attribut
 	return SEPOL_OK;
 }
 
+int cil_copy_devicetreecon(struct cil_db *db, void *data, void **copy, __attribute__((unused)) symtab_t *symtab)
+{
+	struct cil_devicetreecon *orig = data;
+	struct cil_devicetreecon *new = NULL;
+
+	cil_devicetreecon_init(&new);
+
+	new->path = orig->path;
+
+	if (orig->context_str != NULL) {
+		new->context_str = orig->context_str;
+	} else {
+		cil_context_init(&new->context);
+		cil_copy_fill_context(db, orig->context, new->context);
+	}
+
+	*copy = new;
+
+	return SEPOL_OK;
+}
+
 int cil_copy_fsuse(struct cil_db *db, void *data, void **copy, __attribute__((unused)) symtab_t *symtab)
 {
 	struct cil_fsuse *orig = data;
@@ -1315,6 +1429,7 @@ int cil_copy_call(struct cil_db *db, void *data, void **copy, __attribute__((unu
 	cil_call_init(&new);
 
 	new->macro_str = orig->macro_str;
+	new->macro = orig->macro;
 
 	if (orig->args_tree != NULL) {
 		cil_tree_init(&new->args_tree);
@@ -1345,7 +1460,9 @@ int cil_copy_macro(__attribute__((unused)) struct cil_db *db, void *data, void *
 	if (datum == NULL) {
 		struct cil_macro *new;
 		cil_macro_init(&new);
-		cil_copy_list(orig->params, &new->params);
+		if (orig->params != NULL) {
+			cil_copy_list(orig->params, &new->params);
+		}
 
 		*copy = new;
 
@@ -1575,6 +1692,7 @@ int __cil_copy_node_helper(struct cil_tree_node *orig, __attribute__((unused)) u
 	symtab_t *symtab = NULL;
 	void *data = NULL;
 	int (*copy_func)(struct cil_db *db, void *data, void **copy, symtab_t *symtab) = NULL;
+	struct cil_blockinherit *blockinherit = NULL;
 
 	if (orig == NULL || extra_args == NULL) {
 		goto exit;
@@ -1633,6 +1751,12 @@ int __cil_copy_node_helper(struct cil_tree_node *orig, __attribute__((unused)) u
 		break;
 	case CIL_USER:
 		copy_func = &cil_copy_user;
+		break;
+	case CIL_USERATTRIBUTE:
+		copy_func = &cil_copy_userattribute;
+		break;
+	case CIL_USERATTRIBUTESET:
+		copy_func = &cil_copy_userattributeset;
 		break;
 	case CIL_USERROLE:
 		copy_func = &cil_copy_userrole;
@@ -1706,6 +1830,12 @@ int __cil_copy_node_helper(struct cil_tree_node *orig, __attribute__((unused)) u
 	case CIL_AVRULE:
 		copy_func = &cil_copy_avrule;
 		break;
+	case CIL_AVRULEX:
+		copy_func = &cil_copy_avrulex;
+		break;
+	case CIL_PERMISSIONX:
+		copy_func = &cil_copy_permissionx;
+		break;
 	case CIL_TYPE_RULE:
 		copy_func = &cil_copy_type_rule;
 		break;
@@ -1774,6 +1904,9 @@ int __cil_copy_node_helper(struct cil_tree_node *orig, __attribute__((unused)) u
 		break;
 	case CIL_PCIDEVICECON:
 		copy_func = &cil_copy_pcidevicecon;
+		break;
+	case CIL_DEVICETREECON:
+		copy_func = &cil_copy_devicetreecon;
 		break;
 	case CIL_FSUSE:
 		copy_func = &cil_copy_fsuse;
@@ -1875,6 +2008,18 @@ int __cil_copy_node_helper(struct cil_tree_node *orig, __attribute__((unused)) u
 						}
 					}
 				}
+			}
+		}
+
+		if (new->flavor == CIL_BLOCKINHERIT) {
+			blockinherit = new->data;
+			// if a blockinherit statement is copied before blockinherit are
+			// resolved (like in an in-statement), the block will not have been
+			// resolved yet, so there's nothing to append yet. This is fine,
+			// the copied blockinherit statement will be handled later, as if
+			// it wasn't in an in-statement
+			if (blockinherit->block != NULL) {
+				cil_list_append(blockinherit->block->bi_nodes, CIL_NODE, new);
 			}
 		}
 

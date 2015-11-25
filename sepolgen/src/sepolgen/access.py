@@ -31,7 +31,9 @@ and sets of that access (AccessVectorSet). These objects are used in Madison
 in a variety of ways, but they are the fundamental representation of access.
 """
 
-import refpolicy
+from . import refpolicy
+from . import util
+
 from selinux import audit2why
 
 def is_idparam(id):
@@ -51,7 +53,7 @@ def is_idparam(id):
     else:
         return False
 
-class AccessVector:
+class AccessVector(util.Comparison):
     """
     An access vector is the basic unit of access in SELinux.
 
@@ -90,6 +92,9 @@ class AccessVector:
             self.data = []
             self.obj_path = None
             self.base_type = None
+        # when implementing __eq__ also __hash__ is needed on py2
+        # if object is muttable __hash__ should be None
+        self.__hash__ = None
 
         # The direction of the information flow represented by this
         # access vector - used for matching
@@ -157,6 +162,20 @@ class AccessVector:
             if pa != pb:
                 return cmp(pa, pb)
         return 0
+
+    def _compare(self, other, method):
+        try:
+            x = list(self.perms)
+            a = (self.src_type, self.tgt_type, self.obj_class, x)
+            y = list(other.perms)
+            x.sort()
+            y.sort()
+            b = (other.src_type, other.tgt_type, other.obj_class, y)
+            return method(a, b)
+        except (AttributeError, TypeError):
+            # trying to compare to foreign type
+            return NotImplemented
+
 
 def avrule_to_access_vectors(avrule):
     """Convert an avrule into a list of access vectors.
@@ -270,7 +289,7 @@ class AccessVectorSet:
         tgt = self.src.setdefault(src_type, { })
         cls = tgt.setdefault(tgt_type, { })
         
-        if cls.has_key((obj_class, avc_type)):
+        if (obj_class, avc_type) in cls:
             access = cls[obj_class, avc_type]
         else:
             access = AccessVector()
@@ -303,7 +322,7 @@ def avs_extract_types(avs):
 def avs_extract_obj_perms(avs):
     perms = { }
     for av in avs:
-        if perms.has_key(av.obj_class):
+        if av.obj_class in perms:
             s = perms[av.obj_class]
         else:
             s = refpolicy.IdSet()
@@ -331,7 +350,7 @@ class RoleTypeSet:
         return len(self.role_types.keys())
 
     def add(self, role, type):
-        if self.role_types.has_key(role):
+        if role in self.role_types:
             role_type = self.role_types[role]
         else:
             role_type = refpolicy.RoleType()

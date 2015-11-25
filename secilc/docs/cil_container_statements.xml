@@ -115,7 +115,7 @@
 
       <sect2 id="blockinherit">
          <title>blockinherit</title>
-         <para>Used to add common policy rules to the current namespace via a template that has been defined with the <literal><link linkend="blockabstract">blockabstract</link></literal> statement.</para>
+         <para>Used to add common policy rules to the current namespace via a template that has been defined with the <literal><link linkend="blockabstract">blockabstract</link></literal> statement. All <literal><link linkend="blockinherit">blockinherit</link></literal> statements are resolved first and then the contents of the block are copied. This is so that inherited blocks will not be inherited. For a concrete example, please see the examples section.</para>
          <para><emphasis role="bold">Statement definition:</emphasis></para>
          <programlisting><![CDATA[
 (block block_id
@@ -210,7 +210,22 @@
 
     ; Label the log files
     (filecon "/data/data/com.se4android.netserver/.*" file log_file_context)
-)]]>
+)
+
+; This is an example of how blockinherits resolve inherits before copying
+(block a
+    (type one))
+
+(block b
+    ; Notice that block a is declared here as well
+    (block a
+        (type two)))
+
+; This will first copy the contents of block b, which results in type b.a.two being copied.
+; Next, the contents of block a will be copied which will result in type a.one.
+(block ab
+    (blockinherit b)
+    (blockinherit a))]]>
          </programlisting>
       </sect2>
 
@@ -226,19 +241,30 @@
                      <para><literal><link linkend="allow">allow</link></literal></para>
                   </entry>
                   <entry>
+                     <para><literal><link linkend="allowx">allowx</link></literal></para>
+                  </entry>
+                  <entry>
                      <para><literal><link linkend="auditallow">auditallow</link></literal></para>
                   </entry>
+                  <entry>
+                     <para><literal><link linkend="auditallowx">auditallowx</link></literal></para>
+                  </entry>
+               </row>
+               <row>
                   <entry>
                      <para><literal><link linkend="booleanif">booleanif</link></literal></para>
                   </entry>
                   <entry>
                      <para><literal><link linkend="dontaudit">dontaudit</link></literal></para>
                   </entry>
-               </row>
-               <row>
+                  <entry>
+                     <para><literal><link linkend="dontauditx">dontauditx</link></literal></para>
+                  </entry>
                   <entry>
                      <para><literal><link linkend="typepermissive">typepermissive</link></literal></para>
                   </entry>
+               </row>
+               <row>
                   <entry>
                      <para><literal><link linkend="rangetransition">rangetransition</link></literal></para>
                   </entry>
@@ -248,11 +274,11 @@
                   <entry>
                      <para><literal><link linkend="roleallow">roleallow</link></literal></para>
                   </entry>
-               </row>
-               <row>
                   <entry>
                      <para><literal><link linkend="roleattribute">roleattribute</link></literal></para>
                   </entry>
+               </row>
+               <row>
                   <entry>
                      <para><literal><link linkend="roletransition">roletransition</link></literal></para>
                   </entry>
@@ -262,11 +288,11 @@
                   <entry>
                      <para><literal><link linkend="typealias">typealias</link></literal></para>
                   </entry>
-               </row>
-               <row>
                   <entry>
                      <para><literal><link linkend="typeattribute">typeattribute</link></literal></para>
                   </entry>
+              </row>
+              <row>
                   <entry>
                      <para><literal><link linkend="typechange">typechange</link></literal></para>
                   </entry>

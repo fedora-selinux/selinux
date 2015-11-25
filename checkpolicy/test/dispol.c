@@ -21,7 +21,6 @@
 #include <sepol/policydb/avtab.h>
 #include <sepol/policydb/services.h>
 #include <sepol/policydb/conditional.h>
-#include <sepol/policydb/expand.h>
 #include <sepol/policydb/util.h>
 #include <sepol/policydb/polcaps.h>
 #include <getopt.h>
@@ -148,6 +147,15 @@ int render_av_rule(avtab_key_t * key, avtab_datum_t * datum, uint32_t what,
 			render_type(datum->data, p, fp);
 			fprintf(fp, ";\n");
 		}
+	} else if (key->specified & AVTAB_XPERMS) {
+		if (key->specified & AVTAB_XPERMS_ALLOWED)
+			fprintf(fp, "allowxperm ");
+		else if (key->specified & AVTAB_XPERMS_AUDITALLOW)
+			fprintf(fp, "auditallowxperm ");
+		else if (key->specified & AVTAB_XPERMS_DONTAUDIT)
+			fprintf(fp, "dontauditxperm ");
+		render_key(key, p, fp);
+		fprintf(fp, "%s;\n", sepol_extended_perms_to_string(datum->xperms));
 	} else {
 		fprintf(fp, "     ERROR: no valid rule type specified\n");
 		return -1;
@@ -159,27 +167,15 @@ int display_avtab(avtab_t * a, uint32_t what, policydb_t * p, FILE * fp)
 {
 	unsigned int i;
 	avtab_ptr_t cur;
-	avtab_t expa;
-
-	if (avtab_init(&expa))
-		goto oom;
-	if (expand_avtab(p, a, &expa)) {
-		avtab_destroy(&expa);
-		goto oom;
-	}
 
 	/* hmm...should have used avtab_map. */
-	for (i = 0; i < expa.nslot; i++) {
-		for (cur = expa.htable[i]; cur; cur = cur->next) {
+	for (i = 0; i < a->nslot; i++) {
+		for (cur = a->htable[i]; cur; cur = cur->next) {
 			render_av_rule(&cur->key, &cur->datum, what, p, fp);
 		}
 	}
-	avtab_destroy(&expa);
 	fprintf(fp, "\n");
 	return 0;
-      oom:
-	fprintf(stderr, "out of memory\n");
-	return 1;
 }
 
 int display_bools(policydb_t * p, FILE * fp)
@@ -231,47 +227,26 @@ void display_expr(policydb_t * p, cond_expr_t * exp, FILE * fp)
 int display_cond_expressions(policydb_t * p, FILE * fp)
 {
 	cond_node_t *cur;
-	cond_av_list_t *av_cur, *expl = NULL;
-	avtab_t expa;
+	cond_av_list_t *av_cur;
 
 	for (cur = p->cond_list; cur != NULL; cur = cur->next) {
 		fprintf(fp, "expression: ");
 		display_expr(p, cur->expr, fp);
 		fprintf(fp, "current state: %d\n", cur->cur_state);
 		fprintf(fp, "True list:\n");
-		if (avtab_init(&expa))
-			goto oom;
-		if (expand_cond_av_list(p, cur->true_list, &expl, &expa)) {
-			avtab_destroy(&expa);
-			goto oom;
-		}
-		for (av_cur = expl; av_cur != NULL; av_cur = av_cur->next) {
+		for (av_cur = cur->true_list; av_cur != NULL; av_cur = av_cur->next) {
 			fprintf(fp, "\t");
 			render_av_rule(&av_cur->node->key, &av_cur->node->datum,
 				       RENDER_CONDITIONAL, p, fp);
 		}
-		cond_av_list_destroy(expl);
-		avtab_destroy(&expa);
 		fprintf(fp, "False list:\n");
-		if (avtab_init(&expa))
-			goto oom;
-		if (expand_cond_av_list(p, cur->false_list, &expl, &expa)) {
-			avtab_destroy(&expa);
-			goto oom;
-		}
-		for (av_cur = expl; av_cur != NULL; av_cur = av_cur->next) {
+		for (av_cur = cur->false_list; av_cur != NULL; av_cur = av_cur->next) {
 			fprintf(fp, "\t");
 			render_av_rule(&av_cur->node->key, &av_cur->node->datum,
 				       RENDER_CONDITIONAL, p, fp);
 		}
-		cond_av_list_destroy(expl);
-		avtab_destroy(&expa);
 	}
 	return 0;
-
-      oom:
-	fprintf(stderr, "out of memory\n");
-	return 1;
 }
 
 int display_handle_unknown(policydb_t * p, FILE * out_fp)
@@ -449,7 +424,11 @@ int main(int argc, char **argv)
 	menu();
 	for (;;) {
 		printf("\nCommand (\'m\' for menu):  ");
-		fgets(ans, sizeof(ans), stdin);
+		if (fgets(ans, sizeof(ans), stdin) == NULL) {
+			fprintf(stderr, "fgets failed at line %d: %s\n", __LINE__,
+					strerror(errno));
+			continue;
+		}
 		switch (ans[0]) {
 
 		case '1':
@@ -476,7 +455,11 @@ int main(int argc, char **argv)
 			break;
 		case '7':
 			printf("name? ");
-			fgets(ans, sizeof(ans), stdin);
+			if (fgets(ans, sizeof(ans), stdin) == NULL) {
+				fprintf(stderr, "fgets failed at line %d: %s\n", __LINE__,
+						strerror(errno));
+				break;
+			}
 			ans[strlen(ans) - 1] = 0;
 
 			name = malloc((strlen(ans) + 1) * sizeof(char));
@@ -487,7 +470,11 @@ int main(int argc, char **argv)
 			strcpy(name, ans);
 
 			printf("state? ");
-			fgets(ans, sizeof(ans), stdin);
+			if (fgets(ans, sizeof(ans), stdin) == NULL) {
+				fprintf(stderr, "fgets failed at line %d: %s\n", __LINE__,
+						strerror(errno));
+				break;
+			}
 			ans[strlen(ans) - 1] = 0;
 
 			if (atoi(ans))
@@ -514,7 +501,11 @@ int main(int argc, char **argv)
 		case 'f':
 			printf
 			    ("\nFilename for output (<CR> for screen output): ");
-			fgets(OutfileName, sizeof(OutfileName), stdin);
+			if (fgets(OutfileName, sizeof(OutfileName), stdin) == NULL) {
+				fprintf(stderr, "fgets failed at line %d: %s\n", __LINE__,
+						strerror(errno));
+				break;
+			}
 			OutfileName[strlen(OutfileName) - 1] = '\0';	/* fix_string (remove LF) */
 			if (strlen(OutfileName) == 0)
 				out_fp = stdout;

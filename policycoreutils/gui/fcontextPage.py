@@ -21,16 +21,18 @@ import gtk.glade
 import gobject
 import seobject
 import subprocess
-from semanagePage import *;
+from semanagePage import *
 
 SPEC_COL = 0
 TYPE_COL = 1
 FTYPE_COL = 2
 
+
 class context:
+
     def __init__(self, scontext):
         self.scontext = scontext
-        con=scontext.split(":")
+        con = scontext.split(":")
         self.type = con[0]
         if len(con) > 1:
             self.mls = con[1]
@@ -43,7 +45,7 @@ class context:
 ##
 ## I18N
 ##
-PROGNAME="policycoreutils"
+PROGNAME = "policycoreutils"
 
 import gettext
 gettext.bindtextdomain(PROGNAME, "/usr/share/locale")
@@ -52,13 +54,14 @@ try:
     gettext.install(PROGNAME,
                     localedir="/usr/share/locale",
                     unicode=False,
-                    codeset = 'utf-8')
+                    codeset='utf-8')
 except IOError:
     import builtins
     builtins.__dict__['_'] = str
 
 
 class fcontextPage(semanagePage):
+
     def __init__(self, xml):
         semanagePage.__init__(self, xml, "fcontext", _("File Labeling"))
         self.fcontextFilter = xml.get_widget("fcontextFilterEntry")
@@ -93,7 +96,7 @@ class fcontextPage(semanagePage):
         self.load()
         self.fcontextEntry = xml.get_widget("fcontextEntry")
         self.fcontextFileTypeCombo = xml.get_widget("fcontextFileTypeCombo")
-        liststore=self.fcontextFileTypeCombo.get_model()
+        liststore = self.fcontextFileTypeCombo.get_model()
         for k in seobject.file_types:
             if len(k) > 0 and  k[0] != '-':
                 it=liststore.append()
@@ -107,11 +110,11 @@ class fcontextPage(semanagePage):
         try:
             f=filt.lower()
             for con in k:
-                k=con.lower()
+                k = con.lower()
                 if k.find(f) >= 0:
                     return True
             for con in fcon_dict[k]:
-                k=con.lower()
+                k = con.lower()
                 if k.find(f) >= 0:
                     return True
         except:
@@ -132,7 +135,7 @@ class fcontextPage(semanagePage):
             self.store.set_value(it, SPEC_COL, k[0])
             self.store.set_value(it, FTYPE_COL, k[1])
             if fcon_dict[k]:
-                rec="%s:%s" % (fcon_dict[k][2], seobject.translate(fcon_dict[k][3],False))
+                rec = "%s:%s" % (fcon_dict[k][2], seobject.translate(fcon_dict[k][3], False))
             else:
                 rec="<<None>>"
             self.store.set_value(it, TYPE_COL, rec)

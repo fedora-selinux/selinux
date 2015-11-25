@@ -21,12 +21,12 @@ import gtk.glade
 import gobject
 import subprocess
 import seobject
-from semanagePage import *;
+from semanagePage import *
 
 ##
 ## I18N
 ##
-PROGNAME="policycoreutils"
+PROGNAME = "policycoreutils"
 import gettext
 gettext.bindtextdomain(PROGNAME, "/usr/share/locale")
 gettext.textdomain(PROGNAME)
@@ -36,7 +36,9 @@ except IOError:
     import builtins
     builtins.__dict__['_'] = unicode
 
+
 class usersPage(semanagePage):
+
     def __init__(self, xml):
         semanagePage.__init__(self, xml, "users", _("SELinux User"))
 
@@ -44,16 +46,16 @@ class usersPage(semanagePage):
         self.view.set_model(self.store)
         self.store.set_sort_column_id(0, gtk.SORT_ASCENDING)
 
-        col = gtk.TreeViewColumn(_("SELinux\nUser"), gtk.CellRendererText(), text = 0)
+        col = gtk.TreeViewColumn(_("SELinux\nUser"), gtk.CellRendererText(), text=0)
         col.set_sort_column_id(0)
         col.set_resizable(True)
         self.view.append_column(col)
 
-        col = gtk.TreeViewColumn(_("MLS/\nMCS Range"), gtk.CellRendererText(), text = 1)
+        col = gtk.TreeViewColumn(_("MLS/\nMCS Range"), gtk.CellRendererText(), text=1)
         col.set_resizable(True)
         self.view.append_column(col)
 
-        col = gtk.TreeViewColumn(_("SELinux Roles"), gtk.CellRendererText(), text = 2)
+        col = gtk.TreeViewColumn(_("SELinux Roles"), gtk.CellRendererText(), text=2)
         col.set_resizable(True)
         self.view.append_column(col)
 

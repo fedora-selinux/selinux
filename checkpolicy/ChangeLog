@@ -1,3 +1,19 @@
+	* Add neverallow support for ioctl extended permissions, from Jeff Vander Stoep.
+	* fix double free on name-based type transitions, from Stephen Smalley.
+	* switch operations to extended perms, from Jeff Vander Stoep.
+	* policy_define.c: fix compiler warnings, from Nick Kralevich.
+	* Remove uses of -Wno-return-type, from Dan Albert.
+	* Fix -Wreturn-type issues, from Dan Albert.
+	* dispol: display operations as ranges, from Jeff Vander Stoep.
+	* dispol: Extend to display operations, from Stephen Smalley.
+	* Add support for ioctl command whitelisting, from Jeff Vander Stoep.
+	* Add option to write CIL policy, from James Carter
+	* Add device tree ocontext nodes to Xen policy, from Daniel De Graaf.
+	* Widen Xen IOMEM context entries, from Daniel De Graaf.
+	* Expand allowed character set in paths, from Daniel De Graaf.
+	* Fix precedence between number and filesystem tokens, from Stephen Smalley.
+	* dispol/dismod fgets function warnings fix, from Emre Can Kucukoglu.
+
 2.4 2015-02-02
 	* Fix bugs found by hardened gcc flags, from Nicolas Iooss.
 	* Add missing semicolon in cond_else parser rule, from Steven Capelli.

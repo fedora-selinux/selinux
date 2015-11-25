@@ -241,25 +241,46 @@ typedef struct class_perm_node {
 	struct class_perm_node *next;
 } class_perm_node_t;
 
+#define xperm_test(x, p) (1 & (p[x >> 5] >> (x & 0x1f)))
+#define xperm_set(x, p) (p[x >> 5] |= (1 << (x & 0x1f)))
+#define xperm_clear(x, p) (p[x >> 5] &= ~(1 << (x & 0x1f)))
+#define EXTENDED_PERMS_LEN 8
+
+typedef struct av_extended_perms {
+#define AVRULE_XPERMS_IOCTLFUNCTION	0x01
+#define AVRULE_XPERMS_IOCTLDRIVER	0x02
+	uint8_t specified;
+	uint8_t driver;
+	/* 256 bits of permissions */
+	uint32_t perms[EXTENDED_PERMS_LEN];
+} av_extended_perms_t;
+
 typedef struct avrule {
 /* these typedefs are almost exactly the same as those in avtab.h - they are
  * here because of the need to include neverallow and dontaudit messages */
-#define AVRULE_ALLOWED     1
-#define AVRULE_AUDITALLOW  2
-#define AVRULE_AUDITDENY   4
-#define AVRULE_DONTAUDIT   8
-#define AVRULE_NEVERALLOW 128
+#define AVRULE_ALLOWED			0x0001
+#define AVRULE_AUDITALLOW		0x0002
+#define AVRULE_AUDITDENY		0x0004
+#define AVRULE_DONTAUDIT		0x0008
+#define AVRULE_NEVERALLOW		0x0080
 #define AVRULE_AV         (AVRULE_ALLOWED | AVRULE_AUDITALLOW | AVRULE_AUDITDENY | AVRULE_DONTAUDIT | AVRULE_NEVERALLOW)
-#define AVRULE_TRANSITION 16
-#define AVRULE_MEMBER     32
-#define AVRULE_CHANGE     64
+#define AVRULE_TRANSITION		0x0010
+#define AVRULE_MEMBER			0x0020
+#define AVRULE_CHANGE			0x0040
 #define AVRULE_TYPE       (AVRULE_TRANSITION | AVRULE_MEMBER | AVRULE_CHANGE)
+#define AVRULE_XPERMS_ALLOWED 		0x0100
+#define AVRULE_XPERMS_AUDITALLOW	0x0200
+#define AVRULE_XPERMS_DONTAUDIT		0x0400
+#define AVRULE_XPERMS_NEVERALLOW	0x0800
+#define AVRULE_XPERMS	(AVRULE_XPERMS_ALLOWED | AVRULE_XPERMS_AUDITALLOW | \
+				AVRULE_XPERMS_DONTAUDIT | AVRULE_XPERMS_NEVERALLOW)
 	uint32_t specified;
 #define RULE_SELF 1
 	uint32_t flags;
 	type_set_t stypes;
 	type_set_t ttypes;
 	class_perm_node_t *perms;
+	av_extended_perms_t *xperms;
 	unsigned long line;	/* line number from policy.conf where
 				 * this rule originated  */
 	/* source file name and line number (e.g. .te file) */
@@ -325,8 +346,8 @@ typedef struct ocontext {
 		uint32_t device;
 		uint16_t pirq;
 		struct {
-			uint32_t low_iomem;
-			uint32_t high_iomem;
+			uint64_t low_iomem;
+			uint64_t high_iomem;
 		} iomem;
 		struct {
 			uint32_t low_ioport;
@@ -375,6 +396,7 @@ typedef struct genfs {
 #define OCON_XEN_IOPORT     2    /* io ports */
 #define OCON_XEN_IOMEM	    3    /* io memory */
 #define OCON_XEN_PCIDEVICE  4    /* pci devices */
+#define OCON_XEN_DEVICETREE 5    /* device tree node */
 
 /* OCON_NUM needs to be the largest index in any platform's ocontext array */
 #define OCON_NUM   7
@@ -633,7 +655,7 @@ extern void level_datum_init(level_datum_t * x);
 extern void level_datum_destroy(level_datum_t * x);
 extern void cat_datum_init(cat_datum_t * x);
 extern void cat_datum_destroy(cat_datum_t * x);
-
+extern int check_assertion(policydb_t *p, avrule_t *avrule);
 extern int check_assertions(sepol_handle_t * handle,
 			    policydb_t * p, avrule_t * avrules);
 
@@ -689,10 +711,12 @@ extern int policydb_set_target_platform(policydb_t *p, int platform);
 #define POLICYDB_VERSION_NEW_OBJECT_DEFAULTS	27
 #define POLICYDB_VERSION_DEFAULT_TYPE	28
 #define POLICYDB_VERSION_CONSTRAINT_NAMES	29
+#define POLICYDB_VERSION_XEN_DEVICETREE		30 /* Xen-specific */
+#define POLICYDB_VERSION_XPERMS_IOCTL	30 /* Linux-specific */
 
 /* Range of policy versions we understand*/
 #define POLICYDB_VERSION_MIN	POLICYDB_VERSION_BASE
-#define POLICYDB_VERSION_MAX	POLICYDB_VERSION_CONSTRAINT_NAMES
+#define POLICYDB_VERSION_MAX	POLICYDB_VERSION_XPERMS_IOCTL
 
 /* Module versions and specific changes*/
 #define MOD_POLICYDB_VERSION_BASE		4

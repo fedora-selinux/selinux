@@ -28,6 +28,8 @@
  */
 
 #include <stdio.h>
+#include <stdarg.h>
+#include <inttypes.h>
 
 #include <sepol/policydb/conditional.h>
 
@@ -48,12 +50,20 @@ void cil_tree_print_expr_tree(struct cil_tree_node *expr_root);
 void cil_tree_print_constrain(struct cil_constrain *cons);
 void cil_tree_print_node(struct cil_tree_node *node);
 
+__attribute__((noreturn)) __attribute__((format (printf, 1, 2))) void cil_tree_error(const char* msg, ...)
+{
+	va_list ap;
+	va_start(ap, msg);
+	cil_vlog(CIL_ERR, msg, ap);
+	va_end(ap);
+	exit(1);
+}
+
 int cil_tree_init(struct cil_tree **tree)
 {
 	struct cil_tree *new_tree = cil_malloc(sizeof(*new_tree));
 
 	cil_tree_node_init(&new_tree->root);
-	cil_root_init((struct cil_root **)&new_tree->root->data);
 	
 	*tree = new_tree;
 	
@@ -126,14 +136,16 @@ void cil_tree_node_init(struct cil_tree_node **node)
 
 void cil_tree_node_destroy(struct cil_tree_node **node)
 {
+	struct cil_symtab_datum *datum;
+
 	if (node == NULL || *node == NULL) {
 		return;
 	}
 
 	if ((*node)->flavor >= CIL_MIN_DECLARATIVE) {
-		cil_symtab_datum_remove((*node)->data, *node);
-		struct cil_symtab_datum *datum = (*node)->data;
-		if (datum->nodes != NULL && datum->nodes->head == NULL) {
+		datum = (*node)->data;
+		cil_symtab_datum_remove_node(datum, *node);
+		if (datum->nodes == NULL) {
 			cil_destroy_data(&(*node)->data, (*node)->flavor);
 		}
 	} else {
@@ -628,15 +640,18 @@ void cil_tree_print_node(struct cil_tree_node *node)
 		case CIL_USERROLE: {
 			struct cil_userrole *userrole = node->data;
 			cil_log(CIL_INFO, "USERROLE:");
+			struct cil_symtab_datum *datum = NULL;
 
 			if (userrole->user != NULL) {
-				cil_log(CIL_INFO, " %s", userrole->user->datum.name);
+				datum = userrole->user;
+				cil_log(CIL_INFO, " %s", datum->name);
 			} else if (userrole->user_str != NULL) {
 				cil_log(CIL_INFO, " %s", userrole->user_str);
 			}
 
 			if (userrole->role != NULL) {
-				cil_log(CIL_INFO, " %s", ((struct cil_symtab_datum *)userrole->role)->name);
+				datum = userrole->role;
+				cil_log(CIL_INFO, " %s", datum->name);
 			} else if (userrole->role_str != NULL) {
 				cil_log(CIL_INFO, " %s", userrole->role_str);
 			}
@@ -771,6 +786,21 @@ void cil_tree_print_node(struct cil_tree_node *node)
 		case CIL_ROLEATTRIBUTE: {
 			struct cil_roleattribute *attr = node->data;
 			cil_log(CIL_INFO, "ROLEATTRIBUTE: %s\n", attr->datum.name);
+			return;
+		}
+		case CIL_USERATTRIBUTESET: {
+			struct cil_userattributeset *attr = node->data;
+
+			cil_log(CIL_INFO, "(USERATTRIBUTESET %s ", attr->attr_str);
+
+			cil_tree_print_expr(attr->datum_expr, attr->str_expr);
+
+			cil_log(CIL_INFO, "\n");
+			return;
+		}
+		case CIL_USERATTRIBUTE: {
+			struct cil_userattribute *attr = node->data;
+			cil_log(CIL_INFO, "USERATTRIBUTE: %s\n", attr->datum.name);
 			return;
 		}
 		case CIL_ROLEBOUNDS: {
@@ -1381,7 +1411,7 @@ void cil_tree_print_node(struct cil_tree_node *node)
 		case CIL_IOMEMCON: {
 			struct cil_iomemcon *iomemcon = node->data;
 
-			cil_log(CIL_INFO, "IOMEMCON ( %d %d )", iomemcon->iomem_low, iomemcon->iomem_high);
+			cil_log(CIL_INFO, "IOMEMCON ( %"PRId64" %"PRId64" )", iomemcon->iomem_low, iomemcon->iomem_high);
 			if (iomemcon->context != NULL) {
 				cil_tree_print_context(iomemcon->context);
 			} else {
@@ -1412,6 +1442,19 @@ void cil_tree_print_node(struct cil_tree_node *node)
 				cil_tree_print_context(pcidevicecon->context);
 			} else {
 				cil_log(CIL_INFO, " %s", pcidevicecon->context_str);
+			}
+
+			cil_log(CIL_INFO, "\n");
+			return;
+		}
+		case CIL_DEVICETREECON: {
+			struct cil_devicetreecon *devicetreecon = node->data;
+
+			cil_log(CIL_INFO, "DEVICETREECON %s", devicetreecon->path);
+			if (devicetreecon->context != NULL) {
+				cil_tree_print_context(devicetreecon->context);
+			} else {
+				cil_log(CIL_INFO, " %s", devicetreecon->context_str);
 			}
 
 			cil_log(CIL_INFO, "\n");

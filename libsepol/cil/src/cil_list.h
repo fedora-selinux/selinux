@@ -54,8 +54,10 @@ void cil_list_item_init(struct cil_list_item **item);
 void cil_list_item_destroy(struct cil_list_item **item, unsigned destroy_data);
 void cil_list_append(struct cil_list *list, enum cil_flavor flavor, void *data);
 void cil_list_prepend(struct cil_list *list, enum cil_flavor flavor, void *data);
+void cil_list_remove(struct cil_list *list, enum cil_flavor flavor, void *data, unsigned destroy_data);
 struct cil_list_item *cil_list_insert(struct cil_list *list, struct cil_list_item *curr, enum cil_flavor flavor, void *data);
 void cil_list_append_item(struct cil_list *list, struct cil_list_item *item);
 void cil_list_prepend_item(struct cil_list *list, struct cil_list_item *item);
+int cil_list_contains(struct cil_list *list, void *data);
 
 #endif

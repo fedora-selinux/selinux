@@ -32,6 +32,7 @@
 #include <string.h>
 
 extern int semanage_lex(void);                /* defined in conf-scan.c */
+extern int semanage_lex_destroy(void);        /* defined in conf-scan.c */
 int semanage_error(const char *msg);
 
 extern FILE *semanage_in;
@@ -60,7 +61,7 @@ static int parse_errors;
 
 %token MODULE_STORE VERSION EXPAND_CHECK FILE_MODE SAVE_PREVIOUS SAVE_LINKED TARGET_PLATFORM COMPILER_DIR IGNORE_MODULE_CACHE STORE_ROOT
 %token LOAD_POLICY_START SETFILES_START SEFCONTEXT_COMPILE_START DISABLE_GENHOMEDIRCON HANDLE_UNKNOWN USEPASSWD IGNOREDIRS
-%token BZIP_BLOCKSIZE BZIP_SMALL
+%token BZIP_BLOCKSIZE BZIP_SMALL REMOVE_HLL
 %token VERIFY_MOD_START VERIFY_LINKED_START VERIFY_KERNEL_START BLOCK_END
 %token PROG_PATH PROG_ARGS
 %token <s> ARG
@@ -93,6 +94,7 @@ single_opt:     module_store
         |       handle_unknown
 	|	bzip_blocksize
 	|	bzip_small
+	|	remove_hll
         ;
 
 module_store:   MODULE_STORE '=' ARG {
@@ -100,6 +102,7 @@ module_store:   MODULE_STORE '=' ARG {
                                 parse_errors++;
                                 YYABORT;
                         }
+                        free($3);
                 }
 
         ;
@@ -109,6 +112,7 @@ store_root:     STORE_ROOT '=' ARG  {
                                 parse_errors++;
                                 YYABORT;
                         }
+                        free($3);
                 }
         ;
 
@@ -117,6 +121,7 @@ compiler_dir:       COMPILER_DIR '=' ARG  {
                                 parse_errors++;
                                 YYABORT;
                         }
+                        free($3);
                 }
         ;
 
@@ -128,6 +133,7 @@ ignore_module_cache:	IGNORE_MODULE_CACHE '=' ARG  {
 							else {
 								yyerror("disable-caching can only be 'true' or 'false'");
 							}
+							free($3);
 						}
         ;
 
@@ -150,6 +156,7 @@ target_platform: TARGET_PLATFORM '=' ARG  {
                         else {
                                 yyerror("target_platform can only be 'selinux' or 'xen'");
                         }
+                        free($3);
                 }
         ;
 
@@ -173,6 +180,7 @@ save_previous:    SAVE_PREVIOUS '=' ARG {
 			else {
 				yyerror("save-previous can only be 'true' or 'false'");
 			}
+			free($3);
                 }
         ;
 
@@ -185,6 +193,7 @@ save_linked:    SAVE_LINKED '=' ARG {
 			else {
 				yyerror("save-linked can only be 'true' or 'false'");
 			}
+			free($3);
                 }
         ;
 
@@ -212,6 +221,7 @@ usepasswd: USEPASSWD '=' ARG {
 
 ignoredirs: IGNOREDIRS '=' ARG {
 	current_conf->ignoredirs = strdup($3);
+	free($3);
  }
 
 handle_unknown: HANDLE_UNKNOWN '=' ARG {
@@ -243,6 +253,17 @@ bzip_small:  BZIP_SMALL '=' ARG {
 		current_conf->bzip_small = 1;
 	} else {
 		yyerror("bzip-small can only be 'true' or 'false'");
+	}
+	free($3);
+}
+
+remove_hll:  REMOVE_HLL'=' ARG {
+	if (strcasecmp($3, "false") == 0) {
+		current_conf->remove_hll = 0;
+	} else if (strcasecmp($3, "true") == 0) {
+		current_conf->remove_hll = 1;
+	} else {
+		yyerror("remove-hll can only be 'true' or 'false'");
 	}
 	free($3);
 }
@@ -330,6 +351,7 @@ static int semanage_conf_init(semanage_conf_t * conf)
 	conf->bzip_blocksize = 9;
 	conf->bzip_small = 0;
 	conf->ignore_module_cache = 0;
+	conf->remove_hll = 0;
 
 	conf->save_previous = 0;
 	conf->save_linked = 0;
@@ -403,6 +425,7 @@ semanage_conf_t *semanage_conf_parse(const char *config_filename)
 	parse_errors = 0;
 	semanage_parse();
 	fclose(semanage_in);
+	semanage_lex_destroy();
 	if (parse_errors != 0) {
 		goto cleanup;
 	}
@@ -472,10 +495,9 @@ static int parse_module_store(char *arg)
 		current_conf->store_path =
 		    strdup(basename(selinux_policy_root()));
 		current_conf->server_port = -1;
-		free(arg);
 	} else if (*arg == '/') {
 		current_conf->store_type = SEMANAGE_CON_POLSERV_LOCAL;
-		current_conf->store_path = arg;
+		current_conf->store_path = strdup(arg);
 		current_conf->server_port = -1;
 	} else {
 		char *s;

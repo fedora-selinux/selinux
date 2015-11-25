@@ -50,22 +50,38 @@ typedef struct avtab_key {
 	uint16_t source_type;
 	uint16_t target_type;
 	uint16_t target_class;
-#define AVTAB_ALLOWED     1
-#define AVTAB_AUDITALLOW  2
-#define AVTAB_AUDITDENY   4
-#define AVTAB_NEVERALLOW 128
-#define AVTAB_AV         (AVTAB_ALLOWED | AVTAB_AUDITALLOW | AVTAB_AUDITDENY)
-#define AVTAB_TRANSITION 16
-#define AVTAB_MEMBER     32
-#define AVTAB_CHANGE     64
-#define AVTAB_TYPE       (AVTAB_TRANSITION | AVTAB_MEMBER | AVTAB_CHANGE)
-#define AVTAB_ENABLED_OLD 0x80000000
-#define AVTAB_ENABLED    0x8000	/* reserved for used in cond_avtab */
+#define AVTAB_ALLOWED		0x0001
+#define AVTAB_AUDITALLOW	0x0002
+#define AVTAB_AUDITDENY		0x0004
+#define AVTAB_NEVERALLOW	0x0080
+#define AVTAB_AV		(AVTAB_ALLOWED | AVTAB_AUDITALLOW | AVTAB_AUDITDENY)
+#define AVTAB_TRANSITION	0x0010
+#define AVTAB_MEMBER		0x0020
+#define AVTAB_CHANGE		0x0040
+#define AVTAB_TYPE		(AVTAB_TRANSITION | AVTAB_MEMBER | AVTAB_CHANGE)
+#define AVTAB_XPERMS_ALLOWED	0x0100
+#define AVTAB_XPERMS_AUDITALLOW	0x0200
+#define AVTAB_XPERMS_DONTAUDIT	0x0400
+#define AVTAB_XPERMS_NEVERALLOW	0x0800
+#define AVTAB_XPERMS		(AVTAB_XPERMS_ALLOWED | AVTAB_XPERMS_AUDITALLOW | AVTAB_XPERMS_DONTAUDIT)
+#define AVTAB_ENABLED_OLD	0x80000000
+#define AVTAB_ENABLED		0x8000	/* reserved for used in cond_avtab */
 	uint16_t specified;	/* what fields are specified */
 } avtab_key_t;
 
+typedef struct avtab_extended_perms {
+
+#define AVTAB_XPERMS_IOCTLFUNCTION	0x01
+#define AVTAB_XPERMS_IOCTLDRIVER	0x02
+	/* extension of the avtab_key specified */
+	uint8_t specified;
+	uint8_t driver;
+	uint32_t perms[8];
+} avtab_extended_perms_t;
+
 typedef struct avtab_datum {
 	uint32_t data;		/* access vector or type */
+	avtab_extended_perms_t *xperms;
 } avtab_datum_t;
 
 typedef struct avtab_node *avtab_ptr_t;

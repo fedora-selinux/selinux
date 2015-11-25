@@ -9,7 +9,6 @@
  * for NULL (ie 0) because that is a potentially valid return.
  */
 #define COND_ERR ((avrule_t *)-1)
-
 #define TRUE 1
 #define FALSE 0
 
@@ -46,9 +45,10 @@ int define_permissive(void);
 int define_polcap(void);
 int define_port_context(unsigned int low, unsigned int high);
 int define_pirq_context(unsigned int pirq);
-int define_iomem_context(unsigned long low, unsigned long high);
+int define_iomem_context(uint64_t low, uint64_t high);
 int define_ioport_context(unsigned long low, unsigned long high);
 int define_pcidevice_context(unsigned long device);
+int define_devicetree_context(void);
 int define_range_trans(int class_specified);
 int define_role_allow(void);
 int define_role_trans(int class_specified);
@@ -58,6 +58,7 @@ int define_roleattribute(void);
 int define_filename_trans(void);
 int define_sens(void);
 int define_te_avtab(int which);
+int define_te_avtab_extended_perms(int which);
 int define_typealias(void);
 int define_typeattribute(void);
 int define_typebounds(void);

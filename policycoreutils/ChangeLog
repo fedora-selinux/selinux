@@ -1,3 +1,27 @@
+	* Man page warning fixes, from Ville Skyttä.
+	* sandbox: Fix sandbox to propagate specified MCS/MLS Security Level, from Miroslav Grepl.
+	* semanage: Require at least one argument for 'semanage permissive -d', from Petr Lautrbach.
+	* sepolicy: Improve sepolicy command line interface, from Petr Lautrbach.
+	* audit2allow/why: ignore setlocale errors, from Petr Lautrbach.
+	* semodule: Add --extract/-E, --cil/-c, and --hll/-H to extract modules, from Yuli Khodorkovskiy.
+	* audit2allow: Comment constraint rules in output, from Miroslav Grepl via Petr Lautrbach.
+	* Fix PEP8 issues, from Jason Zaman.
+	* semanage: fix moduleRecords deleteall method, from Stephen Smalley.
+	* Improve compatibility with Python 3, from Michal Srb.
+	* semanage: Set self.sename to sename after calling semanage_seuser_set_sename(), from Laurent Bigonville.
+	* semanage: Fix typo in semanage args for minimium policy store, from Petr Lautrbach.
+	* sepolicy: Only invoke RPM on RPM-enabled Linux distributions, from Sven Vermeulen.
+	* mcstransd: don't reinvent getpeercon, from Stephen Smalley.
+	* setfiles/restorecon: fix -r/-R option, from Petr Lautrbach.
+	* org.selinux.policy: Require auth_admin_keep for all actions, from Stephen Smalley.
+	* hll: Move core functions of pp to libsepol, from James Carter
+	* run_init: Use a ring buffer in open_init_pty, from Jason Zaman.
+	* run_init: fix open_init_pty availability check, from Nicolas Iooss.
+	* Widen Xen IOMEM context entries, from Daniel De Graaf.
+	* Fix -Wformat errors with gcc-5.0.0, from Petr Lautrbach.
+	* Fixed typo/grammatical error, from Christopher Peterson.
+	* Fix typo in semanage-port man page, from Andrew Spiers.
+
 2.4 2015-02-02
 	* Fix bugs found by hardened gcc flags, from Nicolas Iooss.
 	* Improve support for building with different versions of python from

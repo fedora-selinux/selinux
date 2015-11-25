@@ -142,6 +142,14 @@ AUDITDENY |
 auditdeny		        { return(AUDITDENY); }
 DONTAUDIT |
 dontaudit                       { return(DONTAUDIT); }
+ALLOWXPERM |
+allowxperm			{ return(ALLOWXPERM); }
+AUDITALLOWXPERM |
+auditallowxperm			{ return(AUDITALLOWXPERM); }
+DONTAUDITXPERM |
+dontauditxperm			{ return(DONTAUDITXPERM); }
+NEVERALLOWXPERM |
+neverallowxperm			{ return(NEVERALLOWXPERM); }
 SOURCE |
 source			        { return(SOURCE); }
 TARGET |
@@ -187,6 +195,8 @@ ioportcon |
 IOPORTCON           		{ return(IOPORTCON);}
 pcidevicecon |
 PCIDEVICECON           		{ return(PCIDEVICECON);}
+devicetreecon |
+DEVICETREECON           	{ return(DEVICETREECON);}
 fs_use_xattr |
 FS_USE_XATTR			{ return(FSUSEXATTR);}
 fs_use_task |
@@ -240,10 +250,11 @@ HIGH				{ return(HIGH); }
 low |
 LOW				{ return(LOW); }
 "/"({alnum}|[_\.\-/])*	        { return(PATH); }
+\""/"[ !#-~]*\" 		{ return(QPATH); }
 \"({alnum}|[_\.\-\+\~\: ])+\"	{ return(FILENAME); }
 {letter}({alnum}|[_\-])*([\.]?({alnum}|[_\-]))*	{ return(IDENTIFIER); }
-{alnum}*{letter}{alnum}*        { return(FILESYSTEM); }
 {digit}+|0x{hexval}+            { return(NUMBER); }
+{alnum}*{letter}{alnum}*        { return(FILESYSTEM); }
 {digit}{1,3}(\.{digit}{1,3}){3}    { return(IPV4_ADDR); }
 {hexval}{0,4}":"{hexval}{0,4}":"({hexval}|[:.])*  { return(IPV6_ADDR); }
 {digit}+(\.({alnum}|[_.])*)?    { return(VERSION_IDENTIFIER); }
