@@ -155,7 +155,7 @@ trans_file_type_str["-p"] = "p"
 
 def get_all_modules():
     all_modules = []
-    cmd = "semodule -l 2>/dev/null"
+    cmd = "semodule --list=full 2>/dev/null"
     try:
         output = subprocess.check_output(cmd,
                                          stderr=subprocess.STDOUT,
@@ -168,7 +168,7 @@ def get_all_modules():
 
     for i in l:
         if len(i):
-            all_modules.append(i.split()[0])
+            all_modules.append(i.split()[1])
             
     return all_modules
 
