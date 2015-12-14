@@ -1435,7 +1435,11 @@ class SELinuxGui():
     def stripsort(self, model, row1, row2, user_data):
         sort_column, _ = model.get_sort_column_id()
         val1 = self.unmarkup(model.get_value(row1, sort_column))
+        if val1 is None:
+            val1 = ""
         val2 = self.unmarkup(model.get_value(row2, sort_column))
+        if val2 is None:
+            val2 = ""
         return (val1 > val2) - (val1 < val2)
 
     def display_more_detail(self, windows, path):
