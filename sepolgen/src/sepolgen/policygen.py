@@ -196,7 +196,7 @@ class PolicyGenerator:
                     comp = ""
                 rule.comment += "\n#!!!! WARNING '%s' is not allowed to write or create to %s.  Change the label to %s." % ("".join(base_type[2]), "".join(base_type[1]), "".join(base_type[0]))
                 if av.obj_path != "":
-                    rule.comment += "\n#!!!! $ semange fcontext -a -t %s %s%s   \n#!!!! $ restorecon -R -v %s" % ("".join(base_type[0]), "".join(av.obj_path), "".join(comp) ,"".join(av.obj_path))
+                    rule.comment += "\n#!!!! $ semanage fcontext -a -t %s %s%s   \n#!!!! $ restorecon -R -v %s" % ("".join(base_type[0]), "".join(av.obj_path), "".join(comp) ,"".join(av.obj_path))
 
             self.__restore_label(av)
             if self.mislabled is not None and av.type != audit2why.ALLOW:
