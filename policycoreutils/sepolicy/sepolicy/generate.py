@@ -1282,8 +1282,7 @@ allow %s_t %s_t:%s_socket name_%s;
                         else:
                             self.add_dir(fname)
 
-            pkg_basename = '-'.join(pkg.sourcerpm.split('-')[0:-2])
-            for bpkg in installed.filter(name=pkg_basename):
+            for bpkg in installed.filter(name=pkg.sourcename)
                 for fname in bpkg.files:
                     for b in self.DEFAULT_DIRS:
                         if b == "/etc":
