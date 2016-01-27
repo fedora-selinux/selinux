@@ -1270,7 +1270,7 @@ allow %s_t %s_t:%s_socket name_%s;
         base.fill_sack()
         installed = base.sack.query().installed()
 
-        for pkg in installed.filter(file=self.program):
+        for pkg in installed.filter(provides=self.program):
             self.rpms.append(pkg.name)
             for fname in pkg.files:
                 for b in self.DEFAULT_DIRS:
