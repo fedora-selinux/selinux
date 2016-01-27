@@ -1264,15 +1264,13 @@ allow %s_t %s_t:%s_socket name_%s;
         return fcfile
 
     def __extract_rpms(self):
-        import dnf
-        base = dnf.Base()
-        base.conf.cachedir = dnf.yum.misc.getCacheDir()
-        base.fill_sack()
-        installed = base.sack.query().installed()
+        import yum
+        yb = yum.YumBase()
+        yb.setCacheDir()
 
-        for pkg in installed.filter(provides=self.program):
+        for pkg in yb.rpmdb.searchProvides(self.program):
             self.rpms.append(pkg.name)
-            for fname in pkg.files:
+            for fname in pkg.dirlist + pkg.filelist + pkg.ghostlist:
                 for b in self.DEFAULT_DIRS:
                     if b == "/etc":
                         continue
@@ -1282,8 +1280,8 @@ allow %s_t %s_t:%s_socket name_%s;
                         else:
                             self.add_dir(fname)
 
-            for bpkg in installed.filter(name=pkg.sourcename)
-                for fname in bpkg.files:
+            for bpkg in yb.rpmdb.searchNames([pkg.base_package_name]):
+                for fname in bpkg.dirlist + bpkg.filelist + bpkg.ghostlist:
                     for b in self.DEFAULT_DIRS:
                         if b == "/etc":
                             continue
@@ -1296,8 +1294,8 @@ allow %s_t %s_t:%s_socket name_%s;
         # some packages have own systemd subpackage
         # tor-systemd for example
         binary_name = self.program.split("/")[-1]
-        for bpkg in installed.filter(name="%s-systemd" % binary_name):
-            for fname in bpkg.files:
+        for bpkg in yb.rpmdb.searchNames([ "%s-systemd" % binary_name ]):
+            for fname in bpkg.filelist + bpkg.ghostlist + bpkg.dirlist:
                 for b in self.DEFAULT_DIRS:
                     if b == "/etc":
                         continue
