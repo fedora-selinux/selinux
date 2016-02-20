@@ -21,12 +21,12 @@ import gtk.glade
 import gobject
 import subprocess
 import seobject
-from semanagePage import *;
+from semanagePage import *
 
 ##
 ## I18N
 ##
-PROGNAME="policycoreutils"
+PROGNAME = "policycoreutils"
 import gettext
 gettext.bindtextdomain(PROGNAME, "/usr/share/locale")
 gettext.textdomain(PROGNAME)
@@ -34,26 +34,28 @@ try:
     gettext.install(PROGNAME,
                     localedir="/usr/share/locale",
                     unicode=False,
-                    codeset = 'utf-8')
+                    codeset='utf-8')
 except IOError:
     import builtins
     builtins.__dict__['_'] = str
 
+
 class loginsPage(semanagePage):
+
     def __init__(self, xml):
         self.firstTime = False
         semanagePage.__init__(self, xml, "logins", _("User Mapping"))
         self.store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.view.set_model(self.store)
         self.store.set_sort_column_id(0, gtk.SORT_ASCENDING)
-        col = gtk.TreeViewColumn(_("Login\nName"), gtk.CellRendererText(), text = 0)
+        col = gtk.TreeViewColumn(_("Login\nName"), gtk.CellRendererText(), text=0)
         col.set_sort_column_id(0)
         col.set_resizable(True)
         self.view.append_column(col)
-        col = gtk.TreeViewColumn(_("SELinux\nUser"), gtk.CellRendererText(), text = 1)
+        col = gtk.TreeViewColumn(_("SELinux\nUser"), gtk.CellRendererText(), text=1)
         col.set_resizable(True)
         self.view.append_column(col)
-        col = gtk.TreeViewColumn(_("MLS/\nMCS Range"), gtk.CellRendererText(), text = 2)
+        col = gtk.TreeViewColumn(_("MLS/\nMCS Range"), gtk.CellRendererText(), text=2)
         col.set_resizable(True)
         self.view.append_column(col)
         self.load()
@@ -61,8 +63,8 @@ class loginsPage(semanagePage):
         self.loginsSelinuxUserCombo = xml.get_widget("loginsSelinuxUserCombo")
         self.loginsMLSEntry = xml.get_widget("loginsMLSEntry")
 
-    def load(self, filter = ""):
-        self.filter=filter
+    def load(self, filter=""):
+        self.filter = filter
         self.login = seobject.loginRecords()
         dict = self.login.get_all(0)
         keys = list(dict.keys())
@@ -115,7 +117,6 @@ class loginsPage(semanagePage):
         if it != None:
             self.loginsSelinuxUserCombo.set_active_iter(it)
 
-
     def dialogClear(self):
         self.__dialogSetup()
         self.loginsNameEntry.set_text("")
@@ -145,8 +146,8 @@ class loginsPage(semanagePage):
             self.error(e.args[0])
 
     def add(self):
-        target=self.loginsNameEntry.get_text().strip()
-        serange=self.loginsMLSEntry.get_text().strip()
+        target = self.loginsNameEntry.get_text().strip()
+        serange = self.loginsMLSEntry.get_text().strip()
         if serange == "":
             serange="s0"
         list_model=self.loginsSelinuxUserCombo.get_model()
@@ -168,8 +169,8 @@ class loginsPage(semanagePage):
             return False
 
     def modify(self):
-        target=self.loginsNameEntry.get_text().strip()
-        serange=self.loginsMLSEntry.get_text().strip()
+        target = self.loginsNameEntry.get_text().strip()
+        serange = self.loginsMLSEntry.get_text().strip()
         if serange == "":
             serange = "s0"
         list_model = self.loginsSelinuxUserCombo.get_model()

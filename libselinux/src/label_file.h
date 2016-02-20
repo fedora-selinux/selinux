@@ -1,16 +1,25 @@
 #ifndef _SELABEL_FILE_H_
 #define _SELABEL_FILE_H_
 
+#include <errno.h>
+#include <string.h>
+
 #include <sys/stat.h>
 
+#include "callbacks.h"
 #include "label_internal.h"
 
 #define SELINUX_MAGIC_COMPILED_FCONTEXT	0xf97cff8a
+
+/* Version specific changes */
 #define SELINUX_COMPILED_FCONTEXT_NOPCRE_VERS	1
 #define SELINUX_COMPILED_FCONTEXT_PCRE_VERS	2
-#define SELINUX_COMPILED_FCONTEXT_MAX_VERS	2
+#define SELINUX_COMPILED_FCONTEXT_MODE		3
+#define SELINUX_COMPILED_FCONTEXT_PREFIX_LEN	4
 
-/* Prior to verison 8.20, libpcre did not have pcre_free_study() */
+#define SELINUX_COMPILED_FCONTEXT_MAX_VERS	SELINUX_COMPILED_FCONTEXT_PREFIX_LEN
+
+/* Prior to version 8.20, libpcre did not have pcre_free_study() */
 #if (PCRE_MAJOR < 8 || (PCRE_MAJOR == 8 && PCRE_MINOR < 20))
 #define pcre_free_study  pcre_free
 #endif
@@ -31,6 +40,7 @@ struct spec {
 	char hasMetaChars;	/* regular expression has meta-chars */
 	char regcomp;		/* regex_str has been compiled to regex */
 	char from_mmap;		/* this spec is from an mmap of the data */
+	size_t prefix_len;      /* length of fixed path prefix */
 };
 
 /* A regular expression stem */
@@ -42,8 +52,10 @@ struct stem {
 
 /* Where we map the file in during selabel_open() */
 struct mmap_area {
-	void *addr;
+	void *addr;	/* Start addr + len used to release memory at close */
 	size_t len;
+	void *next_addr;	/* Incremented by next_entry() */
+	size_t next_len;	/* Decremented by next_entry() */
 	struct mmap_area *next;
 };
 
@@ -142,6 +154,7 @@ static inline void spec_hasMetaChars(struct spec *spec)
 	end = c + len;
 
 	spec->hasMetaChars = 0;
+	spec->prefix_len = len;
 
 	/* Look at each character in the RE specification string for a
 	 * meta character. Return when any meta character reached. */
@@ -158,6 +171,7 @@ static inline void spec_hasMetaChars(struct spec *spec)
 		case '(':
 		case '{':
 			spec->hasMetaChars = 1;
+			spec->prefix_len = c - spec->regex_str;
 			return;
 		case '\\':	/* skip the next character */
 			c++;
@@ -168,7 +182,6 @@ static inline void spec_hasMetaChars(struct spec *spec)
 		}
 		c++;
 	}
-	return;
 }
 
 /* Move exact pathname specifications to the end. */
@@ -195,9 +208,9 @@ static inline int sort_specs(struct saved_data *data)
 	}
 
 	/*
-	 * now the exact pathnames are at the end, but they are in the reverse order.
-	 * since 'front' is now the first of the 'exact' we can run that part of the
-	 * array switching the front and back element.
+	 * now the exact pathnames are at the end, but they are in the reverse
+	 * order. Since 'front' is now the first of the 'exact' we can run
+	 * that part of the array switching the front and back element.
 	 */
 	back = data->nspec - 1;
 	while (front < back) {
@@ -237,7 +250,8 @@ static inline int get_stem_from_spec(const char *const buf)
 /*
  * return the stemid given a string and a length
  */
-static inline int find_stem(struct saved_data *data, const char *buf, int stem_len)
+static inline int find_stem(struct saved_data *data, const char *buf,
+						    int stem_len)
 {
 	int i;
 
@@ -267,6 +281,7 @@ static inline int store_stem(struct saved_data *data, char *buf, int stem_len)
 	}
 	data->stem_arr[num].len = stem_len;
 	data->stem_arr[num].buf = buf;
+	data->stem_arr[num].from_mmap = 0;
 	data->num_stems++;
 
 	return num;
@@ -294,6 +309,178 @@ static inline int find_stem_from_spec(struct saved_data *data, const char *buf)
 		return -1;
 
 	return store_stem(data, stem, stem_len);
+}
+
+/* This will always check for buffer over-runs and either read the next entry
+ * if buf != NULL or skip over the entry (as these areas are mapped in the
+ * current buffer). */
+static inline int next_entry(void *buf, struct mmap_area *fp, size_t bytes)
+{
+	if (bytes > fp->next_len)
+		return -1;
+
+	if (buf)
+		memcpy(buf, fp->next_addr, bytes);
+
+	fp->next_addr = (char *)fp->next_addr + bytes;
+	fp->next_len -= bytes;
+	return 0;
+}
+
+static inline int compile_regex(struct saved_data *data, struct spec *spec,
+					    const char **errbuf)
+{
+	const char *tmperrbuf;
+	char *reg_buf, *anchored_regex, *cp;
+	struct stem *stem_arr = data->stem_arr;
+	size_t len;
+	int erroff;
+
+	if (spec->regcomp)
+		return 0; /* already done */
+
+	/* Skip the fixed stem. */
+	reg_buf = spec->regex_str;
+	if (spec->stem_id >= 0)
+		reg_buf += stem_arr[spec->stem_id].len;
+
+	/* Anchor the regular expression. */
+	len = strlen(reg_buf);
+	cp = anchored_regex = malloc(len + 3);
+	if (!anchored_regex)
+		return -1;
+
+	/* Create ^...$ regexp.  */
+	*cp++ = '^';
+	memcpy(cp, reg_buf, len);
+	cp += len;
+	*cp++ = '$';
+	*cp = '\0';
+
+	/* Compile the regular expression. */
+	spec->regex = pcre_compile(anchored_regex, PCRE_DOTALL, &tmperrbuf,
+						    &erroff, NULL);
+	free(anchored_regex);
+	if (!spec->regex) {
+		if (errbuf)
+			*errbuf = tmperrbuf;
+		return -1;
+	}
+
+	spec->sd = pcre_study(spec->regex, 0, &tmperrbuf);
+	if (!spec->sd && tmperrbuf) {
+		if (errbuf)
+			*errbuf = tmperrbuf;
+		return -1;
+	}
+
+	/* Done. */
+	spec->regcomp = 1;
+
+	return 0;
+}
+
+/* This service is used by label_file.c process_file() and
+ * utils/sefcontext_compile.c */
+static inline int process_line(struct selabel_handle *rec,
+			const char *path, const char *prefix,
+			char *line_buf, unsigned lineno)
+{
+	int items, len, rc;
+	char *regex = NULL, *type = NULL, *context = NULL;
+	struct saved_data *data = (struct saved_data *)rec->data;
+	struct spec *spec_arr;
+	unsigned int nspec = data->nspec;
+	const char *errbuf = NULL;
+
+	items = read_spec_entries(line_buf, &errbuf, 3, &regex, &type, &context);
+	if (items < 0) {
+		rc = errno;
+		selinux_log(SELINUX_ERROR,
+			"%s:  line %u error due to: %s\n", path,
+			lineno, errbuf ?: strerror(errno));
+		errno = rc;
+		return -1;
+	}
+
+	if (items == 0)
+		return items;
+
+	if (items < 2) {
+		COMPAT_LOG(SELINUX_ERROR,
+			    "%s:  line %u is missing fields\n", path,
+			    lineno);
+		if (items == 1)
+			free(regex);
+		errno = EINVAL;
+		return -1;
+	} else if (items == 2) {
+		/* The type field is optional. */
+		context = type;
+		type = 0;
+	}
+
+	len = get_stem_from_spec(regex);
+	if (len && prefix && strncmp(prefix, regex, len)) {
+		/* Stem of regex does not match requested prefix, discard. */
+		free(regex);
+		free(type);
+		free(context);
+		return 0;
+	}
+
+	rc = grow_specs(data);
+	if (rc)
+		return rc;
+
+	spec_arr = data->spec_arr;
+
+	/* process and store the specification in spec. */
+	spec_arr[nspec].stem_id = find_stem_from_spec(data, regex);
+	spec_arr[nspec].regex_str = regex;
+
+	spec_arr[nspec].type_str = type;
+	spec_arr[nspec].mode = 0;
+
+	spec_arr[nspec].lr.ctx_raw = context;
+
+	/*
+	 * bump data->nspecs to cause closef() to cover it in its free
+	 * but do not bump nspec since it's used below.
+	 */
+	data->nspec++;
+
+	if (rec->validating &&
+			    compile_regex(data, &spec_arr[nspec], &errbuf)) {
+		COMPAT_LOG(SELINUX_ERROR,
+			   "%s:  line %u has invalid regex %s:  %s\n",
+			   path, lineno, regex,
+			   (errbuf ? errbuf : "out of memory"));
+		errno = EINVAL;
+		return -1;
+	}
+
+	if (type) {
+		mode_t mode = string_to_mode(type);
+
+		if (mode == (mode_t)-1) {
+			COMPAT_LOG(SELINUX_ERROR,
+				   "%s:  line %u has invalid file type %s\n",
+				   path, lineno, type);
+			errno = EINVAL;
+			return -1;
+		}
+		spec_arr[nspec].mode = mode;
+	}
+
+	/* Determine if specification has
+	 * any meta characters in the RE */
+	spec_hasMetaChars(&spec_arr[nspec]);
+
+	if (strcmp(context, "<<none>>") && rec->validating)
+		compat_validate(rec, &spec_arr[nspec].lr, path, lineno);
+
+	return 0;
 }
 
 #endif /* _SELABEL_FILE_H_ */

@@ -67,6 +67,7 @@ typedef int (* require_func_t)(int pass);
 
 %union {
 	unsigned int val;
+	uint64_t val64;
 	uintptr_t valptr;
 	void *ptr;
         require_func_t require_func;
@@ -78,9 +79,11 @@ typedef int (* require_func_t)(int pass);
 %type <ptr> role_def roles
 %type <valptr> cexpr cexpr_prim op role_mls_op
 %type <val> ipv4_addr_def number
+%type <val64> number64
 %type <require_func> require_decl_def
 
 %token PATH
+%token QPATH
 %token FILENAME
 %token CLONE
 %token COMMON
@@ -123,11 +126,15 @@ typedef int (* require_func_t)(int pass);
 %token AUDITALLOW
 %token AUDITDENY
 %token DONTAUDIT
+%token ALLOWXPERM
+%token AUDITALLOWXPERM
+%token DONTAUDITXPERM
+%token NEVERALLOWXPERM
 %token SOURCE
 %token TARGET
 %token SAMEUSER
 %token FSCON PORTCON NETIFCON NODECON 
-%token PIRQCON IOMEMCON IOPORTCON PCIDEVICECON
+%token PIRQCON IOMEMCON IOPORTCON PCIDEVICECON DEVICETREECON
 %token FSUSEXATTR FSUSETASK FSUSETRANS
 %token GENFSCON
 %token U1 U2 U3 R1 R2 R3 T1 T2 T3 L1 L2 H1 H2
@@ -454,6 +461,10 @@ te_avtab_def		: allow_def
 			| auditdeny_def
 			| dontaudit_def
 			| neverallow_def
+			| xperm_allow_def
+			| xperm_auditallow_def
+			| xperm_dontaudit_def
+			| xperm_neverallow_def
 			;
 allow_def		: ALLOW names names ':' names names  ';'
 			{if (define_te_avtab(AVRULE_ALLOWED)) return -1; }
@@ -469,6 +480,18 @@ dontaudit_def		: DONTAUDIT names names ':' names names ';'
 		        ;
 neverallow_def		: NEVERALLOW names names ':' names names  ';'
 			{if (define_te_avtab(AVRULE_NEVERALLOW)) return -1; }
+		        ;
+xperm_allow_def		: ALLOWXPERM names names ':' names identifier xperms ';'
+			{if (define_te_avtab_extended_perms(AVRULE_XPERMS_ALLOWED)) return -1; }
+		        ;
+xperm_auditallow_def	: AUDITALLOWXPERM names names ':' names identifier xperms ';'
+			{if (define_te_avtab_extended_perms(AVRULE_XPERMS_AUDITALLOW)) return -1; }
+		        ;
+xperm_dontaudit_def	: DONTAUDITXPERM names names ':' names identifier xperms ';'
+			{if (define_te_avtab_extended_perms(AVRULE_XPERMS_DONTAUDIT)) return -1; }
+		        ;
+xperm_neverallow_def	: NEVERALLOWXPERM names names ':' names identifier xperms ';'
+			{if (define_te_avtab_extended_perms(AVRULE_XPERMS_NEVERALLOW)) return -1; }
 		        ;
 attribute_role_def	: ATTRIBUTE_ROLE identifier ';'
 			{if (define_attrib_role()) return -1; }
@@ -641,14 +664,15 @@ dev_contexts		: dev_context_def
 dev_context_def		: pirq_context_def |
 			  iomem_context_def |
 			  ioport_context_def |
-			  pci_context_def
+			  pci_context_def |
+			  dtree_context_def
 			;
 pirq_context_def 	: PIRQCON number security_context_def
 		        {if (define_pirq_context($2)) return -1;}
 		        ;
-iomem_context_def	: IOMEMCON number security_context_def
+iomem_context_def	: IOMEMCON number64 security_context_def
 		        {if (define_iomem_context($2,$2)) return -1;}
-		        | IOMEMCON number '-' number security_context_def
+		        | IOMEMCON number64 '-' number64 security_context_def
 		        {if (define_iomem_context($2,$4)) return -1;}
 		        ;
 ioport_context_def	: IOPORTCON number security_context_def
@@ -658,6 +682,9 @@ ioport_context_def	: IOPORTCON number security_context_def
 			;
 pci_context_def  	: PCIDEVICECON number security_context_def
 		        {if (define_pcidevice_context($2)) return -1;}
+		        ;
+dtree_context_def	: DEVICETREECON path security_context_def
+		        {if (define_devicetree_context()) return -1;}
 		        ;
 opt_fs_contexts         : fs_contexts 
                         |
@@ -729,6 +756,28 @@ genfs_context_def	: GENFSCON filesystem path '-' identifier security_context_def
 			;
 ipv4_addr_def		: IPV4_ADDR
 			{ if (insert_id(yytext,0)) return -1; }
+			;
+xperms		: xperm
+			{ if (insert_separator(0)) return -1; }
+			| nested_xperm_set
+			{ if (insert_separator(0)) return -1; }
+			| tilde xperm
+                        { if (insert_id("~", 0)) return -1; }
+			| tilde nested_xperm_set
+			{ if (insert_id("~", 0)) return -1;
+			  if (insert_separator(0)) return -1; }
+			;
+nested_xperm_set	: '{' nested_xperm_list '}'
+			;
+nested_xperm_list	: nested_xperm_element
+			| nested_xperm_list nested_xperm_element
+			;
+nested_xperm_element: xperm '-' { if (insert_id("-", 0)) return -1; } xperm
+			| xperm
+			| nested_xperm_set
+			;
+xperm		: number
+                        { if (insert_id(yytext,0)) return -1; }
 			;
 security_context_def	: identifier ':' identifier ':' identifier opt_mls_range_def
 	                ;
@@ -805,12 +854,17 @@ filesystem		: FILESYSTEM
                         ;
 path     		: PATH
 			{ if (insert_id(yytext,0)) return -1; }
+			| QPATH
+			{ yytext[strlen(yytext) - 1] = '\0'; if (insert_id(yytext + 1,0)) return -1; }
 			;
 filename		: FILENAME
 			{ yytext[strlen(yytext) - 1] = '\0'; if (insert_id(yytext + 1,0)) return -1; }
 			;
 number			: NUMBER 
 			{ $$ = strtoul(yytext,NULL,0); }
+			;
+number64		: NUMBER
+			{ $$ = strtoull(yytext,NULL,0); }
 			;
 ipv6_addr		: IPV6_ADDR
 			{ if (insert_id(yytext,0)) return -1; }

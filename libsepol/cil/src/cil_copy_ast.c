@@ -392,6 +392,41 @@ int cil_copy_user(__attribute__((unused)) struct cil_db *db, void *data, void **
 	return SEPOL_OK;
 }
 
+int cil_copy_userattribute(__attribute__((unused)) struct cil_db *db, void *data, void **copy, symtab_t *symtab)
+{
+	struct cil_userattribute *orig = data;
+	struct cil_userattribute *new = NULL;
+	char *key = orig->datum.name;
+	struct cil_symtab_datum *datum = NULL;
+
+	cil_symtab_get_datum(symtab, key, &datum);
+	if (datum == NULL) {
+		cil_userattribute_init(&new);
+		*copy = new;
+	} else {
+		*copy = datum;
+	}
+
+	return SEPOL_OK;
+}
+
+int cil_copy_userattributeset(struct cil_db *db, void *data, void **copy, __attribute__((unused)) symtab_t *symtab)
+{
+	struct cil_userattributeset *orig = data;
+	struct cil_userattributeset *new = NULL;
+
+	cil_userattributeset_init(&new);
+
+	new->attr_str = orig->attr_str;
+
+	cil_copy_expr(db, orig->str_expr, &new->str_expr);
+	cil_copy_expr(db, orig->datum_expr, &new->datum_expr);
+
+	*copy = new;
+
+	return SEPOL_OK;
+}
+
 int cil_copy_userrole(__attribute__((unused)) struct cil_db *db, void *data, void **copy, __attribute__((unused)) symtab_t *symtab)
 {
 	struct cil_userrole *orig = data;
@@ -747,17 +782,57 @@ int cil_copy_tunable(__attribute__((unused)) struct cil_db *db, void *data, void
 	return SEPOL_OK;
 }
 
-int cil_copy_avrule(__attribute__((unused)) struct cil_db *db, void *data, void **copy, __attribute__((unused)) symtab_t *symtab)
+void cil_copy_fill_permissionx(struct cil_db *db, struct cil_permissionx *orig, struct cil_permissionx *new)
+{
+	new->kind = orig->kind;
+	new->obj_str = orig->obj_str;
+	cil_copy_expr(db, orig->expr_str, &new->expr_str);
+}
+
+int cil_copy_avrule(struct cil_db *db, void *data, void **copy, __attribute__((unused)) symtab_t *symtab)
 {
 	struct cil_avrule *orig = data;
 	struct cil_avrule *new = NULL;
 
 	cil_avrule_init(&new);
 
+	new->is_extended = orig->is_extended;
 	new->rule_kind = orig->rule_kind;
 	new->src_str = orig->src_str;
 	new->tgt_str = orig->tgt_str;
-	cil_copy_classperms_list(orig->classperms, &new->classperms);
+
+	if (!new->is_extended) {
+		cil_copy_classperms_list(orig->perms.classperms, &new->perms.classperms);
+	} else {
+		if (new->perms.x.permx_str != NULL) {
+			new->perms.x.permx_str = orig->perms.x.permx_str;
+		} else {
+			cil_permissionx_init(&new->perms.x.permx);
+			cil_copy_fill_permissionx(db, orig->perms.x.permx, new->perms.x.permx);
+		}
+	}
+
+	*copy = new;
+
+	return SEPOL_OK;
+}
+
+int cil_copy_permissionx(struct cil_db *db, void *data, void **copy, symtab_t *symtab)
+{
+	struct cil_permissionx *orig = data;
+	struct cil_permissionx *new = NULL;
+	char *key = orig->datum.name;
+	struct cil_symtab_datum *datum = NULL;
+
+
+	cil_symtab_get_datum(symtab, key, &datum);
+	if (datum != NULL) {
+		cil_log(CIL_INFO, "cil_copy_permissionx: permissionx cannot be redefined\n");
+		return SEPOL_ERR;
+	}
+
+	cil_permissionx_init(&new);
+	cil_copy_fill_permissionx(db, orig, new);
 
 	*copy = new;
 
@@ -1215,6 +1290,27 @@ int cil_copy_pcidevicecon(struct cil_db *db, void *data, void **copy, __attribut
 	return SEPOL_OK;
 }
 
+int cil_copy_devicetreecon(struct cil_db *db, void *data, void **copy, __attribute__((unused)) symtab_t *symtab)
+{
+	struct cil_devicetreecon *orig = data;
+	struct cil_devicetreecon *new = NULL;
+
+	cil_devicetreecon_init(&new);
+
+	new->path = orig->path;
+
+	if (orig->context_str != NULL) {
+		new->context_str = orig->context_str;
+	} else {
+		cil_context_init(&new->context);
+		cil_copy_fill_context(db, orig->context, new->context);
+	}
+
+	*copy = new;
+
+	return SEPOL_OK;
+}
+
 int cil_copy_fsuse(struct cil_db *db, void *data, void **copy, __attribute__((unused)) symtab_t *symtab)
 {
 	struct cil_fsuse *orig = data;
@@ -1643,6 +1739,12 @@ int __cil_copy_node_helper(struct cil_tree_node *orig, __attribute__((unused)) u
 	case CIL_USER:
 		copy_func = &cil_copy_user;
 		break;
+	case CIL_USERATTRIBUTE:
+		copy_func = &cil_copy_userattribute;
+		break;
+	case CIL_USERATTRIBUTESET:
+		copy_func = &cil_copy_userattributeset;
+		break;
 	case CIL_USERROLE:
 		copy_func = &cil_copy_userrole;
 		break;
@@ -1713,7 +1815,11 @@ int __cil_copy_node_helper(struct cil_tree_node *orig, __attribute__((unused)) u
 		copy_func = &cil_copy_bool;
 		break;
 	case CIL_AVRULE:
+	case CIL_AVRULEX:
 		copy_func = &cil_copy_avrule;
+		break;
+	case CIL_PERMISSIONX:
+		copy_func = &cil_copy_permissionx;
 		break;
 	case CIL_TYPE_RULE:
 		copy_func = &cil_copy_type_rule;
@@ -1783,6 +1889,9 @@ int __cil_copy_node_helper(struct cil_tree_node *orig, __attribute__((unused)) u
 		break;
 	case CIL_PCIDEVICECON:
 		copy_func = &cil_copy_pcidevicecon;
+		break;
+	case CIL_DEVICETREECON:
+		copy_func = &cil_copy_devicetreecon;
 		break;
 	case CIL_FSUSE:
 		copy_func = &cil_copy_fsuse;

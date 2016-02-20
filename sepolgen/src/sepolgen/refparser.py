@@ -87,6 +87,7 @@ tokens = (
     'IOMEMCON',
     'IOPORTCON',
     'PCIDEVICECON',
+    'DEVICETREECON',
     #   object classes
     'CLASS',
     #   types and attributes
@@ -151,6 +152,7 @@ reserved = {
     'iomemcon' : 'IOMEMCON',
     'ioportcon' : 'IOPORTCON',
     'pcidevicecon' : 'PCIDEVICECON',
+    'devicetreecon' : 'DEVICETREECON',
     # object classes
     'class' : 'CLASS',
     # types and attributes
@@ -217,7 +219,7 @@ t_BAR       = r'\|'
 t_EXPL      = r'\!'
 t_EQUAL     = r'\='
 t_NUMBER    = r'[0-9\.]+'
-t_PATH      = r'/[a-zA-Z0-9)_\.\*/]*'
+t_PATH      = r'/[a-zA-Z0-9)_\.\*/\$]*'
 #t_IPV6_ADDR = r'[a-fA-F0-9]{0,4}:[a-fA-F0-9]{0,4}:([a-fA-F0-9]{0,4}:)*'
 
 # Ignore whitespace - this is a special token for ply that more efficiently
@@ -415,6 +417,7 @@ def p_tunable_policy(p):
 def p_ifelse(p):
     '''ifelse : IFELSE OPAREN TICK IDENTIFIER SQUOTE COMMA COMMA TICK IDENTIFIER SQUOTE COMMA TICK interface_stmts SQUOTE CPAREN optional_semi
               | IFELSE OPAREN TICK IDENTIFIER SQUOTE COMMA TICK IDENTIFIER SQUOTE COMMA TICK interface_stmts SQUOTE COMMA TICK interface_stmts SQUOTE CPAREN optional_semi
+              | IFELSE OPAREN TICK IDENTIFIER SQUOTE COMMA TICK SQUOTE COMMA TICK interface_stmts SQUOTE COMMA TICK interface_stmts SQUOTE CPAREN optional_semi
     '''
 #    x = refpolicy.IfDef(p[4])
 #    v = True
@@ -523,6 +526,7 @@ def p_policy_stmt(p):
                    | iomemcon
                    | ioportcon
                    | pcidevicecon
+                   | devicetreecon
     '''
     if p[1]:
         p[0] = [p[1]]
@@ -698,6 +702,14 @@ def p_pcidevicecon(p):
     'pcidevicecon : PCIDEVICECON NUMBER context'
     c = refpolicy.PciDeviceCon()
     c.device = p[2]
+    c.context = p[3]
+
+    p[0] = c
+
+def p_devicetreecon(p):
+    'devicetreecon : DEVICETREECON NUMBER context'
+    c = refpolicy.DevicetTeeCon()
+    c.path = p[2]
     c.context = p[3]
 
     p[0] = c
@@ -992,6 +1004,7 @@ def parse(text, module=None, support=None, debug=False):
     create_globals(module, support, debug)
     global error, parser, lexer, success
 
+    lexer.lineno = 1
     success = True
 
     try:

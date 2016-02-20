@@ -1,3 +1,49 @@
+2.5-rc1 2016-01-07
+	* Fix unused variable annotations, from Nicolas Iooss.
+	* Fix uninitialized variable in CIL, from Nicolas Iooss.
+	* Validate extended avrules and permissionxs in CIL, from Steve Lawrence.
+	* Add support in CIL for neverallowx, from Steve Lawrence.
+	* Fully expand neverallowxperm rules, from Richard Haines.
+	* Add support for unordered classes to CIL, from Yuli Khodorkovskiy.
+	* Add neverallow support for ioctl extended permissions, from Jeff Vander Stoep.
+	* Improve CIL block and macro call recursion detection, from Steve Lawrence
+	* Fix CIL uninitialized false positive in cil_binary, from Yuli Khodorkovskiy
+	* Provide error in CIL if classperms are empty, from Yuli Khodorkovskiy
+	* Add userattribute{set} functionality to CIL, from Yuli Khodorkovskiy
+	* fix CIL blockinherit copying segfault and add macro restrictions, from Steve Lawrence
+	* fix CIL NULL pointer dereference when copying classpermission/set, from Steve Lawrence
+	* Add CIL support for ioctl whitelists, from Steve Lawrence
+	* Fix memory leak when destroying avtab, from Steve Lawrence
+	* Replace sscanf in module_to_cil, from Yuli Khodorkovskiy.
+	* Improve CIL resolution error messages, from Steve Lawrence
+	* Fix policydb_read for policy versions < 24, from Stephen Smalley.
+	* Added CIL bounds checking and refactored CIL Neverallow checking, from James Carter
+	* Refactored libsepol Neverallow and bounds (hierarchy) checking, from James Carter
+	* Treat types like an attribute in the attr_type_map, from James Carter
+	* Add new ebitmap function named ebitmap_match_any(), from James Carter
+	* switch operations to extended perms, from Jeff Vander Stoep.
+	* Write auditadm_r and secadm_r roles to base module when writing CIL, from Steve Lawrence
+	* Fix module to CIL to only associate declared roleattributes with in-scope types, from Steve Lawrence
+	* Don't allow categories/sensitivities inside blocks in CIL, from Yuli Khodorkovskiy.
+	* Replace fmemopen() with internal function in libsepol, from James Carter.
+	* Verify users prior to evaluating users in cil, from Yuli Khodorkovskiy.
+	* Binary modules do not support ioctl rules, from Stephen Smalley.
+	* Add support for ioctl command whitelisting, from Jeff Vander Stoep.
+	* Don't use symbol versioning for static object files, from Yuli Khodorkovskiy.
+	* Add sepol_module_policydb_to_cil(), sepol_module_package_to_cil(), and sepol_ppfile_to_module_package(), from James Carter.
+	* Move secilc out of libsepol, from Yuli Khodorkovskiy.
+	* fix building Xen policy with devicetreecon, and add devicetreecon
+	  CIL documentation, from Richard Haines.
+	* bool_copy_callback set state on creation, from Thomas Hurd.
+	* Add device tree ocontext nodes to Xen policy, from Daniel De Graaf.
+	* Widen Xen IOMEM context entries, from Daniel De Graaf.
+	* Update CIL documentation, from Richard Haines
+	* Fix error path in mls_semantic_level_expand(), from Chris PeBenito.
+	* Fix MacOS X build, from Stephen Smalley.
+	* Enabling building CIL in Android, from Stephen Smalley.
+	* Update to latest CIL, includes new name resolution and fixes ordering
+	  issues with blockinherit statements, and bug fixes
+
 2.4 2015-02-02
 	* Remove assumption that SHLIBDIR is ../../ relative to LIBDIR, from Steve
 	  Lawrence

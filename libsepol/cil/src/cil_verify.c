@@ -43,6 +43,7 @@
 #include "cil_mem.h"
 #include "cil_tree.h"
 #include "cil_list.h"
+#include "cil_find.h"
 
 #include "cil_verify.h"
 
@@ -179,8 +180,8 @@ int cil_verify_expr_syntax(struct cil_tree_node *current, enum cil_flavor op, en
 		syntax_len = 2;
 		break;
 	case CIL_RANGE:
-		if (expr_flavor != CIL_CAT) {
-			cil_log(CIL_ERR,"Operator (%s) only valid for catset expression\n", (char*)current->data);
+		if (expr_flavor != CIL_CAT && expr_flavor != CIL_PERMISSIONX) {
+			cil_log(CIL_ERR,"Operator (%s) only valid for catset and permissionx expression\n", (char*)current->data);
 			goto exit;
 		}
 		syntax[1] = CIL_SYN_STRING;
@@ -601,7 +602,7 @@ exit:
 	return rc;
 }
 
-int __cil_verify_user(struct cil_db *db, struct cil_tree_node *node)
+static int __cil_verify_user_pre_eval(struct cil_tree_node *node)
 {
 	int rc = SEPOL_ERR;
 	struct cil_user *user = node->data;
@@ -634,6 +635,17 @@ int __cil_verify_user(struct cil_db *db, struct cil_tree_node *node)
 			steps++;
 		}
 	}
+
+	return SEPOL_OK;
+exit:
+	cil_log(CIL_ERR, "Invalid user at line %d of %s\n", node->line, node->path);
+	return rc;
+}
+
+static int __cil_verify_user_post_eval(struct cil_db *db, struct cil_tree_node *node)
+{
+	int rc = SEPOL_ERR;
+	struct cil_user *user = node->data;
 
 	/* Verify user range only if anonymous */
 	if (user->range->datum.name == NULL) {
@@ -726,16 +738,8 @@ int __cil_verify_context(struct cil_db *db, struct cil_context *ctx)
 	int found = CIL_FALSE;
 
 	if (user->roles != NULL) {
-		cil_list_for_each(curr, user->roles) {
-			struct cil_role *userrole = curr->data;
-			if (userrole == role) {
-				break;
-			}
-		}
-
-		if (curr == NULL) {
-			cil_log(CIL_ERR, "Role %s is invalid for user %s\n",
-					ctx->role_str, ctx->user_str);
+		if (!ebitmap_get_bit(user->roles, role->value)) {
+			cil_log(CIL_ERR, "Role %s is invalid for user %s\n", ctx->role_str, ctx->user_str);
 			rc = SEPOL_ERR;
 			goto exit;
 		}
@@ -1181,6 +1185,27 @@ exit:
 	return rc;
 }
 
+int __cil_verify_devicetreecon(struct cil_db *db, struct cil_tree_node *node)
+{
+	int rc = SEPOL_ERR;
+	struct cil_devicetreecon *dt = node->data;
+	struct cil_context *ctx = dt->context;
+
+	/* Verify only when anonymous */
+	if (ctx->datum.name == NULL) {
+		rc = __cil_verify_context(db, ctx);
+		if (rc != SEPOL_OK) {
+			goto exit;
+		}
+	}
+
+	return SEPOL_OK;
+
+exit:
+	cil_log(CIL_ERR, "Invalid devicetreecon at line %d of %s\n", node->line, node->path);
+	return rc;
+}
+
 int __cil_verify_fsuse(struct cil_db *db, struct cil_tree_node *node)
 {
 	int rc = SEPOL_ERR;
@@ -1200,6 +1225,59 @@ int __cil_verify_fsuse(struct cil_db *db, struct cil_tree_node *node)
 exit:
 	cil_log(CIL_ERR, "Invalid fsuse at line %d of %s\n", node->line, node->path);
 	return rc;
+}
+
+int __cil_verify_permissionx(struct cil_permissionx *permx, struct cil_tree_node *node)
+{
+	int rc;
+	struct cil_list *classes = NULL;
+	struct cil_list_item *item;
+	struct cil_class *class;
+	struct cil_symtab_datum *perm_datum;
+	char *kind_str;
+
+	switch (permx->kind) {
+		case CIL_PERMX_KIND_IOCTL:
+			kind_str = CIL_KEY_IOCTL;
+			break;
+		default:
+			cil_log(CIL_ERR, "Invalid permissionx kind (%d) at line %d of %s\n", permx->kind, node->line, node->path);
+			rc = SEPOL_ERR;
+			goto exit;
+	}
+
+	classes = cil_expand_class(permx->obj);
+
+	cil_list_for_each(item, classes) {
+		class = item->data;
+		rc = cil_symtab_get_datum(&class->perms, kind_str, &perm_datum);
+		if (rc == SEPOL_ENOENT) {
+			if (class->common != NULL) {
+				rc = cil_symtab_get_datum(&class->common->perms, kind_str, &perm_datum);
+			}
+
+			if (rc == SEPOL_ENOENT) {
+				cil_log(CIL_ERR, "Invalid permissionx at line %d of %s: %s is not a permission of class %s\n", node->line, node->path, kind_str, class->datum.name);
+				rc = SEPOL_ERR;
+				goto exit;
+			}
+		}
+	}
+
+	rc = SEPOL_OK;
+
+exit:
+	if (classes != NULL) {
+		cil_list_destroy(&classes, CIL_FALSE);
+	}
+
+	return rc;
+}
+
+int __cil_verify_avrulex(struct cil_tree_node *node)
+{
+	struct cil_avrule *avrulex = node->data;
+	return __cil_verify_permissionx(avrulex->perms.x.permx, node);
 }
 
 int __cil_verify_class(struct cil_tree_node *node)
@@ -1297,7 +1375,7 @@ int __cil_verify_helper(struct cil_tree_node *node, uint32_t *finished, void *ex
 	case 0: {
 		switch (node->flavor) {
 		case CIL_USER:
-			rc = __cil_verify_user(db, node);
+			rc = __cil_verify_user_post_eval(db, node);
 			break;
 		case CIL_SELINUXUSERDEFAULT:
 			(*nseuserdflt)++;
@@ -1390,8 +1468,17 @@ int __cil_verify_helper(struct cil_tree_node *node, uint32_t *finished, void *ex
 		case CIL_PCIDEVICECON:
 			rc = __cil_verify_pcidevicecon(db, node);
 			break;
+		case CIL_DEVICETREECON:
+			rc = __cil_verify_devicetreecon(db, node);
+			break;
 		case CIL_FSUSE:
 			rc = __cil_verify_fsuse(db, node);
+			break;
+		case CIL_AVRULEX:
+			rc = __cil_verify_avrulex(node);
+			break;
+		case CIL_PERMISSIONX:
+			rc = __cil_verify_permissionx(node->data, node);
 			break;
 		case CIL_RANGETRANSITION:
 			rc = SEPOL_OK;
@@ -1524,7 +1611,7 @@ static int __cil_verify_map_class(struct cil_tree_node *node)
 	return SEPOL_OK;
 }
 
-static int __cil_verify_no_classperms_loop_helper(struct cil_tree_node *node, uint32_t *finished, __attribute__((unused)) void *extra_args)
+int __cil_pre_verify_helper(struct cil_tree_node *node, uint32_t *finished, __attribute__((unused)) void *extra_args)
 {
 	int rc = SEPOL_ERR;
 
@@ -1542,6 +1629,12 @@ static int __cil_verify_no_classperms_loop_helper(struct cil_tree_node *node, ui
 	}
 
 	switch (node->flavor) {
+	case CIL_USER:
+		rc = __cil_verify_user_pre_eval(node);
+		if (rc != SEPOL_OK) {
+			goto exit;
+		}
+		break;
 	case CIL_MAP_CLASS:
 		rc = __cil_verify_map_class(node);
 		break;
@@ -1551,20 +1644,6 @@ static int __cil_verify_no_classperms_loop_helper(struct cil_tree_node *node, ui
 	default:
 		rc = SEPOL_OK;
 		break;
-	}
-
-exit:
-	return rc;
-}
-
-int cil_verify_no_classperms_loop(struct cil_db *db)
-{
-	int rc = SEPOL_ERR;
-
-	rc = cil_tree_walk(db->ast->root, __cil_verify_no_classperms_loop_helper, NULL, NULL, NULL);
-	if (rc != SEPOL_OK) {
-		cil_log(CIL_ERR, "Failed to verify no loops in class permissions\n");
-		goto exit;
 	}
 
 exit:

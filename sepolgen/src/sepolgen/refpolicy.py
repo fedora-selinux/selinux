@@ -251,10 +251,10 @@ class IdSet(set):
         self.compliment = False
 
     def to_space_str(self):
-        return list_to_space_str(self)
+        return list_to_space_str(sorted(self))
 
     def to_comma_str(self):
-        return list_to_comma_str(self)
+        return list_to_comma_str(sorted(self))
 
 class SecurityContext(Leaf):
     """An SELinux security context with optional MCS / MLS fields."""
@@ -685,6 +685,15 @@ class PciDeviceCon(Leaf):
 
     def to_string(self):
         return "pcidevicecon %s %s" % (self.device, str(self.context))
+
+class DeviceTreeCon(Leaf):
+    def __init__(self, parent=None):
+        Leaf.__init__(self, parent)
+        self.path = ""
+        self.context = None
+
+    def to_string(self):
+        return "devicetreecon %s %s" % (self.path, str(self.context))
 
 # Reference policy specific types
 

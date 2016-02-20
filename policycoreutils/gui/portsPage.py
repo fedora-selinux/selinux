@@ -21,7 +21,7 @@ import gtk.glade
 import gobject
 import seobject
 import subprocess
-from semanagePage import *;
+from semanagePage import *
 
 ##
 ## I18N
@@ -38,12 +38,14 @@ try:
     gettext.install(PROGNAME,
                     localedir="/usr/share/locale",
                     unicode=False,
-                    codeset = 'utf-8')
+                    codeset='utf-8')
 except IOError:
     import builtins
     builtins.__dict__['_'] = str
 
+
 class portsPage(semanagePage):
+
     def __init__(self, xml):
         semanagePage.__init__(self, xml, "ports", _("Network Port"))
         xml.signal_connect("on_group_clicked", self.on_group_clicked)
@@ -74,37 +76,37 @@ class portsPage(semanagePage):
                 self.group_load(filt)
 
     def init_store(self):
-        self.store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING , gobject.TYPE_STRING)
+        self.store = gtk.ListStore(gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING, gobject.TYPE_STRING)
         self.view.set_model(self.store)
         self.store.set_sort_column_id(0, gtk.SORT_ASCENDING)
 
         self.view.set_search_equal_func(self.search)
-        col = gtk.TreeViewColumn(_("SELinux Port\nType"), gtk.CellRendererText(), text = TYPE_COL)
+        col = gtk.TreeViewColumn(_("SELinux Port\nType"), gtk.CellRendererText(), text=TYPE_COL)
         col.set_sort_column_id(TYPE_COL)
         col.set_resizable(True)
         self.view.append_column(col)
         self.store.set_sort_column_id(TYPE_COL, gtk.SORT_ASCENDING)
 
-        col = gtk.TreeViewColumn(_("Protocol"), gtk.CellRendererText(), text = PROTOCOL_COL)
+        col = gtk.TreeViewColumn(_("Protocol"), gtk.CellRendererText(), text=PROTOCOL_COL)
         col.set_sort_column_id(PROTOCOL_COL)
         col.set_resizable(True)
         self.view.append_column(col)
 
-        self.mls_col = gtk.TreeViewColumn(_("MLS/MCS\nLevel"), gtk.CellRendererText(), text = MLS_COL)
+        self.mls_col = gtk.TreeViewColumn(_("MLS/MCS\nLevel"), gtk.CellRendererText(), text=MLS_COL)
         self.mls_col.set_resizable(True)
         self.mls_col.set_sort_column_id(MLS_COL)
         self.view.append_column(self.mls_col)
 
-        col = gtk.TreeViewColumn(_("Port"), gtk.CellRendererText(), text = PORT_COL)
+        col = gtk.TreeViewColumn(_("Port"), gtk.CellRendererText(), text=PORT_COL)
         col.set_sort_column_id(PORT_COL)
         col.set_resizable(True)
         self.view.append_column(col)
-        self.store.set_sort_func(PORT_COL,self.sort_int, "")
+        self.store.set_sort_func(PORT_COL, self.sort_int, "")
 
     def sort_int(self, treemodel, iter1, iter2, user_data):
         try:
-            p1 = int(treemodel.get_value(iter1,PORT_COL).split('-')[0])
-            p2 = int(treemodel.get_value(iter2,PORT_COL).split('-')[0])
+            p1 = int(treemodel.get_value(iter1, PORT_COL).split('-')[0])
+            p2 = int(treemodel.get_value(iter2, PORT_COL).split('-')[0])
             if p1 > p2:
                 return 1
             if p1 == p2:
@@ -202,7 +204,7 @@ class portsPage(semanagePage):
             port_number = "1"
         for i in port_number.split("-"):
             if not i.isdigit():
-                self.error(_("Port number \"%s\" is not valid.  0 < PORT_NUMBER < 65536 ") % port_number )
+                self.error(_("Port number \"%s\" is not valid.  0 < PORT_NUMBER < 65536 ") % port_number)
                 return False
         list_model = self.ports_protocol_combo.get_model()
         it = self.ports_protocol_combo.get_active_iter()

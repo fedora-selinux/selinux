@@ -99,7 +99,32 @@ static void cil_reset_user(struct cil_user *user)
 	user->bounds = NULL;
 	user->dftlevel = NULL;
 	user->range = NULL;
-	cil_list_destroy(&user->roles, CIL_FALSE);
+}
+
+static void cil_reset_userattr(struct cil_userattribute *attr)
+{
+	struct cil_list_item *expr = NULL;
+	struct cil_list_item *next = NULL;
+
+	/* during a re-resolve, we need to reset the lists of expression stacks associated with this attribute from a userattribute statement */
+	if (attr->expr_list != NULL) {
+		/* we don't want to destroy the expression stacks (cil_list) inside
+		 * this list cil_list_destroy destroys sublists, so we need to do it
+		 * manually */
+		expr = attr->expr_list->head;
+		while (expr != NULL) {
+			next = expr->next;
+			cil_list_item_destroy(&expr, CIL_FALSE);
+			expr = next;
+		}
+		free(attr->expr_list);
+		attr->expr_list = NULL;
+	}
+}
+
+static void cil_reset_userattributeset(struct cil_userattributeset *uas)
+{
+	cil_list_destroy(&uas->datum_expr, CIL_FALSE);
 }
 
 static void cil_reset_selinuxuser(struct cil_selinuxuser *selinuxuser)
@@ -170,7 +195,7 @@ static void cil_reset_typeattributeset(struct cil_typeattributeset *tas)
 
 static void cil_reset_avrule(struct cil_avrule *rule)
 {
-	cil_reset_classperms_list(rule->classperms);
+	cil_reset_classperms_list(rule->perms.classperms);
 }
 
 static void cil_reset_rangetransition(struct cil_rangetransition *rangetrans)
@@ -323,6 +348,13 @@ static void cil_reset_pcidevicecon(struct cil_pcidevicecon *pcidevicecon)
 	}
 }
 
+static void cil_reset_devicetreecon(struct cil_devicetreecon *devicetreecon)
+{
+	if (devicetreecon->context_str == NULL) {
+		cil_reset_context(devicetreecon->context);
+	}
+}
+
 static void cil_reset_fsuse(struct cil_fsuse *fsuse)
 {
 	if (fsuse->context_str == NULL) {
@@ -395,6 +427,12 @@ int __cil_reset_node(struct cil_tree_node *node,  __attribute__((unused)) uint32
 		break;
 	case CIL_USER:
 		cil_reset_user(node->data);
+		break;
+	case CIL_USERATTRIBUTE:
+		cil_reset_userattr(node->data);
+		break;
+	case CIL_USERATTRIBUTESET:
+		cil_reset_userattributeset(node->data);
 		break;
 	case CIL_SELINUXUSERDEFAULT:
 	case CIL_SELINUXUSER:
@@ -474,6 +512,9 @@ int __cil_reset_node(struct cil_tree_node *node,  __attribute__((unused)) uint32
 		break;
 	case CIL_PCIDEVICECON:
 		cil_reset_pcidevicecon(node->data);
+		break;
+	case CIL_DEVICETREECON:
+		cil_reset_devicetreecon(node->data);
 		break;
 	case CIL_FSUSE:
 		cil_reset_fsuse(node->data);

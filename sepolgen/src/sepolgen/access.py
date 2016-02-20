@@ -130,7 +130,7 @@ class AccessVector(util.Comparison):
         is represented in a list.
         """
         l = [self.src_type, self.tgt_type, self.obj_class]
-        l.extend(self.perms)
+        l.extend(sorted(self.perms))
         return l
 
     def __str__(self):
@@ -175,6 +175,7 @@ class AccessVector(util.Comparison):
         except (AttributeError, TypeError):
             # trying to compare to foreign type
             return NotImplemented
+
 
 def avrule_to_access_vectors(avrule):
     """Convert an avrule into a list of access vectors.

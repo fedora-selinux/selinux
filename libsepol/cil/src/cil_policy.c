@@ -32,6 +32,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <unistd.h>
+#include <inttypes.h>
 
 #include <sepol/policydb/conditional.h>
 #include <sepol/errcodes.h>
@@ -236,7 +237,7 @@ int cil_iomemcon_to_policy(FILE **file_arr, struct cil_sort *sort)
 
 	for (i = 0; i < sort->count; i++) {
 		struct cil_iomemcon *iomemcon = (struct cil_iomemcon*)sort->array[i];
-		fprintf(file_arr[NETIFCONS], "iomemcon %d-%d ", iomemcon->iomem_low, iomemcon->iomem_high);
+		fprintf(file_arr[NETIFCONS], "iomemcon %"PRId64"-%"PRId64" ", iomemcon->iomem_low, iomemcon->iomem_high);
 		cil_context_to_policy(file_arr, NETIFCONS, iomemcon->context);
 		fprintf(file_arr[NETIFCONS], ";\n");
 	}
@@ -597,7 +598,7 @@ int cil_avrule_to_policy(FILE **file_arr, uint32_t file_index, struct cil_avrule
 		return SEPOL_ERR;
 	}
 
-	cil_avrule_to_policy_helper(file_arr, file_index, kind_str, src_str, tgt_str, rule->classperms);
+	cil_avrule_to_policy_helper(file_arr, file_index, kind_str, src_str, tgt_str, rule->perms.classperms);
 
 	return SEPOL_OK;
 }
@@ -1153,11 +1154,6 @@ int __cil_gen_policy_node_helper(struct cil_tree_node *node, uint32_t *finished,
 		switch (node->flavor) {
 		case CIL_USER:
 			cil_multimap_insert(users, node->data, NULL, CIL_USERROLE, CIL_NONE);
-			break;
-		case CIL_USERROLE: {
-			struct cil_userrole *userrole = node->data;
-			cil_multimap_insert(users, &userrole->user->datum, (struct cil_symtab_datum *)userrole->role, CIL_USERROLE, CIL_ROLE);
-		}
 			break;
 		case CIL_CATALIAS: {
 			struct cil_alias *alias = node->data;

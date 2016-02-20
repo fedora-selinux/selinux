@@ -150,7 +150,7 @@ void cil_clear_node(struct cil_tree_node *ast_node)
 	ast_node->flavor = CIL_NONE;
 }
 
-int cil_gen_block(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, uint16_t is_abstract)
+int cil_gen_block(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, uint16_t is_abstract)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -206,7 +206,7 @@ void cil_destroy_block(struct cil_block *block)
 	free(block);
 }
 
-int cil_gen_blockinherit(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_blockinherit(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -251,7 +251,7 @@ void cil_destroy_blockinherit(struct cil_blockinherit *inherit)
 	free(inherit);
 }
 
-int cil_gen_blockabstract(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_blockabstract(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -296,7 +296,7 @@ void cil_destroy_blockabstract(struct cil_blockabstract *abstract)
 	free(abstract);
 }
 
-int cil_gen_in(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_in(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -343,7 +343,7 @@ void cil_destroy_in(struct cil_in *in)
 	free(in);
 }
 
-int cil_gen_class(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_class(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -365,6 +365,11 @@ int cil_gen_class(__attribute__((unused)) struct cil_db *db, struct cil_tree_nod
 	cil_class_init(&class);
 
 	key = parse_current->next->data;
+	if (key == CIL_KEY_UNORDERED) {
+		cil_log(CIL_ERR, "'unordered' keyword is reserved and not a valid class name.\n");
+		rc = SEPOL_ERR;
+		goto exit;
+	}
 
 	rc = cil_gen_node(db, ast_node, (struct cil_symtab_datum*)class, (hashtab_key_t)key, CIL_SYM_CLASSES, CIL_CLASS);
 	if (rc != SEPOL_OK) {
@@ -401,7 +406,7 @@ void cil_destroy_class(struct cil_class *class)
 	free(class);
 }
 
-int cil_gen_classorder(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_classorder(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -410,6 +415,8 @@ int cil_gen_classorder(__attribute__((unused)) struct cil_db *db, struct cil_tre
 	};
 	int syntax_len = sizeof(syntax)/sizeof(*syntax);
 	struct cil_classorder *classorder = NULL;
+	struct cil_list_item *curr = NULL;
+	struct cil_list_item *head = NULL;
 	int rc = SEPOL_ERR;
 
 	if (db == NULL || parse_current == NULL || ast_node == NULL) {
@@ -427,6 +434,22 @@ int cil_gen_classorder(__attribute__((unused)) struct cil_db *db, struct cil_tre
 	if (rc != SEPOL_OK) {
 		goto exit;
 	}
+
+	head = classorder->class_list_str->head;
+	cil_list_for_each(curr, classorder->class_list_str) {
+		if (curr->data == CIL_KEY_UNORDERED) {
+			if (curr == head && curr->next == NULL) {
+				cil_log(CIL_ERR, "Classorder 'unordered' keyword must be followed by one or more class.\n");
+				rc = SEPOL_ERR;
+				goto exit;
+			} else if (curr != head) {
+				cil_log(CIL_ERR, "Classorder can only use 'unordered' keyword as the first item in the list.\n");
+				rc = SEPOL_ERR;
+				goto exit;
+			}
+		}
+	}
+
 	ast_node->data = classorder;
 	ast_node->flavor = CIL_CLASSORDER;
 
@@ -452,7 +475,7 @@ void cil_destroy_classorder(struct cil_classorder *classorder)
 	free(classorder);
 }
 
-int cil_gen_perm(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, enum cil_flavor flavor, unsigned int *num_perms)
+int cil_gen_perm(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, enum cil_flavor flavor, unsigned int *num_perms)
 {
 	char *key = NULL;
 	struct cil_perm *perm = NULL;
@@ -490,7 +513,7 @@ void cil_destroy_perm(struct cil_perm *perm)
 	free(perm);
 }
 
-int cil_gen_perm_nodes(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *current_perm, struct cil_tree_node *ast_node, enum cil_flavor flavor, unsigned int *num_perms)
+int cil_gen_perm_nodes(struct cil_db *db, struct cil_tree_node *current_perm, struct cil_tree_node *ast_node, enum cil_flavor flavor, unsigned int *num_perms)
 {
 	int rc = SEPOL_ERR;
 	struct cil_tree_node *new_ast = NULL;
@@ -682,7 +705,7 @@ void cil_destroy_classperms_list(struct cil_list **cp_list)
 	cil_list_destroy(cp_list, CIL_FALSE);
 }
 
-int cil_gen_classpermission(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_classpermission(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	int rc = SEPOL_ERR;
 	char *key = NULL;
@@ -741,7 +764,7 @@ void cil_destroy_classpermission(struct cil_classpermission *cp)
 	free(cp);
 }
 
-int cil_gen_classpermissionset(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_classpermissionset(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	int rc = SEPOL_ERR;
 	struct cil_classpermissionset *cps = NULL;
@@ -794,7 +817,7 @@ void cil_destroy_classpermissionset(struct cil_classpermissionset *cps)
 	free(cps);
 }
 
-int cil_gen_map_class(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_map_class(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -836,7 +859,7 @@ exit:
 	return rc;
 }
 
-int cil_gen_classmapping(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_classmapping(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	int rc = SEPOL_ERR;
 	struct cil_classmapping *mapping = NULL;
@@ -892,7 +915,7 @@ void cil_destroy_classmapping(struct cil_classmapping *mapping)
 }
 
 // TODO try to merge some of this with cil_gen_class (helper function for both)
-int cil_gen_common(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_common(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -939,7 +962,7 @@ exit:
 
 }
 
-int cil_gen_classcommon(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_classcommon(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -987,7 +1010,7 @@ void cil_destroy_classcommon(struct cil_classcommon *clscom)
 	free(clscom);
 }
 
-int cil_gen_sid(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_sid(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -1037,7 +1060,7 @@ void cil_destroy_sid(struct cil_sid *sid)
 	free(sid);
 }
 
-int cil_gen_sidcontext(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_sidcontext(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -1098,7 +1121,7 @@ void cil_destroy_sidcontext(struct cil_sidcontext *sidcon)
 	free(sidcon);
 }
 
-int cil_gen_sidorder(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_sidorder(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -1107,6 +1130,7 @@ int cil_gen_sidorder(__attribute__((unused)) struct cil_db *db, struct cil_tree_
 	};
 	int syntax_len = sizeof(syntax)/sizeof(*syntax);
 	struct cil_sidorder *sidorder = NULL;
+	struct cil_list_item *curr = NULL;
 	int rc = SEPOL_ERR;
 
 	if (db == NULL || parse_current == NULL || ast_node == NULL) {
@@ -1124,6 +1148,15 @@ int cil_gen_sidorder(__attribute__((unused)) struct cil_db *db, struct cil_tree_
 	if (rc != SEPOL_OK) {
 		goto exit;
 	}
+
+	cil_list_for_each(curr, sidorder->sid_list_str) {
+		if (curr->data == CIL_KEY_UNORDERED) {
+			cil_log(CIL_ERR, "Sidorder cannot be unordered.\n");
+			rc = SEPOL_ERR;
+			goto exit;
+		}
+	}
+
 	ast_node->data = sidorder;
 	ast_node->flavor = CIL_SIDORDER;
 
@@ -1149,7 +1182,7 @@ void cil_destroy_sidorder(struct cil_sidorder *sidorder)
 	free(sidorder);
 }
 
-int cil_gen_user(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_user(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -1196,11 +1229,133 @@ void cil_destroy_user(struct cil_user *user)
 	}
 
 	cil_symtab_datum_destroy(&user->datum);
-	cil_list_destroy(&user->roles, CIL_FALSE);
+	ebitmap_destroy(user->roles);
+	free(user->roles);
 	free(user);
 }
 
-int cil_gen_userlevel(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_userattribute(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+{
+	enum cil_syntax syntax[] = {
+		CIL_SYN_STRING,
+		CIL_SYN_STRING,
+		CIL_SYN_END
+	};
+	int syntax_len = sizeof(syntax)/sizeof(*syntax);
+	char *key = NULL;
+	struct cil_userattribute *attr = NULL;
+	int rc = SEPOL_ERR;
+
+	if (parse_current == NULL || ast_node == NULL) {
+		goto exit;
+	}
+
+	rc = __cil_verify_syntax(parse_current, syntax, syntax_len);
+	if (rc != SEPOL_OK) {
+		goto exit;
+	}
+
+	cil_userattribute_init(&attr);
+
+	key = parse_current->next->data;
+	rc = cil_gen_node(db, ast_node, (struct cil_symtab_datum*)attr, (hashtab_key_t)key, CIL_SYM_USERS, CIL_USERATTRIBUTE);
+	if (rc != SEPOL_OK) {
+		goto exit;
+	}
+
+	return SEPOL_OK;
+exit:
+	cil_log(CIL_ERR, "Bad userattribute declaration at line %d of %s\n",
+		parse_current->line, parse_current->path);
+	cil_destroy_userattribute(attr);
+	cil_clear_node(ast_node);
+	return rc;
+}
+
+void cil_destroy_userattribute(struct cil_userattribute *attr)
+{
+	struct cil_list_item *expr = NULL;
+	struct cil_list_item *next = NULL;
+
+	if (attr == NULL) {
+		return;
+	}
+
+	if (attr->expr_list != NULL) {
+		/* we don't want to destroy the expression stacks (cil_list) inside
+		 * this list cil_list_destroy destroys sublists, so we need to do it
+		 * manually */
+		expr = attr->expr_list->head;
+		while (expr != NULL) {
+			next = expr->next;
+			cil_list_item_destroy(&expr, CIL_FALSE);
+			expr = next;
+		}
+		free(attr->expr_list);
+		attr->expr_list = NULL;
+	}
+
+	cil_symtab_datum_destroy(&attr->datum);
+	ebitmap_destroy(attr->users);
+	free(attr->users);
+	free(attr);
+}
+
+int cil_gen_userattributeset(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+{
+	enum cil_syntax syntax[] = {
+		CIL_SYN_STRING,
+		CIL_SYN_STRING,
+		CIL_SYN_STRING | CIL_SYN_LIST,
+		CIL_SYN_END
+	};
+	int syntax_len = sizeof(syntax)/sizeof(*syntax);
+	struct cil_userattributeset *attrset = NULL;
+	int rc = SEPOL_ERR;
+
+	if (db == NULL || parse_current == NULL || ast_node == NULL) {
+		goto exit;
+	}
+
+	rc = __cil_verify_syntax(parse_current, syntax, syntax_len);
+	if (rc != SEPOL_OK) {
+		goto exit;
+	}
+
+	cil_userattributeset_init(&attrset);
+
+	attrset->attr_str = parse_current->next->data;
+
+	rc = cil_gen_expr(parse_current->next->next, CIL_USER, &attrset->str_expr);
+	if (rc != SEPOL_OK) {
+		goto exit;
+	}
+	ast_node->data = attrset;
+	ast_node->flavor = CIL_USERATTRIBUTESET;
+
+	return SEPOL_OK;
+
+exit:
+	cil_log(CIL_ERR, "Bad userattributeset declaration at line %d of %s\n",
+		parse_current->line, parse_current->path);
+	cil_destroy_userattributeset(attrset);
+
+	return rc;
+}
+
+void cil_destroy_userattributeset(struct cil_userattributeset *attrset)
+{
+	if (attrset == NULL) {
+		return;
+	}
+
+	cil_list_destroy(&attrset->str_expr, CIL_TRUE);
+	cil_list_destroy(&attrset->datum_expr, CIL_FALSE);
+
+	free(attrset);
+}
+
+int cil_gen_userlevel(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -1261,7 +1416,7 @@ void cil_destroy_userlevel(struct cil_userlevel *usrlvl)
 	free(usrlvl);
 }
 
-int cil_gen_userrange(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_userrange(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -1322,7 +1477,7 @@ void cil_destroy_userrange(struct cil_userrange *userrange)
 	free(userrange);
 }
 
-int cil_gen_userprefix(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_userprefix(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -1368,7 +1523,7 @@ void cil_destroy_userprefix(struct cil_userprefix *userprefix)
 	free(userprefix);
 }
 
-int cil_gen_selinuxuser(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_selinuxuser(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -1417,7 +1572,7 @@ exit:
 	return rc;
 }
 
-int cil_gen_selinuxuserdefault(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_selinuxuserdefault(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -1478,7 +1633,7 @@ void cil_destroy_selinuxuser(struct cil_selinuxuser *selinuxuser)
 	free(selinuxuser);
 }
 
-int cil_gen_role(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_role(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -1530,7 +1685,7 @@ void cil_destroy_role(struct cil_role *role)
 	free(role);
 }
 
-int cil_gen_roletype(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_roletype(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -1577,7 +1732,7 @@ void cil_destroy_roletype(struct cil_roletype *roletype)
 	free(roletype);
 }
 
-int cil_gen_userrole(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_userrole(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -1675,7 +1830,7 @@ void cil_destroy_roletransition(struct cil_roletransition *roletrans)
 	free(roletrans);
 }
 
-int cil_gen_roleallow(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_roleallow(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -1722,7 +1877,7 @@ void cil_destroy_roleallow(struct cil_roleallow *roleallow)
 	free(roleallow);
 }
 
-int cil_gen_roleattribute(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_roleattribute(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -1792,7 +1947,7 @@ void cil_destroy_roleattribute(struct cil_roleattribute *attr)
 	free(attr);
 }
 
-int cil_gen_roleattributeset(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_roleattributeset(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -1870,12 +2025,13 @@ int cil_gen_avrule(struct cil_tree_node *parse_current, struct cil_tree_node *as
 
 	cil_avrule_init(&rule);
 
+	rule->is_extended = 0;
 	rule->rule_kind = rule_kind;
 
 	rule->src_str = parse_current->next->data;
 	rule->tgt_str = parse_current->next->next->data;
 
-	rc = cil_fill_classperms_list(parse_current->next->next->next, &rule->classperms);
+	rc = cil_fill_classperms_list(parse_current->next->next->next, &rule->perms.classperms);
 	if (rc != SEPOL_OK) {
 		goto exit;
 	}
@@ -1898,9 +2054,166 @@ void cil_destroy_avrule(struct cil_avrule *rule)
 		return;
 	}
 
-	cil_destroy_classperms_list(&rule->classperms);
+	if (!rule->is_extended) {
+		cil_destroy_classperms_list(&rule->perms.classperms);
+	} else {
+		if (rule->perms.x.permx_str == NULL && rule->perms.x.permx != NULL) {
+			cil_destroy_permissionx(rule->perms.x.permx);
+		}
+	}
 
 	free(rule);
+}
+
+int cil_fill_permissionx(struct cil_tree_node *parse_current, struct cil_permissionx *permx)
+{
+	enum cil_syntax syntax[] = {
+		CIL_SYN_STRING,
+		CIL_SYN_STRING,
+		CIL_SYN_LIST,
+		CIL_SYN_END
+	};
+	int syntax_len = sizeof(syntax)/sizeof(*syntax);
+	int rc = SEPOL_ERR;
+
+	rc = __cil_verify_syntax(parse_current, syntax, syntax_len);
+	if (rc != SEPOL_OK) {
+		goto exit;
+	}
+
+	if (parse_current->data == CIL_KEY_IOCTL) {
+		permx->kind = CIL_PERMX_KIND_IOCTL;
+	} else {
+		cil_log(CIL_ERR, "Unknown permissionx kind, %s. Must be \"ioctl\"\n", (char *)parse_current->data);
+		rc = SEPOL_ERR;
+		goto exit;
+	}
+
+	permx->obj_str = parse_current->next->data;
+
+	rc = cil_gen_expr(parse_current->next->next, CIL_PERMISSIONX, &permx->expr_str);
+	if (rc != SEPOL_OK) {
+		goto exit;
+	}
+
+	return SEPOL_OK;
+
+exit:
+	cil_log(CIL_ERR, "Bad permissionx content at line %d of %s\n",
+		parse_current->line, parse_current->path);
+	return rc;
+}
+
+int cil_gen_permissionx(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+{
+	enum cil_syntax syntax[] = {
+		CIL_SYN_STRING,
+		CIL_SYN_STRING,
+		CIL_SYN_LIST,
+		CIL_SYN_END
+	};
+	int syntax_len = sizeof(syntax)/sizeof(*syntax);
+	char *key = NULL;
+	struct cil_permissionx *permx = NULL;
+	int rc = SEPOL_ERR;
+
+	if (parse_current == NULL || ast_node == NULL) {
+		goto exit;
+	}
+
+	rc = __cil_verify_syntax(parse_current, syntax, syntax_len);
+	if (rc != SEPOL_OK) {
+		goto exit;
+	}
+
+	cil_permissionx_init(&permx);
+
+	key = parse_current->next->data;
+
+	rc = cil_gen_node(db, ast_node, (struct cil_symtab_datum*)permx, (hashtab_key_t)key, CIL_SYM_PERMX, CIL_PERMISSIONX);
+	if (rc != SEPOL_OK) {
+		goto exit;
+	}
+
+	rc = cil_fill_permissionx(parse_current->next->next->cl_head, permx);
+	if (rc != SEPOL_OK) {
+		goto exit;
+	}
+
+	return SEPOL_OK;
+
+exit:
+	cil_log(CIL_ERR, "Bad permissionx statement at line %d of %s\n",
+		parse_current->line, parse_current->path);
+	cil_destroy_permissionx(permx);
+	cil_clear_node(ast_node);
+	return rc;
+}
+
+void cil_destroy_permissionx(struct cil_permissionx *permx)
+{
+	if (permx == NULL) {
+		return;
+	}
+
+	cil_symtab_datum_destroy(&permx->datum);
+
+	cil_list_destroy(&permx->expr_str, CIL_TRUE);
+	ebitmap_destroy(permx->perms);
+	free(permx->perms);
+	free(permx);
+}
+
+int cil_gen_avrulex(struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, uint32_t rule_kind)
+{
+	enum cil_syntax syntax[] = {
+		CIL_SYN_STRING,
+		CIL_SYN_STRING,
+		CIL_SYN_STRING,
+		CIL_SYN_STRING | CIL_SYN_LIST,
+		CIL_SYN_END
+	};
+	int syntax_len = sizeof(syntax)/sizeof(*syntax);
+	struct cil_avrule *rule = NULL;
+	int rc = SEPOL_ERR;
+
+	if (parse_current == NULL || ast_node == NULL) {
+		goto exit;
+	}
+
+	rc = __cil_verify_syntax(parse_current, syntax, syntax_len);
+	if (rc != SEPOL_OK) {
+		goto exit;
+	}
+
+	cil_avrule_init(&rule);
+
+	rule->is_extended = 1;
+	rule->rule_kind = rule_kind;
+	rule->src_str = parse_current->next->data;
+	rule->tgt_str = parse_current->next->next->data;
+
+	if (parse_current->next->next->next->cl_head == NULL) {
+		rule->perms.x.permx_str = parse_current->next->next->next->data;
+	} else {
+		cil_permissionx_init(&rule->perms.x.permx);
+
+		rc = cil_fill_permissionx(parse_current->next->next->next->cl_head, rule->perms.x.permx);
+		if (rc != SEPOL_OK) {
+			goto exit;
+		}
+	}
+
+	ast_node->data = rule;
+	ast_node->flavor = CIL_AVRULEX;
+
+	return SEPOL_OK;
+
+exit:
+	cil_log(CIL_ERR, "Bad allowx rule at line %d of %s\n",
+		parse_current->line, parse_current->path);
+	cil_destroy_avrule(rule);
+	return rc;
 }
 
 int cil_gen_type_rule(struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, uint32_t rule_kind)
@@ -1955,7 +2268,7 @@ void cil_destroy_type_rule(struct cil_type_rule *rule)
 	free(rule);
 }
 
-int cil_gen_type(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_type(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -2010,7 +2323,7 @@ void cil_destroy_type(struct cil_type *type)
 	free(type);
 }
 
-int cil_gen_typeattribute(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_typeattribute(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -2081,7 +2394,7 @@ void cil_destroy_typeattribute(struct cil_typeattribute *attr)
 	free(attr);
 }
 
-int cil_gen_bool(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, int tunableif)
+int cil_gen_bool(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, int tunableif)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -2147,7 +2460,7 @@ void cil_destroy_bool(struct cil_bool *boolean)
 	free(boolean);
 }
 
-int cil_gen_tunable(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_tunable(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -2217,8 +2530,8 @@ static enum cil_flavor __cil_get_expr_operator_flavor(const char *op)
 	else if (op == CIL_KEY_EQ)    return CIL_EQ;    /* Only conditional */
 	else if (op == CIL_KEY_NEQ)   return CIL_NEQ;   /* Only conditional */
 	else if (op == CIL_KEY_XOR)   return CIL_XOR;
-	else if (op == CIL_KEY_ALL)   return CIL_ALL;   /* Only set */
-	else if (op == CIL_KEY_RANGE) return CIL_RANGE; /* Only catset */
+	else if (op == CIL_KEY_ALL)   return CIL_ALL;   /* Only set and permissionx */
+	else if (op == CIL_KEY_RANGE) return CIL_RANGE; /* Only catset and permissionx */
 	else return CIL_NONE;
 }
 
@@ -2503,7 +2816,7 @@ exit:
 	return rc;
 }
 
-int cil_gen_boolif(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, int tunableif)
+int cil_gen_boolif(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, int tunableif)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -2589,7 +2902,7 @@ void cil_destroy_boolif(struct cil_booleanif *bif)
 	free(bif);
 }
 
-int cil_gen_tunif(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_tunif(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -2669,7 +2982,7 @@ void cil_destroy_tunif(struct cil_tunableif *tif)
 	free(tif);
 }
 
-int cil_gen_condblock(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, enum cil_flavor flavor)
+int cil_gen_condblock(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, enum cil_flavor flavor)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -2721,7 +3034,7 @@ void cil_destroy_condblock(struct cil_condblock *cb)
 	free(cb);
 }
 
-int cil_gen_alias(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, enum cil_flavor flavor)
+int cil_gen_alias(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, enum cil_flavor flavor)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -2785,7 +3098,7 @@ void cil_destroy_alias(struct cil_alias *alias)
 	free(alias);
 }
 
-int cil_gen_aliasactual(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, enum cil_flavor flavor)
+int cil_gen_aliasactual(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, enum cil_flavor flavor)
 {
 	int rc = SEPOL_ERR;
 	enum cil_syntax syntax[] = {
@@ -2839,7 +3152,7 @@ void cil_destroy_aliasactual(struct cil_aliasactual *aliasactual)
 	free(aliasactual);
 }
 
-int cil_gen_typeattributeset(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_typeattributeset(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -2892,7 +3205,7 @@ void cil_destroy_typeattributeset(struct cil_typeattributeset *attrset)
 	free(attrset);
 }
 
-int cil_gen_typepermissive(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_typepermissive(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -2937,7 +3250,7 @@ void cil_destroy_typepermissive(struct cil_typepermissive *typeperm)
 	free(typeperm);
 }
 
-int cil_gen_typetransition(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_typetransition(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	int rc = SEPOL_ERR;
 	enum cil_syntax syntax[] = {
@@ -3030,7 +3343,7 @@ void cil_destroy_typetransition(struct cil_nametypetransition *nametypetrans)
 	free(nametypetrans);
 }
 
-int cil_gen_rangetransition(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_rangetransition(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -3097,7 +3410,7 @@ void cil_destroy_rangetransition(struct cil_rangetransition *rangetrans)
 	free(rangetrans);
 }
 
-int cil_gen_sensitivity(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_sensitivity(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -3150,7 +3463,7 @@ void cil_destroy_sensitivity(struct cil_sens *sens)
 	free(sens);
 }
 
-int cil_gen_category(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_category(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -3200,7 +3513,7 @@ void cil_destroy_category(struct cil_cat *cat)
 	free(cat);
 }
 
-int cil_gen_catset(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_catset(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -3259,7 +3572,7 @@ void cil_destroy_catset(struct cil_catset *catset)
 	free(catset);
 }
 
-int cil_gen_catorder(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_catorder(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -3268,6 +3581,7 @@ int cil_gen_catorder(__attribute__((unused)) struct cil_db *db, struct cil_tree_
 	};
 	int syntax_len = sizeof(syntax)/sizeof(*syntax);
 	struct cil_catorder *catorder = NULL;
+	struct cil_list_item *curr = NULL;
 	int rc = SEPOL_ERR;
 
 	if (db == NULL || parse_current == NULL || ast_node == NULL) {
@@ -3285,6 +3599,15 @@ int cil_gen_catorder(__attribute__((unused)) struct cil_db *db, struct cil_tree_
 	if (rc != SEPOL_OK) {
 		goto exit;
 	}
+
+	cil_list_for_each(curr, catorder->cat_list_str) {
+		if (curr->data == CIL_KEY_UNORDERED) {
+			cil_log(CIL_ERR, "Category order cannot be unordered.\n");
+			rc = SEPOL_ERR;
+			goto exit;
+		}
+	}
+
 	ast_node->data = catorder;
 	ast_node->flavor = CIL_CATORDER;
 
@@ -3310,7 +3633,7 @@ void cil_destroy_catorder(struct cil_catorder *catorder)
 	free(catorder);
 }
 
-int cil_gen_sensitivityorder(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_sensitivityorder(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -3319,6 +3642,7 @@ int cil_gen_sensitivityorder(__attribute__((unused)) struct cil_db *db, struct c
 	};
 	int syntax_len = sizeof(syntax)/sizeof(*syntax);
 	struct cil_sensorder *sensorder = NULL;
+	struct cil_list_item *curr = NULL;
 	int rc = SEPOL_ERR;
 
 	if (db == NULL || parse_current == NULL || ast_node == NULL) {
@@ -3335,6 +3659,14 @@ int cil_gen_sensitivityorder(__attribute__((unused)) struct cil_db *db, struct c
 	rc = cil_fill_list(parse_current->next->cl_head, CIL_SENSITIVITYORDER, &sensorder->sens_list_str);
 	if (rc != SEPOL_OK) {
 		goto exit;
+	}
+
+	cil_list_for_each(curr, sensorder->sens_list_str) {
+		if (curr->data == CIL_KEY_UNORDERED) {
+			cil_log(CIL_ERR, "Sensitivy order cannot be unordered.\n");
+			rc = SEPOL_ERR;
+			goto exit;
+		}
 	}
 
 	ast_node->data = sensorder;
@@ -3362,7 +3694,7 @@ void cil_destroy_sensitivityorder(struct cil_sensorder *sensorder)
 	free(sensorder);
 }
 
-int cil_gen_senscat(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_senscat(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -3415,7 +3747,7 @@ void cil_destroy_senscat(struct cil_senscat *senscat)
 	free(senscat);
 }
 
-int cil_gen_level(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_level(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -3522,7 +3854,7 @@ exit:
 	return rc;
 }
 
-int cil_gen_levelrange(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_levelrange(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -3587,7 +3919,7 @@ void cil_destroy_levelrange(struct cil_levelrange *lvlrange)
 	free(lvlrange);
 }
 
-int cil_gen_constrain(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, enum cil_flavor flavor)
+int cil_gen_constrain(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, enum cil_flavor flavor)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -3645,7 +3977,7 @@ void cil_destroy_constrain(struct cil_constrain *cons)
 	free(cons);
 }
 
-int cil_gen_validatetrans(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, enum cil_flavor flavor)
+int cil_gen_validatetrans(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, enum cil_flavor flavor)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -3747,7 +4079,7 @@ exit:
 	return rc;
 }
 
-int cil_gen_context(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_context(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -3808,7 +4140,7 @@ void cil_destroy_context(struct cil_context *context)
 	free(context);
 }
 
-int cil_gen_filecon(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_filecon(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -3899,7 +4231,7 @@ void cil_destroy_filecon(struct cil_filecon *filecon)
 	free(filecon);
 }
 
-int cil_gen_portcon(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_portcon(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -3998,7 +4330,7 @@ void cil_destroy_portcon(struct cil_portcon *portcon)
 	free(portcon);
 }
 
-int cil_gen_nodecon(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_nodecon(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -4088,7 +4420,7 @@ void cil_destroy_nodecon(struct cil_nodecon *nodecon)
 	free(nodecon);
 }
 
-int cil_gen_genfscon(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_genfscon(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -4152,7 +4484,7 @@ void cil_destroy_genfscon(struct cil_genfscon *genfscon)
 }
 
 
-int cil_gen_netifcon(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_netifcon(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -4229,7 +4561,7 @@ void cil_destroy_netifcon(struct cil_netifcon *netifcon)
 	free(netifcon);
 }
 
-int cil_gen_pirqcon(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_pirqcon(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -4293,7 +4625,7 @@ void cil_destroy_pirqcon(struct cil_pirqcon *pirqcon)
 	free(pirqcon);
 }
 
-int cil_gen_iomemcon(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_iomemcon(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -4319,12 +4651,12 @@ int cil_gen_iomemcon(__attribute__((unused)) struct cil_db *db, struct cil_tree_
 	if (parse_current->next->cl_head != NULL) {
 		if (parse_current->next->cl_head->next != NULL &&
 		    parse_current->next->cl_head->next->next == NULL) {
-			rc = cil_fill_integer(parse_current->next->cl_head, &iomemcon->iomem_low);
+			rc = cil_fill_integer64(parse_current->next->cl_head, &iomemcon->iomem_low);
 			if (rc != SEPOL_OK) {
 				cil_log(CIL_ERR, "Improper iomem specified\n");
 				goto exit;
 			}
-			rc = cil_fill_integer(parse_current->next->cl_head->next, &iomemcon->iomem_high);
+			rc = cil_fill_integer64(parse_current->next->cl_head->next, &iomemcon->iomem_high);
 			if (rc != SEPOL_OK) {
 				cil_log(CIL_ERR, "Improper iomem specified\n");
 				goto exit;
@@ -4335,7 +4667,7 @@ int cil_gen_iomemcon(__attribute__((unused)) struct cil_db *db, struct cil_tree_
 			goto exit;
 		}
 	} else {
-		rc = cil_fill_integer(parse_current->next, &iomemcon->iomem_low);;
+		rc = cil_fill_integer64(parse_current->next, &iomemcon->iomem_low);;
 		if (rc != SEPOL_OK) {
 			cil_log(CIL_ERR, "Improper iomem specified\n");
 			goto exit;
@@ -4379,7 +4711,7 @@ void cil_destroy_iomemcon(struct cil_iomemcon *iomemcon)
 	free(iomemcon);
 }
 
-int cil_gen_ioportcon(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_ioportcon(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -4465,7 +4797,7 @@ void cil_destroy_ioportcon(struct cil_ioportcon *ioportcon)
 	free(ioportcon);
 }
 
-int cil_gen_pcidevicecon(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_pcidevicecon(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -4529,7 +4861,68 @@ void cil_destroy_pcidevicecon(struct cil_pcidevicecon *pcidevicecon)
 	free(pcidevicecon);
 }
 
-int cil_gen_fsuse(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_devicetreecon(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+{
+	enum cil_syntax syntax[] = {
+		CIL_SYN_STRING,
+		CIL_SYN_STRING,
+		CIL_SYN_STRING | CIL_SYN_LIST,
+		CIL_SYN_END
+	};
+	int syntax_len = sizeof(syntax)/sizeof(*syntax);
+	int rc = SEPOL_ERR;
+	struct cil_devicetreecon *devicetreecon = NULL;
+
+	if (db == NULL || parse_current == NULL || ast_node == NULL) {
+		goto exit;
+	}
+
+	rc = __cil_verify_syntax(parse_current, syntax, syntax_len);
+	if (rc != SEPOL_OK) {
+		goto exit;
+	}
+
+	cil_devicetreecon_init(&devicetreecon);
+
+	devicetreecon->path = parse_current->next->data;
+
+	if (parse_current->next->next->cl_head == NULL) {
+		devicetreecon->context_str = parse_current->next->next->data;
+	} else {
+		cil_context_init(&devicetreecon->context);
+
+		rc = cil_fill_context(parse_current->next->next->cl_head, devicetreecon->context);
+		if (rc != SEPOL_OK) {
+			goto exit;
+		}
+	}
+
+	ast_node->data = devicetreecon;
+	ast_node->flavor = CIL_DEVICETREECON;
+
+	return SEPOL_OK;
+
+exit:
+	cil_log(CIL_ERR, "Bad devicetreecon declaration at line %d of %s\n",
+		parse_current->line, parse_current->path);
+	cil_destroy_devicetreecon(devicetreecon);
+	return rc;
+}
+
+void cil_destroy_devicetreecon(struct cil_devicetreecon *devicetreecon)
+{
+	if (devicetreecon == NULL) {
+		return;
+	}
+
+	if (devicetreecon->context_str == NULL && devicetreecon->context != NULL) {
+		cil_destroy_context(devicetreecon->context);
+	}
+
+	free(devicetreecon);
+}
+
+int cil_gen_fsuse(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -4614,7 +5007,7 @@ void cil_destroy_param(struct cil_param *param)
 	free(param);
 }
 
-int cil_gen_macro(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_macro(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	int rc = SEPOL_ERR;
 	char *key = NULL;
@@ -4767,7 +5160,7 @@ void cil_destroy_macro(struct cil_macro *macro)
 	free(macro);
 }
 
-int cil_gen_call(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_call(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -4873,7 +5266,7 @@ void cil_destroy_args(struct cil_args *args)
 	free(args);
 }
 
-int cil_gen_optional(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_optional(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -4923,7 +5316,7 @@ void cil_destroy_optional(struct cil_optional *optional)
 	free(optional);
 }
 
-int cil_gen_policycap(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_policycap(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -4972,7 +5365,7 @@ void cil_destroy_policycap(struct cil_policycap *polcap)
 	free(polcap);
 }
 
-int cil_gen_ipaddr(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
+int cil_gen_ipaddr(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -5040,6 +5433,32 @@ int cil_fill_integer(struct cil_tree_node *int_node, uint32_t *integer)
 
 	errno = 0;
 	val = strtol(int_node->data, &endptr, 10);
+	if (errno != 0 || endptr == int_node->data || *endptr != '\0') {
+		rc = SEPOL_ERR;
+		goto exit;
+	}
+
+	*integer = val;
+
+	return SEPOL_OK;
+
+exit:
+	cil_log(CIL_ERR, "Failed to create integer from string\n");
+	return rc;
+}
+
+int cil_fill_integer64(struct cil_tree_node *int_node, uint64_t *integer)
+{
+	int rc = SEPOL_ERR;
+	char *endptr = NULL;
+	uint64_t val;
+
+	if (int_node == NULL || integer == NULL) {
+		goto exit;
+	}
+
+	errno = 0;
+	val = strtoull(int_node->data, &endptr, 10);
 	if (errno != 0 || endptr == int_node->data || *endptr != '\0') {
 		rc = SEPOL_ERR;
 		goto exit;
@@ -5145,7 +5564,7 @@ void cil_destroy_cats(struct cil_cats *cats)
 
 	free(cats);
 }
-int cil_gen_bounds(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, enum cil_flavor flavor)
+int cil_gen_bounds(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, enum cil_flavor flavor)
 {
 	enum cil_syntax syntax[] = {
 		CIL_SYN_STRING,
@@ -5605,6 +6024,11 @@ int __cil_build_ast_node_helper(struct cil_tree_node *parse_current, uint32_t *f
 		*finished = CIL_TREE_SKIP_NEXT;
 	} else if (parse_current->data == CIL_KEY_USER) {
 		rc = cil_gen_user(db, parse_current, ast_node);
+	} else if (parse_current->data == CIL_KEY_USERATTRIBUTE) {
+		rc = cil_gen_userattribute(db, parse_current, ast_node);
+	} else if (parse_current->data == CIL_KEY_USERATTRIBUTESET) {
+		rc = cil_gen_userattributeset(db, parse_current, ast_node);
+		*finished = CIL_TREE_SKIP_NEXT;
 	} else if (parse_current->data == CIL_KEY_USERLEVEL) {
 		rc = cil_gen_userlevel(db, parse_current, ast_node);
 		*finished = CIL_TREE_SKIP_NEXT;
@@ -5689,6 +6113,21 @@ int __cil_build_ast_node_helper(struct cil_tree_node *parse_current, uint32_t *f
 	} else if (parse_current->data == CIL_KEY_NEVERALLOW) {
 		rc = cil_gen_avrule(parse_current, ast_node, CIL_AVRULE_NEVERALLOW);
 		*finished = CIL_TREE_SKIP_NEXT;
+	} else if (parse_current->data == CIL_KEY_ALLOWX) {
+		rc = cil_gen_avrulex(parse_current, ast_node, CIL_AVRULE_ALLOWED);
+		*finished = CIL_TREE_SKIP_NEXT;
+	} else if (parse_current->data == CIL_KEY_AUDITALLOWX) {
+		rc = cil_gen_avrulex(parse_current, ast_node, CIL_AVRULE_AUDITALLOW);
+		*finished = CIL_TREE_SKIP_NEXT;
+	} else if (parse_current->data == CIL_KEY_DONTAUDITX) {
+		rc = cil_gen_avrulex(parse_current, ast_node, CIL_AVRULE_DONTAUDIT);
+		*finished = CIL_TREE_SKIP_NEXT;
+	} else if (parse_current->data == CIL_KEY_NEVERALLOWX) {
+		rc = cil_gen_avrulex(parse_current, ast_node, CIL_AVRULE_NEVERALLOW);
+		*finished = CIL_TREE_SKIP_NEXT;
+	} else if (parse_current->data == CIL_KEY_PERMISSIONX) {
+		rc = cil_gen_permissionx(db, parse_current, ast_node);
+		*finished = CIL_TREE_SKIP_NEXT;
 	} else if (parse_current->data == CIL_KEY_TYPETRANSITION) {
 		rc = cil_gen_typetransition(db, parse_current, ast_node);
 	} else if (parse_current->data == CIL_KEY_TYPECHANGE) {
@@ -5766,6 +6205,9 @@ int __cil_build_ast_node_helper(struct cil_tree_node *parse_current, uint32_t *f
 		*finished = CIL_TREE_SKIP_NEXT;
 	} else if (parse_current->data == CIL_KEY_PCIDEVICECON) {
 		rc = cil_gen_pcidevicecon(db, parse_current, ast_node);
+		*finished = CIL_TREE_SKIP_NEXT;
+	} else if (parse_current->data == CIL_KEY_DEVICETREECON) {
+		rc = cil_gen_devicetreecon(db, parse_current, ast_node);
 		*finished = CIL_TREE_SKIP_NEXT;
 	} else if (parse_current->data == CIL_KEY_FSUSE) {
 		rc = cil_gen_fsuse(db, parse_current, ast_node);
@@ -5887,7 +6329,7 @@ exit:
 	return rc;
 }
 
-int cil_build_ast(__attribute__((unused)) struct cil_db *db, struct cil_tree_node *parse_tree, struct cil_tree_node *ast)
+int cil_build_ast(struct cil_db *db, struct cil_tree_node *parse_tree, struct cil_tree_node *ast)
 {
 	int rc = SEPOL_ERR;
 	struct cil_args_build extra_args;

@@ -80,6 +80,10 @@ int cil_gen_sidorder(struct cil_db *db, struct cil_tree_node *parse_current, str
 void cil_destroy_sidorder(struct cil_sidorder *sidorder);
 int cil_gen_user(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node);
 void cil_destroy_user(struct cil_user *user);
+int cil_gen_userattribute(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node);
+void cil_destroy_userattribute(struct cil_userattribute *attr);
+int cil_gen_userattributeset(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node);
+void cil_destroy_userattributeset(struct cil_userattributeset *attrset);
 int cil_gen_userlevel(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node);
 void cil_destroy_userlevel(struct cil_userlevel *usrlvl);
 int cil_gen_userrange(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node);
@@ -107,6 +111,9 @@ void cil_destroy_roleattributeset(struct cil_roleattributeset *attrset);
 int cil_gen_rolebounds(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node);
 int cil_gen_avrule(struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, uint32_t rule_kind);
 void cil_destroy_avrule(struct cil_avrule *rule);
+int cil_gen_avrulex(struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, uint32_t rule_kind);
+int cil_gen_permissionx(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node);
+void cil_destroy_permissionx(struct cil_permissionx *permx);
 int cil_gen_type_rule(struct cil_tree_node *parse_current, struct cil_tree_node *ast_node, uint32_t rule_kind);
 void cil_destroy_type_rule(struct cil_type_rule *rule);
 int cil_gen_type(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node);
@@ -182,6 +189,8 @@ int cil_gen_ioportcon(struct cil_db *db, struct cil_tree_node *parse_current, st
 void cil_destroy_ioportcon(struct cil_ioportcon *ioportcon);
 int cil_gen_pcidevicecon(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node);
 void cil_destroy_pcidevicecon(struct cil_pcidevicecon *pcidevicecon);
+int cil_gen_devicetreecon(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node);
+void cil_destroy_devicetreecon(struct cil_devicetreecon *devicetreecon);
 int cil_gen_fsuse(struct cil_db *db, struct cil_tree_node *parse_current, struct cil_tree_node *ast_node);
 void cil_destroy_fsuse(struct cil_fsuse *fsuse);
 void cil_destroy_param(struct cil_param *param);
@@ -211,6 +220,7 @@ int cil_fill_cats(struct cil_tree_node *curr, struct cil_cats **cats);
 void cil_destroy_cats(struct cil_cats *cats);
 int cil_fill_context(struct cil_tree_node *user_node, struct cil_context *context);
 int cil_fill_integer(struct cil_tree_node *int_node, uint32_t *integer);
+int cil_fill_integer64(struct cil_tree_node *int_node, uint64_t *integer);
 int cil_fill_ipaddr(struct cil_tree_node *addr_node, struct cil_ipaddr *addr);
 int cil_fill_level(struct cil_tree_node *sens, struct cil_level *level);
 

@@ -127,6 +127,8 @@ char *CIL_KEY_TRANS;
 char *CIL_KEY_TYPE;
 char *CIL_KEY_ROLE;
 char *CIL_KEY_USER;
+char *CIL_KEY_USERATTRIBUTE;
+char *CIL_KEY_USERATTRIBUTESET;
 char *CIL_KEY_SENSITIVITY;
 char *CIL_KEY_CATEGORY;
 char *CIL_KEY_CATSET;
@@ -206,6 +208,7 @@ char *CIL_KEY_PIRQCON;
 char *CIL_KEY_IOMEMCON;
 char *CIL_KEY_IOPORTCON;
 char *CIL_KEY_PCIDEVICECON;
+char *CIL_KEY_DEVICETREECON;
 char *CIL_KEY_FSUSE;
 char *CIL_KEY_POLICYCAP;
 char *CIL_KEY_OPTIONAL;
@@ -215,6 +218,13 @@ char *CIL_KEY_DEFAULTTYPE;
 char *CIL_KEY_ROOT;
 char *CIL_KEY_NODE;
 char *CIL_KEY_PERM;
+char *CIL_KEY_ALLOWX;
+char *CIL_KEY_AUDITALLOWX;
+char *CIL_KEY_DONTAUDITX;
+char *CIL_KEY_NEVERALLOWX;
+char *CIL_KEY_PERMISSIONX;
+char *CIL_KEY_IOCTL;
+char *CIL_KEY_UNORDERED;
 
 /*
 	Symbol Table Array Indices
@@ -238,6 +248,7 @@ enum cil_sym_index {
 	CIL_SYM_POLICYCAPS,
 	CIL_SYM_IPADDRS,
 	CIL_SYM_NAMES,
+	CIL_SYM_PERMX,
 	CIL_SYM_NUM,
 	CIL_SYM_UNKNOWN,
 	CIL_SYM_PERMS	// Special case for permissions. This symtab is not included in arrays
@@ -273,20 +284,27 @@ struct cil_db {
 	struct cil_sort *iomemcon;
 	struct cil_sort *ioportcon;
 	struct cil_sort *pcidevicecon;
+	struct cil_sort *devicetreecon;
 	struct cil_sort *fsuse;
 	struct cil_list *userprefixes;
 	struct cil_list *selinuxusers;
 	struct cil_list *names;
+	int num_types_and_attrs;
+	int num_classes;
 	int num_cats;
 	int num_types;
 	int num_roles;
+	int num_users;
 	struct cil_type **val_to_type;
 	struct cil_role **val_to_role;
+	struct cil_user **val_to_user;
 	int disable_dontaudit;
 	int disable_neverallow;
 	int preserve_tunables;
 	int handle_unknown;
 	int mls;
+	int target_platform;
+	int policy_version;
 };
 
 struct cil_root {
@@ -406,14 +424,27 @@ struct cil_sidorder {
 struct cil_user {
 	struct cil_symtab_datum datum;
 	struct cil_user *bounds;
-	struct cil_list *roles;
+	ebitmap_t *roles;
 	struct cil_level *dftlevel;
 	struct cil_levelrange *range;
+	int value;
+};
+
+struct cil_userattribute {
+	struct cil_symtab_datum datum;
+	struct cil_list *expr_list;
+	ebitmap_t *users;
+};
+
+struct cil_userattributeset {
+	char *attr_str;
+	struct cil_list *str_expr;
+	struct cil_list *datum_expr;
 };
 
 struct cil_userrole {
 	char *user_str;
-	struct cil_user *user;
+	void *user;
 	char *role_str;
 	void *role;
 };
@@ -540,12 +571,29 @@ struct cil_tunable {
 #define CIL_AVRULE_NEVERALLOW 128
 #define CIL_AVRULE_AV         (AVRULE_ALLOWED | AVRULE_AUDITALLOW | AVRULE_DONTAUDIT | AVRULE_NEVERALLOW)
 struct cil_avrule {
+	int is_extended;
 	uint32_t rule_kind;
 	char *src_str;
 	void *src; /* type, alias, or attribute */
 	char *tgt_str;	
 	void *tgt; /* type, alias, or attribute */
-	struct cil_list *classperms;
+	union {
+		struct cil_list *classperms;
+		struct {
+			char *permx_str;
+			struct cil_permissionx *permx;
+		} x;
+	} perms;
+};
+
+#define CIL_PERMX_KIND_IOCTL 1
+struct cil_permissionx {
+	struct cil_symtab_datum datum;
+	uint32_t kind;
+	char *obj_str;
+	struct cil_class *obj;
+	struct cil_list *expr_str;
+	ebitmap_t *perms;
 };
 
 #define CIL_TYPE_TRANSITION 16
@@ -717,8 +765,8 @@ struct cil_pirqcon {
 };
 
 struct cil_iomemcon {
-	uint32_t iomem_low;
-	uint32_t iomem_high;
+	uint64_t iomem_low;
+	uint64_t iomem_high;
 	char *context_str;
 	struct cil_context *context;
 };
@@ -735,6 +783,13 @@ struct cil_pcidevicecon {
 	char *context_str;
 	struct cil_context *context;
 };
+
+struct cil_devicetreecon {
+	char *path;
+	char *context_str;
+	struct cil_context *context;
+};
+
 
 /* Ensure that CIL uses the same values as sepol services.h */
 enum cil_fsuse_types {
@@ -871,9 +926,9 @@ void cil_destroy_data(void **data, enum cil_flavor flavor);
 int cil_flavor_to_symtab_index(enum cil_flavor flavor, enum cil_sym_index *index);
 const char * cil_node_to_string(struct cil_tree_node *node);
 
-int cil_userprefixes_to_string(struct cil_db *db, sepol_policydb_t *sepol_db, char **out, size_t *size);
-int cil_selinuxusers_to_string(struct cil_db *db, sepol_policydb_t *sepol_db, char **out, size_t *size);
-int cil_filecons_to_string(struct cil_db *db, sepol_policydb_t *sepol_db, char **out, size_t *size);
+int cil_userprefixes_to_string(struct cil_db *db, char **out, size_t *size);
+int cil_selinuxusers_to_string(struct cil_db *db, char **out, size_t *size);
+int cil_filecons_to_string(struct cil_db *db, char **out, size_t *size);
 
 void cil_symtab_array_init(symtab_t symtab[], int symtab_sizes[CIL_SYM_NUM]);
 void cil_symtab_array_destroy(symtab_t symtab[]);
@@ -917,6 +972,7 @@ void cil_condblock_init(struct cil_condblock **cb);
 void cil_tunable_init(struct cil_tunable **ciltun);
 void cil_tunif_init(struct cil_tunableif **tif);
 void cil_avrule_init(struct cil_avrule **avrule);
+void cil_permissionx_init(struct cil_permissionx **permx);
 void cil_type_rule_init(struct cil_type_rule **type_rule);
 void cil_roletransition_init(struct cil_roletransition **roletrans);
 void cil_roleallow_init(struct cil_roleallow **role_allow);
@@ -931,6 +987,7 @@ void cil_pirqcon_init(struct cil_pirqcon **pirqcon);
 void cil_iomemcon_init(struct cil_iomemcon **iomemcon);
 void cil_ioportcon_init(struct cil_ioportcon **ioportcon);
 void cil_pcidevicecon_init(struct cil_pcidevicecon **pcidevicecon);
+void cil_devicetreecon_init(struct cil_devicetreecon **devicetreecon);
 void cil_fsuse_init(struct cil_fsuse **fsuse);
 void cil_constrain_init(struct cil_constrain **constrain);
 void cil_validatetrans_init(struct cil_validatetrans **validtrans);
@@ -960,5 +1017,7 @@ void cil_default_init(struct cil_default **def);
 void cil_defaultrange_init(struct cil_defaultrange **def);
 void cil_handleunknown_init(struct cil_handleunknown **unk);
 void cil_mls_init(struct cil_mls **mls);
+void cil_userattribute_init(struct cil_userattribute **attribute);
+void cil_userattributeset_init(struct cil_userattributeset **attrset);
 
 #endif
