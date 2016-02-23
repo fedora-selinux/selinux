@@ -1,4 +1,4 @@
-#!/usr/bin/python3 -E
+#!/usr/bin/python -E
 
 
 from __future__ import print_function
@@ -16,7 +16,7 @@ try:
 	import selinux
 	import semanage
 except:
-	print("You must install libselinux-python3 and libsemanage-python3 before running this tool", file=sys.stderr)
+	print("You must install libselinux-python and libsemanage-python before running this tool", file=sys.stderr)
 	exit(1)
 
 
