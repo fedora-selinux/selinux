@@ -340,7 +340,7 @@ static int semanage_conf_init(semanage_conf_t * conf)
 	conf->store_type = SEMANAGE_CON_DIRECT;
 	conf->store_path = strdup(basename(selinux_policy_root()));
 	conf->ignoredirs = NULL;
-	conf->store_root_path = strdup("/var/lib/selinux");
+	conf->store_root_path = strdup("/etc/selinux");
 	conf->compiler_directory_path = strdup("/usr/libexec/selinux/hll");
 	conf->policyvers = sepol_policy_kern_vers_max();
 	conf->target_platform = SEPOL_TARGET_SELINUX;

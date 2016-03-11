@@ -218,7 +218,7 @@ if __name__ == "__main__":
 	parser.add_option("-n", "--norebuild", dest="norebuild", action="store_true", default=False,
 			  help="Disable rebuilding policy after migration (default: no)")
 	parser.add_option("-P", "--path", dest="path",
-			  help="Set path for the policy store (default: /var/lib/selinux)")
+			  help="Set path for the policy store (default: /etc/selinux)")
 	parser.add_option("-r", "--root", dest="root",
 			  help="Set an alternative root for the migration (default: /)")
 
@@ -231,7 +231,7 @@ if __name__ == "__main__":
 	NOREBUILD = options.norebuild
 	PATH = options.path
 	if PATH is None:
-		PATH = "/var/lib/selinux"
+		PATH = "/etc/selinux"
 
 	ROOT = options.root
 	if ROOT is None:
