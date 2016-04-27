@@ -45,7 +45,7 @@ int setexecfilecon(const char *filename, const char *fallback_type)
 		goto out;
       out:
 
-	if (rc < 0 && security_getenforce() == 0)
+	if (rc < 0 && security_getenforce() < 1)
 		rc = 0;
 
 	context_free(con);
