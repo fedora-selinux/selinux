@@ -1,3 +1,7 @@
+	* Modify audit2why analyze function to use loaded policy, from Joshua Brindle.
+	* Sort object files for deterministic linking order, from Laurent Bigonville.
+	* Respect CC and PKG_CONFIG environment variable, from Julien Pivotto.
+	* Avoid mounting /proc outside of selinux_init_load_policy(), from Stephen Smalley.
 	* Fix multiple spelling errors, from Laurent Bigonville.
 	* Fix typo in sefcontext_compile.8, from Petr Lautrbach and Milos Malik
 	* Fix location of selinuxfs mount point, from Dan Walsh.
