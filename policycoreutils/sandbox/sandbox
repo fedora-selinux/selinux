@@ -451,8 +451,8 @@ sandbox [-h] [-l level ] [-[X|M] [-H homedir] [-T tempdir]] [-I includefile ] [-
                     if self.__options.dpi:
                         dpi = self.__options.dpi
                     else:
-                        import gtk
-                        dpi = str(gtk.settings_get_default().props.gtk_xft_dpi / 1024)
+                        from gi.repository import Gtk
+                        dpi = str(Gtk.Settings.get_default().props.gtk_xft_dpi / 1024)
 
                     xmodmapfile = self.__homedir + "/.xmodmap"
                     xd = open(xmodmapfile, "w")
