@@ -264,7 +264,7 @@ class Sandbox:
             copyfile(f, "/tmp", self.__tmpdir)
             copyfile(f, "/var/tmp", self.__tmpdir)
 
-    def __setup_sandboxrc(self, wm="/usr/bin/openbox"):
+    def __setup_sandboxrc(self, wm="/usr/bin/matchbox-window-manager"):
         execfile = self.__homedir + "/.sandboxrc"
         fd = open(execfile, "w+")
         if self.__options.session:
@@ -354,7 +354,7 @@ sandbox [-h] [-l level ] [-[X|M] [-H homedir] [-T tempdir]] [-I includefile ] [-
 
         parser.add_option("-W", "--windowmanager", dest="wm",
                           type="string",
-                          default="/usr/bin/openbox",
+                          default="/usr/bin/matchbox-window-manager",
                           help=_("alternate window manager"))
 
         parser.add_option("-l", "--level", dest="level",
