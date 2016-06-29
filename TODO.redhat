@@ -1,0 +1,33 @@
+Patches to be sent upstream
+---------------------------
+
+commit 8970dd22b8438d9fd04197f3d204a75031dc3447
+Author: Petr Lautrbach <plautrba@redhat.com>
+Date:   Wed Jun 29 14:22:42 2016 +0200
+
+    policycoreutils: Allow to define sock file in /etc directory
+    
+    Resolves: rhbz#1188360
+
+
+commit 14a5fd76cce9d0177f82a47904c7a8d343a7cab7
+Author: Petr Lautrbach <plautrba@redhat.com>
+Date:   Wed Jun 29 14:15:26 2016 +0200
+
+    semanage: Use OrderedDict for list of fcontexts
+    
+    semanage-fcontext shows which file contexts are defined and
+    do a sort which does not follow real order. It could be confusing for
+    users therefore we need to use OrderedDict and preserve the order.
+    
+    Resolves: rhbz#1206769
+
+commit 1e7b639ebeb1e770f27ea666ce69f6604b98c62e
+Author: Petr Lautrbach <plautrba@redhat.com>
+Date:   Tue Jun 28 17:03:13 2016 +0200
+
+    policycoreutils: Remove default s0 range from semanage-login command. It is handled in seobject.py.
+    
+    Resolves:#1028106
+
+
