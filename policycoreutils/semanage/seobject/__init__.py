@@ -2037,7 +2037,9 @@ class fcontextRecords(semanageRecords):
 
                        self.flist += fclocal
 
-                ddict = {}
+                from collections import OrderedDict
+                ddict = OrderedDict()
+
                 for fcontext in self.flist:
                         expr = semanage_fcontext_get_expr(fcontext)
                         ftype = semanage_fcontext_get_type(fcontext)
@@ -2054,7 +2056,6 @@ class fcontextRecords(semanageRecords):
                l = []
                fcon_dict = self.get_all(True)
                keys = list(fcon_dict.keys())
-               keys.sort()
                for k in keys:
                       if fcon_dict[k]:
                              l.append("-a -f %s -t %s '%s'" % (file_type_str_to_option[k[1]], fcon_dict[k][2], k[0]))
@@ -2068,7 +2069,6 @@ class fcontextRecords(semanageRecords):
                 fcon_dict = self.get_all(locallist)
                 keys = list(fcon_dict.keys())
                 if len(keys) != 0:
-                        keys.sort()
                         if heading:
                                 print("%-50s %-18s %s\n" % (_("SELinux fcontext"), _("type"), _("Context")))
                         for k in keys:
