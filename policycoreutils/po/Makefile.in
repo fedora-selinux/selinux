@@ -43,14 +43,14 @@ INCLUDES = -I.. -I$(top_srcdir)/intl
 
 COMPILE = $(CC) -c $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS) $(XCFLAGS)
 
-POFILES =  da.po de.po es.po et.po fr.po gl.po id.po it.po ko.po nl.po pl.po pt_BR.po ru.po sv.po
-GMOFILES =  da.gmo de.gmo es.gmo et.gmo fr.gmo gl.gmo id.gmo it.gmo ko.gmo nl.gmo pl.gmo pt_BR.gmo ru.gmo sv.gmo
+POFILES =  ar.po as.po bg.po bn_IN.po bs.po ca.po cs.po da.po de.po el.po en_GB.po es.po eu.po fi.po fr.po gu.po hi.po hr.po hu.po it.po ja.po kn.po ko.po mai.po mk.po ml.po mr.po ms.po nb.po nl.po or.po pa.po pl.po pt_BR.po pt.po ru.po sk.po sr@latin.po sr.po sv.po ta.po te.po tr.po uk.po zh_CN.po zh_TW.po
+GMOFILES =  ar.gmo as.gmo bg.gmo bn_IN.gmo bs.gmo ca.gmo cs.gmo da.gmo de.gmo el.gmo en_GB.gmo es.gmo eu.gmo fi.gmo fr.gmo gu.gmo hi.gmo hr.gmo hu.gmo it.gmo ja.gmo kn.gmo ko.gmo mai.gmo mk.gmo ml.gmo mr.gmo ms.gmo nb.gmo nl.gmo or.gmo pa.gmo pl.gmo pt_BR.gmo pt.gmo ru.gmo sk.gmo sr@latin.gmo sr.gmo sv.gmo ta.gmo te.gmo tr.gmo uk.gmo zh_CN.gmo zh_TW.gmo
 DISTFILES = Makefile.in.in POTFILES.in $(PACKAGE).pot \
 $(POFILES) $(GMOFILES) $(SOURCES)
 
 POTFILES = \
 
-CATALOGS =  #da.gmo de.gmo es.gmo et.gmo fr.gmo gl.gmo id.gmo it.gmo ko.gmo nl.gmo pl.gmo pt_BR.gmo ru.gmo sv.gmo
+CATALOGS =  #ar.gmo as.gmo bg.gmo bn_IN.gmo bs.gmo ca.gmo cs.gmo da.gmo de.gmo el.gmo en_GB.gmo es.gmo eu.gmo fi.gmo fr.gmo gu.gmo hi.gmo hr.gmo hu.gmo it.gmo ja.gmo kn.gmo ko.gmo mai.gmo mk.gmo ml.gmo mr.gmo ms.gmo nb.gmo nl.gmo or.gmo pa.gmo pl.gmo pt_BR.gmo pt.gmo ru.gmo sk.gmo sr@latin.gmo sr.gmo sv.gmo ta.gmo te.gmo tr.gmo uk.gmo zh_CN.gmo zh_TW.gmo
 CATOBJEXT = .gmo
 INSTOBJEXT = .mo
 
