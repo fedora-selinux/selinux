@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Arpad Biro <biro_arpad@yahoo.com>, 2006, 2007
 # István Zoltán Nagy <nagyesta@gmail.com>, 2009
@@ -14,12 +14,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-18 08:37+0100\n"
-"PO-Revision-Date: 2014-01-03 04:04-0500\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
-"Language-Team: Hungarian (http://www.transifex.com/projects/p/fedora/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-01-03 04:04-0500\n"
+"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"Language-Team: Hungarian (http://www.transifex.com/projects/p/fedora/"
+"language/hu/)\n"
 "Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 3.8.4\n"
@@ -203,12 +204,12 @@ msgid "Could not set module key name"
 msgstr "Nem sikerült nevet beállítani ehhez: %s"
 
 #: ../semanage/seobject/__init__.py:383
-#, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, python-format
+#, fuzzy, python-format
 msgid "Could not enable module %s"
 msgstr "Nem kapcsolható be a modul %s (sikertelen eltávolítás)"
 
 #: ../semanage/seobject/__init__.py:385
-#, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, python-format
+#, fuzzy, python-format
 msgid "Could not disable module %s"
 msgstr "Nem kapcsolható ki a modul %s (sikertelen eltávolítás)"
 
@@ -242,7 +243,8 @@ msgid ""
 "Or similar for your distro."
 msgstr ""
 "A sepolgen python modul szükséges az áteresztő tartományok beállításához.\n"
-"Néhány disztribúcióban ez az alkalmazás a policycoreutils-devel csomag része.\n"
+"Néhány disztribúcióban ez az alkalmazás a policycoreutils-devel csomag része."
+"\n"
 "# yum install policycoreutils-devel\n"
 "...vagy hasonló a saját disztribúciójától függően."
 
@@ -273,8 +275,8 @@ msgstr "Nem sikerült létrehozni kulcsot ehhez: %s"
 #, python-format
 msgid "Could not check if login mapping for %s is defined"
 msgstr ""
-"Nem sikerült ellenőrizni, hogy van-e definiálva bejelentkezési hozzárendelés"
-" ehhez: %s"
+"Nem sikerült ellenőrizni, hogy van-e definiálva bejelentkezési hozzárendelés "
+"ehhez: %s"
 
 #: ../semanage/seobject/__init__.py:538
 #, python-format
@@ -986,19 +988,15 @@ msgid "type"
 msgstr "Típus"
 
 #: ../semanage/seobject/__init__.py:2086
-msgid ""
-"\n"
+msgid "\n"
 "SELinux Distribution fcontext Equivalence \n"
-msgstr ""
-"\n"
+msgstr "\n"
 "SELinux Distribution fcontext Equivalence \n"
 
 #: ../semanage/seobject/__init__.py:2091
-msgid ""
-"\n"
+msgid "\n"
 "SELinux Local fcontext Equivalence \n"
-msgstr ""
-"\n"
+msgstr "\n"
 "SELinux Local fcontext Equivalence \n"
 
 #: ../semanage/seobject/__init__.py:2127 ../semanage/seobject/__init__.py:2178
@@ -1466,27 +1464,21 @@ msgid "File Labeling"
 msgstr "Fájl cimke"
 
 #: ../gui/fcontextPage.py:73
-msgid ""
-"File\n"
+msgid "File\n"
 "Specification"
-msgstr ""
-"Fájl\n"
+msgstr "Fájl\n"
 "Specifikáció"
 
 #: ../gui/fcontextPage.py:80
-msgid ""
-"Selinux\n"
+msgid "Selinux\n"
 "File Type"
-msgstr ""
-"Selinux\n"
+msgstr "Selinux\n"
 "Fájl típusa"
 
 #: ../gui/fcontextPage.py:87
-msgid ""
-"File\n"
+msgid "File\n"
 "Type"
-msgstr ""
-"Fájl\n"
+msgstr "Fájl\n"
 "Típus"
 
 #: ../gui/loginsPage.py:45 ../gui/system-config-selinux.glade:2098
@@ -1494,27 +1486,21 @@ msgid "User Mapping"
 msgstr "Hozzárendelt felhasználó"
 
 #: ../gui/loginsPage.py:49
-msgid ""
-"Login\n"
+msgid "Login\n"
 "Name"
-msgstr ""
-"Bejelentkezési\n"
+msgstr "Bejelentkezési\n"
 "Név"
 
 #: ../gui/loginsPage.py:53 ../gui/usersPage.py:47
-msgid ""
-"SELinux\n"
+msgid "SELinux\n"
 "User"
-msgstr ""
-"SELinux\n"
+msgstr "SELinux\n"
 "Felhasználó"
 
 #: ../gui/loginsPage.py:56 ../gui/usersPage.py:52
-msgid ""
-"MLS/\n"
+msgid "MLS/\n"
 "MCS Range"
-msgstr ""
-"MLS/\n"
+msgstr "MLS/\n"
 "MCS Range"
 
 #: ../gui/loginsPage.py:130
@@ -1588,9 +1574,9 @@ msgid ""
 "Standard Init Daemon are daemons started on boot via init scripts.  Usually "
 "requires a script in /etc/rc.d/init.d"
 msgstr ""
-"Szabványos Init Daemon-ok azok a szolgáltatások amelyeket rendszerindításkor"
-" init szkriptekkel indítanak.  Rendszerint egy szkriptet igényel az "
-"/etc/rc.d/init.d mappában"
+"Szabványos Init Daemon-ok azok a szolgáltatások amelyeket rendszerindításkor "
+"init szkriptekkel indítanak.  Rendszerint egy szkriptet igényel az /etc/rc.d/"
+"init.d mappában"
 
 #: ../gui/polgen.glade:332 ../sepolicy/sepolicy/generate.py:139
 msgid "DBUS System Daemon"
@@ -1653,8 +1639,8 @@ msgid ""
 "default this user will have  no setuid, no networking, no su, no sudo."
 msgstr ""
 "Ez a felhasználó bejelentkezhet a gépre csak terminálon vagy távoli "
-"hozzáférésen keresztül. Alapértelmezésben ennek a felhasználónak nem lesz se"
-" setuid, hálózata, su, sudo-ja sem."
+"hozzáférésen keresztül. Alapértelmezésben ennek a felhasználónak nem lesz se "
+"setuid, hálózata, su, sudo-ja sem."
 
 #: ../gui/polgen.glade:512
 msgid "Minimal X Windows User Role"
@@ -1666,8 +1652,8 @@ msgid ""
 "will have no setuid, no networking, no sudo, no su"
 msgstr ""
 "Ez a felhasználó bejelentkezhet az X-en vagy terminálon keresztül. "
-"Alapértelmezésben ennek a felhasználónak nem lesz se setuid, se hálózata, su"
-" és sudo parancsa sem."
+"Alapértelmezésben ennek a felhasználónak nem lesz se setuid, se hálózata, su "
+"és sudo parancsa sem."
 
 #: ../gui/polgen.glade:529
 msgid "User Role"
@@ -1679,8 +1665,8 @@ msgid ""
 "sudo, no su."
 msgstr ""
 "Alapértelmezésben ez a felhasználó teljes hálózati hozzáféréssel "
-"rendelkezik, de nincsenek setuid alkalmazásai átmenet nélkül, valamint nincs"
-" su, és sudo parancsa sem."
+"rendelkezik, de nincsenek setuid alkalmazásai átmenet nélkül, valamint nincs "
+"su, és sudo parancsa sem."
 
 #: ../gui/polgen.glade:546
 msgid "Admin User Role"
@@ -1688,8 +1674,8 @@ msgstr "Rendszergazdai Admin típus"
 
 #: ../gui/polgen.glade:550
 msgid ""
-"User with full networking, no setuid applications without transition, no su,"
-" can sudo to Root Administration Roles"
+"User with full networking, no setuid applications without transition, no su, "
+"can sudo to Root Administration Roles"
 msgstr ""
 "Ez a felhasználó teljes hálózati hozzáféréssel rendelkezik,  de nincsenek "
 "setuid alkalmazásai átmenet nélkül, se su parancsa, viszont használhat sudo "
@@ -1705,8 +1691,8 @@ msgstr "Rendszergazdai Admin típus"
 
 #: ../gui/polgen.glade:627
 msgid ""
-"Select Root Administrator User Role, if this user will be used to administer"
-" the machine while running as root.  This user will not be able to login to "
+"Select Root Administrator User Role, if this user will be used to administer "
+"the machine while running as root.  This user will not be able to login to "
 "the system directly."
 msgstr ""
 "Válassza a Root Adminisztrátori felhasználói szerepet, ha ez a felhasználó "
@@ -1750,8 +1736,8 @@ msgstr "Init szkript"
 msgid ""
 "Enter complete path to init script used to start the confined application."
 msgstr ""
-"Adjon meg teljes elérési utat az indiításhoz felhasznált init szkripthez ami"
-" elindítja a szabályozni kívánt alkalmazást."
+"Adjon meg teljes elérési utat az indiításhoz felhasznált init szkripthez ami "
+"elindítja a szabályozni kívánt alkalmazást."
 
 #: ../gui/polgen.glade:887
 msgid "<b>Select existing role to modify:</b>"
@@ -1776,11 +1762,9 @@ msgid "Select applications domains that %s will transition to."
 msgstr "Válasszon alkalmazás területeket amik %s átmenetet képeznek. "
 
 #: ../gui/polgen.glade:983
-msgid ""
-"transition \n"
+msgid "transition \n"
 "role tab"
-msgstr ""
-"átmenet\n"
+msgstr "átmenet\n"
 "szerepkör fülre"
 
 #: ../gui/polgen.glade:1001
@@ -1864,11 +1848,9 @@ msgid "<b>UDP Ports</b>"
 msgstr "<b>UDP Portok</b>"
 
 #: ../gui/polgen.glade:1519
-msgid ""
-"Network\n"
+msgid "Network\n"
 "Bind tab"
-msgstr ""
-"Hálózat\n"
+msgstr "Hálózat\n"
 "Bind fül"
 
 #: ../gui/polgen.glade:1537
@@ -1944,8 +1926,8 @@ msgid ""
 "Files/Directories which the %s \"manages\". Pid Files, Log Files, /var/lib "
 "Files ..."
 msgstr ""
-"Fájlok/Mappák amiket %s \"kezel\". PID fájlok, Log fájlok, /var/lib "
-"fájlok..."
+"Fájlok/Mappák amiket %s \"kezel\". PID fájlok, Log fájlok, /var/lib fájlok..."
+""
 
 #: ../gui/polgen.glade:2166
 msgid "<b>Add booleans from the %s policy:</b>"
@@ -2009,8 +1991,7 @@ msgstr "Válasszon mappát a szabályzati fájlok előállításához itt:"
 
 #: ../gui/polgengui.py:653
 #, python-format
-msgid ""
-"Type %s_t already defined in current policy.\n"
+msgid "Type %s_t already defined in current policy.\n"
 "Do you want to continue?"
 msgstr ""
 "%s.pp típus már betöltve a jelenlegi szabályzatban.\n"
@@ -2021,9 +2002,8 @@ msgid "Verify Name"
 msgstr "Név ellenőrzése"
 
 #: ../gui/polgengui.py:657
-#, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, python-format
-msgid ""
-"Module %s already loaded in current policy.\n"
+#, fuzzy, python-format
+msgid "Module %s already loaded in current policy.\n"
 "Do you want to continue?"
 msgstr ""
 "%s.pp modul már betöltve a jelenlegi szabályzatban.\n"
@@ -2049,11 +2029,9 @@ msgid "Network Port"
 msgstr "Hálózati port"
 
 #: ../gui/portsPage.py:82
-msgid ""
-"SELinux Port\n"
+msgid "SELinux Port\n"
 "Type"
-msgstr ""
-"SELinux Port\n"
+msgstr "SELinux Port\n"
 "Típus"
 
 #: ../gui/portsPage.py:88 ../gui/system-config-selinux.glade:363
@@ -2065,11 +2043,9 @@ msgid "Protocol"
 msgstr "Protokoll"
 
 #: ../gui/portsPage.py:93 ../gui/system-config-selinux.glade:479
-msgid ""
-"MLS/MCS\n"
+msgid "MLS/MCS\n"
 "Level"
-msgstr ""
-"MLS/MCS\n"
+msgstr "MLS/MCS\n"
 "Szint"
 
 #: ../gui/portsPage.py:98 ../sepolicy/sepolicy/sepolicy.glade:2639
@@ -2143,16 +2119,15 @@ msgid ""
 "you later decide to turn SELinux back on, the system will be required to "
 "relabel.  If you just want to see if SELinux is causing a problem on your "
 "system, you can go to permissive mode which will only log errors and not "
-"enforce SELinux policy.  Permissive mode does not require a reboot    Do you"
-" wish to continue?"
+"enforce SELinux policy.  Permissive mode does not require a reboot    Do you "
+"wish to continue?"
 msgstr ""
 "Az SELinux kikapcsolása ugyan újraindítást igényel - de ez nem javasolt. Ha "
 "később úgy dönt hogy visszakapcsolja az SELinux alrendszert, a rendszer "
-"számára teljes újracimkézés lesz szükséges. Ha csak azt szeretné látni, hogy"
-" maga az SELinux alrendszer okozza a problémát vagy sem, váltson át "
-"átjárható módba ami csak logolja a hibákat, és nem lép közbe az SELinux "
-"szabályzattal. Az áteresztő mód természetesen nem igényel újraindítást. "
-"Kívánja folytatni?"
+"számára teljes újracimkézés lesz szükséges. Ha csak azt szeretné látni, hogy "
+"maga az SELinux alrendszer okozza a problémát vagy sem, váltson át átjárható "
+"módba ami csak logolja a hibákat, és nem lép közbe az SELinux szabályzattal. "
+"Az áteresztő mód természetesen nem igényel újraindítást. Kívánja folytatni?"
 
 #: ../gui/statusPage.py:148 ../sepolicy/sepolicy/gui.py:2764
 msgid ""
@@ -2258,12 +2233,10 @@ msgid "System Default Enforcing Mode"
 msgstr "Rendszer alapértelmezés Vezérelt mód"
 
 #: ../gui/system-config-selinux.glade:1354
-msgid ""
-"Disabled\n"
+msgid "Disabled\n"
 "Permissive\n"
 "Enforcing\n"
-msgstr ""
-"Kikapcsolva\n"
+msgstr "Kikapcsolva\n"
 "Átjárható\n"
 "Vezérelt\n"
 
@@ -2406,8 +2379,8 @@ msgstr "Betölthető szabályzat modul eltávolítása"
 
 #: ../gui/system-config-selinux.glade:2661
 msgid ""
-"Enable/Disable additional audit rules, that are normally not reported in the"
-" log files."
+"Enable/Disable additional audit rules, that are normally not reported in the "
+"log files."
 msgstr ""
 "Engedélyezi/Tiltja további auditálási szabályzatokat, ami alapértelmezésben "
 "nem kerülnek reportálásra a log fájlokban."
@@ -2452,8 +2425,8 @@ msgstr ""
 
 #: booleans.py:3
 msgid ""
-"Determine whether abrt-handle-upload can modify public files used for public"
-" file transfer services in /var/spool/abrt-upload/."
+"Determine whether abrt-handle-upload can modify public files used for public "
+"file transfer services in /var/spool/abrt-upload/."
 msgstr ""
 
 #: booleans.py:4
@@ -2482,8 +2455,8 @@ msgstr ""
 #: booleans.py:8
 msgid "Allow users to login using a radius server"
 msgstr ""
-"Lehetővé teszi a felhasználóknak hogy bejelentkezzenek egy radius kiszolgáló"
-" segítségével"
+"Lehetővé teszi a felhasználóknak hogy bejelentkezzenek egy radius kiszolgáló "
+"segítségével"
 
 #: booleans.py:9
 #, fuzzy
@@ -2636,8 +2609,8 @@ msgstr ""
 
 #: booleans.py:35
 msgid ""
-"Deny user domains applications to map a memory region as both executable and"
-" writable, this is dangerous and the executable should be reported in "
+"Deny user domains applications to map a memory region as both executable and "
+"writable, this is dangerous and the executable should be reported in "
 "bugzilla"
 msgstr ""
 "Tiltsa a felhasználói tartományok alkalmazásait hogy összerendelhessenek "
@@ -2679,8 +2652,8 @@ msgid ""
 "Determine whether entropyd can use audio devices as the source for the "
 "entropy feeds."
 msgstr ""
-"Meghatározza az entropyd számára az audio eszközök használatát, mint forrást"
-" az entrópia források csatornájaként"
+"Meghatározza az entropyd számára az audio eszközök használatát, mint forrást "
+"az entrópia források csatornájaként"
 
 #: booleans.py:42
 msgid "Determine whether exim can connect to databases."
@@ -2702,8 +2675,8 @@ msgstr ""
 #: booleans.py:45
 msgid "Enable extra rules in the cron domain to support fcron."
 msgstr ""
-"Engedélyezi az extra szabályokat a cron tartományban hogy támogassa az fcron"
-" műveleteket."
+"Engedélyezi az extra szabályokat a cron tartományban hogy támogassa az fcron "
+"műveleteket."
 
 #: booleans.py:46
 msgid "Determine whether fenced can connect to the TCP network."
@@ -2728,8 +2701,8 @@ msgstr ""
 
 #: booleans.py:50
 msgid ""
-"Determine whether ftpd can modify public files used for public file transfer"
-" services. Directories/Files must be labeled public_content_rw_t."
+"Determine whether ftpd can modify public files used for public file transfer "
+"services. Directories/Files must be labeled public_content_rw_t."
 msgstr ""
 "Meghatározza az ftpd számára, hogy módosíthat-e publikus fájlátviteli "
 "szolgáltatásoknál használt publikus fájlokat. Mappáknak/Fájloknak "
@@ -2751,8 +2724,8 @@ msgid ""
 "Determine whether ftpd can login to local users and can read and write all "
 "files on the system, governed by DAC."
 msgstr ""
-"Meghatározza, az ftpd számára, hogy bejelentkezhet helyi felhasználókhoz, és"
-" írhatja-olvashatja-e az összes fájlt, DAC irányításával."
+"Meghatározza, az ftpd számára, hogy bejelentkezhet helyi felhasználókhoz, és "
+"írhatja-olvashatja-e az összes fájlt, DAC irányításával."
 
 #: booleans.py:54
 msgid ""
@@ -2769,8 +2742,8 @@ msgstr ""
 msgid ""
 "Determine whether ftpd can use NFS used for public file transfer services."
 msgstr ""
-"Meghatározza az ftpd számára, hogy használhat-e NFS szolgáltatást a publikus"
-" fájlátviteli szolgáltatásoknál."
+"Meghatározza az ftpd számára, hogy használhat-e NFS szolgáltatást a publikus "
+"fájlátviteli szolgáltatásoknál."
 
 #: booleans.py:57
 msgid ""
@@ -2878,8 +2851,8 @@ msgid ""
 "Allow gpg web domain to modify public files used for public file transfer "
 "services."
 msgstr ""
-"Engedélyezi a gpg web tartomány számára hogy módosíthasson publikus fájlokat"
-" a nyílt fájlátviteleknél."
+"Engedélyezi a gpg web tartomány számára hogy módosíthasson publikus fájlokat "
+"a nyílt fájlátviteleknél."
 
 #: booleans.py:75
 msgid ""
@@ -2902,8 +2875,8 @@ msgid ""
 "Directories/Files must be labeled public_content_rw_t."
 msgstr ""
 "Engedélyezi az Apache számára hogy módosíthasson publikusan fájlokat a "
-"publikusan használt fájlátviteleknél. A mappák/fájloknak public_content_rw_t"
-" cimkével kell rendelkezniük."
+"publikusan használt fájlátviteleknél. A mappák/fájloknak public_content_rw_t "
+"cimkével kell rendelkezniük."
 
 #: booleans.py:79
 msgid "Allow httpd to use built in scripting (usually php)"
@@ -3051,8 +3024,8 @@ msgstr ""
 #: booleans.py:106
 msgid "Allow HTTPD scripts and modules to server cobbler files."
 msgstr ""
-"Engedélyezi a HTTPD szkriptek és modulok számára hogy kiszolgáljanak cobbler"
-" fájlokat."
+"Engedélyezi a HTTPD szkriptek és modulok számára hogy kiszolgáljanak cobbler "
+"fájlokat."
 
 #: booleans.py:107
 msgid "Allow httpd daemon to change its resource limits"
@@ -3243,8 +3216,8 @@ msgstr ""
 #: booleans.py:143
 msgid "Allow the mount commands to mount any directory or file."
 msgstr ""
-"Engedélyezi a mount parancsoknak, hogy csatoljon bármilyen mappát vagy "
-"fájlt."
+"Engedélyezi a mount parancsoknak, hogy csatoljon bármilyen mappát vagy fájlt."
+""
 
 #: booleans.py:144
 #, fuzzy
@@ -3297,8 +3270,8 @@ msgstr "Meghatározza az mpd számára, hogy használhat-e NFS fájlrendszereket
 #: booleans.py:153
 msgid "Determine whether mplayer can make its stack executable."
 msgstr ""
-"Meghatározza az mplayer számára, hogy saját stack-jét végrehajthatóvá "
-"teheti-e."
+"Meghatározza az mplayer számára, hogy saját stack-jét végrehajthatóvá teheti-"
+"e."
 
 #: booleans.py:154
 msgid "Allow mysqld to connect to all ports"
@@ -3322,8 +3295,8 @@ msgid ""
 "Determine whether Bind can write to master zone files. Generally this is "
 "used for dynamic DNS or zone transfers."
 msgstr ""
-"Meghatározza a Bind számára, hogy írhat-e mester zóna fájlokat. Általában ez"
-" dinamikus DNS vagy zónatranszfereknél használt mód."
+"Meghatározza a Bind számára, hogy írhat-e mester zóna fájlokat. Általában ez "
+"dinamikus DNS vagy zónatranszfereknél használt mód."
 
 #: booleans.py:159
 #, fuzzy
@@ -3374,8 +3347,8 @@ msgstr ""
 #: booleans.py:167
 msgid "Determine whether openvpn can read generic user home content files."
 msgstr ""
-"Meghatározza az openvpn számára, hogy olvashat-e általános felhasználói home"
-" könyvtár tartalmakat."
+"Meghatározza az openvpn számára, hogy olvashat-e általános felhasználói home "
+"könyvtár tartalmakat."
 
 #: booleans.py:168
 msgid "Allow openvpn to run unconfined scripts"
@@ -3439,8 +3412,8 @@ msgstr ""
 #: booleans.py:179
 msgid "Allow postgresql to use ssh and rsync for point-in-time recovery"
 msgstr ""
-"Engedélyezi a posgreSQL számára az ssh és az rsync használatát point-in-time"
-" recovery műveletre"
+"Engedélyezi a posgreSQL számára az ssh és az rsync használatát point-in-time "
+"recovery műveletre"
 
 #: booleans.py:180
 msgid "Allow transmit client label to foreign database"
@@ -3488,8 +3461,8 @@ msgstr ""
 #: booleans.py:188
 msgid "Allow Puppet master to use connect to MySQL and PostgreSQL database"
 msgstr ""
-"Engedélyezi a Puppet master számára hogy csatlakozhasson MySQL és PostgreSQL"
-" adatbázisokhoz"
+"Engedélyezi a Puppet master számára hogy csatlakozhasson MySQL és PostgreSQL "
+"adatbázisokhoz"
 
 #: booleans.py:189
 msgid "Allow racoon to read shadow"
@@ -3547,8 +3520,8 @@ msgstr ""
 #: booleans.py:198
 msgid "Allow samba to share any file/directory read/write."
 msgstr ""
-"Engedélyezi a samba számára hogy megosszon bármilyen fájlt/mappát "
-"írásra/olvasásra."
+"Engedélyezi a samba számára hogy megosszon bármilyen fájlt/mappát írásra/"
+"olvasásra."
 
 #: booleans.py:199
 msgid "Allow smbd to load libgfapi from gluster."
@@ -3611,8 +3584,8 @@ msgid ""
 "to reboot to set it back."
 msgstr ""
 "Egy boolean ami meghatározza hogy a rendszer engedélyezi a szabályok "
-"betöltését, a vezérelt módot, és a boolean értékek megváltoztatását. Állítsa"
-" át igazra, és újra kell indítani a rendszert hogy vissza válthassa."
+"betöltését, a vezérelt módot, és a boolean értékek megváltoztatását. Állítsa "
+"át igazra, és újra kell indítani a rendszert hogy vissza válthassa."
 
 #: booleans.py:212
 msgid "Allow regular users direct dri device access"
@@ -3626,8 +3599,8 @@ msgid ""
 "could indicate an attack. This executable should be reported in bugzilla"
 msgstr ""
 "Engedélyezi a szabályozatlan végrehajtható állományok számára hogy a heap "
-"memóriájuk tartalma végrehajtható legyen. Valószínúleg ez egy rosszul kódolt"
-" végrehajtható állományt jelöl, de jelezhet támadást is. Ezt az állomány "
+"memóriájuk tartalma végrehajtható legyen. Valószínúleg ez egy rosszul kódolt "
+"végrehajtható állományt jelöl, de jelezhet támadást is. Ezt az állomány "
 "mindenképp jelenteni kell a bugzilla hibakövetőbe."
 
 #: booleans.py:214
@@ -3659,8 +3632,8 @@ msgstr ""
 
 #: booleans.py:217
 msgid ""
-"Allow confined users the ability to execute the ping and traceroute "
-"commands."
+"Allow confined users the ability to execute the ping and traceroute commands."
+""
 msgstr ""
 "Engedélyezi a szabályozott felhasználók számára hogy ping és traceroute "
 "parancsokat alkalmazzanak."
@@ -3684,8 +3657,8 @@ msgstr "Engedélyezi a felhasználó számára a zene megosztását"
 
 #: booleans.py:221
 msgid ""
-"Allow users to run TCP servers (bind to ports and accept connection from the"
-" same domain and outside users)  disabling this forces FTP passive mode and "
+"Allow users to run TCP servers (bind to ports and accept connection from the "
+"same domain and outside users)  disabling this forces FTP passive mode and "
 "may change other protocols."
 msgstr ""
 "Engedélyezi a felhasználók számára, hogy futtathasson TCP kiszolgálókat "
@@ -3696,8 +3669,8 @@ msgstr ""
 #: booleans.py:222
 #, fuzzy
 msgid ""
-"Allow users to run UDP servers (bind to ports and accept connection from the"
-" same domain and outside users)  disabling this may break avahi discovering "
+"Allow users to run UDP servers (bind to ports and accept connection from the "
+"same domain and outside users)  disabling this may break avahi discovering "
 "services on the network and other udp related services."
 msgstr ""
 "Engedélyezi a felhasználók számára, hogy futtathasson TCP kiszolgálókat "
@@ -3708,8 +3681,8 @@ msgstr ""
 #: booleans.py:223
 msgid "Allow user  to use ssh chroot environment."
 msgstr ""
-"Engedélyezi a felhasználó számára, hogy ssh chroot környezetet "
-"használhasson."
+"Engedélyezi a felhasználó számára, hogy ssh chroot környezetet használhasson."
+""
 
 #: booleans.py:224
 msgid ""
@@ -3746,8 +3719,8 @@ msgstr ""
 #: booleans.py:228
 msgid "Allow sge to connect to the network using any TCP port"
 msgstr ""
-"Engedélyezi az sge számára hogy csatlakozhasson a hálózatra bármely TCP port"
-" használatával"
+"Engedélyezi az sge számára hogy csatlakozhasson a hálózatra bármely TCP port "
+"használatával"
 
 #: booleans.py:229
 msgid "Allow sge to access nfs file systems."
@@ -3765,8 +3738,8 @@ msgid ""
 "Files/Directories must be labeled public_content_rw_t."
 msgstr ""
 "Engedélyezi a samba számára hogy módosíthasson publikus fájlokat nyílt "
-"fájlátviteli szolgáltatásoknál. A fájloknak és mappáknak public_content_rw_t"
-" cimkéjüknek kell lennie."
+"fájlátviteli szolgáltatásoknál. A fájloknak és mappáknak public_content_rw_t "
+"cimkéjüknek kell lennie."
 
 #: booleans.py:232
 msgid "Allow user spamassassin clients to use the network."
@@ -3834,8 +3807,8 @@ msgstr ""
 msgid ""
 "Allow the Telepathy connection managers to connect to any generic TCP port."
 msgstr ""
-"Engedélyezi a Telepathy kapcsolatkezelő számára hogy bármilyen általános TCP"
-" portra csatlakozhasson."
+"Engedélyezi a Telepathy kapcsolatkezelő számára hogy bármilyen általános TCP "
+"portra csatlakozhasson."
 
 #: booleans.py:245
 msgid ""
@@ -3890,8 +3863,8 @@ msgid ""
 "running xulrunner plugin-container."
 msgstr ""
 "Engedélyezi a nem szabályozott felhasználók számára hogy átmenetet "
-"képezzenek a Mozilla plugin tartományokhoz amikor xulrunner plugin-"
-"container-t futtatnak."
+"képezzenek a Mozilla plugin tartományokhoz amikor xulrunner plugin-container-"
+"t futtatnak."
 
 #: booleans.py:254
 #, fuzzy
@@ -3927,8 +3900,8 @@ msgstr "Engedélyezi a felhasználó számára, hogy tartalmat futtathasson"
 #: booleans.py:261
 msgid "Determine whether varnishd can use the full TCP network."
 msgstr ""
-"Meghatározza, a varnishd számára, hogy használhatja-e a teljes TCP "
-"hálózatot."
+"Meghatározza, a varnishd számára, hogy használhatja-e a teljes TCP hálózatot."
+""
 
 #: booleans.py:262
 #, fuzzy
@@ -3981,8 +3954,8 @@ msgstr ""
 msgid ""
 "Allow confined virtual guests to use serial/parallel communication ports"
 msgstr ""
-"Engedélyezi a szabályozott virtuális vendégfolyamatoknak hogy "
-"soros/párhuzamos kommunikációs portokat használjanak"
+"Engedélyezi a szabályozott virtuális vendégfolyamatoknak hogy soros/"
+"párhuzamos kommunikációs portokat használjanak"
 
 #: booleans.py:273
 msgid ""
@@ -4018,14 +3991,14 @@ msgstr ""
 #: booleans.py:278
 msgid "Allow confined virtual guests to interact with the sanlock"
 msgstr ""
-"Engedélyezi a szabályozott virtuális vendégfolyamatoknak hogy együttműködjön"
-" a sanlock alkalmazással"
+"Engedélyezi a szabályozott virtuális vendégfolyamatoknak hogy együttműködjön "
+"a sanlock alkalmazással"
 
 #: booleans.py:279
 msgid "Allow confined virtual guests to use usb devices"
 msgstr ""
-"Engedélyezi a szabályozott virtuális vendégfolyamatoknak hogy usb eszközöket"
-" használjanak"
+"Engedélyezi a szabályozott virtuális vendégfolyamatoknak hogy usb eszközöket "
+"használjanak"
 
 #: booleans.py:280
 msgid "Allow confined virtual guests to interact with the xserver"
@@ -4073,11 +4046,11 @@ msgstr ""
 
 #: booleans.py:287
 msgid ""
-"Allow the graphical login program to create files in HOME dirs as "
-"xdm_home_t."
+"Allow the graphical login program to create files in HOME dirs as xdm_home_t."
+""
 msgstr ""
-"Engedélyezi a grafikus bejelentkezéskezelő alkalmazás számára, hogy fájlokat"
-" készítsen a HOME mappákban xdm_home_t megjelöléssel."
+"Engedélyezi a grafikus bejelentkezéskezelő alkalmazás számára, hogy fájlokat "
+"készítsen a HOME mappákban xdm_home_t megjelöléssel."
 
 #: booleans.py:288
 msgid "Allow xen to manage nfs files"
@@ -4088,8 +4061,8 @@ msgid ""
 "Allow xend to run blktapctrl/tapdisk. Not required if using dedicated "
 "logical volumes for disk images."
 msgstr ""
-"Engedélyezi az xsend számára hogy blktapctrl/tapdisk allkalmazást futtasson."
-" Nem szükséges ha dedikált logikai köteteket alkalmaz a lemezképekhez."
+"Engedélyezi az xsend számára hogy blktapctrl/tapdisk allkalmazást futtasson. "
+"Nem szükséges ha dedikált logikai köteteket alkalmaz a lemezképekhez."
 
 #: booleans.py:290
 msgid "Allow xend to run qemu-dm. Not required if using paravirt and no vfb."
@@ -4232,8 +4205,8 @@ msgstr "Jelenítse meg a portokat az ehhez definiált SELinux típusokhoz"
 #: ../sepolicy/sepolicy.py:366
 msgid "show ports to which this domain can bind and/or connect"
 msgstr ""
-"Jelenítse meg azokat a portokat amelyeket ez a tartomány össze tud kapcsolni"
-" - bind/connect"
+"Jelenítse meg azokat a portokat amelyeket ez a tartomány össze tud kapcsolni "
+"- bind/connect"
 
 #: ../sepolicy/sepolicy.py:369
 msgid "show ports to which this application can bind and/or connect"
@@ -4271,8 +4244,8 @@ msgid ""
 "query SELinux Policy to see how a source process domain can transition to "
 "the target process domain"
 msgstr ""
-"Kérdezze le az SELinux szabályzatát hogy látható legyen hogyan tud átmenni a"
-" forrás tartomány a céltartományba"
+"Kérdezze le az SELinux szabályzatát hogy látható legyen hogyan tud átmenni a "
+"forrás tartomány a céltartományba"
 
 #: ../sepolicy/sepolicy.py:431
 msgid "source process domain"
@@ -4504,14 +4477,14 @@ msgid ""
 "Name must be alpha numberic with no spaces. Consider using option \"-n "
 "MODULENAME\""
 msgstr ""
-"A névnek alfanumerikusnak kell lennie szóközök nélkül. Vagy alkalmazza az "
-"\"-n MODULNÉV' opciót"
+"A névnek alfanumerikusnak kell lennie szóközök nélkül. Vagy alkalmazza az \"-"
+"n MODULNÉV' opciót"
 
 #: ../sepolicy/sepolicy/generate.py:433
 msgid "User Role types can not be assigned executables."
 msgstr ""
-"Felhasználói szerepkörök nem lehetnek hozzákapcsolt végrehajtható "
-"állományok."
+"Felhasználói szerepkörök nem lehetnek hozzákapcsolt végrehajtható állományok."
+""
 
 #: ../sepolicy/sepolicy/generate.py:439
 msgid "Only Daemon apps can use an init script.."
@@ -4548,11 +4521,9 @@ msgstr "Típusmező szükséges"
 
 #: ../sepolicy/sepolicy/generate.py:884
 #, python-format
-msgid ""
-"You need to define a new type which ends with: \n"
+msgid "You need to define a new type which ends with: \n"
 " %s"
-msgstr ""
-"Egy új típust kell meghatároznia, ami ezzel végződik:\n"
+msgstr "Egy új típust kell meghatároznia, ami ezzel végződik:\n"
 "%s"
 
 #: ../sepolicy/sepolicy/generate.py:1112
@@ -4635,8 +4606,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:332
 msgid ""
-"The entry that was entered is incorrect.  Please try again in the "
-"ex:/.../... format."
+"The entry that was entered is incorrect.  Please try again in the ex:/.../..."
+" format."
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:358
@@ -4699,8 +4670,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:638
 msgid ""
-"<operation> File Labeling for <selected domain>. File labels will be created"
-" when update is applied."
+"<operation> File Labeling for <selected domain>. File labels will be created "
+"when update is applied."
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:726
@@ -4752,8 +4723,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:880
 msgid ""
-"Specify the path using regular expressions that you would like to modify the"
-" labeling."
+"Specify the path using regular expressions that you would like to modify the "
+"labeling."
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:902
@@ -5016,8 +4987,7 @@ msgstr "Bejövő"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2866
 #: ../sepolicy/sepolicy/sepolicy.glade:2956
-msgid ""
-"Boolean\n"
+msgid "Boolean\n"
 "Enabled"
 msgstr ""
 
@@ -5051,11 +5021,11 @@ msgstr "Végrehajtható fájl"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3012
 msgid ""
-"Executables which will transition to the 'selected domain', when executing a"
-" selected domains entrypoint."
+"Executables which will transition to the 'selected domain', when executing a "
+"selected domains entrypoint."
 msgstr ""
-"Végrehajtható kódok amely átmenet a \"kijelölt területen\"  a végrehajtása a"
-" kiválasztott területre belépési pontra ér. "
+"Végrehajtható kódok amely átmenet a \"kijelölt területen\"  a végrehajtása a "
+"kiválasztott területre belépési pontra ér. "
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3013
 msgid "Application Transitions Into 'select domain'"
@@ -5179,8 +5149,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3957
 msgid ""
-"A permissive domain is a process label that allows the process to do what it"
-" wants, with SELinux only logging the denials, but not enforcing them.  "
+"A permissive domain is a process label that allows the process to do what it "
+"wants, with SELinux only logging the denials, but not enforcing them.  "
 "Usually permissive domains indicate experimental policy, disabling the "
 "module could cause SELinux to deny access to a domain, that should be "
 "allowed."
@@ -5218,8 +5188,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4214
 msgid ""
-"Revert button will launch a dialog window which allows you to revert changes"
-" within the current transaction."
+"Revert button will launch a dialog window which allows you to revert changes "
+"within the current transaction."
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4226 ../sepolicy/sepolicy/gui.py:2424
@@ -5249,8 +5219,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4439
 msgid ""
-"Select file labeling to delete. File labeling will be deleted when update is"
-" applied."
+"Select file labeling to delete. File labeling will be deleted when update is "
+"applied."
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4486
@@ -5286,8 +5256,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4867
 msgid ""
-"Select login user mapping to delete. Login user mapping will be deleted when"
-" update is applied."
+"Select login user mapping to delete. Login user mapping will be deleted when "
+"update is applied."
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4902
@@ -5337,8 +5307,7 @@ msgid "SELinux User Name"
 msgstr ""
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5489
-msgid ""
-"Enter MLS/MCS Range for this SELinux User.\n"
+msgid "Enter MLS/MCS Range for this SELinux User.\n"
 "s0-s0:c1023"
 msgstr ""
 
@@ -5598,22 +5567,22 @@ msgstr ""
 #: ../sepolicy/sepolicy/gui.py:1367
 #, python-format
 msgid ""
-"Add new port definition to which the '%(APP)s' domain is allowed to "
-"%(PERM)s."
+"Add new port definition to which the '%(APP)s' domain is allowed to %(PERM)s."
+""
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1368
 #, python-format
 msgid ""
-"Delete modified port definitions to which the '%(APP)s' domain is allowed to"
-" %(PERM)s."
+"Delete modified port definitions to which the '%(APP)s' domain is allowed to "
+"%(PERM)s."
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1369
 #, python-format
 msgid ""
-"Modify port definitions to which the '%(APP)s' domain is allowed to "
-"%(PERM)s."
+"Modify port definitions to which the '%(APP)s' domain is allowed to %(PERM)s."
+""
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1398
@@ -5673,8 +5642,8 @@ msgstr ""
 #: ../sepolicy/sepolicy/gui.py:1469
 #, python-format
 msgid ""
-"Add File Labeling for %s. File labels will be created when update is "
-"applied."
+"Add File Labeling for %s. File labels will be created when update is applied."
+""
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1470 ../sepolicy/sepolicy/gui.py:1523
@@ -5703,8 +5672,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1494
 msgid ""
-"Add File Equivalency Mapping. Mapping will be created when update is "
-"applied."
+"Add File Equivalency Mapping. Mapping will be created when update is applied."
+""
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1495
@@ -5720,8 +5689,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1578
 msgid ""
-"Modify SELinux User Role. SELinux user roles will be modified when update is"
-" applied."
+"Modify SELinux User Role. SELinux user roles will be modified when update is "
+"applied."
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1579
@@ -5934,8 +5903,10 @@ msgstr ""
 #: ../sepolicy/sepolicy/gui.py:2797
 msgid ""
 "You are attempting to close the application without applying your changes.\n"
-"    *    To apply changes you have made during this session, click No and click Update.\n"
-"    *    To leave the application without applying your changes, click Yes.  All changes that you have made during this session will be lost."
+"    *    To apply changes you have made during this session, click No and "
+"click Update.\n"
+"    *    To leave the application without applying your changes, click Yes.  "
+"All changes that you have made during this session will be lost."
 msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:2797

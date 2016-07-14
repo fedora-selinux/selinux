@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # hyuugabaru <hyu_gabaru@yahoo.co.jp>, 2007
 # hyuugabaru <hyu_gabaru@yahoo.co.jp>, 2007
@@ -22,12 +22,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-18 08:37+0100\n"
-"PO-Revision-Date: 2016-03-14 09:38-0400\n"
-"Last-Translator: Kenzo Moriguchi <kmoriguc@redhat.com>\n"
-"Language-Team: Japanese (http://www.transifex.com/projects/p/fedora/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-03-14 09:38-0400\n"
+"Last-Translator: Kenzo Moriguchi <kmoriguc@redhat.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/projects/p/fedora/language/"
+"ja/)\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Zanata 3.8.4\n"
@@ -205,12 +206,12 @@ msgid "Could not set module key name"
 msgstr "モジュールキーの名前を設定できませんでした"
 
 #: ../semanage/seobject/__init__.py:383
-#, fuzzy, fuzzy, fuzzy, fuzzy, python-format
+#, python-format
 msgid "Could not enable module %s"
 msgstr "モジュール %s を有効にできませんでした"
 
 #: ../semanage/seobject/__init__.py:385
-#, fuzzy, fuzzy, fuzzy, fuzzy, python-format
+#, python-format
 msgid "Could not disable module %s"
 msgstr "モジュール %s を無効にできませんでした"
 
@@ -983,19 +984,15 @@ msgid "type"
 msgstr "タイプ"
 
 #: ../semanage/seobject/__init__.py:2086
-msgid ""
-"\n"
+msgid "\n"
 "SELinux Distribution fcontext Equivalence \n"
-msgstr ""
-"\n"
+msgstr "\n"
 "SELinux ディストリビューション fcontext の等価\n"
 
 #: ../semanage/seobject/__init__.py:2091
-msgid ""
-"\n"
+msgid "\n"
 "SELinux Local fcontext Equivalence \n"
-msgstr ""
-"\n"
+msgstr "\n"
 " SELinux ローカル fcontext の等価\n"
 "\n"
 "\n"
@@ -1460,27 +1457,21 @@ msgid "File Labeling"
 msgstr "ファイルのラベル付け"
 
 #: ../gui/fcontextPage.py:73
-msgid ""
-"File\n"
+msgid "File\n"
 "Specification"
-msgstr ""
-"ファイル\n"
+msgstr "ファイル\n"
 "仕様"
 
 #: ../gui/fcontextPage.py:80
-msgid ""
-"Selinux\n"
+msgid "Selinux\n"
 "File Type"
-msgstr ""
-"SELinux\n"
+msgstr "SELinux\n"
 "ファイル形式"
 
 #: ../gui/fcontextPage.py:87
-msgid ""
-"File\n"
+msgid "File\n"
 "Type"
-msgstr ""
-"ファイル\n"
+msgstr "ファイル\n"
 "形式"
 
 #: ../gui/loginsPage.py:45 ../gui/system-config-selinux.glade:2098
@@ -1488,27 +1479,21 @@ msgid "User Mapping"
 msgstr "ユーザーの対応表"
 
 #: ../gui/loginsPage.py:49
-msgid ""
-"Login\n"
+msgid "Login\n"
 "Name"
-msgstr ""
-"ログイン\n"
+msgstr "ログイン\n"
 "名"
 
 #: ../gui/loginsPage.py:53 ../gui/usersPage.py:47
-msgid ""
-"SELinux\n"
+msgid "SELinux\n"
 "User"
-msgstr ""
-"SELinux\n"
+msgstr "SELinux\n"
 "ユーザー"
 
 #: ../gui/loginsPage.py:56 ../gui/usersPage.py:52
-msgid ""
-"MLS/\n"
+msgid "MLS/\n"
 "MCS Range"
-msgstr ""
-"MLS/\n"
+msgstr "MLS/\n"
 "MCS 範囲"
 
 #: ../gui/loginsPage.py:130
@@ -1670,8 +1655,8 @@ msgstr "管理ユーザーロール"
 
 #: ../gui/polgen.glade:550
 msgid ""
-"User with full networking, no setuid applications without transition, no su,"
-" can sudo to Root Administration Roles"
+"User with full networking, no setuid applications without transition, no su, "
+"can sudo to Root Administration Roles"
 msgstr ""
 "ユーザーは完全なネットワーク運用を持ちますが、移行のない setuid アプリケーションと su は持ちません。Root の管理ロールのため sudo "
 "を持ちます。"
@@ -1686,12 +1671,12 @@ msgstr "Root 管理ユーザーロール"
 
 #: ../gui/polgen.glade:627
 msgid ""
-"Select Root Administrator User Role, if this user will be used to administer"
-" the machine while running as root.  This user will not be able to login to "
+"Select Root Administrator User Role, if this user will be used to administer "
+"the machine while running as root.  This user will not be able to login to "
 "the system directly."
 msgstr ""
-"root として実行中にこのユーザーをマシン管理のために使用する場合は、Root 管理ユーザーロールを選択します。　"
-"このユーザーは、システムに直接にはログインできません。"
+"root として実行中にこのユーザーをマシン管理のために使用する場合は、Root "
+"管理ユーザーロールを選択します。　このユーザーは、システムに直接にはログインできません。"
 
 #: ../gui/polgen.glade:705
 msgid "<b>Enter name of application or user role:</b>"
@@ -1748,11 +1733,9 @@ msgid "Select applications domains that %s will transition to."
 msgstr "%s の移行先となるアプリケーションドメインを選択します。"
 
 #: ../gui/polgen.glade:983
-msgid ""
-"transition \n"
+msgid "transition \n"
 "role tab"
-msgstr ""
-"移行\n"
+msgstr "移行\n"
 "ロールタブ"
 
 #: ../gui/polgen.glade:1001
@@ -1825,11 +1808,9 @@ msgid "<b>UDP Ports</b>"
 msgstr "<b>UDP ポート</b>"
 
 #: ../gui/polgen.glade:1519
-msgid ""
-"Network\n"
+msgid "Network\n"
 "Bind tab"
-msgstr ""
-"ネットワーク\n"
+msgstr "ネットワーク\n"
 "バインドタブ"
 
 #: ../gui/polgen.glade:1537
@@ -1961,11 +1942,9 @@ msgstr "ポリシーファイル生成の場となるディレクトリを選択
 
 #: ../gui/polgengui.py:653
 #, python-format
-msgid ""
-"Type %s_t already defined in current policy.\n"
+msgid "Type %s_t already defined in current policy.\n"
 "Do you want to continue?"
-msgstr ""
-"現在のポリシー内で既に定義されている %s_t を記入します。\n"
+msgstr "現在のポリシー内で既に定義されている %s_t を記入します。\n"
 "続けますか？"
 
 #: ../gui/polgengui.py:653 ../gui/polgengui.py:657
@@ -1973,12 +1952,10 @@ msgid "Verify Name"
 msgstr "名前の確認"
 
 #: ../gui/polgengui.py:657
-#, fuzzy, python-format
-msgid ""
-"Module %s already loaded in current policy.\n"
+#, python-format
+msgid "Module %s already loaded in current policy.\n"
 "Do you want to continue?"
-msgstr ""
-"モジュール %s.pp は既に現在のポリシーにロードされています。\n"
+msgstr "モジュール %s.pp は既に現在のポリシーにロードされています。\n"
 "続けますか？"
 
 #: ../gui/polgengui.py:703
@@ -1999,11 +1976,9 @@ msgid "Network Port"
 msgstr "ネットワークポート"
 
 #: ../gui/portsPage.py:82
-msgid ""
-"SELinux Port\n"
+msgid "SELinux Port\n"
 "Type"
-msgstr ""
-"SELinux ポート\n"
+msgstr "SELinux ポート\n"
 "タイプ"
 
 #: ../gui/portsPage.py:88 ../gui/system-config-selinux.glade:363
@@ -2015,11 +1990,9 @@ msgid "Protocol"
 msgstr "プロトコル"
 
 #: ../gui/portsPage.py:93 ../gui/system-config-selinux.glade:479
-msgid ""
-"MLS/MCS\n"
+msgid "MLS/MCS\n"
 "Level"
-msgstr ""
-"MLS/MCS\n"
+msgstr "MLS/MCS\n"
 "レベル"
 
 #: ../gui/portsPage.py:98 ../sepolicy/sepolicy/sepolicy.glade:2639
@@ -2083,8 +2056,7 @@ msgid ""
 "the next boot. Relabeling takes a long time depending on the size of the "
 "file system.  Do you wish to continue?"
 msgstr ""
-"ポリシータイプの変更は、次の再起動時に全ファイルシステムのラベル変更の原因になります。ラベル変更は、ファイルシステムのサイズによっては長くかかります。　"
-"続けたいですか?"
+"ポリシータイプの変更は、次の再起動時に全ファイルシステムのラベル変更の原因になります。ラベル変更は、ファイルシステムのサイズによっては長くかかります。　続けたいですか?"
 
 #: ../gui/statusPage.py:143
 msgid ""
@@ -2092,13 +2064,13 @@ msgid ""
 "you later decide to turn SELinux back on, the system will be required to "
 "relabel.  If you just want to see if SELinux is causing a problem on your "
 "system, you can go to permissive mode which will only log errors and not "
-"enforce SELinux policy.  Permissive mode does not require a reboot    Do you"
-" wish to continue?"
+"enforce SELinux policy.  Permissive mode does not require a reboot    Do you "
+"wish to continue?"
 msgstr ""
 "SELinux を無効にする変更には、再起動が必要です。　推薦できません。　後で、SELinux "
 "をオンに戻す決心をした場合に、システムにはラベル変更が必要になります。単に SELinux "
-"がシステム上で問題の原因であるかどうかを見たい場合には、許容モードにすると、エラーをログするだけであり、SELinux ポリシーを強制しません。　"
-"そして許容モードは再起動を必要としません。 続けたいですか?　"
+"がシステム上で問題の原因であるかどうかを見たい場合には、許容モードにすると、エラーをログするだけであり、SELinux "
+"ポリシーを強制しません。　そして許容モードは再起動を必要としません。 続けたいですか?　"
 
 #: ../gui/statusPage.py:148 ../sepolicy/sepolicy/gui.py:2764
 msgid ""
@@ -2107,8 +2079,7 @@ msgid ""
 "file system.  Do you wish to continue?"
 msgstr ""
 "SELinux "
-"を有効にする変更は、次の再起動で全ファイルシステムのラベル変更の原因になります。ラベル変更は、ファイルシステムのサイズによっては長くかかります。　"
-"続けたいですか?"
+"を有効にする変更は、次の再起動で全ファイルシステムのラベル変更の原因になります。ラベル変更は、ファイルシステムのサイズによっては長くかかります。　続けたいですか?"
 
 #: ../gui/system-config-selinux.glade:11
 msgid "system-config-selinux"
@@ -2154,8 +2125,7 @@ msgid ""
 "socket\n"
 "symbolic link\n"
 "named pipe\n"
-msgstr ""
-"全ファイル\n"
+msgstr "全ファイル\n"
 "標準ファイル\n"
 "ディレクトリ\n"
 "キャラクターデバイス\n"
@@ -2204,12 +2174,10 @@ msgid "System Default Enforcing Mode"
 msgstr "システムデフォルトの強制モード"
 
 #: ../gui/system-config-selinux.glade:1354
-msgid ""
-"Disabled\n"
+msgid "Disabled\n"
 "Permissive\n"
 "Enforcing\n"
-msgstr ""
-"無効\n"
+msgstr "無効\n"
 "容認\n"
 "強制\n"
 
@@ -2348,8 +2316,8 @@ msgstr "ロード可能なポリシーモジュールの削除"
 
 #: ../gui/system-config-selinux.glade:2661
 msgid ""
-"Enable/Disable additional audit rules, that are normally not reported in the"
-" log files."
+"Enable/Disable additional audit rules, that are normally not reported in the "
+"log files."
 msgstr "通常ログファイル内で報告されない、追加の監査ルールの有効化/無効化"
 
 #: ../gui/system-config-selinux.glade:2781
@@ -2392,8 +2360,8 @@ msgstr ""
 
 #: booleans.py:3
 msgid ""
-"Determine whether abrt-handle-upload can modify public files used for public"
-" file transfer services in /var/spool/abrt-upload/."
+"Determine whether abrt-handle-upload can modify public files used for public "
+"file transfer services in /var/spool/abrt-upload/."
 msgstr ""
 "/var/spool/abrt-upload/ 内のパブリックファイル転送サービスに使用されるパブリックファイルの変更を abrt-handle-"
 "upload に許可するかどうかを指定します。"
@@ -2423,8 +2391,7 @@ msgstr "ユーザーが RADIUS サーバーを使用してログインするこ�
 #: booleans.py:9
 msgid ""
 "Allow users to login using a yubikey OTP server or challenge response mode"
-msgstr ""
-"ユーザーが yubikey OTP サーバー\n"
+msgstr "ユーザーが yubikey OTP サーバー\n"
 "を使用してログインすること、または応答モードにチャレンジすることを許可します"
 
 #: booleans.py:10
@@ -2542,8 +2509,8 @@ msgstr "dbadm が一般的なユーザーファイルを読み込めるかどう
 
 #: booleans.py:35
 msgid ""
-"Deny user domains applications to map a memory region as both executable and"
-" writable, this is dangerous and the executable should be reported in "
+"Deny user domains applications to map a memory region as both executable and "
+"writable, this is dangerous and the executable should be reported in "
 "bugzilla"
 msgstr ""
 "ユーザーのドメインアプリケーションによるメモリー領域のマッピングを実行可能と書き込み可能の両方で行わせることを拒否します。 これは非常に危険ですので、 "
@@ -2612,8 +2579,8 @@ msgstr "ftpd がユーザーのホームディレクトリにあるファイル�
 
 #: booleans.py:50
 msgid ""
-"Determine whether ftpd can modify public files used for public file transfer"
-" services. Directories/Files must be labeled public_content_rw_t."
+"Determine whether ftpd can modify public files used for public file transfer "
+"services. Directories/Files must be labeled public_content_rw_t."
 msgstr ""
 "ftpd がパブリックファイル転送サービスに使用されるパブリックファイルを変更できるかどうかを指定します。ディレクトリおよびファイルのラベルは "
 "public_content_rw_t にしなければなりません。"
@@ -3324,8 +3291,8 @@ msgid ""
 "enforcing mode, and changing boolean values.  Set this to true and you have "
 "to reboot to set it back."
 msgstr ""
-"ポリシーのロード、強制モードの設定、 boolean 値の変更をシステムに許可させるかどうかを指定する Boolean です。 true に設定すると、"
-" 元に戻すには再起動が必要になります。"
+"ポリシーのロード、強制モードの設定、 boolean 値の変更をシステムに許可させるかどうかを指定する Boolean です。 true に設定すると、 "
+"元に戻すには再起動が必要になります。"
 
 #: booleans.py:212
 msgid "Allow regular users direct dri device access"
@@ -3353,8 +3320,8 @@ msgid ""
 "never, ever be necessary. Probably indicates a badly coded executable, but "
 "could indicate an attack. This executable should be reported in bugzilla"
 msgstr ""
-"制限された実行ファイルがこれらのスタックを実行可能にすることを許可します。これは推奨できません。おそらく、不適切にコード化された実行ファイルを意味しますが、攻撃を意味する場合もあります。この実行ファイルは"
-" Bugzilla に報告してください。"
+"制限された実行ファイルがこれらのスタックを実行可能にすることを許可します。これは推奨できません。おそらく、不適切にコード化された実行ファイルを意味しますが、攻撃を意味する場合もあります。この実行ファイルは "
+"Bugzilla に報告してください。"
 
 #: booleans.py:216
 msgid "Allow users to connect to the local mysql server"
@@ -3362,8 +3329,8 @@ msgstr "ユーザーがローカルの MySQL サーバーに接続すること�
 
 #: booleans.py:217
 msgid ""
-"Allow confined users the ability to execute the ping and traceroute "
-"commands."
+"Allow confined users the ability to execute the ping and traceroute commands."
+""
 msgstr "制限されたユーザーが ping および traceroute コマンドを実行することを許可します。"
 
 #: booleans.py:218
@@ -3382,8 +3349,8 @@ msgstr "ユーザーがミュージックを共有することを許可します
 
 #: booleans.py:221
 msgid ""
-"Allow users to run TCP servers (bind to ports and accept connection from the"
-" same domain and outside users)  disabling this forces FTP passive mode and "
+"Allow users to run TCP servers (bind to ports and accept connection from the "
+"same domain and outside users)  disabling this forces FTP passive mode and "
 "may change other protocols."
 msgstr ""
 "ユーザーが TCP サーバー (ポートをバインドし、同じドメインと外部のユーザーからの接続を受け付ける) を実行することを許可します。これは強制的に "
@@ -3391,8 +3358,8 @@ msgstr ""
 
 #: booleans.py:222
 msgid ""
-"Allow users to run UDP servers (bind to ports and accept connection from the"
-" same domain and outside users)  disabling this may break avahi discovering "
+"Allow users to run UDP servers (bind to ports and accept connection from the "
+"same domain and outside users)  disabling this may break avahi discovering "
 "services on the network and other udp related services."
 msgstr ""
 "ユーザーが UDP サーバー (ポートをバインドし、同じドメインと外部のユーザーからの接続を受け付ける) "
@@ -3688,8 +3655,8 @@ msgstr "グラフィカルログインプログラムが sysadm_r:sysadm_t と�
 
 #: booleans.py:287
 msgid ""
-"Allow the graphical login program to create files in HOME dirs as "
-"xdm_home_t."
+"Allow the graphical login program to create files in HOME dirs as xdm_home_t."
+""
 msgstr "グラフィカルログインプログラムが xdm_home_t として HOME ディレクトリにファイルを作成することを許可します。"
 
 #: booleans.py:288
@@ -4124,11 +4091,9 @@ msgstr "タイプ項目が必要です"
 
 #: ../sepolicy/sepolicy/generate.py:884
 #, python-format
-msgid ""
-"You need to define a new type which ends with: \n"
+msgid "You need to define a new type which ends with: \n"
 " %s"
-msgstr ""
-"次の文字列で終わる新しいタイプを定義する必要があります: \n"
+msgstr "次の文字列で終わる新しいタイプを定義する必要があります: \n"
 " %s"
 
 #: ../sepolicy/sepolicy/generate.py:1112
@@ -4211,8 +4176,8 @@ msgstr "取り消し"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:332
 msgid ""
-"The entry that was entered is incorrect.  Please try again in the "
-"ex:/.../... format."
+"The entry that was entered is incorrect.  Please try again in the ex:/.../..."
+" format."
 msgstr "入力されたエントリは間違っています。ex:/.../... の形式でやり直してください。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:358
@@ -4275,8 +4240,8 @@ msgstr "ファイルを追加する"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:638
 msgid ""
-"<operation> File Labeling for <selected domain>. File labels will be created"
-" when update is applied."
+"<operation> File Labeling for <selected domain>. File labels will be created "
+"when update is applied."
 msgstr "<operation> <selected domain> のファイルラベル、更新の適用時にファイルラベルが作成されます。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:726
@@ -4329,8 +4294,8 @@ msgstr "パス"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:880
 msgid ""
-"Specify the path using regular expressions that you would like to modify the"
-" labeling."
+"Specify the path using regular expressions that you would like to modify the "
+"labeling."
 msgstr "ラベルの変更を行いたいパスを正規表現を使って指定します。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:902
@@ -4503,8 +4468,7 @@ msgstr "ロックダウン"
 msgid ""
 "Lockdown the SELinux System.\n"
 "This screen can be used to turn up the SELinux Protections."
-msgstr ""
-"SELinux システムをロックダウンします。\n"
+msgstr "SELinux システムをロックダウンします。\n"
 "この画面を使用して SELinux 保護を強化します。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1933
@@ -4528,8 +4492,7 @@ msgstr "ラベル付けが間違っているファイルのみ表示します"
 msgid ""
 "If-Then-Else rules written in policy that can\n"
 "allow alternative access control."
-msgstr ""
-"代替アクセス制御を許可するポリシーに\n"
+msgstr "代替アクセス制御を許可するポリシーに\n"
 "記述された If-Then-Else のルールです。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2132
@@ -4591,11 +4554,9 @@ msgstr "入力"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2866
 #: ../sepolicy/sepolicy/sepolicy.glade:2956
-msgid ""
-"Boolean\n"
+msgid "Boolean\n"
 "Enabled"
-msgstr ""
-"Boolean\n"
+msgstr "Boolean\n"
 "有効"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2892
@@ -4626,8 +4587,8 @@ msgstr "実行可能ファイル"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3012
 msgid ""
-"Executables which will transition to the 'selected domain', when executing a"
-" selected domains entrypoint."
+"Executables which will transition to the 'selected domain', when executing a "
+"selected domains entrypoint."
 msgstr "選択したドメインのエントリーポイントを実行するときに、「選択したドメイン」に遷移する実行可能なもの。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3013
@@ -4760,8 +4721,8 @@ msgstr "<b>permissive プロセスをすべて無効にしますか?</b>"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3957
 msgid ""
-"A permissive domain is a process label that allows the process to do what it"
-" wants, with SELinux only logging the denials, but not enforcing them.  "
+"A permissive domain is a process label that allows the process to do what it "
+"wants, with SELinux only logging the denials, but not enforcing them.  "
 "Usually permissive domains indicate experimental policy, disabling the "
 "module could cause SELinux to deny access to a domain, that should be "
 "allowed."
@@ -4802,8 +4763,8 @@ msgstr "元に戻す"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4214
 msgid ""
-"Revert button will launch a dialog window which allows you to revert changes"
-" within the current transaction."
+"Revert button will launch a dialog window which allows you to revert changes "
+"within the current transaction."
 msgstr "元に戻すボタンで現在のトランザクション内の変更を元に戻すダイアログウィンドウを起動します。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4226 ../sepolicy/sepolicy/gui.py:2424
@@ -4833,8 +4794,8 @@ msgstr "変更されたファイルのラベルを削除"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4439
 msgid ""
-"Select file labeling to delete. File labeling will be deleted when update is"
-" applied."
+"Select file labeling to delete. File labeling will be deleted when update is "
+"applied."
 msgstr "削除するファイルラベルを選択します。更新の適用時にファイルラベルが削除されます。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4486
@@ -4870,8 +4831,8 @@ msgstr "変更されたユーザーマッピングを削除します。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4867
 msgid ""
-"Select login user mapping to delete. Login user mapping will be deleted when"
-" update is applied."
+"Select login user mapping to delete. Login user mapping will be deleted when "
+"update is applied."
 msgstr "削除するログインユーザーのマッピングを選択します。更新の適用時にログインユーザーのマッピングが削除されます。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4902
@@ -4922,11 +4883,9 @@ msgid "SELinux User Name"
 msgstr "SELinux ユーザー名"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5489
-msgid ""
-"Enter MLS/MCS Range for this SELinux User.\n"
+msgid "Enter MLS/MCS Range for this SELinux User.\n"
 "s0-s0:c1023"
-msgstr ""
-"この SELinux ユーザーの MLS/MCS 範囲を入力します。\n"
+msgstr "この SELinux ユーザーの MLS/MCS 範囲を入力します。\n"
 "s0-s0:c1023"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5520
@@ -5185,22 +5144,22 @@ msgstr "着信接続のリッスン"
 #: ../sepolicy/sepolicy/gui.py:1367
 #, python-format
 msgid ""
-"Add new port definition to which the '%(APP)s' domain is allowed to "
-"%(PERM)s."
+"Add new port definition to which the '%(APP)s' domain is allowed to %(PERM)s."
+""
 msgstr "%(PERM)s を許可された '%(APP)s' ドメインに新しいポートの定義を追加します。"
 
 #: ../sepolicy/sepolicy/gui.py:1368
 #, python-format
 msgid ""
-"Delete modified port definitions to which the '%(APP)s' domain is allowed to"
-" %(PERM)s."
+"Delete modified port definitions to which the '%(APP)s' domain is allowed to "
+"%(PERM)s."
 msgstr "%(PERM)s を許可された '%(APP)s' ドメインに対して変更されたポートの定義を削除します。"
 
 #: ../sepolicy/sepolicy/gui.py:1369
 #, python-format
 msgid ""
-"Modify port definitions to which the '%(APP)s' domain is allowed to "
-"%(PERM)s."
+"Modify port definitions to which the '%(APP)s' domain is allowed to %(PERM)s."
+""
 msgstr "%(PERM)s を許可された '%(APP)s' ドメインに対するポートの定義を変更します。"
 
 #: ../sepolicy/sepolicy/gui.py:1398
@@ -5261,8 +5220,8 @@ msgstr "%s のネットワークポートを追加"
 #: ../sepolicy/sepolicy/gui.py:1469
 #, python-format
 msgid ""
-"Add File Labeling for %s. File labels will be created when update is "
-"applied."
+"Add File Labeling for %s. File labels will be created when update is applied."
+""
 msgstr "%s のファイルラベルを追加します。更新の適用時にファイルラベルが作成されます。"
 
 #: ../sepolicy/sepolicy/gui.py:1470 ../sepolicy/sepolicy/gui.py:1523
@@ -5291,8 +5250,8 @@ msgstr "SELinux ユーザーの追加"
 
 #: ../sepolicy/sepolicy/gui.py:1494
 msgid ""
-"Add File Equivalency Mapping. Mapping will be created when update is "
-"applied."
+"Add File Equivalency Mapping. Mapping will be created when update is applied."
+""
 msgstr "ファイル等価性マッピングを追加します。更新の適用時にマッピングが作成されます。"
 
 #: ../sepolicy/sepolicy/gui.py:1495
@@ -5308,8 +5267,8 @@ msgstr "%s のファイルラベルを変更します。更新の適用時にフ
 
 #: ../sepolicy/sepolicy/gui.py:1578
 msgid ""
-"Modify SELinux User Role. SELinux user roles will be modified when update is"
-" applied."
+"Modify SELinux User Role. SELinux user roles will be modified when update is "
+"applied."
 msgstr "SELinux ユーザーロールを変更します。更新の適用時に SELinux ユーザーロールが変更されます。"
 
 #: ../sepolicy/sepolicy/gui.py:1579
@@ -5528,8 +5487,10 @@ msgstr ""
 #: ../sepolicy/sepolicy/gui.py:2797
 msgid ""
 "You are attempting to close the application without applying your changes.\n"
-"    *    To apply changes you have made during this session, click No and click Update.\n"
-"    *    To leave the application without applying your changes, click Yes.  All changes that you have made during this session will be lost."
+"    *    To apply changes you have made during this session, click No and "
+"click Update.\n"
+"    *    To leave the application without applying your changes, click Yes.  "
+"All changes that you have made during this session will be lost."
 msgstr ""
 "変更を適用せずにアプリケーションを閉じようとしています。\n"
 "* このセッション中に加えた変更を適用するには、「いいえ」をクリックしてから「更新」をクリックします。\n"

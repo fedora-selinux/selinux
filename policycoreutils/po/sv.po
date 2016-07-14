@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Christian Rose <menthos@menthos.com>, 2006
 # fedoratrans <fedoratrans@gmail.com>, 2007-2008
@@ -17,12 +17,12 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-18 08:37+0100\n"
-"PO-Revision-Date: 2016-04-14 03:06-0400\n"
-"Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
-"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-04-14 03:06-0400\n"
+"Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 3.8.4\n"
@@ -200,12 +200,12 @@ msgid "Could not set module key name"
 msgstr "Kunde inte sätta modulnyckelnamn"
 
 #: ../semanage/seobject/__init__.py:383
-#, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, python-format
+#, python-format
 msgid "Could not enable module %s"
 msgstr "Det gick inte att aktivera modulen %s"
 
 #: ../semanage/seobject/__init__.py:385
-#, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, python-format
+#, python-format
 msgid "Could not disable module %s"
 msgstr "Det gick inte att avaktivera modulen %s"
 
@@ -985,19 +985,15 @@ msgid "type"
 msgstr "typ"
 
 #: ../semanage/seobject/__init__.py:2086
-msgid ""
-"\n"
+msgid "\n"
 "SELinux Distribution fcontext Equivalence \n"
-msgstr ""
-"\n"
+msgstr "\n"
 "SELinux-distributionens fcontext-ekvivalens \n"
 
 #: ../semanage/seobject/__init__.py:2091
-msgid ""
-"\n"
+msgid "\n"
 "SELinux Local fcontext Equivalence \n"
-msgstr ""
-"\n"
+msgstr "\n"
 "SELinux lokala fcontext-ekvivalens \n"
 
 #: ../semanage/seobject/__init__.py:2127 ../semanage/seobject/__init__.py:2178
@@ -1460,27 +1456,21 @@ msgid "File Labeling"
 msgstr "Filmärkning"
 
 #: ../gui/fcontextPage.py:73
-msgid ""
-"File\n"
+msgid "File\n"
 "Specification"
-msgstr ""
-"Fil\n"
+msgstr "Fil\n"
 "Specifikation"
 
 #: ../gui/fcontextPage.py:80
-msgid ""
-"Selinux\n"
+msgid "Selinux\n"
 "File Type"
-msgstr ""
-"Selinux\n"
+msgstr "Selinux\n"
 "Filtyp"
 
 #: ../gui/fcontextPage.py:87
-msgid ""
-"File\n"
+msgid "File\n"
 "Type"
-msgstr ""
-"Fil\n"
+msgstr "Fil\n"
 "Typ"
 
 #: ../gui/loginsPage.py:45 ../gui/system-config-selinux.glade:2098
@@ -1488,27 +1478,21 @@ msgid "User Mapping"
 msgstr "Användarmappning"
 
 #: ../gui/loginsPage.py:49
-msgid ""
-"Login\n"
+msgid "Login\n"
 "Name"
-msgstr ""
-"Inloggnings-\n"
+msgstr "Inloggnings-\n"
 "namn"
 
 #: ../gui/loginsPage.py:53 ../gui/usersPage.py:47
-msgid ""
-"SELinux\n"
+msgid "SELinux\n"
 "User"
-msgstr ""
-"SELinux\n"
+msgstr "SELinux\n"
 "Användare"
 
 #: ../gui/loginsPage.py:56 ../gui/usersPage.py:52
-msgid ""
-"MLS/\n"
+msgid "MLS/\n"
 "MCS Range"
-msgstr ""
-"MLS/\n"
+msgstr "MLS/\n"
 "MCS-intervall"
 
 #: ../gui/loginsPage.py:130
@@ -1547,8 +1531,7 @@ msgstr "GPL"
 #. TRANSLATORS: Replace this string with your names, one name per line.
 #: ../gui/polgen.glade:13 ../gui/system-config-selinux.glade:17
 msgid "translator-credits"
-msgstr ""
-"Christian Rose\n"
+msgstr "Christian Rose\n"
 "Magnus Larsson\n"
 "Göran Uddeborg"
 
@@ -1617,8 +1600,8 @@ msgid ""
 "User Application are any application that you would like to confine that is "
 "started by a user"
 msgstr ""
-"Användarprogram är alla program som du skulle vilja stänga in som startas av"
-" en användare"
+"Användarprogram är alla program som du skulle vilja stänga in som startas av "
+"en användare"
 
 #: ../gui/polgen.glade:400 ../sepolicy/sepolicy/generate.py:142
 msgid "Sandbox"
@@ -1680,8 +1663,8 @@ msgstr "Administrativ användarroll"
 
 #: ../gui/polgen.glade:550
 msgid ""
-"User with full networking, no setuid applications without transition, no su,"
-" can sudo to Root Administration Roles"
+"User with full networking, no setuid applications without transition, no su, "
+"can sudo to Root Administration Roles"
 msgstr ""
 "Användare med fullständig nätverksåtkomst, inga setuid-program utan "
 "övergångar, inte su, kan göra sudo till root-adminstratörsroller"
@@ -1696,8 +1679,8 @@ msgstr "Root-administrativ användarroll"
 
 #: ../gui/polgen.glade:627
 msgid ""
-"Select Root Administrator User Role, if this user will be used to administer"
-" the machine while running as root.  This user will not be able to login to "
+"Select Root Administrator User Role, if this user will be used to administer "
+"the machine while running as root.  This user will not be able to login to "
 "the system directly."
 msgstr ""
 "Välj root/administratöranvändarroll om denna användare kommer användas för "
@@ -1761,11 +1744,9 @@ msgid "Select applications domains that %s will transition to."
 msgstr "Väl programdomänerna som %s skall övergå till."
 
 #: ../gui/polgen.glade:983
-msgid ""
-"transition \n"
+msgid "transition \n"
 "role tab"
-msgstr ""
-"övergångs-\n"
+msgstr "övergångs-\n"
 "rollflik"
 
 #: ../gui/polgen.glade:1001
@@ -1840,11 +1821,9 @@ msgid "<b>UDP Ports</b>"
 msgstr "<b>UDP-portar</b>"
 
 #: ../gui/polgen.glade:1519
-msgid ""
-"Network\n"
+msgid "Network\n"
 "Bind tab"
-msgstr ""
-"Nätverks-\n"
+msgstr "Nätverks-\n"
 "bindningsflik"
 
 #: ../gui/polgen.glade:1537
@@ -1981,8 +1960,7 @@ msgstr "Välj katalog att generera policyfiler i"
 
 #: ../gui/polgengui.py:653
 #, python-format
-msgid ""
-"Type %s_t already defined in current policy.\n"
+msgid "Type %s_t already defined in current policy.\n"
 "Do you want to continue?"
 msgstr ""
 "Typen %s_t är redan definierade i den nuvarande policyn.\n"
@@ -1993,9 +1971,8 @@ msgid "Verify Name"
 msgstr "Verifiera namn"
 
 #: ../gui/polgengui.py:657
-#, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, fuzzy, python-format
-msgid ""
-"Module %s already loaded in current policy.\n"
+#, python-format
+msgid "Module %s already loaded in current policy.\n"
 "Do you want to continue?"
 msgstr ""
 "Modulen %s är redan inläst i den nuvarande policyn.\n"
@@ -2021,11 +1998,9 @@ msgid "Network Port"
 msgstr "Nätverkport"
 
 #: ../gui/portsPage.py:82
-msgid ""
-"SELinux Port\n"
+msgid "SELinux Port\n"
 "Type"
-msgstr ""
-"SELinux-\n"
+msgstr "SELinux-\n"
 "porttyp"
 
 #: ../gui/portsPage.py:88 ../gui/system-config-selinux.glade:363
@@ -2037,11 +2012,9 @@ msgid "Protocol"
 msgstr "Protokoll"
 
 #: ../gui/portsPage.py:93 ../gui/system-config-selinux.glade:479
-msgid ""
-"MLS/MCS\n"
+msgid "MLS/MCS\n"
 "Level"
-msgstr ""
-"MLS/MCS-\n"
+msgstr "MLS/MCS-\n"
 "Nivå"
 
 #: ../gui/portsPage.py:98 ../sepolicy/sepolicy/sepolicy.glade:2639
@@ -2115,8 +2088,8 @@ msgid ""
 "you later decide to turn SELinux back on, the system will be required to "
 "relabel.  If you just want to see if SELinux is causing a problem on your "
 "system, you can go to permissive mode which will only log errors and not "
-"enforce SELinux policy.  Permissive mode does not require a reboot    Do you"
-" wish to continue?"
+"enforce SELinux policy.  Permissive mode does not require a reboot    Do you "
+"wish to continue?"
 msgstr ""
 "Att byta till att ha SELinux avstängt kräver en omstart.  Det rekommenderas "
 "inte.  Om du senare bestämmer dig för att slå på SELinux igen kommer "
@@ -2229,12 +2202,10 @@ msgid "System Default Enforcing Mode"
 msgstr "Tvingande läge systemstandard"
 
 #: ../gui/system-config-selinux.glade:1354
-msgid ""
-"Disabled\n"
+msgid "Disabled\n"
 "Permissive\n"
 "Enforcing\n"
-msgstr ""
-"Avslaget\n"
+msgstr "Avslaget\n"
 "Tillåtande\n"
 "Tvingande\n"
 
@@ -2254,9 +2225,9 @@ msgid ""
 "relabel is required."
 msgstr ""
 "Välj om du vill etikettera om hela filsystemet vid nästa omstart.  "
-"Ometikettering kan ta väldigt lång tid, beroende på storleken av "
-"filsystemet.  Om du ändrar policytyper eller går från avslaget till "
-"tvingande behövs en ometikettering."
+"Ometikettering kan ta väldigt lång tid, beroende på storleken av filsystemet."
+"  Om du ändrar policytyper eller går från avslaget till tvingande behövs en "
+"ometikettering."
 
 #: ../gui/system-config-selinux.glade:1509
 msgid "Relabel on next reboot."
@@ -2376,8 +2347,8 @@ msgstr "Ta bort inläsningsbar policymodul"
 
 #: ../gui/system-config-selinux.glade:2661
 msgid ""
-"Enable/Disable additional audit rules, that are normally not reported in the"
-" log files."
+"Enable/Disable additional audit rules, that are normally not reported in the "
+"log files."
 msgstr ""
 "Aktivera/avaktivera ytterligare granskningsregler, som normalt inte "
 "rapporteras till loggfilerna."
@@ -2424,8 +2395,8 @@ msgstr ""
 
 #: booleans.py:3
 msgid ""
-"Determine whether abrt-handle-upload can modify public files used for public"
-" file transfer services in /var/spool/abrt-upload/."
+"Determine whether abrt-handle-upload can modify public files used for public "
+"file transfer services in /var/spool/abrt-upload/."
 msgstr ""
 "Bestäm huruvida abrt-handle-upload får ändra publika filer som används för "
 "fil publika filöverföringstjänster i /var/spool/abrt-upload/."
@@ -2588,12 +2559,12 @@ msgstr "Bestäm huruvida dbadm får komma läsa allmänna användarfiler."
 
 #: booleans.py:35
 msgid ""
-"Deny user domains applications to map a memory region as both executable and"
-" writable, this is dangerous and the executable should be reported in "
+"Deny user domains applications to map a memory region as both executable and "
+"writable, this is dangerous and the executable should be reported in "
 "bugzilla"
 msgstr ""
-"Neka program i användardomäner att mappa en minnesregion som både exekverbar"
-" och skrivbar, detta är farligt och programmet bör rapporteras i bugzilla"
+"Neka program i användardomäner att mappa en minnesregion som både exekverbar "
+"och skrivbar, detta är farligt och programmet bör rapporteras i bugzilla"
 
 #: booleans.py:36
 msgid "Deny any process from ptracing or debugging any other processes."
@@ -2664,8 +2635,8 @@ msgstr ""
 
 #: booleans.py:50
 msgid ""
-"Determine whether ftpd can modify public files used for public file transfer"
-" services. Directories/Files must be labeled public_content_rw_t."
+"Determine whether ftpd can modify public files used for public file transfer "
+"services. Directories/Files must be labeled public_content_rw_t."
 msgstr ""
 "Bestäm huruvida ftpd får ändra publika filer som används för publika "
 "filöverföringstjänster.  Kataloger/filer måste ha etiketten "
@@ -2961,8 +2932,8 @@ msgid ""
 "Allow apache scripts to write to public content, directories/files must be "
 "labeled public_rw_content_t."
 msgstr ""
-"Tillåt apache-skript att skriva till publikt innehåll, kataloger/filer måste"
-" ha etiketten public_rw_content_t."
+"Tillåt apache-skript att skriva till publikt innehåll, kataloger/filer måste "
+"ha etiketten public_rw_content_t."
 
 #: booleans.py:110
 msgid "Allow Apache to execute tmp content."
@@ -3059,8 +3030,8 @@ msgid ""
 "Allow syslogd the ability to call nagios plugins. It is turned on by omprog "
 "rsyslog plugin."
 msgstr ""
-"Tillåt syslogd möjligheten att anropa nagios-insticksmoduler.  Detta slås på"
-" av omprog rsyslog-insticksmodulen."
+"Tillåt syslogd möjligheten att anropa nagios-insticksmoduler.  Detta slås på "
+"av omprog rsyslog-insticksmodulen."
 
 #: booleans.py:130
 msgid "Allow syslogd the ability to read/write terminals"
@@ -3203,8 +3174,8 @@ msgstr ""
 #: booleans.py:161
 msgid "Allow any files/directories to be exported read/write via NFS."
 msgstr ""
-"Tillåt godtyckliga filer/kataloger att exporteras läs- och skrivbara via "
-"NFS."
+"Tillåt godtyckliga filer/kataloger att exporteras läs- och skrivbara via NFS."
+""
 
 #: booleans.py:162
 msgid ""
@@ -3322,8 +3293,8 @@ msgstr "Bestäm huruvida privoxy får ansluta till alla tcp-portar."
 msgid ""
 "Permit to prosody to bind apache port. Need to be activated to use BOSH."
 msgstr ""
-"Tillåt prosody att binda till apache-porten.  Behöver vara aktiverat för att"
-" använda BOSH."
+"Tillåt prosody att binda till apache-porten.  Behöver vara aktiverat för att "
+"använda BOSH."
 
 #: booleans.py:187
 msgid "Allow Puppet client to manage all file types."
@@ -3457,8 +3428,8 @@ msgid ""
 "could indicate an attack. This executable should be reported in bugzilla"
 msgstr ""
 "Tillåt obegränsade program att göra heap-minnet körbart.  Att göra detta är "
-"en dålig idé.  Förmodligen indikerar det ett dåligt skrivet program, men kan"
-" också vara tecken på en attack.  Detta program bör rapporteras i bugzilla"
+"en dålig idé.  Förmodligen indikerar det ett dåligt skrivet program, men kan "
+"också vara tecken på en attack.  Detta program bör rapporteras i bugzilla"
 
 #: booleans.py:214
 msgid ""
@@ -3485,8 +3456,8 @@ msgstr "Tillåt användare att ansluta till den lokala mysql-servern"
 
 #: booleans.py:217
 msgid ""
-"Allow confined users the ability to execute the ping and traceroute "
-"commands."
+"Allow confined users the ability to execute the ping and traceroute commands."
+""
 msgstr ""
 "Ge begränsade användare möjligheten att köra kommandona ping och traceroute."
 
@@ -3508,23 +3479,23 @@ msgstr "Tillåt användare att dela musik"
 
 #: booleans.py:221
 msgid ""
-"Allow users to run TCP servers (bind to ports and accept connection from the"
-" same domain and outside users)  disabling this forces FTP passive mode and "
+"Allow users to run TCP servers (bind to ports and accept connection from the "
+"same domain and outside users)  disabling this forces FTP passive mode and "
 "may change other protocols."
 msgstr ""
 "Tillåt användare att köra TCP-servrar (binda till portar och acceptera "
-"anslutningar från samma domän och användare utanför).  Avaktivering av detta"
-" framtvingar passivt läge i FTP och kan ändra andra protokoll."
+"anslutningar från samma domän och användare utanför).  Avaktivering av detta "
+"framtvingar passivt läge i FTP och kan ändra andra protokoll."
 
 #: booleans.py:222
 msgid ""
-"Allow users to run UDP servers (bind to ports and accept connection from the"
-" same domain and outside users)  disabling this may break avahi discovering "
+"Allow users to run UDP servers (bind to ports and accept connection from the "
+"same domain and outside users)  disabling this may break avahi discovering "
 "services on the network and other udp related services."
 msgstr ""
 "Tillåt användare att köra UDP-servrar (binda till portar och acceptera "
-"anslutningar från samma domän och användare utanför).  Avaktivering av detta"
-" kan förhindra avahi:s upptäckt av tjänster på nätverket och andra udp-"
+"anslutningar från samma domän och användare utanför).  Avaktivering av detta "
+"kan förhindra avahi:s upptäckt av tjänster på nätverket och andra udp-"
 "relaterade tjänster."
 
 #: booleans.py:223
@@ -3690,8 +3661,8 @@ msgid ""
 "Allow unconfined users to transition to the Mozilla plugin domain when "
 "running xulrunner plugin-container."
 msgstr ""
-"Tillåt obegränsade användare att gå över till Mozilla-insticksdomänen när de"
-" köra xulrunners plugin-container."
+"Tillåt obegränsade användare att gå över till Mozilla-insticksdomänen när de "
+"köra xulrunners plugin-container."
 
 #: booleans.py:254
 msgid "Allow unprivileged user to create and transition to svirt domains."
@@ -3839,13 +3810,13 @@ msgstr "Tillåt det grafiska inloggningsprogrammet att köra uppstartsladdaren"
 msgid ""
 "Allow the graphical login program to login directly as sysadm_r:sysadm_t"
 msgstr ""
-"Tillåt det grafiska inloggningsprogrammet att logga in direkt som "
-"sysadm_r:sysadm_t"
+"Tillåt det grafiska inloggningsprogrammet att logga in direkt som sysadm_r:"
+"sysadm_t"
 
 #: booleans.py:287
 msgid ""
-"Allow the graphical login program to create files in HOME dirs as "
-"xdm_home_t."
+"Allow the graphical login program to create files in HOME dirs as xdm_home_t."
+""
 msgstr ""
 "Tillåt det grafiska inloggningsprogrammet att skapa filer i HOME-kataloger "
 "som xdm_home_t."
@@ -3931,8 +3902,8 @@ msgstr "Gränssnittet %s finns inte."
 #: ../sepolicy/sepolicy.py:294
 msgid "You need to install policycoreutils-gui package to use the gui option"
 msgstr ""
-"Du behöver installera paketet policycoreutils-gui för att använda argumentet"
-" gui"
+"Du behöver installera paketet policycoreutils-gui för att använda argumentet "
+"gui"
 
 #: ../sepolicy/sepolicy.py:298
 msgid "Graphical User Interface for SELinux Policy"
@@ -4196,8 +4167,8 @@ msgstr "Ingen SELinuxpolicy är installerad"
 #: ../sepolicy/sepolicy/__init__.py:560
 msgid "You must regenerate interface info by running /usr/bin/sepolgen-ifgen"
 msgstr ""
-"Du måste generera om gränssnittsinformationen genom att köra /usr/bin"
-"/sepolgen-ifgen"
+"Du måste generera om gränssnittsinformationen genom att köra /usr/bin/"
+"sepolgen-ifgen"
 
 #: ../sepolicy/sepolicy/__init__.py:822
 #, python-format
@@ -4305,11 +4276,9 @@ msgstr "Typfält krävs"
 
 #: ../sepolicy/sepolicy/generate.py:884
 #, python-format
-msgid ""
-"You need to define a new type which ends with: \n"
+msgid "You need to define a new type which ends with: \n"
 " %s"
-msgstr ""
-"Du behöver definiera en ny typ som slutar med: \n"
+msgstr "Du behöver definiera en ny typ som slutar med: \n"
 " %s"
 
 #: ../sepolicy/sepolicy/generate.py:1112
@@ -4394,8 +4363,8 @@ msgstr "Avbryt"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:332
 msgid ""
-"The entry that was entered is incorrect.  Please try again in the "
-"ex:/.../... format."
+"The entry that was entered is incorrect.  Please try again in the ex:/.../..."
+" format."
 msgstr "Posten som angavs är felaktig.  Försök igen i formatet ex:/.../..."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:358
@@ -4465,8 +4434,8 @@ msgstr "Lägg till en fil"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:638
 msgid ""
-"<operation> File Labeling for <selected domain>. File labels will be created"
-" when update is applied."
+"<operation> File Labeling for <selected domain>. File labels will be created "
+"when update is applied."
 msgstr ""
 "<åtgärd> Filetikettering för <vald domän>.  Filetiketter kommer skapas när "
 "en uppdatering görs."
@@ -4494,8 +4463,8 @@ msgid ""
 "Select the file class to which this label will be applied.  Defaults to all "
 "classes."
 msgstr ""
-"Välj filklassen på vilken denna etikett skall användas.  Standard är på alla"
-" klasser."
+"Välj filklassen på vilken denna etikett skall användas.  Standard är på alla "
+"klasser."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:804
 msgid "Make Path Recursive"
@@ -4525,8 +4494,8 @@ msgstr "Sökväg  "
 
 #: ../sepolicy/sepolicy/sepolicy.glade:880
 msgid ""
-"Specify the path using regular expressions that you would like to modify the"
-" labeling."
+"Specify the path using regular expressions that you would like to modify the "
+"labeling."
 msgstr ""
 "Ange sökvägen med hjälp av reguljära uttryck som du skulle vilja ändra "
 "etiketteringen på."
@@ -4804,11 +4773,9 @@ msgstr "Inkommande"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2866
 #: ../sepolicy/sepolicy/sepolicy.glade:2956
-msgid ""
-"Boolean\n"
+msgid "Boolean\n"
 "Enabled"
-msgstr ""
-"Boolean\n"
+msgstr "Boolean\n"
 "Aktiverad"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2892
@@ -4841,8 +4808,8 @@ msgstr "Körbar fil"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3012
 msgid ""
-"Executables which will transition to the 'selected domain', when executing a"
-" selected domains entrypoint."
+"Executables which will transition to the 'selected domain', when executing a "
+"selected domains entrypoint."
 msgstr ""
 "Körbara program vilka kommer övergå till den ”valda domänen”, när en vald "
 "domäns ingångspunkt körs."
@@ -4950,13 +4917,13 @@ msgid ""
 "now be confined.  To disable the unconfined_t user you must first remove "
 "unconfined_t from the users/login screens."
 msgstr ""
-"En obegränsad domän är en processetikett som tillåter processen att göra vad"
-" den vill, utan att SELinux blandar sig i.  Program som startas vid uppstart"
-" av init-systemet som SELinux inte har en definierad SELinux-policy för "
-"kommer köra som obegränsade om denna modul är aktiverad.  Att avaktivera den"
-" betyder att alla demoner nu kommer köra begränsade.  För att avaktivera "
-"användaren unconfined_t måste du först ta bort unconfined_t från "
-"användar-/inloggningskärmar."
+"En obegränsad domän är en processetikett som tillåter processen att göra vad "
+"den vill, utan att SELinux blandar sig i.  Program som startas vid uppstart "
+"av init-systemet som SELinux inte har en definierad SELinux-policy för "
+"kommer köra som obegränsade om denna modul är aktiverad.  Att avaktivera den "
+"betyder att alla demoner nu kommer köra begränsade.  För att avaktivera "
+"användaren unconfined_t måste du först ta bort unconfined_t från användar-/"
+"inloggningskärmar."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3866
 msgid "<b>Disable ability to run unconfined system processes?</b>"
@@ -4972,11 +4939,11 @@ msgid ""
 "module could cause SELinux to deny access to a domain, that should be "
 "allowed."
 msgstr ""
-"En tillåtande domän är en processetikett som tillåter processen att göra vad"
-" den vill, varvid SELinux endast loggar nekanden, men framtvingar dem inte."
-"  Normalt indikerar tillåtande domäner en experimentell policy, att "
-"avaktivera modulen skulle kunna få SELinux att neka åtkomster till en domän,"
-" som borde vara tillåten."
+"En tillåtande domän är en processetikett som tillåter processen att göra vad "
+"den vill, varvid SELinux endast loggar nekanden, men framtvingar dem inte.  "
+"Normalt indikerar tillåtande domäner en experimentell policy, att avaktivera "
+"modulen skulle kunna få SELinux att neka åtkomster till en domän, som borde "
+"vara tillåten."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3929
 msgid "<b>Disable all permissive processes?</b>"
@@ -4984,17 +4951,17 @@ msgstr "<b>Avaktivera alla tillåtande processer?</b>"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3957
 msgid ""
-"A permissive domain is a process label that allows the process to do what it"
-" wants, with SELinux only logging the denials, but not enforcing them.  "
+"A permissive domain is a process label that allows the process to do what it "
+"wants, with SELinux only logging the denials, but not enforcing them.  "
 "Usually permissive domains indicate experimental policy, disabling the "
 "module could cause SELinux to deny access to a domain, that should be "
 "allowed."
 msgstr ""
-"En tillåtande domän är en processetikett som tillåter processen att göra vad"
-" den vill, varvid SELinux endast loggar nekanden, men framtvingar dem inte."
-"  Normalt indikerar tillåtande domäner en experimentell policy, att "
-"avaktivera modulen skulle kunna få SELinux att neka åtkomster till en domän,"
-" som borde vara tillåten."
+"En tillåtande domän är en processetikett som tillåter processen att göra vad "
+"den vill, varvid SELinux endast loggar nekanden, men framtvingar dem inte.  "
+"Normalt indikerar tillåtande domäner en experimentell policy, att avaktivera "
+"modulen skulle kunna få SELinux att neka åtkomster till en domän, som borde "
+"vara tillåten."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3995
 msgid "<b>Deny all processes from ptracing or debugging other processes?</b>"
@@ -5031,8 +4998,8 @@ msgstr "Återställ"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4214
 msgid ""
-"Revert button will launch a dialog window which allows you to revert changes"
-" within the current transaction."
+"Revert button will launch a dialog window which allows you to revert changes "
+"within the current transaction."
 msgstr ""
 "Knappen Återställ kommer starta ett dialogfönster som låter dig återställa "
 "ändringar i den nuvarande transaktionen."
@@ -5064,8 +5031,8 @@ msgstr "Ta bort ändrad filetikettering"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4439
 msgid ""
-"Select file labeling to delete. File labeling will be deleted when update is"
-" applied."
+"Select file labeling to delete. File labeling will be deleted when update is "
+"applied."
 msgstr ""
 "Välj filetikettering att ta bort.  Filetikettering kommer att tas bort när "
 "uppdateringen verkställs."
@@ -5107,8 +5074,8 @@ msgstr "Ta bort ändrad användarmappning."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4867
 msgid ""
-"Select login user mapping to delete. Login user mapping will be deleted when"
-" update is applied."
+"Select login user mapping to delete. Login user mapping will be deleted when "
+"update is applied."
 msgstr ""
 "Välj en mappning av en inloggningsanvändare att ta bort.  Mappningen av "
 "inloggningsanvändaren kommer tas bort när uppdateringen verkställs."
@@ -5167,11 +5134,9 @@ msgid "SELinux User Name"
 msgstr "SELinux-användarnamn"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5489
-msgid ""
-"Enter MLS/MCS Range for this SELinux User.\n"
+msgid "Enter MLS/MCS Range for this SELinux User.\n"
 "s0-s0:c1023"
-msgstr ""
-"Ange MLS/MCS-intervall för denna SELinux-användare.\n"
+msgstr "Ange MLS/MCS-intervall för denna SELinux-användare.\n"
 "s0-s0:c1023"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5520
@@ -5438,8 +5403,8 @@ msgstr "lyssna efter inkommande anslutningar"
 #: ../sepolicy/sepolicy/gui.py:1367
 #, python-format
 msgid ""
-"Add new port definition to which the '%(APP)s' domain is allowed to "
-"%(PERM)s."
+"Add new port definition to which the '%(APP)s' domain is allowed to %(PERM)s."
+""
 msgstr ""
 "Lägg till en ny portdefinition till vilken domänen ”%(APP)s” tillåts att "
 "%(PERM)s."
@@ -5447,8 +5412,8 @@ msgstr ""
 #: ../sepolicy/sepolicy/gui.py:1368
 #, python-format
 msgid ""
-"Delete modified port definitions to which the '%(APP)s' domain is allowed to"
-" %(PERM)s."
+"Delete modified port definitions to which the '%(APP)s' domain is allowed to "
+"%(PERM)s."
 msgstr ""
 "Ta bort den modifierade portdefinitionen till vilken domänen ”%(APP)s” "
 "tillåts att %(PERM)s."
@@ -5456,8 +5421,8 @@ msgstr ""
 #: ../sepolicy/sepolicy/gui.py:1369
 #, python-format
 msgid ""
-"Modify port definitions to which the '%(APP)s' domain is allowed to "
-"%(PERM)s."
+"Modify port definitions to which the '%(APP)s' domain is allowed to %(PERM)s."
+""
 msgstr ""
 "Andra portdefinitionerna till vilken domänen ”%(APP)s” tillåts att %(PERM)s."
 
@@ -5498,8 +5463,8 @@ msgid ""
 "Modify selected modified File Equivalence definitions. Only bolded items in "
 "the list can be selected, this indicates they were modified previously."
 msgstr ""
-"Ändra de valda ändrade filekvivalensdefinitionerna.  Endast poster i fetstil"
-" i listan kan väljas, detta indikerar att de tidigare ändrats."
+"Ändra de valda ändrade filekvivalensdefinitionerna.  Endast poster i fetstil "
+"i listan kan väljas, detta indikerar att de tidigare ändrats."
 
 #: ../sepolicy/sepolicy/gui.py:1450
 #, python-format
@@ -5522,8 +5487,8 @@ msgstr "Lägg till en nätverksport för %s"
 #: ../sepolicy/sepolicy/gui.py:1469
 #, python-format
 msgid ""
-"Add File Labeling for %s. File labels will be created when update is "
-"applied."
+"Add File Labeling for %s. File labels will be created when update is applied."
+""
 msgstr ""
 "Lägg till filetikettering för %s.  Filetiketter kommer skapas när "
 "uppdateringen verkställs."
@@ -5549,8 +5514,8 @@ msgid ""
 "Add SELinux User Role. SELinux user roles will be created when update is "
 "applied."
 msgstr ""
-"Lägg till en SELinux-användarroll.  SELinux-användarroller kommer skapas när"
-" uppdateringen verkställs."
+"Lägg till en SELinux-användarroll.  SELinux-användarroller kommer skapas när "
+"uppdateringen verkställs."
 
 #: ../sepolicy/sepolicy/gui.py:1487
 msgid "Add SELinux Users"
@@ -5558,8 +5523,8 @@ msgstr "Lägg till SELinux-användare"
 
 #: ../sepolicy/sepolicy/gui.py:1494
 msgid ""
-"Add File Equivalency Mapping. Mapping will be created when update is "
-"applied."
+"Add File Equivalency Mapping. Mapping will be created when update is applied."
+""
 msgstr ""
 "Lägg till en filekvivalensmappning.  Mappningen kommer skapas när "
 "uppdateringen verkställs."
@@ -5579,8 +5544,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1578
 msgid ""
-"Modify SELinux User Role. SELinux user roles will be modified when update is"
-" applied."
+"Modify SELinux User Role. SELinux user roles will be modified when update is "
+"applied."
 msgstr ""
 "Ändra en SELinux-användarroll.  SELinux-användarroller kommer ändras när "
 "uppdateringen verkställs."
@@ -5804,18 +5769,22 @@ msgstr ""
 "Om du senare bestämmer dig för att slå på SELinux igen måste systemet "
 "etikettera om.  Om du bara vill se om SELinux orsakar ett problem på ditt "
 "system kan du byta till tillåtande läge som bara loggar fel men inte "
-"påtvingar SELinux-policyn.  Tillåtande läge kräver inte någon omstart.  Vill"
-" du fortsätta?"
+"påtvingar SELinux-policyn.  Tillåtande läge kräver inte någon omstart.  Vill "
+"du fortsätta?"
 
 #: ../sepolicy/sepolicy/gui.py:2797
 msgid ""
 "You are attempting to close the application without applying your changes.\n"
-"    *    To apply changes you have made during this session, click No and click Update.\n"
-"    *    To leave the application without applying your changes, click Yes.  All changes that you have made during this session will be lost."
+"    *    To apply changes you have made during this session, click No and "
+"click Update.\n"
+"    *    To leave the application without applying your changes, click Yes.  "
+"All changes that you have made during this session will be lost."
 msgstr ""
 "Du försöker stänga programmet utan att verkställa dina ändringar.\n"
-"    *    För att verkställa ändringarna du har gjort under sessionen, klicka Nej och klicka Uppdatera.\n"
-"    *    För att lämna programmet utan att verkställa dina ändringar, klicka Ja.  Alla ändringar som du har gjort under sessioner kommer gå förlorade."
+"    *    För att verkställa ändringarna du har gjort under sessionen, klicka "
+"Nej och klicka Uppdatera.\n"
+"    *    För att lämna programmet utan att verkställa dina ändringar, klicka "
+"Ja.  Alla ändringar som du har gjort under sessioner kommer gå förlorade."
 
 #: ../sepolicy/sepolicy/gui.py:2797
 msgid "Loss of data Dialog"
