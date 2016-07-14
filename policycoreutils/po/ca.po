@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Albert Carabasa Giribet <albertc@asic.udl.cat>, 2009
 # Josep Puigdemont <josep.puigdemont@gmail.com>, 2006
@@ -13,12 +13,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-18 08:37+0100\n"
-"PO-Revision-Date: 2016-02-12 08:20-0500\n"
-"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
-"Language-Team: Catalan (http://www.transifex.com/projects/p/fedora/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-02-12 08:20-0500\n"
+"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
+"Language-Team: Catalan (http://www.transifex.com/projects/p/fedora/language/"
+"ca/)\n"
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 3.8.4\n"
@@ -51,8 +52,8 @@ msgstr "Contrasenya:"
 #, c-format
 msgid "Cannot find your entry in the shadow passwd file.\n"
 msgstr ""
-"No s'ha pogut trobar la vostra entrada en el fitxer de contrasenyes "
-"ocultes.\n"
+"No s'ha pogut trobar la vostra entrada en el fitxer de contrasenyes ocultes."
+"\n"
 
 #: ../run_init/run_init.c:203 ../newrole/newrole.c:372
 #, c-format
@@ -78,8 +79,8 @@ msgstr "Sense context al fitxer %s\n"
 #, c-format
 msgid "Sorry, run_init may be used only on a SELinux kernel.\n"
 msgstr ""
-"El run_init només pot utilitzar-se amb un nucli de sistema operatiu "
-"SELinux.\n"
+"El run_init només pot utilitzar-se amb un nucli de sistema operatiu SELinux."
+"\n"
 
 #: ../run_init/run_init.c:380
 #, c-format
@@ -201,12 +202,12 @@ msgid "Could not set module key name"
 msgstr "No s'ha pogut establir el nom de la clau del mòdul"
 
 #: ../semanage/seobject/__init__.py:383
-#, fuzzy, python-format
+#, python-format
 msgid "Could not enable module %s"
 msgstr "No s'ha pogut habilitar el mòdul %s"
 
 #: ../semanage/seobject/__init__.py:385
-#, fuzzy, python-format
+#, python-format
 msgid "Could not disable module %s"
 msgstr "No s'ha pogut inhabilitar el mòdul %s"
 
@@ -334,8 +335,8 @@ msgstr "No s'ha pogut modificar l'assignació de l'inici de sessió per a %s"
 #, python-format
 msgid "Login mapping for %s is defined in policy, cannot be deleted"
 msgstr ""
-"L'assignació de l'inici de sessió per a %s està definida en la política i no"
-" pot eliminar-se"
+"L'assignació de l'inici de sessió per a %s està definida en la política i no "
+"pot eliminar-se"
 
 #: ../semanage/seobject/__init__.py:662
 #, python-format
@@ -540,8 +541,8 @@ msgstr "No es pot crear el context per a %(PROTOCOL)s/%(PORT)s"
 #, python-format
 msgid "Could not set user in port context for %(PROTOCOL)s/%(PORT)s"
 msgstr ""
-"No es pot establir l'usuari en el context del port per a "
-"%(PROTOCOL)s/%(PORT)s"
+"No es pot establir l'usuari en el context del port per a %(PROTOCOL)s/"
+"%(PORT)s"
 
 #: ../semanage/seobject/__init__.py:1100
 #, python-format
@@ -553,15 +554,15 @@ msgstr ""
 #, python-format
 msgid "Could not set type in port context for %(PROTOCOL)s/%(PORT)s"
 msgstr ""
-"No es pot establir el tipus en el context del port per a "
-"%(PROTOCOL)s/%(PORT)s"
+"No es pot establir el tipus en el context del port per a %(PROTOCOL)s/"
+"%(PORT)s"
 
 #: ../semanage/seobject/__init__.py:1109
 #, python-format
 msgid "Could not set mls fields in port context for %(PROTOCOL)s/%(PORT)s"
 msgstr ""
-"No es poden establir els camps mls en el context del port per a "
-"%(PROTOCOL)s/%(PORT)s"
+"No es poden establir els camps mls en el context del port per a %(PROTOCOL)s/"
+"%(PORT)s"
 
 #: ../semanage/seobject/__init__.py:1113
 #, python-format
@@ -1004,19 +1005,15 @@ msgid "type"
 msgstr "tipus"
 
 #: ../semanage/seobject/__init__.py:2086
-msgid ""
-"\n"
+msgid "\n"
 "SELinux Distribution fcontext Equivalence \n"
-msgstr ""
-"\n"
+msgstr "\n"
 "Equivalència fcontext de la distribució de SELinux\n"
 
 #: ../semanage/seobject/__init__.py:2091
-msgid ""
-"\n"
+msgid "\n"
 "SELinux Local fcontext Equivalence \n"
-msgstr ""
-"\n"
+msgstr "\n"
 "Equivalència fcontext local de SELinux\n"
 
 #: ../semanage/seobject/__init__.py:2127 ../semanage/seobject/__init__.py:2178
@@ -1105,8 +1102,8 @@ msgstr "no s'ha pogut establir PAM_TTY\n"
 #, c-format
 msgid "newrole: service name configuration hashtable overflow\n"
 msgstr ""
-"newrole: desbordament de la taula de dispersió del servei de configuració de"
-" noms\n"
+"newrole: desbordament de la taula de dispersió del servei de configuració de "
+"noms\n"
 
 #: ../newrole/newrole.c:299
 #, c-format
@@ -1229,8 +1226,8 @@ msgstr "S'ha produït un error: s'han especificat múltiples nivells\n"
 #, c-format
 msgid "Error: you are not allowed to change levels on a non secure terminal \n"
 msgstr ""
-"S'ha produït un error: no se us permet canviar els nivells en un terminal no"
-" segur \n"
+"S'ha produït un error: no se us permet canviar els nivells en un terminal no "
+"segur \n"
 
 #: ../newrole/newrole.c:917
 #, c-format
@@ -1495,27 +1492,21 @@ msgid "File Labeling"
 msgstr "Etiquetatge de fitxers"
 
 #: ../gui/fcontextPage.py:73
-msgid ""
-"File\n"
+msgid "File\n"
 "Specification"
-msgstr ""
-"Especificació\n"
+msgstr "Especificació\n"
 "del fitxer"
 
 #: ../gui/fcontextPage.py:80
-msgid ""
-"Selinux\n"
+msgid "Selinux\n"
 "File Type"
-msgstr ""
-"Tipus de fitxer\n"
+msgstr "Tipus de fitxer\n"
 "de Selinux"
 
 #: ../gui/fcontextPage.py:87
-msgid ""
-"File\n"
+msgid "File\n"
 "Type"
-msgstr ""
-"Tipus\n"
+msgstr "Tipus\n"
 "de fitxer"
 
 #: ../gui/loginsPage.py:45 ../gui/system-config-selinux.glade:2098
@@ -1523,27 +1514,21 @@ msgid "User Mapping"
 msgstr "Assignació d'usuaris"
 
 #: ../gui/loginsPage.py:49
-msgid ""
-"Login\n"
+msgid "Login\n"
 "Name"
-msgstr ""
-"Nom d'inici\n"
+msgstr "Nom d'inici\n"
 "de sessió"
 
 #: ../gui/loginsPage.py:53 ../gui/usersPage.py:47
-msgid ""
-"SELinux\n"
+msgid "SELinux\n"
 "User"
-msgstr ""
-"Usuari de\n"
+msgstr "Usuari de\n"
 "SELinux"
 
 #: ../gui/loginsPage.py:56 ../gui/usersPage.py:52
-msgid ""
-"MLS/\n"
+msgid "MLS/\n"
 "MCS Range"
-msgstr ""
-"Interval\n"
+msgstr "Interval\n"
 "MLS/MCS"
 
 #: ../gui/loginsPage.py:130
@@ -1618,8 +1603,8 @@ msgid ""
 "requires a script in /etc/rc.d/init.d"
 msgstr ""
 "En el dimoni Init estàndard hi ha els dimonis que es van iniciar en "
-"l'arrencada a través dels scripts Init. En general es requereix un script a "
-"/etc/rc.d/init.d"
+"l'arrencada a través dels scripts Init. En general es requereix un script a /"
+"etc/rc.d/init.d"
 
 #: ../gui/polgen.glade:332 ../sepolicy/sepolicy/generate.py:139
 msgid "DBUS System Daemon"
@@ -1643,8 +1628,8 @@ msgstr "Aplicació/script web (CGI)"
 msgid ""
 "Web Applications/Script (CGI) CGI scripts started by the web server (apache)"
 msgstr ""
-"En l'aplicació/script web (CGI) hi ha els scripts CGI que es van iniciar amb"
-" el servidor web (apache)"
+"En l'aplicació/script web (CGI) hi ha els scripts CGI que es van iniciar amb "
+"el servidor web (apache)"
 
 #: ../gui/polgen.glade:383 ../sepolicy/sepolicy/generate.py:143
 msgid "User Application"
@@ -1718,8 +1703,8 @@ msgstr "Rol d'usuari d'administració"
 
 #: ../gui/polgen.glade:550
 msgid ""
-"User with full networking, no setuid applications without transition, no su,"
-" can sudo to Root Administration Roles"
+"User with full networking, no setuid applications without transition, no su, "
+"can sudo to Root Administration Roles"
 msgstr ""
 "Usuari amb tota la xarxa, cap setuid a les aplicacions sense transició, no "
 "pot fer su però pot fer sudo als rols d'administració principals."
@@ -1734,13 +1719,13 @@ msgstr "Rol principal d'usuari d'administració"
 
 #: ../gui/polgen.glade:627
 msgid ""
-"Select Root Administrator User Role, if this user will be used to administer"
-" the machine while running as root.  This user will not be able to login to "
+"Select Root Administrator User Role, if this user will be used to administer "
+"the machine while running as root.  This user will not be able to login to "
 "the system directly."
 msgstr ""
 "Seleccioneu el rol principal d'usuari d'administració, si s'utilitzarà "
-"aquest usuari per administrar la màquina mentre s'executa com a root. Aquest"
-" usuari no podrà iniciar directament la sessió al sistema."
+"aquest usuari per administrar la màquina mentre s'executa com a root. Aquest "
+"usuari no podrà iniciar directament la sessió al sistema."
 
 #: ../gui/polgen.glade:705
 msgid "<b>Enter name of application or user role:</b>"
@@ -1790,8 +1775,7 @@ msgstr "Seleccioneu els rols d'usuari que faran la transició al domini %s."
 
 #: ../gui/polgen.glade:928
 msgid "role tab"
-msgstr ""
-"pestanya del\n"
+msgstr "pestanya del\n"
 "rol"
 
 #: ../gui/polgen.glade:945
@@ -1804,11 +1788,9 @@ msgstr ""
 "Seleccioneu els dominis de les aplicacions als que %s hi farà la transició."
 
 #: ../gui/polgen.glade:983
-msgid ""
-"transition \n"
+msgid "transition \n"
 "role tab"
-msgstr ""
-"pestanya del\n"
+msgstr "pestanya del\n"
 "rol de transició"
 
 #: ../gui/polgen.glade:1001
@@ -1886,11 +1868,9 @@ msgid "<b>UDP Ports</b>"
 msgstr "<b>Ports UDP</b>"
 
 #: ../gui/polgen.glade:1519
-msgid ""
-"Network\n"
+msgid "Network\n"
 "Bind tab"
-msgstr ""
-"pertanya de creació\n"
+msgstr "pertanya de creació\n"
 "d'un vincle de xarxa"
 
 #: ../gui/polgen.glade:1537
@@ -2029,11 +2009,9 @@ msgstr "Seleccioneu el directori on generar-hi els fitxers de la política"
 
 #: ../gui/polgengui.py:653
 #, python-format
-msgid ""
-"Type %s_t already defined in current policy.\n"
+msgid "Type %s_t already defined in current policy.\n"
 "Do you want to continue?"
-msgstr ""
-"El tipus %s_t ja està definit en la política actual.\n"
+msgstr "El tipus %s_t ja està definit en la política actual.\n"
 "Voleu continuar?"
 
 #: ../gui/polgengui.py:653 ../gui/polgengui.py:657
@@ -2041,12 +2019,10 @@ msgid "Verify Name"
 msgstr "Verifica el nom"
 
 #: ../gui/polgengui.py:657
-#, fuzzy, python-format
-msgid ""
-"Module %s already loaded in current policy.\n"
+#, python-format
+msgid "Module %s already loaded in current policy.\n"
 "Do you want to continue?"
-msgstr ""
-"El mòdul %s ja està carregat en la política actual.\n"
+msgstr "El mòdul %s ja està carregat en la política actual.\n"
 "Voleu continuar?"
 
 #: ../gui/polgengui.py:703
@@ -2069,11 +2045,9 @@ msgid "Network Port"
 msgstr "Port de xarxa"
 
 #: ../gui/portsPage.py:82
-msgid ""
-"SELinux Port\n"
+msgid "SELinux Port\n"
 "Type"
-msgstr ""
-"Tipus de port\n"
+msgstr "Tipus de port\n"
 "de SELinux"
 
 #: ../gui/portsPage.py:88 ../gui/system-config-selinux.glade:363
@@ -2085,11 +2059,9 @@ msgid "Protocol"
 msgstr "Protocol"
 
 #: ../gui/portsPage.py:93 ../gui/system-config-selinux.glade:479
-msgid ""
-"MLS/MCS\n"
+msgid "MLS/MCS\n"
 "Level"
-msgstr ""
-"Nivell\n"
+msgstr "Nivell\n"
 "MLS/MCS"
 
 #: ../gui/portsPage.py:98 ../sepolicy/sepolicy/sepolicy.glade:2639
@@ -2163,8 +2135,8 @@ msgid ""
 "you later decide to turn SELinux back on, the system will be required to "
 "relabel.  If you just want to see if SELinux is causing a problem on your "
 "system, you can go to permissive mode which will only log errors and not "
-"enforce SELinux policy.  Permissive mode does not require a reboot    Do you"
-" wish to continue?"
+"enforce SELinux policy.  Permissive mode does not require a reboot    Do you "
+"wish to continue?"
 msgstr ""
 "El canvi a SELinux inhabilitat requereix un tornar a arrencar. No es "
 "recomana. Si més endavant decidiu tornar a activar el SELinux, se us "
@@ -2181,8 +2153,8 @@ msgid ""
 "file system.  Do you wish to continue?"
 msgstr ""
 "El canvi a SELinux habilitat provocarà que es torni a etiquetar de tot el "
-"sistema de fitxers en la pròxima arrencada. Tornar a etiquetar triga molt de"
-" temps segons la mida del sistema de fitxers. Voleu continuar?"
+"sistema de fitxers en la pròxima arrencada. Tornar a etiquetar triga molt de "
+"temps segons la mida del sistema de fitxers. Voleu continuar?"
 
 #: ../gui/system-config-selinux.glade:11
 msgid "system-config-selinux"
@@ -2278,12 +2250,10 @@ msgid "System Default Enforcing Mode"
 msgstr "Mode de compliment per defecte del sistema"
 
 #: ../gui/system-config-selinux.glade:1354
-msgid ""
-"Disabled\n"
+msgid "Disabled\n"
 "Permissive\n"
 "Enforcing\n"
-msgstr ""
-"Inhabilitat\n"
+msgstr "Inhabilitat\n"
 "Permissiu\n"
 "Compliment\n"
 
@@ -2427,8 +2397,8 @@ msgstr "Suprimeix el mòdul de polítiques carregables"
 
 #: ../gui/system-config-selinux.glade:2661
 msgid ""
-"Enable/Disable additional audit rules, that are normally not reported in the"
-" log files."
+"Enable/Disable additional audit rules, that are normally not reported in the "
+"log files."
 msgstr ""
 "Habiliteu i inhabiliteu les regles addicionals d'audit que normalment no es "
 "reporten als fitxers de registre."
@@ -2470,16 +2440,16 @@ msgid ""
 "Determine whether ABRT can run in the abrt_handle_event_t domain to handle "
 "ABRT event scripts."
 msgstr ""
-"Determina si  ABRT pot executar-se al domini de l'abrt_handle_event_t per al"
-" tractament dels scripts dels esdeveniments de l'ABRT."
+"Determina si  ABRT pot executar-se al domini de l'abrt_handle_event_t per al "
+"tractament dels scripts dels esdeveniments de l'ABRT."
 
 #: booleans.py:3
 msgid ""
-"Determine whether abrt-handle-upload can modify public files used for public"
-" file transfer services in /var/spool/abrt-upload/."
+"Determine whether abrt-handle-upload can modify public files used for public "
+"file transfer services in /var/spool/abrt-upload/."
 msgstr ""
-"Determina si abrt-handle-upload pot modificar els fitxers públics utilitzats"
-" pels serveis públics de transferència de fitxers a /var/spool/abrt-upload/."
+"Determina si abrt-handle-upload pot modificar els fitxers públics utilitzats "
+"pels serveis públics de transferència de fitxers a /var/spool/abrt-upload/."
 
 #: booleans.py:4
 msgid "Allow antivirus programs to read non security files on a system"
@@ -2529,8 +2499,8 @@ msgid ""
 "devices, user temp and untrusted content files"
 msgstr ""
 "Determina si  cdrecord pot llegir alguns continguts. Els fitxers de "
-"continguts nfs, samba, dispositius extraïbles, temporals de l'usuari i sense"
-" confiança"
+"continguts nfs, samba, dispositius extraïbles, temporals de l'usuari i sense "
+"confiança"
 
 #: booleans.py:13
 msgid ""
@@ -2542,8 +2512,8 @@ msgstr ""
 #: booleans.py:14
 msgid "Allow cluster administrative domains to manage all files on a system."
 msgstr ""
-"Permet que els dominis administratius del clúster gestionin tots els fitxers"
-" al sistema."
+"Permet que els dominis administratius del clúster gestionin tots els fitxers "
+"al sistema."
 
 #: booleans.py:15
 msgid ""
@@ -2647,13 +2617,13 @@ msgstr "Determina si dbadm pot llegir els fitxers genèrics d'usuari."
 
 #: booleans.py:35
 msgid ""
-"Deny user domains applications to map a memory region as both executable and"
-" writable, this is dangerous and the executable should be reported in "
+"Deny user domains applications to map a memory region as both executable and "
+"writable, this is dangerous and the executable should be reported in "
 "bugzilla"
 msgstr ""
 "Denega que les aplicacions dels dominis de l'usuari s'assignin una regió de "
-"memòria tant d'execució com d'escriptura, això és perillós i l'executable ha"
-" de ser informat al Bugzilla"
+"memòria tant d'execució com d'escriptura, això és perillós i l'executable ha "
+"de ser informat al Bugzilla"
 
 #: booleans.py:36
 msgid "Deny any process from ptracing or debugging any other processes."
@@ -2688,8 +2658,8 @@ msgid ""
 "Determine whether entropyd can use audio devices as the source for the "
 "entropy feeds."
 msgstr ""
-"Determina si entropyd pot utilitzar els dispositius d'àudio com a origen per"
-" a la retroalimentació d'entropy."
+"Determina si entropyd pot utilitzar els dispositius d'àudio com a origen per "
+"a la retroalimentació d'entropy."
 
 #: booleans.py:42
 msgid "Determine whether exim can connect to databases."
@@ -2706,8 +2676,8 @@ msgstr ""
 #: booleans.py:44
 msgid "Determine whether exim can read generic user content files."
 msgstr ""
-"Determina si exim pot llegir els fitxers de continguts del directori d'inici"
-" d'usuari genèrics."
+"Determina si exim pot llegir els fitxers de continguts del directori d'inici "
+"d'usuari genèrics."
 
 #: booleans.py:45
 msgid "Enable extra rules in the cron domain to support fcron."
@@ -2730,13 +2700,13 @@ msgstr "Permet que tots els dominis s'executin amb fips_mode"
 msgid ""
 "Determine whether ftpd can read and write files in user home directories."
 msgstr ""
-"Determina si ftpd pot llegir i escriure fitxers als directoris inicials dels"
-" usuaris."
+"Determina si ftpd pot llegir i escriure fitxers als directoris inicials dels "
+"usuaris."
 
 #: booleans.py:50
 msgid ""
-"Determine whether ftpd can modify public files used for public file transfer"
-" services. Directories/Files must be labeled public_content_rw_t."
+"Determine whether ftpd can modify public files used for public file transfer "
+"services. Directories/Files must be labeled public_content_rw_t."
 msgstr ""
 "Determina si ftpd pot modificar els fitxers públics utilitzats pels serveis "
 "públics de transferència de fitxers.  Els fitxers i els directoris han "
@@ -2781,8 +2751,8 @@ msgstr ""
 msgid ""
 "Determine whether ftpd can bind to all unreserved ports for passive mode."
 msgstr ""
-"Determina si ftpd pot crear un vincle amb tots els ports no reservats per al"
-" mode passiu."
+"Determina si ftpd pot crear un vincle amb tots els ports no reservats per al "
+"mode passiu."
 
 #: booleans.py:58
 msgid "Determine whether Git CGI can search home directories."
@@ -2820,14 +2790,14 @@ msgstr ""
 #: booleans.py:64
 msgid "Determine whether Git system daemon can access cifs file systems."
 msgstr ""
-"Determina si el dimoni de sistema de Git pot accedir als sistemes de fitxers"
-" cifs."
+"Determina si el dimoni de sistema de Git pot accedir als sistemes de fitxers "
+"cifs."
 
 #: booleans.py:65
 msgid "Determine whether Git system daemon can access nfs file systems."
 msgstr ""
-"Determina si el dimoni de sistema de Git pot accedir als sistemes de fitxers"
-" nfs."
+"Determina si el dimoni de sistema de Git pot accedir als sistemes de fitxers "
+"nfs."
 
 #: booleans.py:66
 msgid "Determine whether Gitosis can send mail."
@@ -2884,8 +2854,8 @@ msgstr ""
 msgid ""
 "Allow gssd to list tmp directories and read the kerberos credential cache."
 msgstr ""
-"Permet que gssd llisti els directoris temporals i llegeixi la memòria cau de"
-" les credencials de kerberos."
+"Permet que gssd llisti els directoris temporals i llegeixi la memòria cau de "
+"les credencials de kerberos."
 
 #: booleans.py:76
 msgid "Allow guest to exec content"
@@ -3025,8 +2995,8 @@ msgstr "Permet que Apache executi preupgrade"
 #: booleans.py:105
 msgid "Allow Apache to run in stickshift mode, not transition to passenger"
 msgstr ""
-"Permet que Apache s'executi en mode stickshift, sense transició al "
-"passatger."
+"Permet que Apache s'executi en mode stickshift, sense transició al passatger."
+""
 
 #: booleans.py:106
 msgid "Allow HTTPD scripts and modules to server cobbler files."
@@ -3216,8 +3186,8 @@ msgstr ""
 #: booleans.py:144
 msgid "Allow mozilla plugin domain to bind unreserved tcp/udp ports."
 msgstr ""
-"Permet que domini del complement de mozilla crei un vincle als ports tcp/udp"
-" no reservats."
+"Permet que domini del complement de mozilla crei un vincle als ports tcp/udp "
+"no reservats."
 
 #: booleans.py:145
 msgid "Allow mozilla plugin domain to connect to the network using TCP."
@@ -3240,8 +3210,8 @@ msgstr "Permet que el complement de mozilla doni suport als protocols spice."
 #: booleans.py:149
 msgid "Allow confined web browsers to read home directory content"
 msgstr ""
-"Permet que els navegadors web confinats llegeixin el contingut del directori"
-" inicial"
+"Permet que els navegadors web confinats llegeixin el contingut del directori "
+"inicial"
 
 #: booleans.py:150
 msgid "Determine whether mpd can traverse user home directories."
@@ -3275,8 +3245,8 @@ msgstr ""
 #: booleans.py:157
 msgid "Determine whether Bind can bind tcp socket to http ports."
 msgstr ""
-"Determina si Bind pot crear un vincle entre els sockets tcp i els ports "
-"http."
+"Determina si Bind pot crear un vincle entre els sockets tcp i els ports http."
+""
 
 #: booleans.py:158
 msgid ""
@@ -3394,8 +3364,8 @@ msgstr ""
 #: booleans.py:179
 msgid "Allow postgresql to use ssh and rsync for point-in-time recovery"
 msgstr ""
-"Permet que postgresql utilitzi ssh i rsync per a la recuperació d'un instant"
-" en el temps"
+"Permet que postgresql utilitzi ssh i rsync per a la recuperació d'un instant "
+"en el temps"
 
 #: booleans.py:180
 msgid "Allow transmit client label to foreign database"
@@ -3429,8 +3399,8 @@ msgstr "Determina si privoxy pot connectar-se a tots els ports tcp."
 msgid ""
 "Permit to prosody to bind apache port. Need to be activated to use BOSH."
 msgstr ""
-"Permet que prosody crei un vincle al port d'apache. Necessita activar-se per"
-" utilitzar BOSH."
+"Permet que prosody crei un vincle al port d'apache. Necessita activar-se per "
+"utilitzar BOSH."
 
 #: booleans.py:187
 msgid "Allow Puppet client to manage all file types."
@@ -3439,8 +3409,8 @@ msgstr "Permet que el client de Puppet gestioni tots els tipus de fitxers."
 #: booleans.py:188
 msgid "Allow Puppet master to use connect to MySQL and PostgreSQL database"
 msgstr ""
-"Permet que el màster de Puppet utilitzi connexions a bases de dades de MySQL"
-" i de PostgreSQL"
+"Permet que el màster de Puppet utilitzi connexions a bases de dades de MySQL "
+"i de PostgreSQL"
 
 #: booleans.py:189
 msgid "Allow racoon to read shadow"
@@ -3543,8 +3513,8 @@ msgid ""
 "disallow programs, such as newrole, from transitioning to administrative "
 "user domains."
 msgstr ""
-"no permet que els programes, com ara newrole, facin la transició als dominis"
-" de l'usuari d'administració."
+"no permet que els programes, com ara newrole, facin la transició als dominis "
+"de l'usuari d'administració."
 
 #: booleans.py:210
 msgid "Disable kernel module loading."
@@ -3573,8 +3543,8 @@ msgid ""
 msgstr ""
 "Permet que els executables no confinats facin executable la seva memòria "
 "heap. Fer això és una molt mala idea. Probablement indica un executable mal "
-"codificat, però podria indicar un atac. Aquest executable ha de ser reportat"
-" a Bugzilla"
+"codificat, però podria indicar un atac. Aquest executable ha de ser reportat "
+"a Bugzilla"
 
 #: booleans.py:214
 msgid ""
@@ -3601,8 +3571,8 @@ msgstr "Permet que els usuaris es connectin al servidor local mysql"
 
 #: booleans.py:217
 msgid ""
-"Allow confined users the ability to execute the ping and traceroute "
-"commands."
+"Allow confined users the ability to execute the ping and traceroute commands."
+""
 msgstr ""
 "Permet que els usuaris confinats tinguin l'habilitat d'executar les ordres "
 "ping i traceroute."
@@ -3625,8 +3595,8 @@ msgstr "Permet que l'usuari comparteixi música"
 
 #: booleans.py:221
 msgid ""
-"Allow users to run TCP servers (bind to ports and accept connection from the"
-" same domain and outside users)  disabling this forces FTP passive mode and "
+"Allow users to run TCP servers (bind to ports and accept connection from the "
+"same domain and outside users)  disabling this forces FTP passive mode and "
 "may change other protocols."
 msgstr ""
 "Permet als usuaris que executin servidors TCP (crear un vincle als ports i "
@@ -3635,8 +3605,8 @@ msgstr ""
 
 #: booleans.py:222
 msgid ""
-"Allow users to run UDP servers (bind to ports and accept connection from the"
-" same domain and outside users)  disabling this may break avahi discovering "
+"Allow users to run UDP servers (bind to ports and accept connection from the "
+"same domain and outside users)  disabling this may break avahi discovering "
 "services on the network and other udp related services."
 msgstr ""
 "Permet als usuaris que executin servidors UDP (crear un vincle als ports i "
@@ -3653,8 +3623,8 @@ msgid ""
 "Determine whether sftpd can modify public files used for public file "
 "transfer services. Directories/Files must be labeled public_content_rw_t."
 msgstr ""
-"Determina si sftpd pot modificar els fitxers públics utilitzats pels serveis"
-" públics de transferència de fitxers.  Els fitxers i els directoris han "
+"Determina si sftpd pot modificar els fitxers públics utilitzats pels serveis "
+"públics de transferència de fitxers.  Els fitxers i els directoris han "
 "d'estar etiquetats amb public_content_rw_t."
 
 #: booleans.py:225
@@ -3677,8 +3647,8 @@ msgid ""
 "Determine whether sftpd can read and write files in user ssh home "
 "directories."
 msgstr ""
-"Determina si sftpd pot llegir i escriure fitxers als directoris inicials ssh"
-" dels usuaris."
+"Determina si sftpd pot llegir i escriure fitxers als directoris inicials ssh "
+"dels usuaris."
 
 #: booleans.py:228
 msgid "Allow sge to connect to the network using any TCP port"
@@ -3691,8 +3661,8 @@ msgstr "Permet que sge accedeixi als sistemes de fitxers nfs."
 #: booleans.py:230
 msgid "Determine whether smartmon can support devices on 3ware controllers."
 msgstr ""
-"Determina si smartmon pot suportar els dispositius als controladors de "
-"3ware."
+"Determina si smartmon pot suportar els dispositius als controladors de 3ware."
+""
 
 #: booleans.py:231
 msgid ""
@@ -3744,8 +3714,8 @@ msgstr "Permet que staff executi continguts"
 #: booleans.py:240
 msgid "allow staff user to create and transition to svirt domains."
 msgstr ""
-"permet que l'usuari del staff crei i faci la transició als dominis del "
-"svirt."
+"permet que l'usuari del staff crei i faci la transició als dominis del svirt."
+""
 
 #: booleans.py:241
 msgid "Determine whether swift can connect to all TCP ports"
@@ -3824,8 +3794,8 @@ msgstr ""
 #: booleans.py:254
 msgid "Allow unprivileged user to create and transition to svirt domains."
 msgstr ""
-"Permet que l'usuari sense privilegis crei i faci la transició als dominis de"
-" l'svirt."
+"Permet que l'usuari sense privilegis crei i faci la transició als dominis de "
+"l'svirt."
 
 #: booleans.py:255
 msgid "Support ecryptfs home directories"
@@ -3982,13 +3952,13 @@ msgstr ""
 msgid ""
 "Allow the graphical login program to login directly as sysadm_r:sysadm_t"
 msgstr ""
-"Permet que el programa gràfic d'inici de sessió inicii directament la sessió"
-" com a sysadm_r:sysadm_t"
+"Permet que el programa gràfic d'inici de sessió inicii directament la sessió "
+"com a sysadm_r:sysadm_t"
 
 #: booleans.py:287
 msgid ""
-"Allow the graphical login program to create files in HOME dirs as "
-"xdm_home_t."
+"Allow the graphical login program to create files in HOME dirs as xdm_home_t."
+""
 msgstr ""
 "Permet que el programa gràfic d'inici de sessió creï fitxers als directoris "
 "inicials com xdm_home_t."
@@ -4350,8 +4320,8 @@ msgstr "Cap política instal·lada de SELinux"
 #: ../sepolicy/sepolicy/__init__.py:560
 msgid "You must regenerate interface info by running /usr/bin/sepolgen-ifgen"
 msgstr ""
-"Heu de tornar a generar la informació de la interfície amb l'execució de "
-"/usr/bin/sepolgen-ifgen"
+"Heu de tornar a generar la informació de la interfície amb l'execució de /"
+"usr/bin/sepolgen-ifgen"
 
 #: ../sepolicy/sepolicy/__init__.py:822
 #, python-format
@@ -4461,11 +4431,9 @@ msgstr "El tipus de camp és obligatori"
 
 #: ../sepolicy/sepolicy/generate.py:884
 #, python-format
-msgid ""
-"You need to define a new type which ends with: \n"
+msgid "You need to define a new type which ends with: \n"
 " %s"
-msgstr ""
-"Necessiteu definir un nou tipus que acabi amb: \n"
+msgstr "Necessiteu definir un nou tipus que acabi amb: \n"
 " %s"
 
 #: ../sepolicy/sepolicy/generate.py:1112
@@ -4548,8 +4516,8 @@ msgstr "Cancel·la"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:332
 msgid ""
-"The entry that was entered is incorrect.  Please try again in the "
-"ex:/.../... format."
+"The entry that was entered is incorrect.  Please try again in the ex:/.../..."
+" format."
 msgstr ""
 "L'entrada que es va introduir no és correcta. Proveu-ho un altre cop amb el "
 "format ex:/.../...."
@@ -4584,8 +4552,8 @@ msgid ""
 "Specify a new SELinux user name.  By convention SELinux User names usually "
 "end in an _u."
 msgstr ""
-"Especifiqueu un nou nom d'usuari de SELinux. Per convenció els noms d'usuari"
-" de SELinux generalment acaben amb _u."
+"Especifiqueu un nou nom d'usuari de SELinux. Per convenció els noms d'usuari "
+"de SELinux generalment acaben amb _u."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:497
 msgid "Enter the path to which you want to setup an equivalence label."
@@ -4612,8 +4580,8 @@ msgid ""
 "Everything under this new path will be labeled as if they were under the "
 "equivalence path."
 msgstr ""
-"Especifiqueu l'assignació entre el nou camí i el camí d'equivalència. Tot el"
-" que estigui sota d'aquest nou camí serà etiquetat com si estigués sota el "
+"Especifiqueu l'assignació entre el nou camí i el camí d'equivalència. Tot el "
+"que estigui sota d'aquest nou camí serà etiquetat com si estigués sota el "
 "camí d'equivalència."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:621
@@ -4622,8 +4590,8 @@ msgstr "Afegeix un fitxer"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:638
 msgid ""
-"<operation> File Labeling for <selected domain>. File labels will be created"
-" when update is applied."
+"<operation> File Labeling for <selected domain>. File labels will be created "
+"when update is applied."
 msgstr ""
 "<operation> l'etiquetatge de fitxer per a <selected domain>. Les etiquetes "
 "de fitxer es crearan en actualitzar."
@@ -4682,8 +4650,8 @@ msgstr "Camí"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:880
 msgid ""
-"Specify the path using regular expressions that you would like to modify the"
-" labeling."
+"Specify the path using regular expressions that you would like to modify the "
+"labeling."
 msgstr ""
 "Especifiqueu el camí mitjançant expressions regulars que us agradaria "
 "modificar l'etiquetatge."
@@ -4831,8 +4799,8 @@ msgstr "Fitxers"
 msgid ""
 "Display file type information that can be used by the 'selected domain'."
 msgstr ""
-"Mostra la informació del tipus de fitxer que pot utilitzar-se per al 'domini"
-" seleccionat'."
+"Mostra la informació del tipus de fitxer que pot utilitzar-se per al 'domini "
+"seleccionat'."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1828
 #: ../sepolicy/sepolicy/sepolicy.glade:2830
@@ -4844,8 +4812,8 @@ msgid ""
 "Display network ports to which the 'selected domain' can connect or listen "
 "to."
 msgstr ""
-"Mostra els ports de xarxa als que el 'domini seleccionat' hi pot connectar o"
-" escoltar."
+"Mostra els ports de xarxa als que el 'domini seleccionat' hi pot connectar o "
+"escoltar."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1846
 #: ../sepolicy/sepolicy/sepolicy.glade:3121
@@ -4973,11 +4941,9 @@ msgstr "Tràfic d'entrada"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2866
 #: ../sepolicy/sepolicy/sepolicy.glade:2956
-msgid ""
-"Boolean\n"
+msgid "Boolean\n"
 "Enabled"
-msgstr ""
-"Booleà\n"
+msgstr "Booleà\n"
 "habilitat"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2892
@@ -5010,8 +4976,8 @@ msgstr "Fitxer executable"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3012
 msgid ""
-"Executables which will transition to the 'selected domain', when executing a"
-" selected domains entrypoint."
+"Executables which will transition to the 'selected domain', when executing a "
+"selected domains entrypoint."
 msgstr ""
 "Els executables que faran la transició al 'domini seleccionat' quan "
 "s'executi una inscripció dels dominis seleccionats."
@@ -5026,10 +4992,9 @@ msgid ""
 "content of a particular class in a directory of the destination type. "
 "Optionally a file name could be specified for the transition."
 msgstr ""
-"Les transicions de fitxer defineixen el que passa quan el domini actual crea"
-" el contingut d'una classe particular a un directori del tipus de "
-"destinació. De manera opcional es pot especificar un nom de fitxer per a la "
-"transició."
+"Les transicions de fitxer defineixen el que passa quan el domini actual crea "
+"el contingut d'una classe particular a un directori del tipus de destinació. "
+"De manera opcional es pot especificar un nom de fitxer per a la transició."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3036
 msgid "SELinux Directory Type"
@@ -5128,8 +5093,8 @@ msgstr ""
 "en l'arrencada pel sistema init que SELinux no hagi definit la política "
 "SELinux s'executaran sense confinament si aquest mòdul està habilitat.  "
 "Inhabilitar-so significa que tots els dimonis ara seran confinats.  Per a "
-"inhabilitar l'usuari unconfined_t primer heu de suprimir unconfined_t de les"
-" pantalles d'usuari i de les pantalles d'inici de sessió."
+"inhabilitar l'usuari unconfined_t primer heu de suprimir unconfined_t de les "
+"pantalles d'usuari i de les pantalles d'inici de sessió."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3866
 msgid "<b>Disable ability to run unconfined system processes?</b>"
@@ -5159,8 +5124,8 @@ msgstr "<b>Voleu inhabilitar tots els processos permissius?</b>"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3957
 msgid ""
-"A permissive domain is a process label that allows the process to do what it"
-" wants, with SELinux only logging the denials, but not enforcing them.  "
+"A permissive domain is a process label that allows the process to do what it "
+"wants, with SELinux only logging the denials, but not enforcing them.  "
 "Usually permissive domains indicate experimental policy, disabling the "
 "module could cause SELinux to deny access to a domain, that should be "
 "allowed."
@@ -5207,11 +5172,11 @@ msgstr "Reverteix"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4214
 msgid ""
-"Revert button will launch a dialog window which allows you to revert changes"
-" within the current transaction."
+"Revert button will launch a dialog window which allows you to revert changes "
+"within the current transaction."
 msgstr ""
-"El botó Reverteix llançarà una finestra de diàleg que us permet revertir els"
-" canvis dins de la transacció actual."
+"El botó Reverteix llançarà una finestra de diàleg que us permet revertir els "
+"canvis dins de la transacció actual."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4226 ../sepolicy/sepolicy/gui.py:2424
 msgid "Update"
@@ -5242,8 +5207,8 @@ msgstr "Elimina l'etiquetatge del fitxer modificat"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4439
 msgid ""
-"Select file labeling to delete. File labeling will be deleted when update is"
-" applied."
+"Select file labeling to delete. File labeling will be deleted when update is "
+"applied."
 msgstr ""
 "Seleccioneu l'etiquetatge de fitxer a eliminar. L'etiquetatge de fitxer "
 "s'eliminarà en actualitzar."
@@ -5284,8 +5249,8 @@ msgstr "Elimina l'assignació dels usuaris modificats."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4867
 msgid ""
-"Select login user mapping to delete. Login user mapping will be deleted when"
-" update is applied."
+"Select login user mapping to delete. Login user mapping will be deleted when "
+"update is applied."
 msgstr ""
 "Seleccioneu l'assignació dels usuaris d'inici de sessió a eliminar. "
 "L'assignació dels usuaris d'inici de sessió s'eliminarà en actualitzar."
@@ -5309,8 +5274,8 @@ msgid ""
 "the system when you select update."
 msgstr ""
 "Reviseu les actualitzacions que hagueu fet abans de posar-les a disposició "
-"del sistema.  Per a restablir un element, desmarqueu la casella de selecció."
-"  En actualitzar s'actualitzaran tots els elements que estiguin marcats."
+"del sistema.  Per a restablir un element, desmarqueu la casella de selecció. "
+" En actualitzar s'actualitzaran tots els elements que estiguin marcats."
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5132
 msgid "Action"
@@ -5344,11 +5309,9 @@ msgid "SELinux User Name"
 msgstr "Nom d'usuari de SELinux"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5489
-msgid ""
-"Enter MLS/MCS Range for this SELinux User.\n"
+msgid "Enter MLS/MCS Range for this SELinux User.\n"
 "s0-s0:c1023"
-msgstr ""
-"Introduïu l'interval MLS/MCS per a aquest usuari SELinux.\n"
+msgstr "Introduïu l'interval MLS/MCS per a aquest usuari SELinux.\n"
 "s0-s0:c1023"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5520
@@ -5622,8 +5585,8 @@ msgstr "escolta per connexions d'entrada"
 #: ../sepolicy/sepolicy/gui.py:1367
 #, python-format
 msgid ""
-"Add new port definition to which the '%(APP)s' domain is allowed to "
-"%(PERM)s."
+"Add new port definition to which the '%(APP)s' domain is allowed to %(PERM)s."
+""
 msgstr ""
 "Afegeix una nova definició de port en la que el domini '%(APP)s' hi pot "
 "%(PERM)s."
@@ -5631,8 +5594,8 @@ msgstr ""
 #: ../sepolicy/sepolicy/gui.py:1368
 #, python-format
 msgid ""
-"Delete modified port definitions to which the '%(APP)s' domain is allowed to"
-" %(PERM)s."
+"Delete modified port definitions to which the '%(APP)s' domain is allowed to "
+"%(PERM)s."
 msgstr ""
 "Elimina les definicions dels ports a les que el domini '%(APP)s' hi pot "
 "%(PERM)s."
@@ -5640,8 +5603,8 @@ msgstr ""
 #: ../sepolicy/sepolicy/gui.py:1369
 #, python-format
 msgid ""
-"Modify port definitions to which the '%(APP)s' domain is allowed to "
-"%(PERM)s."
+"Modify port definitions to which the '%(APP)s' domain is allowed to %(PERM)s."
+""
 msgstr ""
 "Modifica les definicions del port a les que el domini '%(APP)s' hi pot "
 "%(PERM)s."
@@ -5707,8 +5670,8 @@ msgstr "Afegeix port de xarxa per %s"
 #: ../sepolicy/sepolicy/gui.py:1469
 #, python-format
 msgid ""
-"Add File Labeling for %s. File labels will be created when update is "
-"applied."
+"Add File Labeling for %s. File labels will be created when update is applied."
+""
 msgstr ""
 "Afegeix etiquetatge de fitxer per a %s. Les etiquetes de fitxer es crearan "
 "en actualitzar."
@@ -5743,8 +5706,8 @@ msgstr "Afegeix usuaris de SELinux"
 
 #: ../sepolicy/sepolicy/gui.py:1494
 msgid ""
-"Add File Equivalency Mapping. Mapping will be created when update is "
-"applied."
+"Add File Equivalency Mapping. Mapping will be created when update is applied."
+""
 msgstr ""
 "Afegeix assignació d'equivalència de fitxer. L'assignació es crearà en "
 "actualitzar."
@@ -5764,8 +5727,8 @@ msgstr ""
 
 #: ../sepolicy/sepolicy/gui.py:1578
 msgid ""
-"Modify SELinux User Role. SELinux user roles will be modified when update is"
-" applied."
+"Modify SELinux User Role. SELinux user roles will be modified when update is "
+"applied."
 msgstr ""
 "Modifica el rol d'usuari de SELinux. Els rols d'usuari de SELinux es "
 "modificaran en actualitzar."
@@ -5995,12 +5958,17 @@ msgstr ""
 #: ../sepolicy/sepolicy/gui.py:2797
 msgid ""
 "You are attempting to close the application without applying your changes.\n"
-"    *    To apply changes you have made during this session, click No and click Update.\n"
-"    *    To leave the application without applying your changes, click Yes.  All changes that you have made during this session will be lost."
+"    *    To apply changes you have made during this session, click No and "
+"click Update.\n"
+"    *    To leave the application without applying your changes, click Yes.  "
+"All changes that you have made during this session will be lost."
 msgstr ""
 "Si esteu intentant de tancar l'aplicació sense aplicar els vostres canvis.\n"
-"    *    Per aplicar els canvis que heu fet en el transcurs d'aquesta sessió, feu clic a No i feu clic a Actualitza.\n"
-"    *    Per sortir de l'aplicació sense l'aplicació dels vostres canvis, feu clic a Si.  Es perdran tots els canvis que hagueu fet en el transcurs d'aquesta sessió."
+"    *    Per aplicar els canvis que heu fet en el transcurs d'aquesta "
+"sessió, feu clic a No i feu clic a Actualitza.\n"
+"    *    Per sortir de l'aplicació sense l'aplicació dels vostres canvis, "
+"feu clic a Si.  Es perdran tots els canvis que hagueu fet en el transcurs "
+"d'aquesta sessió."
 
 #: ../sepolicy/sepolicy/gui.py:2797
 msgid "Loss of data Dialog"

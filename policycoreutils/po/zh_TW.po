@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Chester Cheng <ccheng@brisbane.redhat.com>, 2006
 # Chester Cheng <ccheng@redhat.com>, 2006,2012-2013
@@ -13,12 +13,13 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-01-18 08:37+0100\n"
-"PO-Revision-Date: 2016-03-30 12:49-0400\n"
-"Last-Translator: Chester Cheng <snowlet.cheng@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/fedora/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-03-30 12:49-0400\n"
+"Last-Translator: Chester Cheng <snowlet.cheng@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/fedora/"
+"language/zh_TW/)\n"
 "Language: zh-TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Zanata 3.8.4\n"
@@ -196,12 +197,12 @@ msgid "Could not set module key name"
 msgstr "無法設定模組金鑰名稱"
 
 #: ../semanage/seobject/__init__.py:383
-#, fuzzy, python-format
+#, python-format
 msgid "Could not enable module %s"
 msgstr "無法啟用 %s 模組"
 
 #: ../semanage/seobject/__init__.py:385
-#, fuzzy, python-format
+#, python-format
 msgid "Could not disable module %s"
 msgstr "無法停用 %s 模組"
 
@@ -973,19 +974,15 @@ msgid "type"
 msgstr "類型"
 
 #: ../semanage/seobject/__init__.py:2086
-msgid ""
-"\n"
+msgid "\n"
 "SELinux Distribution fcontext Equivalence \n"
-msgstr ""
-"\n"
+msgstr "\n"
 "SELinux Distribution fcontext Equivalence \n"
 
 #: ../semanage/seobject/__init__.py:2091
-msgid ""
-"\n"
+msgid "\n"
 "SELinux Local fcontext Equivalence \n"
-msgstr ""
-"\n"
+msgstr "\n"
 "SELinux Local fcontext Equivalence \n"
 
 #: ../semanage/seobject/__init__.py:2127 ../semanage/seobject/__init__.py:2178
@@ -1448,27 +1445,21 @@ msgid "File Labeling"
 msgstr "檔案標籤"
 
 #: ../gui/fcontextPage.py:73
-msgid ""
-"File\n"
+msgid "File\n"
 "Specification"
-msgstr ""
-"檔案\n"
+msgstr "檔案\n"
 "規格"
 
 #: ../gui/fcontextPage.py:80
-msgid ""
-"Selinux\n"
+msgid "Selinux\n"
 "File Type"
-msgstr ""
-"Selinux\n"
+msgstr "Selinux\n"
 "檔案類型"
 
 #: ../gui/fcontextPage.py:87
-msgid ""
-"File\n"
+msgid "File\n"
 "Type"
-msgstr ""
-"檔案\n"
+msgstr "檔案\n"
 "類型"
 
 #: ../gui/loginsPage.py:45 ../gui/system-config-selinux.glade:2098
@@ -1476,27 +1467,21 @@ msgid "User Mapping"
 msgstr "使用者對映"
 
 #: ../gui/loginsPage.py:49
-msgid ""
-"Login\n"
+msgid "Login\n"
 "Name"
-msgstr ""
-"登錄\n"
+msgstr "登錄\n"
 "名稱"
 
 #: ../gui/loginsPage.py:53 ../gui/usersPage.py:47
-msgid ""
-"SELinux\n"
+msgid "SELinux\n"
 "User"
-msgstr ""
-"SELinux\n"
+msgstr "SELinux\n"
 "使用者"
 
 #: ../gui/loginsPage.py:56 ../gui/usersPage.py:52
-msgid ""
-"MLS/\n"
+msgid "MLS/\n"
 "MCS Range"
-msgstr ""
-"MLS/\n"
+msgstr "MLS/\n"
 "MCS 範圍"
 
 #: ../gui/loginsPage.py:130
@@ -1654,8 +1639,8 @@ msgstr "管理使用者角色"
 
 #: ../gui/polgen.glade:550
 msgid ""
-"User with full networking, no setuid applications without transition, no su,"
-" can sudo to Root Administration Roles"
+"User with full networking, no setuid applications without transition, no su, "
+"can sudo to Root Administration Roles"
 msgstr "使用者擁有完整網路、沒有無轉換的 setuid、無 su，可 sudo 至 Root 管理角色"
 
 #: ../gui/polgen.glade:592
@@ -1668,8 +1653,8 @@ msgstr "Root 管理使用者角色"
 
 #: ../gui/polgen.glade:627
 msgid ""
-"Select Root Administrator User Role, if this user will be used to administer"
-" the machine while running as root.  This user will not be able to login to "
+"Select Root Administrator User Role, if this user will be used to administer "
+"the machine while running as root.  This user will not be able to login to "
 "the system directly."
 msgstr "若使用者將會以 root 身份管理機器，請選擇 Root 管理使用者角色。 該使用者將無法直接登入系統。"
 
@@ -1728,11 +1713,9 @@ msgid "Select applications domains that %s will transition to."
 msgstr "選擇 %s 將會轉換至的應用程式區域。"
 
 #: ../gui/polgen.glade:983
-msgid ""
-"transition \n"
+msgid "transition \n"
 "role tab"
-msgstr ""
-"翻譯\n"
+msgstr "翻譯\n"
 "角色分頁"
 
 #: ../gui/polgen.glade:1001
@@ -1805,11 +1788,9 @@ msgid "<b>UDP Ports</b>"
 msgstr "<b>UDP 連接埠</b>"
 
 #: ../gui/polgen.glade:1519
-msgid ""
-"Network\n"
+msgid "Network\n"
 "Bind tab"
-msgstr ""
-"網路\n"
+msgstr "網路\n"
 "綁定分頁"
 
 #: ../gui/polgen.glade:1537
@@ -1941,11 +1922,9 @@ msgstr "選擇欲在其中產生政策檔案的目錄"
 
 #: ../gui/polgengui.py:653
 #, python-format
-msgid ""
-"Type %s_t already defined in current policy.\n"
+msgid "Type %s_t already defined in current policy.\n"
 "Do you want to continue?"
-msgstr ""
-"類型 %s_t 已定義於目前的政策中。\n"
+msgstr "類型 %s_t 已定義於目前的政策中。\n"
 "您是否希望繼續？"
 
 #: ../gui/polgengui.py:653 ../gui/polgengui.py:657
@@ -1953,12 +1932,10 @@ msgid "Verify Name"
 msgstr "驗證名稱"
 
 #: ../gui/polgengui.py:657
-#, fuzzy, python-format
-msgid ""
-"Module %s already loaded in current policy.\n"
+#, python-format
+msgid "Module %s already loaded in current policy.\n"
 "Do you want to continue?"
-msgstr ""
-"模組 %s 已載入目前的政策中。\n"
+msgstr "模組 %s 已載入目前的政策中。\n"
 "您是否希望繼續？"
 
 #: ../gui/polgengui.py:703
@@ -1979,11 +1956,9 @@ msgid "Network Port"
 msgstr "網路連接埠"
 
 #: ../gui/portsPage.py:82
-msgid ""
-"SELinux Port\n"
+msgid "SELinux Port\n"
 "Type"
-msgstr ""
-"SELinux 連接埠\n"
+msgstr "SELinux 連接埠\n"
 "類型"
 
 #: ../gui/portsPage.py:88 ../gui/system-config-selinux.glade:363
@@ -1995,11 +1970,9 @@ msgid "Protocol"
 msgstr "通訊協定"
 
 #: ../gui/portsPage.py:93 ../gui/system-config-selinux.glade:479
-msgid ""
-"MLS/MCS\n"
+msgid "MLS/MCS\n"
 "Level"
-msgstr ""
-"MLS/MCS\n"
+msgstr "MLS/MCS\n"
 "等級"
 
 #: ../gui/portsPage.py:98 ../sepolicy/sepolicy/sepolicy.glade:2639
@@ -2062,8 +2035,7 @@ msgid ""
 "Changing the policy type will cause a relabel of the entire file system on "
 "the next boot. Relabeling takes a long time depending on the size of the "
 "file system.  Do you wish to continue?"
-msgstr ""
-"變更政策類型會在下次開機時，重新標記整個檔案系統。根據檔案系統的大小，重新標記會花上不少時間。\n"
+msgstr "變更政策類型會在下次開機時，重新標記整個檔案系統。根據檔案系統的大小，重新標記會花上不少時間。\n"
 "確定要繼續？"
 
 #: ../gui/statusPage.py:143
@@ -2072,8 +2044,8 @@ msgid ""
 "you later decide to turn SELinux back on, the system will be required to "
 "relabel.  If you just want to see if SELinux is causing a problem on your "
 "system, you can go to permissive mode which will only log errors and not "
-"enforce SELinux policy.  Permissive mode does not require a reboot    Do you"
-" wish to continue?"
+"enforce SELinux policy.  Permissive mode does not require a reboot    Do you "
+"wish to continue?"
 msgstr ""
 "停用 SELinux 後需要重新開機。\n"
 "不建議這麼做。\n"
@@ -2087,8 +2059,7 @@ msgid ""
 "Changing to SELinux enabled will cause a relabel of the entire file system "
 "on the next boot. Relabeling takes a long time depending on the size of the "
 "file system.  Do you wish to continue?"
-msgstr ""
-"啟用 SELinux 會在下次開機時，重新標記整個檔案系統。根據檔案系統的大小，重新標記會花上不少時間。\n"
+msgstr "啟用 SELinux 會在下次開機時，重新標記整個檔案系統。根據檔案系統的大小，重新標記會花上不少時間。\n"
 "確定要繼續？"
 
 #: ../gui/system-config-selinux.glade:11
@@ -2185,12 +2156,10 @@ msgid "System Default Enforcing Mode"
 msgstr "系統的預設使用模式"
 
 #: ../gui/system-config-selinux.glade:1354
-msgid ""
-"Disabled\n"
+msgid "Disabled\n"
 "Permissive\n"
 "Enforcing\n"
-msgstr ""
-"停用\n"
+msgstr "停用\n"
 "寬容\n"
 "強制\n"
 
@@ -2331,8 +2300,8 @@ msgstr "移除可載入政策模組"
 
 #: ../gui/system-config-selinux.glade:2661
 msgid ""
-"Enable/Disable additional audit rules, that are normally not reported in the"
-" log files."
+"Enable/Disable additional audit rules, that are normally not reported in the "
+"log files."
 msgstr "啟用/停用額外的稽核規則，這些規則通常不會回報在日誌檔中。"
 
 #: ../gui/system-config-selinux.glade:2781
@@ -2373,8 +2342,8 @@ msgstr "決定 ABRT 是否允許在 abrt_handle_event_t 網域中執行，以處
 
 #: booleans.py:3
 msgid ""
-"Determine whether abrt-handle-upload can modify public files used for public"
-" file transfer services in /var/spool/abrt-upload/."
+"Determine whether abrt-handle-upload can modify public files used for public "
+"file transfer services in /var/spool/abrt-upload/."
 msgstr ""
 "決定 abrt-handle-upload 是否能在 /var/spool/abrt-upload/ 中修改使用於公共檔案傳輸服務的公用檔案。"
 
@@ -2518,8 +2487,8 @@ msgstr "決定 dbadm 是否能讀取一般使用者檔案。"
 
 #: booleans.py:35
 msgid ""
-"Deny user domains applications to map a memory region as both executable and"
-" writable, this is dangerous and the executable should be reported in "
+"Deny user domains applications to map a memory region as both executable and "
+"writable, this is dangerous and the executable should be reported in "
 "bugzilla"
 msgstr "拒絕使用者區域應用程式對應記憶體區域成為可執行、可寫入，這很危險，同時可執行必須回報至 bugzilla"
 
@@ -2586,8 +2555,8 @@ msgstr "決定 ftpd 是否能讀取和寫入使用者家目錄中的檔案。"
 
 #: booleans.py:50
 msgid ""
-"Determine whether ftpd can modify public files used for public file transfer"
-" services. Directories/Files must be labeled public_content_rw_t."
+"Determine whether ftpd can modify public files used for public file transfer "
+"services. Directories/Files must be labeled public_content_rw_t."
 msgstr "決定 ftpd 是否能修改使用於公共檔案傳輸服務的公用檔案。目錄/檔案必須標記為 public_content_rw_t。"
 
 #: booleans.py:51
@@ -3318,8 +3287,8 @@ msgstr "允許使用者連至本機的 mysql 伺服器"
 
 #: booleans.py:217
 msgid ""
-"Allow confined users the ability to execute the ping and traceroute "
-"commands."
+"Allow confined users the ability to execute the ping and traceroute commands."
+""
 msgstr "允許受限的使用者執行 ping 與 traceroute 指令。"
 
 #: booleans.py:218
@@ -3338,16 +3307,16 @@ msgstr "允許共享使用者的音樂"
 
 #: booleans.py:221
 msgid ""
-"Allow users to run TCP servers (bind to ports and accept connection from the"
-" same domain and outside users)  disabling this forces FTP passive mode and "
+"Allow users to run TCP servers (bind to ports and accept connection from the "
+"same domain and outside users)  disabling this forces FTP passive mode and "
 "may change other protocols."
 msgstr ""
 "允許使用者執行 TCP 伺服器（綁定至連接埠，並存取來自於相同區域和外部使用者的連線），停用此項目將會強制 FTP 被動模式，並且也可能會改變其它協定。"
 
 #: booleans.py:222
 msgid ""
-"Allow users to run UDP servers (bind to ports and accept connection from the"
-" same domain and outside users)  disabling this may break avahi discovering "
+"Allow users to run UDP servers (bind to ports and accept connection from the "
+"same domain and outside users)  disabling this may break avahi discovering "
 "services on the network and other udp related services."
 msgstr ""
 "允許使用者執行 UDP 伺服器（綁定至連接埠，並存取來自於相同區域和外部使用者的連線），停用此項目將會破壞網路上的 avahi 探詢服務與其它 udp "
@@ -3635,8 +3604,8 @@ msgstr "允許圖形化登入程式直接以 sysadm_r:sysadm_t 登入"
 
 #: booleans.py:287
 msgid ""
-"Allow the graphical login program to create files in HOME dirs as "
-"xdm_home_t."
+"Allow the graphical login program to create files in HOME dirs as xdm_home_t."
+""
 msgstr "允許圖形化登錄程式以 xdm_home_t 在 HOME 目錄建立檔案。"
 
 #: booleans.py:288
@@ -4068,11 +4037,9 @@ msgstr "需填入類型欄位"
 
 #: ../sepolicy/sepolicy/generate.py:884
 #, python-format
-msgid ""
-"You need to define a new type which ends with: \n"
+msgid "You need to define a new type which ends with: \n"
 " %s"
-msgstr ""
-"您需要定義新的類型，並且該類型以此作為結尾：\n"
+msgstr "您需要定義新的類型，並且該類型以此作為結尾：\n"
 " %s"
 
 #: ../sepolicy/sepolicy/generate.py:1112
@@ -4155,8 +4122,8 @@ msgstr "取消"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:332
 msgid ""
-"The entry that was entered is incorrect.  Please try again in the "
-"ex:/.../... format."
+"The entry that was entered is incorrect.  Please try again in the ex:/.../..."
+" format."
 msgstr "輸入的項目錯誤。請以 ex:/.../... 格式再試一次。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:358
@@ -4219,8 +4186,8 @@ msgstr "新增檔案"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:638
 msgid ""
-"<operation> File Labeling for <selected domain>. File labels will be created"
-" when update is applied."
+"<operation> File Labeling for <selected domain>. File labels will be created "
+"when update is applied."
 msgstr "<operation> <selected domain> 的檔案標籤。當更新套用之後，檔案標籤便會被建立。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:726
@@ -4272,8 +4239,8 @@ msgstr "路徑"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:880
 msgid ""
-"Specify the path using regular expressions that you would like to modify the"
-" labeling."
+"Specify the path using regular expressions that you would like to modify the "
+"labeling."
 msgstr "使用正規表示式來指定您希望為其修改標籤的路徑。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:902
@@ -4444,8 +4411,7 @@ msgstr "鎖定"
 msgid ""
 "Lockdown the SELinux System.\n"
 "This screen can be used to turn up the SELinux Protections."
-msgstr ""
-"鎖定 SELinux 系統。\n"
+msgstr "鎖定 SELinux 系統。\n"
 "這畫面可以用來顯示 SELinux 防護。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:1933
@@ -4469,8 +4435,7 @@ msgstr "僅顯示錯誤標籤的檔案"
 msgid ""
 "If-Then-Else rules written in policy that can\n"
 "allow alternative access control."
-msgstr ""
-"政策中撰寫的 If-Then-Else 規則\n"
+msgstr "政策中撰寫的 If-Then-Else 規則\n"
 "允許替代性的存取控制。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2132
@@ -4532,11 +4497,9 @@ msgstr "入埠"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2866
 #: ../sepolicy/sepolicy/sepolicy.glade:2956
-msgid ""
-"Boolean\n"
+msgid "Boolean\n"
 "Enabled"
-msgstr ""
-"布林值 \n"
+msgstr "布林值 \n"
 "已啟用"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:2892
@@ -4567,8 +4530,8 @@ msgstr "可執行檔"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3012
 msgid ""
-"Executables which will transition to the 'selected domain', when executing a"
-" selected domains entrypoint."
+"Executables which will transition to the 'selected domain', when executing a "
+"selected domains entrypoint."
 msgstr "在執行所選網域的進入點時，會轉移到「所選網域」的可執行檔。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3013
@@ -4689,8 +4652,8 @@ msgid ""
 "module could cause SELinux to deny access to a domain, that should be "
 "allowed."
 msgstr ""
-"寬容網域是程序標籤，允許程序做其想做之事，而 SELinux 只會紀錄阻絕這件事，但不強制。通常寬容網域意味著實驗性政策，停用模組會導致 SELinux"
-" 阻絕存取網域，但這應該是被允許的。"
+"寬容網域是程序標籤，允許程序做其想做之事，而 SELinux 只會紀錄阻絕這件事，但不強制。通常寬容網域意味著實驗性政策，停用模組會導致 SELinux "
+"阻絕存取網域，但這應該是被允許的。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3929
 msgid "<b>Disable all permissive processes?</b>"
@@ -4698,14 +4661,14 @@ msgstr "<b>停用所有寬容程序？</b>"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3957
 msgid ""
-"A permissive domain is a process label that allows the process to do what it"
-" wants, with SELinux only logging the denials, but not enforcing them.  "
+"A permissive domain is a process label that allows the process to do what it "
+"wants, with SELinux only logging the denials, but not enforcing them.  "
 "Usually permissive domains indicate experimental policy, disabling the "
 "module could cause SELinux to deny access to a domain, that should be "
 "allowed."
 msgstr ""
-"寬容網域是程序標籤，允許程序做其想做之事，而 SELinux 只會紀錄阻絕這件事，但不強制。通常寬容網域意味著實驗性政策，停用模組會導致 SELinux"
-" 阻絕存取網域，但這應該是被允許的。"
+"寬容網域是程序標籤，允許程序做其想做之事，而 SELinux 只會紀錄阻絕這件事，但不強制。通常寬容網域意味著實驗性政策，停用模組會導致 SELinux "
+"阻絕存取網域，但這應該是被允許的。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:3995
 msgid "<b>Deny all processes from ptracing or debugging other processes?</b>"
@@ -4739,8 +4702,8 @@ msgstr "復原"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4214
 msgid ""
-"Revert button will launch a dialog window which allows you to revert changes"
-" within the current transaction."
+"Revert button will launch a dialog window which allows you to revert changes "
+"within the current transaction."
 msgstr "按下復原按鈕會顯示對話視窗，允許使用者復原現有交易裡的變更。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4226 ../sepolicy/sepolicy/gui.py:2424
@@ -4770,8 +4733,8 @@ msgstr "刪除已修改的檔案標籤"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4439
 msgid ""
-"Select file labeling to delete. File labeling will be deleted when update is"
-" applied."
+"Select file labeling to delete. File labeling will be deleted when update is "
+"applied."
 msgstr "選擇要刪除的檔案標籤。套用更新時會刪除檔案標籤。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4486
@@ -4807,8 +4770,8 @@ msgstr "刪除已修改的使用者對應。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4867
 msgid ""
-"Select login user mapping to delete. Login user mapping will be deleted when"
-" update is applied."
+"Select login user mapping to delete. Login user mapping will be deleted when "
+"update is applied."
 msgstr "選擇要刪除的登入使用者對應。套用更新時會刪除登入使用者對應。"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:4902
@@ -4858,11 +4821,9 @@ msgid "SELinux User Name"
 msgstr "SELinux 使用者名稱"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5489
-msgid ""
-"Enter MLS/MCS Range for this SELinux User.\n"
+msgid "Enter MLS/MCS Range for this SELinux User.\n"
 "s0-s0:c1023"
-msgstr ""
-"為此 SELinux 使用者輸入 MLS/MCS 範圍。\n"
+msgstr "為此 SELinux 使用者輸入 MLS/MCS 範圍。\n"
 "s0-s0:c1023"
 
 #: ../sepolicy/sepolicy/sepolicy.glade:5520
@@ -5119,22 +5080,22 @@ msgstr "聆聽向內的連線"
 #: ../sepolicy/sepolicy/gui.py:1367
 #, python-format
 msgid ""
-"Add new port definition to which the '%(APP)s' domain is allowed to "
-"%(PERM)s."
+"Add new port definition to which the '%(APP)s' domain is allowed to %(PERM)s."
+""
 msgstr "新增「%(APP)s」區域允許 %(PERM)s 的連接埠定義。"
 
 #: ../sepolicy/sepolicy/gui.py:1368
 #, python-format
 msgid ""
-"Delete modified port definitions to which the '%(APP)s' domain is allowed to"
-" %(PERM)s."
+"Delete modified port definitions to which the '%(APP)s' domain is allowed to "
+"%(PERM)s."
 msgstr "刪除 「%(APP)s」區域允許 %(PERM)s 的已修改連接埠定義。"
 
 #: ../sepolicy/sepolicy/gui.py:1369
 #, python-format
 msgid ""
-"Modify port definitions to which the '%(APP)s' domain is allowed to "
-"%(PERM)s."
+"Modify port definitions to which the '%(APP)s' domain is allowed to %(PERM)s."
+""
 msgstr "修改 '%(APP)s' 網域允許 %(PERM)s 的連接埠定義。"
 
 #: ../sepolicy/sepolicy/gui.py:1398
@@ -5194,8 +5155,8 @@ msgstr "為 %s 新增網路連接埠"
 #: ../sepolicy/sepolicy/gui.py:1469
 #, python-format
 msgid ""
-"Add File Labeling for %s. File labels will be created when update is "
-"applied."
+"Add File Labeling for %s. File labels will be created when update is applied."
+""
 msgstr "為 %s 新增檔案標籤。套用更新後，會建立新的檔案標籤。"
 
 #: ../sepolicy/sepolicy/gui.py:1470 ../sepolicy/sepolicy/gui.py:1523
@@ -5224,8 +5185,8 @@ msgstr "新增 SELinux 使用者"
 
 #: ../sepolicy/sepolicy/gui.py:1494
 msgid ""
-"Add File Equivalency Mapping. Mapping will be created when update is "
-"applied."
+"Add File Equivalency Mapping. Mapping will be created when update is applied."
+""
 msgstr "新增檔案相等性對映。當更新套用後，對映便會被建立。"
 
 #: ../sepolicy/sepolicy/gui.py:1495
@@ -5241,8 +5202,8 @@ msgstr "為 %s 修改檔案標籤。套用更新後，會建立新的檔案標�
 
 #: ../sepolicy/sepolicy/gui.py:1578
 msgid ""
-"Modify SELinux User Role. SELinux user roles will be modified when update is"
-" applied."
+"Modify SELinux User Role. SELinux user roles will be modified when update is "
+"applied."
 msgstr "修改 SELinux 使用者角色。套用更新後會修改 SELinux 使用者角色。"
 
 #: ../sepolicy/sepolicy/gui.py:1579
@@ -5458,8 +5419,10 @@ msgstr ""
 #: ../sepolicy/sepolicy/gui.py:2797
 msgid ""
 "You are attempting to close the application without applying your changes.\n"
-"    *    To apply changes you have made during this session, click No and click Update.\n"
-"    *    To leave the application without applying your changes, click Yes.  All changes that you have made during this session will be lost."
+"    *    To apply changes you have made during this session, click No and "
+"click Update.\n"
+"    *    To leave the application without applying your changes, click Yes.  "
+"All changes that you have made during this session will be lost."
 msgstr ""
 "您正嘗試在未套用變更的情況下，關閉此應用程式。\n"
 "    *    若要套用您在此 session 中所進行的變更，請點選「否」並點選「更新」。\n"
