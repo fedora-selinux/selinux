@@ -3,7 +3,7 @@
 import dbus
 import dbus.service
 import dbus.mainloop.glib
-from gi.repository import GObject, GLib
+import gobject
 import slip.dbus.service
 from slip.dbus import polkit
 import os
