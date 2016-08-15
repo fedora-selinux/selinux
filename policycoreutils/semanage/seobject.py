@@ -30,7 +30,7 @@ import os
 import re
 import sys
 import stat
-import shutil
+import socket
 from semanage import *
 PROGNAME = "policycoreutils"
 import sepolicy
@@ -82,11 +82,6 @@ file_type_str_to_option = {"all files": "a",
                            "socket file": "s",
                            "symbolic link": "l",
                            "named pipe": "p"}
-
-proto_to_audit = {"tcp": 6,
-                  "udp": 17,
-                  "ipv4": 4,
-                  "ipv6": 41}
 
 ftype_to_audit = {"": "any",
                   "b": "block",
@@ -1138,7 +1133,7 @@ class portRecords(semanageRecords):
         semanage_port_key_free(k)
         semanage_port_free(p)
 
-        self.mylog.log_change("resrc=port op=add lport=%s proto=%s tcontext=%s:%s:%s:%s" % (port, proto_to_audit[proto], "system_u", "object_r", type, serange))
+        self.mylog.log_change("resrc=port op=add lport=%s proto=%s tcontext=%s:%s:%s:%s" % (port, socket.getprotobyname(proto), "system_u", "object_r", type, serange))
 
     def add(self, port, proto, serange, type):
         self.begin()
@@ -1181,7 +1176,7 @@ class portRecords(semanageRecords):
         semanage_port_key_free(k)
         semanage_port_free(p)
 
-        self.mylog.log_change("resrc=port op=modify lport=%s proto=%s tcontext=%s:%s:%s:%s" % (port, proto_to_audit[proto], "system_u", "object_r", setype, serange))
+        self.mylog.log_change("resrc=port op=modify lport=%s proto=%s tcontext=%s:%s:%s:%s" % (port, socket.getprotobyname(proto), "system_u", "object_r", setype, serange))
 
     def modify(self, port, proto, serange, setype):
         self.begin()
@@ -1214,7 +1209,7 @@ class portRecords(semanageRecords):
             if low == high:
                 port_str = low
 
-            self.mylog.log_change("resrc=port op=delete lport=%s proto=%s" % (port_str, proto_to_audit[proto_str]))
+            self.mylog.log_change("resrc=port op=delete lport=%s proto=%s" % (port_str, socket.getprotobyname(proto_str)))
 
         self.commit()
 
@@ -1238,7 +1233,7 @@ class portRecords(semanageRecords):
 
         semanage_port_key_free(k)
 
-        self.mylog.log_change("resrc=port op=delete lport=%s proto=%s" % (port, proto_to_audit[proto]))
+        self.mylog.log_change("resrc=port op=delete lport=%s proto=%s" % (port, socket.getprotobyname(proto)))
 
     def delete(self, port, proto):
         self.begin()
@@ -1421,7 +1416,7 @@ class nodeRecords(semanageRecords):
         semanage_node_key_free(k)
         semanage_node_free(node)
 
-        self.mylog.log_change("resrc=node op=add laddr=%s netmask=%s proto=%s tcontext=%s:%s:%s:%s" % (addr, mask, proto_to_audit[self.protocol[proto]], "system_u", "object_r", ctype, serange))
+        self.mylog.log_change("resrc=node op=add laddr=%s netmask=%s proto=%s tcontext=%s:%s:%s:%s" % (addr, mask, socket.getprotobyname(self.protocol[proto]), "system_u", "object_r", ctype, serange))
 
     def add(self, addr, mask, proto, serange, ctype):
         self.begin()
@@ -1464,7 +1459,7 @@ class nodeRecords(semanageRecords):
         semanage_node_key_free(k)
         semanage_node_free(node)
 
-        self.mylog.log_change("resrc=node op=modify laddr=%s netmask=%s proto=%s tcontext=%s:%s:%s:%s" % (addr, mask, proto_to_audit[self.protocol[proto]], "system_u", "object_r", setype, serange))
+        self.mylog.log_change("resrc=node op=modify laddr=%s netmask=%s proto=%s tcontext=%s:%s:%s:%s" % (addr, mask, socket.getprotobyname(self.protocol[proto]), "system_u", "object_r", setype, serange))
 
     def modify(self, addr, mask, proto, serange, setype):
         self.begin()
@@ -1497,7 +1492,7 @@ class nodeRecords(semanageRecords):
 
         semanage_node_key_free(k)
 
-        self.mylog.log_change("resrc=node op=delete laddr=%s netmask=%s proto=%s" % (addr, mask, proto_to_audit[self.protocol[proto]]))
+        self.mylog.log_change("resrc=node op=delete laddr=%s netmask=%s proto=%s" % (addr, mask, socket.getprotobyname(self.protocol[proto])))
 
     def delete(self, addr, mask, proto):
         self.begin()
