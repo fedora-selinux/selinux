@@ -1,3 +1,6 @@
+	* semanage: Correct fcontext auditing, from Miroslav Vadkerti.
+	* semanage: Default serange to "s0" for port modify, from Miroslav Vadkerti.
+	* semanage: Use socket.getprotobyname for protocol, from Miroslav Vadkerti.
 	* semanage: fix modify action in node and interface, from Miroslav Vadkerti.
 	* fixfiles: Pass -n to restorecon for fixfiles check, from Petr Lautrbach.
 	* sepolicy: Check get_rpm_nvr_list() return value, from Vit Mojzis.
