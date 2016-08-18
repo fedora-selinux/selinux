@@ -1161,7 +1161,7 @@ class portRecords(semanageRecords):
                                 raise ValueError(_("Requires setype"))
 
                 if setype and setype not in self.valid_types:
-                        raise ValueError(_("Type %s is invalid, must be a port type") % setype)
+                        raise ValueError(_("Type %s is invalid, must be a file or device type") % setype)
 
                 (k, proto_d, low, high) = self.__genkey(port, proto)
 
