@@ -1,3 +1,4 @@
+	* Correct error path to always try text, from William Roberts.
 	* Clean up process_file(), from William Roberts.
 	* Handle NULL pcre study data, from Stephen Smalley.
 	* Fix in tree compilation of utils that depend on libsepol, from Laurent Bigonville.
