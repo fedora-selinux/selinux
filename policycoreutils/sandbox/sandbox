@@ -108,29 +108,32 @@ def copyfile(file, srcdir, dest):
 
 
 def savefile(new, orig, X_ind):
-       copy = False
-       if(X_ind):
-              from gi.repository import Gtk
-              dlg = Gtk.MessageDialog(None, 0, Gtk.MessageType.INFO,
-                                      Gtk.ButtonsType.YES_NO,
-                                      _("Do you want to save changes to '%s' (Y/N): ") % orig)
-              dlg.set_title(_("Sandbox Message"))
-              dlg.set_position(Gtk.WindowPosition.MOUSE)
-              dlg.show_all()
-              rc = dlg.run()
-              dlg.destroy()
-              if rc == Gtk.ResponseType.YES:
-                     copy = True
-       else:
-              try:
-                  input = raw_input
-              except NameError:
-                  pass
-              ans = input(_("Do you want to save changes to '%s' (y/N): ") % orig)
-              if(re.match(_("[yY]"),ans)):
-                     copy = True
-       if(copy):
-              shutil.copy2(new,orig)
+    copy = False
+    if(X_ind):
+        import gi
+        gi.require_version('Gtk', '3.0')
+        from gi.repository import Gtk
+        dlg = Gtk.MessageDialog(None, 0, Gtk.MessageType.INFO,
+                                Gtk.ButtonsType.YES_NO,
+                                _("Do you want to save changes to '%s' (Y/N): ") % orig)
+        dlg.set_title(_("Sandbox Message"))
+        dlg.set_position(Gtk.WindowPosition.MOUSE)
+        dlg.show_all()
+        rc = dlg.run()
+        dlg.destroy()
+        if rc == Gtk.ResponseType.YES:
+            copy = True
+    else:
+        try:
+            input = raw_input
+        except NameError:
+            pass
+        ans = input(_("Do you want to save changes to '%s' (y/N): ") % orig)
+        if(re.match(_("[yY]"), ans)):
+            copy = True
+    if(copy):
+        shutil.copy2(new, orig)
+
 
 def reserve(level):
     sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
@@ -450,6 +453,8 @@ sandbox [-h] [-l level ] [-[X|M] [-H homedir] [-T tempdir]] [-I includefile ] [-
                     if self.__options.dpi:
                         dpi = self.__options.dpi
                     else:
+                        import gi
+                        gi.require_version('Gtk', '3.0')
                         from gi.repository import Gtk
                         dpi = str(Gtk.Settings.get_default().props.gtk_xft_dpi / 1024)
 
