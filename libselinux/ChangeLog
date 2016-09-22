@@ -1,3 +1,4 @@
+	* Add openrc_contexts functions, from Jason Zaman.
 	* Fix redefinition of XATTR_NAME_SELINUX, from William Roberts.
 	* Correct error path to always try text, from William Roberts.
 	* Clean up process_file(), from William Roberts.
