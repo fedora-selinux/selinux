@@ -1,3 +1,4 @@
+	* sandbox: Use dbus-run-session instead of dbus-launch when available, from Laurent Bigonville.
 	* hll/pp: Change warning for module name not matching filename to match new behavior, from Petr Lautrbach.
 	* Remove LDFLAGS from CFLAGS, from Nicolas Iooss.
 	* sandbox: create a new session for sandboxed processes, from Petr Lautrbach.
