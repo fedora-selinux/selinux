@@ -546,7 +546,15 @@ class loginRecords(semanageRecords):
                         else:
                             serange = RANGE
 
-                (rc, k) = semanage_seuser_key_create(self.sh, name)
+                (rc, u) = semanage_seuser_create(self.sh)
+                if rc < 0:
+                       raise ValueError(_("Could not create login mapping for %s") % name)
+
+                rc = semanage_seuser_set_name(self.sh, u, name)
+                if rc < 0:
+                       raise ValueError(_("Could not set name for %s") % name)
+
+                (rc, k) = semanage_seuser_key_extract(self.sh, u)
                 if rc < 0:
                         raise ValueError(_("Could not create a key for %s") % name)
 
@@ -555,6 +563,7 @@ class loginRecords(semanageRecords):
                         raise ValueError(_("Could not check if login mapping for %s is defined") % name)
                 if exists:
                        semanage_seuser_key_free(k)
+                       semanage_seuser_free(u)
                        return self.__modify(name, sename, serange)
 
                 if name[0] == '%':
@@ -567,14 +576,6 @@ class loginRecords(semanageRecords):
                               pwd.getpwnam(name)
                        except:
                               raise ValueError(_("Linux User %s does not exist") % name)
-
-                (rc, u) = semanage_seuser_create(self.sh)
-                if rc < 0:
-                       raise ValueError(_("Could not create login mapping for %s") % name)
-
-                rc = semanage_seuser_set_name(self.sh, u, name)
-                if rc < 0:
-                       raise ValueError(_("Could not set name for %s") % name)
 
                 if serange:
                        rc = semanage_seuser_set_mlsrange(self.sh, u, serange)
@@ -620,7 +621,15 @@ class loginRecords(semanageRecords):
                 else:
                         self.serange = RANGE
 
-                (rc, k) = semanage_seuser_key_create(self.sh, name)
+                (rc, tmp_u) = semanage_seuser_create(self.sh)
+                if rc < 0:
+                       raise ValueError(_("Could not create login mapping for %s") % name)
+
+                rc = semanage_seuser_set_name(self.sh, tmp_u, name)
+                if rc < 0:
+                       raise ValueError(_("Could not set name for %s") % name)
+
+                (rc, k) = semanage_seuser_key_extract(self.sh, tmp_u)
                 if rc < 0:
                        raise ValueError(_("Could not create a key for %s") % name)
 
@@ -650,6 +659,7 @@ class loginRecords(semanageRecords):
                         raise ValueError(_("Could not modify login mapping for %s") % name)
 
                 semanage_seuser_key_free(k)
+                semanage_seuser_free(tmp_u)
                 semanage_seuser_free(u)
                 self.mylog.log("login", name, sename=self.sename, serange=self.serange, serole=",".join(serole), oldserole=",".join(oldserole), oldsename=self.oldsename, oldserange=self.oldserange)
 
@@ -667,7 +677,15 @@ class loginRecords(semanageRecords):
                 userrec = seluserRecords()
                 RANGE, (rc, oldserole) = userrec.get(self.oldsename)
 
-                (rc, k) = semanage_seuser_key_create(self.sh, name)
+                (rc, u) = semanage_seuser_create(self.sh)
+                if rc < 0:
+                       raise ValueError(_("Could not create login mapping for %s") % name)
+
+                rc = semanage_seuser_set_name(self.sh, u, name)
+                if rc < 0:
+                       raise ValueError(_("Could not set name for %s") % name)
+
+                (rc, k) = semanage_seuser_key_extract(self.sh, u)
                 if rc < 0:
                         raise ValueError(_("Could not create a key for %s") % name)
 
@@ -688,6 +706,7 @@ class loginRecords(semanageRecords):
                         raise ValueError(_("Could not delete login mapping for %s") % name)
 
                 semanage_seuser_key_free(k)
+                semanage_seuser_free(u)
 
                 rec, self.sename, self.serange = selinux.getseuserbyname("__default__")
                 RANGE, (rc, serole) = userrec.get(self.sename)
@@ -789,7 +808,15 @@ class seluserRecords(semanageRecords):
                 semanageRecords.__init__(self, store)
 
         def get(self, name):
-                (rc, k) = semanage_user_key_create(self.sh, name)
+                (rc, tmp_u) = semanage_user_create(self.sh)
+                if rc < 0:
+                       raise ValueError(_("Could not create login mapping for %s") % name)
+
+                rc = semanage_user_set_name(self.sh, tmp_u, name)
+                if rc < 0:
+                       raise ValueError(_("Could not set name for %s") % name)
+
+                (rc, k) = semanage_user_key_extract(self.sh, tmp_u)
                 if rc < 0:
                        raise ValueError(_("Could not create a key for %s") % name)
                 (rc, exists) = semanage_user_exists(self.sh, k)
@@ -801,6 +828,7 @@ class seluserRecords(semanageRecords):
                 serange = semanage_user_get_mlsrange(u)
                 serole = semanage_user_get_roles(self.sh, u)
                 semanage_user_key_free(k)
+                semanage_user_free(tmp_u)
                 semanage_user_free(u)
                 return serange, serole
 
@@ -819,7 +847,15 @@ class seluserRecords(semanageRecords):
                 if len(roles) < 1:
                        raise ValueError(_("You must add at least one role for %s") % name)
 
-                (rc, k) = semanage_user_key_create(self.sh, name)
+                (rc, u) = semanage_user_create(self.sh)
+                if rc < 0:
+                       raise ValueError(_("Could not create login mapping for %s") % name)
+
+                rc = semanage_user_set_name(self.sh, u, name)
+                if rc < 0:
+                       raise ValueError(_("Could not set name for %s") % name)
+
+                (rc, k) = semanage_user_key_extract(self.sh, u)
                 if rc < 0:
                        raise ValueError(_("Could not create a key for %s") % name)
 
@@ -828,15 +864,8 @@ class seluserRecords(semanageRecords):
                        raise ValueError(_("Could not check if SELinux user %s is defined") % name)
                 if exists:
                        semanage_user_key_free(k)
+                       semanage_user_free(u)
                        return self.__modify(name, roles, selevel, serange, prefix)
-
-                (rc, u) = semanage_user_create(self.sh)
-                if rc < 0:
-                       raise ValueError(_("Could not create SELinux user for %s") % name)
-
-                rc = semanage_user_set_name(self.sh, u, name)
-                if rc < 0:
-                       raise ValueError(_("Could not set name for %s") % name)
 
                 for r in roles:
                        rc = semanage_user_add_role(self.sh, u, r)
@@ -885,7 +914,15 @@ class seluserRecords(semanageRecords):
                        else:
                               raise ValueError(_("Requires prefix or roles"))
 
-                (rc, k) = semanage_user_key_create(self.sh, name)
+                (rc, tmp_u) = semanage_user_create(self.sh)
+                if rc < 0:
+                       raise ValueError(_("Could not create login mapping for %s") % name)
+
+                rc = semanage_user_set_name(self.sh, tmp_u, name)
+                if rc < 0:
+                       raise ValueError(_("Could not set name for %s") % name)
+
+                (rc, k) = semanage_user_key_extract(self.sh, tmp_u)
                 if rc < 0:
                        raise ValueError(_("Could not create a key for %s") % name)
 
@@ -925,6 +962,7 @@ class seluserRecords(semanageRecords):
                        raise ValueError(_("Could not modify SELinux user %s") % name)
 
                 semanage_user_key_free(k)
+                semanage_user_free(tmp_u)
                 semanage_user_free(u)
 
                 role = ",".join(newroles.split())
@@ -942,7 +980,15 @@ class seluserRecords(semanageRecords):
                         raise error
 
         def __delete(self, name):
-               (rc, k) = semanage_user_key_create(self.sh, name)
+               (rc, tmp_u) = semanage_user_create(self.sh)
+               if rc < 0:
+                      raise ValueError(_("Could not create login mapping for %s") % name)
+
+               rc = semanage_user_set_name(self.sh, tmp_u, name)
+               if rc < 0:
+                      raise ValueError(_("Could not set name for %s") % name)
+
+               (rc, k) = semanage_user_key_extract(self.sh, tmp_u)
                if rc < 0:
                       raise ValueError(_("Could not create a key for %s") % name)
 
@@ -970,6 +1016,7 @@ class seluserRecords(semanageRecords):
                       raise ValueError(_("Could not delete SELinux user %s") % name)
 
                semanage_user_key_free(k)
+               semanage_user_free(tmp_u)
                semanage_user_free(u)
 
                self.mylog.log_remove("seuser", oldsename=name, oldserange=oldserange, oldserole=oldserole)
@@ -2190,7 +2237,14 @@ class booleanRecords(semanageRecords):
         def __mod(self, name, value):
                 name = selinux.selinux_boolean_sub(name)
 
-                (rc, k) = semanage_bool_key_create(self.sh, name)
+                (rc, t_b) = semanage_bool_create(self.sh)
+                if rc < 0:
+                       raise ValueError(_("Could not create login mapping for %s") % name)
+                rc = semanage_bool_set_name(self.sh, t_b, name)
+                if rc < 0:
+                       raise ValueError(_("Could not set name for %s") % name)
+
+                (rc, k) = semanage_bool_key_extract(self.sh, t_b)
                 if rc < 0:
                        raise ValueError(_("Could not create a key for %s") % name)
                 (rc, exists) = semanage_bool_exists(self.sh, k)
@@ -2208,7 +2262,7 @@ class booleanRecords(semanageRecords):
                 else:
                        raise ValueError(_("You must specify one of the following values: %s") % ", ".join(list(self.dict.keys())))
 
-                if self.modify_local and name in self.current_booleans:
+                if self.modify_local and name.encode() in self.current_booleans:
                         rc = semanage_bool_set_active(self.sh, k, b)
                         if rc < 0:
                                 raise ValueError(_("Could not set active value of boolean %s") % name)
@@ -2216,6 +2270,7 @@ class booleanRecords(semanageRecords):
                 if rc < 0:
                        raise ValueError(_("Could not modify boolean %s") % name)
                 semanage_bool_key_free(k)
+                semanage_bool_free(t_b)
                 semanage_bool_free(b)
 
         def modify(self, name, value=None, use_file=False):
@@ -2241,7 +2296,14 @@ class booleanRecords(semanageRecords):
         def __delete(self, name):
                 name = selinux.selinux_boolean_sub(name)
 
-                (rc, k) = semanage_bool_key_create(self.sh, name)
+                (rc, t_b) = semanage_bool_create(self.sh)
+                if rc < 0:
+                       raise ValueError(_("Could not create login mapping for %s") % name)
+                rc = semanage_bool_set_name(self.sh, t_b, name)
+                if rc < 0:
+                       raise ValueError(_("Could not set name for %s") % name)
+
+                (rc, k) = semanage_bool_key_extract(self.sh, t_b)
                 if rc < 0:
                       raise ValueError(_("Could not create a key for %s") % name)
                 (rc, exists) = semanage_bool_exists(self.sh, k)
@@ -2261,6 +2323,7 @@ class booleanRecords(semanageRecords):
                         raise ValueError(_("Could not delete boolean %s") % name)
 
                 semanage_bool_key_free(k)
+                semanage_bool_free(t_b)
 
         def delete(self, name):
                 self.begin()
