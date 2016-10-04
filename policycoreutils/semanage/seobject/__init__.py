@@ -1146,7 +1146,7 @@ class portRecords(semanageRecords):
                 semanage_port_key_free(k)
                 semanage_port_free(p)
 
-		self.mylog.log_change("resrc=port op=add lport=%s proto=%s tcontext=%s:%s:%s:%s" % (port, socket.getprotobyname(proto), "system_u", "object_r", type, serange))
+                self.mylog.log_change("resrc=port op=add lport=%s proto=%s tcontext=%s:%s:%s:%s" % (port, socket.getprotobyname(proto), "system_u", "object_r", type, serange))
 
         def add(self, port, proto, serange, type):
                 self.begin()
