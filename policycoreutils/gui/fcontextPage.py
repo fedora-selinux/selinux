@@ -96,13 +96,6 @@ class fcontextPage(semanagePage):
         self.load()
         self.fcontextEntry = xml.get_widget("fcontextEntry")
         self.fcontextFileTypeCombo = xml.get_widget("fcontextFileTypeCombo")
-        liststore = self.fcontextFileTypeCombo.get_model()
-        for k in seobject.file_types:
-            if len(k) > 0 and  k[0] != '-':
-                it=liststore.append()
-                liststore.set_value(it, 0, k)
-        it = liststore.get_iter_first()
-        self.fcontextFileTypeCombo.set_active_iter(it)
         self.fcontextTypeEntry = xml.get_widget("fcontextTypeEntry")
         self.fcontextMLSEntry = xml.get_widget("fcontextMLSEntry")
 
@@ -176,7 +169,7 @@ class fcontextPage(semanagePage):
         ftype=store.get_value(it, FTYPE_COL)
         self.wait()
         try:
-            subprocess.check_output("semanage fcontext -d -f '%s' '%s'" % (ftype, fspec),
+            subprocess.check_output("semanage fcontext -d -f '%s' '%s'" % (seobject.file_type_str_to_option[ftype], fspec),
                                     stderr=subprocess.STDOUT,
                                     shell=True)
             store.remove(it)
@@ -186,15 +179,15 @@ class fcontextPage(semanagePage):
         self.ready()
 
     def add(self):
-        ftype=["", "--", "-d", "-c", "-b", "-s", "-l", "-p" ]
         fspec=self.fcontextEntry.get_text().strip()
         setype=self.fcontextTypeEntry.get_text().strip()
         mls=self.fcontextMLSEntry.get_text().strip()
         list_model=self.fcontextFileTypeCombo.get_model()
-        active = self.fcontextFileTypeCombo.get_active()
+        it = self.fcontextFileTypeCombo.get_active_iter()
+        ftype=list_model.get_value(it,0)
         self.wait()
         try:
-            subprocess.check_output("semanage fcontext -a -t %s -r %s -f '%s' '%s'" % (setype, mls, ftype[active], fspec),
+            subprocess.check_output("semanage fcontext -a -t %s -r %s -f '%s' '%s'" % (setype, mls, seobject.file_type_str_to_option[ftype], fspec),
                                     stderr=subprocess.STDOUT,
                                     shell=True)
             self.ready()
@@ -216,7 +209,7 @@ class fcontextPage(semanagePage):
         ftype=list_model.get_value(it,0)
         self.wait()
         try:
-            subprocess.check_output("semanage fcontext -m -t %s -r %s -f '%s' '%s'" % (setype, mls, ftype, fspec),
+            subprocess.check_output("semanage fcontext -m -t %s -r %s -f '%s' '%s'" % (setype, mls, seobject.file_type_str_to_option[ftype], fspec),
                                     stderr=subprocess.STDOUT,
                                     shell=True)
             self.ready()
