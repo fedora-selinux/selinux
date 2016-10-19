@@ -163,7 +163,7 @@ class semanagePage:
 
         while self.dialog.run() == gtk.RESPONSE_OK:
             try:
-                if not self.add():
+                if self.add() is False:
                     continue
                 break;
             except ValueError as e:
@@ -176,7 +176,7 @@ class semanagePage:
         self.dialog.set_position(gtk.WIN_POS_MOUSE)
         while self.dialog.run() == gtk.RESPONSE_OK:
             try:
-                if not self.modify():
+                if self.modify() is False:
                     continue
                 break;
             except ValueError as e:
