@@ -363,6 +363,35 @@ static int semanage_direct_begintrans(semanage_handle_t * sh)
 
 /********************* utility functions *********************/
 
+/* Takes a module stored in 'module_data' and parses its headers.
+ * Sets reference variables 'module_name' to module's name, and
+ * 'version' to module's version.  The caller is responsible for
+ * free()ing 'module_name', and 'version'; they will be
+ * set to NULL upon entering this function.  Returns 0 on success, -1
+ * if out of memory.
+ */
+static int parse_module_headers(semanage_handle_t * sh, char *module_data,
+                               size_t data_len, char **module_name,
+                               char **version)
+{
+       struct sepol_policy_file *pf;
+       int file_type;
+       *module_name = *version = NULL;
+
+       if (sepol_policy_file_create(&pf)) {
+               ERR(sh, "Out of memory!");
+               return -1;
+       }
+       sepol_policy_file_set_mem(pf, module_data, data_len);
+       sepol_policy_file_set_handle(pf, sh->sepolh);
+       if (module_data != NULL && data_len > 0)
+           sepol_module_package_info(pf, &file_type, module_name,
+                                     version);
+       sepol_policy_file_free(pf);
+
+       return 0;
+}
+
 #include <stdlib.h>
 #include <bzlib.h>
 #include <string.h>
@@ -2075,6 +2104,31 @@ static int semanage_direct_get_module_info(semanage_handle_t *sh,
 	free(tmp);
 	tmp = NULL;
 
+	if (strcmp((*modinfo)->lang_ext, "pp") == 0) {
+		/* try to get a module_version from hll file */
+		int data_len, compressed = 0;
+		char *data = NULL;
+		char fhll[PATH_MAX];
+		ret = semanage_module_get_path(sh,
+					       *modinfo,
+					       SEMANAGE_MODULE_PATH_HLL,
+					       fhll,
+					       sizeof(fhll));
+		if (ret == 0) {
+			if ((data_len = map_file(sh, fhll, &data, &compressed)) > 0) {
+
+				char *module_name = NULL;
+				char *version = NULL;
+				ret = parse_module_headers(sh, data, data_len, &module_name, &version);
+				if (ret == 0 && version != NULL) {
+					ret = semanage_module_info_set_version(sh, *modinfo, version);
+				}
+				free(module_name);
+				free(version);
+				munmap(data, data_len);
+			}
+		}
+	}
 	if (fclose(fp) != 0) {
 		ERR(sh,
 		    "Unable to close %s module lang ext file.",

@@ -291,6 +291,7 @@ int semanage_module_info_destroy(semanage_handle_t *sh,
 	}
 
 	free(modinfo->name);
+	free(modinfo->module_version);
 	free(modinfo->lang_ext);
 
 	return semanage_module_info_init(sh, modinfo);
@@ -306,6 +307,7 @@ int semanage_module_info_init(semanage_handle_t *sh,
 
 	modinfo->priority = 0;
 	modinfo->name = NULL;
+	modinfo->module_version = NULL;
 	modinfo->lang_ext = NULL;
 	modinfo->enabled = -1;
 
@@ -339,6 +341,14 @@ int semanage_module_info_clone(semanage_handle_t *sh,
 	if (ret != 0) {
 		status = -1;
 		goto cleanup;
+	}
+
+	if (source->module_version != NULL) {
+		ret = semanage_module_info_set_version(sh, target, source->module_version);
+		if (ret != 0) {
+			status = -1;
+			goto cleanup;
+		}
 	}
 
 	ret = semanage_module_info_set_lang_ext(sh, target, source->lang_ext);
@@ -387,6 +397,21 @@ int semanage_module_info_get_name(semanage_handle_t *sh,
 }
 
 hidden_def(semanage_module_info_get_name)
+
+int semanage_module_info_get_version(semanage_handle_t *sh,
+				  semanage_module_info_t *modinfo,
+				  const char **version)
+{
+	assert(sh);
+	assert(modinfo);
+	assert(version);
+
+	*version = modinfo->module_version;
+
+	return 0;
+}
+
+hidden_def(semanage_module_info_get_version)
 
 int semanage_module_info_get_lang_ext(semanage_handle_t *sh,
 				      semanage_module_info_t *modinfo,
@@ -469,6 +494,37 @@ int semanage_module_info_set_name(semanage_handle_t *sh,
 }
 
 hidden_def(semanage_module_info_set_name)
+
+int semanage_module_info_set_version(semanage_handle_t *sh,
+                                    semanage_module_info_t *modinfo,
+                                    const char *version)
+{
+       assert(sh);
+       assert(modinfo);
+       assert(version);
+
+       char * tmp;
+
+       /* Verify version */
+
+       if (semanage_module_validate_version(version) < 0) {
+               errno = 0;
+               return -1;
+       }
+
+       tmp = strdup(version);
+       if (!tmp) {
+               return -1;
+       }
+
+       free(modinfo->module_version);
+       modinfo->module_version = tmp;
+
+       return 0;
+}
+
+hidden_def(semanage_module_info_set_version)
+
 
 int semanage_module_info_set_lang_ext(semanage_handle_t *sh,
 				      semanage_module_info_t *modinfo,
@@ -1063,6 +1119,49 @@ int semanage_module_validate_lang_ext(const char *ext)
 exit:
 	return status;
 }
+
+/* Validate version.
+ *
+ * A version must match the following regular expression to be
+ * considered valid:
+ *
+ * ^[:print:]+$
+ *
+ * returns 0 if version is valid, returns -1 otherwise.
+ */
+int semanage_module_validate_version(const char *version)
+{
+	int status = 0;
+
+	if (version == NULL) {
+		status = -1;
+		goto exit;
+	}
+
+	/* must start with a printable char */
+	if (!isprint(*version)) {
+		status = -1;
+		goto exit;
+	}
+
+	/* everything else must be printable */
+#define ISVALIDCHAR(c) (isprint(c))
+
+	for (version++; *version; version++) {
+		if (ISVALIDCHAR(*version)) {
+			continue;
+		}
+		status = -1;
+		goto exit;
+	}
+
+#undef ISVALIDCHAR
+
+exit:
+	return status;
+}
+
+
 
 int semanage_module_get_module_info(semanage_handle_t *sh,
 				    const semanage_module_key_t *modkey,

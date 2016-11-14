@@ -44,6 +44,7 @@ struct semanage_module_info {
 	uint16_t priority;	/* key, module priority */
 	char *name;		/* key, module name */
 	char *lang_ext;		/* module source language extension */
+	char *module_version;	/* module version, applies only for pp modules  */
 	int enabled;		/* module enabled/disabled status */
 };
 

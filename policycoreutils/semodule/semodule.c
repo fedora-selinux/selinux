@@ -560,6 +560,7 @@ cleanup_extract:
 					}
 
 					const char *name = NULL;
+					const char *version = NULL;
 
 					for (j = 0; j < modinfos_len; j++) {
 						m = semanage_module_list_nth(modinfos, j);
@@ -567,10 +568,12 @@ cleanup_extract:
 						result = semanage_module_info_get_name(sh, m, &name);
 						if (result != 0) goto cleanup_list;
 
-						printf("%s\n", name);
+						result = semanage_module_info_get_version(sh, m, &version);
+						if (result != 0) goto cleanup_list;
+
+						printf("%s\t%s\n", name, version);
 					}
-				}
-				else if (strcmp(mode_arg, "full") == 0) {
+				} else if (strcmp(mode_arg, "full") == 0) {
 					/* get the modules */
 					result = semanage_module_list_all(sh,
 									  &modinfos,

@@ -39,7 +39,7 @@ int semanage_module_install_file(semanage_handle_t *,
 int semanage_module_remove(semanage_handle_t *, char *module_name);
 
 /* semanage_module_info is for getting information on installed
-   modules, only name at this time */
+   modules, only name and version at this time */
 typedef struct semanage_module_info semanage_module_info_t;
 
 /* Look up a module using @modkey. The module's raw data is returned as a
@@ -64,6 +64,7 @@ void semanage_module_info_datum_destroy(semanage_module_info_t *);
 semanage_module_info_t *semanage_module_list_nth(semanage_module_info_t * list,
 						 int n);
 const char *semanage_module_get_name(semanage_module_info_t *);
+const char *semanage_module_get_version(semanage_module_info_t *);
 
 /* Module Info */
 
@@ -104,6 +105,14 @@ int semanage_module_info_get_name(semanage_handle_t *sh,
 				  semanage_module_info_t *modinfo,
 				  const char **name);
 
+/* Get @module_version from @modinfo. Caller should not free @module_version.
+ *
+ * Returns 0 on success and -1 on error.
+ */
+int semanage_module_info_get_version(semanage_handle_t *sh,
+				      semanage_module_info_t *modinfo,
+				      const char **version);
+
 /* Get @lang_ext from @modinfo. Caller should not free @lang_ext.
  *
  * Returns 0 on success and -1 on error.
@@ -137,6 +146,14 @@ int semanage_module_info_set_priority(semanage_handle_t *sh,
 int semanage_module_info_set_name(semanage_handle_t *sh,
 				  semanage_module_info_t *modinfo,
 				  const char *name);
+
+/* Set @version in @modinfo.
+ *
+ * Returns 0 on success and -1 on error.
+ */
+int semanage_module_info_set_version(semanage_handle_t *sh,
+				      semanage_module_info_t *modinfo,
+				      const char *version);
 
 /* Set @lang_ext in @modinfo.
  *
