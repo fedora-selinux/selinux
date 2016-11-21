@@ -2114,7 +2114,7 @@ static int semanage_direct_get_module_info(semanage_handle_t *sh,
 					       SEMANAGE_MODULE_PATH_HLL,
 					       fhll,
 					       sizeof(fhll));
-		if (ret == 0) {
+		if (ret == 0 && (access(fhll, R_OK) == 0)) {
 			if ((data_len = map_file(sh, fhll, &data, &compressed)) > 0) {
 
 				char *module_name = NULL;
