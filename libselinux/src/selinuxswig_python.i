@@ -23,7 +23,13 @@ def restorecon(path, recursive=False):
     except OSError:
         path = os.path.realpath(os.path.expanduser(path))
         mode = os.lstat(path)[stat.ST_MODE]
-        status, context = matchpathcon(path, mode)
+        try:
+            status, context = matchpathcon(path, mode)
+        except OSError as e:
+            # matchpathcon returns ENOENT when <<none>> in file context
+            if e.errno != errno.ENOENT:
+                raise
+            return
 
     if status == 0:
         try:
