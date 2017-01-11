@@ -383,7 +383,7 @@ class moduleRecords(semanageRecords):
                if not module:
                    raise ValueError(_("You did not define module name."))
                if not os.path.exists(module):
-                       raise ValueError(_("Module does not exists %s ") % module)
+                       raise ValueError(_("Module does not exist: %s ") % module)
 
                rc = semanage_set_default_priority(self.sh, priority)
                if rc < 0:
@@ -498,7 +498,7 @@ class permissiveRecords(semanageRecords):
                try:
                        import sepolgen.module as module
                except ImportError:
-                       raise ValueError(_("The sepolgen python module is required to setup permissive domains.\nIn some distributions it is included in the policycoreutils-devel patckage.\n# yum install policycoreutils-devel\nOr similar for your distro."))
+                       raise ValueError(_("The sepolgen python module is required to setup permissive domains.\nIn some distributions it is included in the policycoreutils-devel package.\n# yum install policycoreutils-devel\nOr similar for your distro."))
 
                name = "permissive_%s" % setype
                modtxt = "(typepermissive %s)" % setype
@@ -1896,7 +1896,7 @@ class fcontextRecords(semanageRecords):
         def modify_equal(self, target, substitute):
                 self.begin()
                 if target not in list(self.equiv.keys()):
-                       raise ValueError(_("Equivalence class for %s does not exists") % target)
+                       raise ValueError(_("Equivalence class for %s does not exist") % target)
                 self.equiv[target] = substitute
                 self.equal_ind = True
                 self.mylog.log_change("resrc=fcontext op=modify-equal %s %s" % (audit.audit_encode_nv_string("sglob", target, 0), audit.audit_encode_nv_string("tglob", substitute, 0)))
