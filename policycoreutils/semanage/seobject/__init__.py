@@ -1266,8 +1266,6 @@ class portRecords(semanageRecords):
                 for port in self.plist:
                         con = semanage_port_get_con(port)
                         ctype = semanage_context_get_type(con)
-                        if ctype == "reserved_port_t":
-                                continue
                         level = semanage_context_get_mls(con)
                         proto = semanage_port_get_proto(port)
                         proto_str = semanage_port_get_proto_str(proto)
@@ -1288,8 +1286,6 @@ class portRecords(semanageRecords):
                 for port in self.plist:
                         con = semanage_port_get_con(port)
                         ctype = semanage_context_get_type(con)
-                        if ctype == "reserved_port_t":
-                                continue
                         proto = semanage_port_get_proto(port)
                         proto_str = semanage_port_get_proto_str(proto)
                         low = semanage_port_get_low(port)
