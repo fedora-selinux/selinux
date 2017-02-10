@@ -1178,7 +1178,7 @@ Execute the following to see the types that the SELinux user %(type)s can execut
 
 Execute the following to see the types that the SELinux user %(type)s can execute and transition:
 
-.B $ search -A -s %(type)s -c process -p transition
+.B $ sesearch -A -s %(type)s -c process -p transition
 
 """ % {'user': self.domainname, 'type': self.type})
 
