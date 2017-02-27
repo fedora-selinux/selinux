@@ -127,8 +127,24 @@ def gen_domains():
     domains.sort()
     return domains
 
-types = None
 
+exec_types = None
+
+def _gen_exec_types():
+    global exec_types
+    if exec_types is None:
+        exec_types = next(sepolicy.info(sepolicy.ATTRIBUTE, "exec_type"))["types"]
+    return exec_types
+
+entry_types = None
+
+def _gen_entry_types():
+    global entry_types
+    if entry_types is None:
+        entry_types = next(sepolicy.info(sepolicy.ATTRIBUTE, "entry_type"))["types"]
+    return entry_types
+
+types = None
 
 def _gen_types():
     global types
@@ -374,6 +390,8 @@ class ManPage:
         self.all_file_types = sepolicy.get_all_file_types()
         self.role_allows = sepolicy.get_all_role_allows()
         self.types = _gen_types()
+        self.exec_types = _gen_exec_types()
+        self.entry_types = _gen_entry_types()
 
         if self.source_files:
             self.fcpath = self.root + "file_contexts"
@@ -691,7 +709,7 @@ Default Defined Ports:""")
         for f in self.all_file_types:
             if f.startswith(self.domainname):
                 flist.append(f)
-                if not file_type_is_executable(f) or not file_type_is_entrypoint(f):
+                if f not in self.exec_types or f not in self.entry_types:
                     flist_non_exec.append(f)
                 if f in self.fcdict:
                     mpaths = mpaths + self.fcdict[f]["regex"]
