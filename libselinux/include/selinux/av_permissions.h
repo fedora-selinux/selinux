@@ -876,6 +876,8 @@
 #define NSCD__SHMEMHOST                           0x00000080UL
 #define NSCD__GETSERV                             0x00000100UL
 #define NSCD__SHMEMSERV                           0x00000200UL
+#define NSCD__GETNETGRP                           0x00000400UL
+#define NSCD__SHMEMNETGRP                         0x00000800UL
 #define ASSOCIATION__SENDTO                       0x00000001UL
 #define ASSOCIATION__RECVFROM                     0x00000002UL
 #define ASSOCIATION__SETCONTEXT                   0x00000004UL
