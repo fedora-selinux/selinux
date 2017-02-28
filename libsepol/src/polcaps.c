@@ -10,6 +10,7 @@ static const char *polcap_names[] = {
 	"open_perms",			/* POLICYDB_CAPABILITY_OPENPERM */
 	"redhat1",			/* POLICYDB_CAPABILITY_REDHAT1, aka ptrace_child */
 	"always_check_network",		/* POLICYDB_CAPABILITY_ALWAYSNETWORK */
+	"cgroup_seclabel",		/* POLICYDB_CAPABILITY_SECLABEL */
 	NULL
 };
 
