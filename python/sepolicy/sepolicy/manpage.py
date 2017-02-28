@@ -142,6 +142,15 @@ def _gen_entry_types():
         entry_types = next(sepolicy.info(sepolicy.ATTRIBUTE, "entry_type"))["types"]
     return entry_types
 
+mcs_constrained_types = None
+
+def _gen_mcs_constrained_types():
+    global mcs_constrained_types
+    if mcs_constrained_types is None:
+        mcs_constrained_types = next(sepolicy.info(sepolicy.ATTRIBUTE, "mcs_constrained_type"))
+    return mcs_constrained_types
+
+
 types = None
 
 def _gen_types():
@@ -390,6 +399,7 @@ class ManPage:
         self.types = _gen_types()
         self.exec_types = _gen_exec_types()
         self.entry_types = _gen_entry_types()
+        self.mcs_constrained_types = _gen_mcs_constrained_types()
 
         if self.source_files:
             self.fcpath = self.root + "file_contexts"
@@ -944,11 +954,7 @@ All executables with the default executable label, usually stored in /usr/bin an
 %s""" % ", ".join(paths))
 
     def _mcs_types(self):
-        try:
-            mcs_constrained_type = next(sepolicy.info(sepolicy.ATTRIBUTE, "mcs_constrained_type"))
-        except StopIteration:
-            return
-        if self.type not in mcs_constrained_type['types']:
+        if self.type not in self.mcs_constrained_types['types']:
             return
         self.fd.write ("""
 .SH "MCS Constrained"
