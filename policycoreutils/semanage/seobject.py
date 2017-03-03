@@ -385,6 +385,8 @@ class moduleRecords(semanageRecords):
             print("%-25s %-9s %-5s %s" % (t[0], t[2], t[3], disabled))
 
     def add(self, file, priority):
+        if not file:
+            raise ValueError(_("You did not define module."))
         if not os.path.exists(file):
             raise ValueError(_("Module does not exist: %s ") % file)
 
@@ -397,6 +399,8 @@ class moduleRecords(semanageRecords):
             self.commit()
 
     def set_enabled(self, module, enable):
+        if not module:
+            raise ValueError(_("You did not define module name."))
         for m in module.split():
             rc, key = semanage_module_key_create(self.sh)
             if rc < 0:
@@ -415,11 +419,15 @@ class moduleRecords(semanageRecords):
         self.commit()
 
     def modify(self, file):
+        if not file:
+            raise ValueError(_("You did not define module."))
         rc = semanage_module_update_file(self.sh, file)
         if rc >= 0:
             self.commit()
 
     def delete(self, module, priority):
+        if not module:
+            raise ValueError(_("You did not define module name."))
         rc = semanage_set_default_priority(self.sh, priority)
         if rc < 0:
             raise ValueError(_("Invalid priority %d (needs to be between 1 and 999)") % priority)
