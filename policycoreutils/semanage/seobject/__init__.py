@@ -394,6 +394,8 @@ class moduleRecords(semanageRecords):
                       self.commit()
 
         def set_enabled(self, module, enable):
+               if not module:
+                      raise ValueError(_("You did not define module name."))
                for m in module.split():
                       rc, key = semanage_module_key_create(self.sh)
                       if rc < 0:
@@ -412,8 +414,8 @@ class moduleRecords(semanageRecords):
                self.commit()
 
         def modify(self, file):
-               if not module:
-                   raise ValueError(_("You did not define module name."))
+               if not file:
+                   raise ValueError(_("You did not define a file name."))
                rc = semanage_module_upgrade_file(self.sh, file)
                if rc >= 0:
                       self.commit()
