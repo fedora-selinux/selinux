@@ -148,9 +148,6 @@ int semanage_direct_connect(semanage_handle_t * sh)
 		if (semanage_create_store(sh, 1))
 			goto err;
 
-	if (semanage_access_check(sh) < SEMANAGE_CAN_READ)
-		goto err;
-
 	sh->u.direct.translock_file_fd = -1;
 	sh->u.direct.activelock_file_fd = -1;
 
