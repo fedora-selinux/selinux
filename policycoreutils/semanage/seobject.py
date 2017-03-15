@@ -77,7 +77,7 @@ file_type_str_to_option = {"all files": "a",
                            "directory": "d",
                            "character device": "c",
                            "block device": "b",
-                           "socket file": "s",
+                           "socket": "s",
                            "symbolic link": "l",
                            "named pipe": "p"}
 
