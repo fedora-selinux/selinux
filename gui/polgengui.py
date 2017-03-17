@@ -743,7 +743,7 @@ class childWindow:
             if exe == "":
                 self.error(_("You must enter a executable"))
                 return True
-            policy = generate.policy(name, self.get_type())
+            policy = sepolicy.generate.policy(name, self.get_type())
             policy.set_program(exe)
             policy.gen_writeable()
             policy.gen_symbols()
