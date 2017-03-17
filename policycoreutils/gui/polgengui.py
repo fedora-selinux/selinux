@@ -34,7 +34,9 @@ except ValueError as e:
     sys.stderr.write("%s: %s\n" % (e.__class__.__name__, str(e)))
     sys.exit(1)
 
+import sepolicy.generate
 import sepolicy.interface
+
 try:
     from subprocess import getstatusoutput
 except ImportError:
@@ -696,16 +698,16 @@ class childWindow:
 
     def on_in_net_page_next(self, *args):
         try:
-            generate.verify_ports(self.in_tcp_entry.get_text())
-            generate.verify_ports(self.in_udp_entry.get_text())
+            sepolicy.generate.verify_ports(self.in_tcp_entry.get_text())
+            sepolicy.generate.verify_ports(self.in_udp_entry.get_text())
         except ValueError as e:
             self.error(e.message)
             return True
 
     def on_out_net_page_next(self, *args):
         try:
-            generate.verify_ports(self.out_tcp_entry.get_text())
-            generate.verify_ports(self.out_udp_entry.get_text())
+            sepolicy.generate.verify_ports(self.out_tcp_entry.get_text())
+            sepolicy.generate.verify_ports(self.out_udp_entry.get_text())
         except ValueError as e:
             self.error(e.message)
             return True
