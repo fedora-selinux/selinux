@@ -370,10 +370,6 @@ static int semanage_direct_disconnect(semanage_handle_t * sh)
 
 static int semanage_direct_begintrans(semanage_handle_t * sh)
 {
-
-	if (semanage_access_check(sh) != SEMANAGE_CAN_WRITE) {
-		return -1;
-	}
 	if (semanage_get_trans_lock(sh) < 0) {
 		return -1;
 	}
@@ -1542,33 +1538,27 @@ rebuild:
 	}
 
 	path = semanage_path(SEMANAGE_TMP, SEMANAGE_STORE_FC_LOCAL);
-	if (access(path, F_OK) == 0) {
-		retval = semanage_copy_file(semanage_path(SEMANAGE_TMP, SEMANAGE_STORE_FC_LOCAL),
-							semanage_final_path(SEMANAGE_FINAL_TMP, SEMANAGE_FC_LOCAL),
-							sh->conf->file_mode);
-		if (retval < 0) {
-			goto cleanup;
-		}
+	retval = semanage_copy_file(semanage_path(SEMANAGE_TMP, SEMANAGE_STORE_FC_LOCAL),
+						semanage_final_path(SEMANAGE_FINAL_TMP, SEMANAGE_FC_LOCAL),
+						sh->conf->file_mode);
+	if (retval < 0 && errno != ENOENT) {
+		goto cleanup;
 	}
 
 	path = semanage_path(SEMANAGE_TMP, SEMANAGE_STORE_FC);
-	if (access(path, F_OK) == 0) {
-		retval = semanage_copy_file(semanage_path(SEMANAGE_TMP, SEMANAGE_STORE_FC),
-							semanage_final_path(SEMANAGE_FINAL_TMP, SEMANAGE_FC),
-							sh->conf->file_mode);
-		if (retval < 0) {
-			goto cleanup;
-		}
+	retval = semanage_copy_file(semanage_path(SEMANAGE_TMP, SEMANAGE_STORE_FC),
+						semanage_final_path(SEMANAGE_FINAL_TMP, SEMANAGE_FC),
+						sh->conf->file_mode);
+	if (retval < 0 && errno != ENOENT) {
+		goto cleanup;
 	}
 
 	path = semanage_path(SEMANAGE_TMP, SEMANAGE_STORE_SEUSERS);
-	if (access(path, F_OK) == 0) {
-		retval = semanage_copy_file(semanage_path(SEMANAGE_TMP, SEMANAGE_STORE_SEUSERS),
-							semanage_final_path(SEMANAGE_FINAL_TMP, SEMANAGE_SEUSERS),
-							sh->conf->file_mode);
-		if (retval < 0) {
-			goto cleanup;
-		}
+	retval = semanage_copy_file(semanage_path(SEMANAGE_TMP, SEMANAGE_STORE_SEUSERS),
+						semanage_final_path(SEMANAGE_FINAL_TMP, SEMANAGE_SEUSERS),
+						sh->conf->file_mode);
+	if (retval < 0 && errno != ENOENT) {
+		goto cleanup;
 	}
 
 	/* run genhomedircon if its enabled, this should be the last operation
