@@ -40,6 +40,12 @@ from semanagePage import *
 ## I18N
 ##
 PROGNAME = "policycoreutils"
+
+TYPE_COL = 0
+PROTOCOL_COL = 1
+MLS_COL = 2
+PORT_COL = 3
+
 try:
     import gettext
     kwargs = {}
