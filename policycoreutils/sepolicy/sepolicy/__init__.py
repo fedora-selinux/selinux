@@ -383,13 +383,19 @@ def get_fcdict(fc_path=selinux.selinux_file_context_path()):
     fd = open(fc_path, "r")
     fc = fd.readlines()
     fd.close()
-    fd = open(fc_path + ".homedirs", "r")
-    fc += fd.readlines()
-    fd.close()
+    try:
+        fd = open(fc_path + ".homedirs", "r")
+        fc += fd.readlines()
+        fd.close()
+    except IOError as e:
+        pass
     fcdict = {}
-    fd = open(fc_path + ".local", "r")
-    fc += fd.readlines()
-    fd.close()
+    try:
+        fd = open(fc_path + ".local", "r")
+        fc += fd.readlines()
+        fd.close()
+    except IOError as e:
+        pass
 
     for i in fc:
         rec = i.split()
