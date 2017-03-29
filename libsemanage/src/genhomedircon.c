@@ -1077,10 +1077,20 @@ static int get_group_users(genhomedircon_settings_t * s,
 
 	const char *grname = selogin + 1;
 
-	if (getgrnam_r(grname, &grstorage, grbuf,
-			(size_t) grbuflen, &group) != 0) {
-		goto cleanup;
+	errno = 0;
+	while (
+		(retval = getgrnam_r(grname, &grstorage, grbuf, (size_t) grbuflen, &group)) != 0 &&
+		errno == ERANGE
+	) {
+		char *new_grbuf;
+		grbuflen *= 2;
+		new_grbuf = realloc(grbuf, grbuflen);
+		if (new_grbuf == NULL)
+			goto cleanup;
+		grbuf = new_grbuf;
 	}
+	if (retval == -1)
+		goto cleanup;
 
 	if (group == NULL) {
 		ERR(s->h_semanage, "Can't find group named %s\n", grname);
