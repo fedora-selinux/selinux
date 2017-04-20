@@ -272,7 +272,9 @@ int semanage_direct_connect(semanage_handle_t * sh)
 
 	/* set the disable dontaudit value */
 	path = semanage_path(SEMANAGE_ACTIVE, SEMANAGE_DISABLE_DONTAUDIT);
-	if (access(path, F_OK) == 0)
+
+	struct stat sb;
+	if (stat(path, &sb) == 0)
 		sepol_set_disable_dontaudit(sh->sepolh, 1);
 	else
 		sepol_set_disable_dontaudit(sh->sepolh, 0);
@@ -1101,8 +1103,9 @@ static int semanage_compile_hll_modules(semanage_handle_t *sh,
 			goto cleanup;
 		}
 
+		struct stat sb;
 		if (semanage_get_ignore_module_cache(sh) == 0 &&
-				access(cil_path, F_OK) == 0) {
+				stat(cil_path, &sb) == 0) {
 			continue;
 		}
 
@@ -1165,7 +1168,8 @@ static int semanage_direct_commit(semanage_handle_t * sh)
 
 	/* Create or remove the disable_dontaudit flag file. */
 	path = semanage_path(SEMANAGE_TMP, SEMANAGE_DISABLE_DONTAUDIT);
-	if (access(path, F_OK) == 0)
+	struct stat sb;
+	if (stat(path, &sb) == 0)
 		do_rebuild |= !(sepol_get_disable_dontaudit(sh->sepolh) == 1);
 	else
 		do_rebuild |= (sepol_get_disable_dontaudit(sh->sepolh) == 1);
@@ -1190,7 +1194,7 @@ static int semanage_direct_commit(semanage_handle_t * sh)
 
 	/* Create or remove the preserve_tunables flag file. */
 	path = semanage_path(SEMANAGE_TMP, SEMANAGE_PRESERVE_TUNABLES);
-	if (access(path, F_OK) == 0)
+	if (stat(path, &sb) == 0)
 		do_rebuild |= !(sepol_get_preserve_tunables(sh->sepolh) == 1);
 	else
 		do_rebuild |= (sepol_get_preserve_tunables(sh->sepolh) == 1);
@@ -1231,37 +1235,37 @@ static int semanage_direct_commit(semanage_handle_t * sh)
 	 */
 	if (!do_rebuild) {
 		path = semanage_path(SEMANAGE_TMP, SEMANAGE_STORE_KERNEL);
-		if (access(path, F_OK) != 0) {
+		if (stat(path, &sb) != 0) {
 			do_rebuild = 1;
 			goto rebuild;
 		}
 
 		path = semanage_path(SEMANAGE_TMP, SEMANAGE_STORE_FC);
-		if (access(path, F_OK) != 0) {
+		if (stat(path, &sb) != 0) {
 			do_rebuild = 1;
 			goto rebuild;
 		}
 
 		path = semanage_path(SEMANAGE_TMP, SEMANAGE_STORE_SEUSERS);
-		if (access(path, F_OK) != 0) {
+		if (stat(path, &sb) != 0) {
 			do_rebuild = 1;
 			goto rebuild;
 		}
 
 		path = semanage_path(SEMANAGE_TMP, SEMANAGE_LINKED);
-		if (access(path, F_OK) != 0) {
+		if (stat(path, &sb) != 0) {
 			do_rebuild = 1;
 			goto rebuild;
 		}
 
 		path = semanage_path(SEMANAGE_TMP, SEMANAGE_SEUSERS_LINKED);
-		if (access(path, F_OK) != 0) {
+		if (stat(path, &sb) != 0) {
 			do_rebuild = 1;
 			goto rebuild;
 		}
 
 		path = semanage_path(SEMANAGE_TMP, SEMANAGE_USERS_EXTRA_LINKED);
-		if (access(path, F_OK) != 0) {
+		if (stat(path, &sb) != 0) {
 			do_rebuild = 1;
 			goto rebuild;
 		}
@@ -1395,7 +1399,7 @@ rebuild:
 			goto cleanup;
 
 		path = semanage_path(SEMANAGE_TMP, SEMANAGE_SEUSERS_LINKED);
-		if (access(path, F_OK) == 0) {
+		if (stat(path, &sb) == 0) {
 			retval = semanage_copy_file(path,
 						    semanage_path(SEMANAGE_TMP,
 								  SEMANAGE_STORE_SEUSERS),
@@ -1408,7 +1412,7 @@ rebuild:
 		}
 
 		path = semanage_path(SEMANAGE_TMP, SEMANAGE_USERS_EXTRA_LINKED);
-		if (access(path, F_OK) == 0) {
+		if (stat(path, &sb) == 0) {
 			retval = semanage_copy_file(path,
 						    semanage_path(SEMANAGE_TMP,
 								  SEMANAGE_USERS_EXTRA),
@@ -1711,7 +1715,8 @@ static int semanage_direct_extract(semanage_handle_t * sh,
 		goto cleanup;
 	}
 
-	if (access(module_path, F_OK) != 0) {
+	struct stat sb;
+	if (stat(module_path, &sb) != 0) {
 		ERR(sh, "Module does not exist: %s", module_path);
 		rc = -1;
 		goto cleanup;
@@ -1741,7 +1746,7 @@ static int semanage_direct_extract(semanage_handle_t * sh,
 		goto cleanup;
 	}
 
-	if (extract_cil == 1 && strcmp(_modinfo->lang_ext, "cil") && access(input_file, F_OK) != 0) {
+	if (extract_cil == 1 && strcmp(_modinfo->lang_ext, "cil") && stat(input_file, &sb) != 0) {
 		rc = semanage_compile_module(sh, _modinfo);
 		if (rc < 0) {
 			goto cleanup;
@@ -2749,7 +2754,8 @@ static int semanage_direct_install_info(semanage_handle_t *sh,
 			goto cleanup;
 		}
 
-		if (access(path, F_OK) == 0) {
+		struct stat sb;
+		if (stat(path, &sb) == 0) {
 			ret = unlink(path);
 			if (ret != 0) {
 				ERR(sh, "Error while removing cached CIL file %s: %s", path, strerror(errno));
