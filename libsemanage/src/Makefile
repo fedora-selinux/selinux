@@ -2,7 +2,7 @@
 # runtimes (e.g. Python 2 vs Python 3) by optionally prefixing the build
 # targets with "PYPREFIX":
 PYTHON ?= python
-PYPREFIX ?= $(shell $(PYTHON) -c 'import sys;print("python%d" % sys.version_info[0])')
+PYPREFIX ?= $(notdir $(PYTHON))
 RUBY ?= ruby
 RUBYPREFIX ?= $(notdir $(RUBY))
 PKG_CONFIG ?= pkg-config
