@@ -202,6 +202,7 @@ char *CIL_KEY_MLSVALIDATETRANS;
 char *CIL_KEY_CONTEXT;
 char *CIL_KEY_FILECON;
 char *CIL_KEY_IBPKEYCON;
+char *CIL_KEY_IBENDPORTCON;
 char *CIL_KEY_PORTCON;
 char *CIL_KEY_NODECON;
 char *CIL_KEY_GENFSCON;
@@ -285,6 +286,7 @@ struct cil_db {
 	struct cil_sort *filecon;
 	struct cil_sort *nodecon;
 	struct cil_sort *ibpkeycon;
+	struct cil_sort *ibendportcon;
 	struct cil_sort *portcon;
 	struct cil_sort *pirqcon;
 	struct cil_sort *iomemcon;
@@ -773,6 +775,12 @@ struct cil_netifcon {
 	char *context_str;
 };
 
+struct cil_ibendportcon {
+	char *dev_name_str;
+	uint32_t port;
+	char *context_str;
+	struct cil_context *context;
+};
 struct cil_pirqcon {
 	uint32_t pirq;
 	char *context_str;
@@ -958,6 +966,7 @@ int cil_get_symtab(struct cil_tree_node *ast_node, symtab_t **symtab, enum cil_s
 void cil_sort_init(struct cil_sort **sort);
 void cil_sort_destroy(struct cil_sort **sort);
 void cil_netifcon_init(struct cil_netifcon **netifcon);
+void cil_ibendportcon_init(struct cil_ibendportcon **ibendportcon);
 void cil_context_init(struct cil_context **context);
 void cil_level_init(struct cil_level **level);
 void cil_levelrange_init(struct cil_levelrange **lvlrange);

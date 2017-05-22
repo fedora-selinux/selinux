@@ -167,6 +167,22 @@ int cil_ibpkeycon_to_policy(FILE **file_arr, struct cil_sort *ibpkeycons)
 	return SEPOL_OK;
 }
 
+int cil_ibendportcon_to_policy(FILE **file_arr, struct cil_sort *ibendportcons)
+{
+	uint32_t i;
+
+	for (i = 0; i < ibendportcons->count; i++) {
+		struct cil_ibendportcon *ibendportcon = (struct cil_ibendportcon *)ibendportcons->array[i];
+
+		fprintf(file_arr[NETIFCONS], "ibendportcon %s ", ibendportcon->dev_name_str);
+		fprintf(file_arr[NETIFCONS], "%u ", ibendportcon->port);
+		cil_context_to_policy(file_arr, NETIFCONS, ibendportcon->context);
+		fprintf(file_arr[NETIFCONS], ";\n");
+	}
+
+	return SEPOL_OK;
+}
+
 int cil_netifcon_to_policy(FILE **file_arr, struct cil_sort *sort)
 {
 	uint32_t i = 0;
@@ -1342,6 +1358,12 @@ int cil_gen_policy(struct cil_db *db)
 	}
 
 	rc = cil_ibpkeycon_to_policy(file_arr, db->ibpkeycon);
+	if (rc != SEPOL_OK) {
+		cil_log(CIL_ERR, "Error creating policy.conf\n");
+		return rc;
+	}
+
+	rc = cil_ibendportcon_to_policy(file_arr, db->ibendportcon);
 	if (rc != SEPOL_OK) {
 		cil_log(CIL_ERR, "Error creating policy.conf\n");
 		return rc;
