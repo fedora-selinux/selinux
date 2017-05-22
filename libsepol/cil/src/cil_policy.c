@@ -150,6 +150,23 @@ int cil_genfscon_to_policy(FILE **file_arr, struct cil_sort *sort)
 	return SEPOL_OK;
 }
 
+int cil_ibpkeycon_to_policy(FILE **file_arr, struct cil_sort *ibpkeycons)
+{
+	uint32_t i = 0;
+
+	for (i = 0; i < ibpkeycons->count; i++) {
+		struct cil_ibpkeycon *ibpkeycon = (struct cil_ibpkeycon *)ibpkeycons->array[i];
+
+		fprintf(file_arr[NETIFCONS], "ibpkeycon %s ", ibpkeycon->subnet_prefix_str);
+		fprintf(file_arr[NETIFCONS], "%d ", ibpkeycon->pkey_low);
+		fprintf(file_arr[NETIFCONS], "%d ", ibpkeycon->pkey_high);
+		cil_context_to_policy(file_arr, NETIFCONS, ibpkeycon->context);
+		fprintf(file_arr[NETIFCONS], ";\n");
+	}
+
+	return SEPOL_OK;
+}
+
 int cil_netifcon_to_policy(FILE **file_arr, struct cil_sort *sort)
 {
 	uint32_t i = 0;
@@ -1319,6 +1336,12 @@ int cil_gen_policy(struct cil_db *db)
 	}
 
 	rc = cil_netifcon_to_policy(file_arr, db->netifcon);
+	if (rc != SEPOL_OK) {
+		cil_log(CIL_ERR, "Error creating policy.conf\n");
+		return rc;
+	}
+
+	rc = cil_ibpkeycon_to_policy(file_arr, db->ibpkeycon);
 	if (rc != SEPOL_OK) {
 		cil_log(CIL_ERR, "Error creating policy.conf\n");
 		return rc;
