@@ -184,6 +184,8 @@ fscon |
 FSCON                           { return(FSCON);}
 ibpkeycon |
 IBPKEYCON			{ return(IBPKEYCON);}
+ibendportcon |
+IBENDPORTCON			{ return(IBENDPORTCON);}
 portcon |
 PORTCON				{ return(PORTCON);}
 netifcon |                     
