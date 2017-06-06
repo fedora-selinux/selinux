@@ -58,6 +58,12 @@ The
 .B \-F
 option will force a replacement of the entire context.
 .P
+If a file is labeled with
+.BR customizable
+SELinux type (for list of customizable
+types see /etc/selinux/targeted/contexts/customizable_types), restorecon
+won't reset the label unless the \-F option is used.
+.P
 It is the same executable as
 .BR setfiles
 but operates in a slightly different manner depending on its argv[0].
@@ -128,7 +134,7 @@ show changes in file labels. Note that the
 .B \-v
 and
 .B \-p
-options are mutually exclusive.
+options are mutually exclusive. Multiple -v options increase the verbosity. The maximum is 2.
 .TP
 .B \-W
 display warnings about entries that had no matching files by outputting the
