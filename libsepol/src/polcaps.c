@@ -11,6 +11,7 @@ static const char *polcap_names[] = {
 	"redhat1",			/* POLICYDB_CAPABILITY_REDHAT1, aka ptrace_child */
 	"always_check_network",		/* POLICYDB_CAPABILITY_ALWAYSNETWORK */
 	"cgroup_seclabel",		/* POLICYDB_CAPABILITY_SECLABEL */
+	"nnp_nosuid_transition",	/* POLICYDB_CAPABILITY_NNP_NOSUID_TRANSITION */
 	NULL
 };
 
