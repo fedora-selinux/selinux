@@ -307,7 +307,7 @@ class HTMLManPages:
 """ % domainname_body)
 
         fd.close()
-        print("%s has been created") % html
+        print("%s has been created" % html)
 
     def _gen_css(self):
         style_css = self.old_path + "style.css"
@@ -370,7 +370,7 @@ pre.code {
 """)
 
         fd.close()
-        print("%s has been created") % style_css
+        print("%s has been created" % style_css)
 
 
 class ManPage:
