@@ -148,7 +148,10 @@ mcs_constrained_types = None
 def _gen_mcs_constrained_types():
     global mcs_constrained_types
     if mcs_constrained_types is None:
-        mcs_constrained_types = next(sepolicy.info(sepolicy.ATTRIBUTE, "mcs_constrained_type"))
+        try:
+            mcs_constrained_types = next(sepolicy.info(sepolicy.ATTRIBUTE, "mcs_constrained_type"))
+        except StopIteration:
+            mcs_constrained_types = []
     return mcs_constrained_types
 
 
