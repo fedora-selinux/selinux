@@ -4,6 +4,7 @@
 # Author: Ryan Hallisey <rhallise@redhat.com>
 
 from . import policy as _policy
+import errno
 import selinux
 import glob
 PROGNAME = "policycoreutils"
@@ -317,12 +318,15 @@ def find_entrypoint_path(exe, exclude_list=[]):
 
 
 def read_file_equiv(edict, fc_path, modify):
-    fd = open(fc_path, "r")
-    fc = fd.readlines()
-    fd.close()
-    for e in fc:
-        f = e.split()
-        edict[f[0]] = {"equiv": f[1], "modify": modify}
+    try:
+        with open(fc_path, "r") as fd:
+            fc = fd.readlines()
+            for e in fc:
+                f = e.split()
+                edict[f[0]] = {"equiv": f[1], "modify": modify}
+    except OSError as e:
+        if e.errno != errno.ENOENT:
+            raise
     return edict
 
 file_equiv_modified = None
@@ -355,9 +359,13 @@ def get_local_file_paths(fc_path=selinux.selinux_file_context_path()):
     if local_files:
         return local_files
     local_files = []
-    fd = open(fc_path + ".local", "r")
-    fc = fd.readlines()
-    fd.close()
+    try:
+        with open(fc_path + ".local", "r") as fd:
+            fc = fd.readlines()
+    except OSError as e:
+        if e.errno != errno.ENOENT:
+            raise
+        return []
     for i in fc:
         rec = i.split()
         if len(rec) == 0:
@@ -383,13 +391,19 @@ def get_fcdict(fc_path=selinux.selinux_file_context_path()):
     fd = open(fc_path, "r")
     fc = fd.readlines()
     fd.close()
-    fd = open(fc_path + ".homedirs", "r")
-    fc += fd.readlines()
-    fd.close()
+    try:
+        with open(fc_path + ".homedirs", "r") as fd:
+            fc += fd.readlines()
+    except OSError as e:
+        if e.errno != errno.ENOENT:
+            raise
     fcdict = {}
-    fd = open(fc_path + ".local", "r")
-    fc += fd.readlines()
-    fd.close()
+    try:
+        with open(fc_path + ".local", "r") as fd:
+            fc += fd.readlines()
+    except OSError as e:
+        if e.errno != errno.ENOENT:
+            raise
 
     for i in fc:
         rec = i.split()
