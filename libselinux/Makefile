@@ -1,4 +1,4 @@
-SUBDIRS = src include utils man golang
+SUBDIRS = src include utils man
 
 PKG_CONFIG ?= pkg-config
 DISABLE_SETRANS ?= n
