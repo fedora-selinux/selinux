@@ -20,7 +20,10 @@ getfilecon, fgetfilecon, lgetfilecon \- get SELinux security context of a file
 .SH "DESCRIPTION"
 .BR getfilecon ()
 retrieves the context associated with the given path in the file system, the
-length of the context is returned.
+length of the context is returned. The context should not be used in
+selinux_access_check as this function can return a cached value, which is not
+suitable for access checking. It should only be used to print translated value
+to the user.
 
 .BR lgetfilecon ()
 is identical to
