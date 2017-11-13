@@ -1551,9 +1551,8 @@ class ibpkeyRecords(semanageRecords):
     def customized(self):
         l = []
         ddict = self.get_all(True)
-        keys = ddict.keys()
-        keys.sort()
-        for k in keys:
+
+        for k in sorted(ddict.keys()):
             if k[0] == k[1]:
                 l.append("-a -t %s -x %s %s" % (ddict[k][0], k[2], k[0]))
             else:
@@ -1565,11 +1564,10 @@ class ibpkeyRecords(semanageRecords):
         keys = ddict.keys()
         if len(keys) == 0:
             return
-        keys.sort()
 
         if heading:
             print("%-30s %-18s %s\n" % (_("SELinux IB Pkey Type"), _("Subnet_Prefix"), _("Pkey Number")))
-        for i in keys:
+        for i in sorted(keys):
             rec = "%-30s %-18s " % i
             rec += "%s" % ddict[i][0]
             for p in ddict[i][1:]:
@@ -1793,9 +1791,8 @@ class ibendportRecords(semanageRecords):
     def customized(self):
         l = []
         ddict = self.get_all(True)
-        keys = ddict.keys()
-        keys.sort()
-        for k in keys:
+
+        for k in sorted(ddict.keys()):
             l.append("-a -t %s -r %s -z %s %s" % (ddict[k][0], ddict[k][1], k[1], k[0]))
         return l
 
@@ -1804,11 +1801,10 @@ class ibendportRecords(semanageRecords):
         keys = ddict.keys()
         if len(keys) == 0:
             return
-        keys.sort()
 
         if heading:
             print("%-30s %-18s %s\n" % (_("SELinux IB End Port Type"), _("IB Device Name"), _("Port Number")))
-        for i in keys:
+        for i in sorted(keys):
             rec = "%-30s %-18s " % i
             rec += "%s" % ddict[i][0]
             for p in ddict[i][1:]:
