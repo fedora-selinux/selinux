@@ -62,6 +62,23 @@ Modify groups for staff_u user
 Add level for TopSecret Users
 # semanage user \-a \-R "staff_r" \-rs0\-TopSecret topsecret_u
 
+.SH "NOTES"
+SELinux users defined in the policy cannot be removed or directly altered. When the 
+.I -m
+switch is used on such a user, semanage creates a local SELinux user of the same name, which overrides the original SELinux user.
+.P
+As long as a login entry exists that links local SELinux user to a Linux user, given local SELinux user cannot be removed (even if it represents local modification of a SELinux user defined in policy).
+In case you want to remove local modification of a SELinux user, you need to remove any related login mapping first. Follow these steps:
+.IP
+.nf
+1) Remove all login entries concerning the SELinux user.
+   To list local customizations of login entries execute:
+   # semanage login -l -C
+   or for semanage command form:
+   # semanage login --extract
+2) Remove the SELinux user
+3) Optionally reintroduce removed login entries
+
 .SH "SEE ALSO"
 .B selinux (8),
 .B semanage (8)
