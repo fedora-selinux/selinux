@@ -2093,6 +2093,7 @@ int semanage_write_policydb(semanage_handle_t * sh, sepol_policydb_t * out,
 	const char *kernel_filename = NULL;
 	struct sepol_policy_file *pf = NULL;
 	FILE *outfile = NULL;
+	mode_t mask = umask(0077);
 
 	if ((kernel_filename =
 	     semanage_path(SEMANAGE_TMP, file)) == NULL) {
@@ -2121,6 +2122,7 @@ int semanage_write_policydb(semanage_handle_t * sh, sepol_policydb_t * out,
 	if (outfile != NULL) {
 		fclose(outfile);
 	}
+	umask(mask);
 	sepol_policy_file_free(pf);
 	return retval;
 }
