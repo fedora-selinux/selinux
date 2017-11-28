@@ -36,7 +36,7 @@ deprecated, alias for --install
 deprecated, alias for --install
 .TP
 .B  \-r,\-\-remove=MODULE_NAME
-remove existing module
+remove existing module at desired priority (defaults to -X 400)
 .TP
 .B  \-l[KIND],\-\-list-modules[=KIND]
 display list of installed modules (other than base)
@@ -103,6 +103,10 @@ $ semodule \-b base.pp
 $ semodule \-i httpd.pp
 # List non-base modules.
 $ semodule \-l
+# List all modules including priorities
+$ semodule \-lfull
+# Remove a module at priority 100
+$ semodule \-X 100 \-r wireshark
 # Turn on all AVC Messages for which SELinux currently is "dontaudit"ing.
 $ semodule \-DB
 # Turn "dontaudit" rules back on.
@@ -111,7 +115,7 @@ $ semodule \-B
 $ semodule \-i *.pp
 # Install or replace all modules in the current directory.
 $ ls *.pp | grep \-Ev "base.pp|enableaudit.pp" | xargs /usr/sbin/semodule \-b base.pp \-i
-# Disable a module.
+# Disable a module (all instances of given module across priorities will be disabled).
 $ semodule \-d alsa
 # Install a module at a specific priority.
 $ semodule \-X 100 \-i alsa.pp
