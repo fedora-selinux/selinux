@@ -324,7 +324,7 @@ def read_file_equiv(edict, fc_path, modify):
             for e in fc:
                 f = e.split()
                 edict[f[0]] = {"equiv": f[1], "modify": modify}
-    except OSError as e:
+    except IOError as e:
         if e.errno != errno.ENOENT:
             raise
     return edict
@@ -362,7 +362,7 @@ def get_local_file_paths(fc_path=selinux.selinux_file_context_path()):
     try:
         with open(fc_path + ".local", "r") as fd:
             fc = fd.readlines()
-    except OSError as e:
+    except IOError as e:
         if e.errno != errno.ENOENT:
             raise
         return []
@@ -394,14 +394,14 @@ def get_fcdict(fc_path=selinux.selinux_file_context_path()):
     try:
         with open(fc_path + ".homedirs", "r") as fd:
             fc += fd.readlines()
-    except OSError as e:
+    except IOError as e:
         if e.errno != errno.ENOENT:
             raise
     fcdict = {}
     try:
         with open(fc_path + ".local", "r") as fd:
             fc += fd.readlines()
-    except OSError as e:
+    except IOError as e:
         if e.errno != errno.ENOENT:
             raise
 
