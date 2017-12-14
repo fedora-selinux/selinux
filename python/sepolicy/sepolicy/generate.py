@@ -99,7 +99,9 @@ def get_all_ports():
     for p in sepolicy.info(sepolicy.PORT):
         if p['type'] == "reserved_port_t" or \
                 p['type'] == "port_t" or \
-                p['type'] == "hi_reserved_port_t":
+                p['type'] == "hi_reserved_port_t" or \
+                p['type'] == "ephemeral_port_t" or \
+                p['type'] == "unreserved_port_t":
             continue
         dict[(p['low'], p['high'], p['protocol'])] = (p['type'], p.get('range'))
     return dict
