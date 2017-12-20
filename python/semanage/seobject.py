@@ -239,6 +239,7 @@ class semanageRecords:
     handle = None
     store = None
     args = None
+    noreload = False
 
     def __init__(self, args = None):
         global handle
@@ -259,6 +260,9 @@ class semanageRecords:
             self.mylog = logger()
         else:
             self.mylog = nulllogger()
+
+    def set_reload(self, load):
+        self.noreload = not load
 
     def get_handle(self, store):
         global is_mls_enabled
