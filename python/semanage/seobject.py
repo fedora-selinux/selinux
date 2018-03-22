@@ -2665,7 +2665,7 @@ class booleanRecords(semanageRecords):
             self.current_booleans = []
             ptype = None
 
-        if self.store is None or self.store == ptype:
+        if not self.store or self.store == ptype:
             self.modify_local = True
         else:
             self.modify_local = False
