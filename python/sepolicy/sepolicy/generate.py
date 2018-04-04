@@ -347,7 +347,7 @@ class policy:
             raise ValueError(_("Name must be alpha numberic with no spaces. Consider using option \"-n MODULENAME\""))
 
         if type == CGI:
-            self.name = "httpd_%s_script" % name
+            self.name = "%s_script" % name
         else:
             self.name = name
 

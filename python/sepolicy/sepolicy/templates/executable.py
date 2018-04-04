@@ -116,7 +116,7 @@ policy_module(TEMPLATETYPE, 1.0.0)
 
 apache_content_template(TEMPLATETYPE)
 
-permissive httpd_TEMPLATETYPE_script_t;
+permissive TEMPLATETYPE_script_t;
 """
 
 te_daemon_rules="""\
