@@ -29,7 +29,7 @@ import sys
 import stat
 import socket
 from semanage import *
-PROGNAME = "policycoreutils"
+PROGNAME = "selinux-python"
 import sepolicy
 import setools
 from IPy import IP

@@ -13,7 +13,7 @@ import os
 import re
 import gzip
 
-PROGNAME = "policycoreutils"
+PROGNAME = "selinux-python"
 try:
     import gettext
     kwargs = {}
