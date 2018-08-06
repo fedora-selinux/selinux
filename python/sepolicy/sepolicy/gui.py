@@ -43,7 +43,7 @@ import os
 import re
 import unicodedata
 
-PROGNAME = "policycoreutils"
+PROGNAME = "selinux-python"
 try:
     import gettext
     kwargs = {}
