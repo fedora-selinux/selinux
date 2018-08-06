@@ -27,7 +27,7 @@ import traceback
 import argparse
 import seobject
 import sys
-PROGNAME = "policycoreutils"
+PROGNAME = "selinux-python"
 try:
     import gettext
     kwargs = {}

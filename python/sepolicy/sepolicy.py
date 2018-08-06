@@ -27,7 +27,7 @@ import selinux
 import sepolicy
 from sepolicy import get_os_version, get_conditionals, get_conditionals_format_text
 import argparse
-PROGNAME = "policycoreutils"
+PROGNAME = "selinux-python"
 try:
     import gettext
     kwargs = {}
