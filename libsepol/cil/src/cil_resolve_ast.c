@@ -1522,6 +1522,7 @@ int cil_resolve_sidorder(struct cil_tree_node *current, void *extra_args)
 		rc = cil_resolve_name(current, (char *)curr->data, CIL_SYM_SIDS, extra_args, &datum);
 		if (rc != SEPOL_OK) {
 			cil_log(CIL_ERR, "Failed to resolve sid %s in sidorder\n", (char *)curr->data);
+			free(new);
 			goto exit;
 		}
 		cil_list_append(new, CIL_SID, datum);
@@ -1591,6 +1592,8 @@ int cil_resolve_catorder(struct cil_tree_node *current, void *extra_args)
 	return SEPOL_OK;
 
 exit:
+	if (new)
+		free(new);
 	return rc;
 }
 
@@ -1624,6 +1627,7 @@ int cil_resolve_sensitivityorder(struct cil_tree_node *current, void *extra_args
 	return SEPOL_OK;
 
 exit:
+	free(new);
 	return rc;
 }
 
@@ -2853,6 +2857,7 @@ int cil_resolve_call1(struct cil_tree_node *current, void *extra_args)
 					rc = cil_fill_cats(pc, &catset->cats);
 					if (rc != SEPOL_OK) {
 						cil_destroy_catset(catset);
+						cil_destroy_args(new_arg);
 						goto exit;
 					}
 					cil_tree_node_init(&cat_node);
@@ -2877,6 +2882,7 @@ int cil_resolve_call1(struct cil_tree_node *current, void *extra_args)
 					if (rc != SEPOL_OK) {
 						cil_log(CIL_ERR, "Failed to create anonymous level, rc: %d\n", rc);
 						cil_destroy_level(level);
+						cil_destroy_args(new_arg);
 						goto exit;
 					}
 					cil_tree_node_init(&lvl_node);
@@ -2901,6 +2907,7 @@ int cil_resolve_call1(struct cil_tree_node *current, void *extra_args)
 					if (rc != SEPOL_OK) {
 						cil_log(CIL_ERR, "Failed to create anonymous levelrange, rc: %d\n", rc);
 						cil_destroy_levelrange(range);
+						cil_destroy_args(new_arg);
 						goto exit;
 					}
 					cil_tree_node_init(&range_node);
@@ -2925,6 +2932,7 @@ int cil_resolve_call1(struct cil_tree_node *current, void *extra_args)
 					if (rc != SEPOL_OK) {
 						cil_log(CIL_ERR, "Failed to create anonymous ip address, rc: %d\n", rc);
 						cil_destroy_ipaddr(ipaddr);
+						cil_destroy_args(new_arg);
 						goto exit;
 					}
 					cil_tree_node_init(&addr_node);
@@ -2955,6 +2963,7 @@ int cil_resolve_call1(struct cil_tree_node *current, void *extra_args)
 					if (rc != SEPOL_OK) {
 						cil_log(CIL_ERR, "Failed to create anonymous classpermission\n");
 						cil_destroy_classpermission(cp);
+						cil_destroy_args(new_arg);
 						goto exit;
 					}
 					cil_tree_node_init(&cp_node);
@@ -2970,6 +2979,7 @@ int cil_resolve_call1(struct cil_tree_node *current, void *extra_args)
 			default:
 				cil_log(CIL_ERR, "Unexpected flavor: %d\n", 
 						(((struct cil_param*)item->data)->flavor));
+				cil_destroy_args(new_arg);
 				rc = SEPOL_ERR;
 				goto exit;
 			}
