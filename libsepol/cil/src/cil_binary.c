@@ -912,6 +912,8 @@ int cil_sensalias_to_policydb(policydb_t *pdb, struct cil_alias *cil_alias)
 	key = cil_strdup(cil_alias->datum.fqn);
 	rc = symtab_insert(pdb, SYM_LEVELS, key, sepol_alias, SCOPE_DECL, 0, NULL);
 	if (rc != SEPOL_OK) {
+		if (rc == 1)
+			free(sepol_alias);
 		goto exit;
 	}
 
@@ -1763,11 +1765,13 @@ int __cil_avrulex_ioctl_to_hashtable(hashtab_t h, uint16_t kind, uint32_t src, u
 		hashtab_xperms = cil_malloc(sizeof(*hashtab_xperms));
 		rc = ebitmap_cpy(hashtab_xperms, xperms);
 		if (rc != SEPOL_OK) {
+			free(hashtab_xperms);
 			free(avtab_key);
 			goto exit;
 		}
 		rc = hashtab_insert(h, (hashtab_key_t)avtab_key, hashtab_xperms);
 		if (rc != SEPOL_OK) {
+			free(hashtab_xperms);
 			free(avtab_key);
 			goto exit;
 		}
@@ -2157,6 +2161,7 @@ static int __cil_cond_expr_to_sepol_expr_helper(policydb_t *pdb, struct cil_list
 			op->expr_type = COND_NEQ;
 			break;
 		default:
+			free(op);
 			goto exit;
 		}
 
@@ -2283,6 +2288,7 @@ int cil_booleanif_to_policydb(policydb_t *pdb, const struct cil_db *db, struct c
 
 	cond_expr_destroy(tmp_cond->expr);
 	free(tmp_cond);
+	tmp_cond = NULL;
 
 	for (cb_node = node->cl_head; cb_node != NULL; cb_node = cb_node->next) {
 		if (cb_node->flavor == CIL_CONDBLOCK) {
@@ -2327,6 +2333,11 @@ int cil_booleanif_to_policydb(policydb_t *pdb, const struct cil_db *db, struct c
 	return SEPOL_OK;
 
 exit:
+	if (tmp_cond) {
+		if (tmp_cond->expr)
+			cond_expr_destroy(tmp_cond->expr);
+		free(tmp_cond);
+	}
 	return rc;
 }
 
@@ -4797,6 +4808,7 @@ static struct cil_list *cil_classperms_from_sepol(policydb_t *pdb, uint16_t clas
 	return cp_list;
 
 exit:
+	free(cp);
 	cil_log(CIL_ERR,"Failed to create CIL class-permissions from sepol values\n");
 	return NULL;
 }
