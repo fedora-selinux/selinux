@@ -454,9 +454,8 @@ def get_file_types(setype):
 def get_real_type_name(name):
     try:
         return next(info(TYPE, name))["name"]
-    except RuntimeError:
+    except (RuntimeError, StopIteration):
         return None
-
 
 def get_writable_files(setype):
     file_types = get_all_file_types()
