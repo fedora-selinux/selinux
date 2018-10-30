@@ -172,7 +172,7 @@ def info(setype, name=None):
         results = list(q.results())
 
         if name and len(results) < 1:
-            #type not found, try alias
+            # type not found, try alias
             q.name = None
             q.alias = name
             results = list(q.results())
@@ -449,13 +449,19 @@ def get_file_types(setype):
     return mpaths
 
 
-# determine if entered type is an alias
-# and return corresponding type name
 def get_real_type_name(name):
+    """Return the real name of a type
+
+    * If 'name' refers to a type alias, return the corresponding type name.
+    * Otherwise return the original name (even if the type does not exist).
+    """
+    if not name:
+        return name
+
     try:
         return next(info(TYPE, name))["name"]
     except (RuntimeError, StopIteration):
-        return None
+        return name
 
 def get_writable_files(setype):
     file_types = get_all_file_types()
@@ -1068,10 +1074,12 @@ def _dict_has_perms(dict, perms):
 def gen_short_name(setype):
     all_domains = get_all_domains()
     if setype.endswith("_t"):
+        # replace aliases with corresponding types
+        setype = get_real_type_name(setype)
         domainname = setype[:-2]
     else:
         domainname = setype
-    if get_real_type_name(domainname + "_t") not in all_domains:
+    if domainname + "_t" not in all_domains:
         raise ValueError("domain %s_t does not exist" % domainname)
     if domainname[-1] == 'd':
         short_name = domainname[:-1] + "_"
