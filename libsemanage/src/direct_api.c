@@ -1029,7 +1029,7 @@ static int semanage_direct_write_langext(semanage_handle_t *sh,
 
 	fp = NULL;
 
-	ret = 0;
+	return 0;
 
 cleanup:
 	if (fp != NULL) fclose(fp);
@@ -2186,7 +2186,6 @@ cleanup:
 	semanage_module_info_destroy(sh, modinfo);
 	free(modinfo);
 
-	if (fp != NULL) fclose(fp);
 	return status;
 }
 
@@ -2351,16 +2350,6 @@ static int semanage_direct_get_module_info(semanage_handle_t *sh,
 	free(tmp);
 	tmp = NULL;
 
-	if (fclose(fp) != 0) {
-		ERR(sh,
-		    "Unable to close %s module lang ext file.",
-		    (*modinfo)->name);
-		status = -1;
-		goto cleanup;
-	}
-
-	fp = NULL;
-
 	/* lookup enabled/disabled status */
 	ret = semanage_module_get_path(sh,
 				       *modinfo,
@@ -2404,7 +2393,13 @@ cleanup:
 		free(modinfos);
 	}
 
-	if (fp != NULL) fclose(fp);
+	if (fp != NULL && fclose(fp) != 0) {
+		ERR(sh,
+		    "Unable to close %s module lang ext file.",
+		    (*modinfo)->name);
+		status = -1;
+	}
+
 	return status;
 }
 
