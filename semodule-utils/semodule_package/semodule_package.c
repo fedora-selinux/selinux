@@ -74,6 +74,7 @@ static int file_to_data(const char *path, char **data, size_t * len)
 	}
 	if (!sb.st_size) {
 		*len = 0;
+		close(fd);
 		return 0;
 	}
 
