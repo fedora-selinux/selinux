@@ -33,7 +33,7 @@ from semanage import *
 PROGNAME = "selinux-python"
 import sepolicy
 import setools
-from IPy import IP
+import ipaddress
 
 try:
     import gettext
@@ -1831,13 +1831,13 @@ class nodeRecords(semanageRecords):
 
         # verify valid comination
         if len(mask) == 0 or mask[0] == "/":
-            i = IP(addr + mask)
-            newaddr = i.strNormal(0)
-            newmask = str(i.netmask())
-            if newmask == "0.0.0.0" and i.version() == 6:
+            i = ipaddress.ip_network(addr + mask)
+            newaddr = str(i.network_address)
+            newmask = str(i.netmask)
+            if newmask == "0.0.0.0" and i.version == 6:
                 newmask = "::"
 
-            protocol = "ipv%d" % i.version()
+            protocol = "ipv%d" % i.version
 
         try:
             newprotocol = self.protocol.index(protocol)
