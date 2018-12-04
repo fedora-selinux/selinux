@@ -401,6 +401,8 @@ class moduleRecords(semanageRecords):
             print("%-25s %-9s %-5s %s" % (t[0], t[2], t[3], disabled))
 
     def add(self, file, priority):
+        if type(file) == list:
+            file = file[0]
         if not os.path.exists(file):
             raise ValueError(_("Module does not exist: %s ") % file)
 
@@ -413,7 +415,9 @@ class moduleRecords(semanageRecords):
             self.commit()
 
     def set_enabled(self, module, enable):
-        for m in module.split():
+        if type(module) == str:
+            module = module.split()
+        for m in module:
             rc, key = semanage_module_key_create(self.sh)
             if rc < 0:
                 raise ValueError(_("Could not create module key"))
@@ -435,7 +439,9 @@ class moduleRecords(semanageRecords):
         if rc < 0:
             raise ValueError(_("Invalid priority %d (needs to be between 1 and 999)") % priority)
 
-        for m in module.split():
+        if type(module) == str:
+            module = module.split()
+        for m in module:
             rc = semanage_module_remove(self.sh, m)
             if rc < 0 and rc != -2:
                 raise ValueError(_("Could not remove module %s (remove failed)") % m)
