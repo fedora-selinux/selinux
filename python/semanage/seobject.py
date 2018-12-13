@@ -1050,13 +1050,15 @@ class seluserRecords(semanageRecords):
 
 
 class portRecords(semanageRecords):
-    try:
-        valid_types = list(list(sepolicy.info(sepolicy.ATTRIBUTE, "port_type"))[0]["types"])
-    except RuntimeError:
-        valid_types = []
+
+    valid_types = []
 
     def __init__(self, args = None):
         semanageRecords.__init__(self, args)
+        try:
+            self.valid_types = list(list(sepolicy.info(sepolicy.ATTRIBUTE, "port_type"))[0]["types"])
+        except RuntimeError:
+            pass
 
     def __genkey(self, port, proto):
         if proto == "tcp":
@@ -1830,14 +1832,16 @@ class ibendportRecords(semanageRecords):
             print(rec)
 
 class nodeRecords(semanageRecords):
-    try:
-        valid_types = list(list(sepolicy.info(sepolicy.ATTRIBUTE, "node_type"))[0]["types"])
-    except RuntimeError:
-        valid_types = []
+
+    valid_types = []
 
     def __init__(self, args = None):
         semanageRecords.__init__(self, args)
         self.protocol = ["ipv4", "ipv6"]
+        try:
+            self.valid_types = list(list(sepolicy.info(sepolicy.ATTRIBUTE, "node_type"))[0]["types"])
+        except RuntimeError:
+            pass
 
     def validate(self, addr, mask, protocol):
         newaddr = addr
@@ -2271,14 +2275,17 @@ class interfaceRecords(semanageRecords):
 
 
 class fcontextRecords(semanageRecords):
-    try:
-        valid_types = list(list(sepolicy.info(sepolicy.ATTRIBUTE, "file_type"))[0]["types"])
-        valid_types += list(list(sepolicy.info(sepolicy.ATTRIBUTE, "device_node"))[0]["types"])
-    except RuntimeError:
-        valid_types = []
+
+    valid_types = []
 
     def __init__(self, args = None):
         semanageRecords.__init__(self, args)
+        try:
+            self.valid_types = list(list(sepolicy.info(sepolicy.ATTRIBUTE, "file_type"))[0]["types"])
+            self.valid_types += list(list(sepolicy.info(sepolicy.ATTRIBUTE, "device_node"))[0]["types"])
+        except RuntimeError:
+            pass
+
         self.equiv = {}
         self.equiv_dist = {}
         self.equal_ind = False
