@@ -260,6 +260,7 @@ class semanageRecords:
         if self.store == "" or self.store == localstore:
             self.mylog = logger()
         else:
+            sepolicy.load_store_policy(self.store)
             self.mylog = nulllogger()
 
     def set_reload(self, load):
