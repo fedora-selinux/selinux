@@ -24,6 +24,7 @@ static __thread char destructor_initialized;
 
 /* Bionic and glibc >= 2.30 declare gettid() system call wrapper in unistd.h and
  * has a definition for it */
+#ifndef OVERRIDE_GETTID
 #ifdef __BIONIC__
   #define OVERRIDE_GETTID 0
 #elif !defined(__GLIBC_PREREQ)
@@ -32,6 +33,7 @@ static __thread char destructor_initialized;
   #define OVERRIDE_GETTID 1
 #else
   #define OVERRIDE_GETTID 0
+#endif
 #endif
 
 #if OVERRIDE_GETTID
