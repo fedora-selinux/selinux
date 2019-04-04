@@ -25,7 +25,6 @@
 
 import traceback
 import argparse
-import seobject
 import sys
 PROGNAME = "selinux-python"
 try:
@@ -129,21 +128,6 @@ class SetImportFile(argparse.Action):
                 sys.exit(1)
         setattr(namespace, self.dest, values)
 
-# define dictonary for seobject OBEJCTS
-object_dict = {
-    'login': seobject.loginRecords,
-    'user': seobject.seluserRecords,
-    'port': seobject.portRecords,
-    'module': seobject.moduleRecords,
-    'interface': seobject.interfaceRecords,
-    'node': seobject.nodeRecords,
-    'fcontext': seobject.fcontextRecords,
-    'boolean': seobject.booleanRecords,
-    'permissive': seobject.permissiveRecords,
-    'dontaudit': seobject.dontauditClass,
-    'ibpkey': seobject.ibpkeyRecords,
-    'ibendport': seobject.ibendportRecords
-}
 
 def generate_custom_usage(usage_text, usage_dict):
     # generate custom usage from given text and dictonary
@@ -608,6 +592,7 @@ def setupInterfaceParser(subparsers):
 
 
 def handleModule(args):
+    import seobject
     OBJECT = seobject.moduleRecords(args)
     if args.action_add:
         OBJECT.add(args.action_add[0], args.priority)
@@ -846,6 +831,7 @@ def mkargv(line):
 
 
 def handleImport(args):
+    import seobject
     trans = seobject.semanageRecords(args)
     trans.start()
 
@@ -887,6 +873,25 @@ def createCommandParser():
     #To add a new subcommand define the parser for it in a function above and call it here.
     subparsers = commandParser.add_subparsers(dest='subcommand')
     subparsers.required = True
+
+    import seobject
+    # define dictonary for seobject OBEJCTS
+    global object_dict
+    object_dict = {
+        'login': seobject.loginRecords,
+        'user': seobject.seluserRecords,
+        'port': seobject.portRecords,
+        'module': seobject.moduleRecords,
+        'interface': seobject.interfaceRecords,
+        'node': seobject.nodeRecords,
+        'fcontext': seobject.fcontextRecords,
+        'boolean': seobject.booleanRecords,
+        'permissive': seobject.permissiveRecords,
+        'dontaudit': seobject.dontauditClass,
+        'ibpkey': seobject.ibpkeyRecords,
+        'ibendport': seobject.ibendportRecords
+    }
+
     setupImportParser(subparsers)
     setupExportParser(subparsers)
     setupLoginParser(subparsers)
