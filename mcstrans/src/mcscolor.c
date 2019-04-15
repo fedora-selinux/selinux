@@ -272,10 +272,14 @@ static const unsigned precedence[N_COLOR][N_COLOR - 1] = {
 static const secolor_t default_color = { 0x000000, 0xffffff };
 
 static int parse_components(context_t con, char **components) {
-	components[COLOR_USER] = (char *)context_user_get(con);
-	components[COLOR_ROLE] = (char *)context_role_get(con);
-	components[COLOR_TYPE] = (char *)context_type_get(con);
-	components[COLOR_RANGE] = (char *)context_range_get(con);
+	if ((components[COLOR_USER] = (char *)context_user_get(con)) == NULL)
+		return -1;
+	if ((components[COLOR_ROLE] = (char *)context_role_get(con)) == NULL)
+		return -1;
+	if ((components[COLOR_TYPE] = (char *)context_type_get(con)) == NULL)
+		return -1;
+	if ((components[COLOR_RANGE] = (char *)context_range_get(con)) == NULL)
+		return -1;
 
 	return 0;
 }
