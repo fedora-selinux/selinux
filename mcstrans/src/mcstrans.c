@@ -1664,10 +1664,8 @@ untrans_context(const char *incon, char **rcon) {
 							return -1;
 						}
 				}
-				if (canonical) {
+				if (canonical)
 					free(canonical);
-					free(raw);
-				}
 				if (add_cache(domain, raw, range) < 0) {
 					free(range);
 					free(raw);
