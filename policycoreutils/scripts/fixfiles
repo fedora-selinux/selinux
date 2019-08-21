@@ -215,7 +215,7 @@ OPTION=$1
 shift
 
 # [-B | -N time ]
-if [ -z "$BOOTTIME" ]; then
+if [ -n "$BOOTTIME" ]; then
 	newer $BOOTTIME $*
 	return
 fi
