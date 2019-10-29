@@ -7,7 +7,9 @@ if [ \! -d $WIKIDIR ]; then
     git clone git@github.com:SELinuxProject/selinux.wiki.git $WIKIDIR
 fi
 
-RELEASE_TAG=$(date '+%Y%m%d')
+if [ -z "$RELEASE_TAG"]; then
+    RELEASE_TAG=$(date '+%Y%m%d')
+fi
 DEST=releases/$RELEASE_TAG
 DIRS="libsepol libselinux libsemanage checkpolicy secilc policycoreutils mcstrans restorecond semodule-utils"
 DIRS_NEED_PREFIX="dbus gui python sandbox"
@@ -34,6 +36,42 @@ for i in $DIRS_NEED_PREFIX; do
 	git archive --format=tar --prefix=selinux-$i-$VERS/ selinux-$i-$VERS | gzip > ../$DEST/$ARCHIVE
 	cd ..
 done
+
+git shortlog 20190315..$RELEASE_TAG > $DEST/shortlog-$RELEASE_TAG.txt
+git log 20190315..$RELEASE_TAG > $DEST/log-$RELEASE_TAG.txt
+
+cat > $DEST/RELEASE-$RELEASE_TAG.txt <<EOF
+RELEASE $RELEASE_TAG (3.0-rc1)
+
+User-visible changes:
+
+* Optional support for kernel policy optimization (enable with
+optimize-policy=true in /etc/selinux/semanage.conf for modular policy or -O
+option to checkpolicy/secilc for monolithic policy); this is optional because it
+provides relatively small savings with non-trivial policy compile-time overhead
+for some policies e.g. Android.
+
+* New digest scheme for setfiles/restorecon -D; instead of a single hash of the
+entire file contexts configuration stored in a security.restorecon_last xattr on
+only the top-level directory, use a hash of all partial matches from file
+contexts stored in a security.sehash xattr on each directory,
+
+* Support for default_range glblub in source policy (.te/policy.conf and CIL)
+and kernel policy version 32,
+
+* New libselinux APIs for querying validatetrans rules,
+
+* Unknown permissions are now handled as errors in CIL,
+
+* security_av_string() no longer returns immediately upon encountering an
+unknown permission and will log all known permissions,
+
+* checkmodule -c support for specifying module policy version,
+
+* mcstransd reverted to original color range matching based on dominance
+
+Issues fixed:
+EOF
 
 cd $DEST
 
