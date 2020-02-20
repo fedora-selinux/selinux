@@ -97,8 +97,9 @@ instance.
 
 .BR security_compute_user ()
 is used to determine the set of user contexts that can be reached from a
-source context. It is mainly used by
-.BR get_ordered_context_list ().
+source context. This function is deprecated; use
+.BR get_ordered_context_list (3)
+instead.
 
 .BR security_get_initial_context ()
 is used to get the context of a kernel initial security identifier specified by 
