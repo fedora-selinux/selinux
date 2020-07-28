@@ -717,7 +717,7 @@ Default Defined Ports:""")
         for f in self.all_file_types:
             if f.startswith(self.domainname):
                 flist.append(f)
-                if not f in self.exec_types or not f in self.entry_types:
+                if f not in self.exec_types or f not in self.entry_types:
                     flist_non_exec.append(f)
                 if f in self.fcdict:
                     mpaths = mpaths + self.fcdict[f]["regex"]
@@ -771,7 +771,7 @@ SELinux %(domainname)s policy is very flexible allowing users to setup their %(d
 """ % {'domainname': self.domainname, 'equiv': e, 'alt': e.split('/')[-1]})
 
         if flist_non_exec:
-                self.fd.write(r"""
+            self.fd.write(r"""
 .PP
 .B STANDARD FILE CONTEXT
 
