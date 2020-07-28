@@ -1,4 +1,7 @@
-SUBDIRS = sepolicy audit2allow semanage sepolgen chcat po
+SUBDIRS = sepolicy audit2allow semanage sepolgen chcat
+
+all clean install:
+	$(MAKE) -C po $@
 
 all install relabel clean indent test:
 	@for subdir in $(SUBDIRS); do \

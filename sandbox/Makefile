@@ -12,8 +12,10 @@ override CFLAGS += -DPACKAGE="\"policycoreutils\"" -Wall -Werror -Wextra -W
 override LDLIBS += -lselinux -lcap-ng
 SEUNSHARE_OBJS = seunshare.o
 
+all clean install:
+	$(MAKE) -C po $@
+
 all: sandbox seunshare sandboxX.sh start
-	(cd po && $(MAKE) $@)
 
 seunshare: $(SEUNSHARE_OBJS)
 
@@ -40,7 +42,6 @@ install: all
 	install -m 755 start $(DESTDIR)$(SHAREDIR)
 	-mkdir -p $(DESTDIR)$(SYSCONFDIR)
 	install -m 644 sandbox.conf $(DESTDIR)$(SYSCONFDIR)/sandbox
-	(cd po && $(MAKE) $@)
 
 test:
 	@$(PYTHON) test_sandbox.py -v
