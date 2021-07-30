@@ -28,7 +28,7 @@ If this is a directory and the
 .B SELINUX_RESTORECON_RECURSE
 has been set (for descending through directories), then
 .BR selinux_restorecon ()
-will write an SHA1 digest of specfile entries calculated by
+will write an SHA256 digest of specfile entries calculated by
 .BR selabel_get_digests_all_partial_matches (3)
 to an extended attribute of
 .IR security.sehash
@@ -47,7 +47,7 @@ will take place.
 .br
 The
 .IR restorecon_flags
-that can be used to manage the usage of the SHA1 digest are:
+that can be used to manage the usage of the SHA256 digest are:
 .RS
 .B SELINUX_RESTORECON_SKIP_DIGEST
 .br
@@ -65,8 +65,8 @@ Do not check or update any extended attribute
 entries.
 .sp
 .B SELINUX_RESTORECON_IGNORE_DIGEST
-force the checking of labels even if the stored SHA1 digest matches the
-specfile entries SHA1 digest. The specfile entries digest will be written to the
+force the checking of labels even if the stored SHA256 digest matches the
+specfile entries SHA256 digest. The specfile entries digest will be written to the
 .IR security.sehash
 extended attribute once relabeling has been completed successfully provided the
 .B SELINUX_RESTORECON_NOCHANGE
@@ -84,7 +84,7 @@ default specfile context.
 .sp
 .B SELINUX_RESTORECON_RECURSE
 change file and directory labels recursively (descend directories)
-and if successful write an SHA1 digest of the specfile entries to an
+and if successful write an SHA256 digest of the specfile entries to an
 extended attribute as described in the
 .B NOTES
 section.
@@ -158,7 +158,7 @@ to treat conflicting specifications, such as where two hardlinks for the
 same inode have different contexts, as errors.
 .RE
 .sp
-The behavior regarding the checking and updating of the SHA1 digest described
+The behavior regarding the checking and updating of the SHA256 digest described
 above is the default behavior. It is possible to change this by first calling
 .BR selabel_open (3)
 and not enabling the
@@ -200,7 +200,7 @@ To improve performance when relabeling file systems recursively (e.g. the
 .B SELINUX_RESTORECON_RECURSE
 flag is set)
 .BR selinux_restorecon ()
-will write a calculated SHA1 digest of the specfile entries returned by
+will write a calculated SHA256 digest of the specfile entries returned by
 .BR selabel_get_digests_all_partial_matches (3)
 to an extended attribute named
 .IR security.sehash
@@ -222,7 +222,7 @@ Should any of the specfile entries have changed, then when
 .BR selinux_restorecon ()
 is run again with the
 .B SELINUX_RESTORECON_RECURSE
-flag set, new SHA1 digests will be calculated and all files automatically
+flag set, new SHA256 digests will be calculated and all files automatically
 relabeled depending on the settings of the
 .B SELINUX_RESTORECON_SET_SPECFILE_CTX
 flag (provided

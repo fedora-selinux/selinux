@@ -27,8 +27,8 @@ extern int selinux_restorecon(const char *pathname,
  * restorecon_flags options
  */
 /*
- * Force the checking of labels even if the stored SHA1 digest
- * matches the specfiles SHA1 digest (requires CAP_SYS_ADMIN).
+ * Force the checking of labels even if the stored SHA256 digest
+ * matches the specfiles SHA256 digest (requires CAP_SYS_ADMIN).
  */
 #define SELINUX_RESTORECON_IGNORE_DIGEST		0x00001
 /*

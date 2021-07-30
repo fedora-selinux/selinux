@@ -15,8 +15,8 @@ static __attribute__ ((__noreturn__)) void usage(const char *progname)
 		"Where:\n\t"
 		"-b  The backend - \"file\", \"media\", \"x\", \"db\" or "
 			"\"prop\"\n\t"
-		"-v  Run \"cat <specfile_list> | openssl dgst -sha1 -hex\"\n\t"
-		"    on the list of specfiles to compare the SHA1 digests.\n\t"
+		"-v  Run \"cat <specfile_list> | openssl dgst -sha256 -hex\"\n\t"
+		"    on the list of specfiles to compare the SHA256 digests.\n\t"
 		"-B  Use base specfiles only (valid for \"-b file\" only).\n\t"
 		"-i  Do not request a digest.\n\t"
 		"-f  Optional file containing the specs (defaults to\n\t"
@@ -62,12 +62,12 @@ int main(int argc, char **argv)
 	int backend = 0, rc, opt, validate = 0;
 	char *baseonly = NULL, *file = NULL, *digest = (char *)1;
 	char **specfiles = NULL;
-	unsigned char *sha1_digest = NULL;
+	unsigned char *sha256_digest = NULL;
 	size_t i, num_specfiles;
 
 	char cmd_buf[4096];
 	char *cmd_ptr;
-	char *sha1_buf;
+	char *sha256_buf;
 
 	struct selabel_handle *hnd;
 	struct selinux_opt selabel_option[] = {
@@ -137,7 +137,7 @@ int main(int argc, char **argv)
 		return -1;
 	}
 
-	rc = selabel_digest(hnd, &sha1_digest, &digest_len, &specfiles,
+	rc = selabel_digest(hnd, &sha256_digest, &digest_len, &specfiles,
 							    &num_specfiles);
 
 	if (rc) {
@@ -152,19 +152,19 @@ int main(int argc, char **argv)
 		goto err;
 	}
 
-	sha1_buf = malloc(digest_len * 2 + 1);
-	if (!sha1_buf) {
+	sha256_buf = malloc(digest_len * 2 + 1);
+	if (!sha256_buf) {
 		fprintf(stderr, "Could not malloc buffer ERROR: %s\n",
 						    strerror(errno));
 		rc = -1;
 		goto err;
 	}
 
-	printf("SHA1 digest: ");
+	printf("SHA256 digest: ");
 	for (i = 0; i < digest_len; i++)
-		sprintf(&(sha1_buf[i * 2]), "%02x", sha1_digest[i]);
+		sprintf(&(sha256_buf[i * 2]), "%02x", sha256_digest[i]);
 
-	printf("%s\n", sha1_buf);
+	printf("%s\n", sha256_buf);
 	printf("calculated using the following specfile(s):\n");
 
 	if (specfiles) {
@@ -177,13 +177,13 @@ int main(int argc, char **argv)
 			cmd_ptr += strlen(specfiles[i]) + 1;
 			printf("%s\n", specfiles[i]);
 		}
-		sprintf(cmd_ptr, "| /usr/bin/openssl dgst -sha1 -hex");
+		sprintf(cmd_ptr, "| /usr/bin/openssl dgst -sha256 -hex");
 
 		if (validate)
-			rc = run_check_digest(cmd_buf, sha1_buf);
+			rc = run_check_digest(cmd_buf, sha256_buf);
 	}
 
-	free(sha1_buf);
+	free(sha256_buf);
 err:
 	selabel_close(hnd);
 	return rc;

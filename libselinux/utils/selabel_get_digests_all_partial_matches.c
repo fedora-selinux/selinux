@@ -18,8 +18,8 @@ static __attribute__ ((__noreturn__)) void usage(const char *progname)
 		"-v  Validate file_contxts entries against loaded policy.\n\t"
 		"-r  Recursively descend directories.\n\t"
 		"-f  Optional file_contexts file (defaults to current policy).\n\t"
-		"path  Path to check current SHA1 digest against file_contexts entries.\n\n"
-		"This will check the directory selinux.sehash SHA1 digest for "
+		"path  Path to check current SHA256 digest against file_contexts entries.\n\n"
+		"This will check the directory selinux.sehash SHA256 digest for "
 		"<path> against\na newly generated digest based on the "
 		"file_context entries for that node\n(using the regx, mode "
 		"and path entries).\n", progname);
@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 	char *paths[2] = { NULL, NULL };
 	uint8_t *xattr_digest = NULL;
 	uint8_t *calculated_digest = NULL;
-	char *sha1_buf = NULL;
+	char *sha256_buf = NULL;
 
 	struct selabel_handle *hnd;
 	struct selinux_opt selabel_option[] = {
@@ -105,27 +105,27 @@ int main(int argc, char **argv)
 							 &xattr_digest,
 							 &digest_len);
 
-			sha1_buf = calloc(1, digest_len * 2 + 1);
-			if (!sha1_buf) {
+			sha256_buf = calloc(1, digest_len * 2 + 1);
+			if (!sha256_buf) {
 				fprintf(stderr, "Could not calloc buffer ERROR: %s\n",
 					    strerror(errno));
 				return -1;
 			}
 
 			if (status) { /* They match */
-				printf("xattr and file_contexts SHA1 digests match for: %s\n",
+				printf("xattr and file_contexts SHA256 digests match for: %s\n",
 				       ftsent->fts_path);
 
 				if (calculated_digest) {
 					for (i = 0; i < digest_len; i++)
-						sprintf((&sha1_buf[i * 2]),
+						sprintf((&sha256_buf[i * 2]),
 							"%02x",
 							calculated_digest[i]);
-					printf("SHA1 digest: %s\n", sha1_buf);
+					printf("SHA256 digest: %s\n", sha256_buf);
 				}
 			} else {
 				if (!calculated_digest) {
-					printf("No SHA1 digest available for: %s\n",
+					printf("No SHA256 digest available for: %s\n",
 					       ftsent->fts_path);
 					printf("as file_context entry is \"<<none>>\"\n");
 					goto cleanup;
@@ -135,25 +135,25 @@ int main(int argc, char **argv)
 				       ftsent->fts_path);
 
 				for (i = 0; i < digest_len; i++)
-					sprintf((&sha1_buf[i * 2]), "%02x",
+					sprintf((&sha256_buf[i * 2]), "%02x",
 						calculated_digest[i]);
-				printf("generated SHA1 digest: %s\n", sha1_buf);
+				printf("generated SHA256 digest: %s\n", sha256_buf);
 
 				if (!xattr_digest) {
 					printf("however there is no selinux.sehash xattr entry.\n");
 				} else {
 					printf("however it does NOT match the current entry of:\n");
 					for (i = 0; i < digest_len; i++)
-						sprintf((&sha1_buf[i * 2]),
+						sprintf((&sha256_buf[i * 2]),
 							"%02x",
 							xattr_digest[i]);
-					printf("%s\n", sha1_buf);
+					printf("%s\n", sha256_buf);
 				}
 			}
 			cleanup:
 			free(xattr_digest);
 			free(calculated_digest);
-			free(sha1_buf);
+			free(sha256_buf);
 			break;
 		}
 		default:

@@ -37,7 +37,7 @@
 #include "callbacks.h"
 #include "selinux_internal.h"
 #include "label_file.h"
-#include "sha1.h"
+#include "sha256.h"
 
 #define STAR_COUNT 1024
 
@@ -293,7 +293,7 @@ static int exclude_non_seclabel_mounts(void)
 static int add_xattr_entry(const char *directory, bool delete_nonmatch,
 			   bool delete_all)
 {
-	char *sha1_buf = NULL;
+	char *sha256_buf = NULL;
 	size_t i, digest_len = 0;
 	int rc, digest_result;
 	bool match;
@@ -316,15 +316,15 @@ static int add_xattr_entry(const char *directory, bool delete_nonmatch,
 	}
 
 	/* Convert entry to a hex encoded string. */
-	sha1_buf = malloc(digest_len * 2 + 1);
-	if (!sha1_buf) {
+	sha256_buf = malloc(digest_len * 2 + 1);
+	if (!sha256_buf) {
 		free(xattr_digest);
 		free(calculated_digest);
 		goto oom;
 	}
 
 	for (i = 0; i < digest_len; i++)
-		sprintf((&sha1_buf[i * 2]), "%02x", xattr_digest[i]);
+		sprintf((&sha256_buf[i * 2]), "%02x", xattr_digest[i]);
 
 	digest_result = match ? MATCH : NOMATCH;
 
@@ -344,7 +344,7 @@ static int add_xattr_entry(const char *directory, bool delete_nonmatch,
 	/* Now add entries to link list. */
 	new_entry = malloc(sizeof(struct dir_xattr));
 	if (!new_entry) {
-		free(sha1_buf);
+		free(sha256_buf);
 		goto oom;
 	}
 	new_entry->next = NULL;
@@ -352,15 +352,15 @@ static int add_xattr_entry(const char *directory, bool delete_nonmatch,
 	new_entry->directory = strdup(directory);
 	if (!new_entry->directory) {
 		free(new_entry);
-		free(sha1_buf);
+		free(sha256_buf);
 		goto oom;
 	}
 
-	new_entry->digest = strdup(sha1_buf);
+	new_entry->digest = strdup(sha256_buf);
 	if (!new_entry->digest) {
 		free(new_entry->directory);
 		free(new_entry);
-		free(sha1_buf);
+		free(sha256_buf);
 		goto oom;
 	}
 
@@ -374,7 +374,7 @@ static int add_xattr_entry(const char *directory, bool delete_nonmatch,
 		dir_xattr_last = new_entry;
 	}
 
-	free(sha1_buf);
+	free(sha256_buf);
 	return 0;
 
 oom:
@@ -741,7 +741,7 @@ err:
 
 struct dir_hash_node {
 	char *path;
-	uint8_t digest[SHA1_HASH_SIZE];
+	uint8_t digest[SHA256_HASH_SIZE];
 	struct dir_hash_node *next;
 };
 /*
@@ -1091,7 +1091,7 @@ int selinux_restorecon(const char *pathname_orig,
 			if (setxattr(current->path,
 			    RESTORECON_PARTIAL_MATCH_DIGEST,
 			    current->digest,
-			    SHA1_HASH_SIZE, 0) < 0) {
+			    SHA256_HASH_SIZE, 0) < 0) {
 				selinux_log(SELINUX_ERROR,
 					    "setxattr failed: %s: %m\n",
 					    current->path);
