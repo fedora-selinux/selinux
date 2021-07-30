@@ -95,14 +95,14 @@ display usage information and exit.
 ignore files that do not exist.
 .TP
 .B \-I
-ignore digest to force checking of labels even if the stored SHA1 digest
-matches the specfiles SHA1 digest. The digest will then be updated provided
+ignore digest to force checking of labels even if the stored SHA256 digest
+matches the specfiles SHA256 digest. The digest will then be updated provided
 there are no errors. See the
 .B NOTES
 section for further details.
 .TP
 .B \-D
-Set or update any directory SHA1 digests. Use this option to
+Set or update any directory SHA256 digests. Use this option to
 enable usage of the
 .IR security.sehash
 extended attribute.
@@ -200,7 +200,7 @@ the
 .B \-D
 option to
 .B restorecon
-will cause it to store a SHA1 digest of the default specfiles set in an extended
+will cause it to store a SHA256 digest of the default specfiles set in an extended
 attribute named
 .IR security.sehash
 on each directory specified in
@@ -217,7 +217,7 @@ for further details.
 .sp
 The
 .B \-I
-option will ignore the SHA1 digest from each directory specified in
+option will ignore the SHA256 digest from each directory specified in
 .IR pathname \ ...
 and provided the
 .B \-n

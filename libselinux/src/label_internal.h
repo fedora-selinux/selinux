@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include <selinux/selinux.h>
 #include <selinux/label.h>
-#include "sha1.h"
+#include "sha256.h"
 
 #if defined(ANDROID) || defined(__APPLE__)
 // Android and Mac do not have fgets_unlocked()
@@ -47,15 +47,15 @@ int selabel_service_init(struct selabel_handle *rec,
  */
 
 /*
- * Calculate an SHA1 hash of all the files used to build the specs.
+ * Calculate an SHA256 hash of all the files used to build the specs.
  * The hash value is held in rec->digest if SELABEL_OPT_DIGEST set. To
  * calculate the hash the hashbuf will hold a concatenation of all the files
  * used. This is released once the value has been calculated.
  */
-#define DIGEST_SPECFILE_SIZE SHA1_HASH_SIZE
+#define DIGEST_SPECFILE_SIZE SHA256_HASH_SIZE
 #define DIGEST_FILES_MAX 8
 struct selabel_digest {
-	unsigned char *digest;	/* SHA1 digest of specfiles */
+	unsigned char *digest;	/* SHA256 digest of specfiles */
 	unsigned char *hashbuf;	/* buffer to hold specfiles */
 	size_t hashbuf_size;	/* buffer size */
 	size_t specfile_cnt;	/* how many specfiles processed */
@@ -110,7 +110,7 @@ struct selabel_handle {
 	 */
 	char *spec_file;
 
-	/* ptr to SHA1 hash information if SELABEL_OPT_DIGEST set */
+	/* ptr to SHA256 hash information if SELABEL_OPT_DIGEST set */
 	struct selabel_digest *digest;
 };
 
