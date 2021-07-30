@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 	unsigned int xattr_flags = 0, delete_digest = 0, recurse = 0;
 	unsigned int delete_all_digests = 0, ignore_mounts = 0;
 	bool display_digest = false;
-	char *sha1_buf, **specfiles, *fc_file = NULL, *pathname = NULL;
+	char *sha256_buf, **specfiles, *fc_file = NULL, *pathname = NULL;
 	unsigned char *fc_digest = NULL;
 	size_t i, fc_digest_len = 0, num_specfiles;
 
@@ -133,8 +133,8 @@ int main(int argc, char **argv)
 			exit(-1);
 		}
 
-		sha1_buf = malloc(fc_digest_len * 2 + 1);
-		if (!sha1_buf) {
+		sha256_buf = malloc(fc_digest_len * 2 + 1);
+		if (!sha256_buf) {
 			fprintf(stderr,
 				"Error allocating digest buffer: %s\n",
 							    strerror(errno));
@@ -143,16 +143,16 @@ int main(int argc, char **argv)
 		}
 
 		for (i = 0; i < fc_digest_len; i++)
-			sprintf((&sha1_buf[i * 2]), "%02x", fc_digest[i]);
+			sprintf((&sha256_buf[i * 2]), "%02x", fc_digest[i]);
 
-		printf("specfiles SHA1 digest: %s\n", sha1_buf);
+		printf("specfiles SHA256 digest: %s\n", sha256_buf);
 
 		printf("calculated using the following specfile(s):\n");
 		if (specfiles) {
 			for (i = 0; i < num_specfiles; i++)
 				printf("%s\n", specfiles[i]);
 		}
-		free(sha1_buf);
+		free(sha256_buf);
 		printf("\n");
 	}
 
