@@ -120,13 +120,13 @@ extern int selabel_lookup_best_match_raw(struct selabel_handle *rec, char **con,
 					 const char *key, const char **aliases, int type);
 
 /**
- * selabel_digest - Retrieve the SHA1 digest and the list of specfiles used to
+ * selabel_digest - Retrieve the SHA256 digest and the list of specfiles used to
  *		    generate the digest. The SELABEL_OPT_DIGEST option must
  *		    be set in selabel_open() to initiate the digest generation.
  * @handle: specifies backend instance to query
- * @digest: returns a pointer to the SHA1 digest.
+ * @digest: returns a pointer to the SHA256 digest.
  * @digest_len: returns length of digest in bytes.
- * @specfiles: a list of specfiles used in the SHA1 digest generation.
+ * @specfiles: a list of specfiles used in the SHA256 digest generation.
  *	       The list is NULL terminated and will hold @num_specfiles entries.
  * @num_specfiles: number of specfiles in the list.
  *
