@@ -1010,7 +1010,7 @@ static struct spec *lookup_common(struct selabel_handle *rec,
 
 /*
  * Returns true if the digest of all partial matched contexts is the same as
- * the one saved by setxattr, otherwise returns false. The length of the SHA1
+ * the one saved by setxattr, otherwise returns false. The length of the SHA256
  * digest will always be returned. The caller must free any returned digests.
  */
 static bool get_digests_all_partial_matches(struct selabel_handle *rec,
@@ -1019,39 +1019,39 @@ static bool get_digests_all_partial_matches(struct selabel_handle *rec,
 					    uint8_t **xattr_digest,
 					    size_t *digest_len)
 {
-	uint8_t read_digest[SHA1_HASH_SIZE];
+	uint8_t read_digest[SHA256_HASH_SIZE];
 	ssize_t read_size = getxattr(pathname, RESTORECON_PARTIAL_MATCH_DIGEST,
-				     read_digest, SHA1_HASH_SIZE
+				     read_digest, SHA256_HASH_SIZE
 #ifdef __APPLE__
 				     , 0, 0
 #endif /* __APPLE __ */
 				    );
-	uint8_t hash_digest[SHA1_HASH_SIZE];
+	uint8_t hash_digest[SHA256_HASH_SIZE];
 	bool status = selabel_hash_all_partial_matches(rec, pathname,
 						       hash_digest);
 
 	*xattr_digest = NULL;
 	*calculated_digest = NULL;
-	*digest_len = SHA1_HASH_SIZE;
+	*digest_len = SHA256_HASH_SIZE;
 
-	if (read_size == SHA1_HASH_SIZE) {
-		*xattr_digest = calloc(1, SHA1_HASH_SIZE + 1);
+	if (read_size == SHA256_HASH_SIZE) {
+		*xattr_digest = calloc(1, SHA256_HASH_SIZE + 1);
 		if (!*xattr_digest)
 			goto oom;
 
-		memcpy(*xattr_digest, read_digest, SHA1_HASH_SIZE);
+		memcpy(*xattr_digest, read_digest, SHA256_HASH_SIZE);
 	}
 
 	if (status) {
-		*calculated_digest = calloc(1, SHA1_HASH_SIZE + 1);
+		*calculated_digest = calloc(1, SHA256_HASH_SIZE + 1);
 		if (!*calculated_digest)
 			goto oom;
 
-		memcpy(*calculated_digest, hash_digest, SHA1_HASH_SIZE);
+		memcpy(*calculated_digest, hash_digest, SHA256_HASH_SIZE);
 	}
 
-	if (status && read_size == SHA1_HASH_SIZE &&
-	    memcmp(read_digest, hash_digest, SHA1_HASH_SIZE) == 0)
+	if (status && read_size == SHA256_HASH_SIZE &&
+	    memcmp(read_digest, hash_digest, SHA256_HASH_SIZE) == 0)
 		return true;
 
 	return false;
@@ -1071,22 +1071,22 @@ static bool hash_all_partial_matches(struct selabel_handle *rec, const char *key
 		return false;
 	}
 
-	Sha1Context context;
-	Sha1Initialise(&context);
+	Sha256Context context;
+	Sha256Initialise(&context);
 	size_t i;
 	for (i = 0; i < total_matches; i++) {
 		char* regex_str = matches[i]->regex_str;
 		mode_t mode = matches[i]->mode;
 		char* ctx_raw = matches[i]->lr.ctx_raw;
 
-		Sha1Update(&context, regex_str, strlen(regex_str) + 1);
-		Sha1Update(&context, &mode, sizeof(mode_t));
-		Sha1Update(&context, ctx_raw, strlen(ctx_raw) + 1);
+		Sha256Update(&context, regex_str, strlen(regex_str) + 1);
+		Sha256Update(&context, &mode, sizeof(mode_t));
+		Sha256Update(&context, ctx_raw, strlen(ctx_raw) + 1);
 	}
 
-	SHA1_HASH sha1_hash;
-	Sha1Finalise(&context, &sha1_hash);
-	memcpy(digest, sha1_hash.bytes, SHA1_HASH_SIZE);
+	SHA256_HASH sha256_hash;
+	Sha256Finalise(&context, &sha256_hash);
+	memcpy(digest, sha256_hash.bytes, SHA256_HASH_SIZE);
 
 	free(matches);
 	return true;
