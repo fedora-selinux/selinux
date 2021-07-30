@@ -20,11 +20,11 @@ selabel_digest \- Return digest of specfiles and list of files used
 .BR selabel_digest ()
 performs an operation on the handle
 .IR hnd ,
-returning the results of the SHA1 digest pointed to by
+returning the results of the SHA256 digest pointed to by
 .IR digest ,
 whose length will be
 .IR digest_len .
-The list of specfiles used in the SHA1 digest calculation is returned in
+The list of specfiles used in the SHA256 digest calculation is returned in
 .I specfiles
 with the number of entries in
 .IR num_specfiles .
