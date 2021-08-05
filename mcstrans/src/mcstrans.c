@@ -1598,6 +1598,10 @@ trans_context(const char *incon, char **rcon) {
 		}
 		if (dashp)
 			*dashp = '-';
+		if (trans) {
+			free(trans);
+			trans = NULL;
+		}
 	}
 
 	if (trans) {
@@ -1769,6 +1773,10 @@ untrans_context(const char *incon, char **rcon) {
 		}
 		if (dashp)
 			*dashp = '-';
+		if (raw) {
+			free(raw);
+			raw = NULL;
+		}
 	}
 
 	if (raw) {
