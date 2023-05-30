@@ -11,18 +11,20 @@ Version:	1.0
 Release:	1%{?dist}
 Summary:	SELinux policy module for MODULENAME
 
-Group:	System Environment/Base		
-License:	GPLv2+	
+Group:	System Environment/Base
+License:	GPLv2+
 # This is an example. You will need to change it.
+# For a complete guide on packaging your policy
+# see https://fedoraproject.org/wiki/SELinux/IndependentPolicy
 URL:		http://HOSTNAME
 Source0:	MODULENAME.pp
 Source1:	MODULENAME.if
 Source2:	DOMAINNAME_selinux.8
 Source3:	DOMAINNAME_u
 
-Requires: policycoreutils, libselinux-utils
-Requires(post): selinux-policy-base >= %{selinux_policyver}, policycoreutils
-Requires(postun): policycoreutils
+Requires: policycoreutils-python-utils, libselinux-utils
+Requires(post): selinux-policy-base >= %{selinux_policyver}, policycoreutils-python-utils
+Requires(postun): policycoreutils-python-utils
 """
 
 mid_section="""\
