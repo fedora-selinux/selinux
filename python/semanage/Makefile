@@ -1,7 +1,7 @@
 PYTHON ?= python3
 
 # Installation directories.
-LINGUAS ?=
+LINGUAS ?= ru
 PREFIX ?= /usr
 SBINDIR ?= $(PREFIX)/sbin
 MANDIR = $(PREFIX)/share/man

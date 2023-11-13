@@ -2,7 +2,7 @@ PYTHON ?= python3
 SECILC ?= secilc
 
 # Installation directories.
-LINGUAS ?=
+LINGUAS ?= ru
 PREFIX ?= /usr
 BINDIR ?= $(PREFIX)/bin
 MANDIR ?= $(PREFIX)/share/man

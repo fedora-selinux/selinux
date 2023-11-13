@@ -1,5 +1,5 @@
 # Installation directories.
-LINGUAS ?=
+LINGUAS ?= ru
 PREFIX ?= /usr
 SBINDIR ?= /sbin
 MANDIR = $(PREFIX)/share/man

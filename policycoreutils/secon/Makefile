@@ -1,5 +1,5 @@
 # secon tool - command-line context
-LINGUAS ?=
+LINGUAS ?= ru
 PREFIX ?= /usr
 BINDIR ?= $(PREFIX)/bin
 MANDIR ?= $(PREFIX)/share/man
