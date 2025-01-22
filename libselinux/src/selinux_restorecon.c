@@ -1365,6 +1365,10 @@ void selinux_restorecon_set_sehandle(struct selabel_handle *hndl)
 	unsigned char *fc_digest;
 	size_t num_specfiles, fc_digest_len;
 
+	if (fc_sehandle) {
+		selabel_close(fc_sehandle);
+	}
+
 	fc_sehandle = hndl;
 	if (!fc_sehandle)
 		return;
