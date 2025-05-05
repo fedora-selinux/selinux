@@ -1324,15 +1324,15 @@ allow %s_t %s_t:%s_socket name_%s;
         import dnf
 
         with dnf.Base() as base:
+            base.conf.substitutions.update_from_etc('/')
             base.read_all_repos()
             base.fill_sack(load_system_repo=True)
 
             query = base.sack.query()
 
-            pq = query.available()
-            pq = pq.filter(file=self.program)
+            pq = query.filter(file=self.program)
 
-            for pkg in pq:
+            for pkg in pq.run():
                 self.rpms.append(pkg.name)
                 for fname in pkg.files:
                     for b in self.DEFAULT_DIRS:
@@ -1345,7 +1345,7 @@ allow %s_t %s_t:%s_socket name_%s;
                                 self.add_dir(fname)
                 sq = query.available()
                 sq = sq.filter(provides=pkg.source_name)
-                for bpkg in sq:
+                for bpkg in sq.run():
                     for fname in bpkg.files:
                         for b in self.DEFAULT_DIRS:
                             if b == "/etc":
