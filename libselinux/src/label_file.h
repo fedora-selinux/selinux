@@ -368,11 +368,6 @@ static inline int compare_literal_spec(const void *p1, const void *p2)
 	if (ret)
 		return ret;
 
-	/* Order wildcard mode (0) last */
-	ret = spaceship_cmp(l1->file_kind, l2->file_kind);
-	if (ret)
-		return -ret;
-
 	/* Order by input number (higher number means added later, means higher priority) */
 	ret = spaceship_cmp(l1->inputno, l2->inputno);
 	return -ret;
