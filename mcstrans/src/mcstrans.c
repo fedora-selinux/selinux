@@ -1026,6 +1026,7 @@ build_regexp(pcre2_code **r, char *buffer) {
 static int
 build_regexps(domain_t *domain) {
 	char *buffer = NULL;
+	char **sortable = NULL;
 	size_t cap = 0, len = 0;
 	base_classification_t *bc;
 	word_group_t *g;
@@ -1043,7 +1044,7 @@ build_regexps(domain_t *domain) {
 		n_el++;
 	}
 
-	char **sortable = calloc(n_el, sizeof(char *));
+	sortable = calloc(n_el, sizeof(char *));
 	if (!sortable) {
 		log_error("allocation error %s", strerror(errno));
 		goto err;
@@ -1061,6 +1062,7 @@ build_regexps(domain_t *domain) {
 	}
 
 	free(sortable);
+	sortable = NULL;
 
 	log_debug(">>> %s classification regexp=%s\n", domain->name, buffer);
 	build_regexp(&domain->base_classification_regexp, buffer);
@@ -1138,6 +1140,7 @@ build_regexps(domain_t *domain) {
 	free(buffer);
 	return 0;
 err:
+	free(sortable);
 	free(buffer);
 	return -1;
 #undef APPEND
