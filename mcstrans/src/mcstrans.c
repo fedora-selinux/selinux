@@ -1212,7 +1212,7 @@ compute_raw_from_trans(const char *level, domain_t *domain) {
 		}
 
 		memset(work + ovector[0], '#', ovector[1] - ovector[0]);
-		char *p=work + ovector[0] + ovector[1];
+		char *p=work + ovector[1];
 		while (*p && (strchr(" 	", *p) != NULL))
 			*p++ = '#';
 
