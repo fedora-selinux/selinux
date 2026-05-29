@@ -803,6 +803,8 @@ process_trans(char *buffer) {
 
 	if (!strcmp(raw, "Domain")) {
 		domain = create_domain(tok);
+		if (!domain)
+			return -1;
 		group = NULL;
 		return 0;
 	}
@@ -1475,6 +1477,8 @@ compute_trans_from_raw(const char *level, domain_t *domain) {
 
 				if (! *t) {
 					word_group_t *wg = create_group(&groups, g->name);
+					if (!wg)
+						goto err;
 					if (g->prefixes)
 						if (append(&wg->prefixes, g->prefixes->text) < 0)
 							goto err;
@@ -1547,7 +1551,8 @@ compute_trans_from_raw(const char *level, domain_t *domain) {
 					for (t = &groups; *t; t = &(*t)->next)
 						if (!strcmp(currentGroup->name, (*t)->name))
 							break;
-					create_word(&(*t)->words, currentWord->text);
+					if (!create_word(&(*t)->words, currentWord->text))
+						goto err;
 					change++;
 				}
 			}
