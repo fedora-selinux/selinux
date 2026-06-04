@@ -13,6 +13,7 @@
 #include <sys/resource.h>
 #include <sys/socket.h>
 #include <sys/stat.h>
+#include <sys/time.h>
 #include <sys/types.h>
 #include <sys/uio.h>
 #include <sys/un.h>
@@ -305,6 +306,8 @@ process_events(struct pollfd **ufds, int *nfds)
 
 		if (revents & (POLLIN | POLLPRI)) {
 			if (connfd == sockfd) {
+				struct timeval tv = { .tv_sec = 5,
+						      tv.tv_usec = 0 };
 
 				/* Probably received a connection */
 				if ((connfd = accept(sockfd, NULL, NULL)) < 0) {
@@ -318,6 +321,14 @@ process_events(struct pollfd **ufds, int *nfds)
 				last_accept_err = 0;
 
 				if (*nfds > MAX_CLIENTS) {
+					close(connfd);
+					continue;
+				}
+
+				if (setsockopt(connfd, SOL_SOCKET, SO_RCVTIMEO,
+					       &tv, sizeof(tv)) < 0) {
+					syslog(LOG_ERR,
+					       "setsockopt(SO_RCVTIMEO) failed: %m");
 					close(connfd);
 					continue;
 				}
