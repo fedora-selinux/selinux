@@ -14,6 +14,7 @@ BASHCOMPLETIONS=sepolicy-bash-completion.sh
 all: python-build
 
 python-build:
+	$(PYTHON) -m pip install build wheel setuptools
 	$(PYTHON) -m build --no-isolation --wheel .
 
 clean:
