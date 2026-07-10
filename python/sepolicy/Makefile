@@ -14,11 +14,11 @@ BASHCOMPLETIONS=sepolicy-bash-completion.sh
 all: python-build
 
 python-build:
-	$(PYTHON) -m pip install build wheel setuptools
-	$(PYTHON) -m build --no-isolation --wheel .
+	$(PYTHON) setup.py build
 
 clean:
-	-rm -rf build dist *.egg-info *~ \#* *pyc .#*
+	$(PYTHON) setup.py clean
+	-rm -rf build *~ \#* *pyc .#* sepolicy.egg-info/
 
 sepolgen:
 	ln -sf sepolicy sepolgen
@@ -26,8 +26,8 @@ sepolgen:
 test:
 	@$(PYTHON) test_sepolicy.py -v
 
-install: python-build
-	$(PYTHON) -m pip install --no-build-isolation --force-reinstall --prefix=$(PREFIX) `test -n "$(DESTDIR)" && echo --root $(DESTDIR) --ignore-installed --no-deps` dist/*.whl
+install:
+	$(PYTHON) -m pip install --no-build-isolation --prefix=$(PREFIX) `test -n "$(DESTDIR)" && echo --root $(DESTDIR) --ignore-installed --no-deps` $(PYTHON_SETUP_ARGS) .
 	[ -d $(DESTDIR)$(BINDIR) ] || mkdir -p $(DESTDIR)$(BINDIR)
 	install -m 755 sepolicy.py $(DESTDIR)$(BINDIR)/sepolicy
 	(cd $(DESTDIR)$(BINDIR); ln -sf sepolicy sepolgen)
