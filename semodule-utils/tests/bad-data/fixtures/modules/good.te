@@ -1,0 +1,8 @@
+module test_good 1.0;
+
+require {
+	type test_good_t;
+	class file { read };
+}
+
+allow test_good_t self:file read;

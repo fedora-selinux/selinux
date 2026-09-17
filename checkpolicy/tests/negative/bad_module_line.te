@@ -1,0 +1,5 @@
+module bad module name 1.0 garbage;
+
+require {
+	type foo_t;
+}

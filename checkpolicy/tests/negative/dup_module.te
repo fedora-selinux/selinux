@@ -1,0 +1,6 @@
+module dup_module 1.0;
+module dup_module 1.0;
+
+require {
+	type foo_t;
+}
