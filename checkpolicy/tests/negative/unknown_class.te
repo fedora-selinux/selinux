@@ -1,0 +1,7 @@
+module unknown_class 1.0;
+
+require {
+	type foo_t;
+}
+
+allow foo_t self:not_a_class read;

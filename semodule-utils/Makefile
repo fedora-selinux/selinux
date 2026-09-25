@@ -6,3 +6,4 @@ all install relabel clean:
 	done
 
 test:
+	./tests/bad-data/run.sh

@@ -1,0 +1,8 @@
+module good_module 1.0;
+
+require {
+	type foo_t, bar_t;
+	class file { read write };
+}
+
+allow foo_t bar_t:file read;

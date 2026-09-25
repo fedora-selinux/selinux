@@ -1,0 +1,8 @@
+module bad_syntax 1.0;
+
+require {
+	type foo_t;
+	class file { read };
+}
+
+allow foo_t foo_t:file {

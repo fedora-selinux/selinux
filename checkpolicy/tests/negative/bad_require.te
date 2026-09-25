@@ -1,0 +1,5 @@
+module bad_require 1.0;
+
+require {
+	garbage_token foo_t;
+}
