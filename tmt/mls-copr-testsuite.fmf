@@ -1,0 +1,23 @@
+summary: Fedora SELinux tier1 tests on MLS (COPR selinux-policy-mls)
+description: |
+    Switch the guest to MLS with prepare_for_mls (RHEL MLS switch:
+    permissive, fixfiles -F onboot, reboot, then enforcing), install
+    selinux-policy-mls from COPR, then run Fedora package SELinux tier1
+    integration tests from https://src.fedoraproject.org/tests/selinux.git
+    (same filter as /tier1-filtered: tier:1, exclude failinfedora and epel).
+
+    Env: COPR_REPO (required in CI); optional COPR_SELINUX_POLICY_MLS_NVR.
+
+prepare:
+  - name: COPR MLS policy and guest switch
+    how: shell
+    script: $TMT_TREE/tmt/mls-copr-prepare.sh
+
+discover:
+  - name: fedora-selinux-tier1
+    how: fmf
+    url: https://src.fedoraproject.org/tests/selinux.git
+    filter: "tier:1 & tag:-failinfedora & tag:-epel"
+
+execute:
+  how: tmt

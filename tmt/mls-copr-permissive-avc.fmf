@@ -1,0 +1,32 @@
+summary: MLS permissive boot AVC/SELINUX_ERR check (COPR)
+description: |
+    Simple first-step plan: install COPR selinux-policy-mls, switch to MLS
+    with prepare_for_mls (permissive, fixfiles -F onboot, one reboot), stay
+    permissive, then FAIL if ausearch finds AVC/USER_AVC/SELINUX_ERR since
+    boot, PASS if none.
+
+    Does not switch to enforcing and does not run Fedora tier1 tests.
+    See /tmt/mls-copr-testsuite for the enforcing + tier1 follow-up.
+
+    Env: COPR_REPO (required); optional COPR_SELINUX_POLICY_MLS_NVR.
+
+environment:
+  MLS_STAY_PERMISSIVE: "1"
+
+prepare:
+  - name: COPR MLS permissive switch
+    how: shell
+    script: $TMT_TREE/tmt/mls-copr-prepare.sh
+
+discover:
+  - name: permissive-avc
+    how: shell
+    tests:
+      - name: /permissive-avc/check
+        duration: 10m
+        require:
+          - audit
+        test: $TMT_TREE/tmt/mls-copr-permissive-avc-check.sh
+
+execute:
+  how: tmt

@@ -3,6 +3,7 @@ name: Run SELinux testsuite in Testing Farm
 on: [push, pull_request]
 
 jobs:
+  # userspace from git + upstream selinux-testsuite (targeted / unconfined)
   tf_testsuite:
     runs-on: ubuntu-latest
     strategy:
@@ -15,3 +16,25 @@ jobs:
         with:
           api_key: ${{ secrets.TESTING_FARM_API_TOKEN }}
           arch: ${{ matrix.arch }}
+          tmt_plan_regex: '/tmt/plans/ci$'
+          pull_request_status_name: Fedora
+
+  # MLS: prepare_for_mls + COPR selinux-policy-mls + Fedora tier1 tests
+  tf_testsuite_mls:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [x86_64, aarch64]
+    steps:
+      - name: Schedule MLS tier1 on Testing Farm
+        uses: sclorg/testing-farm-as-github-action@main
+        with:
+          api_key: ${{ secrets.TESTING_FARM_API_TOKEN }}
+          arch: ${{ matrix.arch }}
+          # Verified COPR MLS builds (fc44); bump when COPR tracks newer Fedora.
+          compose: Fedora-44
+          tmt_plan_regex: '/tmt/mls-copr-testsuite$'
+          pull_request_status_name: Fedora MLS
+          variables: COPR_REPO=jjanasek/selinux-policy-mls-testsuite
+          timeout: '240'
